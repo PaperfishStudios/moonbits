@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "moonbits:block/stones/dripstone/dripstone_polished",
+    "top": "moonbits:block/stones/dripstone/dripstone_polished",
+    "side": "moonbits:block/stones/dripstone/dripstone_polished"
+  }
+}

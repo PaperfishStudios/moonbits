@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": [
+      {
+        "item": "minecraft:prismarine"
+      },
+      {
+        "item": "moonbits:prismarine_tiles"
+      }
+    ],
+  "result": "moonbits:prismarine_tile_slab",
+  "count": 2
+}

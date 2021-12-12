@@ -1,0 +1,71 @@
+{
+    "multipart": [
+        {   "when": { "raised": "true" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_raised", "uvlock": true }
+        },
+		
+        {   "when": { "north": "true", "west": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_outer", "uvlock": true }
+        },
+        {   "when": { "north": "true", "west": "false", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_side", "uvlock": true }
+        },
+        {   "when": { "north": "false", "west": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_side_b", "uvlock": true }
+        },
+        {   "when": { "north": "false", "west": "false", "nw": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_inner", "uvlock": true }
+        },
+        {   "when": { "north": "false", "west": "false", "nw": "false", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box", "uvlock": true }
+        },
+		
+        {   "when": { "east": "true", "north": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_outer", "y": 90, "uvlock": true }
+        },
+        {   "when": { "east": "true", "north": "false", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_side", "y": 90, "uvlock": true }
+        },
+        {   "when": { "east": "false", "north": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_side_b", "y": 90, "uvlock": true }
+        },
+        {   "when": { "east": "false", "north": "false", "ne": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_inner", "y": 90, "uvlock": true }
+        },
+        {   "when": { "east": "false", "north": "false", "ne": "false", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box", "y": 90, "uvlock": true }
+        },
+		
+        {   "when": { "south": "true", "east": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_outer", "y": 180, "uvlock": true }
+        },
+        {   "when": { "south": "true", "east": "false", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_side", "y": 180, "uvlock": true }
+        },
+        {   "when": { "south": "false", "east": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_side_b", "y": 180, "uvlock": true }
+        },
+        {   "when": { "south": "false", "east": "false", "se": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_inner", "y": 180, "uvlock": true }
+        },
+        {   "when": { "south": "false", "east": "false", "se": "false", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box", "y": 180, "uvlock": true }
+        },
+		
+        {   "when": { "west": "true", "south": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_outer", "y": 270, "uvlock": true }
+        },
+        {   "when": { "west": "true", "south": "false", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_side", "y": 270, "uvlock": true }
+        },
+        {   "when": { "west": "false", "south": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_side_b", "y": 270, "uvlock": true }
+        },
+        {   "when": { "west": "false", "south": "false", "sw": "true", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box_inner", "y": 270, "uvlock": true }
+        },
+        {   "when": { "west": "false", "south": "false", "sw": "false", "raised": "false" },
+            "apply": { "model": "moonbits:block/acacia_planter_box", "y": 270, "uvlock": true }
+        }
+    ]
+}

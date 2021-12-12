@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "moonbits:block/stones/prismarine/prismarine_smooth"
+  }
+}

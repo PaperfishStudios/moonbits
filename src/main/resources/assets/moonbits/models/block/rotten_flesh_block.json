@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moonbits:block/natural/rotten_flesh_block"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "variants": {
+    "pebbles=1": [
+      {
+        "model": "moonbits:block/pebble"
+      },
+      {
+        "model": "moonbits:block/pebble",
+        "y": 90
+      },
+      {
+        "model": "moonbits:block/pebble",
+        "y": 180
+      },
+      {
+        "model": "moonbits:block/pebble",
+        "y": 270
+      }
+    ],
+    "pebbles=2": [
+      {
+        "model": "moonbits:block/two_pebbles"
+      },
+      {
+        "model": "moonbits:block/two_pebbles",
+        "y": 90
+      },
+      {
+        "model": "moonbits:block/two_pebbles",
+        "y": 180
+      },
+      {
+        "model": "moonbits:block/two_pebbles",
+        "y": 270
+      }
+    ],
+    "pebbles=3": [
+      {
+        "model": "moonbits:block/three_pebbles"
+      },
+      {
+        "model": "moonbits:block/three_pebbles",
+        "y": 90
+      },
+      {
+        "model": "moonbits:block/three_pebbles",
+        "y": 180
+      },
+      {
+        "model": "moonbits:block/three_pebbles",
+        "y": 270
+      }
+    ],
+    "pebbles=4": [
+      {
+        "model": "moonbits:block/four_pebbles"
+      },
+      {
+        "model": "moonbits:block/four_pebbles",
+        "y": 90
+      },
+      {
+        "model": "moonbits:block/four_pebbles",
+        "y": 180
+      },
+      {
+        "model": "moonbits:block/four_pebbles",
+        "y": 270
+      }
+    ]
+  }
+}

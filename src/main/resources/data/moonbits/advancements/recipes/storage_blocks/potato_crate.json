@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/potato_crate",
+      "moonbits:storage_blocks/potatoes_from_crate"
+    ]
+  },
+  "criteria": {
+    "has_potato": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:potato"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/potato_crate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_potato",
+      "has_the_recipe"
+    ]
+  ]
+}

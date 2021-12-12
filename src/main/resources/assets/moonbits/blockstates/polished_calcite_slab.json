@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/polished_calcite_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/polished_calcite"
+    },
+    "type=top": {
+      "model": "moonbits:block/polished_calcite_slab_top"
+    }
+  }
+}

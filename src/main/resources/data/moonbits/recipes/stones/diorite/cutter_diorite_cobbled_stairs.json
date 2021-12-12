@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:cobbled_diorite"
+  },
+  "result": "moonbits:cobbled_diorite_stairs",
+  "count": 1
+}

@@ -1,0 +1,96 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/diorite/diorite_tiles",
+      "moonbits:stones/diorite/diorite_cracked_tiles",
+      "moonbits:stones/diorite/diorite_mossy_tiles",
+      "moonbits:stones/diorite/diorite_tile_stairs",
+      "moonbits:stones/diorite/diorite_cracked_tile_stairs",
+      "moonbits:stones/diorite/diorite_mossy_tile_stairs",
+      "moonbits:stones/diorite/diorite_tile_slab",
+      "moonbits:stones/diorite/diorite_cracked_tile_slab",
+      "moonbits:stones/diorite/diorite_mossy_tile_slab",
+      "moonbits:stones/diorite/diorite_tile_wall",
+      "moonbits:stones/diorite/diorite_cracked_tile_wall",
+      "moonbits:stones/diorite/diorite_mossy_tile_wall",
+	  
+      "moonbits:stones/diorite/cutter_diorite_tiles",
+      "moonbits:stones/diorite/cutter_diorite_tile_stairs",
+      "moonbits:stones/diorite/cutter_diorite_tile_slab",
+      "moonbits:stones/diorite/cutter_diorite_tile_wall",
+	  
+      "moonbits:stones/diorite/cutter_diorite_tile_stairs",
+      "moonbits:stones/diorite/cutter_diorite_cracked_tile_stairs",
+      "moonbits:stones/diorite/cutter_diorite_mossy_tile_stairs",
+      "moonbits:stones/diorite/cutter_diorite_tile_slab",
+      "moonbits:stones/diorite/cutter_diorite_cracked_tile_slab",
+      "moonbits:stones/diorite/cutter_diorite_mossy_tile_slab",
+      "moonbits:stones/diorite/cutter_diorite_tile_wall",
+      "moonbits:stones/diorite/cutter_diorite_cracked_tile_wall",
+      "moonbits:stones/diorite/cutter_diorite_mossy_tile_wall",
+	  
+      "moonbits:stones/diorite/diorite_mossy_tile_stairs_with_vine",
+      "moonbits:stones/diorite/diorite_mossy_tile_slab_with_vine",
+      "moonbits:stones/diorite/diorite_mossy_tile_wall_with_vine"
+	  
+    ]
+  },
+  "criteria": {
+    "has_diorite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:diorite"
+          }
+        ]
+      }
+    },
+    "has_diorite_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:diorite_tiles"
+          }
+        ]
+      }
+    },
+    "has_cracked_diorite_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:cracked_diorite_tiles"
+          }
+        ]
+      }
+    },
+    "has_mossy_diorite_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:mossy_diorite_tiles"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/diorite/diorite_tiles"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_diorite",
+      "has_diorite_tiles",
+      "has_cracked_diorite_tiles",
+      "has_mossy_diorite_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

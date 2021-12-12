@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:prismarine_brick_wall"
+    },
+    {
+      "item": "minecraft:seagrass"
+    }
+  ],
+  "result": {
+    "item": "moonbits:algal_prismarine_brick_wall"
+  }
+}

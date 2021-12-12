@@ -1,0 +1,7 @@
+{
+  "parent": "moonbits:block/cube_column_horizontal",
+  "textures": {
+    "end": "moonbits:block/wood/jacaranda/carved_jacaranda_wood",
+    "side": "moonbits:block/wood/jacaranda/jacaranda_pillar"
+  }
+}

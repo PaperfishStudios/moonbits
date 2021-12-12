@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moonbits:block/wood/dark_oak/dark_oak_panel"
+  }
+}

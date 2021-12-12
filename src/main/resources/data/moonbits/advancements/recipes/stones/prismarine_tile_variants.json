@@ -1,0 +1,96 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/prismarine/prismarine_tiles",
+      "moonbits:stones/prismarine/prismarine_cracked_tiles",
+      "moonbits:stones/prismarine/prismarine_algal_tiles",
+      "moonbits:stones/prismarine/prismarine_tile_stairs",
+      "moonbits:stones/prismarine/prismarine_cracked_tile_stairs",
+      "moonbits:stones/prismarine/prismarine_algal_tile_stairs",
+      "moonbits:stones/prismarine/prismarine_tile_slab",
+      "moonbits:stones/prismarine/prismarine_cracked_tile_slab",
+      "moonbits:stones/prismarine/prismarine_algal_tile_slab",
+      "moonbits:stones/prismarine/prismarine_tile_wall",
+      "moonbits:stones/prismarine/prismarine_cracked_tile_wall",
+      "moonbits:stones/prismarine/prismarine_algal_tile_wall",
+	  
+      "moonbits:stones/prismarine/cutter_prismarine_tiles",
+      "moonbits:stones/prismarine/cutter_prismarine_tile_stairs",
+      "moonbits:stones/prismarine/cutter_prismarine_tile_slab",
+      "moonbits:stones/prismarine/cutter_prismarine_tile_wall",
+	  
+      "moonbits:stones/prismarine/cutter_prismarine_tile_stairs",
+      "moonbits:stones/prismarine/cutter_prismarine_cracked_tile_stairs",
+      "moonbits:stones/prismarine/cutter_prismarine_algal_tile_stairs",
+      "moonbits:stones/prismarine/cutter_prismarine_tile_slab",
+      "moonbits:stones/prismarine/cutter_prismarine_cracked_tile_slab",
+      "moonbits:stones/prismarine/cutter_prismarine_algal_tile_slab",
+      "moonbits:stones/prismarine/cutter_prismarine_tile_wall",
+      "moonbits:stones/prismarine/cutter_prismarine_cracked_tile_wall",
+      "moonbits:stones/prismarine/cutter_prismarine_algal_tile_wall",
+	  
+      "moonbits:stones/prismarine/prismarine_algal_tile_stairs_with_seagrass",
+      "moonbits:stones/prismarine/prismarine_algal_tile_slab_with_seagrass",
+      "moonbits:stones/prismarine/prismarine_algal_tile_wall_with_seagrass"
+	  
+    ]
+  },
+  "criteria": {
+    "has_prismarine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:prismarine"
+          }
+        ]
+      }
+    },
+    "has_prismarine_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:prismarine_tiles"
+          }
+        ]
+      }
+    },
+    "has_cracked_prismarine_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:cracked_prismarine_tiles"
+          }
+        ]
+      }
+    },
+    "has_algal_prismarine_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:algal_prismarine_tiles"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/prismarine/prismarine_tiles"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_prismarine",
+      "has_prismarine_tiles",
+      "has_cracked_prismarine_tiles",
+      "has_algal_prismarine_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

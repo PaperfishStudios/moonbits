@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:calcite_slab"
+    }
+  },
+  "result": {
+    "item": "moonbits:chiseled_calcite",
+    "count": 1
+  }
+}

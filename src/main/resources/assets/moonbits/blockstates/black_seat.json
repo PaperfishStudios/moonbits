@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/black_seat"
+    },
+    "type=double": {
+      "model": "moonbits:block/black_seat_dummy"
+    },
+    "type=top": {
+      "model": "moonbits:block/black_seat_top"
+    }
+  }
+}

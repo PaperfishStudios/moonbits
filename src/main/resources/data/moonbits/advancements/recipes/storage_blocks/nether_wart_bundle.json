@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/nether_wart_bundle",
+      "moonbits:storage_blocks/nether_wart_from_bundle"
+    ]
+  },
+  "criteria": {
+    "has_nether_wart": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:nether_wart"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/nether_wart_bundle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_nether_wart",
+      "has_the_recipe"
+    ]
+  ]
+}

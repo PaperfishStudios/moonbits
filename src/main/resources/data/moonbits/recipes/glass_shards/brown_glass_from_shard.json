@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:brown_glass_shard"
+    }
+  },
+  "result": {
+    "item": "minecraft:brown_stained_glass",
+    "count": 1
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/diorite/diorite_bricks",
+      "moonbits:stones/diorite/diorite_cracked_bricks",
+      "moonbits:stones/diorite/diorite_mossy_bricks",
+      "moonbits:stones/diorite/diorite_brick_stairs",
+      "moonbits:stones/diorite/diorite_cracked_brick_stairs",
+      "moonbits:stones/diorite/diorite_mossy_brick_stairs",
+      "moonbits:stones/diorite/diorite_brick_slab",
+      "moonbits:stones/diorite/diorite_cracked_brick_slab",
+      "moonbits:stones/diorite/diorite_mossy_brick_slab",
+      "moonbits:stones/diorite/diorite_brick_wall",
+      "moonbits:stones/diorite/diorite_cracked_brick_wall",
+      "moonbits:stones/diorite/diorite_mossy_brick_wall",
+	  
+      "moonbits:stones/diorite/cutter_diorite_bricks",
+      "moonbits:stones/diorite/cutter_diorite_brick_stairs",
+      "moonbits:stones/diorite/cutter_diorite_brick_slab",
+      "moonbits:stones/diorite/cutter_diorite_brick_wall",
+	  
+      "moonbits:stones/diorite/cutter_diorite_brick_stairs",
+      "moonbits:stones/diorite/cutter_diorite_cracked_brick_stairs",
+      "moonbits:stones/diorite/cutter_diorite_mossy_brick_stairs",
+      "moonbits:stones/diorite/cutter_diorite_brick_slab",
+      "moonbits:stones/diorite/cutter_diorite_cracked_brick_slab",
+      "moonbits:stones/diorite/cutter_diorite_mossy_brick_slab",
+      "moonbits:stones/diorite/cutter_diorite_brick_wall",
+      "moonbits:stones/diorite/cutter_diorite_cracked_brick_wall",
+      "moonbits:stones/diorite/cutter_diorite_mossy_brick_wall",
+	  
+      "moonbits:stones/diorite/diorite_mossy_brick_stairs_with_vine",
+      "moonbits:stones/diorite/diorite_mossy_brick_slab_with_vine",
+      "moonbits:stones/diorite/diorite_mossy_brick_wall_with_vine"
+	  
+    ]
+  },
+  "criteria": {
+    "has_diorite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:diorite"
+          }
+        ]
+      }
+    },
+    "has_diorite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:diorite_bricks"
+          }
+        ]
+      }
+    },
+    "has_cracked_diorite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:cracked_diorite_bricks"
+          }
+        ]
+      }
+    },
+    "has_mossy_diorite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:mossy_diorite_bricks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/diorite/diorite_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_diorite",
+      "has_diorite_bricks",
+      "has_cracked_diorite_bricks",
+      "has_mossy_diorite_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

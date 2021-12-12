@@ -1,0 +1,15 @@
+{
+    "replace": false,
+    "values": [
+      "moonbits:oak_planter_box",
+      "moonbits:birch_planter_box",
+      "moonbits:spruce_planter_box",
+      "moonbits:jungle_planter_box",
+      "moonbits:acacia_planter_box",
+      "moonbits:dark_oak_planter_box",
+      "moonbits:crimson_planter_box",
+      "moonbits:warped_planter_box",
+      "moonbits:jacaranda_planter_box",
+      "moonbits:honey_planter_box"
+    ]
+}

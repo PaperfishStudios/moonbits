@@ -1,0 +1,96 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/granite/granite_bricks",
+      "moonbits:stones/granite/granite_cracked_bricks",
+      "moonbits:stones/granite/granite_mossy_bricks",
+      "moonbits:stones/granite/granite_brick_stairs",
+      "moonbits:stones/granite/granite_cracked_brick_stairs",
+      "moonbits:stones/granite/granite_mossy_brick_stairs",
+      "moonbits:stones/granite/granite_brick_slab",
+      "moonbits:stones/granite/granite_cracked_brick_slab",
+      "moonbits:stones/granite/granite_mossy_brick_slab",
+      "moonbits:stones/granite/granite_brick_wall",
+      "moonbits:stones/granite/granite_cracked_brick_wall",
+      "moonbits:stones/granite/granite_mossy_brick_wall",
+	  
+      "moonbits:stones/granite/cutter_granite_bricks",
+      "moonbits:stones/granite/cutter_granite_brick_stairs",
+      "moonbits:stones/granite/cutter_granite_brick_slab",
+      "moonbits:stones/granite/cutter_granite_brick_wall",
+	  
+      "moonbits:stones/granite/cutter_granite_brick_stairs",
+      "moonbits:stones/granite/cutter_granite_cracked_brick_stairs",
+      "moonbits:stones/granite/cutter_granite_mossy_brick_stairs",
+      "moonbits:stones/granite/cutter_granite_brick_slab",
+      "moonbits:stones/granite/cutter_granite_cracked_brick_slab",
+      "moonbits:stones/granite/cutter_granite_mossy_brick_slab",
+      "moonbits:stones/granite/cutter_granite_brick_wall",
+      "moonbits:stones/granite/cutter_granite_cracked_brick_wall",
+      "moonbits:stones/granite/cutter_granite_mossy_brick_wall",
+	  
+      "moonbits:stones/granite/granite_mossy_brick_stairs_with_vine",
+      "moonbits:stones/granite/granite_mossy_brick_slab_with_vine",
+      "moonbits:stones/granite/granite_mossy_brick_wall_with_vine"
+	  
+    ]
+  },
+  "criteria": {
+    "has_granite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:granite"
+          }
+        ]
+      }
+    },
+    "has_granite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:granite_bricks"
+          }
+        ]
+      }
+    },
+    "has_cracked_granite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:cracked_granite_bricks"
+          }
+        ]
+      }
+    },
+    "has_mossy_granite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:mossy_granite_bricks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/granite/granite_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_granite",
+      "has_granite_bricks",
+      "has_cracked_granite_bricks",
+      "has_mossy_granite_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

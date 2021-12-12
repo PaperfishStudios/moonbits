@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bookshelves",
+  "pattern": [
+    "###",
+    "BBB",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:jacaranda_planks"
+    },
+    "B": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "item": "moonbits:jacaranda_bookshelf",
+    "count": 1
+  }
+}

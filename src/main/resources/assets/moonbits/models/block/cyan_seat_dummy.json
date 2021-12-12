@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moonbits:block/utility/seats/cyan_seat"
+  }
+}

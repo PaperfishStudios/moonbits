@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [	  
+      "moonbits:dirt_caves/peat_block",
+      "moonbits:dirt_caves/peat_from_block",
+	  
+      "moonbits:dirt_caves/peat_bricks",
+	  
+      "moonbits:dirt_caves/peat_brick_slab",
+      "moonbits:dirt_caves/peat_brick_stairs",
+      "moonbits:dirt_caves/peat_brick_wall",
+	  
+      "moonbits:dirt_caves/cutter_peat_brick_slab",
+      "moonbits:dirt_caves/cutter_peat_brick_stairs",
+      "moonbits:dirt_caves/cutter_peat_brick_wall"
+    ]
+  },
+  "criteria": {
+    "has_peat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:peat"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:dirt_caves/peat_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_peat",
+      "has_the_recipe"
+    ]
+  ]
+}

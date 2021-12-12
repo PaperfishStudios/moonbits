@@ -1,0 +1,96 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/andesite/andesite_bricks",
+      "moonbits:stones/andesite/andesite_cracked_bricks",
+      "moonbits:stones/andesite/andesite_mossy_bricks",
+      "moonbits:stones/andesite/andesite_brick_stairs",
+      "moonbits:stones/andesite/andesite_cracked_brick_stairs",
+      "moonbits:stones/andesite/andesite_mossy_brick_stairs",
+      "moonbits:stones/andesite/andesite_brick_slab",
+      "moonbits:stones/andesite/andesite_cracked_brick_slab",
+      "moonbits:stones/andesite/andesite_mossy_brick_slab",
+      "moonbits:stones/andesite/andesite_brick_wall",
+      "moonbits:stones/andesite/andesite_cracked_brick_wall",
+      "moonbits:stones/andesite/andesite_mossy_brick_wall",
+	  
+      "moonbits:stones/andesite/cutter_andesite_bricks",
+      "moonbits:stones/andesite/cutter_andesite_brick_stairs",
+      "moonbits:stones/andesite/cutter_andesite_brick_slab",
+      "moonbits:stones/andesite/cutter_andesite_brick_wall",
+	  
+      "moonbits:stones/andesite/cutter_andesite_brick_stairs",
+      "moonbits:stones/andesite/cutter_andesite_cracked_brick_stairs",
+      "moonbits:stones/andesite/cutter_andesite_mossy_brick_stairs",
+      "moonbits:stones/andesite/cutter_andesite_brick_slab",
+      "moonbits:stones/andesite/cutter_andesite_cracked_brick_slab",
+      "moonbits:stones/andesite/cutter_andesite_mossy_brick_slab",
+      "moonbits:stones/andesite/cutter_andesite_brick_wall",
+      "moonbits:stones/andesite/cutter_andesite_cracked_brick_wall",
+      "moonbits:stones/andesite/cutter_andesite_mossy_brick_wall",
+	  
+      "moonbits:stones/andesite/andesite_mossy_brick_stairs_with_vine",
+      "moonbits:stones/andesite/andesite_mossy_brick_slab_with_vine",
+      "moonbits:stones/andesite/andesite_mossy_brick_wall_with_vine"
+	  
+    ]
+  },
+  "criteria": {
+    "has_andesite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:andesite"
+          }
+        ]
+      }
+    },
+    "has_andesite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:andesite_bricks"
+          }
+        ]
+      }
+    },
+    "has_cracked_andesite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:cracked_andesite_bricks"
+          }
+        ]
+      }
+    },
+    "has_mossy_andesite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:mossy_andesite_bricks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/andesite/andesite_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_andesite",
+      "has_andesite_bricks",
+      "has_cracked_andesite_bricks",
+      "has_mossy_andesite_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

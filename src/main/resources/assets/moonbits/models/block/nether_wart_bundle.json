@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/plants/nether_wart_bundle_top",
+    "side": "moonbits:block/plants/nether_wart_bundle"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "minecraft:sweet_berries"
+  },
+  "result": "moonbits:roasted_berries",
+  "experience": 0.2,
+  "cookingtime": 100
+}

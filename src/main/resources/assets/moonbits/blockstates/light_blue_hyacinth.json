@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "moonbits:block/light_blue_hyacinth_bottom"
+    },
+    "half=upper": {
+      "model": "moonbits:block/light_blue_hyacinth_top"
+    }
+  }
+}

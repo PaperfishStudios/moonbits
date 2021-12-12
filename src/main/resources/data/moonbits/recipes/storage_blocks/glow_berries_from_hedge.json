@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:glow_berry_hedge"
+    }
+  ],
+  "result": {
+    "item": "minecraft:glow_berries",
+    "count": 9
+  }
+}

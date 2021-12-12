@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/stick_stack",
+      "moonbits:storage_blocks/stick_from_stack"
+    ]
+  },
+  "criteria": {
+    "has_stick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stick"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/stick_stack"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stick",
+      "has_the_recipe"
+    ]
+  ]
+}

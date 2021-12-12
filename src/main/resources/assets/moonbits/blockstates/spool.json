@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "moonbits:block/spool_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "moonbits:block/spool"
+    },
+    "axis=z": {
+      "model": "moonbits:block/spool_horizontal",
+      "x": 90
+    }
+  }
+}

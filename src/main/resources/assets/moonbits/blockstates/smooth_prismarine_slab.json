@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/smooth_prismarine_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/smooth_prismarine"
+    },
+    "type=top": {
+      "model": "moonbits:block/smooth_prismarine_slab_top"
+    }
+  }
+}

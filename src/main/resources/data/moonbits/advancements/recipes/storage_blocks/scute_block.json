@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/scute_block",
+      "moonbits:storage_blocks/scute_from_block"
+    ]
+  },
+  "criteria": {
+    "has_scute": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:scute"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/scute_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_scute",
+      "has_the_recipe"
+    ]
+  ]
+}

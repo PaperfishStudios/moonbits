@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moonbits:block/stones/calcite/calcite_bricks_cracked",
+    "top": "moonbits:block/stones/calcite/calcite_bricks_cracked",
+    "side": "moonbits:block/stones/calcite/calcite_bricks_cracked"
+  }
+}

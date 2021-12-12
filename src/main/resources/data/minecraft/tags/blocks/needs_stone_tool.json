@@ -1,0 +1,7 @@
+{
+    "replace": false,
+    "values": [
+	  "moonbits:fossil",
+      "moonbits:iron_ladder"
+    ]
+}

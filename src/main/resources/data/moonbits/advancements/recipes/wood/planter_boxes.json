@@ -1,0 +1,43 @@
+{
+    "parent": "moonbits:recipes/root",
+    "rewards": {
+      "recipes": [
+        "moonbits:planter_boxes/oak_planter_box",
+        "moonbits:planter_boxes/birch_planter_box",
+        "moonbits:planter_boxes/spruce_planter_box",
+        "moonbits:planter_boxes/jungle_planter_box",
+        "moonbits:planter_boxes/acacia_planter_box",
+        "moonbits:planter_boxes/dark_oak_planter_box",
+        "moonbits:planter_boxes/crimson_planter_box",
+        "moonbits:planter_boxes/warped_planter_box",
+        "moonbits:planter_boxes/jacaranda_planter_box",
+        "moonbits:planter_boxes/honey_planter_box"
+      ]
+    },
+    "criteria": {
+      "has_peat": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": [
+                "moonbits:peat"
+              ]
+            }
+          ]
+        }
+      },
+      "has_the_recipe": {
+        "trigger": "minecraft:recipe_unlocked",
+        "conditions": {
+          "recipe": "moonbits:planter_boxes/oak_planter_box"
+        }
+      }
+    },
+    "requirements": [
+      [
+        "has_peat",
+        "has_the_recipe"
+      ]
+    ]
+  }

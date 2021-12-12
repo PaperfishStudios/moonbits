@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/deepslate/deepslate_mossy_bricks",
+      "moonbits:stones/deepslate/deepslate_mossy_brick_stairs",
+      "moonbits:stones/deepslate/deepslate_mossy_brick_slab",
+      "moonbits:stones/deepslate/deepslate_mossy_brick_wall",
+	  
+      "moonbits:stones/deepslate/cutter_deepslate_mossy_brick_stairs",
+      "moonbits:stones/deepslate/cutter_deepslate_mossy_brick_slab",
+      "moonbits:stones/deepslate/cutter_deepslate_mossy_brick_wall",
+	  
+      "moonbits:stones/deepslate/deepslate_mossy_brick_stairs_with_vine",
+      "moonbits:stones/deepslate/deepslate_mossy_brick_slab_with_vine",
+      "moonbits:stones/deepslate/deepslate_mossy_brick_wall_with_vine"
+    ]
+  },
+  "criteria": {
+    "has_deepslate_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:deepslate_bricks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/deepslate/mossy_deepslate_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_deepslate_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

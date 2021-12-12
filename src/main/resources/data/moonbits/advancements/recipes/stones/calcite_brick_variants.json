@@ -1,0 +1,96 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/calcite/calcite_bricks",
+      "moonbits:stones/calcite/calcite_cracked_bricks",
+      "moonbits:stones/calcite/calcite_mossy_bricks",
+      "moonbits:stones/calcite/calcite_brick_stairs",
+      "moonbits:stones/calcite/calcite_cracked_brick_stairs",
+      "moonbits:stones/calcite/calcite_mossy_brick_stairs",
+      "moonbits:stones/calcite/calcite_brick_slab",
+      "moonbits:stones/calcite/calcite_cracked_brick_slab",
+      "moonbits:stones/calcite/calcite_mossy_brick_slab",
+      "moonbits:stones/calcite/calcite_brick_wall",
+      "moonbits:stones/calcite/calcite_cracked_brick_wall",
+      "moonbits:stones/calcite/calcite_mossy_brick_wall",
+	  
+      "moonbits:stones/calcite/cutter_calcite_bricks",
+      "moonbits:stones/calcite/cutter_calcite_brick_stairs",
+      "moonbits:stones/calcite/cutter_calcite_brick_slab",
+      "moonbits:stones/calcite/cutter_calcite_brick_wall",
+	  
+      "moonbits:stones/calcite/cutter_calcite_brick_stairs",
+      "moonbits:stones/calcite/cutter_calcite_cracked_brick_stairs",
+      "moonbits:stones/calcite/cutter_calcite_mossy_brick_stairs",
+      "moonbits:stones/calcite/cutter_calcite_brick_slab",
+      "moonbits:stones/calcite/cutter_calcite_cracked_brick_slab",
+      "moonbits:stones/calcite/cutter_calcite_mossy_brick_slab",
+      "moonbits:stones/calcite/cutter_calcite_brick_wall",
+      "moonbits:stones/calcite/cutter_calcite_cracked_brick_wall",
+      "moonbits:stones/calcite/cutter_calcite_mossy_brick_wall",
+	  
+      "moonbits:stones/calcite/calcite_mossy_brick_stairs_with_vine",
+      "moonbits:stones/calcite/calcite_mossy_brick_slab_with_vine",
+      "moonbits:stones/calcite/calcite_mossy_brick_wall_with_vine"
+	  
+    ]
+  },
+  "criteria": {
+    "has_calcite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:calcite"
+          }
+        ]
+      }
+    },
+    "has_calcite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:calcite_bricks"
+          }
+        ]
+      }
+    },
+    "has_cracked_calcite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:cracked_calcite_bricks"
+          }
+        ]
+      }
+    },
+    "has_mossy_calcite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:mossy_calcite_bricks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/calcite/calcite_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_calcite",
+      "has_calcite_bricks",
+      "has_cracked_calcite_bricks",
+      "has_mossy_calcite_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

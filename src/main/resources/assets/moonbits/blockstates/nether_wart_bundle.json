@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "moonbits:block/nether_wart_bundle_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "moonbits:block/nether_wart_bundle"
+    },
+    "axis=z": {
+      "model": "moonbits:block/nether_wart_bundle_horizontal",
+      "x": 90
+    }
+  }
+}

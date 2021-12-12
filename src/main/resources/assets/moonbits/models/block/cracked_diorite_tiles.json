@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "moonbits:block/stones/diorite/diorite_tiles_cracked"
+  }
+}

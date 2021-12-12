@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "moonbits:block/stones/tuff/tuff_bricks",
+    "top": "moonbits:block/stones/tuff/tuff_bricks",
+    "side": "moonbits:block/stones/tuff/tuff_bricks"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/phantom_membrane_block",
+      "moonbits:storage_blocks/phantom_membrane_from_block"
+    ]
+  },
+  "criteria": {
+    "has_phantom_membrane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "block": "minecraft:phantom_membrane"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/phantom_membrane_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_phantom_membrane",
+      "has_the_recipe"
+    ]
+  ]
+}

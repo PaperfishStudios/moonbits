@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:tuff_tiles"
+    }
+  },
+  "result": {
+    "item": "moonbits:tuff_tile_stairs",
+    "count": 4
+  }
+}

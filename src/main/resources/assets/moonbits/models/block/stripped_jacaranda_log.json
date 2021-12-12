@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/wood/jacaranda/stripped_jacaranda_log_top",
+    "side": "moonbits:block/wood/jacaranda/stripped_jacaranda_log"
+  }
+}

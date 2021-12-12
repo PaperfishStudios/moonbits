@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "moonbits:jacaranda_log",
+        "moonbits:jacaranda_wood",
+        "moonbits:stripped_jacaranda_log",
+        "moonbits:stripped_jacaranda_wood"
+    ]
+}

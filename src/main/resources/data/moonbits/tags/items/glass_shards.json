@@ -1,0 +1,22 @@
+{
+    "replace": false,
+    "values": [
+      "moonbits:glass_shard",
+      "moonbits:white_glass_shard",
+      "moonbits:light_gray_glass_shard",
+      "moonbits:gray_glass_shard",
+      "moonbits:black_glass_shard",
+      "moonbits:green_glass_shard",
+      "moonbits:lime_glass_shard",
+      "moonbits:yellow_glass_shard",
+      "moonbits:orange_glass_shard",
+      "moonbits:brown_glass_shard",
+      "moonbits:red_glass_shard",
+      "moonbits:pink_glass_shard",
+      "moonbits:magenta_glass_shard",
+      "moonbits:purple_glass_shard",
+      "moonbits:light_blue_glass_shard",
+      "moonbits:cyan_glass_shard",
+      "moonbits:blue_glass_shard"
+    ]
+}

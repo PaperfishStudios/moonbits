@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/rotten_flesh_block",
+      "moonbits:storage_blocks/rotten_flesh_from_block"
+    ]
+  },
+  "criteria": {
+    "has_flesh": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:rotten_flesh"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/rotten_flesh_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_flesh",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "moonbits:block/plants/forget_me_not"
+  }
+}

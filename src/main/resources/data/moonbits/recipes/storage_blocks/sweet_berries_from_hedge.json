@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:sweet_berry_hedge"
+    }
+  ],
+  "result": {
+    "item": "minecraft:sweet_berries",
+    "count": 9
+  }
+}

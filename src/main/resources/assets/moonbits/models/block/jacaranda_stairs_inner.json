@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "moonbits:block/wood/jacaranda/jacaranda_planks",
+    "top": "moonbits:block/wood/jacaranda/jacaranda_planks",
+    "side": "moonbits:block/wood/jacaranda/jacaranda_planks"
+  }
+}

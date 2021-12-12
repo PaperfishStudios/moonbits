@@ -1,0 +1,322 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "up": "true",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+	{
+      "when": {
+        "up": "true",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "north": "true",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine"
+      }
+    },
+	{
+      "when": {
+        "north": "true",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine"
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming"
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "y": 270,
+        "uvlock": true
+      }
+    },
+	{
+      "when": {
+        "west": "true",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "y": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming",
+        "y": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "south": "true",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+	{
+      "when": {
+        "south": "true",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "y": 90,
+        "uvlock": true
+      }
+    },
+	{
+      "when": {
+        "east": "true",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "y": 90,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming",
+        "y": 90,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "down": "true",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "x": 90,
+        "uvlock": true
+      }
+    },
+	{
+      "when": {
+        "down": "true",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "x": 90,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "false",
+        "north": "false",
+        "west": "false",
+        "south": "false",
+        "east": "false",
+        "down": "false",
+		"blooming": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine_blooming",
+        "x": 90,
+        "uvlock": true
+      }
+    }
+  ]
+}

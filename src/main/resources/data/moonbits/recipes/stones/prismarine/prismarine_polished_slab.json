@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:polished_prismarine"
+    }
+  },
+  "result": {
+    "item": "moonbits:polished_prismarine_slab",
+    "count": 6
+  }
+}

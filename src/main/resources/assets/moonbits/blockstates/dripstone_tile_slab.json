@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/dripstone_tile_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/dripstone_tiles"
+    },
+    "type=top": {
+      "model": "moonbits:block/dripstone_tile_slab_top"
+    }
+  }
+}

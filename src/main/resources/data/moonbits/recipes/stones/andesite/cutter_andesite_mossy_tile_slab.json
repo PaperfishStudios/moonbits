@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:mossy_andesite_tiles"
+  },
+  "result": "moonbits:mossy_andesite_tile_slab",
+  "count": 2
+}

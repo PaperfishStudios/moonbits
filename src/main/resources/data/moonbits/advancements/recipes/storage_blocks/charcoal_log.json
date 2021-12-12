@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/charcoal_log",
+      "moonbits:storage_blocks/charcoal_from_log"
+    ]
+  },
+  "criteria": {
+    "has_charcoal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:charcoal"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/charcoal_log"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_charcoal",
+      "has_the_recipe"
+    ]
+  ]
+}

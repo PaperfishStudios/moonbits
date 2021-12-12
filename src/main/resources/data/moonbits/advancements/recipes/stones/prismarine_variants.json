@@ -1,0 +1,53 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/prismarine/prismarine_polished",
+      "moonbits:stones/prismarine/cutter_prismarine_polished",
+      "moonbits:stones/prismarine/prismarine_polished_slab",
+      "moonbits:stones/prismarine/cutter_prismarine_polished_slab",
+      "moonbits:stones/prismarine/prismarine_polished_stairs",
+      "moonbits:stones/prismarine/cutter_prismarine_polished_stairs",
+      "moonbits:stones/prismarine/prismarine_polished_wall",
+      "moonbits:stones/prismarine/cutter_prismarine_polished_wall",
+      "moonbits:stones/prismarine/prismarine_smooth",
+      "moonbits:stones/prismarine/cutter_prismarine_smooth",
+      "moonbits:stones/prismarine/prismarine_smooth_slab",
+      "moonbits:stones/prismarine/cutter_prismarine_smooth_slab",
+      "moonbits:stones/prismarine/prismarine_smooth_stairs",
+      "moonbits:stones/prismarine/cutter_prismarine_smooth_stairs",
+      "moonbits:stones/prismarine/prismarine_smooth_wall",
+      "moonbits:stones/prismarine/cutter_prismarine_smooth_wall",
+	  
+      "moonbits:stones/prismarine/prismarine_chiseled",
+      "moonbits:stones/prismarine/cutter_prismarine_chiseled",
+      "moonbits:stones/prismarine/prismarine_pillar",
+      "moonbits:stones/prismarine/cutter_prismarine_pillar",
+      "moonbits:stones/prismarine/cutter_prismarine_cut"
+    ]
+  },
+  "criteria": {
+    "has_prismarine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:prismarine"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/prismarine/prismarine_polished"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_prismarine",
+      "has_the_recipe"
+    ]
+  ]
+}

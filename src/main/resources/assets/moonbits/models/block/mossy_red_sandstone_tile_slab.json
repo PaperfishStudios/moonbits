@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moonbits:block/stones/red_sandstone/red_sandstone_tiles_mossy",
+    "top": "moonbits:block/stones/red_sandstone/red_sandstone_tiles_mossy",
+    "side": "moonbits:block/stones/red_sandstone/red_sandstone_tiles_mossy"
+  }
+}

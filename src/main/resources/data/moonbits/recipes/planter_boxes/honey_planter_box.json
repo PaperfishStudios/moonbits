@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "planter_box",
+  "pattern": [
+    "#P#",
+    "#D#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:honey_planks"
+    },
+    "P": {
+      "item": "moonbits:peat"
+    },
+    "D": {
+      "item": "minecraft:dirt"
+    }
+  },
+  "result": {
+    "item": "moonbits:honey_planter_box",
+    "count": 1
+  }
+}

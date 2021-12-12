@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "moonbits:block/stones/red_sandstone/red_sandstone_bricks_mossy"
+  }
+}

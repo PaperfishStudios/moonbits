@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:dirt_caves/tough_dirt_slab",
+      "moonbits:dirt_caves/tough_dirt_stairs",
+      "moonbits:dirt_caves/dirt_bricks",
+      "moonbits:dirt_caves/dirt_brick_slab",
+      "moonbits:dirt_caves/dirt_brick_stairs"
+    ]
+  },
+  "criteria": {
+    "has_tough_dirt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:tough_dirt"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:dirt_caves/tough_dirt_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tough_dirt",
+      "has_the_recipe"
+    ]
+  ]
+}

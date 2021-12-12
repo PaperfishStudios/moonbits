@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/sugar_cane_bundle",
+      "moonbits:storage_blocks/sugar_cane_from_bundle"
+    ]
+  },
+  "criteria": {
+    "has_cane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:sugar_cane"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/sugar_cane_bundle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cane",
+      "has_the_recipe"
+    ]
+  ]
+}

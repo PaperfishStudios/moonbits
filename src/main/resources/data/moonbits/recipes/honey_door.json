@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_door",
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:honey_planks"
+    }
+  },
+  "result": {
+    "item": "moonbits:honey_door",
+    "count": 3
+  }
+}

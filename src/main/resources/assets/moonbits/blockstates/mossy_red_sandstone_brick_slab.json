@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/mossy_red_sandstone_brick_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/mossy_red_sandstone_bricks"
+    },
+    "type=top": {
+      "model": "moonbits:block/mossy_red_sandstone_brick_slab_top"
+    }
+  }
+}

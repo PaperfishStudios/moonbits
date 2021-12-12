@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:prismarine_tiles"
+    },
+    {
+      "item": "minecraft:seagrass"
+    }
+  ],
+  "result": {
+    "item": "moonbits:algal_prismarine_tiles"
+  }
+}

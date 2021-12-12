@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:dripstone_slab"
+    }
+  },
+  "result": {
+    "item": "moonbits:chiseled_dripstone",
+    "count": 1
+  }
+}

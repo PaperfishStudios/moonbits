@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/grass_turf_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/grass_turf"
+    },
+    "type=top": {
+      "model": "moonbits:block/grass_turf_slab_top"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/wood/acacia/carved_acacia_wood",
+    "side": "moonbits:block/wood/acacia/acacia_pillar"
+  }
+}

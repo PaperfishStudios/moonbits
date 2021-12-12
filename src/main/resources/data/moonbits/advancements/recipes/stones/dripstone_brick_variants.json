@@ -1,0 +1,96 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/dripstone/dripstone_bricks",
+      "moonbits:stones/dripstone/dripstone_cracked_bricks",
+      "moonbits:stones/dripstone/dripstone_mossy_bricks",
+      "moonbits:stones/dripstone/dripstone_brick_stairs",
+      "moonbits:stones/dripstone/dripstone_cracked_brick_stairs",
+      "moonbits:stones/dripstone/dripstone_mossy_brick_stairs",
+      "moonbits:stones/dripstone/dripstone_brick_slab",
+      "moonbits:stones/dripstone/dripstone_cracked_brick_slab",
+      "moonbits:stones/dripstone/dripstone_mossy_brick_slab",
+      "moonbits:stones/dripstone/dripstone_brick_wall",
+      "moonbits:stones/dripstone/dripstone_cracked_brick_wall",
+      "moonbits:stones/dripstone/dripstone_mossy_brick_wall",
+	  
+      "moonbits:stones/dripstone/cutter_dripstone_bricks",
+      "moonbits:stones/dripstone/cutter_dripstone_brick_stairs",
+      "moonbits:stones/dripstone/cutter_dripstone_brick_slab",
+      "moonbits:stones/dripstone/cutter_dripstone_brick_wall",
+	  
+      "moonbits:stones/dripstone/cutter_dripstone_brick_stairs",
+      "moonbits:stones/dripstone/cutter_dripstone_cracked_brick_stairs",
+      "moonbits:stones/dripstone/cutter_dripstone_mossy_brick_stairs",
+      "moonbits:stones/dripstone/cutter_dripstone_brick_slab",
+      "moonbits:stones/dripstone/cutter_dripstone_cracked_brick_slab",
+      "moonbits:stones/dripstone/cutter_dripstone_mossy_brick_slab",
+      "moonbits:stones/dripstone/cutter_dripstone_brick_wall",
+      "moonbits:stones/dripstone/cutter_dripstone_cracked_brick_wall",
+      "moonbits:stones/dripstone/cutter_dripstone_mossy_brick_wall",
+	  
+      "moonbits:stones/dripstone/dripstone_mossy_brick_stairs_with_vine",
+      "moonbits:stones/dripstone/dripstone_mossy_brick_slab_with_vine",
+      "moonbits:stones/dripstone/dripstone_mossy_brick_wall_with_vine"
+	  
+    ]
+  },
+  "criteria": {
+    "has_dripstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:dripstone_block"
+          }
+        ]
+      }
+    },
+    "has_dripstone_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:dripstone_bricks"
+          }
+        ]
+      }
+    },
+    "has_cracked_dripstone_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:cracked_dripstone_bricks"
+          }
+        ]
+      }
+    },
+    "has_mossy_dripstone_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:mossy_dripstone_bricks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/dripstone/dripstone_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dripstone",
+      "has_dripstone_bricks",
+      "has_cracked_dripstone_bricks",
+      "has_mossy_dripstone_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

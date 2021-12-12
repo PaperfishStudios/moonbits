@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "moonbits:block/honey_pressure_plate"
+    },
+    "powered=true": {
+      "model": "moonbits:block/honey_pressure_plate_down"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/glow_berry_hedge",
+      "moonbits:storage_blocks/glow_berries_from_hedge"
+    ]
+  },
+  "criteria": {
+    "has_berries": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:glow_berries"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/glow_berry_hedge"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_berries",
+      "has_the_recipe"
+    ]
+  ]
+}

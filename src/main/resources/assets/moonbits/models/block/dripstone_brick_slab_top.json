@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "moonbits:block/stones/dripstone/dripstone_bricks",
+    "top": "moonbits:block/stones/dripstone/dripstone_bricks",
+    "side": "moonbits:block/stones/dripstone/dripstone_bricks"
+  }
+}

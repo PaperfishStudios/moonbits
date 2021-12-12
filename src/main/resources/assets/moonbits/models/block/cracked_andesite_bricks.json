@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "moonbits:block/stones/andesite/andesite_bricks_cracked"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "moonbits:block/stones/granite/granite_cobbled",
+    "top": "moonbits:block/stones/granite/granite_cobbled",
+    "side": "moonbits:block/stones/granite/granite_cobbled"
+  }
+}

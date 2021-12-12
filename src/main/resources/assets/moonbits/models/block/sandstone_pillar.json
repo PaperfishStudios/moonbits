@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/stones/sandstone/sandstone_pillar_top",
+    "side": "moonbits:block/stones/sandstone/sandstone_pillar"
+  }
+}

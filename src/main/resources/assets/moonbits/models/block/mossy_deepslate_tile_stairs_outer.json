@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "moonbits:block/stones/deepslate/deepslate_tiles_mossy",
+    "top": "moonbits:block/stones/deepslate/deepslate_tiles_mossy",
+    "side": "moonbits:block/stones/deepslate/deepslate_tiles_mossy"
+  }
+}

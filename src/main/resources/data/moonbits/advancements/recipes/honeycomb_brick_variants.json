@@ -1,0 +1,52 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:honeycomb_bricks",
+      "moonbits:honeycomb_brick_stairs",
+      "moonbits:honeycomb_brick_slab",
+      "moonbits:honeycomb_brick_wall",
+	  
+      "moonbits:cutter_honeycomb_bricks",
+      "moonbits:cutter_honeycomb_brick_stairs",
+      "moonbits:cutter_honeycomb_brick_slab",
+      "moonbits:cutter_honeycomb_brick_wall"
+	  
+    ]
+  },
+  "criteria": {
+    "has_honeycomb": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:honeycomb_block"
+          }
+        ]
+      }
+    },
+    "has_honeycomb_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:honeycomb_bricks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:honeycomb_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_honeycomb",
+      "has_honeycomb_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/crimson_nylium_turf_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/crimson_nylium_turf"
+    },
+    "type=top": {
+      "model": "moonbits:block/crimson_nylium_turf_slab_top"
+    }
+  }
+}

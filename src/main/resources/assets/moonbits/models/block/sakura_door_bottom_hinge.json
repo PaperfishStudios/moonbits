@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_rh",
+  "textures": {
+    "top": "moonbits:block/wood/sakura/sakura_door_top",
+    "bottom": "moonbits:block/wood/sakura/sakura_door_bottom"
+  }
+}

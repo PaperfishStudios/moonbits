@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/cobbled_granite_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/cobbled_granite"
+    },
+    "type=top": {
+      "model": "moonbits:block/cobbled_granite_slab_top"
+    }
+  }
+}

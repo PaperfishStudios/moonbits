@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/wood/jungle/carved_jungle_wood",
+    "side": "moonbits:block/wood/jungle/jungle_pillar"
+  }
+}

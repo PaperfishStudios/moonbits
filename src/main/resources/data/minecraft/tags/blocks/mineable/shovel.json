@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+	"moonbits:grass_turf",
+	"moonbits:grass_turf_stairs",
+	"moonbits:grass_turf_slab",
+	
+    "moonbits:tough_dirt",
+    "moonbits:tough_dirt_slab",
+    "moonbits:tough_dirt_stairs",
+    "moonbits:dirt_bricks",
+    "moonbits:dirt_brick_slab",
+    "moonbits:dirt_brick_stairs",
+    "moonbits:peat_deposit",
+	"moonbits:peat_block",
+	"moonbits:peat_bricks",
+	"moonbits:peat_brick_slab",
+	"moonbits:peat_brick_stairs",
+	"moonbits:peat_brick_wall",
+    "moonbits:gold_deposit",
+    "moonbits:clay_deposit",
+    "moonbits:regolith"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/honey_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/honey_planks"
+    },
+    "type=top": {
+      "model": "moonbits:block/honey_slab_top"
+    }
+  }
+}

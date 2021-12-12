@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/plants/glistering_melon_block_top",
+    "side": "moonbits:block/plants/glistering_melon_block"
+  }
+}

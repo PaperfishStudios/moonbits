@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "moonbits:potted_buttercup",
+    "moonbits:potted_forget_me_not",
+    "moonbits:potted_golden_birch_sapling",
+    "moonbits:potted_jacaranda_sapling"
+  ]
+}

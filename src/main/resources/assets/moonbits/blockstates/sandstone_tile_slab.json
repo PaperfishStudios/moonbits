@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/sandstone_tile_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/sandstone_tiles"
+    },
+    "type=top": {
+      "model": "moonbits:block/sandstone_tile_slab_top"
+    }
+  }
+}

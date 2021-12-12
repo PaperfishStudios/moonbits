@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "moonbits",
+  "version": "0.1",
+
+  "name": "Moonbits",
+  "description": "A minecraft mod designed as a fanmade branch of updates and content :D",
+  "authors": [
+    "Paperfish", "mars!"
+  ],
+  "contact": {
+    "sources": "https://github.com/PaperfishStudios/Moonbits"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/moonbits/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.moonteam.moonbits.MoonbitsMain"
+    ],
+    "client": [
+      "net.moonteam.moonbits.client.MoonbitsClient"
+    ]
+  },
+  "mixins": [
+    "moonbits.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

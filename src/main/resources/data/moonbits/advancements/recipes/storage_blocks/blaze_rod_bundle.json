@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/blaze_rod_bundle",
+      "moonbits:storage_blocks/blaze_rods_from_bundle"
+    ]
+  },
+  "criteria": {
+    "has_rods": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:blaze_rod"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/blaze_rod_bundle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_rods",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/cracked_calcite_tile_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/cracked_calcite_tiles"
+    },
+    "type=top": {
+      "model": "moonbits:block/cracked_calcite_tile_slab_top"
+    }
+  }
+}

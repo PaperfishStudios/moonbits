@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+	"moonbits:golden_birch_leaves",
+	"moonbits:jacaranda_leaves",
+	
+	"moonbits:egg_basket",
+	"moonbits:sweet_berry_hedge",
+	"moonbits:glow_berry_hedge",
+	"moonbits:kelp_block",
+	"moonbits:nether_wart_bundle",
+	"moonbits:spool",
+	"moonbits:paper_bundle",
+	"moonbits:rotten_flesh_block",
+	"moonbits:spider_eye_block",
+	"moonbits:phantom_membrane_block"
+  ]
+}

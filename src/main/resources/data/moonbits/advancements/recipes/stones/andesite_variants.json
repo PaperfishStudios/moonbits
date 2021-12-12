@@ -1,0 +1,56 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/andesite/andesite_from_cobble",
+	  
+      "moonbits:stones/andesite/andesite_cobbled_slab",
+      "moonbits:stones/andesite/andesite_cobbled_stairs",
+      "moonbits:stones/andesite/andesite_cobbled_wall",
+	  
+      "moonbits:stones/andesite/cutter_andesite_cobbled_slab",
+      "moonbits:stones/andesite/cutter_andesite_cobbled_stairs",
+      "moonbits:stones/andesite/cutter_andesite_cobbled_wall",
+	  
+      "moonbits:stones/andesite/andesite_chiseled",
+      "moonbits:stones/andesite/cutter_andesite_chiseled",
+      "moonbits:stones/andesite/andesite_pillar",
+      "moonbits:stones/andesite/cutter_andesite_pillar"
+    ]
+  },
+  "criteria": {
+    "has_andesite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:andesite"
+          }
+        ]
+      }
+    },
+    "has_cobble": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:cobbled_andesite"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/andesite/andesite_chiseled"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_andesite",
+      "has_cobble",
+      "has_the_recipe"
+    ]
+  ]
+}

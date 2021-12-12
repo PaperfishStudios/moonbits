@@ -1,0 +1,96 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/stone/stone_tiles",
+      "moonbits:stones/stone/stone_cracked_tiles",
+      "moonbits:stones/stone/stone_mossy_tiles",
+      "moonbits:stones/stone/stone_tile_stairs",
+      "moonbits:stones/stone/stone_cracked_tile_stairs",
+      "moonbits:stones/stone/stone_mossy_tile_stairs",
+      "moonbits:stones/stone/stone_tile_slab",
+      "moonbits:stones/stone/stone_cracked_tile_slab",
+      "moonbits:stones/stone/stone_mossy_tile_slab",
+      "moonbits:stones/stone/stone_tile_wall",
+      "moonbits:stones/stone/stone_cracked_tile_wall",
+      "moonbits:stones/stone/stone_mossy_tile_wall",
+	  
+      "moonbits:stones/stone/cutter_stone_tiles",
+      "moonbits:stones/stone/cutter_stone_tile_stairs",
+      "moonbits:stones/stone/cutter_stone_tile_slab",
+      "moonbits:stones/stone/cutter_stone_tile_wall",
+	  
+      "moonbits:stones/stone/cutter_stone_tile_stairs",
+      "moonbits:stones/stone/cutter_stone_cracked_tile_stairs",
+      "moonbits:stones/stone/cutter_stone_mossy_tile_stairs",
+      "moonbits:stones/stone/cutter_stone_tile_slab",
+      "moonbits:stones/stone/cutter_stone_cracked_tile_slab",
+      "moonbits:stones/stone/cutter_stone_mossy_tile_slab",
+      "moonbits:stones/stone/cutter_stone_tile_wall",
+      "moonbits:stones/stone/cutter_stone_cracked_tile_wall",
+      "moonbits:stones/stone/cutter_stone_mossy_tile_wall",
+	  
+      "moonbits:stones/stone/stone_mossy_tile_stairs_with_vines",
+      "moonbits:stones/stone/stone_mossy_tile_slab_with_vines",
+      "moonbits:stones/stone/stone_mossy_tile_wall_with_vines"
+	  
+    ]
+  },
+  "criteria": {
+    "has_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:stone"
+          }
+        ]
+      }
+    },
+    "has_stone_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:stone_tiles"
+          }
+        ]
+      }
+    },
+    "has_cracked_stone_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:cracked_stone_tiles"
+          }
+        ]
+      }
+    },
+    "has_mossy_stone_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:mossy_stone_tiles"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/stone/stone_tiles"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone",
+      "has_stone_tiles",
+      "has_cracked_stone_tiles",
+      "has_mossy_stone_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

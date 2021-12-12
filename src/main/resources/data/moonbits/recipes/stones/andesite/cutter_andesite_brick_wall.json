@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": [
+      {
+        "item": "minecraft:andesite"
+      },
+      {
+        "item": "moonbits:andesite_bricks"
+      }
+    ],
+  "result": "moonbits:andesite_brick_wall",
+  "count": 1
+}

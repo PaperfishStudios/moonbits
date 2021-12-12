@@ -1,0 +1,9 @@
+{
+    "parent": "moonbits:block/planter_box/planter_box_inner",
+    "textures": {
+		"top": "moonbits:block/wood/spruce/spruce_planter_box_top",
+		"inner": "moonbits:block/wood/spruce/spruce_planter_box_inner",
+		"bottom": "moonbits:block/wood/spruce/spruce_planter_box_bottom",
+		"side": "moonbits:block/wood/spruce/spruce_planter_box"
+    }
+}

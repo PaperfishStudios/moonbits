@@ -1,0 +1,34 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.moonteam.moonbits.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "BeeEntityMixin",
+    "BeeFlowerCheckMixin",
+    "BlockEntityTypeMixin",
+    "ClientRecipeBookMixin",
+    "CocoaPodMixin",
+    "CropBlockMixin",
+    "EnchantingTableBlockMixin",
+    "EnchantmentScreenHandlerMixin",
+    "ItemAccessor",
+    "MushroomStewItemMixin",
+    "NetherWartMixin",
+    "NoteBlockMixin",
+    "PigSaddleAccess",
+    "PlantBlockMixin",
+    "RestackingMixin",
+    "SignTypeAccessor",
+    "StriderEntityMixin",
+    "StriderSaddleAccess",
+    "SugarCaneMixin",
+    "TreeDecoratorTypeInvoker",
+    "TurtleEntityMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+  }

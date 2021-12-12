@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/jacaranda_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/jacaranda_planks"
+    },
+    "type=top": {
+      "model": "moonbits:block/jacaranda_slab_top"
+    }
+  }
+}

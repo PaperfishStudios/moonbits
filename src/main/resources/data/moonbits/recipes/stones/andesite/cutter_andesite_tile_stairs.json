@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": [
+      {
+        "item": "minecraft:andesite"
+      },
+      {
+        "item": "moonbits:andesite_tiles"
+      }
+    ],
+  "result": "moonbits:andesite_tile_stairs",
+  "count": 1
+}

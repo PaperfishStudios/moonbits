@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/wood/honey/honey_planks",
+    "side": "moonbits:block/wood/honey/honey_bookshelf"
+  }
+}

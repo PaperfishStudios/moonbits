@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top",
+  "textures": {
+    "top": "moonbits:block/wood/honey/honey_door_top",
+    "bottom": "moonbits:block/wood/honey/honey_door_bottom"
+  }
+}

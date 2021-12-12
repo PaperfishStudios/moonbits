@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:honeycomb_block"
+  },
+  "result": "moonbits:honeycomb_slab",
+  "count": 2
+}

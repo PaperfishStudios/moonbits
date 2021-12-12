@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moonbits:block/plants/pink_hyacinth_top"
+  }
+}

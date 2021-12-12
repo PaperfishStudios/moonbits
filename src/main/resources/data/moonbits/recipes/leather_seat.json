@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LLL",
+    "###"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "#": {
+      "tag": "minecraft:wooden_slabs"
+    }
+  },
+  "result": {
+    "item": "moonbits:leather_seat",
+    "count": 1
+  }
+}

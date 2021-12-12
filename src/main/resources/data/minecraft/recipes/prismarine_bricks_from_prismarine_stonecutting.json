@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": [
+	  {
+        "item": "minecraft:prismarine"
+      },
+	  {
+        "item": "moonbits:polished_prismarine"
+      }
+    ],
+  "result": "minecraft:prismarine_bricks",
+  "count": 1
+}

@@ -1,0 +1,74 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:red_sandstone_tiles",
+      "moonbits:red_sandstone_cracked_tiles",
+      "moonbits:red_sandstone_tile_stairs",
+      "moonbits:red_sandstone_cracked_tile_stairs",
+      "moonbits:red_sandstone_tile_slab",
+      "moonbits:red_sandstone_cracked_tile_slab",
+      "moonbits:red_sandstone_tile_wall",
+      "moonbits:red_sandstone_cracked_tile_wall",
+	  
+      "moonbits:cutter_red_sandstone_tiles",
+      "moonbits:cutter_red_sandstone_tile_stairs",
+      "moonbits:cutter_red_sandstone_tile_slab",
+      "moonbits:cutter_red_sandstone_tile_wall",
+	  
+      "moonbits:cutter_red_sandstone_tile_stairs",
+      "moonbits:cutter_red_sandstone_cracked_tile_stairs",
+      "moonbits:cutter_red_sandstone_tile_slab",
+      "moonbits:cutter_red_sandstone_cracked_tile_slab",
+      "moonbits:cutter_red_sandstone_tile_wall",
+      "moonbits:cutter_red_sandstone_cracked_tile_wall"
+	  
+    ]
+  },
+  "criteria": {
+    "has_red_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:red_sandstone"
+          }
+        ]
+      }
+    },
+    "has_red_sandstone_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:red_sandstone_tiles"
+          }
+        ]
+      }
+    },
+    "has_cracked_red_sandstone_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:cracked_red_sandstone_tiles"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:red_sandstone_tiles"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_sandstone",
+      "has_red_sandstone_tiles",
+      "has_cracked_red_sandstone_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

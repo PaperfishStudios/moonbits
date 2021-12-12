@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/diorite_tile_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/diorite_tiles"
+    },
+    "type=top": {
+      "model": "moonbits:block/diorite_tile_slab_top"
+    }
+  }
+}

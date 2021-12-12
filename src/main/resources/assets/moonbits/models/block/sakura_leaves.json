@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "moonbits:block/wood/sakura/sakura_leaves"
+  }
+}

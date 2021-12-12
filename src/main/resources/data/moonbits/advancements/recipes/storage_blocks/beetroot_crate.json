@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/beetroot_crate",
+      "moonbits:storage_blocks/beetroot_from_crate"
+    ]
+  },
+  "criteria": {
+    "has_beetroot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:beetroot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/beetroot_crate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_beetroot",
+      "has_the_recipe"
+    ]
+  ]
+}

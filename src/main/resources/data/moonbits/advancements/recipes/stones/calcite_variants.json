@@ -1,0 +1,51 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:stones/calcite/calcite_slab",
+      "moonbits:stones/calcite/cutter_calcite_slab",
+      "moonbits:stones/calcite/calcite_stairs",
+      "moonbits:stones/calcite/cutter_calcite_stairs",
+      "moonbits:stones/calcite/calcite_wall",
+      "moonbits:stones/calcite/cutter_calcite_wall",
+	  
+      "moonbits:stones/calcite/calcite_polished",
+      "moonbits:stones/calcite/cutter_calcite_polished",
+      "moonbits:stones/calcite/calcite_polished_slab",
+      "moonbits:stones/calcite/cutter_calcite_polished_slab",
+      "moonbits:stones/calcite/calcite_polished_stairs",
+      "moonbits:stones/calcite/cutter_calcite_polished_stairs",
+      "moonbits:stones/calcite/calcite_polished_wall",
+      "moonbits:stones/calcite/cutter_calcite_polished_wall",
+	  
+      "moonbits:stones/calcite/calcite_chiseled",
+      "moonbits:stones/calcite/cutter_calcite_chiseled",
+      "moonbits:stones/calcite/calcite_pillar",
+      "moonbits:stones/calcite/cutter_calcite_pillar"
+    ]
+  },
+  "criteria": {
+    "has_calcite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:calcite"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:stones/calcite/calcite_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_calcite",
+      "has_the_recipe"
+    ]
+  ]
+}

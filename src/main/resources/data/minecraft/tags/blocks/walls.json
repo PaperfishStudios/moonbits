@@ -1,0 +1,90 @@
+{
+  "replace": false,
+  "values": [
+    "moonbits:peat_brick_wall",
+	
+	"moonbits:honeycomb_wall",
+	"moonbits:honeycomb_brick_wall",
+	"moonbits:honeycomb_tile_wall",
+
+    "moonbits:smooth_stone_wall",
+	
+    "moonbits:stone_tile_wall",
+    "moonbits:cracked_stone_tile_wall",
+    "moonbits:mossy_stone_tile_wall",
+	
+    "moonbits:cobbled_andesite_wall",
+    "moonbits:andesite_brick_wall",
+    "moonbits:cracked_andesite_brick_wall",
+    "moonbits:mossy_andesite_brick_wall",
+    "moonbits:andesite_tile_wall",
+    "moonbits:cracked_andesite_tile_wall",
+    "moonbits:mossy_andesite_tile_wall",
+	
+    "moonbits:cobbled_diorite_wall",
+    "moonbits:diorite_brick_wall",
+    "moonbits:cracked_diorite_brick_wall",
+    "moonbits:mossy_diorite_brick_wall",
+    "moonbits:diorite_tile_wall",
+    "moonbits:cracked_diorite_tile_wall",
+    "moonbits:mossy_diorite_tile_wall",
+	
+    "moonbits:cobbled_granite_wall",
+    "moonbits:granite_brick_wall",
+    "moonbits:cracked_granite_brick_wall",
+    "moonbits:mossy_granite_brick_wall",
+    "moonbits:granite_tile_wall",
+    "moonbits:cracked_granite_tile_wall",
+    "moonbits:mossy_granite_tile_wall",
+	
+	"moonbits:sandstone_brick_wall",
+	"moonbits:cracked_sandstone_brick_wall",
+	"moonbits:sandstone_tile_wall",
+	"moonbits:cracked_sandstone_tile_wall",
+	
+	"moonbits:red_sandstone_brick_wall",
+	"moonbits:cracked_red_sandstone_brick_wall",
+	"moonbits:red_sandstone_tile_wall",
+	"moonbits:cracked_red_sandstone_tile_wall",
+	
+    "moonbits:tuff_wall",
+    "moonbits:polished_tuff_wall",
+    "moonbits:tuff_brick_wall",
+    "moonbits:cracked_tuff_brick_wall",
+    "moonbits:mossy_tuff_brick_wall",
+    "moonbits:tuff_tile_wall",
+    "moonbits:cracked_tuff_tile_wall",
+    "moonbits:mossy_tuff_tile_wall",
+	
+    "moonbits:calcite_wall",
+    "moonbits:polished_calcite_wall",
+    "moonbits:calcite_brick_wall",
+    "moonbits:cracked_calcite_brick_wall",
+    "moonbits:mossy_calcite_brick_wall",
+    "moonbits:calcite_tile_wall",
+    "moonbits:cracked_calcite_tile_wall",
+    "moonbits:mossy_calcite_tile_wall",
+	
+    "moonbits:dripstone_wall",
+    "moonbits:cobbled_dripstone_wall",
+    "moonbits:polished_dripstone_wall",
+    "moonbits:dripstone_brick_wall",
+    "moonbits:cracked_dripstone_brick_wall",
+    "moonbits:mossy_dripstone_brick_wall",
+    "moonbits:dripstone_tile_wall",
+    "moonbits:cracked_dripstone_tile_wall",
+    "moonbits:mossy_dripstone_tile_wall",
+	
+    "moonbits:mossy_cobbled_deepslate_wall",
+    "moonbits:mossy_deepslate_brick_wall",
+    "moonbits:mossy_deepslate_tile_wall",
+	
+    "moonbits:smooth_prismarine_wall",
+    "moonbits:polished_prismarine_wall",
+    "moonbits:cracked_prismarine_brick_wall",
+    "moonbits:algal_prismarine_brick_wall",
+    "moonbits:prismarine_tile_wall",
+    "moonbits:cracked_prismarine_tile_wall",
+    "moonbits:algal_prismarine_tile_wall"
+  ]
+}

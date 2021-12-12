@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "moonbits:block/bamboo_bundle_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "moonbits:block/bamboo_bundle"
+    },
+    "axis=z": {
+      "model": "moonbits:block/bamboo_bundle_horizontal",
+      "x": 90
+    }
+  }
+}

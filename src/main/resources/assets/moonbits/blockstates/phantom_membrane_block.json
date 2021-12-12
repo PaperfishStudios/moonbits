@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "moonbits:block/phantom_membrane_block"
+    }
+  }
+}

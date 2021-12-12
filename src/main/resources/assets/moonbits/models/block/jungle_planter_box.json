@@ -1,0 +1,7 @@
+{
+    "parent": "moonbits:block/planter_box/planter_box",
+    "textures": {
+		"bottom": "moonbits:block/wood/jungle/jungle_planter_box_bottom",
+		"side": "moonbits:block/wood/jungle/jungle_planter_box"
+    }
+}
