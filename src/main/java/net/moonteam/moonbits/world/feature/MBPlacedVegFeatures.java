@@ -112,6 +112,10 @@ public class MBPlacedVegFeatures {
         RegistryKey<PlacedFeature> p_pumpkins = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_pumpkins"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_pumpkins.getValue(), MBVegetationFeatures.PUMPKIN_PATCH.withPlacement(
                 CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+        // toadstools
+        RegistryKey<PlacedFeature> p_toadstools = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_toadstools"));
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, p_toadstools.getValue(), MBVegetationFeatures.TOADSTOOLS.withPlacement(
+                CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
         // autumn flowers
         RegistryKey<PlacedFeature> p_autumn_flowers = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_autumn_flowers"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_autumn_flowers.getValue(), MBVegetationFeatures.AUTUMN_FLOWERS.withPlacement(
@@ -153,10 +157,6 @@ public class MBPlacedVegFeatures {
         ), GenerationStep.Feature.VEGETAL_DECORATION, wild_carrot_patch);
 
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(
-                BiomeKeys.TAIGA, BiomeKeys.OLD_GROWTH_PINE_TAIGA, BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA
-        ), GenerationStep.Feature.VEGETAL_DECORATION, wild_potato_patch);
-
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(
                 BiomeKeys.BEACH, BiomeKeys.STONY_SHORE
         ), GenerationStep.Feature.VEGETAL_DECORATION, sea_beets_patch);
 
@@ -166,6 +166,14 @@ public class MBPlacedVegFeatures {
                     c.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MiscPlacedFeatures.FOREST_ROCK);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, p_coarse_dirt_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, p_fallen_oak);
+                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, wild_potato_patch);
+                });
+
+        // taiga modifications
+        BiomeModifications.create(new Identifier(MoonbitsMain.MOD_ID,"moonbits_taiga"))
+                .add(ModificationPhase.ADDITIONS, BiomeSelectors.categories(Biome.Category.TAIGA), (c) -> {
+                    c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, p_coarse_dirt_patch);
+                    c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, p_fallen_spruce);
                 });
 
         // flower forest modifications
@@ -206,6 +214,7 @@ public class MBPlacedVegFeatures {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_sunflowers);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, forgetmenot_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_pumpkins);
+                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_toadstools);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, wild_carrot_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, p_coarse_dirt_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, p_leafbed_patch);
@@ -228,7 +237,8 @@ public class MBPlacedVegFeatures {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_sunflowers);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, forgetmenot_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_pumpkins);
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, wild_potato_patch);
+                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_toadstools);
+                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, wild_carrot_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, p_coarse_dirt_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, p_podzol_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, p_leafbed_patch);

@@ -13,10 +13,11 @@ import net.minecraft.util.registry.Registry;
 import net.moonteam.moonbits.item.GlowBerryPitsBlock;
 import net.moonteam.moonbits.item.MBArmorMaterials;
 import net.moonteam.moonbits.item.SweetBerryPitsBlock;
+import net.moonteam.moonbits.item.WrenchItem;
 
 public class MBItems {
     
-	public static final Item GRASS_TUFT = new Item(new FabricItemSettings().group(MBItemGroup.DECOR));
+	public static final Item GRASS_TUFT = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
 	public static final Item ITEM_HOOK = new ItemFrameItem(MBEntities.ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
 
 	public static final Block SWEET_BERRY_PITS_BLOCK = new SweetBerryPitsBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH));
@@ -41,6 +42,8 @@ public class MBItems {
 
 	public static final Item BUTTERCUP_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
 	public static final Item FORGETMENOT_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
+
+	public static final Item WRENCH = new WrenchItem(new FabricItemSettings().group(MBItemGroup.UTILITY));
 	
     public static final Item BABY_TURTLE_BUCKET = new EntityBucketItem(EntityType.TURTLE, Fluids.WATER, SoundEvents.ITEM_BUCKET_EMPTY_FISH,
 	(new Item.Settings()).maxCount(1).group(MBItemGroup.UTILITY));
@@ -88,13 +91,16 @@ public class MBItems {
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "oxeye_daisy_crown"), OXEYE_CROWN);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "allium_crown"), ALLIUM_CROWN);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "lily_of_the_valley_crown"), LILY_CROWN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "orchid_crown"), ORCHID_CROWN);
+		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "blue_orchid_crown"), ORCHID_CROWN);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "cornflower_crown"), CORNFLOWER_CROWN);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "azure_bluet_crown"), AZURE_BLUET_CROWN);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "tulip_crown"), TULIP_CROWN);
 
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "buttercup_crown"), BUTTERCUP_CROWN);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "forget_me_not_crown"), FORGETMENOT_CROWN);
+
+		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "wrench"), WRENCH);
+		//Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "redstone_"), WRENCH);
 
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "baby_turtle_bucket"), BABY_TURTLE_BUCKET);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "baby_strider_bucket"), BABY_STRIDER_BUCKET);

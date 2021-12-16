@@ -68,9 +68,9 @@ public class SeatBlock extends SlabBlock {
     }
 
     // no replacey :3
-    public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        return false;
-    }
+//    public boolean canReplace(BlockState state, ItemPlacementContext context) {
+//        return false;
+//    }
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
@@ -89,14 +89,14 @@ public class SeatBlock extends SlabBlock {
     public static void createEntity(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!world.isClient()) {
             SeatBlockEntity entity;
-            if (state.get(TYPE) == SlabType.TOP) {
-                entity = new SeatBlockEntity(world, pos.getX() + .5f, pos.getY() + .5f, pos.getZ() + .5f);
-                //entity.setPosition(pos.getX() + .5f, pos.getY() + 1f, pos.getZ() + .5f);
-                MoonbitsMain.LOGGER.info("created the seat entity on the top half");
-            } else {
+            if (state.get(TYPE) == SlabType.BOTTOM) {
                 entity = new SeatBlockEntity(world, pos.getX() + .5f, pos.getY(), pos.getZ() + .5f);
-                //entity.setPosition(pos.getX() + .5f, pos.getY() + .5f, pos.getZ() + .5f);
+                //entity.setPosition(pos.getX() + .5f, pos.getY() + 1f, pos.getZ() + .5f);
                 MoonbitsMain.LOGGER.info("created the seat entity on the bottom half");
+            } else {
+                entity = new SeatBlockEntity(world, pos.getX() + .5f, pos.getY() + .5f, pos.getZ() + .5f);
+                //entity.setPosition(pos.getX() + .5f, pos.getY() + .5f, pos.getZ() + .5f);
+                MoonbitsMain.LOGGER.info("created the seat entity on the top half");
             }
             world.spawnEntity(entity);
             player.startRiding(entity, true);

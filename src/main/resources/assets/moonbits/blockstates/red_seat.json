@@ -4,7 +4,7 @@
       "model": "moonbits:block/red_seat"
     },
     "type=double": {
-      "model": "moonbits:block/red_seat_dummy"
+      "model": "moonbits:block/red_seat_double"
     },
     "type=top": {
       "model": "moonbits:block/red_seat_top"

@@ -11,6 +11,7 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.SignType;
 import net.minecraft.util.registry.*;
+import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 import net.moonteam.moonbits.block.*;
 import net.moonteam.moonbits.world.feature.GoldenBirchSaplingGenerator;
 import net.moonteam.moonbits.world.feature.JacarandaSaplingGenerator;
@@ -71,16 +72,16 @@ public class MBBlocks {
 	public static final Block JUNGLE_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CRIMSON_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block WARPED_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block CRIMSON_PANEL = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block WARPED_PANEL = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
 	// BOOKSHELVES
 	public static final Block BIRCH_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block SPRUCE_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block JUNGLE_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CRIMSON_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block WARPED_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block CRIMSON_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block WARPED_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
 	// CARVED
 	public static final Block CARVED_OAK = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CARVED_BIRCH = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -88,8 +89,8 @@ public class MBBlocks {
 	public static final Block CARVED_JUNGLE = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CARVED_ACACIA = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CARVED_DARK_OAK = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CARVED_CRIMSON = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CARVED_WARPED = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block CARVED_CRIMSON = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block CARVED_WARPED = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
 	// PILLAR
 	public static final Block OAK_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block BIRCH_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -97,8 +98,8 @@ public class MBBlocks {
 	public static final Block JUNGLE_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CRIMSON_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block WARPED_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block CRIMSON_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block WARPED_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
 	// BOARDS
 	public static final Block OAK_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block BIRCH_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -106,14 +107,17 @@ public class MBBlocks {
 	public static final Block JUNGLE_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CRIMSON_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block WARPED_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block CRIMSON_BOARDS = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block WARPED_BOARDS = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
 
 	// AUTUMN BIRCH FOREST
 	public static final Block GOLDEN_BIRCH_LEAVES = new ParticleLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), MBParticles.FALLING_LEAF);
 	public static final Block GOLDEN_BIRCH_LEAF_CARPET = new LeafCarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).breakInstantly().nonOpaque().noCollision());
 	public static final Block GOLDEN_BIRCH_SAPLING =new MBSaplingBlock(new GoldenBirchSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
 	public static final Block POTTED_GOLDEN_BIRCH_SAPLING = new FlowerPotBlock(GOLDEN_BIRCH_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+
+	public static final Block TOADSTOOL = new ToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).strength(0.5F).sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
+	public static final Block SMALL_TOADSTOOLS = new SmallToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
 	public static final Block LEAFBED = new MBSnowyBlock(AbstractBlock.Settings.of(Material.SOIL, MapColor.ORANGE).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
 	public static final Block BEDROLL = new BedrollBlock(DyeColor.BROWN, AbstractBlock.Settings.of(Material.WOOL, MapColor.BROWN).strength(0.2F).sounds(BlockSoundGroup.WOOL).nonOpaque());
@@ -175,6 +179,8 @@ public class MBBlocks {
 	public static final SignType JACARANDA_SIGN_TYPE = SignTypeAccessor.registerNew(SignTypeAccessor.newSignType("jacaranda"));
 	public static final Block JACARANDA_SIGN = new SignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.PALE_GREEN).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD), JACARANDA_SIGN_TYPE);
 	public static final Block JACARANDA_WALL_SIGN = new WallSignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.PALE_GREEN).noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(JACARANDA_SIGN), JACARANDA_SIGN_TYPE);
+
+	public static final Block AZALEA_STEM = new AzaleaStemBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 
 	// - HONEY CONTENT LMAO
 	public static final Block HONEY_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
@@ -653,34 +659,27 @@ public class MBBlocks {
 	public static final Block CHISELED_BASALT = new PillarBlock(AbstractBlock.Settings.copy(Blocks.BASALT));
 
 	// LAPIS LAZULI BLOCKS
-	public static final Block LAPIS_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-	public static final Block LAPIS_STAIRS = new CustomStairsBlock(Blocks.LAPIS_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-	public static final Block LAPIS_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-
 	public static final Block SMOOTH_LAPIS = new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
 	public static final Block SMOOTH_LAPIS_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
 	public static final Block SMOOTH_LAPIS_STAIRS = new CustomStairsBlock(SMOOTH_LAPIS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-	public static final Block SMOOTH_LAPIS_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
 
 	public static final Block LAPIS_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
 	public static final Block LAPIS_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
 	public static final Block LAPIS_BRICK_STAIRS = new CustomStairsBlock(LAPIS_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-	public static final Block LAPIS_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
 
 	public static final Block LAPIS_TILES = new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
 	public static final Block LAPIS_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
 	public static final Block LAPIS_TILE_STAIRS = new CustomStairsBlock(LAPIS_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-	public static final Block LAPIS_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
 
 	public static final Block LAPIS_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
 
+	public static final Block QUARTZ_SHARD_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK));
 	// AMETHYST BLOCKS
 	public static final Block AMETHYST_SHARD_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
 	public static final Block POLISHED_AMETHYST = new Block(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
 	public static final Block AMETHYST_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
 	public static final Block AMETHYST_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
 	public static final Block AMETHYST_BRICK_STAIRS = new CustomStairsBlock(AMETHYST_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
-	public static final Block AMETHYST_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
 
 	// STORAGE BLOCKS
 	public static final Block APPLE_CRATE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
@@ -708,12 +707,13 @@ public class MBBlocks {
 	public static final Block STICK_STACK = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.SCAFFOLDING));
 	public static final Block CHARCOAL_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(1.2f, 0.8f).sounds(BlockSoundGroup.WOOD));
 
-	public static final Block SCUTE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.WEEPING_VINES));
+	public static final Block SCUTE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.STONE));
 
 	public static final Block ROTTEN_FLESH_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.WEEPING_VINES));
 	public static final Block BONE_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.AGGREGATE).hardness(1f).sounds(BlockSoundGroup.BONE));
 	public static final Block SPIDER_EYE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.WEEPING_VINES));
 	public static final Block PHANTOM_MEMBRANE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1f).sounds(BlockSoundGroup.NYLIUM));
+	public static final Block BLAZE_ROD = new MBRodBlock(FabricBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));
 	public static final Block BLAZE_ROD_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));
 	public static final Block ENDER_PEARL_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).hardness(1f).sounds(BlockSoundGroup.COPPER));
 
@@ -853,6 +853,9 @@ public class MBBlocks {
 		createBlock("golden_birch_sapling", GOLDEN_BIRCH_SAPLING, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "potted_golden_birch_sapling"), POTTED_GOLDEN_BIRCH_SAPLING);
 
+		createBlock("toadstool", TOADSTOOL, MBItemGroup.DECOR);
+		createBlock("small_toadstools", SMALL_TOADSTOOLS, MBItemGroup.DECOR);
+
 		createBlock("leafbed", LEAFBED, MBItemGroup.CONSTRUCTION);
 
 		createBlock("fur_block", FUR_BLOCK, MBItemGroup.CONSTRUCTION);
@@ -893,6 +896,8 @@ public class MBBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "jacaranda_sign"), JACARANDA_SIGN);
 		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "jacaranda_wall_sign"), JACARANDA_WALL_SIGN);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "jacaranda_sign"), (Item)(new SignItem(new Item.Settings().maxCount(16).group(ItemGroup.DECORATIONS), JACARANDA_SIGN, JACARANDA_WALL_SIGN)));
+
+		createBlock("azalea_stem", AZALEA_STEM, MBItemGroup.DECOR);
 
 		createBlock("honey_planks", HONEY_PLANKS, MBItemGroup.CONSTRUCTION);
 		createBlock("honey_stairs", HONEY_STAIRS, MBItemGroup.CONSTRUCTION);
@@ -1360,6 +1365,30 @@ public class MBBlocks {
 		
 		createBlock("chiseled_basalt", CHISELED_BASALT, MBItemGroup.CONSTRUCTION);
 
+		// MINERAL BLOCKS
+		// - LAPIS LAZULI BLOCKS
+		createBlock("smooth_lapis", SMOOTH_LAPIS, MBItemGroup.CONSTRUCTION);
+		createBlock("smooth_lapis_slab", SMOOTH_LAPIS_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("smooth_lapis_stairs", SMOOTH_LAPIS_STAIRS, MBItemGroup.CONSTRUCTION);
+
+		createBlock("lapis_bricks", LAPIS_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("lapis_brick_slab", LAPIS_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("lapis_brick_stairs", LAPIS_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+
+		createBlock("lapis_tiles", LAPIS_TILES, MBItemGroup.CONSTRUCTION);
+		createBlock("lapis_tile_slab", LAPIS_TILE_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("lapis_tile_stairs", LAPIS_TILE_STAIRS, MBItemGroup.CONSTRUCTION);
+
+		createBlock("lapis_pillar", LAPIS_PILLAR, MBItemGroup.CONSTRUCTION);
+
+		// - AMETHYST BLOCKS
+		createBlock("quartz_shard_block", QUARTZ_SHARD_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("amethyst_shard_block", AMETHYST_SHARD_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("polished_amethyst", POLISHED_AMETHYST, MBItemGroup.CONSTRUCTION);
+		createBlock("amethyst_bricks", AMETHYST_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("amethyst_brick_slab", AMETHYST_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("amethyst_brick_stairs", AMETHYST_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+
 		// STORAGE BLOCKS
 		createBlock("apple_crate", APPLE_CRATE, MBItemGroup.DECOR);
 		createBlock("carrot_crate", CARROT_CRATE, MBItemGroup.DECOR);
@@ -1392,6 +1421,8 @@ public class MBBlocks {
 		createBlock("bone_bundle", BONE_BUNDLE, MBItemGroup.DECOR);
 		createBlock("spider_eye_block", SPIDER_EYE_BLOCK, MBItemGroup.DECOR);
 		createBlock("phantom_membrane_block", PHANTOM_MEMBRANE_BLOCK, MBItemGroup.DECOR);
+
+		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "blaze_rod"), BLAZE_ROD);
 		createBlock("blaze_rod_bundle", BLAZE_ROD_BUNDLE, MBItemGroup.DECOR);
 		createBlock("ender_pearl_block", ENDER_PEARL_BLOCK, MBItemGroup.DECOR);
     }

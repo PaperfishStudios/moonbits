@@ -3,6 +3,7 @@ package net.moonteam.moonbits.world.feature;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.dynamic.Range;
 import net.minecraft.util.math.BlockPos;
@@ -28,6 +29,8 @@ public class MBVegetationFeatures {
 
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> BUTTERCUP_PATCH;
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> FORGETMENOT_PATCH;
+    public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> TOADSTOOLS;
+    public static final DataPool<BlockState> TOADSTOOL_LIST;
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> AUTUMN_FLOWERS;
     public static final DataPool<BlockState> AUTUMN_FLOWER_LIST;
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> ROSE_BUSH;
@@ -39,6 +42,7 @@ public class MBVegetationFeatures {
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> PUMPKIN_PATCH;
 
     public static final ConfiguredFeature<?, ?> PEBBLES;
+    public static final ConfiguredFeature<?, ?> BOULDER;
 
     public static final ConfiguredFeature<ReplaceBlobsFeatureConfig, ?> COARSE_DIRT_PATCH;
     public static final ConfiguredFeature<ReplaceBlobsFeatureConfig, ?> PODZOL_PATCH;
@@ -105,6 +109,10 @@ public class MBVegetationFeatures {
                 MBBlocks.FORGETMENOT.getDefaultState(),
                 Blocks.GRASS.getDefaultState()
         );
+        TOADSTOOL_LIST = new DataPool.Builder<BlockState>()
+                .add(MBBlocks.TOADSTOOL.getDefaultState(), 3)
+                .add(MBBlocks.SMALL_TOADSTOOLS.getDefaultState(), 2)
+                .build();
         AUTUMN_FLOWER_LIST = new DataPool.Builder<BlockState>()
                 .add(Blocks.OXEYE_DAISY.getDefaultState(), 4)
                 .add(Blocks.DANDELION.getDefaultState(), 2)
@@ -119,9 +127,10 @@ public class MBVegetationFeatures {
 
         BUTTERCUP_PATCH = ConfiguredFeatures.register("patch_buttercups", Feature.RANDOM_PATCH.configure(createPatch(32, BlockStateProvider.of(MBBlocks.BUTTERCUP))));
         FORGETMENOT_PATCH = ConfiguredFeatures.register("patch_forgetmenot", Feature.RANDOM_PATCH.configure(createPatch(32, BlockStateProvider.of(MBBlocks.FORGETMENOT))));
-        AUTUMN_FLOWERS = ConfiguredFeatures.register("autumn_flowers", Feature.FLOWER.configure(createPatch(64, new WeightedBlockStateProvider(AUTUMN_FLOWER_LIST))));
-        ROSE_BUSH = ConfiguredFeatures.register("rose_bush", Feature.RANDOM_PATCH.configure(createPatch(16, BlockStateProvider.of(Blocks.ROSE_BUSH))));
-        SUNFLOWERS = ConfiguredFeatures.register("mb_sunflowers", Feature.RANDOM_PATCH.configure(createPatch(16, BlockStateProvider.of(Blocks.SUNFLOWER))));
+        TOADSTOOLS = ConfiguredFeatures.register("toadstools", Feature.FLOWER.configure(createPatch(6, new WeightedBlockStateProvider(TOADSTOOL_LIST))));
+        AUTUMN_FLOWERS = ConfiguredFeatures.register("autumn_flowers", Feature.FLOWER.configure(createPatch(16, new WeightedBlockStateProvider(AUTUMN_FLOWER_LIST))));
+        ROSE_BUSH = ConfiguredFeatures.register("rose_bush", Feature.RANDOM_PATCH.configure(createPatch(8, BlockStateProvider.of(Blocks.ROSE_BUSH))));
+        SUNFLOWERS = ConfiguredFeatures.register("mb_sunflowers", Feature.RANDOM_PATCH.configure(createPatch(8, BlockStateProvider.of(Blocks.SUNFLOWER))));
 
         HYACINTHS = ConfiguredFeatures.register("hyacinths", Feature.SIMPLE_RANDOM_SELECTOR.configure(new SimpleRandomFeatureConfig(List.of(
                 () -> Feature.RANDOM_PATCH.configure(ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK.configure(
@@ -138,6 +147,19 @@ public class MBVegetationFeatures {
 
         PEBBLE_FEATURE = Registry.register(Registry.FEATURE, "pebble_feature", new PebbleFeature(CountConfig.CODEC));
         PEBBLES = ConfiguredFeatures.register("pebbles", PEBBLE_FEATURE.configure(new CountConfig(4)));
+        BOULDER = ConfiguredFeatures.register("stone_boulder", Feature.GEODE.configure(
+                new GeodeFeatureConfig(new GeodeLayerConfig(
+                        BlockStateProvider.of(Blocks.STONE),
+                        BlockStateProvider.of(Blocks.STONE),
+                        BlockStateProvider.of(Blocks.STONE),
+                        BlockStateProvider.of(Blocks.STONE),
+                        BlockStateProvider.of(Blocks.STONE),
+                        List.of(Blocks.STONE.getDefaultState()),
+                        BlockTags.FEATURES_CANNOT_REPLACE.getId(), BlockTags.GEODE_INVALID_BLOCKS.getId()),
+                        new GeodeLayerThicknessConfig(0.5, 1, 1.25, 1.96),
+                        new GeodeCrackConfig(0, 0, 0),
+                        0.35, 0.083, true,
+                        UniformIntProvider.create(4, 6), UniformIntProvider.create(3, 4), UniformIntProvider.create(1, 2), -16, 16, 0.05, 1)));
 
         COARSE_DIRT_PATCH = ConfiguredFeatures.register("coarse_dirt_floor", Feature.NETHERRACK_REPLACE_BLOBS.configure(
                 new ReplaceBlobsFeatureConfig(

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/wood/warped/carved_warped_wood",
+    "end": "moonbits:block/wood/warped/carved_warped_hyphae",
     "side": "moonbits:block/wood/warped/warped_pillar"
   }
 }

@@ -1,0 +1,24 @@
+{
+	"multipart": [
+		{    "apply": { "model": "moonbits:block/azalea_stem_core", "uvlock": true }},
+			
+		{   "when": { "up": "true" },
+            "apply": { "model": "moonbits:block/azalea_stem", "uvlock": true }
+        },
+		{   "when": { "down": "true" },
+            "apply": { "model": "moonbits:block/azalea_stem", "uvlock": true, "x": 180 }
+        },
+		{   "when": { "north": "true" },
+            "apply": { "model": "moonbits:block/azalea_stem", "uvlock": true, "x": 90 }
+        },
+		{   "when": { "south": "true" },
+            "apply": { "model": "moonbits:block/azalea_stem", "uvlock": true, "x": 90, "y": 180 }
+        },
+		{   "when": { "east": "true" },
+            "apply": { "model": "moonbits:block/azalea_stem", "uvlock": true, "x": 90, "y": 90 }
+        },
+		{   "when": { "west": "true" },
+            "apply": { "model": "moonbits:block/azalea_stem", "uvlock": true, "x": 90, "y": 270 }
+        }
+  ]
+}

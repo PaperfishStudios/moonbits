@@ -18,10 +18,7 @@ import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.HoglinBrain;
 import net.minecraft.entity.mob.HoglinEntity;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.CowEntity;
-import net.minecraft.entity.passive.PassiveEntity;
-import net.minecraft.entity.passive.PolarBearEntity;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemConvertible;
@@ -45,6 +42,7 @@ import net.moonteam.moonbits.MBEntities;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 public class GrizzlyBearEntity extends AnimalEntity implements Angerable {
@@ -66,8 +64,10 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable {
         goalSelector.add(6, new WanderAroundFarGoal(this, 1.0D));
         goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         goalSelector.add(8, new LookAroundGoal(this));
-        targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
-        targetSelector.add(3, new UniversalAngerGoal<>(this, false));
+        targetSelector.add(1, new GrizzlyBearRevengeGoal());
+        targetSelector.add(2, new ProtectBabiesGoal());
+        targetSelector.add(3, new ActiveTargetGoal<>(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
+        targetSelector.add(4, new UniversalAngerGoal<>(this, false));
     }
 
     protected void initDataTracker() {
@@ -185,6 +185,55 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable {
         }
 
         return bl;
+    }
+
+    class GrizzlyBearRevengeGoal
+            extends RevengeGoal {
+        public GrizzlyBearRevengeGoal() {
+            super(GrizzlyBearEntity.this);
+        }
+
+        @Override
+        public void start() {
+            super.start();
+            if (GrizzlyBearEntity.this.isBaby()) {
+                this.callSameTypeForRevenge();
+                this.stop();
+            }
+        }
+
+        @Override
+        protected void setMobEntityTarget(MobEntity mob, LivingEntity target) {
+            if (mob instanceof GrizzlyBearEntity && !mob.isBaby()) {
+                super.setMobEntityTarget(mob, target);
+            }
+        }
+    }
+    class ProtectBabiesGoal
+            extends ActiveTargetGoal<PlayerEntity> {
+        public ProtectBabiesGoal() {
+            super(GrizzlyBearEntity.this, PlayerEntity.class, 20, true, true, null);
+        }
+
+        @Override
+        public boolean canStart() {
+            if (GrizzlyBearEntity.this.isBaby()) {
+                return false;
+            }
+            if (super.canStart()) {
+                List<GrizzlyBearEntity> list = GrizzlyBearEntity.this.world.getNonSpectatingEntities(GrizzlyBearEntity.class, GrizzlyBearEntity.this.getBoundingBox().expand(8.0, 4.0, 8.0));
+                for (GrizzlyBearEntity grizzlyBearEntity : list) {
+                    if (!grizzlyBearEntity.isBaby()) continue;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        @Override
+        protected double getFollowRange() {
+            return super.getFollowRange() * 0.5;
+        }
     }
 
     static {

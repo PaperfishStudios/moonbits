@@ -1,0 +1,32 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "moonbits:block/manufactured/blaze_rod",
+		"blaze_rod": "moonbits:block/manufactured/blaze_rod"
+	},
+	"elements": [
+		{
+			"from": [6, 0, 6],
+			"to": [10, 16, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 16], "texture": "#blaze_rod"},
+				"east": {"uv": [0, 0, 4, 16], "texture": "#blaze_rod"},
+				"south": {"uv": [0, 0, 4, 16], "texture": "#blaze_rod"},
+				"west": {"uv": [0, 0, 4, 16], "texture": "#blaze_rod"},
+				"up": {"uv": [4, 0, 8, 4], "texture": "#blaze_rod"},
+				"down": {"uv": [4, 0, 8, 4], "texture": "#blaze_rod"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"head": {
+			"rotation": [-60, 0, 0],
+			"translation": [0, 5, -9]
+		}
+	}
+}

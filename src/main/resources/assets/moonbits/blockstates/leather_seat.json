@@ -4,7 +4,7 @@
       "model": "moonbits:block/leather_seat"
     },
     "type=double": {
-      "model": "moonbits:block/leather_seat_dummy"
+      "model": "moonbits:block/leather_seat_double"
     },
     "type=top": {
       "model": "moonbits:block/leather_seat_top"

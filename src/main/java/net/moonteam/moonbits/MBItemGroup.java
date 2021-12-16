@@ -31,9 +31,12 @@ public class MBItemGroup {
 		new Identifier("moonbits", "debug")) 
 		.icon(() -> new ItemStack(Items.COMMAND_BLOCK))
 		.appendItems(stacks -> {
+			stacks.add(new ItemStack(Items.SPAWNER));
+			stacks.add(new ItemStack(Items.DRAGON_EGG));
 			stacks.add(new ItemStack(Items.COMMAND_BLOCK));
 			stacks.add(new ItemStack(Items.CHAIN_COMMAND_BLOCK));
 			stacks.add(new ItemStack(Items.REPEATING_COMMAND_BLOCK));
+			stacks.add(new ItemStack(Items.COMMAND_BLOCK_MINECART));
 			stacks.add(new ItemStack(Items.STRUCTURE_BLOCK));
 			stacks.add(new ItemStack(Items.JIGSAW));
 			stacks.add(new ItemStack(Items.BARRIER));

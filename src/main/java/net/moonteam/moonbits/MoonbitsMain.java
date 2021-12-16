@@ -12,7 +12,7 @@ public class MoonbitsMain implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// register and initialise the Stuff uwu
-		MBEvents.initEvents(); // i think there was a reason this one is init instead of register but i forgot lol
+		MBEvents.initEvents();
 		MBParticles.registerParticles();
 		MBPlacedVegFeatures.registerFeatures();
 		MBBlocks.registerBlocks();

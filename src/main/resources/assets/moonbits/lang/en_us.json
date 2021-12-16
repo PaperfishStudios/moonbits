@@ -201,6 +201,9 @@
     "block.moonbits.golden_birch_leaf_carpet": "Golden Birch Leaf Carpet",
     "block.moonbits.golden_birch_sapling": "Golden Birch Sapling",
 	
+    "block.moonbits.toadstool": "Toadstool",
+    "block.moonbits.small_toadstools": "Small Toadstools",
+	
     "block.moonbits.leafbed": "Leafbed",
 	
     "item.moonbits.fur": "Fur",
@@ -247,6 +250,8 @@
 	"block.moonbits.jacaranda_column": "Carved Jacaranda Column", 
 	"block.moonbits.jacaranda_bookshelf": "Jacaranda Bookshelf", 
 	"block.moonbits.jacaranda_planter_box": "Jacaranda Planter Box", 
+	
+	"block.moonbits.azalea_stem": "Azalea Stem",
 	
 	"item.moonbits.honey_bun": "Honey Bun",
 	

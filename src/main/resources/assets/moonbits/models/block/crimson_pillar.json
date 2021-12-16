@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/wood/crimson/carved_crimson_wood",
+    "end": "moonbits:block/wood/crimson/carved_crimson_hyphae",
     "side": "moonbits:block/wood/crimson/crimson_pillar"
   }
 }

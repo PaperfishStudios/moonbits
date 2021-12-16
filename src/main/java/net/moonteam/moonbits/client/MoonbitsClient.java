@@ -31,6 +31,8 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.IRON_LADDER,
                 MBBlocks.BUTTERCUP,
                 MBBlocks.FORGETMENOT,
+                MBBlocks.TOADSTOOL,
+                MBBlocks.SMALL_TOADSTOOLS,
                 MBBlocks.WHITE_HYACINTH,
                 MBBlocks.PINK_HYACINTH,
                 MBBlocks.LIGHT_BLUE_HYACINTH,
