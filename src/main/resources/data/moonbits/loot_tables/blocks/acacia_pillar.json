@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:acacia_pillarID"
+          "name": "moonbits:acacia_pillar"
         }
       ],
       "conditions": [

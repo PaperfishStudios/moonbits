@@ -10,16 +10,15 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.moonteam.moonbits.item.GlowBerryPitsBlock;
-import net.moonteam.moonbits.item.MBArmorMaterials;
-import net.moonteam.moonbits.item.SweetBerryPitsBlock;
-import net.moonteam.moonbits.item.WrenchItem;
+import net.moonteam.moonbits.item.*;
 
 public class MBItems {
     
 	public static final Item GRASS_TUFT = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item ITEM_HOOK = new ItemFrameItem(MBEntities.ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
+	public static final Item ITEM_HOOK = new ItemHookItem(MBEntities.ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
+	public static final Item GLOW_ITEM_HOOK = new ItemHookItem(MBEntities.GLOW_ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
 
+	public static final Item APPLE_SEEDS = new AliasedBlockItem(MBBlocks.APPLE_OAK_SPROUT, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Block SWEET_BERRY_PITS_BLOCK = new SweetBerryPitsBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH));
 	public static final Block GLOW_BERRY_PITS_BLOCK = new GlowBerryPitsBlock(AbstractBlock.Settings.of(Material.PLANT).ticksRandomly().noCollision().luminance(CaveVines.getLuminanceSupplier(14)).breakInstantly().sounds(BlockSoundGroup.CAVE_VINES));
 	public static final Item ROASTED_BERRIES = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8F).build()));
@@ -76,6 +75,7 @@ public class MBItems {
 	
     
 	public static void registerItems(){
+		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "apple_seeds"), APPLE_SEEDS);
 		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "sweet_berry_pits"), SWEET_BERRY_PITS_BLOCK);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "sweet_berry_pits"), new BlockItem(SWEET_BERRY_PITS_BLOCK, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
 		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "glow_berry_pits"), GLOW_BERRY_PITS_BLOCK);
@@ -85,6 +85,7 @@ public class MBItems {
 
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "grass_tuft"), GRASS_TUFT);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "item_hook"), ITEM_HOOK);
+		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "glow_item_hook"), GLOW_ITEM_HOOK);
 
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "poppy_crown"), POPPY_CROWN);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "dandelion_crown"), DANDELION_CROWN);

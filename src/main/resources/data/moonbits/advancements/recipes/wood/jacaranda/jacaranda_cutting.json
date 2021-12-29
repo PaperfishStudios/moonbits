@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:wood/jacaranda/cutter/slab",
+      "moonbits:wood/jacaranda/cutter/stairs",
+      "moonbits:wood/jacaranda/cutter/panel",
+      "moonbits:wood/jacaranda/cutter/boards",
+      "moonbits:wood/jacaranda/cutter/carved_wood",
+      "moonbits:wood/jacaranda/cutter/pillar"
+    ]
+  },
+  "criteria": {
+    "has_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "moonbits:jacaranda_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:wood/jacaranda/cutter/jacaranda_slab",
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:honey_wood"
+    },
+    "result": "minecraft:honey_log",
+    "count": 1
+}

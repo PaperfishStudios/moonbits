@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:jacaranda_planks"
+    }
+  },
+  "result": {
+    "item": "moonbits:jacaranda_trapdoor",
+    "count": 2
+  }
+}

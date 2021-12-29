@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:carved_warped_hyphaeID"
+          "name": "moonbits:carved_warped_hyphae"
         }
       ],
       "conditions": [

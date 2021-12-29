@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -20,6 +21,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.moonteam.moonbits.MBBlocks;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
@@ -87,6 +89,15 @@ public class ToadstoolBlock extends Block implements Fertilizable, Waterloggable
         BlockPos blockPos = pos.down();
         BlockState blockState = world.getBlockState(blockPos);
         return blockState.isOf(this) || blockState.isIn(BlockTags.DIRT);
+    }
+
+    @Nullable
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        if (ctx.getWorld().getBlockState(ctx.getBlockPos().up()).isOf(this)){
+            return getDefaultState().with(CAP, false);
+        }
+        return super.getPlacementState(ctx);
     }
 
     @Override

@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:honey_boardsID"
+          "name": "moonbits:honey_boards"
         }
       ],
       "conditions": [

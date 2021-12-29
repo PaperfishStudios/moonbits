@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:warped_boardsID"
+          "name": "moonbits:warped_boards"
         }
       ],
       "conditions": [

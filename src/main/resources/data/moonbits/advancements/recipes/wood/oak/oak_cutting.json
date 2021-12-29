@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:wood/oak/cutter/slab",
+      "moonbits:wood/oak/cutter/stairs",
+      "moonbits:wood/oak/cutter/panel",
+      "moonbits:wood/oak/cutter/boards",
+      "moonbits:wood/oak/cutter/carved_wood",
+      "moonbits:wood/oak/cutter/pillar"
+    ]
+  },
+  "criteria": {
+    "has_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:oak_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:wood/oak/cutter/oak_slab",
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

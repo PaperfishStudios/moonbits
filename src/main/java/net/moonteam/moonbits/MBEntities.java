@@ -10,10 +10,7 @@ import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.BiomeKeys;
-import net.moonteam.moonbits.entity.GrizzlyBearEntity;
-import net.moonteam.moonbits.entity.SeatBlockEntity;
-import net.moonteam.moonbits.entity.ItemHookEntity;
-import net.moonteam.moonbits.entity.MoobloomEntity;
+import net.moonteam.moonbits.entity.*;
 
 import java.util.Optional;
 
@@ -36,12 +33,12 @@ public class MBEntities {
     public static final EntityType<ItemHookEntity> ITEM_HOOK_ENTITY = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("moonbits", "item_hook"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MISC, ItemHookEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F))
+            FabricEntityTypeBuilder.<ItemHookEntity>create(SpawnGroup.MISC, ItemHookEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).fireImmune()
                     .trackRangeChunks(10).trackedUpdateRate(Integer.MAX_VALUE).build());
-    public static final EntityType<ItemHookEntity> GLOW_ITEM_HOOK_ENTITY = Registry.register(
+    public static final EntityType<GlowItemHookEntity> GLOW_ITEM_HOOK_ENTITY = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("moonbits", "glow_item_hook"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MISC, ItemHookEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F))
+            FabricEntityTypeBuilder.<GlowItemHookEntity>create(SpawnGroup.MISC, GlowItemHookEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).fireImmune()
                     .trackRangeChunks(10).trackedUpdateRate(Integer.MAX_VALUE).build());
 
     public static final EntityType<SeatBlockEntity> SEAT_BLOCK_ENTITY = Registry.register(

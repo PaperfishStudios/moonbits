@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:crimson_boardsID"
+          "name": "moonbits:crimson_boards"
         }
       ],
       "conditions": [

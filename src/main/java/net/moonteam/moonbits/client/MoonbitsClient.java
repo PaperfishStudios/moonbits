@@ -50,6 +50,8 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.JACARANDA_TRAPDOOR,
                 MBBlocks.HONEY_DOOR,
                 MBBlocks.HONEY_TRAPDOOR,
+                MBBlocks.APPLE_OAK_SPROUT,
+                MBBlocks.APPLE_OAK_SAPLING,
                 MBBlocks.GOLDEN_BIRCH_LEAF_CARPET,
                 MBBlocks.GOLDEN_BIRCH_SAPLING,
                 MBBlocks.GLASS_DOOR

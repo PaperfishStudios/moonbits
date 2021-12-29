@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "moonbits:honey_log",
+        "moonbits:honey_wood",
+        "moonbits:stripped_honey_log",
+        "moonbits:stripped_honey_wood"
+    ]
+}

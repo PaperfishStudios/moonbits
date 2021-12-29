@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:birch_boardsID"
+          "name": "moonbits:birch_boards"
         }
       ],
       "conditions": [

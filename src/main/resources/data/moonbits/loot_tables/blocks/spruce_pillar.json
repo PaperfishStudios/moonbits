@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:spruce_pillarID"
+          "name": "moonbits:spruce_pillar"
         }
       ],
       "conditions": [

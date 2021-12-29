@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:carved_jungle_woodID"
+          "name": "moonbits:carved_jungle_wood"
         }
       ],
       "conditions": [

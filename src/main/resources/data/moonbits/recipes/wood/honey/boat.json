@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:honey_planks"
+    }
+  },
+  "result": {
+    "item": "moonbits:honey_boat"
+  }
+}

@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:jacaranda_boardsID"
+          "name": "moonbits:jacaranda_boards"
         }
       ],
       "conditions": [

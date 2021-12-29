@@ -73,10 +73,24 @@ public class MBData {
 
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
 			BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.OAK_LEAVES);
-			return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);}, MBBlocks.JACARANDA_LEAVES, MBBlocks.JACARANDA_LEAF_CARPET, MBBlocks.HANGING_JACARANDA_LEAVES, MBBlocks.HANGING_JACARANDA_LEAVES_PLANT);
+			return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
+				MBBlocks.BUDDING_OAK_LEAVES,
+				MBBlocks.FLOWERING_OAK_LEAVES,
+				MBBlocks.FRUITING_OAK_LEAVES,
+				MBBlocks.JACARANDA_LEAVES,
+				MBBlocks.JACARANDA_LEAF_CARPET,
+				MBBlocks.HANGING_JACARANDA_LEAVES,
+				MBBlocks.HANGING_JACARANDA_LEAVES_PLANT
+		);
 		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
 			ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.OAK_LEAVES);
-			return provider == null ? -1 : provider.getColor(stack, tintIndex);}, MBBlocks.JACARANDA_LEAVES, MBBlocks.JACARANDA_LEAF_CARPET);
+			return provider == null ? -1 : provider.getColor(stack, tintIndex);},
+				MBBlocks.BUDDING_OAK_LEAVES,
+				MBBlocks.FLOWERING_OAK_LEAVES,
+				MBBlocks.FRUITING_OAK_LEAVES,
+				MBBlocks.JACARANDA_LEAVES,
+				MBBlocks.JACARANDA_LEAF_CARPET
+		);
 	}
 
     public static void registerFlammable() {

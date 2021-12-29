@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:wood/crimson/cutter/slab",
+      "moonbits:wood/crimson/cutter/stairs",
+      "moonbits:wood/crimson/cutter/panel",
+      "moonbits:wood/crimson/cutter/boards",
+      "moonbits:wood/crimson/cutter/carved_wood",
+      "moonbits:wood/crimson/cutter/pillar"
+    ]
+  },
+  "criteria": {
+    "has_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:crimson_planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:wood/crimson/cutter/slab",
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

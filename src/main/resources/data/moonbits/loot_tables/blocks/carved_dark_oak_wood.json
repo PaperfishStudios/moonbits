@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:carved_dark_oak_woodID"
+          "name": "moonbits:carved_dark_oak_wood"
         }
       ],
       "conditions": [

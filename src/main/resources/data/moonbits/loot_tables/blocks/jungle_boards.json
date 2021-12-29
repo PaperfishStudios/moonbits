@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:jungle_boardsID"
+          "name": "moonbits:jungle_boards"
         }
       ],
       "conditions": [

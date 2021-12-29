@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:wood/crimson/cutter/planks",
+      "moonbits:wood/crimson/cutter/slab_log",
+      "moonbits:wood/crimson/cutter/stairs_log",
+      "moonbits:wood/crimson/cutter/log",
+      "moonbits:wood/crimson/cutter/wood",
+      "moonbits:wood/crimson/cutter/stripped_log",
+      "moonbits:wood/crimson/cutter/stripped_wood"
+    ]
+  },
+  "criteria": {
+    "has_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:crimson_stems"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:wood/crimson/cutter/planks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_log",
+      "has_the_recipe"
+    ]
+  ]
+}

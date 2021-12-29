@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "moonbits:jacaranda_log"
+    },
+    "result": "moonbits:jacaranda_wood",
+    "count": 1
+}

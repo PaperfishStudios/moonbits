@@ -2,8 +2,9 @@
   "parent": "moonbits:recipes/root",
   "rewards": {
     "recipes": [
-      "moonbits:storage_blocks/sweet_berry_hedge",
-      "moonbits:storage_blocks/sweet_berries_from_hedge"
+      "moonbits:storage_blocks/sweet_berry_basket",
+      "moonbits:storage_blocks/sweet_berries_from_basket",
+      "moonbits:storage_blocks/sweet_berry_hedge"
     ]
   },
   "criteria": {
@@ -20,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "moonbits:storage_blocks/sweet_berry_hedge"
+        "recipe": "moonbits:storage_blocks/sweet_berry_basket"
       }
     }
   },

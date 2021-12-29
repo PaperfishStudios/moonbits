@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "minecraft:bookshelves",
+  "pattern": [
+    "###",
+    "BBB",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:crimson_planks"
+    },
+    "B": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "item": "moonbits:crimson_bookshelf",
+    "count": 1
+  }
+}

@@ -205,22 +205,22 @@ public class MBEvents {
     }
 
     public static BlockPos dropFromFullBlock(BlockPos block, World world) {
-        if (world.getBlockState(block).isSideSolidFullSquare(world, block.up(), Direction.DOWN)) {
+        if (world.getBlockState(block.up()).isSideSolidFullSquare(world, block.up(), Direction.DOWN)) {
             return block.up();
         }
-        else if (world.getBlockState(block).isSideSolidFullSquare(world, block.north(), Direction.SOUTH)) {
+        else if (world.getBlockState(block.north()).isSideSolidFullSquare(world, block.north(), Direction.SOUTH)) {
             return block.north();
         }
-        else if (world.getBlockState(block).isSideSolidFullSquare(world, block.south(), Direction.NORTH)) {
+        else if (world.getBlockState(block.south()).isSideSolidFullSquare(world, block.south(), Direction.NORTH)) {
             return block.south();
         }
-        else if (world.getBlockState(block).isSideSolidFullSquare(world, block.east(), Direction.WEST)) {
+        else if (world.getBlockState(block.east()).isSideSolidFullSquare(world, block.east(), Direction.WEST)) {
             return block.east();
         }
-        else if (world.getBlockState(block).isSideSolidFullSquare(world, block.west(), Direction.EAST)) {
+        else if (world.getBlockState(block.west()).isSideSolidFullSquare(world, block.west(), Direction.EAST)) {
             return block.west();
         }
-        else if (world.getBlockState(block).isSideSolidFullSquare(world, block.down(), Direction.UP)) {
+        else if (world.getBlockState(block.down()).isSideSolidFullSquare(world, block.down(), Direction.UP)) {
             return block.down();
         }
         return block.up();

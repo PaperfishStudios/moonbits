@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:wood/honey/honey_planks",
+      "moonbits:wood/honey/cutter/planks",
+      "moonbits:wood/honey/cutter/slab_log",
+      "moonbits:wood/honey/cutter/stairs_log",
+      "moonbits:wood/honey/cutter/log",
+      "moonbits:wood/honey/cutter/wood",
+      "moonbits:wood/honey/cutter/stripped_log",
+      "moonbits:wood/honey/cutter/stripped_wood"
+    ]
+  },
+  "criteria": {
+    "has_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "moonbits:honey_logs"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:wood/honey/honey_planks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_log",
+      "has_the_recipe"
+    ]
+  ]
+}

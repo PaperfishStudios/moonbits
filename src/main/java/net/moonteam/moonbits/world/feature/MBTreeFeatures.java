@@ -1,7 +1,9 @@
 package net.moonteam.moonbits.world.feature;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
@@ -12,6 +14,7 @@ import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
@@ -33,6 +36,9 @@ public class MBTreeFeatures {
     public static final FallenLogFeature FALLEN_LOG;
 
     // single tree features
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> APPLE_OAK;
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> APPLE_OAK_BEES_005;
+
     public static final ConfiguredFeature<TreeFeatureConfig, ?> GOLDEN_BIRCH;
     public static final ConfiguredFeature<TreeFeatureConfig, ?> GOLDEN_BIRCH_BEES_0002;
     public static final ConfiguredFeature<TreeFeatureConfig, ?> GOLDEN_BIRCH_BEES_002;
@@ -57,6 +63,20 @@ public class MBTreeFeatures {
         );
     }
 
+    private static TreeFeatureConfig.Builder appleOak() {
+        return new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(Blocks.OAK_LOG), // Trunk block provider
+                new StraightTrunkPlacer(4, 2, 0),
+                new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
+                        .add(Blocks.OAK_LEAVES.getDefaultState(), 10)
+                        .add(MBBlocks.FLOWERING_OAK_LEAVES.getDefaultState(), 1)
+                        .add(MBBlocks.BUDDING_OAK_LEAVES.getDefaultState(), 2)
+                ), // Foliage block provider
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
+        );
+    }
+
     private static TreeFeatureConfig.Builder goldenBirch() {
         return treeBuilder(Blocks.BIRCH_LOG, MBBlocks.GOLDEN_BIRCH_LEAVES, 4, 2, 0, 2).ignoreVines();
     }
@@ -74,6 +94,9 @@ public class MBTreeFeatures {
         BEES = new BeehiveTreeDecorator(1.0F);
 
         FALLEN_LOG = Registry.register(Registry.FEATURE, "fallen_log_feature", new FallenLogFeature(FallenLogConfig.CODEC));
+
+        APPLE_OAK = ConfiguredFeatures.register("apple_oak", Feature.TREE.configure(appleOak().build()));
+        APPLE_OAK_BEES_005 = ConfiguredFeatures.register("apple_oak_bees_005", Feature.TREE.configure(appleOak().decorators(List.of(BEES_005)).build()));
 
         GOLDEN_BIRCH = ConfiguredFeatures.register("golden_birch", Feature.TREE.configure(goldenBirch().decorators(List.of(
                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.GOLDEN_BIRCH_LEAF_CARPET))

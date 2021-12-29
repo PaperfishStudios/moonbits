@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.block.*;
 import net.minecraft.block.PressurePlateBlock.ActivationRule;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
@@ -13,6 +14,7 @@ import net.minecraft.util.SignType;
 import net.minecraft.util.registry.*;
 import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
 import net.moonteam.moonbits.block.*;
+import net.moonteam.moonbits.world.feature.AppleOakSaplingGenerator;
 import net.moonteam.moonbits.world.feature.GoldenBirchSaplingGenerator;
 import net.moonteam.moonbits.world.feature.JacarandaSaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -72,16 +74,16 @@ public class MBBlocks {
 	public static final Block JUNGLE_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CRIMSON_PANEL = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block WARPED_PANEL = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block CRIMSON_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block WARPED_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
 	// BOOKSHELVES
 	public static final Block BIRCH_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block SPRUCE_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block JUNGLE_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CRIMSON_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block WARPED_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block CRIMSON_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block WARPED_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
 	// CARVED
 	public static final Block CARVED_OAK = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CARVED_BIRCH = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -89,8 +91,8 @@ public class MBBlocks {
 	public static final Block CARVED_JUNGLE = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CARVED_ACACIA = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CARVED_DARK_OAK = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CARVED_CRIMSON = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block CARVED_WARPED = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block CARVED_CRIMSON = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block CARVED_WARPED = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
 	// PILLAR
 	public static final Block OAK_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block BIRCH_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -98,8 +100,8 @@ public class MBBlocks {
 	public static final Block JUNGLE_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CRIMSON_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block WARPED_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block CRIMSON_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block WARPED_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
 	// BOARDS
 	public static final Block OAK_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block BIRCH_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -107,8 +109,17 @@ public class MBBlocks {
 	public static final Block JUNGLE_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CRIMSON_BOARDS = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block WARPED_BOARDS = new Block(AbstractBlock.Settings.of(Material.NETHER_WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block CRIMSON_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block WARPED_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
+
+	// APPLE OAKS
+	public static final Block FRUITING_OAK_LEAVES = new FruitingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES));
+	public static final Block FLOWERING_OAK_LEAVES = new GrowingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), FRUITING_OAK_LEAVES);
+	public static final Block BUDDING_OAK_LEAVES = new GrowingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).ticksRandomly().nonOpaque(), FLOWERING_OAK_LEAVES);
+	public static final Block APPLE_OAK_SPROUT =new AppleSproutBlock(AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
+	public static final Block POTTED_APPLE_OAK_SPROUT = new FlowerPotBlock(APPLE_OAK_SPROUT, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+	public static final Block APPLE_OAK_SAPLING =new MBSaplingBlock(new AppleOakSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
+	public static final Block POTTED_APPLE_OAK_SAPLING = new FlowerPotBlock(APPLE_OAK_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
 	// AUTUMN BIRCH FOREST
 	public static final Block GOLDEN_BIRCH_LEAVES = new ParticleLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), MBParticles.FALLING_LEAF);
@@ -278,8 +289,6 @@ public class MBBlocks {
 	public static final Block MOSSY_STONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.STONE));
 	public static final Block MOSSY_STONE_TILE_STAIRS = new CustomStairsBlock(STONE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.STONE));
 	public static final Block MOSSY_STONE_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.STONE));
-	
-	// COBBLESTONE DECOR
 	
 	// ANDESITE
 	public static final Block COBBLED_ANDESITE = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
@@ -690,9 +699,12 @@ public class MBBlocks {
 	public static final Block EGG_BASKET = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
 
 	public static final Block GLISTERING_MELON_BLOCK = new PillarBlock(FabricBlockSettings.of(Material.GOURD).hardness(1.0F).sounds(BlockSoundGroup.WOOD).luminance((state) -> 12));
-	
+
+	public static final Block SWEET_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.5F).sounds(BlockSoundGroup.NYLIUM));
+	public static final Block GLOW_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.5F).sounds(BlockSoundGroup.NYLIUM).luminance((state) -> 12));
+
 	public static final Block SWEET_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
-	public static final Block GLOW_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
+	public static final Block GLOW_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES).luminance((state) -> 12));
 	public static final Block PLUCKED_SWEET_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
 	public static final Block PLUCKED_GLOW_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
 
@@ -847,6 +859,14 @@ public class MBBlocks {
 		createBlock("dark_oak_planter_box", DARK_OAK_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("crimson_planter_box", CRIMSON_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("warped_planter_box", WARPED_PLANTER_BOX, MBItemGroup.DECOR);
+		// - APPLE OAK
+		createBlock("budding_oak_leaves", BUDDING_OAK_LEAVES, MBItemGroup.DECOR);
+		createBlock("flowering_oak_leaves", FLOWERING_OAK_LEAVES, MBItemGroup.DECOR);
+		createBlock("apple_oak_leaves", FRUITING_OAK_LEAVES, MBItemGroup.DECOR);
+		createBlock("apple_oak_sapling", APPLE_OAK_SAPLING, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "potted_apple_oak_sapling"), POTTED_APPLE_OAK_SAPLING);
+		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "apple_oak_sprout"), APPLE_OAK_SPROUT);
+		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "potted_apple_oak_sprout"), POTTED_APPLE_OAK_SPROUT);
 		// - GOLDEN BIRCH
 		createBlock("golden_birch_leaves", GOLDEN_BIRCH_LEAVES, MBItemGroup.DECOR);
 		createBlock("golden_birch_leaf_carpet", GOLDEN_BIRCH_LEAF_CARPET, MBItemGroup.DECOR);
@@ -1398,6 +1418,9 @@ public class MBBlocks {
 		createBlock("egg_basket", EGG_BASKET, MBItemGroup.DECOR);
 		
 		createBlock("glistering_melon_block", GLISTERING_MELON_BLOCK, MBItemGroup.DECOR);
+
+		createBlock("sweet_berry_basket", SWEET_BERRY_BASKET, MBItemGroup.DECOR);
+		createBlock("glow_berry_basket", GLOW_BERRY_BASKET, MBItemGroup.DECOR);
 		
 		createBlock("sweet_berry_hedge", SWEET_BERRY_HEDGE, MBItemGroup.DECOR);
 		createBlock("glow_berry_hedge", GLOW_BERRY_HEDGE, MBItemGroup.DECOR);

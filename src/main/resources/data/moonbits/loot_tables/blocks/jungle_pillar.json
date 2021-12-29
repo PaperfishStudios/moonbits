@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:jungle_pillarID"
+          "name": "moonbits:jungle_pillar"
         }
       ],
       "conditions": [
