@@ -43,6 +43,8 @@ public class MBData {
     public static final Tag<Block> PLANTER_BOXES = TagFactory.BLOCK.create(new Identifier("moonbits", "planter_boxes"));
 	// used for tough dirt & other similar blocks that work as dirt but cannot be replaced by tree growth n such
 	public static final Tag<Block> SOIL_NON_REPLACEABLE = TagFactory.BLOCK.create(new Identifier("moonbits", "soil_non_replaceable"));
+	// tag for which blocks can be replaced by deposits in worldgen (tough dirt ores)
+	public static final Tag<Block> TOUGH_DIRT = TagFactory.BLOCK.create(new Identifier("moonbits", "tough_dirt"));
 
 	// used to remove 1 seed from the drop table of crops when harvested by right-click
 	public static final Tag<Item> SEEDS_ROOTS = TagFactory.ITEM.create(new Identifier("moonbits", "seeds_roots"));
@@ -65,11 +67,21 @@ public class MBData {
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
 			BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.GRASS);
 			return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
-				MBBlocks.GRASS_TURF, MBBlocks.GRASS_TURF_STAIRS, MBBlocks.GRASS_TURF_SLAB, MBBlocks.GRASS_CARPET);
+				MBBlocks.TOUGH_GRASS,
+				MBBlocks.GRASS_TURF,
+				MBBlocks.GRASS_TURF_STAIRS,
+				MBBlocks.GRASS_TURF_SLAB,
+				MBBlocks.GRASS_CARPET
+		);
 		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
 			ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.GRASS);
 			return provider == null ? -1 : provider.getColor(stack, tintIndex);},
-				MBBlocks.GRASS_TURF, MBBlocks.GRASS_TURF_STAIRS, MBBlocks.GRASS_TURF_SLAB, MBBlocks.GRASS_CARPET);
+				MBBlocks.TOUGH_GRASS,
+				MBBlocks.GRASS_TURF,
+				MBBlocks.GRASS_TURF_STAIRS,
+				MBBlocks.GRASS_TURF_SLAB,
+				MBBlocks.GRASS_CARPET
+		);
 
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
 			BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.OAK_LEAVES);

@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+      "minecraft:cobblestone",
+      "minecraft:cobbled_deepslate",
+      "minecraft:blackstone",
+      "moonbits:cobbled_andesite",
+      "moonbits:cobbled_diorite",
+      "moonbits:cobbled_granite",
+      "moonbits:cobbled_dripstone"
+    ]
+}

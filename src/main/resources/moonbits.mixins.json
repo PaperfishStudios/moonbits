@@ -7,6 +7,7 @@
     "BeeEntityAccessor",
     "BeeEntityMixin",
     "BlockEntityTypeMixin",
+    "ChickenRenderMixin",
     "ClientRecipeBookMixin",
     "CocoaPodMixin",
     "CropBlockMixin",
@@ -26,7 +27,8 @@
     "StriderSaddleAccess",
     "SugarCaneMixin",
     "TreeDecoratorTypeInvoker",
-    "TurtleEntityMixin"
+    "TurtleEntityMixin",
+    "VanillaSurfaceRulesMixin"
   ],
   "client": [],
   "server": [],

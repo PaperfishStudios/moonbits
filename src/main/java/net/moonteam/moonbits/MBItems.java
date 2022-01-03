@@ -26,6 +26,7 @@ public class MBItems {
 	public static final Item HONEY_BUN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F).build()));
 
     public static final Item PEAT = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
+	public static final Item COPPER_NUGGET = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
 	public static final Item FUR = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
 
 
@@ -125,6 +126,7 @@ public class MBItems {
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "black_glass_shard"), BLACK_GLASS_SHARD);
 
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "peat"), PEAT);
+		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "copper_nugget"), COPPER_NUGGET);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "fur"), FUR);
 
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "moobloom_spawn_egg"), MOOBLOOM_SPAWN_EGG);

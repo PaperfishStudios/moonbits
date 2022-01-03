@@ -64,7 +64,7 @@ public class MBPlacedVegFeatures {
         RegistryKey<PlacedFeature> p_leafbed_patch = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_leafbed_patch"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_leafbed_patch.getValue(),
                 MBVegetationFeatures.LEAFBED_PATCH.withPlacement(
-                        CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, BiomePlacementModifier.of()));
+                        CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.BOTTOM_TO_TOP_RANGE, BiomePlacementModifier.of()));
 
 
         // buttercup patch!
@@ -92,26 +92,26 @@ public class MBPlacedVegFeatures {
         RegistryKey<PlacedFeature> p_rose_bushes = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_rose_bushes"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_rose_bushes.getValue(),
                 MBVegetationFeatures.ROSE_BUSH.withPlacement(
-                        CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()
+                        CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()
                 ));
         // sunflowers
         RegistryKey<PlacedFeature> p_sunflowers = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_sunflowers"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_sunflowers.getValue(),
                 MBVegetationFeatures.SUNFLOWERS.withPlacement(
-                        CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()
+                        CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()
                 ));
 
         // hyacinths
         RegistryKey<PlacedFeature> p_hyacinths = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_hyacinths"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_hyacinths.getValue(),
                 MBVegetationFeatures.HYACINTHS.withPlacement(
-                        CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()
+                        CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()
                 ));
 
         // pumpkins
         RegistryKey<PlacedFeature> p_pumpkins = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_pumpkins"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_pumpkins.getValue(), MBVegetationFeatures.PUMPKIN_PATCH.withPlacement(
-                CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+                CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
         // toadstools
         RegistryKey<PlacedFeature> p_toadstools = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_toadstools"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_toadstools.getValue(), MBVegetationFeatures.TOADSTOOLS.withPlacement(
@@ -119,7 +119,7 @@ public class MBPlacedVegFeatures {
         // autumn flowers
         RegistryKey<PlacedFeature> p_autumn_flowers = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_autumn_flowers"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_autumn_flowers.getValue(), MBVegetationFeatures.AUTUMN_FLOWERS.withPlacement(
-                CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+                CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
         // golden birch trees
         RegistryKey<PlacedFeature> p_golden_birch = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_gb_0002"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_golden_birch.getValue(), MBTreeFeatures.GOLDEN_BIRCH_BEES_0002.withPlacement(

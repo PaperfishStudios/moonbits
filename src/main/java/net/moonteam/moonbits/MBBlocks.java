@@ -233,12 +233,16 @@ public class MBBlocks {
 	public static final Block TOUGH_DIRT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
 	public static final Block TOUGH_DIRT_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
 	public static final Block TOUGH_DIRT_STAIRS = new CustomStairsBlock(TOUGH_DIRT.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
-    public static final Block DIRT_BRICKS = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.TUFF));
-    public static final Block DIRT_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.TUFF));
-    public static final Block DIRT_BRICK_STAIRS = new CustomStairsBlock(DIRT_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.TUFF));
-	public static final Block PEAT_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block CLAY_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block GOLD_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
+    public static final Block DIRT_BRICKS = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
+    public static final Block DIRT_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
+    public static final Block DIRT_BRICK_STAIRS = new CustomStairsBlock(DIRT_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
+
+	public static final Block TOUGH_GRASS = new MBSnowyBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
+
+	public static final Block PEAT_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block CLAY_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block GOLD_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block COPPER_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
 	
 	public static final Block REGOLITH = new Block(FabricBlockSettings.of(Material.AGGREGATE).hardness(1.5f).sounds(BlockSoundGroup.GRAVEL));
 
@@ -963,9 +967,12 @@ public class MBBlocks {
         createBlock("dirt_brick_slab", DIRT_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
         createBlock("dirt_brick_stairs", DIRT_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
 
+		createBlock("tough_grass", TOUGH_GRASS, MBItemGroup.CONSTRUCTION);
+
 		createBlock("peat_deposit", PEAT_DEPOSIT, MBItemGroup.CONSTRUCTION);
 		createBlock("clay_deposit", CLAY_DEPOSIT, MBItemGroup.CONSTRUCTION);
 		createBlock("gold_deposit", GOLD_DEPOSIT, MBItemGroup.CONSTRUCTION);
+		createBlock("copper_deposit", COPPER_DEPOSIT, MBItemGroup.CONSTRUCTION);
 
 		createBlock("regolith", REGOLITH, MBItemGroup.CONSTRUCTION);
 		

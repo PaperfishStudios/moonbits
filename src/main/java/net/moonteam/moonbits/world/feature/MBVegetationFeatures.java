@@ -127,10 +127,10 @@ public class MBVegetationFeatures {
 
         BUTTERCUP_PATCH = ConfiguredFeatures.register("patch_buttercups", Feature.RANDOM_PATCH.configure(createPatch(32, BlockStateProvider.of(MBBlocks.BUTTERCUP))));
         FORGETMENOT_PATCH = ConfiguredFeatures.register("patch_forgetmenot", Feature.RANDOM_PATCH.configure(createPatch(32, BlockStateProvider.of(MBBlocks.FORGETMENOT))));
-        TOADSTOOLS = ConfiguredFeatures.register("toadstools", Feature.FLOWER.configure(createPatch(6, new WeightedBlockStateProvider(TOADSTOOL_LIST))));
-        AUTUMN_FLOWERS = ConfiguredFeatures.register("autumn_flowers", Feature.FLOWER.configure(createPatch(16, new WeightedBlockStateProvider(AUTUMN_FLOWER_LIST))));
+        TOADSTOOLS = ConfiguredFeatures.register("toadstools", Feature.FLOWER.configure(createPatch(3, new WeightedBlockStateProvider(TOADSTOOL_LIST))));
+        AUTUMN_FLOWERS = ConfiguredFeatures.register("autumn_flowers", Feature.FLOWER.configure(createPatch(12, new WeightedBlockStateProvider(AUTUMN_FLOWER_LIST))));
         ROSE_BUSH = ConfiguredFeatures.register("rose_bush", Feature.RANDOM_PATCH.configure(createPatch(8, BlockStateProvider.of(Blocks.ROSE_BUSH))));
-        SUNFLOWERS = ConfiguredFeatures.register("mb_sunflowers", Feature.RANDOM_PATCH.configure(createPatch(8, BlockStateProvider.of(Blocks.SUNFLOWER))));
+        SUNFLOWERS = ConfiguredFeatures.register("mb_sunflowers", Feature.RANDOM_PATCH.configure(createPatch(6, BlockStateProvider.of(Blocks.SUNFLOWER))));
 
         HYACINTHS = ConfiguredFeatures.register("hyacinths", Feature.SIMPLE_RANDOM_SELECTOR.configure(new SimpleRandomFeatureConfig(List.of(
                 () -> Feature.RANDOM_PATCH.configure(ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK.configure(
@@ -177,7 +177,7 @@ public class MBVegetationFeatures {
                 new ReplaceBlobsFeatureConfig(
                         Blocks.GRASS_BLOCK.getDefaultState(),
                         MBBlocks.LEAFBED.getDefaultState(),
-                        UniformIntProvider.create(2, 5)
+                        UniformIntProvider.create(3, 8)
                 )));
 
 

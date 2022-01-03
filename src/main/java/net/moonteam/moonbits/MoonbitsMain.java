@@ -1,6 +1,7 @@
 package net.moonteam.moonbits;
 
 import net.fabricmc.api.ModInitializer;
+import net.moonteam.moonbits.world.feature.MBPlacedCaveFeatures;
 import net.moonteam.moonbits.world.feature.MBPlacedVegFeatures;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,10 +15,14 @@ public class MoonbitsMain implements ModInitializer {
 		// register and initialise the Stuff uwu
 		MBEvents.initEvents();
 		MBParticles.registerParticles();
+
+		MBPlacedCaveFeatures.registerFeatures();
 		MBPlacedVegFeatures.registerFeatures();
+
 		MBBlocks.registerBlocks();
 		MBItems.registerItems();
 		MBEntities.registerEntities();
+
 		MBData.registerFlammable();
 		MBData.registerFuel();
 		MBData.registerStrippedBlocks();

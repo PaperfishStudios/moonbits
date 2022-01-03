@@ -68,19 +68,28 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Bucketa
 	}
 
     public void copyDataToStack(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getOrCreateNbt();
 		Bucketable.copyDataToStack(this, stack);
+        NbtCompound nbtCompound = stack.getOrCreateNbt();
         nbtCompound.putBoolean("IsBaby", isBaby());
         nbtCompound.putInt("Age", getBreedingAge());
 	}
 
 	public void copyDataFromNbt(NbtCompound nbt) {
+		Bucketable.copyDataFromNbt(this, nbt);
         setBaby(true); // maybe this doesnt need to be there?
-		if (nbt.getInt("Age") < 0)
+		if (nbt.contains("Age"))
 			setBreedingAge(nbt.getInt("Age"));
 		else
 			setBreedingAge(-24000);
-		Bucketable.copyDataFromNbt(this, nbt);
+	}
+
+	@Inject(method="writeCustomDataToNbt", at=@At("RETURN"))
+	public void onWriteNbt(NbtCompound nbt, CallbackInfo ci) {
+		nbt.putBoolean("FromBucket", this.isFromBucket());
+	}
+	@Inject(method="readCustomDataFromNbt", at=@At("RETURN"))
+	public void onReadNbt(NbtCompound nbt, CallbackInfo ci) {
+		this.setFromBucket(nbt.getBoolean("FromBucket"));
 	}
     
     public ItemStack getBucketItem() {
@@ -93,8 +102,8 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Bucketa
 
 	@Inject(method = "initialize", at = @At("HEAD"), cancellable = true)
 	private void onInit(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt, CallbackInfoReturnable<EntityData> info) {
-		if (isFromBucket()) {
-			info.setReturnValue(super.initialize(world, difficulty, spawnReason, entityData, entityNbt));
+		if (spawnReason == SpawnReason.BUCKET) {
+			info.setReturnValue(entityData);
 		}
 	}
 

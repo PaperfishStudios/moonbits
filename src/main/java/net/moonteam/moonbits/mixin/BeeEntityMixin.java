@@ -33,7 +33,7 @@ public class BeeEntityMixin extends AnimalEntity {
         //goalSelector.add(6, new ActiveTargetGoal<>(this, MoobloomEntity.class, 10, true, false, null));
     }
 
-    @Shadow
+    //@Shadow
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return null;
     }

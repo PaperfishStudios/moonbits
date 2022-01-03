@@ -29,6 +29,7 @@ public class MoonbitsClient implements ClientModInitializer {
 		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
                 MBBlocks.ROPE_LADDER,
                 MBBlocks.IRON_LADDER,
+                MBBlocks.TOUGH_GRASS,
                 MBBlocks.BUTTERCUP,
                 MBBlocks.FORGETMENOT,
                 MBBlocks.TOADSTOOL,
