@@ -253,6 +253,7 @@ public class MBBlocks {
 	public static final Block PEAT_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.STONE));
 
 	public static final Block LAMPROOT = new LamprootBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).luminance((state) -> 7));
+	public static final Block CAVEBLOOM_FLOWERS = new CavebloomFlowerBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().ticksRandomly().sounds(BlockSoundGroup.GRASS));
 	public static final Block CAVEBLOOM_VINE = new CavebloomVineBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().ticksRandomly().sounds(BlockSoundGroup.GRASS));
 	public static final Item CAVEBLOOMS = new BlockItem(CAVEBLOOM_VINE, new Item.Settings().group(MBItemGroup.DECOR));
 	// - PLANTER BOXES
@@ -983,6 +984,7 @@ public class MBBlocks {
 		createBlock("peat_brick_wall", PEAT_BRICK_WALL, MBItemGroup.CONSTRUCTION);
 
 		createBlock("lamproot", LAMPROOT, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "cavebloom_flowers"), CAVEBLOOM_FLOWERS);
 		// so that the item has the right id (not important probably but dw)
 		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "cavebloom_vine"), CAVEBLOOM_VINE);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "caveblooms"), CAVEBLOOMS);

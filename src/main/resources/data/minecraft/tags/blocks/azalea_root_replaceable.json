@@ -1,0 +1,11 @@
+{
+    "replace": false,
+    "values": [
+        "moonbits:tough_dirt",
+        "moonbits:tough_grass",
+        "moonbits:regolith",
+        "moonbits:clay_deposit",
+        "moonbits:gold_deposit",
+        "moonbits:copper_deposit"
+    ]
+}

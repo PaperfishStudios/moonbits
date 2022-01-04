@@ -26,21 +26,45 @@ import net.moonteam.moonbits.MBBlocks;
 import java.util.Random;
 import java.util.stream.Stream;
 
-public class CavebloomVineBlock extends AbstractLichenBlock implements Fertilizable, Waterloggable {
+public class CavebloomFlowerBlock extends AbstractLichenBlock implements Fertilizable, Waterloggable  {
     private static final BooleanProperty WATERLOGGED;
+    //private static final BooleanProperty BLOOMING;
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
         builder.add(WATERLOGGED);
     }
 
-    public CavebloomVineBlock(Settings settings) {
+    public CavebloomFlowerBlock(AbstractBlock.Settings settings) {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(WATERLOGGED, false));
     }
 
+    @Override
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        grow(world, random, pos, state);
+        super.randomTick(state, world, pos, random);
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (player.getMainHandStack().getItem() != Items.BONE_MEAL && !player.shouldCancelInteraction()) {
+            dropFlowers(state, world, pos);
+            return ActionResult.SUCCESS;
+        }
+        return ActionResult.PASS;
+    }
+
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        if (state.get(WATERLOGGED)) {
+            world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.setBlockState(pos, swapBlock(state), 0);
+        }
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+    }
+
     public BlockState swapBlock(BlockState state) {
-        return MBBlocks.CAVEBLOOM_FLOWERS.getDefaultState()
+        return MBBlocks.CAVEBLOOM_VINE.getDefaultState()
                 .with(Properties.UP, state.get(Properties.UP))
                 .with(Properties.DOWN, state.get(Properties.DOWN))
                 .with(Properties.NORTH, state.get(Properties.NORTH))
@@ -49,38 +73,10 @@ public class CavebloomVineBlock extends AbstractLichenBlock implements Fertiliza
                 .with(Properties.WEST, state.get(Properties.WEST));
     }
 
-    @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        int randomNum = random.nextInt(25);
-        if (randomNum == 0) {
-            int i = 5;
-            int j = 4;
-            for (BlockPos blockPos : BlockPos.iterate(pos.add(-4, -1, -4), pos.add(4, 1, 4))) {
-                if (!world.getBlockState(blockPos).isOf(this) || --i > 0) continue;
-                return;
-            }
-            grow(world, random, pos, state);
-        }
-        if (randomNum == 1
-                && ((world.getBlockState(pos.north()).isOf(this) && world.getBlockState(pos.south()).isOf(this))
-                || (world.getBlockState(pos.east()).isOf(this) && world.getBlockState(pos.west()).isOf(this))
-                || (world.getBlockState(pos.up()).isOf(this) && world.getBlockState(pos.down()).isOf(this)))
-        ) {
-            world.setBlockState(pos, swapBlock(state), 0);
-        }
-        super.randomTick(state, world, pos, random);
-    }
-
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        return ActionResult.PASS;
-    }
-
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if (state.get(WATERLOGGED)) {
-            world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-        }
-        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+    public void dropFlowers(BlockState state, World world, BlockPos pos) {
+        world.setBlockState(pos, swapBlock(state), 0);
+        dropStack(world, pos, new ItemStack(MBBlocks.CAVEBLOOMS));
+        world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 0.5F, 0.8F + world.random.nextFloat() * 0.4F);
     }
 
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
@@ -88,7 +84,7 @@ public class CavebloomVineBlock extends AbstractLichenBlock implements Fertiliza
     }
 
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        this.trySpreadRandomly(state, world, pos, random);
+        this.trySpreadRandomly(swapBlock(state), world, pos, random);
     }
 
     public boolean canReplace(BlockState state, ItemPlacementContext context) {

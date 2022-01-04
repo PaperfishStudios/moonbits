@@ -57,7 +57,10 @@ public class MBEntities {
                 BiomeKeys.OLD_GROWTH_BIRCH_FOREST,
                 BiomeKeys.TAIGA,
                 BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA,
-                BiomeKeys.OLD_GROWTH_PINE_TAIGA
+                BiomeKeys.OLD_GROWTH_PINE_TAIGA,
+                BiomeKeys.SNOWY_TAIGA,
+                BiomeKeys.DARK_FOREST,
+                BiomeKeys.WOODED_BADLANDS
         ), SpawnGroup.CREATURE, GRIZZLY_BEAR, 8, 1, 4);
     }
 }

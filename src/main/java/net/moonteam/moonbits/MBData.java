@@ -44,7 +44,7 @@ public class MBData {
 	// used for tough dirt & other similar blocks that work as dirt but cannot be replaced by tree growth n such
 	public static final Tag<Block> SOIL_NON_REPLACEABLE = TagFactory.BLOCK.create(new Identifier("moonbits", "soil_non_replaceable"));
 	// tag for which blocks can be replaced by deposits in worldgen (tough dirt ores)
-	public static final Tag<Block> TOUGH_DIRT = TagFactory.BLOCK.create(new Identifier("moonbits", "tough_dirt"));
+	public static final Tag<Block> TOUGH_DIRT = TagFactory.BLOCK.create(new Identifier("moonbits", "tough_soils"));
 
 	// used to remove 1 seed from the drop table of crops when harvested by right-click
 	public static final Tag<Item> SEEDS_ROOTS = TagFactory.ITEM.create(new Identifier("moonbits", "seeds_roots"));

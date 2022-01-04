@@ -43,6 +43,7 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.SEA_BEETS,
                 MBBlocks.LAMPROOT,
                 MBBlocks.CAVEBLOOM_VINE,
+                MBBlocks.CAVEBLOOM_FLOWERS,
                 MBBlocks.JACARANDA_LEAF_CARPET,
                 MBBlocks.JACARANDA_SAPLING,
                 MBBlocks.HANGING_JACARANDA_LEAVES,

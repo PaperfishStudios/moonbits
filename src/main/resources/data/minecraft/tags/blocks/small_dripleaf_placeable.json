@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "moonbits:tough_grass",
+        "moonbits:clay_deposit",
+        "moonbits:peat_deposit",
+        "moonbits:peat_block"
+    ]
+}
