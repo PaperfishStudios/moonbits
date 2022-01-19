@@ -30,6 +30,13 @@ public class MBEntities {
                     .defaultAttributes(GrizzlyBearEntity::createGrizzAttributes)
                     .dimensions(EntityDimensions.fixed(1.4F, 1.1F)).build());
 
+    public static final EntityType<GlareEntity> GLARE = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier("moonbits", "glare"),
+            FabricEntityTypeBuilder.createMob().spawnGroup(SpawnGroup.CREATURE).entityFactory(GlareEntity::new)
+                    .defaultAttributes(GlareEntity::createAttributes)
+                    .dimensions(EntityDimensions.fixed(1F, 1)).build());
+
     public static final EntityType<ItemHookEntity> ITEM_HOOK_ENTITY = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("moonbits", "item_hook"),
@@ -51,6 +58,10 @@ public class MBEntities {
                 BiomeKeys.FLOWER_FOREST,
                 BiomeKeys.MEADOW
         ), SpawnGroup.CREATURE, MOOBLOOM, 8, 2, 4);
+
+        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(
+                BiomeKeys.LUSH_CAVES
+        ), SpawnGroup.CREATURE, GLARE, 12, 1, 1);
 
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(
                 BiomeKeys.BIRCH_FOREST,

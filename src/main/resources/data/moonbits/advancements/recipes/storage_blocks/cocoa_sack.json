@@ -1,0 +1,33 @@
+{
+  "parent": "moonbits:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:storage_blocks/cocoa_sack",
+      "moonbits:storage_blocks/cocoa_from_sack"
+    ]
+  },
+  "criteria": {
+    "has_beans": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:cocoa_beans"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:storage_blocks/cocoa_sack"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_beans",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -5,6 +5,7 @@ import net.moonteam.moonbits.world.feature.MBPlacedCaveFeatures;
 import net.moonteam.moonbits.world.feature.MBPlacedVegFeatures;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 public class MoonbitsMain implements ModInitializer {
 	public static final String MOD_ID = "moonbits"; //todo: replace the plaintext instances of this with the id, so we dont accidentally make typos
@@ -13,12 +14,15 @@ public class MoonbitsMain implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// register and initialise the Stuff uwu
+		GeckoLib.initialize();
+
 		MBEvents.initEvents();
 		MBParticles.registerParticles();
 
 		MBPlacedCaveFeatures.registerFeatures();
 		MBPlacedVegFeatures.registerFeatures();
 
+		MBSounds.initSounds();
 		MBBlocks.registerBlocks();
 		MBItems.registerItems();
 		MBEntities.registerEntities();

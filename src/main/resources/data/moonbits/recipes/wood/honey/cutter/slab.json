@@ -1,8 +1,8 @@
 {
     "type": "minecraft:stonecutting",
     "ingredient": {
-        "item": "minecraft:honey_planks"
+        "item": "moonbits:honey_planks"
     },
-    "result": "minecraft:honey_slab",
+    "result": "moonbits:honey_slab",
     "count": 2
 }

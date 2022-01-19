@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_tough_dirt": {
+    "has_dirt": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "moonbits:dirt_caves/tough_dirt_slab"
+        "recipe": "moonbits:dirt_caves/tough_dirt"
       }
     }
   },
   "requirements": [
     [
-      "has_tough_dirt",
+      "has_dirt",
       "has_the_recipe"
     ]
   ]

@@ -61,7 +61,7 @@ public class CavebloomVineBlock extends AbstractLichenBlock implements Fertiliza
             }
             grow(world, random, pos, state);
         }
-        if (randomNum == 1
+        if (randomNum == 1 && world.getLightLevel(pos) < 12
                 && ((world.getBlockState(pos.north()).isOf(this) && world.getBlockState(pos.south()).isOf(this))
                 || (world.getBlockState(pos.east()).isOf(this) && world.getBlockState(pos.west()).isOf(this))
                 || (world.getBlockState(pos.up()).isOf(this) && world.getBlockState(pos.down()).isOf(this)))

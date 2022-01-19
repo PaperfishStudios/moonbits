@@ -24,7 +24,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "moonbits:wood/acacia/cutter/acacia_slab",
+        "recipe": "moonbits:wood/acacia/cutter/slab"
       }
     }
   },

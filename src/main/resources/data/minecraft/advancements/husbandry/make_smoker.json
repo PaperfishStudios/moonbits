@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "display": {
+    "icon": {
+      "item": "minecraft:smoker"
+    },
+    "title": {
+      "translate": "advancements.husbandry.make_smoker.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.make_smoker.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "smoker": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:smoker"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "smoker"
+    ]
+  ]
+}

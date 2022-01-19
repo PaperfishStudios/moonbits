@@ -1,0 +1,466 @@
+{
+  "item.wrench.use": {
+    "subtitle": "subtitles.item.mbwrench",
+    "sounds": [
+      "moonbits:item/wrench1",
+      "moonbits:item/wrench2",
+      "moonbits:item/wrench3",
+      "moonbits:item/wrench4",
+      "moonbits:item/wrench5"
+    ]
+  },
+  
+  "block.rope_ladder.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "moonbits:block/ropeladder1",
+      "moonbits:block/ropeladder2",
+      "moonbits:block/ropeladder3",
+      "moonbits:block/ropeladder4",
+      "moonbits:block/ropeladder5"
+    ]
+  },
+  "block.iron_ladder.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "moonbits:block/ironladder1",
+      "moonbits:block/ironladder2",
+      "moonbits:block/ironladder3",
+      "moonbits:block/ironladder4",
+      "moonbits:block/ironladder5"
+    ]
+  },
+  
+  "block.regolith.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "moonbits:block/regolith/dig1",
+      "moonbits:block/regolith/dig2",
+      "moonbits:block/regolith/dig3",
+      "moonbits:block/regolith/dig4"
+    ]
+  },
+  "block.regolith.fall": {
+    "sounds": [
+      "moonbits:block/regolith/step1",
+      "moonbits:block/regolith/step2",
+      "moonbits:block/regolith/step3",
+      "moonbits:block/regolith/step4"
+    ]
+  },
+  "block.regolith.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "moonbits:block/regolith/step1",
+      "moonbits:block/regolith/step2",
+      "moonbits:block/regolith/step3",
+      "moonbits:block/regolith/step4"
+    ]
+  },
+  "block.regolith.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "moonbits:block/regolith/dig1",
+      "moonbits:block/regolith/dig2",
+      "moonbits:block/regolith/dig3",
+      "moonbits:block/regolith/dig4"
+    ]
+  },
+  "block.regolith.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "moonbits:block/regolith/step1",
+      "moonbits:block/regolith/step2",
+      "moonbits:block/regolith/step3",
+      "moonbits:block/regolith/step4"
+    ]
+  },
+  
+  "block.peat.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "moonbits:block/peat/dig1",
+      "moonbits:block/peat/dig2",
+      "moonbits:block/peat/dig3",
+      "moonbits:block/peat/dig4"
+    ]
+  },
+  "block.peat.fall": {
+    "sounds": [
+      "moonbits:block/peat/step1",
+      "moonbits:block/peat/step2",
+      "moonbits:block/peat/step3",
+      "moonbits:block/peat/step4"
+    ]
+  },
+  "block.peat.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "moonbits:block/peat/step1",
+      "moonbits:block/peat/step2",
+      "moonbits:block/peat/step3",
+      "moonbits:block/peat/step4"
+    ]
+  },
+  "block.peat.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "moonbits:block/peat/dig1",
+      "moonbits:block/peat/dig2",
+      "moonbits:block/peat/dig3",
+      "moonbits:block/peat/dig4"
+    ]
+  },
+  "block.peat.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "moonbits:block/peat/step1",
+      "moonbits:block/peat/step2",
+      "moonbits:block/peat/step3",
+      "moonbits:block/peat/step4"
+    ]
+  },
+  
+  "block.honeywood.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "moonbits:block/honeywood/dig1",
+      "moonbits:block/honeywood/dig2",
+      "moonbits:block/honeywood/dig3",
+      "moonbits:block/honeywood/dig4"
+    ]
+  },
+  "block.honeywood.fall": {
+    "sounds": [
+      "moonbits:block/honeywood/step1",
+      "moonbits:block/honeywood/step2",
+      "moonbits:block/honeywood/step3",
+      "moonbits:block/honeywood/step4"
+    ]
+  },
+  "block.honeywood.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "moonbits:block/honeywood/step1",
+      "moonbits:block/honeywood/step2",
+      "moonbits:block/honeywood/step3",
+      "moonbits:block/honeywood/step4"
+    ]
+  },
+  "block.honeywood.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "moonbits:block/honeywood/dig1",
+      "moonbits:block/honeywood/dig2",
+      "moonbits:block/honeywood/dig3",
+      "moonbits:block/honeywood/dig4"
+    ]
+  },
+  "block.honeywood.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "moonbits:block/honeywood/step1",
+      "moonbits:block/honeywood/step2",
+      "moonbits:block/honeywood/step3",
+      "moonbits:block/honeywood/step4"
+    ]
+  },
+  
+  "block.bundle.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "moonbits:block/bundle/dig1",
+      "moonbits:block/bundle/dig2",
+      "moonbits:block/bundle/dig3",
+      "moonbits:block/bundle/dig4"
+    ]
+  },
+  "block.bundle.fall": {
+    "sounds": [
+      "moonbits:block/bundle/step1",
+      "moonbits:block/bundle/step2",
+      "moonbits:block/bundle/step3",
+      "moonbits:block/bundle/step4"
+    ]
+  },
+  "block.bundle.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "moonbits:block/bundle/step1",
+      "moonbits:block/bundle/step2",
+      "moonbits:block/bundle/step3",
+      "moonbits:block/bundle/step4"
+    ]
+  },
+  "block.bundle.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "moonbits:block/bundle/dig1",
+      "moonbits:block/bundle/dig2",
+      "moonbits:block/bundle/dig3",
+      "moonbits:block/bundle/dig4"
+    ]
+  },
+  "block.bundle.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "moonbits:block/bundle/step1",
+      "moonbits:block/bundle/step2",
+      "moonbits:block/bundle/step3",
+      "moonbits:block/bundle/step4"
+    ]
+  },
+  
+  "block.paper.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "moonbits:block/paper/dig1",
+      "moonbits:block/paper/dig2",
+      "moonbits:block/paper/dig3",
+      "moonbits:block/paper/dig4"
+    ]
+  },
+  "block.paper.fall": {
+    "sounds": [
+      "moonbits:block/paper/step1",
+      "moonbits:block/paper/step2",
+      "moonbits:block/paper/step3",
+      "moonbits:block/paper/step4"
+    ]
+  },
+  "block.paper.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "moonbits:block/paper/step1",
+      "moonbits:block/paper/step2",
+      "moonbits:block/paper/step3",
+      "moonbits:block/paper/step4"
+    ]
+  },
+  "block.paper.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "moonbits:block/paper/dig1",
+      "moonbits:block/paper/dig2",
+      "moonbits:block/paper/dig3",
+      "moonbits:block/paper/dig4"
+    ]
+  },
+  "block.paper.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "moonbits:block/paper/step1",
+      "moonbits:block/paper/step2",
+      "moonbits:block/paper/step3",
+      "moonbits:block/paper/step4"
+    ]
+  },
+  
+  "block.pebbles.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "moonbits:block/pebbles/dig1",
+      "moonbits:block/pebbles/dig2",
+      "moonbits:block/pebbles/dig3",
+      "moonbits:block/pebbles/dig4"
+    ]
+  },
+  "block.pebbles.fall": {
+    "sounds": [
+      "moonbits:block/pebbles/step1",
+      "moonbits:block/pebbles/step2",
+      "moonbits:block/pebbles/step3",
+      "moonbits:block/pebbles/step4"
+    ]
+  },
+  "block.pebbles.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "moonbits:block/pebbles/step1",
+      "moonbits:block/pebbles/step2",
+      "moonbits:block/pebbles/step3",
+      "moonbits:block/pebbles/step4"
+    ]
+  },
+  "block.pebbles.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "moonbits:block/pebbles/dig1",
+      "moonbits:block/pebbles/dig2",
+      "moonbits:block/pebbles/dig3",
+      "moonbits:block/pebbles/dig4"
+    ]
+  },
+  "block.pebbles.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "moonbits:block/pebbles/step1",
+      "moonbits:block/pebbles/step2",
+      "moonbits:block/pebbles/step3",
+      "moonbits:block/pebbles/step4"
+    ]
+  },
+  
+  "block.producecrate.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "moonbits:block/producecrate/dig1",
+      "moonbits:block/producecrate/dig2",
+      "moonbits:block/producecrate/dig3",
+      "moonbits:block/producecrate/dig4"
+    ]
+  },
+  "block.producecrate.fall": {
+    "sounds": [
+      "moonbits:block/producecrate/step1",
+      "moonbits:block/producecrate/step2",
+      "moonbits:block/producecrate/step3",
+      "moonbits:block/producecrate/step4"
+    ]
+  },
+  "block.producecrate.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "moonbits:block/producecrate/step1",
+      "moonbits:block/producecrate/step2",
+      "moonbits:block/producecrate/step3",
+      "moonbits:block/producecrate/step4"
+    ]
+  },
+  "block.producecrate.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "moonbits:block/producecrate/dig1",
+      "moonbits:block/producecrate/dig2",
+      "moonbits:block/producecrate/dig3",
+      "moonbits:block/producecrate/dig4"
+    ]
+  },
+  "block.producecrate.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "moonbits:block/producecrate/step1",
+      "moonbits:block/producecrate/step2",
+      "moonbits:block/producecrate/step3",
+      "moonbits:block/producecrate/step4"
+    ]
+  },
+  
+  "block.sack.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "moonbits:block/sack/dig1",
+      "moonbits:block/sack/dig2",
+      "moonbits:block/sack/dig3",
+      "moonbits:block/sack/dig4"
+    ]
+  },
+  "block.sack.fall": {
+    "sounds": [
+      "moonbits:block/sack/step1",
+      "moonbits:block/sack/step2",
+      "moonbits:block/sack/step3",
+      "moonbits:block/sack/step4"
+    ]
+  },
+  "block.sack.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "moonbits:block/sack/step1",
+      "moonbits:block/sack/step2",
+      "moonbits:block/sack/step3",
+      "moonbits:block/sack/step4"
+    ]
+  },
+  "block.sack.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "moonbits:block/sack/dig1",
+      "moonbits:block/sack/dig2",
+      "moonbits:block/sack/dig3",
+      "moonbits:block/sack/dig4"
+    ]
+  },
+  "block.sack.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "moonbits:block/sack/step1",
+      "moonbits:block/sack/step2",
+      "moonbits:block/sack/step3",
+      "moonbits:block/sack/step4"
+    ]
+  },
+  
+  "block.glass_door.close": {
+    "sounds": [
+      "moonbits:block/glass_door/close1",
+      "moonbits:block/glass_door/close2"
+    ],
+    "subtitle": "subtitles.block.door.toggle"
+  },
+  "block.glass_door.open": {
+    "sounds": [
+      "moonbits:block/glass_door/open1",
+      "moonbits:block/glass_door/open2",
+      "moonbits:block/glass_door/open3"
+    ],
+    "subtitle": "subtitles.block.door.toggle"
+  },
+  
+  "entity.mbgrizzly.ambient": {
+    "subtitle": "subtitles.entity.mbgrizzly.ambient",
+    "sounds": [
+      "minecraft:mob/polarbear/idle1",
+      "minecraft:mob/polarbear/idle2",
+      "minecraft:mob/polarbear/idle3",
+      "minecraft:mob/polarbear/idle4"
+    ]
+  },
+  "entity.mbgrizzly.ambient_baby": {
+    "subtitle": "subtitles.entity.mbgrizzly.ambient_baby",
+    "sounds": [
+      "minecraft:mob/polarbear_baby/idle1",
+      "minecraft:mob/polarbear_baby/idle2",
+      "minecraft:mob/polarbear_baby/idle3",
+      "minecraft:mob/polarbear_baby/idle4"
+    ]
+  },
+  "entity.mbgrizzly.death": {
+    "subtitle": "subtitles.entity.mbgrizzly.death",
+    "sounds": [
+      "minecraft:mob/polarbear/death1",
+      "minecraft:mob/polarbear/death2",
+      "minecraft:mob/polarbear/death3"
+    ]
+  },
+  "entity.mbgrizzly.hurt": {
+    "subtitle": "subtitles.entity.mbgrizzly.hurt",
+    "sounds": [
+      "minecraft:mob/polarbear/hurt1",
+      "minecraft:mob/polarbear/hurt2",
+      "minecraft:mob/polarbear/hurt3",
+      "minecraft:mob/polarbear/hurt4"
+    ]
+  },
+  "entity.mbgrizzly.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "minecraft:mob/polarbear/step1",
+      "minecraft:mob/polarbear/step2",
+      "minecraft:mob/polarbear/step3",
+      "minecraft:mob/polarbear/step4"
+    ]
+  },
+  "entity.mbgrizzly.warning": {
+    "subtitle": "subtitles.entity.mbgrizzly.warning",
+    "sounds": [
+      "minecraft:mob/polarbear/warning1",
+      "minecraft:mob/polarbear/warning2",
+      "minecraft:mob/polarbear/warning3",
+      {
+        "name": "minecraft:mob/polarbear/warning3",
+        "pitch": 0.9
+      }
+    ]
+  }
+}

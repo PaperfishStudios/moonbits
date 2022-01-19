@@ -73,6 +73,7 @@ public class MBItems {
 	// Spawn eggs
 	public static final Item MOOBLOOM_SPAWN_EGG = new SpawnEggItem(MBEntities.MOOBLOOM, 16771888, 16777215, new Item.Settings().group(MBItemGroup.UTILITY));
 	public static final Item GRIZZLY_SPAWN_EGG = new SpawnEggItem(MBEntities.GRIZZLY_BEAR, 5782045, 15707403, new Item.Settings().group(MBItemGroup.UTILITY));
+	public static final Item GLARE_SPAWN_EGG = new SpawnEggItem(MBEntities.GLARE, 5403430, 657930, new Item.Settings().group(MBItemGroup.UTILITY));
 	
     
 	public static void registerItems(){
@@ -131,5 +132,6 @@ public class MBItems {
 
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "moobloom_spawn_egg"), MOOBLOOM_SPAWN_EGG);
 		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "grizzly_bear_spawn_egg"), GRIZZLY_SPAWN_EGG);
+		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "glare_spawn_egg"), GLARE_SPAWN_EGG);
 	} 
 }

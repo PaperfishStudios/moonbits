@@ -30,6 +30,7 @@ public class VanillaSurfaceRulesMixin {
                 BiomeKeys.LUKEWARM_OCEAN,
                 BiomeKeys.FROZEN_OCEAN,
                 BiomeKeys.BEACH,
+                BiomeKeys.STONY_SHORE,
                 BiomeKeys.SNOWY_BEACH,
                 BiomeKeys.GROVE,
                 BiomeKeys.FROZEN_PEAKS,

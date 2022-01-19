@@ -78,6 +78,11 @@ public class MBPlacedVegFeatures {
                 MBVegetationFeatures.FORGETMENOT_PATCH.withPlacement(
                         CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
 
+        // golden forest trees
+        RegistryKey<PlacedFeature> p_gbf_trees = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_gbf_trees"));
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, p_gbf_trees.getValue(),
+                MBVegetationFeatures.MBFF_TREES.withPlacement(modifiers(PlacedFeatures.createCountExtraModifier(6, 0.1F, 1))));
+
         // flower forest trees
         RegistryKey<PlacedFeature> p_mbff_trees = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_mbff_trees"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_mbff_trees.getValue(),
@@ -225,7 +230,7 @@ public class MBPlacedVegFeatures {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_autumn_flowers);
 
                     c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.TREES_BIRCH);
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_golden_birch);
+                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_gbf_trees);
                 });
 
         // tall birch forest modifications

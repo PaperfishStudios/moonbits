@@ -1,11 +1,12 @@
 {
 "_comment": "--gui--",
 
-	"itemGroup.moonbits.construction": "Construction Blocks",
-	"itemGroup.moonbits.utility": "Utility",
-	"itemGroup.moonbits.decor": "Decor Blocks",
-	"itemGroup.moonbits.materials": "Materials",
-	"itemGroup.moonbits.food": "More Food",
+	"itemGroup.moonbits.construction": "Construction (Moonbits)",
+	"itemGroup.moonbits.utility": "Utility (Moonbits)",
+	"itemGroup.moonbits.decor": "Decor (Moonbits)",
+	"itemGroup.moonbits.materials": "Materials (Moonbits)",
+	"itemGroup.moonbits.food": "Food (Moonbits)",
+	"itemGroup.moonbits.debug": "Creative Blocks",
 	
 "_comment": "--advancements--",
 	"advancements.story.craft_furnace.title": "Hot Topic",
@@ -82,12 +83,25 @@
 	"advancements.end.elytra_boost.title": "Rocket Science",
 	"advancements.end.elytra_boost.description": "Boost your flight with a Firework Rocket! Just make sure there’s no actual explosives inside",
 
+"_comment": "--sounds--",
+	
+	"subtitles.item.mbwrench": "Wrench adjusts",
+	
+	"subtitles.entity.mbgrizzly.ambient": "Grizzly Bear groans",
+	"subtitles.entity.mbgrizzly.ambient_baby": "Grizzly Bear hums",
+	"subtitles.entity.mbgrizzly.death": "Grizzly Bear dies",
+	"subtitles.entity.mbgrizzly.hurt": "Grizzly Bear hurts",
+	"subtitles.entity.mbgrizzly.footsteps": "Footsteps",
+	"subtitles.entity.mbgrizzly.warning": "Grizzly Bear roars",
+
 "_comment": "--mobs--",
 	
 	"entity.moonbits.moobloom": "Moobloom",
 	"item.moonbits.moobloom_spawn_egg": "Moobloom Spawn Egg",
 	"entity.moonbits.grizzly_bear": "Grizzly Bear",
 	"item.moonbits.grizzly_bear_spawn_egg": "Grizzly Bear Spawn Egg",
+	"entity.moonbits.glare": "Glare",
+	"item.moonbits.glare_spawn_egg": "Glare Spawn Egg",
 	
 "_comment": "--blocks--",
 	
@@ -113,6 +127,15 @@
 	"block.moonbits.beachgrass": "Beachgrass",
 	"block.moonbits.pebbles": "Pebble",
 	
+	"item.moonbits.sweet_berry_pits": "Sweet Berry Pits",
+	"item.moonbits.glow_berry_pits": "Glow Berry Pits",
+	
+	"item.moonbits.apple_seeds": "Apple Seeds",
+	"block.moonbits.apple_oak_sapling": "Apple Oak Sapling",
+	"block.moonbits.budding_oak_leaves": "Budding Oak Leaves",
+	"block.moonbits.flowering_oak_leaves": "Flowering Oak Leaves",
+	"block.moonbits.apple_oak_leaves": "Apple Oak Leaves",
+	
  "_comment": "dirt caves",
  
 	"block.moonbits.tough_dirt": "Tough Dirt",
@@ -125,6 +148,7 @@
 	"block.moonbits.peat_deposit": "Peat Deposit",
 	"block.moonbits.clay_deposit": "Clay Deposit",
 	"block.moonbits.gold_deposit": "Gold Deposit",
+	"block.moonbits.copper_deposit": "Copper Deposit",
 	"block.moonbits.regolith": "Regolith",
 	"item.moonbits.peat": "Peat",
 	"block.moonbits.peat_block": "Peat Block",
@@ -246,8 +270,8 @@
     "item.moonbits.jacaranda_boat": "Jacaranda Boat",
 	"block.moonbits.jacaranda_boards": "Jacaranda Boards",
 	"block.moonbits.jacaranda_panel": "Jacaranda Panel", 
-	"block.moonbits.carved_jacaranda": "Carved Jacaranda Wood", 
-	"block.moonbits.jacaranda_column": "Carved Jacaranda Column", 
+	"block.moonbits.carved_jacaranda_wood": "Carved Jacaranda Wood", 
+	"block.moonbits.jacaranda_pillar": "Carved Jacaranda Column", 
 	"block.moonbits.jacaranda_bookshelf": "Jacaranda Bookshelf", 
 	"block.moonbits.jacaranda_planter_box": "Jacaranda Planter Box", 
 	
@@ -269,10 +293,10 @@
     "item.moonbits.honey_boat": "Honey Boat",
 	"block.moonbits.honey_boards": "Honey Boards",
 	"block.moonbits.honey_panel": "Honey Panel", 
-	"block.moonbits.carved_honey": "Carved Honey Wood", 
-	"block.moonbits.honey_column": "Carved Honey Column", 
-	"block.moonbits.honey_bookshelf": "Honeyed Bookshelf", 
-	"block.moonbits.honey_planter_box": "Honeyed Planter Box", 
+	"block.moonbits.carved_honey_wood": "Carved Honey Wood", 
+	"block.moonbits.honey_pillar": "Carved Honey Column", 
+	"block.moonbits.honey_bookshelf": "Honey Bookshelf", 
+	"block.moonbits.honey_planter_box": "Honey Planter Box", 
 	
 	"block.moonbits.honeycomb_slab": "Honeycomb Slab",
 	"block.moonbits.honeycomb_stairs": "Honeycomb Stairs",
@@ -305,6 +329,7 @@
 	"block.moonbits.sweet_berry_hedge": "Sweet Berry Hedge",
 	"block.moonbits.glow_berry_hedge": "Glow Berry Hedge",
 	"block.moonbits.egg_basket": "Basket of Eggs",
+	"block.moonbits.cocoa_bean_sack": "Sack of Cocoa Beans",
 	"block.moonbits.sugar_cane_bundle": "Sugar Cane Bundle",
 	"block.moonbits.bamboo_bundle": "Bamboo Bundle",
 	"block.moonbits.kelp_block": "Kelp Bundle",
@@ -342,6 +367,14 @@
 	"block.moonbits.light_blue_seat": "Light Blue Seat",
 	"block.moonbits.cyan_seat": "Cyan Seat",
 	"block.moonbits.blue_seat": "Blue Seat",
+	
+	"item.moonbits.rope_ladder": "Rope Ladder",
+	"item.moonbits.iron_ladder": "Iron Ladder",
+	"item.moonbits.wrench": "Wrench",
+	"item.moonbits.copper_nugget": "Copper Nugget",
+	
+	"item.moonbits.item_hook": "Item Hook",
+	"item.moonbits.glow_item_hook": "Glow Item Hook",
 	
 	
  "_comment": "glass shards",

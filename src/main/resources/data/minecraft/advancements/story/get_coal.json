@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:story/mine_stone",
+  "display": {
+    "icon": {
+      "item": "minecraft:coal"
+    },
+    "title": {
+      "translate": "advancements.story.get_coal.title"
+    },
+    "description": {
+      "translate": "advancements.story.get_coal.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "coal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:coal"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "coal"
+    ]
+  ]
+}

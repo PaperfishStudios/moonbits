@@ -48,6 +48,8 @@ public class MBData {
 
 	// used to remove 1 seed from the drop table of crops when harvested by right-click
 	public static final Tag<Item> SEEDS_ROOTS = TagFactory.ITEM.create(new Identifier("moonbits", "seeds_roots"));
+	// items that will attract glares
+	public static final Tag<Item> GLARE_LIKES = TagFactory.ITEM.create(new Identifier("moonbits", "glare_likes"));
 
 
 

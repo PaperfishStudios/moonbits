@@ -1,0 +1,81 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 128,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [-0.5, 12, 1]
+				},
+				{
+					"name": "head",
+					"parent": "root",
+					"pivot": [-0.5, 14.875, -14.125],
+					"cubes": [
+						{"origin": [-6, 9, -23], "size": [11, 9, 11], "uv": [0, 0]},
+						{"origin": [-3, 10, -27], "size": [5, 3, 4], "uv": [48, 16]},
+						{"origin": [-8, 15, -18], "size": [4, 5, 2], "uv": [48, 0]},
+						{"origin": [3, 15, -18], "size": [4, 5, 2], "uv": [64, 0]}
+					]
+				},
+				{
+					"name": "jaw",
+					"parent": "head",
+					"pivot": [-0.5, 9.875, -23.125],
+					"cubes": [
+						{"origin": [-3, 9, -27], "size": [5, 1, 4], "uv": [48, 23]}
+					]
+				},
+				{
+					"name": "lega",
+					"parent": "root",
+					"pivot": [6.5, 8.5, -7.5],
+					"cubes": [
+						{"origin": [4, 0, -10], "size": [5, 11, 5], "uv": [80, 0], "mirror": true}
+					]
+				},
+				{
+					"name": "lega2",
+					"parent": "root",
+					"pivot": [6.5, 8.5, 8.5],
+					"cubes": [
+						{"origin": [4, 0, 6], "size": [5, 11, 5], "uv": [80, 0], "mirror": true}
+					]
+				},
+				{
+					"name": "leg3",
+					"parent": "root",
+					"pivot": [-7.5, 8.5, -7.5],
+					"cubes": [
+						{"origin": [-10, 0, -10], "size": [5, 11, 5], "uv": [80, 0]}
+					]
+				},
+				{
+					"name": "leg4",
+					"parent": "root",
+					"pivot": [-7.5, 8.5, 8.5],
+					"cubes": [
+						{"origin": [-10, 0, 6], "size": [5, 11, 5], "uv": [80, 0]}
+					]
+				},
+				{
+					"name": "body",
+					"parent": "root",
+					"pivot": [-0.5, 12, 1],
+					"cubes": [
+						{"origin": [-9, 7, -13], "size": [17, 13, 12], "uv": [0, 32]},
+						{"origin": [-8, 8, -1], "size": [15, 11, 14], "uv": [64, 32]}
+					]
+				}
+			]
+		}
+	]
+}

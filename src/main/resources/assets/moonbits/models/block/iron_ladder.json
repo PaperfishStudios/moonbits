@@ -1,8 +1,8 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "moonbits:block/iron_ladder",
-    "texture": "moonbits:block/iron_ladder"
+    "particle": "moonbits:block/utility/iron_ladder",
+    "texture": "moonbits:block/utility/iron_ladder"
   },
   "elements": [
     {

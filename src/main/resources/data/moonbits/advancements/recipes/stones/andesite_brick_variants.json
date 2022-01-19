@@ -42,7 +42,9 @@
       "conditions": {
         "items": [
           {
-            "item": "minecraft:andesite"
+			"items": [
+              "minecraft:andesite"
+            ]
           }
         ]
       }

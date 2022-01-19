@@ -99,12 +99,12 @@ public class MBPlacedCaveFeatures {
         RegistryKey<PlacedFeature> p_tg_patch = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_tg_patch"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_tg_patch.getValue(),
                 MBCaveFeatures.TOUGH_GRASS_PATCH.withPlacement(
-                        CountPlacementModifier.of(16), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(52), YOffset.fixed(110))));
+                        CountPlacementModifier.of(4), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(52), YOffset.fixed(110))));
         // tough grass floor
         RegistryKey<PlacedFeature> p_tg_floor = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_tg_floor"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_tg_floor.getValue(),
                 MBCaveFeatures.TOUGH_GRASS_PATCH.withPlacement(
-                        CountPlacementModifier.of(64), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(52), YOffset.fixed(110))));
+                        CountPlacementModifier.of(12), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(52), YOffset.fixed(110))));
         // tough grass lush ver.
         RegistryKey<PlacedFeature> p_tg_lush = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MoonbitsMain.MOD_ID, "p_tg_lush"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_tg_lush.getValue(),

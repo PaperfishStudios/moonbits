@@ -22,6 +22,9 @@
     ],
     "client": [
       "net.moonteam.moonbits.client.MoonbitsClient"
+    ],
+    "fabric-datagen": [
+      "net.moonteam.moonbits.data.MBDataGenerator"
     ]
   },
   "mixins": [

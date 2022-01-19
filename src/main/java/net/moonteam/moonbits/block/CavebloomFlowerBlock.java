@@ -22,7 +22,10 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.moonteam.moonbits.MBBlocks;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Stream;
 
@@ -41,14 +44,37 @@ public class CavebloomFlowerBlock extends AbstractLichenBlock implements Fertili
     }
 
     @Override
+    @Nullable
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        World world = ctx.getWorld();
+        BlockPos blockPos = ctx.getBlockPos();
+        BlockState state = world.getBlockState(blockPos);
+        if (state.isOf(MBBlocks.CAVEBLOOM_VINE)) {
+            //return swapBlock(state);
+            return Arrays.stream(ctx.getPlacementDirections()).map(direction -> this.withDirection(swapBlock(state), world, blockPos, direction)).filter(Objects::nonNull).findFirst().orElse(null);
+        }
+        return super.getPlacementState(ctx);
+    }
+
+    @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        grow(world, random, pos, state);
+        int randomNum = random.nextInt(25);
+        if (randomNum == 0 && world.getLightLevel(pos) < 12) {
+            int i = 5;
+            int radius = 4;
+            for (BlockPos blockPos : BlockPos.iterate(pos.add(-radius, -1, -radius), pos.add(radius, 1, radius))) {
+                if (!world.getBlockState(blockPos).isOf(this) || --i > 0) continue;
+                return;
+            }
+            grow(world, random, pos, state);
+        }
         super.randomTick(state, world, pos, random);
     }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getMainHandStack().getItem() != Items.BONE_MEAL && !player.shouldCancelInteraction()) {
+        if (player.getMainHandStack().getItem() == Items.SHEARS && !player.shouldCancelInteraction()) {
+            world.playSound(null, pos, SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1f, 1f);
             dropFlowers(state, world, pos);
             return ActionResult.SUCCESS;
         }

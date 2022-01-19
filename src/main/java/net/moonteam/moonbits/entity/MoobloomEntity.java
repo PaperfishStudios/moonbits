@@ -5,7 +5,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
-import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
@@ -28,7 +27,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.ItemTags;
-import net.minecraft.tag.TagGroup;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
@@ -40,10 +38,14 @@ public class MoobloomEntity extends CowEntity {
 	private static final TrackedData<String> TYPE;
 	private static final Ingredient BREEDING_INGREDIENT;
     public Type babyType;
+	public static final String POLLINATION_TIMER_KEY = "PollinationTimer";
+	int pollinationTimer;
+	public static final int POLLEN_TIME;
 
     public MoobloomEntity(EntityType<? extends MoobloomEntity> entityType, World world) {
         super(entityType, world);
         babyType = this.getMoobloomType();
+		pollinationTimer = 0;
     }
 
 	@Override
@@ -78,12 +80,14 @@ public class MoobloomEntity extends CowEntity {
 		super.writeCustomDataToNbt(nbt);
 		nbt.putString("Type", this.getMoobloomType().name);
 		nbt.putString("BabyType", babyType.name);
+		nbt.putInt(POLLINATION_TIMER_KEY, this.pollinationTimer);
 	}
 
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
 		this.setType(MoobloomEntity.Type.fromName(nbt.getString("Type")));
 		babyType = MoobloomEntity.Type.fromName(nbt.getString("BabyType"));
+		this.pollinationTimer = nbt.getInt(POLLINATION_TIMER_KEY);
 	}
 
 	@Override
@@ -93,6 +97,23 @@ public class MoobloomEntity extends CowEntity {
 			return false;
 		}
 		return BREEDING_INGREDIENT.test(stack);
+	}
+
+	// called when bee pollinates moobloom :D
+	public void recievePollen() {
+		pollinationTimer = POLLEN_TIME;
+		// add moobloom reaction here
+	}
+
+	@Override
+	protected void mobTick() {
+		if (pollinationTimer > 0) {
+			if (pollinationTimer % 20 == 0) { // place flower once a second
+				world.setBlockState(getBlockPos(), this.getMoobloomType().flower);
+			}
+			pollinationTimer--;
+		}
+		super.mobTick();
 	}
 
     @Override
@@ -127,9 +148,10 @@ public class MoobloomEntity extends CowEntity {
     static {
 		TYPE = DataTracker.registerData(MoobloomEntity.class, TrackedDataHandlerRegistry.STRING);
 		BREEDING_INGREDIENT = Ingredient.fromTag(ItemTags.SMALL_FLOWERS);
+		POLLEN_TIME = 400;
 	}
     
-    public static enum Type {
+    public enum Type {
 		BUTTERCUP("buttercup", MBBlocks.BUTTERCUP.getDefaultState(), MBBlocks.BUTTERCUP.getDefaultState()),
 		FORGETMENOT("forget_me_not", MBBlocks.FORGETMENOT.getDefaultState(), MBBlocks.MINI_FORGETMENOT.getDefaultState()),
 		DANDELION("dandelion", Blocks.DANDELION.getDefaultState(), MBBlocks.MINI_DANDELION.getDefaultState()),

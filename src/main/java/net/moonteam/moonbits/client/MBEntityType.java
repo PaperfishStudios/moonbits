@@ -23,6 +23,8 @@ public class MBEntityType {
 
     public static final EntityModelLayer MODEL_GRIZZLY_LAYER = new EntityModelLayer(new Identifier("moonbits", "grizzly_bear"), "main");
 
+    public static final EntityModelLayer MODEL_GLARE = new EntityModelLayer(new Identifier("moonbits", "glare"), "main");
+
     public static final EntityModelLayer MODEL_SEAT_BLOCK = new EntityModelLayer(new Identifier("moonbits", "seat"), "main");
 
     // block entities :D
@@ -35,7 +37,9 @@ public class MBEntityType {
         EntityModelLayerRegistry.registerModelLayer(MODEL_MOOBLOOM_LAYER, MoobloomEntityModel::getTexturedModelData);
 
         EntityRendererRegistry.register(MBEntities.GRIZZLY_BEAR, GrizzlyBearEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(MODEL_GRIZZLY_LAYER, GrizzlyBearEntityModel::getTexturedModelData);
+        //EntityModelLayerRegistry.registerModelLayer(MODEL_GRIZZLY_LAYER, GrizzlyBearEntityModel::getTexturedModelData);
+
+        EntityRendererRegistry.register(MBEntities.GLARE, GlareEntityRenderer::new);
 
         EntityRendererRegistry.register(MBEntities.SEAT_BLOCK_ENTITY, EmptyEntityRenderer::new);
 

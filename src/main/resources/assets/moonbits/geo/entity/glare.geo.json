@@ -1,0 +1,55 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.glare",
+				"texture_width": 96,
+				"texture_height": 80,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "body",
+					"parent": "root",
+					"pivot": [0, 16, -1],
+					"cubes": [
+						{"origin": [-7, 10, -3], "size": [14, 12, 9], "uv": [0, 33]},
+						{"origin": [-4, 13, -5], "size": [8, 8, 8], "uv": [64, 0]}
+					]
+				},
+				{
+					"name": "leaves",
+					"parent": "root",
+					"pivot": [0, 15, 0],
+					"cubes": [
+						{"origin": [-8, 6, -8], "size": [16, 18, 16], "uv": [0, 0]},
+						{"origin": [-8, 10, -8], "size": [16, 0, 16], "uv": [48, 16]}
+					]
+				},
+				{
+					"name": "under",
+					"parent": "root",
+					"pivot": [0, 6, 0],
+					"cubes": [
+						{"origin": [-6.5, 4, -6.5], "size": [13, 10, 13], "uv": [0, 57]}
+					]
+				},
+				{
+					"name": "underer",
+					"parent": "root",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-5, 2, -5], "size": [10, 7, 10], "uv": [56, 32]}
+					]
+				}
+			]
+		}
+	]
+}

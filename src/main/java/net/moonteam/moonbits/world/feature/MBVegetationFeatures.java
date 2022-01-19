@@ -48,6 +48,8 @@ public class MBVegetationFeatures {
     public static final ConfiguredFeature<ReplaceBlobsFeatureConfig, ?> PODZOL_PATCH;
     public static final ConfiguredFeature<ReplaceBlobsFeatureConfig, ?> LEAFBED_PATCH;
 
+    public static final ConfiguredFeature<RandomFeatureConfig, ?> GBF_TREES;
+
     public static final ConfiguredFeature<RandomFeatureConfig, ?> MBFF_TREES;
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> MBFF_FLOWERS;
     public static final List<BlockState> MBFF_FLOWER_LIST;
@@ -180,6 +182,12 @@ public class MBVegetationFeatures {
                         UniformIntProvider.create(3, 8)
                 )));
 
+        GBF_TREES = ConfiguredFeatures.register("gbf_trees", Feature.RANDOM_SELECTOR.configure(
+                new RandomFeatureConfig(List.of(
+                        new RandomFeatureEntry(TreePlacedFeatures.BIRCH_BEES_002, 0.4F),
+                        new RandomFeatureEntry(TreePlacedFeatures.SPRUCE_CHECKED, 0.1F)),
+                        MBPlacedTreeFeatures.GOLDEN_BIRCH_BEES_005
+                )));
 
         MBFF_TREES = ConfiguredFeatures.register("mbff_trees", Feature.RANDOM_SELECTOR.configure(
                 new RandomFeatureConfig(List.of(

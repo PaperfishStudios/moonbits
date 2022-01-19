@@ -1,7 +1,7 @@
 {
   "variants": {
     "facing=down": {
-      "model": "moonbits:block/blaze_rod",
+      "model": "moonbits:block/blaze_rod"
     },
     "facing=east": {
       "model": "moonbits:block/blaze_rod",

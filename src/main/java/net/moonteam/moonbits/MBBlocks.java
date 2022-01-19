@@ -178,8 +178,8 @@ public class MBBlocks {
     public static final Block JACARANDA_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copy(JACARANDA_PLANKS));
     public static final Block JACARANDA_DOOR = new MBDoorBlock(FabricBlockSettings.copy(JACARANDA_PLANKS).nonOpaque());
     public static final Block JACARANDA_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(JACARANDA_PLANKS).nonOpaque());
-    public static final Block JACARANDA_BUTTON = new MBWoodenButtonBlock(FabricBlockSettings.copy(JACARANDA_PLANKS));
-    public static final Block JACARANDA_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (FabricBlockSettings.copy(JACARANDA_PLANKS)));
+    public static final Block JACARANDA_BUTTON = new MBWoodenButtonBlock(FabricBlockSettings.copy(JACARANDA_PLANKS).noCollision());
+    public static final Block JACARANDA_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (FabricBlockSettings.copy(JACARANDA_PLANKS)).noCollision());
 	public static final Block JACARANDA_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block JACARANDA_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block JACARANDA_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -199,10 +199,10 @@ public class MBBlocks {
 	public static final Block HONEY_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB));
 	public static final Block HONEY_FENCE = new FenceBlock(FabricBlockSettings.copy(HONEY_PLANKS));
 	public static final Block HONEY_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copy(HONEY_PLANKS));
-	public static final Block HONEY_DOOR = new MBDoorBlock(FabricBlockSettings.copy(HONEY_PLANKS));
-	public static final Block HONEY_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(HONEY_PLANKS));
-	public static final Block HONEY_BUTTON = new MBWoodenButtonBlock(FabricBlockSettings.copy(HONEY_PLANKS));
-	public static final Block HONEY_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (FabricBlockSettings.copy(HONEY_PLANKS)));
+	public static final Block HONEY_DOOR = new MBDoorBlock(FabricBlockSettings.copy(HONEY_PLANKS).nonOpaque());
+	public static final Block HONEY_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(HONEY_PLANKS).nonOpaque());
+	public static final Block HONEY_BUTTON = new MBWoodenButtonBlock(FabricBlockSettings.copy(HONEY_PLANKS).noCollision());
+	public static final Block HONEY_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (FabricBlockSettings.copy(HONEY_PLANKS)).noCollision());
 	public static final Block HONEY_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block HONEY_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block HONEY_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -255,7 +255,7 @@ public class MBBlocks {
 	public static final Block LAMPROOT = new LamprootBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).luminance((state) -> 7));
 	public static final Block CAVEBLOOM_FLOWERS = new CavebloomFlowerBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().ticksRandomly().sounds(BlockSoundGroup.GRASS));
 	public static final Block CAVEBLOOM_VINE = new CavebloomVineBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().ticksRandomly().sounds(BlockSoundGroup.GRASS));
-	public static final Item CAVEBLOOMS = new BlockItem(CAVEBLOOM_VINE, new Item.Settings().group(MBItemGroup.DECOR));
+	public static final Item CAVEBLOOMS = new BlockItem(CAVEBLOOM_FLOWERS, new Item.Settings().group(MBItemGroup.DECOR));
 	// - PLANTER BOXES
 	public static final Block OAK_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block BIRCH_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -701,7 +701,8 @@ public class MBBlocks {
 	public static final Block POTATO_CRATE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
 	public static final Block BEETROOT_CRATE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
 	
-	public static final Block EGG_BASKET = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+	public static final Block EGG_BASKET = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(MBSounds.SACK));
+	public static final Block COCOA_SACK = new PillarBlock(FabricBlockSettings.of(Material.WOOL).strength(2.0F,3.0F).sounds(MBSounds.SACK));
 
 	public static final Block GLISTERING_MELON_BLOCK = new PillarBlock(FabricBlockSettings.of(Material.GOURD).hardness(1.0F).sounds(BlockSoundGroup.WOOD).luminance((state) -> 12));
 
@@ -713,21 +714,21 @@ public class MBBlocks {
 	public static final Block PLUCKED_SWEET_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
 	public static final Block PLUCKED_GLOW_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
 
-	public static final Block SUGAR_CANE_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.BAMBOO));
-	public static final Block BAMBOO_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.BAMBOO).hardness(1.0f).sounds(BlockSoundGroup.BAMBOO));
+	public static final Block SUGAR_CANE_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(MBSounds.BUNDLE));
+	public static final Block BAMBOO_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.BAMBOO).hardness(1.0f).sounds(MBSounds.BUNDLE));
 	public static final Block KELP_BLOCK = new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC).strength(0.5F, 2.5F).sounds(BlockSoundGroup.WET_GRASS));
 	
 	public static final Block NETHER_WART_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.NETHER_SHOOTS).hardness(1.0f).sounds(BlockSoundGroup.WART_BLOCK));
 
 	public static final Block SPOOL = new PillarBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.8f).sounds(BlockSoundGroup.WOOL));
 	public static final Block PAPER_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.5f).sounds(BlockSoundGroup.WOOL));
-	public static final Block STICK_STACK = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.SCAFFOLDING));
-	public static final Block CHARCOAL_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(1.2f, 0.8f).sounds(BlockSoundGroup.WOOD));
+	public static final Block STICK_STACK = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(MBSounds.BUNDLE));
+	public static final Block CHARCOAL_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(1.2f, 0.8f).sounds(MBSounds.BUNDLE));
 
 	public static final Block SCUTE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.STONE));
 
 	public static final Block ROTTEN_FLESH_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.WEEPING_VINES));
-	public static final Block BONE_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.AGGREGATE).hardness(1f).sounds(BlockSoundGroup.BONE));
+	public static final Block BONE_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.AGGREGATE).hardness(1f).sounds(MBSounds.BUNDLE));
 	public static final Block SPIDER_EYE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.WEEPING_VINES));
 	public static final Block PHANTOM_MEMBRANE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1f).sounds(BlockSoundGroup.NYLIUM));
 	public static final Block BLAZE_ROD = new MBRodBlock(FabricBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));
@@ -1425,6 +1426,7 @@ public class MBBlocks {
 		createBlock("beetroot_crate", BEETROOT_CRATE, MBItemGroup.DECOR);
 		
 		createBlock("egg_basket", EGG_BASKET, MBItemGroup.DECOR);
+		createBlock("cocoa_bean_sack", COCOA_SACK, MBItemGroup.DECOR);
 		
 		createBlock("glistering_melon_block", GLISTERING_MELON_BLOCK, MBItemGroup.DECOR);
 

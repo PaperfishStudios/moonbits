@@ -46,6 +46,9 @@ public class PollinateMoobloomGoal extends Goal {
     private int ticks;
     private static final int field_30308 = 600;
 
+    @Nullable
+    public MoobloomEntity targetMoobloom;
+
     public PollinateMoobloomGoal(Entity bee) {
         this.bee = (BeeEntity)bee;
         //this.moobloomPredicate = entity -> entity instanceof MoobloomEntity;
@@ -78,6 +81,11 @@ public class PollinateMoobloomGoal extends Goal {
         return false;
     }
 
+    @Override
+    public boolean shouldContinue() {
+        return this.canBeeContinue() && !bee.hasAngerTime();
+    }
+
     public boolean canBeeContinue() {
         if (!this.running) {
             return false;
@@ -93,6 +101,7 @@ public class PollinateMoobloomGoal extends Goal {
         }
         if (bee.age % 20 == 0 && !((BeeEntityAccessor)bee).callIsFlowers(((BeeEntityAccessor)bee).getFlowerPos())) {
             ((BeeEntityAccessor)bee).setFlowerPos(null);
+            targetMoobloom = null;
             return false;
         }
         return true;
@@ -123,6 +132,9 @@ public class PollinateMoobloomGoal extends Goal {
     public void stop() {
         if (this.completedPollination()) {
             ((BeeEntityAccessor)bee).callSetHasNectar(true);
+            if (targetMoobloom != null) {
+                targetMoobloom.recievePollen();
+            }
         }
         this.running = false;
         ((MobEntityAccessor)bee).getNavigation().stop();
@@ -139,6 +151,7 @@ public class PollinateMoobloomGoal extends Goal {
         ++this.ticks;
         if (this.ticks > 600) {
             ((BeeEntityAccessor)bee).setFlowerPos(null);
+            targetMoobloom = null;
             return;
         }
         Vec3d vec3d = Vec3d.ofBottomCenter(((BeeEntityAccessor)bee).getFlowerPos()).add(0.0, 0.6f, 0.0);
@@ -154,6 +167,7 @@ public class PollinateMoobloomGoal extends Goal {
         boolean bl2 = true;
         if (!bl && this.ticks > 600) {
             ((BeeEntityAccessor)bee).setFlowerPos(null);
+            targetMoobloom = null;
             return;
         }
         if (bl) {
@@ -204,6 +218,7 @@ public class PollinateMoobloomGoal extends Goal {
             assert a != null;
             MoonbitsMain.LOGGER.info("bee found: " + a.getMoobloomType().toString());
             bee.setFlowerPos(mutable);
+            targetMoobloom = a;
             return Optional.of(mutable);
         }
         return Optional.empty();

@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "moonbits:wood/honey/honey_pressure_plate"
+      "moonbits:wood/honey/honey_pressure_plate",
       "moonbits:wood/honey/cutter/pressure_plate"
     ]
   },

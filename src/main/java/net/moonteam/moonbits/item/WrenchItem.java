@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
@@ -22,10 +23,13 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.moonteam.moonbits.MBSounds;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
+import static net.minecraft.util.math.Direction.*;
 
 public class WrenchItem extends Item {
     public WrenchItem(Settings settings) {
@@ -34,16 +38,30 @@ public class WrenchItem extends Item {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        BlockPos blockPos;
+        BlockPos blockPos = context.getBlockPos();
         PlayerEntity playerEntity = context.getPlayer();
         World world = context.getWorld();
-        if (!world.isClient && playerEntity != null && !this.use(playerEntity, world.getBlockState(blockPos = context.getBlockPos()), world, blockPos, context.getStack())) {
+        if (!world.isClient && playerEntity != null && !this.use(playerEntity, world.getBlockState(blockPos = context.getBlockPos()), world, blockPos, context.getStack(), context)) {
             return ActionResult.FAIL;
+        }
+        if (!world.isClient) {
+            world.playSound(null, blockPos, MBSounds.WRENCH, SoundCategory.BLOCKS, 0.5f, 1f);
         }
         return ActionResult.success(world.isClient);
     }
 
-    private boolean use(PlayerEntity player, BlockState state, WorldAccess world, BlockPos pos, ItemStack stack) {
+    public Direction rotate(Direction dir) {
+        return switch(dir) {
+            case UP -> NORTH;
+            case NORTH -> EAST;
+            case EAST -> SOUTH;
+            case SOUTH -> WEST;
+            case WEST -> DOWN;
+            case DOWN -> UP;
+        };
+    }
+
+    private boolean use(PlayerEntity player, BlockState state, WorldAccess world, BlockPos pos, ItemStack stack, ItemUsageContext ctx) {
         Block block = state.getBlock();
         StateManager<Block, BlockState> stateManager = block.getStateManager();
         Collection<Property<?>> collection = stateManager.getProperties();
@@ -57,7 +75,8 @@ public class WrenchItem extends Item {
             return true;
         }
         if (block instanceof PistonBlock && !state.get(Properties.EXTENDED)) {
-            BlockState newState = block.rotate(state, BlockRotation.CLOCKWISE_90);
+
+            BlockState newState = state.with(Properties.FACING, rotate(state.get(Properties.FACING)));
             world.setBlockState(pos, newState, Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
             return true;
         }
@@ -79,24 +98,24 @@ public class WrenchItem extends Item {
             return true;
         }
         if (block instanceof DoorBlock) { // if its a slab, flip!
-            switch(state.get(Properties.DOOR_HINGE)){
-                case LEFT: {
+            switch (state.get(Properties.DOOR_HINGE)) {
+                case LEFT -> {
                     world.setBlockState(pos, state.with(Properties.DOOR_HINGE, DoorHinge.RIGHT), Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
                     return true;
                 }
-                case RIGHT: {
+                case RIGHT -> {
                     world.setBlockState(pos, state.with(Properties.DOOR_HINGE, DoorHinge.LEFT), Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
                     return true;
                 }
             }
         }
         if (block instanceof SlabBlock) { // if its a slab, flip!
-            switch(state.get(Properties.SLAB_TYPE)){
-                case BOTTOM: {
+            switch (state.get(Properties.SLAB_TYPE)) {
+                case BOTTOM -> {
                     world.setBlockState(pos, state.with(Properties.SLAB_TYPE, SlabType.TOP), Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
                     return true;
                 }
-                case TOP: {
+                case TOP -> {
                     world.setBlockState(pos, state.with(Properties.SLAB_TYPE, SlabType.BOTTOM), Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
                     return true;
                 }
