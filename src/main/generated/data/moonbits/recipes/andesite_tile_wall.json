@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:andesite_tiles"
+    }
+  },
+  "result": {
+    "item": "moonbits:andesite_tile_wall",
+    "count": 6
+  }
+}

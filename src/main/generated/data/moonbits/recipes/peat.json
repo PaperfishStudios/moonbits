@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:peat_block"
+    }
+  ],
+  "result": {
+    "item": "moonbits:peat",
+    "count": 9
+  }
+}

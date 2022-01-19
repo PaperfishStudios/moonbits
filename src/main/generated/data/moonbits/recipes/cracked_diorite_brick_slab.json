@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:cracked_diorite_bricks"
+    }
+  },
+  "result": {
+    "item": "moonbits:cracked_diorite_brick_slab",
+    "count": 6
+  }
+}

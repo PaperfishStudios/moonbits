@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:apple"
+    ]
+  },
+  "criteria": {
+    "has_apple_crate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:apple_crate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:apple"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_apple_crate",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:cocoa_bean_sack"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cocoa_beans",
+    "count": 9
+  }
+}

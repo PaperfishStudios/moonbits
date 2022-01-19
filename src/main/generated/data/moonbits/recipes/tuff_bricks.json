@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "moonbits:polished_tuff"
+    }
+  },
+  "result": {
+    "item": "moonbits:tuff_bricks",
+    "count": 4
+  }
+}

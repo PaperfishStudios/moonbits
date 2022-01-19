@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:andesite_bricks"
+    }
+  },
+  "result": {
+    "item": "moonbits:andesite_brick_slab",
+    "count": 6
+  }
+}

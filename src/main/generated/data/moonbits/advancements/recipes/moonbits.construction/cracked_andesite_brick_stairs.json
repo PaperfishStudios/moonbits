@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:cracked_andesite_brick_stairs"
+    ]
+  },
+  "criteria": {
+    "has_cracked_andesite_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:cracked_andesite_bricks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:cracked_andesite_brick_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cracked_andesite_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

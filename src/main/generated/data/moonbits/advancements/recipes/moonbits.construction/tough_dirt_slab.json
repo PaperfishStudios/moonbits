@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:tough_dirt_slab"
+    ]
+  },
+  "criteria": {
+    "has_tough_dirt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:tough_dirt"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:tough_dirt_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tough_dirt",
+      "has_the_recipe"
+    ]
+  ]
+}

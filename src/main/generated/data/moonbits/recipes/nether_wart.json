@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:nether_wart_bundle"
+    }
+  ],
+  "result": {
+    "item": "minecraft:nether_wart",
+    "count": 9
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:egg"
+    ]
+  },
+  "criteria": {
+    "has_egg_basket": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:egg_basket"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:egg"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_egg_basket",
+      "has_the_recipe"
+    ]
+  ]
+}

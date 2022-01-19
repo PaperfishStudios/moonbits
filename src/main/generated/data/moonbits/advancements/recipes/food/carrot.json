@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:carrot"
+    ]
+  },
+  "criteria": {
+    "has_carrot_crate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:carrot_crate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:carrot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_carrot_crate",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:smooth_basalt"
+    }
+  },
+  "result": {
+    "item": "moonbits:basalt_bricks",
+    "count": 4
+  }
+}

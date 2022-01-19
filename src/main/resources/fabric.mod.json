@@ -18,13 +18,13 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.moonteam.moonbits.MoonbitsMain"
+      "net.paperfish.moonbits.MoonbitsMain"
     ],
     "client": [
-      "net.moonteam.moonbits.client.MoonbitsClient"
+      "net.paperfish.moonbits.client.MoonbitsClient"
     ],
     "fabric-datagen": [
-      "net.moonteam.moonbits.data.MBDataGenerator"
+      "net.paperfish.moonbits.data.MBDataGenerator"
     ]
   },
   "mixins": [

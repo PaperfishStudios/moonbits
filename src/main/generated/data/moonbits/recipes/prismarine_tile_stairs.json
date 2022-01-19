@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:prismarine_tiles"
+    }
+  },
+  "result": {
+    "item": "moonbits:prismarine_tile_stairs",
+    "count": 4
+  }
+}

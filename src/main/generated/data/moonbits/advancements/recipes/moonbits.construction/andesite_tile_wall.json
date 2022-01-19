@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:andesite_tile_wall"
+    ]
+  },
+  "criteria": {
+    "has_andesite_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:andesite_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:andesite_tile_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_andesite_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

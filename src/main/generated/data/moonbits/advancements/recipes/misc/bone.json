@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:bone"
+    ]
+  },
+  "criteria": {
+    "has_bone_bundle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:bone_bundle"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:bone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bone_bundle",
+      "has_the_recipe"
+    ]
+  ]
+}

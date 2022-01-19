@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "moonbits:dripstone_bricks"
+    }
+  },
+  "result": {
+    "item": "moonbits:dripstone_tiles",
+    "count": 4
+  }
+}
