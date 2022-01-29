@@ -60,36 +60,6 @@ public class MoonbitsClient implements ClientModInitializer {
         HudRenderCallback.EVENT.register((((matrixStack, tickDelta) -> {
             compassHud.renderCompass(matrixStack);
         })));
-
-        // spawm packet thingy
-//        ClientPlayNetworking.registerGlobalReceiver(MBS2CSpawnPacket.SPAWN_PACKET_ID, (client, handler, byteBuf, responseSender) ->
-//        {
-//            final EntityType<?> type = Registry.ENTITY_TYPE.get(byteBuf.readVarInt());
-//            final UUID entityUUID = byteBuf.readUuid();
-//            final int entityID = byteBuf.readVarInt();
-//            final double x = byteBuf.readDouble();
-//            final double y = byteBuf.readDouble();
-//            final double z = byteBuf.readDouble();
-//            final float pitch = (byteBuf.readByte() * 360) / 256.0F;
-//            final float yaw = (byteBuf.readByte() * 360) / 256.0F;
-//
-//            client.execute(() ->
-//            {
-//                final MinecraftClient mClient = MinecraftClient.getInstance();
-//                final ClientWorld world = mClient.world;
-//                final Entity entity = type.create(world);
-//                if (world != null && entity != null)
-//                {
-//                    entity.updatePosition(x, y, z);
-//                    entity.updateTrackedPosition(x, y, z);
-//                    entity.setPitch(pitch);
-//                    entity.setYaw(yaw);
-//                    entity.setId(entityID);
-//                    entity.setUuid(entityUUID);
-//                    world.addEntity(entityID, entity);
-//                }
-//            });
-//        });
         
     }
     

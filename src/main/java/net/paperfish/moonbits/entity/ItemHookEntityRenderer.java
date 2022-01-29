@@ -27,14 +27,14 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3f;
 import net.paperfish.moonbits.MBEntities;
-import net.paperfish.moonbits.MoonbitsMain;
+import net.paperfish.moonbits.Moonbits;
 
 @Environment(value= EnvType.CLIENT)
 public class ItemHookEntityRenderer<T extends ItemHookEntity> extends EntityRenderer<T> {
     private static final Identifier HOOK = new Identifier("moonbits", "block/item_hook");
     //private static final Identifier GLOW_HOOK = new Identifier("moonbits", "glow_item_hook");
-    private static final ModelIdentifier ITEM_HOOK = new ModelIdentifier(new Identifier(MoonbitsMain.MOD_ID, "item_hook"), "");
-    private static final ModelIdentifier GLOW_HOOK = new ModelIdentifier(new Identifier(MoonbitsMain.MOD_ID, "glow_item_hook"), "");
+    private static final ModelIdentifier ITEM_HOOK = new ModelIdentifier(new Identifier(Moonbits.MOD_ID, "item_hook"), "");
+    private static final ModelIdentifier GLOW_HOOK = new ModelIdentifier(new Identifier(Moonbits.MOD_ID, "glow_item_hook"), "");
     private final MinecraftClient client = MinecraftClient.getInstance();
     private final ItemRenderer itemRenderer;
 

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:honey_planks"
+    }
+  },
+  "result": {
+    "item": "moonbits:honey_pressure_plate"
+  }
+}

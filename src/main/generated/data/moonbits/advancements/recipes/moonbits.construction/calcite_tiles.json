@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_calcite_bricks": {
+    "has_polished_calcite": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:calcite_bricks"
+              "moonbits:polished_calcite"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_calcite_bricks",
+      "has_polished_calcite",
       "has_the_recipe"
     ]
   ]

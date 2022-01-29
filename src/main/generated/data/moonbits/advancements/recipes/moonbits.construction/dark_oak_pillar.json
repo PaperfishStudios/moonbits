@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:dark_oak_pillar"
+    ]
+  },
+  "criteria": {
+    "has_carved_dark_oak_wood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:carved_dark_oak_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:dark_oak_pillar"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_carved_dark_oak_wood",
+      "has_the_recipe"
+    ]
+  ]
+}

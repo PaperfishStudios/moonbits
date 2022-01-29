@@ -18,7 +18,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.paperfish.moonbits.MoonbitsMain"
+      "net.paperfish.moonbits.Moonbits"
     ],
     "client": [
       "net.paperfish.moonbits.client.MoonbitsClient"

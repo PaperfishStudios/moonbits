@@ -14,15 +14,15 @@ public class MBParticles {
     public static final DefaultParticleType FALLING_JACARANDA = FabricParticleTypes.simple();
 
     public static void registerParticles() {
-        Registry.register(Registry.PARTICLE_TYPE, new Identifier(MoonbitsMain.MOD_ID, "falling_leaf"), FALLING_LEAF);
-        Registry.register(Registry.PARTICLE_TYPE, new Identifier(MoonbitsMain.MOD_ID, "falling_jacaranda"), FALLING_JACARANDA);
+        Registry.register(Registry.PARTICLE_TYPE, new Identifier(Moonbits.MOD_ID, "falling_leaf"), FALLING_LEAF);
+        Registry.register(Registry.PARTICLE_TYPE, new Identifier(Moonbits.MOD_ID, "falling_jacaranda"), FALLING_JACARANDA);
     }
 
     public static void registerParticleClient() {
         // adds the particle texture to the texture atlas
         ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
-            registry.register(new Identifier(MoonbitsMain.MOD_ID, "particle/falling_leaf"));
-            registry.register(new Identifier(MoonbitsMain.MOD_ID, "particle/falling_jacaranda"));
+            registry.register(new Identifier(Moonbits.MOD_ID, "particle/falling_leaf"));
+            registry.register(new Identifier(Moonbits.MOD_ID, "particle/falling_jacaranda"));
         }));
         ParticleFactoryRegistry.getInstance().register(FALLING_LEAF, FallingParticle.FallingLeafFactory::new);
         ParticleFactoryRegistry.getInstance().register(FALLING_JACARANDA, FallingParticle.FallingLeafFactory::new);

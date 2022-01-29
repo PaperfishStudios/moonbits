@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:mossy_diorite_brick_wall_from_mossy_diorite_brick_wall_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_mossy_diorite_brick_wall": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:mossy_diorite_brick_wall"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:mossy_diorite_brick_wall_from_mossy_diorite_brick_wall_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mossy_diorite_brick_wall",
+      "has_the_recipe"
+    ]
+  ]
+}

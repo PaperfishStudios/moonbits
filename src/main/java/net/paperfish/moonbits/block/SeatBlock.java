@@ -15,7 +15,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MoonbitsMain;
+import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.entity.SeatBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
@@ -49,14 +49,14 @@ public class SeatBlock extends SlabBlock {
         }
         List<SeatBlockEntity> seats = world.getEntitiesByClass(SeatBlockEntity.class, new Box(pos), (Entity) -> true);
         if (!seats.isEmpty()) {
-            MoonbitsMain.LOGGER.info("seat exists");
+            Moonbits.LOGGER.info("seat exists");
             SeatBlockEntity seat = seats.get(0);
             if (seat.hasPassengers()) {
                 return ActionResult.PASS; // cant sit down if someone's already in the seat
             }
             if (!world.isClient()) {
                 player.startRiding(seat);
-                MoonbitsMain.LOGGER.info("got in existing seat");
+                Moonbits.LOGGER.info("got in existing seat");
             }
         }
         if (world.isClient()) {
@@ -91,11 +91,11 @@ public class SeatBlock extends SlabBlock {
             if (state.get(TYPE) == SlabType.BOTTOM) {
                 entity = new SeatBlockEntity(world, pos.getX() + .5f, pos.getY(), pos.getZ() + .5f);
                 //entity.setPosition(pos.getX() + .5f, pos.getY() + 1f, pos.getZ() + .5f);
-                MoonbitsMain.LOGGER.info("created the seat entity on the bottom half");
+                Moonbits.LOGGER.info("created the seat entity on the bottom half");
             } else {
                 entity = new SeatBlockEntity(world, pos.getX() + .5f, pos.getY() + .5f, pos.getZ() + .5f);
                 //entity.setPosition(pos.getX() + .5f, pos.getY() + .5f, pos.getZ() + .5f);
-                MoonbitsMain.LOGGER.info("created the seat entity on the top half");
+                Moonbits.LOGGER.info("created the seat entity on the top half");
             }
             world.spawnEntity(entity);
             player.startRiding(entity, true);

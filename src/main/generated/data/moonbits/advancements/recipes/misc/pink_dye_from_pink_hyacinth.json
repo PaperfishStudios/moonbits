@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:pink_dye_from_pink_hyacinth"
+    ]
+  },
+  "criteria": {
+    "has_pink_hyacinth": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:pink_hyacinth"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:pink_dye_from_pink_hyacinth"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pink_hyacinth",
+      "has_the_recipe"
+    ]
+  ]
+}

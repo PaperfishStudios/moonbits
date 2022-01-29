@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:peat_bricks"
+    ]
+  },
+  "criteria": {
+    "has_peat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:peat"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:peat_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_peat",
+      "has_the_recipe"
+    ]
+  ]
+}

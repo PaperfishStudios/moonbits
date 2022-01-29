@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:prismarine_tile_wall_from_prismarine_tile_wall_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_prismarine_tile_wall": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:prismarine_tile_wall"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:prismarine_tile_wall_from_prismarine_tile_wall_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_prismarine_tile_wall",
+      "has_the_recipe"
+    ]
+  ]
+}

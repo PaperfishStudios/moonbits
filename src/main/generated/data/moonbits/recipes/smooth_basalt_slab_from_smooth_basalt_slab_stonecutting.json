@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:smooth_basalt_slab"
+  },
+  "result": "moonbits:smooth_basalt_slab",
+  "count": 1
+}

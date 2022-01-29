@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:cracked_prismarine_bricks"
+    }
+  },
+  "result": {
+    "item": "moonbits:cracked_prismarine_brick_stairs",
+    "count": 4
+  }
+}

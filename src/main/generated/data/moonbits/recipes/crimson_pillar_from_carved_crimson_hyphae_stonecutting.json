@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:carved_crimson_hyphae"
+  },
+  "result": "moonbits:crimson_pillar",
+  "count": 1
+}

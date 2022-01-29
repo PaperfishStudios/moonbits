@@ -27,6 +27,8 @@
     "StriderEntityMixin",
     "StriderSaddleAccess",
     "SugarCaneMixin",
+    "TexturedModelAccessor",
+    "TextureKeyAccessor",
     "TreeDecoratorTypeInvoker",
     "TurtleEntityMixin",
     "VanillaSurfaceRulesMixin"

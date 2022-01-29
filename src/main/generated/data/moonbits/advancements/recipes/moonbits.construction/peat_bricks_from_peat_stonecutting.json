@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:peat_bricks_from_peat_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_peat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:peat"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:peat_bricks_from_peat_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_peat",
+      "has_the_recipe"
+    ]
+  ]
+}

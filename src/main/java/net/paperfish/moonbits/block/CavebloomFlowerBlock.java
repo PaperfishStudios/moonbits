@@ -25,6 +25,7 @@ import net.paperfish.moonbits.MBBlocks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Stream;
@@ -60,13 +61,13 @@ public class CavebloomFlowerBlock extends AbstractLichenBlock implements Fertili
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         int randomNum = random.nextInt(25);
         if (randomNum == 0 && world.getLightLevel(pos) < 12) {
-            int i = 5;
-            int radius = 4;
-            for (BlockPos blockPos : BlockPos.iterate(pos.add(-radius, -1, -radius), pos.add(radius, 1, radius))) {
-                if (!world.getBlockState(blockPos).isOf(this) || --i > 0) continue;
-                return;
+            if (BlockPos.streamOutwards(pos, 2, 2, 2)
+                    .map(world::getBlockState)
+                    .map(BlockState::getBlock)
+                    .filter(List.of(MBBlocks.CAVEBLOOM_VINE, MBBlocks.CAVEBLOOM_FLOWERS)::contains)
+                    .toList().size() <= 8) { // if there are no more than 8 caveblooms/vines within a 2-block radius
+                grow(world, random, pos, state);
             }
-            grow(world, random, pos, state);
         }
         super.randomTick(state, world, pos, random);
     }
@@ -90,13 +91,7 @@ public class CavebloomFlowerBlock extends AbstractLichenBlock implements Fertili
     }
 
     public BlockState swapBlock(BlockState state) {
-        return MBBlocks.CAVEBLOOM_VINE.getDefaultState()
-                .with(Properties.UP, state.get(Properties.UP))
-                .with(Properties.DOWN, state.get(Properties.DOWN))
-                .with(Properties.NORTH, state.get(Properties.NORTH))
-                .with(Properties.SOUTH, state.get(Properties.SOUTH))
-                .with(Properties.EAST, state.get(Properties.EAST))
-                .with(Properties.WEST, state.get(Properties.WEST));
+        return MBBlocks.CAVEBLOOM_VINE.getStateWithProperties(state);
     }
 
     public void dropFlowers(BlockState state, World world, BlockPos pos) {

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:chiseled_honeycomb_from_chiseled_honeycomb_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_chiseled_honeycomb": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:chiseled_honeycomb"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:chiseled_honeycomb_from_chiseled_honeycomb_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chiseled_honeycomb",
+      "has_the_recipe"
+    ]
+  ]
+}

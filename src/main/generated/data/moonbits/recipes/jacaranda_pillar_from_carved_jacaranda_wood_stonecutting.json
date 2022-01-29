@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:carved_jacaranda_wood"
+  },
+  "result": "moonbits:jacaranda_pillar",
+  "count": 1
+}

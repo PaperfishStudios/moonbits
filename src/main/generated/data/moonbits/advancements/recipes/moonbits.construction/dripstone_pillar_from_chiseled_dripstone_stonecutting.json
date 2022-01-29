@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:dripstone_pillar_from_chiseled_dripstone_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_chiseled_dripstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:chiseled_dripstone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:dripstone_pillar_from_chiseled_dripstone_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chiseled_dripstone",
+      "has_the_recipe"
+    ]
+  ]
+}

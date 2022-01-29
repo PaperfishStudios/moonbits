@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:cracked_diorite_tiles"
+    ]
+  },
+  "criteria": {
+    "has_diorite_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:diorite_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:cracked_diorite_tiles"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_diorite_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

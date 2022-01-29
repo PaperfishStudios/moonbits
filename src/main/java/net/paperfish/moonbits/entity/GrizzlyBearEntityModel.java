@@ -1,7 +1,7 @@
 package net.paperfish.moonbits.entity;
 
 import net.minecraft.util.Identifier;
-import net.paperfish.moonbits.MoonbitsMain;
+import net.paperfish.moonbits.Moonbits;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.processor.IBone;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
@@ -10,17 +10,17 @@ import software.bernie.geckolib3.model.provider.data.EntityModelData;
 public class GrizzlyBearEntityModel extends AnimatedGeoModel<GrizzlyBearEntity> {
     @Override
     public Identifier getModelLocation(GrizzlyBearEntity bear) {
-        return new Identifier(MoonbitsMain.MOD_ID, "geo/entity/grizzly_bear.geo.json");
+        return new Identifier(Moonbits.MOD_ID, "geo/entity/grizzly_bear.geo.json");
     }
 
     @Override
     public Identifier getTextureLocation(GrizzlyBearEntity bear) {
-        return new Identifier(MoonbitsMain.MOD_ID, "textures/entity/bear/grizz.png");
+        return new Identifier(Moonbits.MOD_ID, "textures/entity/bear/grizz.png");
     }
 
     @Override
     public Identifier getAnimationFileLocation(GrizzlyBearEntity bear) {
-        return new Identifier(MoonbitsMain.MOD_ID, "animations/entity/grizzly_bear.animation.json");
+        return new Identifier(Moonbits.MOD_ID, "animations/entity/grizzly_bear.animation.json");
     }
 
     @Override

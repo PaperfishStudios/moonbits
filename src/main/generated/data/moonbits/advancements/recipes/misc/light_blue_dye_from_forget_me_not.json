@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:light_blue_dye_from_forget_me_not"
+    ]
+  },
+  "criteria": {
+    "has_forget_me_not": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:forget_me_not"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:light_blue_dye_from_forget_me_not"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_forget_me_not",
+      "has_the_recipe"
+    ]
+  ]
+}

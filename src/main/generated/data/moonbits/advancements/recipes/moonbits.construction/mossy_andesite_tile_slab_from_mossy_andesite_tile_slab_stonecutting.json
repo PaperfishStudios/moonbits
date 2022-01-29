@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:mossy_andesite_tile_slab_from_mossy_andesite_tile_slab_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_mossy_andesite_tile_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:mossy_andesite_tile_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:mossy_andesite_tile_slab_from_mossy_andesite_tile_slab_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mossy_andesite_tile_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

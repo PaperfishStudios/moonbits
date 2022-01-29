@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:light_blue_hyacinth"
+    }
+  ],
+  "result": {
+    "item": "minecraft:light_blue_dye",
+    "count": 2
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:jacaranda_sign"
+  },
+  "result": "moonbits:jacaranda_sign",
+  "count": 1
+}

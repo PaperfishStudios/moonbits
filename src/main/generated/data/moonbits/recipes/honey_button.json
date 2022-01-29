@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:honey_planks"
+    }
+  ],
+  "result": {
+    "item": "moonbits:honey_button"
+  }
+}

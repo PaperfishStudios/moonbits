@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:basalt_bricks"
+    }
+  },
+  "result": {
+    "item": "moonbits:basalt_brick_wall",
+    "count": 6
+  }
+}

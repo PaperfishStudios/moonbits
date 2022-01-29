@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:cut_prismarine_from_cut_prismarine_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_cut_prismarine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:cut_prismarine"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:cut_prismarine_from_cut_prismarine_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cut_prismarine",
+      "has_the_recipe"
+    ]
+  ]
+}

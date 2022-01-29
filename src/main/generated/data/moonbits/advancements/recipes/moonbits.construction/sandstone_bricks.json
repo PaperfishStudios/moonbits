@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_sandstone": {
+    "has_cut_sandstone": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:sandstone"
+              "minecraft:cut_sandstone"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_sandstone",
+      "has_cut_sandstone",
       "has_the_recipe"
     ]
   ]

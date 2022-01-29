@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:cracked_prismarine_tiles"
+    ]
+  },
+  "criteria": {
+    "has_prismarine_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:prismarine_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:cracked_prismarine_tiles"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_prismarine_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

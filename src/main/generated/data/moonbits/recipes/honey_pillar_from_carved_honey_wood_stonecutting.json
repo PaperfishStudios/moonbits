@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:carved_honey_wood"
+  },
+  "result": "moonbits:honey_pillar",
+  "count": 1
+}

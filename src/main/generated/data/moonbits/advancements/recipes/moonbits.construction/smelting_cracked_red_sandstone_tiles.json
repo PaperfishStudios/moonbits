@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:smelting_cracked_red_sandstone_tiles"
+    ]
+  },
+  "criteria": {
+    "has_red_sandstone_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:red_sandstone_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:smelting_cracked_red_sandstone_tiles"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_sandstone_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

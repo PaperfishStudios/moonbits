@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:carved_dark_oak_wood"
+    }
+  },
+  "result": {
+    "item": "moonbits:dark_oak_pillar",
+    "count": 2
+  }
+}

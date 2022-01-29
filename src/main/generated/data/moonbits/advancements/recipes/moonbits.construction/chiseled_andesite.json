@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:chiseled_andesite"
+    ]
+  },
+  "criteria": {
+    "has_andesite_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:andesite_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:chiseled_andesite"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_andesite_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

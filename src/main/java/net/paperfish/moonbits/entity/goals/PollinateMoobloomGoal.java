@@ -8,7 +8,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.paperfish.moonbits.MoonbitsMain;
+import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.entity.MoobloomEntity;
 import net.paperfish.moonbits.mixin.BeeEntityAccessor;
 import net.paperfish.moonbits.mixin.EntityAccessor;
@@ -208,7 +208,7 @@ public class PollinateMoobloomGoal extends Goal {
 
         if (blockPos.isWithinDistance(mutable, searchDistance)) {
             assert a != null;
-            MoonbitsMain.LOGGER.info("bee found: " + a.getMoobloomType().toString());
+            Moonbits.LOGGER.info("bee found: " + a.getMoobloomType().toString());
             bee.setFlowerPos(mutable);
             targetMoobloom = a;
             return Optional.of(mutable);

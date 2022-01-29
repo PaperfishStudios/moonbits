@@ -32,7 +32,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBEntities;
-import net.paperfish.moonbits.MoonbitsMain;
+import net.paperfish.moonbits.Moonbits;
 
 public class MoobloomEntity extends CowEntity {
 	private static final TrackedData<String> TYPE;
@@ -108,7 +108,7 @@ public class MoobloomEntity extends CowEntity {
 	@Override
 	protected void mobTick() {
 		if (pollinationTimer > 0) {
-			if (pollinationTimer % 20 == 0) { // place flower once a second
+			if (pollinationTimer % 20 == 0 && this.getMoobloomType().flower.canPlaceAt(getWorld(), getBlockPos())) { // place flower once a second
 				world.setBlockState(getBlockPos(), this.getMoobloomType().flower);
 			}
 			pollinationTimer--;
@@ -140,7 +140,7 @@ public class MoobloomEntity extends CowEntity {
         // if ur holding a small flower, the moobloom is NOT baby,                || and ur flower is different from the moobloom's current flower || && !itemStack.isOf(Item.fromBlock(currentFlower.getBlock()))
 		if (itemStack.isIn(ItemTags.SMALL_FLOWERS) && !this.isBaby()) {
             babyType = Type.fromFlowerItem(itemStack.getItem());
-			MoonbitsMain.LOGGER.info("baby type: " + babyType);
+			Moonbits.LOGGER.info("baby type: " + babyType);
 		}
 		return super.interactMob(player, hand);
 	}

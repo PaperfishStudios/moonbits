@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:cracked_tuff_brick_wall"
+  },
+  "result": "moonbits:cracked_tuff_brick_wall",
+  "count": 1
+}

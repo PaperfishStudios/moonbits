@@ -12,7 +12,13 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.item.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MBItems {
+	public static List<Item> MB_ITEMS = new ArrayList<>();
+	public static List<Item> MB_TOOLS = new ArrayList<>();
+	public static List<Item> MB_EGGS = new ArrayList<>();
     
 	public static final Item GRASS_TUFT = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
 	public static final Item ITEM_HOOK = new ItemHookItem(MBEntities.ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
@@ -74,64 +80,79 @@ public class MBItems {
 	public static final Item MOOBLOOM_SPAWN_EGG = new SpawnEggItem(MBEntities.MOOBLOOM, 16771888, 16777215, new Item.Settings().group(MBItemGroup.UTILITY));
 	public static final Item GRIZZLY_SPAWN_EGG = new SpawnEggItem(MBEntities.GRIZZLY_BEAR, 5782045, 15707403, new Item.Settings().group(MBItemGroup.UTILITY));
 	public static final Item GLARE_SPAWN_EGG = new SpawnEggItem(MBEntities.GLARE, 5403430, 657930, new Item.Settings().group(MBItemGroup.UTILITY));
-	
+
+	public static void addItem(String id, Item item) {
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, id), item);
+		MB_ITEMS.add(item);
+	}
+
+	public static void addTool(String id, Item item) {
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, id), item);
+		MB_TOOLS.add(item);
+	}
+	public static void addEgg(String id, Item item) {
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, id), item);
+		MB_EGGS.add(item);
+	}
     
 	public static void registerItems(){
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "apple_seeds"), APPLE_SEEDS);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "sweet_berry_pits"), SWEET_BERRY_PITS_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "sweet_berry_pits"), new BlockItem(SWEET_BERRY_PITS_BLOCK, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "glow_berry_pits"), GLOW_BERRY_PITS_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "glow_berry_pits"), new BlockItem(GLOW_BERRY_PITS_BLOCK, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "roasted_berries"), ROASTED_BERRIES);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "honey_bun"), HONEY_BUN);
+		addItem("apple_seeds", APPLE_SEEDS);
 
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "grass_tuft"), GRASS_TUFT);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "item_hook"), ITEM_HOOK);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "glow_item_hook"), GLOW_ITEM_HOOK);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "sweet_berry_pits"), SWEET_BERRY_PITS_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "sweet_berry_pits"), new BlockItem(SWEET_BERRY_PITS_BLOCK, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "glow_berry_pits"), GLOW_BERRY_PITS_BLOCK);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "glow_berry_pits"), new BlockItem(GLOW_BERRY_PITS_BLOCK, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
 
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "poppy_crown"), POPPY_CROWN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "dandelion_crown"), DANDELION_CROWN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "oxeye_daisy_crown"), OXEYE_CROWN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "allium_crown"), ALLIUM_CROWN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "lily_of_the_valley_crown"), LILY_CROWN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "blue_orchid_crown"), ORCHID_CROWN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "cornflower_crown"), CORNFLOWER_CROWN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "azure_bluet_crown"), AZURE_BLUET_CROWN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "tulip_crown"), TULIP_CROWN);
+		addItem("roasted_berries", ROASTED_BERRIES);
+		addItem("honey_bun", HONEY_BUN);
 
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "buttercup_crown"), BUTTERCUP_CROWN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "forget_me_not_crown"), FORGETMENOT_CROWN);
+		addItem("grass_tuft", GRASS_TUFT);
+		addItem("item_hook", ITEM_HOOK);
+		addItem("glow_item_hook", GLOW_ITEM_HOOK);
 
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "wrench"), WRENCH);
+		addItem("poppy_crown", POPPY_CROWN);
+		addItem("dandelion_crown", DANDELION_CROWN);
+		addItem("oxeye_daisy_crown", OXEYE_CROWN);
+		addItem("allium_crown", ALLIUM_CROWN);
+		addItem("lily_of_the_valley_crown", LILY_CROWN);
+		addItem("blue_orchid_crown", ORCHID_CROWN);
+		addItem("cornflower_crown", CORNFLOWER_CROWN);
+		addItem("azure_bluet_crown", AZURE_BLUET_CROWN);
+		addItem("tulip_crown", TULIP_CROWN);
+
+		addItem("buttercup_crown", BUTTERCUP_CROWN);
+		addItem("forget_me_not_crown", FORGETMENOT_CROWN);
+
+		addTool("wrench", WRENCH);
 		//Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "redstone_"), WRENCH);
 
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "baby_turtle_bucket"), BABY_TURTLE_BUCKET);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "baby_strider_bucket"), BABY_STRIDER_BUCKET);
+		addItem("baby_turtle_bucket", BABY_TURTLE_BUCKET);
+		addItem("baby_strider_bucket", BABY_STRIDER_BUCKET);
 
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "glass_shard"), GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "white_glass_shard"), WHITE_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "orange_glass_shard"), ORANGE_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "magenta_glass_shard"), MAGENTA_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "light_blue_glass_shard"), LIGHT_BLUE_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "yellow_glass_shard"), YELLOW_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "lime_glass_shard"), LIME_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "pink_glass_shard"), PINK_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "gray_glass_shard"), GRAY_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "light_gray_glass_shard"), LIGHT_GRAY_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "cyan_glass_shard"), CYAN_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "purple_glass_shard"), PURPLE_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "blue_glass_shard"), BLUE_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "brown_glass_shard"), BROWN_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "green_glass_shard"), GREEN_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "red_glass_shard"), RED_GLASS_SHARD);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "black_glass_shard"), BLACK_GLASS_SHARD);
+		addItem("glass_shard", GLASS_SHARD);
+		addItem("white_glass_shard", WHITE_GLASS_SHARD);
+		addItem("orange_glass_shard", ORANGE_GLASS_SHARD);
+		addItem("magenta_glass_shard", MAGENTA_GLASS_SHARD);
+		addItem("light_blue_glass_shard", LIGHT_BLUE_GLASS_SHARD);
+		addItem("yellow_glass_shard", YELLOW_GLASS_SHARD);
+		addItem("lime_glass_shard", LIME_GLASS_SHARD);
+		addItem("pink_glass_shard", PINK_GLASS_SHARD);
+		addItem("gray_glass_shard", GRAY_GLASS_SHARD);
+		addItem("light_gray_glass_shard", LIGHT_GRAY_GLASS_SHARD);
+		addItem("cyan_glass_shard", CYAN_GLASS_SHARD);
+		addItem("purple_glass_shard", PURPLE_GLASS_SHARD);
+		addItem("blue_glass_shard", BLUE_GLASS_SHARD);
+		addItem("brown_glass_shard", BROWN_GLASS_SHARD);
+		addItem("green_glass_shard", GREEN_GLASS_SHARD);
+		addItem("red_glass_shard", RED_GLASS_SHARD);
+		addItem("black_glass_shard", BLACK_GLASS_SHARD);
 
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "peat"), PEAT);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "copper_nugget"), COPPER_NUGGET);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "fur"), FUR);
+		addItem("peat", PEAT);
+		addItem("copper_nugget", COPPER_NUGGET);
+		addItem("fur", FUR);
 
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "moobloom_spawn_egg"), MOOBLOOM_SPAWN_EGG);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "grizzly_bear_spawn_egg"), GRIZZLY_SPAWN_EGG);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "glare_spawn_egg"), GLARE_SPAWN_EGG);
+		addEgg("moobloom_spawn_egg", MOOBLOOM_SPAWN_EGG);
+		addEgg("grizzly_bear_spawn_egg", GRIZZLY_SPAWN_EGG);
+		addEgg("glare_spawn_egg", GLARE_SPAWN_EGG);
 	} 
 }

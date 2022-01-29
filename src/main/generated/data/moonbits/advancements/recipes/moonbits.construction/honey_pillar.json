@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:honey_pillar"
+    ]
+  },
+  "criteria": {
+    "has_carved_honey_wood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:carved_honey_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:honey_pillar"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_carved_honey_wood",
+      "has_the_recipe"
+    ]
+  ]
+}

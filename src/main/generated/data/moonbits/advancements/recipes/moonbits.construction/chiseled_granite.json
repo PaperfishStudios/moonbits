@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:chiseled_granite"
+    ]
+  },
+  "criteria": {
+    "has_granite_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:granite_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:chiseled_granite"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_granite_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:honey_slab"
+    ]
+  },
+  "criteria": {
+    "has_honey_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:honey_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:honey_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_honey_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

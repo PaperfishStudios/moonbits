@@ -22,7 +22,7 @@ import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MoonbitsMain;
+import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.world.gen.DirtCarver;
 
 import java.util.List;
@@ -49,7 +49,7 @@ public class MBCaveFeatures {
 
     //public static final ConfiguredFeature<ReplaceBlobsFeatureConfig, ?> TOUGH_GRASS;
 
-    public static final RegistryKey<ConfiguredCarver<?>> dirt_cave = RegistryKey.of(Registry.CONFIGURED_CARVER_KEY, new Identifier(MoonbitsMain.MOD_ID, "dirt_cave"));
+    public static final RegistryKey<ConfiguredCarver<?>> dirt_cave = RegistryKey.of(Registry.CONFIGURED_CARVER_KEY, new Identifier(Moonbits.MOD_ID, "dirt_cave"));
     public static final Carver<CaveCarverConfig> CAVE = Registry.register(Registry.CARVER, "dirt_caves", new DirtCarver(CaveCarverConfig.CAVE_CODEC));
     public static final ConfiguredCarver<CaveCarverConfig> DIRT_CAVE =
             Registry.register(BuiltinRegistries.CONFIGURED_CARVER,
@@ -128,7 +128,7 @@ public class MBCaveFeatures {
         ));
         TOUGH_GRASS_PATCH = ConfiguredFeatures.register("tg_patch", Feature.VEGETATION_PATCH.configure(
                 new VegetationPatchFeatureConfig(
-                        new Identifier(MoonbitsMain.MOD_ID, "tough_soils"),
+                        new Identifier(Moonbits.MOD_ID, "tough_soils"),
                         BlockStateProvider.of(MBBlocks.TOUGH_GRASS),
                         TG_VEGETATION::withPlacement,
                         VerticalSurfaceType.FLOOR,
@@ -141,7 +141,7 @@ public class MBCaveFeatures {
         ));
         TOUGH_GRASS_LUSH = ConfiguredFeatures.register("tg_lush", Feature.VEGETATION_PATCH.configure(
                 new VegetationPatchFeatureConfig(
-                        new Identifier(MoonbitsMain.MOD_ID, "tough_soils"),
+                        new Identifier(Moonbits.MOD_ID, "tough_soils"),
                         BlockStateProvider.of(MBBlocks.TOUGH_GRASS),
                         UndergroundConfiguredFeatures.MOSS_VEGETATION::withPlacement,
                         VerticalSurfaceType.FLOOR,
@@ -154,7 +154,7 @@ public class MBCaveFeatures {
         ));
         REGOLITH_FLOOR = ConfiguredFeatures.register("regolith_floor", Feature.VEGETATION_PATCH.configure(
                 new VegetationPatchFeatureConfig(
-                        new Identifier(MoonbitsMain.MOD_ID, "tough_soils"),
+                        new Identifier(Moonbits.MOD_ID, "tough_soils"),
                         BlockStateProvider.of(MBBlocks.REGOLITH),
                         TG_VEGETATION::withPlacement,
                         VerticalSurfaceType.FLOOR,
@@ -168,7 +168,7 @@ public class MBCaveFeatures {
 
         LAMPROOT = ConfiguredFeatures.register("lamproot", LAMPROOT_FEATURE.configure(new SimpleBlockFeatureConfig(BlockStateProvider.of(MBBlocks.LAMPROOT))));
         CAVEBLOOMS = ConfiguredFeatures.register("caveblooms", CAVEBLOOM_FEATURE.configure(new CavebloomFeatureConfig(UniformIntProvider.create(18, 26), UniformFloatProvider.create(0.6f, 0.9f), UniformIntProvider.create(1, 3))));
-        MOSS_PATCH_DC = ConfiguredFeatures.register("moss_patch_dc", Feature.VEGETATION_PATCH.configure(new VegetationPatchFeatureConfig(new Identifier(MoonbitsMain.MOD_ID, "tough_soils"), BlockStateProvider.of(Blocks.MOSS_BLOCK), UndergroundConfiguredFeatures.CAVE_VINE_IN_MOSS::withPlacement, VerticalSurfaceType.CEILING, UniformIntProvider.create(1, 2), 0.0f, 5, 0.08f, UniformIntProvider.create(4, 7), 0.3f)));
+        MOSS_PATCH_DC = ConfiguredFeatures.register("moss_patch_dc", Feature.VEGETATION_PATCH.configure(new VegetationPatchFeatureConfig(new Identifier(Moonbits.MOD_ID, "tough_soils"), BlockStateProvider.of(Blocks.MOSS_BLOCK), UndergroundConfiguredFeatures.CAVE_VINE_IN_MOSS::withPlacement, VerticalSurfaceType.CEILING, UniformIntProvider.create(1, 2), 0.0f, 5, 0.08f, UniformIntProvider.create(4, 7), 0.3f)));
 
     }
 }

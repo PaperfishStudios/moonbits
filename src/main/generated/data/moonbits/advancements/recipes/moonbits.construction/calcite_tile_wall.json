@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:calcite_tile_wall"
+    ]
+  },
+  "criteria": {
+    "has_calcite_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:calcite_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:calcite_tile_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_calcite_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

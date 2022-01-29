@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:acacia_pillar"
+    ]
+  },
+  "criteria": {
+    "has_carved_acacia_wood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:carved_acacia_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:acacia_pillar"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_carved_acacia_wood",
+      "has_the_recipe"
+    ]
+  ]
+}

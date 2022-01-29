@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:chiseled_dripstone"
+  },
+  "result": "moonbits:dripstone_pillar",
+  "count": 1
+}

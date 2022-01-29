@@ -670,6 +670,10 @@ public class MBBlocks {
 
 	public static final Block CHISELED_BASALT = new PillarBlock(AbstractBlock.Settings.copy(Blocks.BASALT));
 
+	public static final Block SMOOTH_BASALT_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.SMOOTH_BASALT));
+	public static final Block SMOOTH_BASALT_STAIRS = new CustomStairsBlock(Blocks.SMOOTH_BASALT.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BASALT));
+	public static final Block SMOOTH_BASALT_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.SMOOTH_BASALT));
+
 	// LAPIS LAZULI BLOCKS
 	public static final Block SMOOTH_LAPIS = new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
 	public static final Block SMOOTH_LAPIS_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
@@ -735,8 +739,8 @@ public class MBBlocks {
 
 	public static void createBlock(String block_id, Block block, ItemGroup group) {
 		
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, block_id), block);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, block_id), new BlockItem(block, new Item.Settings().group(group)));
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, block_id), block);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, block_id), new BlockItem(block, new Item.Settings().group(group)));
 	}
     
     public static void registerBlocks(){
@@ -778,9 +782,9 @@ public class MBBlocks {
 		
 		// FLOWERS
 		createBlock("buttercup", BUTTERCUP, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "potted_buttercup"), POTTED_BUTTERCUP);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_buttercup"), POTTED_BUTTERCUP);
 		createBlock("forget_me_not", FORGETMENOT, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "potted_forget_me_not"), POTTED_FORGETMENOT);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_forget_me_not"), POTTED_FORGETMENOT);
 
 		createBlock("white_hyacinth", WHITE_HYACINTH, MBItemGroup.DECOR);
 		createBlock("pink_hyacinth", PINK_HYACINTH, MBItemGroup.DECOR);
@@ -788,19 +792,19 @@ public class MBBlocks {
 		createBlock("red_hyacinth", RED_HYACINTH, MBItemGroup.DECOR);
 
 		// MOOBLOOM FLOWERS
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_lily"), MINI_LILY);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_oxeye"), MINI_OXEYE);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_bluet"), MINI_BLUET);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_dandelion"), MINI_DANDELION);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_poppy"), MINI_POPPY);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_orchid"), MINI_ORCHID);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_cornflower"), MINI_CORNFLOWER);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_allium"), MINI_ALLIUM);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_tulip_w"), MINI_TULIP_W);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_tulip_p"), MINI_TULIP_P);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_tulip_o"), MINI_TULIP_O);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_tulip_r"), MINI_TULIP_R);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "mini_forget_me_not"), MINI_FORGETMENOT);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_lily"), MINI_LILY);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_oxeye"), MINI_OXEYE);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_bluet"), MINI_BLUET);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_dandelion"), MINI_DANDELION);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_poppy"), MINI_POPPY);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_orchid"), MINI_ORCHID);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_cornflower"), MINI_CORNFLOWER);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_allium"), MINI_ALLIUM);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_tulip_w"), MINI_TULIP_W);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_tulip_p"), MINI_TULIP_P);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_tulip_o"), MINI_TULIP_O);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_tulip_r"), MINI_TULIP_R);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_forget_me_not"), MINI_FORGETMENOT);
 
 		// PLANTS
 		createBlock("wild_carrots", WILD_CARROTS, MBItemGroup.DECOR);
@@ -868,14 +872,14 @@ public class MBBlocks {
 		createBlock("flowering_oak_leaves", FLOWERING_OAK_LEAVES, MBItemGroup.DECOR);
 		createBlock("apple_oak_leaves", FRUITING_OAK_LEAVES, MBItemGroup.DECOR);
 		createBlock("apple_oak_sapling", APPLE_OAK_SAPLING, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "potted_apple_oak_sapling"), POTTED_APPLE_OAK_SAPLING);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "apple_oak_sprout"), APPLE_OAK_SPROUT);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "potted_apple_oak_sprout"), POTTED_APPLE_OAK_SPROUT);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_apple_oak_sapling"), POTTED_APPLE_OAK_SAPLING);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "apple_oak_sprout"), APPLE_OAK_SPROUT);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_apple_oak_sprout"), POTTED_APPLE_OAK_SPROUT);
 		// - GOLDEN BIRCH
 		createBlock("golden_birch_leaves", GOLDEN_BIRCH_LEAVES, MBItemGroup.DECOR);
 		createBlock("golden_birch_leaf_carpet", GOLDEN_BIRCH_LEAF_CARPET, MBItemGroup.DECOR);
 		createBlock("golden_birch_sapling", GOLDEN_BIRCH_SAPLING, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "potted_golden_birch_sapling"), POTTED_GOLDEN_BIRCH_SAPLING);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_golden_birch_sapling"), POTTED_GOLDEN_BIRCH_SAPLING);
 
 		createBlock("toadstool", TOADSTOOL, MBItemGroup.DECOR);
 		createBlock("small_toadstools", SMALL_TOADSTOOLS, MBItemGroup.DECOR);
@@ -885,10 +889,10 @@ public class MBBlocks {
 		createBlock("fur_block", FUR_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("fur_carpet", FUR_CARPET, MBItemGroup.CONSTRUCTION);
 		// - Bedroll setup, registers the block entity too :b
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "bedroll"), BEDROLL);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "bedroll"),
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "bedroll"), BEDROLL);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "bedroll"),
 				(BlockItem)(new BedItem(BEDROLL, (new Item.Settings()).maxCount(1).group(MBItemGroup.UTILITY))));
-		BEDROLL_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(MoonbitsMain.MOD_ID, "bedroll_block_entity"),
+		BEDROLL_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MOD_ID, "bedroll_block_entity"),
 				FabricBlockEntityTypeBuilder.create(BedrollBlockEntity::new, BEDROLL).build(null));
 
 		// - JACARANDA WOOD
@@ -901,10 +905,10 @@ public class MBBlocks {
 		createBlock("stripped_jacaranda_wood", STRIPPED_JACARANDA_WOOD, MBItemGroup.CONSTRUCTION);
 		createBlock("jacaranda_leaves", JACARANDA_LEAVES, MBItemGroup.DECOR);
 		createBlock("hanging_jacaranda_leaves", HANGING_JACARANDA_LEAVES, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "hanging_jacaranda_leaves_plant"), HANGING_JACARANDA_LEAVES_PLANT);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "hanging_jacaranda_leaves_plant"), HANGING_JACARANDA_LEAVES_PLANT);
 		createBlock("jacaranda_leaf_carpet", JACARANDA_LEAF_CARPET, MBItemGroup.DECOR);
 		createBlock("jacaranda_sapling", JACARANDA_SAPLING, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "potted_jacaranda_sapling"), POTTED_JACARANDA_SAPLING);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_jacaranda_sapling"), POTTED_JACARANDA_SAPLING);
 		createBlock("jacaranda_fence", JACARANDA_FENCE, MBItemGroup.CONSTRUCTION);
 		createBlock("jacaranda_fence_gate", JACARANDA_FENCE_GATE, ItemGroup.REDSTONE);
 		createBlock("jacaranda_door", JACARANDA_DOOR, ItemGroup.REDSTONE);
@@ -917,9 +921,9 @@ public class MBBlocks {
 		createBlock("jacaranda_panel", JACARANDA_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_jacaranda_wood", CARVED_JACARANDA, MBItemGroup.CONSTRUCTION);
 		createBlock("jacaranda_pillar", JACARANDA_PILLAR, MBItemGroup.CONSTRUCTION);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "jacaranda_sign"), JACARANDA_SIGN);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "jacaranda_wall_sign"), JACARANDA_WALL_SIGN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "jacaranda_sign"), (Item)(new SignItem(new Item.Settings().maxCount(16).group(ItemGroup.DECORATIONS), JACARANDA_SIGN, JACARANDA_WALL_SIGN)));
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "jacaranda_sign"), JACARANDA_SIGN);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "jacaranda_wall_sign"), JACARANDA_WALL_SIGN);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "jacaranda_sign"), (Item)(new SignItem(new Item.Settings().maxCount(16).group(ItemGroup.DECORATIONS), JACARANDA_SIGN, JACARANDA_WALL_SIGN)));
 
 		createBlock("azalea_stem", AZALEA_STEM, MBItemGroup.DECOR);
 
@@ -938,9 +942,9 @@ public class MBBlocks {
 		createBlock("honey_panel", HONEY_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_honey_wood", CARVED_HONEY, MBItemGroup.CONSTRUCTION);
 		createBlock("honey_pillar", HONEY_PILLAR, MBItemGroup.CONSTRUCTION);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "honey_sign"), HONEY_SIGN);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "honey_wall_sign"), HONEY_WALL_SIGN);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "honey_sign"), (Item)(new SignItem(new Item.Settings().maxCount(16).group(ItemGroup.DECORATIONS), HONEY_SIGN, HONEY_WALL_SIGN)));
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "honey_sign"), HONEY_SIGN);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "honey_wall_sign"), HONEY_WALL_SIGN);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "honey_sign"), (Item)(new SignItem(new Item.Settings().maxCount(16).group(ItemGroup.DECORATIONS), HONEY_SIGN, HONEY_WALL_SIGN)));
 
 
 		createBlock("honeycomb_slab", HONEYCOMB_SLAB, MBItemGroup.CONSTRUCTION);
@@ -983,10 +987,10 @@ public class MBBlocks {
 		createBlock("peat_brick_wall", PEAT_BRICK_WALL, MBItemGroup.CONSTRUCTION);
 
 		createBlock("lamproot", LAMPROOT, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "cavebloom_flowers"), CAVEBLOOM_FLOWERS);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "cavebloom_flowers"), CAVEBLOOM_FLOWERS);
 		// so that the item has the right id (not important probably but dw)
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "cavebloom_vine"), CAVEBLOOM_VINE);
-		Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "caveblooms"), CAVEBLOOMS);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "cavebloom_vine"), CAVEBLOOM_VINE);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "caveblooms"), CAVEBLOOMS);
 
 		// MISC. CAVES
 		createBlock("fossil", FOSSIL, MBItemGroup.CONSTRUCTION);
@@ -1393,6 +1397,10 @@ public class MBBlocks {
 		
 		createBlock("chiseled_basalt", CHISELED_BASALT, MBItemGroup.CONSTRUCTION);
 
+		createBlock("smooth_basalt_slab", SMOOTH_BASALT_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("smooth_basalt_stairs", SMOOTH_BASALT_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("smooth_basalt_wall", SMOOTH_BASALT_WALL, MBItemGroup.CONSTRUCTION);
+
 		// MINERAL BLOCKS
 		// - LAPIS LAZULI BLOCKS
 		createBlock("smooth_lapis", SMOOTH_LAPIS, MBItemGroup.CONSTRUCTION);
@@ -1454,7 +1462,7 @@ public class MBBlocks {
 		createBlock("spider_eye_block", SPIDER_EYE_BLOCK, MBItemGroup.DECOR);
 		createBlock("phantom_membrane_block", PHANTOM_MEMBRANE_BLOCK, MBItemGroup.DECOR);
 
-		Registry.register(Registry.BLOCK, new Identifier(MoonbitsMain.MOD_ID, "blaze_rod"), BLAZE_ROD);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "blaze_rod"), BLAZE_ROD);
 		createBlock("blaze_rod_bundle", BLAZE_ROD_BUNDLE, MBItemGroup.DECOR);
 		createBlock("ender_pearl_block", ENDER_PEARL_BLOCK, MBItemGroup.DECOR);
     }

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:jungle_pillar"
+    ]
+  },
+  "criteria": {
+    "has_carved_jungle_wood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:carved_jungle_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:jungle_pillar"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_carved_jungle_wood",
+      "has_the_recipe"
+    ]
+  ]
+}

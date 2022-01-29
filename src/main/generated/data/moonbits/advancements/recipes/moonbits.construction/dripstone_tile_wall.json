@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:dripstone_tile_wall"
+    ]
+  },
+  "criteria": {
+    "has_dripstone_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:dripstone_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:dripstone_tile_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dripstone_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

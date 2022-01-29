@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:carved_oak_wood"
+  },
+  "result": "moonbits:oak_pillar",
+  "count": 1
+}

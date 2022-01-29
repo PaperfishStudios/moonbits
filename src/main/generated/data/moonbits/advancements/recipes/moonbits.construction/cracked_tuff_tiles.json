@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:cracked_tuff_tiles"
+    ]
+  },
+  "criteria": {
+    "has_tuff_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:tuff_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:cracked_tuff_tiles"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tuff_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

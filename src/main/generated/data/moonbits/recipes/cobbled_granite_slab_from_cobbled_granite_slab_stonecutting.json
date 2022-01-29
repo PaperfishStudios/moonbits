@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:cobbled_granite_slab"
+  },
+  "result": "moonbits:cobbled_granite_slab",
+  "count": 1
+}

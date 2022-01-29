@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:carved_jacaranda_wood_from_jacaranda_planks_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_jacaranda_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:jacaranda_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:carved_jacaranda_wood_from_jacaranda_planks_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_jacaranda_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

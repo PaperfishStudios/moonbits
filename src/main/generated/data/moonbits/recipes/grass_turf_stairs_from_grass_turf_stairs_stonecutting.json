@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:grass_turf_stairs"
+  },
+  "result": "moonbits:grass_turf_stairs",
+  "count": 1
+}

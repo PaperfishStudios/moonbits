@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:calcite_slab_from_calcite_slab_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_calcite_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:calcite_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:calcite_slab_from_calcite_slab_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_calcite_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

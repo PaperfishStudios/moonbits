@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:grass_turf_slab"
+    ]
+  },
+  "criteria": {
+    "has_grass_turf": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:grass_turf"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:grass_turf_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_grass_turf",
+      "has_the_recipe"
+    ]
+  ]
+}

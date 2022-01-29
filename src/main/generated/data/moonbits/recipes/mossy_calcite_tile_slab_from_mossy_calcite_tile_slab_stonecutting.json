@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:mossy_calcite_tile_slab"
+  },
+  "result": "moonbits:mossy_calcite_tile_slab",
+  "count": 1
+}

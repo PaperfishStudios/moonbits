@@ -7,9 +7,9 @@ import net.minecraft.util.registry.Registry;
 
 public class MBSounds {
     // block sounds
-    public static final Identifier GLASS_DOOR_OPEN_ID = new Identifier(MoonbitsMain.MOD_ID, "block.glass_door.open");
+    public static final Identifier GLASS_DOOR_OPEN_ID = new Identifier(Moonbits.MOD_ID, "block.glass_door.open");
     public static SoundEvent GLASS_DOOR_OPEN = new SoundEvent(GLASS_DOOR_OPEN_ID);
-    public static final Identifier GLASS_DOOR_CLOSE_ID = new Identifier(MoonbitsMain.MOD_ID, "block.glass_door.close");
+    public static final Identifier GLASS_DOOR_CLOSE_ID = new Identifier(Moonbits.MOD_ID, "block.glass_door.close");
     public static SoundEvent GLASS_DOOR_CLOSE = new SoundEvent(GLASS_DOOR_CLOSE_ID);
 
     public static final SoundEvent BLOCK_BUNDLE_BREAK = register("block.bundle.break");
@@ -17,7 +17,7 @@ public class MBSounds {
     public static final SoundEvent BLOCK_BUNDLE_HIT = register("block.bundle.hit");
     public static final SoundEvent BLOCK_BUNDLE_PLACE = register("block.bundle.place");
     public static final SoundEvent BLOCK_BUNDLE_STEP = register("block.bundle.step");
-    public static final BlockSoundGroup BUNDLE = new BlockSoundGroup(1.0f, 1.0f,
+    public static final BlockSoundGroup BUNDLE = new BlockSoundGroup(0.75f, 1.0f,
             BLOCK_BUNDLE_BREAK, BLOCK_BUNDLE_STEP, BLOCK_BUNDLE_PLACE, BLOCK_BUNDLE_HIT, BLOCK_BUNDLE_FALL);
     public static final SoundEvent BLOCK_SACK_BREAK = register("block.sack.break");
     public static final SoundEvent BLOCK_SACK_FALL = register("block.sack.fall");
@@ -29,7 +29,7 @@ public class MBSounds {
 
 
     // item sounds
-    public static final Identifier WRENCH_ID = new Identifier(MoonbitsMain.MOD_ID, "item.wrench.use");
+    public static final Identifier WRENCH_ID = new Identifier(Moonbits.MOD_ID, "item.wrench.use");
     public static SoundEvent WRENCH = new SoundEvent(WRENCH_ID);
 
     public static SoundEvent GRIZZLY_AMBIENT = register("entity.mbgrizzly.ambient");
@@ -47,9 +47,9 @@ public class MBSounds {
     }
 
     public static void register(String id, SoundEvent event) {
-        Registry.register(Registry.SOUND_EVENT, new Identifier(MoonbitsMain.MOD_ID, id), event);
+        Registry.register(Registry.SOUND_EVENT, new Identifier(Moonbits.MOD_ID, id), event);
     }
     public static SoundEvent register(String id) {
-        return Registry.register(Registry.SOUND_EVENT, new Identifier(MoonbitsMain.MOD_ID, id), new SoundEvent(new Identifier(MoonbitsMain.MOD_ID, id)));
+        return Registry.register(Registry.SOUND_EVENT, new Identifier(Moonbits.MOD_ID, id), new SoundEvent(new Identifier(Moonbits.MOD_ID, id)));
     }
 }

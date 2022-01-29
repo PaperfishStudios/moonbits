@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:honey_fence"
+  },
+  "result": "moonbits:honey_fence",
+  "count": 1
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:dripstone_wall"
+  },
+  "result": "moonbits:dripstone_wall",
+  "count": 1
+}

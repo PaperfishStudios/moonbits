@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:dirt_brick_stairs"
+  },
+  "result": "moonbits:dirt_brick_stairs",
+  "count": 1
+}

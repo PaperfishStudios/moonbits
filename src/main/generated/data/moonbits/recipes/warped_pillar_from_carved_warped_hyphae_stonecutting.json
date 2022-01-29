@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:carved_warped_hyphae"
+  },
+  "result": "moonbits:warped_pillar",
+  "count": 1
+}
