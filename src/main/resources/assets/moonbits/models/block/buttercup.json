@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "moonbits:block/plants/buttercup"
+    "cross": "moonbits:block/buttercup"
   }
 }

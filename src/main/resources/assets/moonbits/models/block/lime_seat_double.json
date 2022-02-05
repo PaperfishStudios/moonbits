@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "top": "moonbits:block/utility/seats/lime_seat_top",
-    "bottom": "moonbits:block/utility/seats/seat_bottom",
-    "side": "moonbits:block/utility/seats/lime_seat_double"
+    "top": "moonbits:block/lime_seat_top",
+    "bottom": "moonbits:block/lime_seat_bottom",
+    "side": "moonbits:block/lime_seat_double"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": []
+  },
+  "result": {
+    "item": "minecraft:dripstone_block"
+  }
+}

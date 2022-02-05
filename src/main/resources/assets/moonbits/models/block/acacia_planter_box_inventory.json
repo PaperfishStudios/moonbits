@@ -1,8 +1,8 @@
 {
-    "parent": "moonbits:block/planter_box/planter_box_inventory",
-    "textures": {
-		"top": "moonbits:block/wood/acacia/acacia_planter_box_top",
-		"bottom": "moonbits:block/wood/acacia/acacia_planter_box_bottom",
-		"side": "moonbits:block/wood/acacia/acacia_planter_box_edge"
-    }
+  "parent": "moonbits:block/planter_box/planter_box_inventory",
+  "textures": {
+    "top": "moonbits:block/acacia_planter_box_top",
+    "bottom": "moonbits:block/acacia_planter_box_bottom",
+    "side": "moonbits:block/acacia_planter_box_edge"
+  }
 }

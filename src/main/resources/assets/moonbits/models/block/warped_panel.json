@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "moonbits:block/wood/warped/warped_panel"
+    "all": "moonbits:block/warped_panel"
   }
 }

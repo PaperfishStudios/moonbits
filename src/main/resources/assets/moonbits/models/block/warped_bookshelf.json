@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_column",
   "textures": {
     "end": "minecraft:block/warped_planks",
-    "side": "moonbits:block/wood/warped/warped_bookshelf"
+    "side": "moonbits:block/warped_bookshelf"
   }
 }

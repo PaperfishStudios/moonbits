@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "moonbits:block/stones/prismarine/prismarine_polished"
+    "wall": "moonbits:block/polished_prismarine"
   }
 }

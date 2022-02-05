@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "moonbits:block/stones/dripstone/dripstone_tiles_mossy"
+    "all": "moonbits:block/mossy_dripstone_tiles"
   }
 }

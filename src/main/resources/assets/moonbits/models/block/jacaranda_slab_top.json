@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "bottom": "moonbits:block/wood/jacaranda/jacaranda_planks",
-    "top": "moonbits:block/wood/jacaranda/jacaranda_planks",
-    "side": "moonbits:block/wood/jacaranda/jacaranda_planks"
+    "bottom": "moonbits:block/jacaranda_planks",
+    "top": "moonbits:block/jacaranda_planks",
+    "side": "moonbits:block/jacaranda_planks"
   }
 }

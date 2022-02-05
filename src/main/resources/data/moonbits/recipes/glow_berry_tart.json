@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GEG",
+    "WSW"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glow_berries"
+    },
+    "E": {
+      "item": "minecraft:egg"
+    },
+    "W": {
+      "item": "minecraft:wheat"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "result": {
+    "item": "moonbits:glow_berry_tart",
+    "count": 8
+  }
+}

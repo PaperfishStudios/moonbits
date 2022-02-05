@@ -1,9 +1,11 @@
 package net.paperfish.moonbits.block;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
@@ -11,7 +13,11 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.tag.BlockTags;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
@@ -20,8 +26,11 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import net.paperfish.moonbits.Moonbits;
+import net.paperfish.moonbits.entity.SeatBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Random;
 
 @SuppressWarnings({"deprecation"})
@@ -30,6 +39,7 @@ public class ToadstoolBlock extends Block implements Fertilizable, Waterloggable
     private static final BooleanProperty WATERLOGGED;
     public static final VoxelShape CAP_SHAPE;
     public static final VoxelShape STEM_SHAPE;
+    public static SeatBlockEntity entity;
 
     static {
         CAP = BooleanProperty.of("cap");
@@ -58,32 +68,6 @@ public class ToadstoolBlock extends Block implements Fertilizable, Waterloggable
     }
 
     @Override
-    public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
-        if (entity.bypassesLandingEffects()) {
-            super.onLandedUpon(world, state, pos, entity, fallDistance);
-        } else {
-            entity.handleFallDamage(fallDistance, 0.0f, DamageSource.FALL);
-        }
-    }
-
-    @Override
-    public void onEntityLand(BlockView world, Entity entity) {
-        if (entity.bypassesLandingEffects()) {
-            super.onEntityLand(world, entity);
-        } else {
-            this.bounce(entity);
-        }
-    }
-
-    private void bounce(Entity entity) {
-        Vec3d vec3d = entity.getVelocity();
-        if (vec3d.y < 0.0) {
-            double d = entity instanceof LivingEntity ? 0.8 : 1.0;
-            entity.setVelocity(vec3d.x, -vec3d.y * (double)0.75f * d, vec3d.z);
-        }
-    }
-
-    @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.down();
         BlockState blockState = world.getBlockState(blockPos);
@@ -91,26 +75,73 @@ public class ToadstoolBlock extends Block implements Fertilizable, Waterloggable
     }
 
     @Nullable
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        if (ctx.getWorld().getBlockState(ctx.getBlockPos().up()).isOf(this)){
-            return getDefaultState().with(CAP, false);
+        @Override
+        public BlockState getPlacementState(ItemPlacementContext ctx) {
+            if (ctx.getWorld().getBlockState(ctx.getBlockPos().up()).isOf(this)){
+                return getDefaultState().with(CAP, false);
+            }
+            return super.getPlacementState(ctx);
         }
-        return super.getPlacementState(ctx);
-    }
 
-    @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if (direction == Direction.DOWN && !state.canPlaceAt(world, pos)) {
-            return Blocks.AIR.getDefaultState();
-        }
-        if (state.get(WATERLOGGED)) {
+        @Override
+        public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+            if (direction == Direction.DOWN && !state.canPlaceAt(world, pos)) {
+                return Blocks.AIR.getDefaultState();
+            }
+            if (state.get(WATERLOGGED)) {
             world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
         if (direction == Direction.UP && neighborState.isOf(this)) {
             return state.with(CAP, false);
         }
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+//        if (isNull(entity)) {
+//            createEntity(world, pos, state);
+//        }
+//        if (player.shouldCancelInteraction()) {
+//            return ActionResult.PASS;
+//        } else if (entity.hasPassengers()) {
+//            return ActionResult.PASS;
+//        } else if (!world.isClient) {
+//            return player.startRiding(entity) ? ActionResult.CONSUME : ActionResult.PASS;
+//        } else {
+//            return ActionResult.SUCCESS;
+//        }
+        if (state.get(CAP)) {
+            if (player.isSneaking()) {
+                return ActionResult.PASS; // bc sneaking stops any block-specific actions
+            }
+            List<SeatBlockEntity> seats = world.getEntitiesByClass(SeatBlockEntity.class, new Box(pos), (Entity) -> true);
+            if (!seats.isEmpty()) {
+                Moonbits.LOGGER.info("seat exists");
+                SeatBlockEntity seat = seats.get(0);
+                if (seat.hasPassengers()) {
+                    return ActionResult.PASS; // cant sit down if someone's already in the seat
+                }
+                if (!world.isClient()) {
+                    player.startRiding(seat);
+                    Moonbits.LOGGER.info("got in existing seat");
+                }
+                return ActionResult.SUCCESS;
+            }
+            if (world.isClient()) {
+                return ActionResult.SUCCESS;
+            }
+            createEntity(world, pos, state, player);
+        }
+        return ActionResult.SUCCESS;
+    }
+    public static void createEntity(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!world.isClient()) {
+            SeatBlockEntity entity = new SeatBlockEntity(world, pos.getX() + .5f, pos.getY() + .5f, pos.getZ() + .5f);
+            Moonbits.LOGGER.info("created the seat entity on a toadstool");
+            world.spawnEntity(entity);
+            player.startRiding(entity, true);
+        }
     }
 
     @Override

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/leaves",
   "textures": {
-    "all": "moonbits:block/wood/jacaranda/jacaranda_leaves",
-    "overlay": "moonbits:block/wood/jacaranda/jacaranda_leaves_overlay"
+    "all": "moonbits:block/jacaranda_leaves",
+    "overlay": "moonbits:block/jacaranda_leaves_overlay"
   },
     "elements": [
-        {   "from": [ 0, 0, 0 ],
-            "to": [ 16, 1, 16 ],
+        {   "from": [ 0, 0.1, 0 ],
+            "to": [ 16, 0.1, 16 ],
             "faces": {
                 "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#all", "cullface": "down" },
                 "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#all", "cullface": "up" },
@@ -16,8 +16,8 @@
                 "east":  { "uv": [ 0, 15, 16, 16 ], "texture": "#all", "cullface": "east" }
             }
         },
-        {   "from": [ 0, 0, 0 ],
-            "to": [ 16, 1, 16 ],
+        {   "from": [ 0, 0.1, 0 ],
+            "to": [ 16, 0.1, 16 ],
             "faces": {
                 "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "tintindex": 0, "cullface": "down" },
                 "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#overlay", "tintindex": 0, "cullface": "up" },

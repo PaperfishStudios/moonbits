@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "bottom": "moonbits:block/stones/prismarine/prismarine_polished",
-    "top": "moonbits:block/stones/prismarine/prismarine_polished",
-    "side": "moonbits:block/stones/prismarine/prismarine_polished"
+    "bottom": "moonbits:block/polished_prismarine",
+    "top": "moonbits:block/polished_prismarine",
+    "side": "moonbits:block/polished_prismarine"
   }
 }

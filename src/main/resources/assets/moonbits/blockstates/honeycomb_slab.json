@@ -4,7 +4,7 @@
       "model": "moonbits:block/honeycomb_slab"
     },
     "type=double": {
-      "model": "moonbits:block/honeycomb"
+      "model": "minecraft:block/honeycomb_block"
     },
     "type=top": {
       "model": "moonbits:block/honeycomb_slab_top"

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "top": "moonbits:block/wood/jacaranda/jacaranda_planter_box_top",
-    "bottom": "moonbits:block/wood/jacaranda/jacaranda_planter_box_bottom",
-    "side": "moonbits:block/wood/jacaranda/jacaranda_planter_box"
-  }
-}

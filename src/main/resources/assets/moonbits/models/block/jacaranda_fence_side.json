@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_side",
   "textures": {
-    "texture": "moonbits:block/wood/jacaranda/jacaranda_planks"
+    "texture": "moonbits:block/jacaranda_planks"
   }
 }

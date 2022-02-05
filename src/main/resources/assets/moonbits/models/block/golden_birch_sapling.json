@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "moonbits:block/wood/birch/golden_birch_sapling"
+    "cross": "moonbits:block/golden_birch_sapling"
   }
 }

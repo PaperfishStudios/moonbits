@@ -2,66 +2,39 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1,
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:alternatives",
           "children": [
             {
               "type": "minecraft:item",
-              "name": "moonbits:fossil",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
                     "enchantments": [
                       {
-                        "enchantment": "minecraft:silk_touch"
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
                       }
                     ]
                   }
                 }
-              ]
+              ],
+              "name": "moonbits:fossil"
             },
             {
-              "type": "minecraft:group",
-              "children": [
+              "type": "minecraft:item",
+              "conditions": [
                 {
-                  "type": "minecraft:item",
-                  "weight": 8,
-                  "name": "minecraft:bone",
-                  "functions": [
-                    {
-                      "function": "minecraft:set_count",
-                      "count": 1
-                    },
-                    {
-                      "function": "minecraft:apply_bonus",
-                      "enchantment": "minecraft:fortune",
-                      "formula": "minecraft:ore_drops"
-                    }
-                  ]
-                },
-                {
-                  "type": "minecraft:item",
-                  "weight": 9,
-                  "name": "minecraft:bone_meal",
-                  "functions": [
-                    {
-                      "function": "minecraft:set_count",
-                      "count": {
-                        "min": 1,
-                        "max": 2
-                      }
-                    },
-                    {
-                      "function": "minecraft:apply_bonus",
-                      "enchantment": "minecraft:fortune",
-                      "formula": "minecraft:ore_drops"
-                    }
-                  ]
+                  "condition": "minecraft:survives_explosion"
                 }
-              ]
+              ],
+              "name": "minecraft:nautilus_shell"
             }
           ]
         }

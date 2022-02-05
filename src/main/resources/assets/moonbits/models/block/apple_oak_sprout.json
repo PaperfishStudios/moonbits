@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "moonbits:block/wood/oak/apple_oak_sprout"
+    "cross": "moonbits:block/apple_oak_sprout"
   }
 }

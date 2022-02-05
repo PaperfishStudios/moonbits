@@ -54,16 +54,16 @@ public class MBCaveFeatures {
     public static final ConfiguredCarver<CaveCarverConfig> DIRT_CAVE =
             Registry.register(BuiltinRegistries.CONFIGURED_CARVER,
                     dirt_cave,
-                    Carver.CAVE.configure(
+                    CAVE.configure(
                             new CaveCarverConfig(
                                     0.25f,
                                     UniformHeightProvider.create(YOffset.fixed(58), YOffset.fixed(148)),
                                     UniformFloatProvider.create(0.6f, 0.9f),
                                     YOffset.aboveBottom(0),
-                                    CarverDebugConfig.create(false, MBBlocks.JACARANDA_BUTTON.getDefaultState()),
+                                    CarverDebugConfig.create(false, MBBlocks.HONEY_BUTTON.getDefaultState()),
                                     UniformFloatProvider.create(1.2f, 1.8f),
                                     UniformFloatProvider.create(0.9f, 1.4f),
-                                    UniformFloatProvider.create(-0.6f, 0.4f)
+                                    UniformFloatProvider.create(-0.6f, -0.4f)
                             )
                     )
             );
@@ -136,7 +136,7 @@ public class MBCaveFeatures {
                         0.0f,
                         5,
                         0.4f,
-                        UniformIntProvider.create(4, 7),
+                        UniformIntProvider.create(3, 6),
                         0.1f)
         ));
         TOUGH_GRASS_LUSH = ConfiguredFeatures.register("tg_lush", Feature.VEGETATION_PATCH.configure(

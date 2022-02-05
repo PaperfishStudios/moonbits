@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/door_top",
   "textures": {
-    "top": "moonbits:block/manufactured/glass_door_top",
-    "bottom": "moonbits:block/manufactured/glass_door_bottom"
+    "top": "moonbits:block/glass_door_top",
+    "bottom": "moonbits:block/glass_door_bottom"
   }
 }

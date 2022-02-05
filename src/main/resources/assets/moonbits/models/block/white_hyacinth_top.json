@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "moonbits:block/plants/white_hyacinth_top"
+    "cross": "moonbits:block/white_hyacinth_top"
   }
 }

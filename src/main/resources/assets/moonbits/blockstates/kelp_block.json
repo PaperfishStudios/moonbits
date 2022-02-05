@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "moonbits:block/kelp_block"
+      "model": "minecraft:block/dried_kelp_block"
     }
   }
 }

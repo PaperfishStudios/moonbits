@@ -1,7 +1,7 @@
 {
-    "parent": "moonbits:block/planter_box/planter_box",
-    "textures": {
-		"bottom": "moonbits:block/wood/oak/oak_planter_box_bottom",
-		"side": "moonbits:block/wood/oak/oak_planter_box"
-    }
+  "parent": "moonbits:block/planter_box/planter_box",
+  "textures": {
+    "bottom": "moonbits:block/oak_planter_box_bottom",
+    "side": "moonbits:block/oak_planter_box"
+  }
 }

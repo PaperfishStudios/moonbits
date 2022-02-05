@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_fence_gate_open",
   "textures": {
-    "texture": "moonbits:block/wood/honey/honey_planks"
+    "texture": "moonbits:block/honey_planks"
   }
 }

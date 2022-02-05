@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "bottom": "moonbits:block/stones/prismarine/prismarine_smooth",
-    "top": "moonbits:block/stones/prismarine/prismarine_smooth",
-    "side": "moonbits:block/stones/prismarine/prismarine_smooth"
+    "bottom": "moonbits:block/smooth_prismarine",
+    "top": "moonbits:block/smooth_prismarine",
+    "side": "moonbits:block/smooth_prismarine"
   }
 }

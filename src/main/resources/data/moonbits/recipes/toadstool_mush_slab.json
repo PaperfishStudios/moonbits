@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:toadstool_mush_block"
+    }
+  },
+  "result": {
+    "item": "moonbits:toadstool_mush_slab",
+    "count": 6
+  }
+}

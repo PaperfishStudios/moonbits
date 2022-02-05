@@ -6,6 +6,7 @@ import net.minecraft.data.family.BlockFamily;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -13,6 +14,7 @@ import java.util.Optional;
 public class MBBlockFamily {
     private final Block baseBlock;
     final Map<Variant, Block> variants = Maps.newHashMap();
+    public List<Block> cuttable = new ArrayList<>();
     boolean generateModels = true;
     boolean generateRecipes = true;
     @Nullable
@@ -171,11 +173,11 @@ public class MBBlockFamily {
         }
 
         public MBBlockFamily.Builder stonecut(Block block) {
-            this.family.variants.put(Variant.SC, block);
+            this.family.cuttable.add(block);
             return this;
         }
         public MBBlockFamily.Builder stonecut(List<Block> blocks) {
-            blocks.forEach((block) -> this.family.variants.put(Variant.SC, block));
+            this.family.cuttable.addAll(blocks);
             return this;
         }
 

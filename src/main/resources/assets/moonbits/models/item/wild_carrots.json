@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:block/plants/wild_carrots"
+    "layer0": "moonbits:block/wild_carrots"
   }
 }

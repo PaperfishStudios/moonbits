@@ -1,7 +1,7 @@
 {
-    "variants": {
-      "": {
-        "model": "moonbits:block/warped_boards"
-      }
+  "variants": {
+    "": {
+      "model": "moonbits:block/warped_boards"
     }
   }
+}

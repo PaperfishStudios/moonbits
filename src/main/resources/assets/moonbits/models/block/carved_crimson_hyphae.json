@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:block/cube_all",
-    "textures": {
-      "all": "moonbits:block/wood/crimson/carved_crimson_hyphae"
-    }
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moonbits:block/carved_crimson_hyphae"
   }
+}

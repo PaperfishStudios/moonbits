@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:red_mush_stairs"
+    ]
+  },
+  "criteria": {
+    "has_red_mush_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:red_mush_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:red_mush_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_mush_block",
+      "has_the_recipe"
+    ]
+  ]
+}

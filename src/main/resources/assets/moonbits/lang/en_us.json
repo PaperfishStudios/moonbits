@@ -127,8 +127,9 @@
 	"block.moonbits.beachgrass": "Beachgrass",
 	"block.moonbits.pebbles": "Pebble",
 	
-	"item.moonbits.sweet_berry_pits": "Sweet Berry Pits",
-	"item.moonbits.glow_berry_pits": "Glow Berry Pits",
+	"block.moonbits.sweet_berry_pits": "Sweet Berry Pits",
+	"block.moonbits.glow_berry_pits": "Glow Berry Pits",
+	"block.moonbits.glow_berry_tart": "Glow Berry Tart",
 	
 	"item.moonbits.apple_seeds": "Apple Seeds",
 	"block.moonbits.apple_oak_sapling": "Apple Oak Sapling",
@@ -156,6 +157,12 @@
 	"block.moonbits.peat_brick_slab": "Peat Brick Slab",
 	"block.moonbits.peat_brick_stairs": "Peat Brick Stairs",
 	"block.moonbits.peat_brick_wall": "Peat Brick Wall",
+	
+	"block.moonbits.lettuce_crop": "Lettuce",
+	"block.moonbits.lettuce_block": "Lettuce",
+	"item.moonbits.lettuce_leaf": "Lettuce Leaf",
+	"item.moonbits.lettuce_seeds": "Lettuce Seeds",
+	"item.moonbits.salad": "Salad",
 	
 	"block.moonbits.lamproot": "Lamproot",
 	"item.moonbits.cave_blossoms": "Cave Blossoms",
@@ -224,9 +231,55 @@
     "block.moonbits.golden_birch_leaves": "Golden Birch Leaves",
     "block.moonbits.golden_birch_leaf_carpet": "Golden Birch Leaf Carpet",
     "block.moonbits.golden_birch_sapling": "Golden Birch Sapling",
+    "block.moonbits.red_oak_leaves": "Red Oak Leaves",
+    "block.moonbits.red_oak_leaf_carpet": "Red Oak Leaf Carpet",
+    "block.moonbits.red_oak_sapling": "Red Oak Sapling",
 	
+    "block.moonbits.puffballs": "Puffballs",
+    "block.moonbits.puffstool": "Puffstool",
     "block.moonbits.toadstool": "Toadstool",
-    "block.moonbits.small_toadstools": "Small Toadstools",
+    "block.moonbits.small_toadstools": "Toadstool Colony",
+    "block.moonbits.giant_toadstool_cap": "Toadstool Cap",
+    "block.moonbits.toadstool_shelf": "Toadstool Shelf",
+	
+    "block.moonbits.red_mushroom_cap": "Red Mushroom Cap",
+    "block.moonbits.brown_mushroom_cap": "Brown Mushroom Cap",
+    "block.moonbits.saffron_mushroom_cap": "Saffron Mushroom Cap",
+    "block.moonbits.saffron_gills": "Saffron Gills",
+    "block.moonbits.mushroom_stem": "Mushroom Stem",
+	
+    "block.moonbits.red_mush_block": "Red Mushblock",
+    "block.moonbits.red_mush_stairs": "Red Mushblock Stairs",
+    "block.moonbits.red_mush_slab": "Red Mushblock Slab",
+    "block.moonbits.red_mush_bricks": "Red Mushbricks",
+    "block.moonbits.red_mush_brick_stairs": "Red Mushbrick Stairs",
+    "block.moonbits.red_mush_brick_slab": "Red Mushbrick Slab",
+    "block.moonbits.red_mush_lamp": "Red Mushlamp",
+	
+    "block.moonbits.brown_mush_block": "Brown Mushblock",
+    "block.moonbits.brown_mush_stairs": "Brown Mushblock Stairs",
+    "block.moonbits.brown_mush_slab": "Brown Mushblock Slab",
+    "block.moonbits.brown_mush_bricks": "Brown Mushbricks",
+    "block.moonbits.brown_mush_brick_stairs": "Brown Mushbrick Stairs",
+    "block.moonbits.brown_mush_brick_slab": "Brown Mushbrick Slab",
+    "block.moonbits.brown_mush_lamp": "Brown Mushlamp",
+	
+    "block.moonbits.toadstool_mush_block": "Toadstool Mushblock",
+    "block.moonbits.toadstool_mush_stairs": "Toadstool Mushblock Stairs",
+    "block.moonbits.toadstool_mush_slab": "Toadstool Mushblock Slab",
+    "block.moonbits.toadstool_mush_bricks": "Toadstool Mushbricks",
+    "block.moonbits.toadstool_mush_brick_stairs": "Toadstool Mushbrick Stairs",
+    "block.moonbits.toadstool_mush_brick_slab": "Toadstool Mushbrick Slab",
+    "block.moonbits.toadstool_mush_lamp": "Toadstool Mushlamp",
+	
+    "block.moonbits.saffron_mush_block": "Saffron Mushblock",
+    "block.moonbits.saffron_mush_stairs": "Saffron Mushblock Stairs",
+    "block.moonbits.saffron_mush_slab": "Saffron Mushblock Slab",
+    "block.moonbits.saffron_mush_bricks": "Saffron Mushbricks",
+    "block.moonbits.saffron_mush_brick_stairs": "Saffron Mushbrick Stairs",
+    "block.moonbits.saffron_mush_brick_slab": "Saffron Mushbrick Slab",
+    "block.moonbits.saffron_mush_lamp": "Saffron Mushlamp",
+	
 	
     "block.moonbits.leafbed": "Leafbed",
 	
@@ -368,8 +421,8 @@
 	"block.moonbits.cyan_seat": "Cyan Seat",
 	"block.moonbits.blue_seat": "Blue Seat",
 	
-	"item.moonbits.rope_ladder": "Rope Ladder",
-	"item.moonbits.iron_ladder": "Iron Ladder",
+	"block.moonbits.rope_ladder": "Rope Ladder",
+	"block.moonbits.iron_ladder": "Iron Ladder",
 	"item.moonbits.wrench": "Wrench",
 	"item.moonbits.copper_nugget": "Copper Nugget",
 	

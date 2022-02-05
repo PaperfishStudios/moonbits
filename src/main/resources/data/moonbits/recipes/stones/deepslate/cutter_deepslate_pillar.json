@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:cobbled_deepslate"
-  },
-  "result": "moonbits:deepslate_pillar",
-  "count": 1
-}

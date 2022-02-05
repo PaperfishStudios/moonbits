@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:green_stained_glass_from_green_glass_shard"
+    ]
+  },
+  "criteria": {
+    "has_green_glass_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:green_glass_shard"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:green_stained_glass_from_green_glass_shard"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_green_glass_shard",
+      "has_the_recipe"
+    ]
+  ]
+}

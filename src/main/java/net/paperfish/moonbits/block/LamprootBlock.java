@@ -17,7 +17,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-import net.paperfish.moonbits.MBData;
+import net.paperfish.moonbits.MBBlockTags;
 import org.jetbrains.annotations.Nullable;
 
 public class LamprootBlock extends Block {
@@ -48,11 +48,11 @@ public class LamprootBlock extends Block {
             blockPos = pos.offset(direction.getOpposite());
         }
         BlockState blockState = world.getBlockState(blockPos);
-        return (this.canPlantOn(blockState, world, blockPos) && blockState.isSideSolidFullSquare(world, blockPos, direction));
+        return blockState.isSideSolidFullSquare(world, blockPos, direction);
     }
 
     protected boolean canPlantOn(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(BlockTags.DIRT) || floor.isIn(MBData.SOIL_NON_REPLACEABLE);
+        return floor.isIn(BlockTags.DIRT) || floor.isIn(MBBlockTags.SOIL_NON_REPLACEABLE);
     }
 
     @Nullable
@@ -65,9 +65,9 @@ public class LamprootBlock extends Block {
         for(int var5 = 0; var5 < var4; ++var5) {
             Direction direction = var3[var5];
             if (direction.getAxis() == Direction.Axis.Y) {
-                blockState = (BlockState)this.getDefaultState().with(FACING, Direction.UP);
+                blockState = this.getDefaultState().with(FACING, Direction.UP);
             } else {
-                blockState = (BlockState)((BlockState)this.getDefaultState().with(FACING, direction.getOpposite()));
+                blockState = this.getDefaultState().with(FACING, direction.getOpposite());
             }
             if (blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) {
                 return blockState;

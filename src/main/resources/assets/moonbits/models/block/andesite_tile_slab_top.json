@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "bottom": "moonbits:block/stones/andesite/andesite_tiles",
-    "top": "moonbits:block/stones/andesite/andesite_tiles",
-    "side": "moonbits:block/stones/andesite/andesite_tiles"
+    "bottom": "moonbits:block/andesite_tiles",
+    "top": "moonbits:block/andesite_tiles",
+    "side": "moonbits:block/andesite_tiles"
   }
 }

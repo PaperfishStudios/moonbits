@@ -46,4 +46,7 @@ public class MBItemGroup {
 		})
 		.build();
 
+	public static void initialize() {
+
+	}
 }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/misc/spool_top",
-    "side": "moonbits:block/misc/spool"
+    "end": "moonbits:block/spool_top",
+    "side": "moonbits:block/spool"
   }
 }

@@ -2,8 +2,6 @@
     "replace": false,
     "values": [
       "moonbits:rope_ladder",
-      "moonbits:iron_ladder",
-      "moonbits:glow_berry_hedge",
-      "moonbits:plucked_glow_berry_hedge"
+      "moonbits:iron_ladder"
     ]
   }

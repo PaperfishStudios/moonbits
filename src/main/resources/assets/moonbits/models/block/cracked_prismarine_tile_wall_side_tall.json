@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side_tall",
   "textures": {
-    "wall": "moonbits:block/stones/prismarine/prismarine_tiles_cracked"
+    "wall": "moonbits:block/cracked_prismarine_tiles"
   }
 }

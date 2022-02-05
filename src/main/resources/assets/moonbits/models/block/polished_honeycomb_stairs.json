@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "moonbits:block/natural/honeycomb/honeycomb_polished",
-    "top": "moonbits:block/natural/honeycomb/honeycomb_polished",
-    "side": "moonbits:block/natural/honeycomb/honeycomb_polished"
-  }
-}

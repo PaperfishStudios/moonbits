@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "bottom": "moonbits:block/wood/honey/honey_planks",
-    "top": "moonbits:block/wood/honey/honey_planks",
-    "side": "moonbits:block/wood/honey/honey_planks"
+    "bottom": "moonbits:block/honey_planks",
+    "top": "moonbits:block/honey_planks",
+    "side": "moonbits:block/honey_planks"
   }
 }

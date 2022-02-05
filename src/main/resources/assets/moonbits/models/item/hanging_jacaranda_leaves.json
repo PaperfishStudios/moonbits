@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:block/wood/jacaranda/hanging_jacaranda_leaves_end"
+    "layer0": "moonbits:block/hanging_jacaranda_leaves"
   }
 }

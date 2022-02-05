@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "moonbits:block/stones/diorite/diorite_bricks"
+    "wall": "moonbits:block/diorite_bricks"
   }
 }

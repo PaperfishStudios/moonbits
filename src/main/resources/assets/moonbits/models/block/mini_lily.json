@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "moonbits:block/plants/mini_lily"
+    "cross": "moonbits:block/mini_lily"
   }
 }

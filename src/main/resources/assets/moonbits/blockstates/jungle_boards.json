@@ -1,7 +1,7 @@
 {
-    "variants": {
-      "": {
-        "model": "moonbits:block/jungle_boards"
-      }
+  "variants": {
+    "": {
+      "model": "moonbits:block/jungle_boards"
     }
   }
+}

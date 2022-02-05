@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:sandstone_tile_wall"
+    ]
+  },
+  "criteria": {
+    "has_sandstone_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:sandstone_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:sandstone_tile_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_sandstone_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

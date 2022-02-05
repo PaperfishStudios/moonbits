@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "bottom": "moonbits:block/stones/prismarine/prismarine_tiles",
-    "top": "moonbits:block/stones/prismarine/prismarine_tiles",
-    "side": "moonbits:block/stones/prismarine/prismarine_tiles"
+    "bottom": "moonbits:block/prismarine_tiles",
+    "top": "moonbits:block/prismarine_tiles",
+    "side": "moonbits:block/prismarine_tiles"
   }
 }

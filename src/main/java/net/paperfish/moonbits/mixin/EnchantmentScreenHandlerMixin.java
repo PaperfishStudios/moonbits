@@ -1,5 +1,6 @@
 package net.paperfish.moonbits.mixin;
 
+import net.paperfish.moonbits.MBBlockTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.At;
@@ -9,7 +10,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.screen.EnchantmentScreenHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBData;
 
 @Mixin(EnchantmentScreenHandler.class)
 public class EnchantmentScreenHandlerMixin {
@@ -26,7 +26,7 @@ public class EnchantmentScreenHandlerMixin {
 	@Redirect(method = "method_17411", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"))
 	private boolean enchantingBlocks(BlockState state, Block block) {
 		// the visual side of this only checks for bookshelves at the moment! if you wanna change that make sure to change the other mixin
-		return state.isIn(MBData.VALID_ENCHANTERS);
+		return state.isIn(MBBlockTags.VALID_ENCHANTERS);
 	}
 	
 }

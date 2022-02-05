@@ -1,8 +1,8 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "cross": "moonbits:block/wood/jacaranda/hanging_jacaranda_leaves_end",
-        "overlay": "moonbits:block/wood/jacaranda/hanging_jacaranda_leaves_end_overlay",
+        "cross": "moonbits:block/hanging_jacaranda_leaves_end",
+        "overlay": "moonbits:block/hanging_jacaranda_leaves_end_overlay",
         "particle": "#cross"
     },
     "elements": [

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "moonbits:block/plants/mini_tulip_p"
+    "cross": "moonbits:block/mini_tulip_p"
   }
 }

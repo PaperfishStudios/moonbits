@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/manufactured/blaze_rod_bundle_top",
-    "side": "moonbits:block/manufactured/blaze_rod_bundle"
+    "end": "moonbits:block/blaze_rod_bundle_top",
+    "side": "moonbits:block/blaze_rod_bundle"
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "moonbits:block/stick_stack_horizontal",
+      "model": "moonbits:block/stick_stack",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "moonbits:block/stick_stack"
     },
     "axis=z": {
-      "model": "moonbits:block/stick_stack_horizontal",
+      "model": "moonbits:block/stick_stack",
       "x": 90
     }
   }

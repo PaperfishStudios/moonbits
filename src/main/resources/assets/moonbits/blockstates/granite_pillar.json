@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "moonbits:block/granite_pillar_horizontal",
+      "model": "moonbits:block/granite_pillar",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "moonbits:block/granite_pillar"
     },
     "axis=z": {
-      "model": "moonbits:block/granite_pillar_horizontal",
+      "model": "moonbits:block/granite_pillar",
       "x": 90
     }
   }

@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "bottom": "moonbits:block/stones/andesite/andesite_bricks_mossy",
-    "top": "moonbits:block/stones/andesite/andesite_bricks_mossy",
-    "side": "moonbits:block/stones/andesite/andesite_bricks_mossy"
+    "bottom": "moonbits:block/mossy_andesite_bricks",
+    "top": "moonbits:block/mossy_andesite_bricks",
+    "side": "moonbits:block/mossy_andesite_bricks"
   }
 }

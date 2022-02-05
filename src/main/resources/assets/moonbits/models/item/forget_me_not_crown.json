@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:item/crowns/forget_me_not_crown"
+    "layer0": "moonbits:item/forget_me_not_crown"
   }
 }

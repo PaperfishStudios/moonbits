@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#i#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:brown_mush_block"
+    },
+    "i": {
+      "item": "moonbits:lamproot"
+    }
+  },
+  "result": {
+    "item": "moonbits:brown_mush_lamp",
+    "count": 4
+  }
+}

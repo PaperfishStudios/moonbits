@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "moonbits:block/charcoal_log_horizontal",
+      "model": "moonbits:block/charcoal_log",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "moonbits:block/charcoal_log"
     },
     "axis=z": {
-      "model": "moonbits:block/charcoal_log_horizontal",
+      "model": "moonbits:block/charcoal_log",
       "x": 90
     }
   }

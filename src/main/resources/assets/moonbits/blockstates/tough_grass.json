@@ -1,7 +1,21 @@
 {
-    "variants": {
-      "": {
+  "variants": {
+    "": [
+      {
         "model": "moonbits:block/tough_grass"
+      },
+      {
+        "model": "moonbits:block/tough_grass",
+        "y": 90
+      },
+      {
+        "model": "moonbits:block/tough_grass",
+        "y": 180
+      },
+      {
+        "model": "moonbits:block/tough_grass",
+        "y": 270
       }
-    }
+    ]
   }
+}

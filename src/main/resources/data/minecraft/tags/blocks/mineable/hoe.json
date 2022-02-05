@@ -1,20 +1,24 @@
 {
   "replace": false,
   "values": [
-	"moonbits:golden_birch_leaves",
-	"moonbits:jacaranda_leaves",
-	
-	"moonbits:egg_basket",
-	"moonbits:sweet_berry_basket",
-	"moonbits:glow_berry_basket",
-	"moonbits:sweet_berry_hedge",
-	"moonbits:glow_berry_hedge",
-	"moonbits:kelp_block",
-	"moonbits:nether_wart_bundle",
-	"moonbits:spool",
-	"moonbits:paper_bundle",
-	"moonbits:rotten_flesh_block",
-	"moonbits:spider_eye_block",
-	"moonbits:phantom_membrane_block"
+    "moonbits:toadstool",
+    "moonbits:red_mushroom_cap",
+    "moonbits:brown_mushroom_cap",
+    "moonbits:saffron_mushroom_cap",
+    "moonbits:giant_toadstool_cap",
+    "moonbits:mushroom_stem",
+    "moonbits:toadstool_shelf",
+    "moonbits:egg_basket",
+    "moonbits:cocoa_sack",
+    "moonbits:sweet_berry_basket",
+    "moonbits:glow_berry_basket",
+    "moonbits:sugar_cane_bundle",
+    "moonbits:kelp_block",
+    "moonbits:nether_wart_bundle",
+    "moonbits:spool",
+    "moonbits:paper_bundle",
+    "moonbits:rotten_flesh_block",
+    "moonbits:spider_eye_block",
+    "moonbits:phantom_membrane_block"
   ]
 }

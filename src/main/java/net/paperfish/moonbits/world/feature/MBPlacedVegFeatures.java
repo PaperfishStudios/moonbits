@@ -81,7 +81,7 @@ public class MBPlacedVegFeatures {
         // golden forest trees
         RegistryKey<PlacedFeature> p_gbf_trees = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Moonbits.MOD_ID, "p_gbf_trees"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_gbf_trees.getValue(),
-                MBVegetationFeatures.MBFF_TREES.withPlacement(modifiers(PlacedFeatures.createCountExtraModifier(6, 0.1F, 1))));
+                MBVegetationFeatures.GBF_TREES.withPlacement(modifiers(PlacedFeatures.createCountExtraModifier(6, 0.1F, 1))));
 
         // flower forest trees
         RegistryKey<PlacedFeature> p_mbff_trees = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Moonbits.MOD_ID, "p_mbff_trees"));
@@ -116,6 +116,10 @@ public class MBPlacedVegFeatures {
         // pumpkins
         RegistryKey<PlacedFeature> p_pumpkins = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Moonbits.MOD_ID, "p_pumpkins"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_pumpkins.getValue(), MBVegetationFeatures.PUMPKIN_PATCH.withPlacement(
+                CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+        // puffballs
+        RegistryKey<PlacedFeature> p_puffballs = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Moonbits.MOD_ID, "p_puffballs"));
+        Registry.register(BuiltinRegistries.PLACED_FEATURE, p_puffballs.getValue(), MBVegetationFeatures.PUFFBALLS_PATCH.withPlacement(
                 CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
         // toadstools
         RegistryKey<PlacedFeature> p_toadstools = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Moonbits.MOD_ID, "p_toadstools"));
@@ -219,6 +223,7 @@ public class MBPlacedVegFeatures {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_sunflowers);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, forgetmenot_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_pumpkins);
+                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_puffballs);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_toadstools);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, wild_carrot_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, p_coarse_dirt_patch);
@@ -242,6 +247,7 @@ public class MBPlacedVegFeatures {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_sunflowers);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, forgetmenot_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_pumpkins);
+                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_puffballs);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_toadstools);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, wild_carrot_patch);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, p_coarse_dirt_patch);

@@ -9,6 +9,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.paperfish.moonbits.MBBlockTags;
 import net.paperfish.moonbits.MBEntities;
 import net.paperfish.moonbits.block.SeatBlock;
 
@@ -16,7 +17,7 @@ public class SeatBlockEntity extends Entity {
 
     public SeatBlockEntity(EntityType<? extends SeatBlockEntity> type, World world) {
         super(type, world);
-        this.inanimate = true;
+        //this.inanimate = true;
         this.setInvisible(true);
     }
     public SeatBlockEntity(World world, double x, double y, double z) {
@@ -70,7 +71,7 @@ public class SeatBlockEntity extends Entity {
             return;
         }
         BlockState blook = this.world.getBlockState(getBlockPos());
-        if (blook.getBlock() instanceof SeatBlock) {
+        if (blook.isIn(MBBlockTags.VALID_SEATS)) {
             return;
         }
         this.removeAllPassengers();
@@ -80,6 +81,7 @@ public class SeatBlockEntity extends Entity {
     public Vec3d updatePassengerForDismount(LivingEntity passenger) {
         super.updatePassengerForDismount(passenger);
         Vec3d pos = passenger.getPos();
+        this.discard();
         return new Vec3d(pos.x, pos.y + 0.85f, pos.z);
     }
 

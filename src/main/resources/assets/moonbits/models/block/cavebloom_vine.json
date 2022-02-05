@@ -1,7 +1,7 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "vine": "moonbits:block/plants/cavebloom_vine",
+        "vine": "moonbits:block/cavebloom_vine",
         "particle": "#vine"
     },
     "elements": [

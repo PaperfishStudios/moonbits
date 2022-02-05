@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side",
   "textures": {
-    "wall": "moonbits:block/stones/sandstone/sandstone_tiles_cracked"
+    "wall": "moonbits:block/cracked_sandstone_tiles"
   }
 }

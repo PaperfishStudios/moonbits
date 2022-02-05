@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:block/cube_all",
-    "textures": {
-      "all": "moonbits:block/wood/birch/birch_boards"
-    }
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moonbits:block/birch_boards"
   }
+}

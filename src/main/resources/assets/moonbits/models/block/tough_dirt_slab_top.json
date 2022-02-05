@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "bottom": "moonbits:block/natural/tough_dirt",
-    "top": "moonbits:block/natural/tough_dirt",
-    "side": "moonbits:block/natural/tough_dirt"
+    "bottom": "moonbits:block/tough_dirt",
+    "top": "moonbits:block/tough_dirt",
+    "side": "moonbits:block/tough_dirt"
   }
 }

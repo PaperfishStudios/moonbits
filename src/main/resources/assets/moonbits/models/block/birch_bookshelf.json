@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_column",
   "textures": {
     "end": "minecraft:block/birch_planks",
-    "side": "moonbits:block/wood/birch/birch_bookshelf"
+    "side": "moonbits:block/birch_bookshelf"
   }
 }

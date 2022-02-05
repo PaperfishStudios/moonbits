@@ -100,12 +100,12 @@ public class MBPlacedCaveFeatures {
         RegistryKey<PlacedFeature> p_tg_floor = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Moonbits.MOD_ID, "p_tg_floor"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_tg_floor.getValue(),
                 MBCaveFeatures.TOUGH_GRASS_PATCH.withPlacement(
-                        CountPlacementModifier.of(12), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(52), YOffset.fixed(110))));
+                        CountPlacementModifier.of(8), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(52), YOffset.fixed(110))));
         // tough grass lush ver.
         RegistryKey<PlacedFeature> p_tg_lush = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Moonbits.MOD_ID, "p_tg_lush"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_tg_lush.getValue(),
                 MBCaveFeatures.TOUGH_GRASS_LUSH.withPlacement(
-                        CountPlacementModifier.of(125), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(48), YOffset.fixed(110))));
+                        CountPlacementModifier.of(32), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(48), YOffset.fixed(110))));
         // tough grass vegetation
         RegistryKey<PlacedFeature> p_tg_veg = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Moonbits.MOD_ID, "p_tg_veg"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_tg_veg.getValue(),
@@ -123,7 +123,7 @@ public class MBPlacedCaveFeatures {
         RegistryKey<PlacedFeature> p_caveblooms = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Moonbits.MOD_ID, "p_caveblooms"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_caveblooms.getValue(),
                 MBCaveFeatures.CAVEBLOOMS.withPlacement(
-                        CountPlacementModifier.of(UniformIntProvider.create(64, 128)), HeightRangePlacementModifier.uniform(YOffset.fixed(40), YOffset.fixed(90)),
+                        CountPlacementModifier.of(UniformIntProvider.create(32, 48)), HeightRangePlacementModifier.uniform(YOffset.fixed(45), YOffset.fixed(65)),
                         SquarePlacementModifier.of(), SurfaceThresholdFilterPlacementModifier.of(Heightmap.Type.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13), BiomePlacementModifier.of()
                 )
         );

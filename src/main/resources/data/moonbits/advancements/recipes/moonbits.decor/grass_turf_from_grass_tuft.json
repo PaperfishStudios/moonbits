@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:grass_turf_from_grass_tuft"
+    ]
+  },
+  "criteria": {
+    "has_grass_tuft": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:grass_tuft"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:grass_turf_from_grass_tuft"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_grass_tuft",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -15,7 +15,9 @@
     "EnchantingTableBlockMixin",
     "EnchantmentScreenHandlerMixin",
     "EntityAccessor",
+    "FarmlandMixin",
     "ItemAccessor",
+    "ItemMixin",
     "MobEntityAccessor",
     "MushroomStewItemMixin",
     "NetherWartMixin",
@@ -29,6 +31,7 @@
     "SugarCaneMixin",
     "TexturedModelAccessor",
     "TextureKeyAccessor",
+    "ConfiguredFeaturesMixin",
     "TreeDecoratorTypeInvoker",
     "TurtleEntityMixin",
     "VanillaSurfaceRulesMixin"

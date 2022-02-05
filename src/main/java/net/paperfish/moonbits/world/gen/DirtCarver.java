@@ -11,7 +11,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.carver.*;
 import net.minecraft.world.gen.chunk.AquiferSampler;
-import net.paperfish.moonbits.MBData;
+import net.paperfish.moonbits.MBBlockTags;
 
 import java.util.Random;
 import java.util.function.Function;
@@ -58,8 +58,9 @@ public class DirtCarver extends Carver<CaveCarverConfig> {
         return true;
     }
 
+    @Override
     public boolean canAlwaysCarveBlock(BlockState state) {
-        return state.isIn(MBData.TOUGH_DIRT) || this.alwaysCarvableBlocks.contains(state.getBlock());
+        return state.isIn(MBBlockTags.TOUGH_DIRT) || this.alwaysCarvableBlocks.contains(state.getBlock());
     }
 
     protected int getMaxCaveCount() {

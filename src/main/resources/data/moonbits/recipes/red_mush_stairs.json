@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:red_mush_block"
+    }
+  },
+  "result": {
+    "item": "moonbits:red_mush_stairs",
+    "count": 4
+  }
+}

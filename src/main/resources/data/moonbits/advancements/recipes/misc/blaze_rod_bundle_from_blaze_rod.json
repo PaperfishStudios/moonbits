@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:blaze_rod_bundle_from_blaze_rod"
+    ]
+  },
+  "criteria": {
+    "has_blaze_rod_bundle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:blaze_rod_bundle"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:blaze_rod_bundle_from_blaze_rod"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blaze_rod_bundle",
+      "has_the_recipe"
+    ]
+  ]
+}

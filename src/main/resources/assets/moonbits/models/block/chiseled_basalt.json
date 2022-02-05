@@ -1,7 +1,6 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "end": "moonbits:block/stones/basalt/chiseled_basalt_top",
-    "side": "moonbits:block/stones/basalt/chiseled_basalt"
+    "all": "moonbits:block/chiseled_basalt"
   }
 }

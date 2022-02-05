@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"textures": {
-		"stem": "moonbits:block/plants/toadstool_stem",
+		"stem": "moonbits:block/toadstool_stem",
 		"particle": "#stem"
 	},
 	"elements": [

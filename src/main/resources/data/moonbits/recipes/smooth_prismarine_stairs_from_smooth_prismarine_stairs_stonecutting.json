@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:smooth_prismarine_stairs"
+  },
+  "result": "moonbits:smooth_prismarine_stairs",
+  "count": 1
+}

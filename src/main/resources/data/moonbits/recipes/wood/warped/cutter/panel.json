@@ -1,8 +1,0 @@
-{
-    "type": "minecraft:stonecutting",
-    "ingredient": {
-        "item": "minecraft:warped_planks"
-    },
-    "result": "moonbits:warped_panel",
-    "count": 1
-}

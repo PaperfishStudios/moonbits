@@ -4,6 +4,8 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
@@ -24,10 +26,19 @@ public class MBItems {
 	public static final Item ITEM_HOOK = new ItemHookItem(MBEntities.ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
 	public static final Item GLOW_ITEM_HOOK = new ItemHookItem(MBEntities.GLOW_ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
 
+	public static final Item LETTUCE_SEEDS = new AliasedBlockItem(MBBlocks.LETTUCE_CROP, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
+	public static final Item LETTUCE_LEAF = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(1).saturationModifier(0.3f).build()));
+	public static final Item SALAD = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8f)
+			.statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0f).build()));
+
 	public static final Item APPLE_SEEDS = new AliasedBlockItem(MBBlocks.APPLE_OAK_SPROUT, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
-	public static final Block SWEET_BERRY_PITS_BLOCK = new SweetBerryPitsBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH));
-	public static final Block GLOW_BERRY_PITS_BLOCK = new GlowBerryPitsBlock(AbstractBlock.Settings.of(Material.PLANT).ticksRandomly().noCollision().luminance(CaveVines.getLuminanceSupplier(14)).breakInstantly().sounds(BlockSoundGroup.CAVE_VINES));
+	public static final Block SWEET_BERRY_PITS = new SweetBerryPitsBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH));
+	public static final Block GLOW_BERRY_PITS = new GlowBerryPitsBlock(AbstractBlock.Settings.of(Material.PLANT).ticksRandomly().noCollision().luminance(CaveVines.getLuminanceSupplier(14)).breakInstantly().sounds(BlockSoundGroup.CAVE_VINES));
 	public static final Item ROASTED_BERRIES = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8F).build()));
+
+	public static final Item GLOW_BERRY_TART = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F)
+			.statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 400, 1), 1.0f).build()));
 
 	public static final Item HONEY_BUN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F).build()));
 
@@ -81,6 +92,9 @@ public class MBItems {
 	public static final Item GRIZZLY_SPAWN_EGG = new SpawnEggItem(MBEntities.GRIZZLY_BEAR, 5782045, 15707403, new Item.Settings().group(MBItemGroup.UTILITY));
 	public static final Item GLARE_SPAWN_EGG = new SpawnEggItem(MBEntities.GLARE, 5403430, 657930, new Item.Settings().group(MBItemGroup.UTILITY));
 
+	public static void add(String id, Item item) {
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, id), item);
+	}
 	public static void addItem(String id, Item item) {
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, id), item);
 		MB_ITEMS.add(item);
@@ -96,15 +110,20 @@ public class MBItems {
 	}
     
 	public static void registerItems(){
+		addItem("roasted_berries", ROASTED_BERRIES);
+		addItem("glow_berry_tart", GLOW_BERRY_TART);
+		addItem("honey_bun", HONEY_BUN);
+		addItem("lettuce_leaf", LETTUCE_LEAF);
+		addItem("salad", SALAD);
+
 		addItem("apple_seeds", APPLE_SEEDS);
 
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "sweet_berry_pits"), SWEET_BERRY_PITS_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "sweet_berry_pits"), new BlockItem(SWEET_BERRY_PITS_BLOCK, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "glow_berry_pits"), GLOW_BERRY_PITS_BLOCK);
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "glow_berry_pits"), new BlockItem(GLOW_BERRY_PITS_BLOCK, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "sweet_berry_pits"), SWEET_BERRY_PITS);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "sweet_berry_pits"), new BlockItem(SWEET_BERRY_PITS, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "glow_berry_pits"), GLOW_BERRY_PITS);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "glow_berry_pits"), new BlockItem(GLOW_BERRY_PITS, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
 
-		addItem("roasted_berries", ROASTED_BERRIES);
-		addItem("honey_bun", HONEY_BUN);
+		add("lettuce_seeds", LETTUCE_SEEDS);
 
 		addItem("grass_tuft", GRASS_TUFT);
 		addItem("item_hook", ITEM_HOOK);

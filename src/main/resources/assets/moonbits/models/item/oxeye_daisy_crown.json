@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:item/crowns/oxeye_daisy_crown"
+    "layer0": "moonbits:item/oxeye_daisy_crown"
   }
 }

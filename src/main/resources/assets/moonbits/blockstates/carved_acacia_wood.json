@@ -1,7 +1,7 @@
 {
-    "variants": {
-      "": {
-        "model": "moonbits:block/carved_acacia_wood"
-      }
+  "variants": {
+    "": {
+      "model": "moonbits:block/carved_acacia_wood"
     }
   }
+}

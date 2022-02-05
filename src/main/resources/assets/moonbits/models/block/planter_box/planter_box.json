@@ -1,7 +1,7 @@
 {
 	"parent": "minecraft:block/block",
 	"textures": {
-		"soil": "moonbits:block/wood/planter_box_soil",
+		"soil": "moonbits:block/planter_box_soil",
 		"particle": "#side"
 	},
 	"elements": [

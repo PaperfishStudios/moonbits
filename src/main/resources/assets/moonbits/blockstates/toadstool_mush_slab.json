@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/toadstool_mush_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/toadstool_mush_block"
+    },
+    "type=top": {
+      "model": "moonbits:block/toadstool_mush_slab_top"
+    }
+  }
+}

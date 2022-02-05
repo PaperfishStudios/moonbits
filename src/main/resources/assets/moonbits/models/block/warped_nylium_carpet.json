@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/carpet",
   "textures": {
-    "wool": "minecraft:block/warped_nylium"
+    "wool": "moonbits:block/warped_nylium_turf"
   }
 }

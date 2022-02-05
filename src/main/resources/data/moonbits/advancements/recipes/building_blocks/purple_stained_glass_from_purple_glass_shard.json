@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:purple_stained_glass_from_purple_glass_shard"
+    ]
+  },
+  "criteria": {
+    "has_purple_glass_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:purple_glass_shard"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:purple_stained_glass_from_purple_glass_shard"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_purple_glass_shard",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "bottom": "moonbits:block/stones/dripstone/dripstone_bricks",
-    "top": "moonbits:block/stones/dripstone/dripstone_bricks",
-    "side": "moonbits:block/stones/dripstone/dripstone_bricks"
+    "bottom": "moonbits:block/dripstone_bricks",
+    "top": "moonbits:block/dripstone_bricks",
+    "side": "moonbits:block/dripstone_bricks"
   }
 }

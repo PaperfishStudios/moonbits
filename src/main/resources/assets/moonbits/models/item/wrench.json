@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "moonbits:item/tools/wrench"
+    "layer0": "moonbits:item/wrench"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:item/food/sweet_berry_pits"
+    "layer0": "moonbits:item/sweet_berry_pits"
   }
 }

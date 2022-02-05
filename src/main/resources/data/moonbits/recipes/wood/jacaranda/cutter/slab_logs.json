@@ -1,8 +1,0 @@
-{
-    "type": "minecraft:stonecutting",
-    "ingredient": {
-        "tag": "moonbits:jacaranda_logs"
-    },
-    "result": "moonbits:jacaranda_slab",
-    "count": 12
-}

@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "moonbits:block/oak_pillar_horizontal",
+      "model": "moonbits:block/oak_pillar",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "moonbits:block/oak_pillar"
     },
     "axis=z": {
-      "model": "moonbits:block/oak_pillar_horizontal",
+      "model": "moonbits:block/oak_pillar",
       "x": 90
     }
   }

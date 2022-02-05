@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/stones/prismarine/prismarine_cut_top",
-    "side": "moonbits:block/stones/prismarine/prismarine_cut"
+    "end": "moonbits:block/cut_prismarine_top",
+    "side": "moonbits:block/cut_prismarine"
   }
 }

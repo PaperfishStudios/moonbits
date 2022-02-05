@@ -1,0 +1,6 @@
+{
+  "parent": "moonbits:block/leaf_carpet",
+  "textures": {
+    "leaf": "moonbits:block/red_oak_leaves"
+  }
+}

@@ -1,7 +1,7 @@
 {
-    "variants": {
-      "": {
-        "model": "moonbits:block/carved_dark_oak_wood"
-      }
+  "variants": {
+    "": {
+      "model": "moonbits:block/carved_dark_oak_wood"
     }
   }
+}

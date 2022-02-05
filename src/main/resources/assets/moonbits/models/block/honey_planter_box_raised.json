@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "top": "moonbits:block/wood/honey/honey_planter_box_top",
-    "bottom": "moonbits:block/wood/honey/honey_planter_box_bottom",
-    "side": "moonbits:block/wood/honey/honey_planter_box"
-  }
-}

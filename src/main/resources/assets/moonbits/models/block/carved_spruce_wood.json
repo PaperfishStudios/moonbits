@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:block/cube_all",
-    "textures": {
-      "all": "moonbits:block/wood/spruce/carved_spruce_wood"
-    }
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moonbits:block/carved_spruce_wood"
   }
+}

@@ -29,6 +29,7 @@ public class MBVegetationFeatures {
 
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> BUTTERCUP_PATCH;
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> FORGETMENOT_PATCH;
+    public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> PUFFBALLS_PATCH;
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> TOADSTOOLS;
     public static final DataPool<BlockState> TOADSTOOL_LIST;
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> AUTUMN_FLOWERS;
@@ -128,7 +129,8 @@ public class MBVegetationFeatures {
         SEA_BEET_PATCH = ConfiguredFeatures.register("patch_beets", Feature.RANDOM_PATCH.configure(createPatch(32, BlockStateProvider.of(MBBlocks.SEA_BEETS))));
 
         BUTTERCUP_PATCH = ConfiguredFeatures.register("patch_buttercups", Feature.RANDOM_PATCH.configure(createPatch(32, BlockStateProvider.of(MBBlocks.BUTTERCUP))));
-        FORGETMENOT_PATCH = ConfiguredFeatures.register("patch_forgetmenot", Feature.RANDOM_PATCH.configure(createPatch(32, BlockStateProvider.of(MBBlocks.FORGETMENOT))));
+        FORGETMENOT_PATCH = ConfiguredFeatures.register("patch_forgetmenot", Feature.RANDOM_PATCH.configure(createPatch(16, BlockStateProvider.of(MBBlocks.FORGETMENOT))));
+        PUFFBALLS_PATCH = ConfiguredFeatures.register("patch_puffballs", Feature.RANDOM_PATCH.configure(createPatch(8, BlockStateProvider.of(MBBlocks.PUFFBALLS))));
         TOADSTOOLS = ConfiguredFeatures.register("toadstools", Feature.FLOWER.configure(createPatch(3, new WeightedBlockStateProvider(TOADSTOOL_LIST))));
         AUTUMN_FLOWERS = ConfiguredFeatures.register("autumn_flowers", Feature.FLOWER.configure(createPatch(12, new WeightedBlockStateProvider(AUTUMN_FLOWER_LIST))));
         ROSE_BUSH = ConfiguredFeatures.register("rose_bush", Feature.RANDOM_PATCH.configure(createPatch(8, BlockStateProvider.of(Blocks.ROSE_BUSH))));
@@ -167,7 +169,7 @@ public class MBVegetationFeatures {
                 new ReplaceBlobsFeatureConfig(
                         Blocks.GRASS_BLOCK.getDefaultState(),
                         Blocks.COARSE_DIRT.getDefaultState(),
-                        UniformIntProvider.create(2, 5)
+                        UniformIntProvider.create(2, 4)
                 )));
         PODZOL_PATCH = ConfiguredFeatures.register("podzol_floor", Feature.NETHERRACK_REPLACE_BLOBS.configure(
                 new ReplaceBlobsFeatureConfig(
@@ -179,19 +181,20 @@ public class MBVegetationFeatures {
                 new ReplaceBlobsFeatureConfig(
                         Blocks.GRASS_BLOCK.getDefaultState(),
                         MBBlocks.LEAFBED.getDefaultState(),
-                        UniformIntProvider.create(3, 8)
+                        UniformIntProvider.create(3, 5)
                 )));
 
         GBF_TREES = ConfiguredFeatures.register("gbf_trees", Feature.RANDOM_SELECTOR.configure(
                 new RandomFeatureConfig(List.of(
-                        new RandomFeatureEntry(TreePlacedFeatures.BIRCH_BEES_002, 0.4F),
-                        new RandomFeatureEntry(TreePlacedFeatures.SPRUCE_CHECKED, 0.1F)),
+                        new RandomFeatureEntry(TreePlacedFeatures.OAK_BEES_002, 0.1F),
+                        new RandomFeatureEntry(MBPlacedTreeFeatures.RED_OAK_BEES_005, 0.4F)),
                         MBPlacedTreeFeatures.GOLDEN_BIRCH_BEES_005
                 )));
 
         MBFF_TREES = ConfiguredFeatures.register("mbff_trees", Feature.RANDOM_SELECTOR.configure(
                 new RandomFeatureConfig(List.of(
-                        new RandomFeatureEntry(TreePlacedFeatures.BIRCH_BEES_002, 0.2F),
+                        new RandomFeatureEntry(TreePlacedFeatures.BIRCH_BEES_002, 0.8F),
+                        new RandomFeatureEntry(TreePlacedFeatures.OAK_BEES_002, 0.4F),
                         new RandomFeatureEntry(TreePlacedFeatures.FANCY_OAK_BEES_002, 0.1F)),
                         MBPlacedTreeFeatures.JACARANDA_BEES_005
                 )));

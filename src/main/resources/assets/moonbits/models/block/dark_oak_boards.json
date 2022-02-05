@@ -1,6 +1,6 @@
 {
-    "parent": "minecraft:block/cube_all",
-    "textures": {
-      "all": "moonbits:block/wood/dark_oak/dark_oak_boards"
-    }
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moonbits:block/dark_oak_boards"
   }
+}

@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
-		"root": "moonbits:block/plants/lamproot_horizontal",
-		"bulb": "moonbits:block/plants/lamproot_horizontal_bulb",
+		"root": "moonbits:block/lamproot_horizontal",
+		"bulb": "moonbits:block/lamproot_horizontal_bulb",
 		"particle": "#root"
 	},
 	"elements": [

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "moonbits:block/stones/basalt/basalt_bricks"
+    "wall": "moonbits:block/basalt_bricks"
   }
 }

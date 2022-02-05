@@ -1,0 +1,6 @@
+{
+  "parent": "moonbits:block/template_wall_lantern",
+  "textures": {
+    "lantern": "minecraft:block/lantern"
+  }
+}

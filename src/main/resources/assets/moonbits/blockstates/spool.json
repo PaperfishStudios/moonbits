@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "moonbits:block/spool_horizontal",
+      "model": "moonbits:block/spool",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "moonbits:block/spool"
     },
     "axis=z": {
-      "model": "moonbits:block/spool_horizontal",
+      "model": "moonbits:block/spool",
       "x": 90
     }
   }

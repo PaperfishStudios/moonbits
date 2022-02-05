@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/wood/charcoal_log_top",
-    "side": "moonbits:block/wood/charcoal_log"
+    "end": "moonbits:block/charcoal_log_top",
+    "side": "moonbits:block/charcoal_log"
   }
 }

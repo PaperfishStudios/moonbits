@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/stones/calcite/calcite_pillar_top",
-    "side": "moonbits:block/stones/calcite/calcite_pillar"
+    "end": "moonbits:block/calcite_pillar_top",
+    "side": "moonbits:block/calcite_pillar"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:block/plants/buttercup"
+    "layer0": "moonbits:block/buttercup"
   }
 }

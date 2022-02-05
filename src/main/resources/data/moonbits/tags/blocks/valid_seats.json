@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "moonbits:leather_seat",
+    "moonbits:white_seat",
+    "moonbits:light_gray_seat",
+    "moonbits:gray_seat",
+    "moonbits:black_seat",
+    "moonbits:green_seat",
+    "moonbits:lime_seat",
+    "moonbits:yellow_seat",
+    "moonbits:orange_seat",
+    "moonbits:brown_seat",
+    "moonbits:red_seat",
+    "moonbits:pink_seat",
+    "moonbits:magenta_seat",
+    "moonbits:purple_seat",
+    "moonbits:light_blue_seat",
+    "moonbits:cyan_seat",
+    "moonbits:blue_seat",
+    "moonbits:toadstool"
+  ]
+}

@@ -10,6 +10,7 @@ public class MBDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator dataGenerator) {
         dataGenerator.addProvider(MBRecipeProvider::new);
         FabricTagProvider.BlockTagProvider blockTags = new MBBlockTagProvider(dataGenerator);
+        dataGenerator.addProvider(MBLootTableProvider::new);
         dataGenerator.addProvider(MBModelProvider::new);
         dataGenerator.addProvider(new MBAdvancementsProvider(dataGenerator));
         dataGenerator.addProvider(blockTags);

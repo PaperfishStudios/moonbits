@@ -1,8 +1,8 @@
 {
-    "parent": "moonbits:block/planter_box/planter_box_side_b",
-    "textures": {
-		"top": "moonbits:block/wood/warped/warped_planter_box_side_b",
-		"bottom": "moonbits:block/wood/warped/warped_planter_box_bottom",
-		"side": "moonbits:block/wood/warped/warped_planter_box"
-    }
+  "parent": "moonbits:block/planter_box/planter_box_side_b",
+  "textures": {
+    "top": "moonbits:block/warped_planter_box_side_b",
+    "bottom": "moonbits:block/warped_planter_box_bottom",
+    "side": "moonbits:block/warped_planter_box"
+  }
 }

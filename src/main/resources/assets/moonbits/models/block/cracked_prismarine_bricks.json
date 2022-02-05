@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "moonbits:block/stones/prismarine/prismarine_bricks_cracked"
+    "all": "moonbits:block/cracked_prismarine_bricks"
   }
 }

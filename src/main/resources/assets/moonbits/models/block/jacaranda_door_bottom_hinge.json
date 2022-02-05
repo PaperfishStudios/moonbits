@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/door_bottom_rh",
   "textures": {
-    "top": "moonbits:block/wood/jacaranda/jacaranda_door_top",
-    "bottom": "moonbits:block/wood/jacaranda/jacaranda_door_bottom"
+    "top": "moonbits:block/jacaranda_door_top",
+    "bottom": "moonbits:block/jacaranda_door_bottom"
   }
 }

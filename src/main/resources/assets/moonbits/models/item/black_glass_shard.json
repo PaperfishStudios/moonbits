@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:item/glass/black_glass_shard"
+    "layer0": "moonbits:item/black_glass_shard"
   }
 }

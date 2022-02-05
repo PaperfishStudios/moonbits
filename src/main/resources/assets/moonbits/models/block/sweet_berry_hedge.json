@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "moonbits:block/plants/sweet_berry_hedge"
+    "all": "moonbits:block/sweet_berry_hedge"
   }
 }

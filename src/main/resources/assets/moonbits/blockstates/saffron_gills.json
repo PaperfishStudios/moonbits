@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "moonbits:block/saffron_gills"
+    },
+    "facing=east": {
+      "model": "moonbits:block/saffron_gills_wall",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "moonbits:block/saffron_gills_wall"
+    },
+    "facing=south": {
+      "model": "moonbits:block/saffron_gills_wall",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "moonbits:block/saffron_gills"
+    },
+    "facing=west": {
+      "model": "moonbits:block/saffron_gills_wall",
+      "y": 270
+    }
+  }
+}

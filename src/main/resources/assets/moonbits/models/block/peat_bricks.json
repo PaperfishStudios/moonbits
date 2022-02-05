@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "moonbits:block/natural/peat_bricks"
+    "all": "moonbits:block/peat_bricks"
   }
 }

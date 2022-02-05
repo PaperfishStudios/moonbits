@@ -1,19 +1,6 @@
 {
-  "parent": "minecraft:block/leaves",
+  "parent": "moonbits:block/leaf_carpet",
   "textures": {
-    "all": "moonbits:block/wood/birch/golden_birch_leaves"
-  },
-    "elements": [
-        {   "from": [ 0, 0, 0 ],
-            "to": [ 16, 1, 16 ],
-            "faces": {
-                "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#all", "cullface": "down" },
-                "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#all", "cullface": "up" },
-                "north": { "uv": [ 0, 15, 16, 16 ], "texture": "#all", "cullface": "north" },
-                "south": { "uv": [ 0, 15, 16, 16 ], "texture": "#all", "cullface": "south" },
-                "west":  { "uv": [ 0, 15, 16, 16 ], "texture": "#all", "cullface": "west" },
-                "east":  { "uv": [ 0, 15, 16, 16 ], "texture": "#all", "cullface": "east" }
-            }
-        }
-    ]
+    "leaf": "moonbits:block/golden_birch_leaves"
+  }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "moonbits:block/wood/honey/honey_panel"
+    "all": "moonbits:block/honey_panel"
   }
 }

@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "moonbits:block/stones/basalt/basalt_tiles"
+    "all": "moonbits:block/basalt_tiles"
   }
 }

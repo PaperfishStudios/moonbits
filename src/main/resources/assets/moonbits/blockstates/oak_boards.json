@@ -1,7 +1,7 @@
 {
-    "variants": {
-      "": {
-        "model": "moonbits:block/oak_boards"
-      }
+  "variants": {
+    "": {
+      "model": "moonbits:block/oak_boards"
     }
   }
+}

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/stones/diorite/diorite_pillar_top",
-    "side": "moonbits:block/stones/diorite/diorite_pillar"
+    "end": "moonbits:block/diorite_pillar_top",
+    "side": "moonbits:block/diorite_pillar"
   }
 }

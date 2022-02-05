@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "moonbits:block/manufactured/blaze_rod_bundle_top",
-    "side": "moonbits:block/manufactured/blaze_rod_bundle"
-  }
-}

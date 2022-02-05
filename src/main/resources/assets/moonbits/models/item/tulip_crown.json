@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:item/crowns/tulip_crown"
+    "layer0": "moonbits:item/tulip_crown"
   }
 }

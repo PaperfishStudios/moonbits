@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:paper_bundle_from_paper"
+    ]
+  },
+  "criteria": {
+    "has_paper_bundle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:paper_bundle"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:paper_bundle_from_paper"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_paper_bundle",
+      "has_the_recipe"
+    ]
+  ]
+}

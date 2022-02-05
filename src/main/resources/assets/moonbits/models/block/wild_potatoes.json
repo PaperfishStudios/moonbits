@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "moonbits:block/plants/wild_potatoes"
+    "cross": "moonbits:block/wild_potatoes"
   }
 }

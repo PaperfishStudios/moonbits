@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:block/plants/light_blue_hyacinth_top"
+    "layer0": "moonbits:block/light_blue_hyacinth_top"
   }
 }

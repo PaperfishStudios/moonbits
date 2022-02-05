@@ -12,8 +12,8 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
+import net.paperfish.moonbits.MBBlockTags;
 import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBData;
 import net.paperfish.moonbits.block.CavebloomFlowerBlock;
 import net.paperfish.moonbits.block.CavebloomVineBlock;
 
@@ -24,7 +24,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class CavebloomFeature extends Feature<CavebloomFeatureConfig> {
-    public static Tag<Block> canPlaceOn = MBData.TOUGH_DIRT;
+    public static Tag<Block> canPlaceOn = MBBlockTags.TOUGH_DIRT;
     public static List<Direction> directions = Lists.newArrayList();
 
     public CavebloomFeature(Codec<CavebloomFeatureConfig> codec) {

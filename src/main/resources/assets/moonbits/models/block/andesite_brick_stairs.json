@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "bottom": "moonbits:block/stones/andesite/andesite_bricks",
-    "top": "moonbits:block/stones/andesite/andesite_bricks",
-    "side": "moonbits:block/stones/andesite/andesite_bricks"
+    "bottom": "moonbits:block/andesite_bricks",
+    "top": "moonbits:block/andesite_bricks",
+    "side": "moonbits:block/andesite_bricks"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "moonbits:block/wall_soul_lantern",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "moonbits:block/wall_soul_lantern"
+    },
+    "facing=south": {
+      "model": "moonbits:block/wall_soul_lantern",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "moonbits:block/wall_soul_lantern",
+      "y": 270
+    }
+  }
+}

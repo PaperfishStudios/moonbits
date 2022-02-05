@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:salad"
+    ]
+  },
+  "criteria": {
+    "has_lettuce_leaf": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:lettuce_leaf"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:salad"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_lettuce_leaf",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/stones/granite/granite_pillar_top",
-    "side": "moonbits:block/stones/granite/granite_pillar"
+    "end": "moonbits:block/granite_pillar_top",
+    "side": "moonbits:block/granite_pillar"
   }
 }

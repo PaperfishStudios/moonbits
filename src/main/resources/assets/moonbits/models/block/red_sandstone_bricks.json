@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "moonbits:block/stones/red_sandstone/red_sandstone_bricks"
+    "all": "moonbits:block/red_sandstone_bricks"
   }
 }

@@ -1,13 +1,13 @@
 {
   "parent": "block/block",
   "textures": {
-      "particle": "moonbits:block/plants/kelp_block",
-      "down": "moonbits:block/plants/kelp_block_bottom",
-      "up": "moonbits:block/plants/kelp_block_top",
-      "north": "moonbits:block/plants/kelp_block",
-      "east": "moonbits:block/plants/kelp_block",
-      "south": "moonbits:block/plants/kelp_block",
-      "west": "moonbits:block/plants/kelp_block"
+      "particle": "moonbits:block/kelp_block",
+      "down": "moonbits:block/kelp_block_bottom",
+      "up": "moonbits:block/kelp_block_top",
+      "north": "moonbits:block/kelp_block",
+      "east": "moonbits:block/kelp_block",
+      "south": "moonbits:block/kelp_block",
+      "west": "moonbits:block/kelp_block"
   },
   "elements": [
       {   "from": [ 0, 0, 0 ],

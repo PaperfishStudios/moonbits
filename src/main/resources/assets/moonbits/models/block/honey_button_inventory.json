@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/button_inventory",
   "textures": {
-    "texture": "moonbits:block/wood/honey/honey_planks"
+    "texture": "moonbits:block/honey_planks"
   }
 }

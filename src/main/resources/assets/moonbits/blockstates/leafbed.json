@@ -1,6 +1,6 @@
 {
   "variants": {
-    "snowy=false": [
+    "": [
       {
         "model": "moonbits:block/leafbed"
       },
@@ -16,9 +16,6 @@
         "model": "moonbits:block/leafbed",
         "y": 270
       }
-    ],
-    "snowy=true": {
-      "model": "minecraft:block/grass_block_snow"
-    }
+    ]
   }
 }

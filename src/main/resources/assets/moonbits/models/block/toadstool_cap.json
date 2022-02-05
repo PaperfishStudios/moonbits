@@ -2,11 +2,11 @@
     "parent": "minecraft:block/block",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "moonbits:block/plants/toadstool_cap",
-		"1": "moonbits:block/plants/toadstool_side",
-		"2": "moonbits:block/plants/toadstool_stem",
-		"3": "moonbits:block/plants/toadstool_bottom",
-		"particle": "moonbits:block/plants/toadstool_cap"
+		"0": "moonbits:block/toadstool_cap",
+		"1": "moonbits:block/toadstool_side",
+		"2": "moonbits:block/toadstool_stem",
+		"3": "moonbits:block/toadstool_bottom",
+		"particle": "moonbits:block/toadstool_cap"
 	},
 	"elements": [
 		{

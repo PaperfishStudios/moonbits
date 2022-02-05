@@ -1,7 +1,7 @@
 {
-    "variants": {
-      "": {
-        "model": "moonbits:block/crimson_nylium_turf"
-      }
+  "variants": {
+    "": {
+      "model": "moonbits:block/crimson_nylium_turf"
     }
   }
+}

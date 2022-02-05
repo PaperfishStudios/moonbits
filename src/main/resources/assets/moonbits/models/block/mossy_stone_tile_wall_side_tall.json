@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side_tall",
   "textures": {
-    "wall": "moonbits:block/stones/stone/stone_tiles_mossy"
+    "wall": "moonbits:block/mossy_stone_tiles"
   }
 }

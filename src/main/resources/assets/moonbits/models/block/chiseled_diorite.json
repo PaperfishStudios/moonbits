@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "moonbits:block/stones/diorite/diorite_chiseled"
+    "all": "moonbits:block/chiseled_diorite"
   }
 }

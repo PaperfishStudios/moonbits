@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/stones/deepslate/deepslate_pillar_top",
-    "side": "moonbits:block/stones/deepslate/deepslate_pillar"
+    "end": "moonbits:block/deepslate_pillar_top",
+    "side": "moonbits:block/deepslate_pillar"
   }
 }

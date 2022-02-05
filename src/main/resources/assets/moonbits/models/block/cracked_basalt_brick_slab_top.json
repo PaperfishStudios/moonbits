@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab_top",
   "textures": {
-    "bottom": "moonbits:block/stones/basalt/basalt_bricks_cracked",
-    "top": "moonbits:block/stones/basalt/basalt_bricks_cracked",
-    "side": "moonbits:block/stones/basalt/basalt_bricks_cracked"
+    "bottom": "moonbits:block/cracked_basalt_bricks",
+    "top": "moonbits:block/cracked_basalt_bricks",
+    "side": "moonbits:block/cracked_basalt_bricks"
   }
 }

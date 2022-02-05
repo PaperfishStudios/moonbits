@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_orientable_trapdoor_top",
   "textures": {
-    "texture": "moonbits:block/wood/jacaranda/jacaranda_trapdoor"
+    "texture": "moonbits:block/jacaranda_trapdoor"
   }
 }

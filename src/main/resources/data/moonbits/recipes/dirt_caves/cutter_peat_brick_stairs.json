@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:peat_bricks"
-  },
-  "result": "moonbits:peat_brick_stairs",
-  "count": 1
-}

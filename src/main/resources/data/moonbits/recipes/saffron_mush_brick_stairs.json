@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:saffron_mush_bricks"
+    }
+  },
+  "result": {
+    "item": "moonbits:saffron_mush_brick_stairs",
+    "count": 4
+  }
+}

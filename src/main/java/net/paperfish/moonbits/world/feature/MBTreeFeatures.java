@@ -3,25 +3,28 @@ package net.paperfish.moonbits.world.feature;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.MushroomBlock;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.ConfiguredFeatures;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.size.ThreeLayersFeatureSize;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.foliage.DarkOakFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
+import net.minecraft.world.gen.trunk.DarkOakTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.block.MushroomCapBlock;
 import net.paperfish.moonbits.mixin.TreeDecoratorTypeInvoker;
 
 import java.util.List;
+import java.util.OptionalInt;
 
 public class MBTreeFeatures {
     // beehive decorator probabilities (number indicates %, shift the decimal forward by one)
@@ -34,6 +37,15 @@ public class MBTreeFeatures {
     public static final TreeDecoratorType<HangingLeavesTreeDecorator> HANGING_LEAVES_TREE_DECORATOR = TreeDecoratorTypeInvoker.callRegister("hanging_leaves", HangingLeavesTreeDecorator.CODEC);
 
     public static final FallenLogFeature FALLEN_LOG;
+    public static final RedMushroomFeature RED_MUSHROOM_FEATURE = Registry.register(Registry.FEATURE, "red_mushroom_feature", new RedMushroomFeature(HugeMushroomFeatureConfig.CODEC));
+    public static final BrownMushroomFeature BROWN_MUSHROOM_FEATURE = Registry.register(Registry.FEATURE, "brown_mushroom_feature", new BrownMushroomFeature(HugeMushroomFeatureConfig.CODEC));
+    public static final BrownMushroomFeature SAFFRON_MUSHROOM_FEATURE = Registry.register(Registry.FEATURE, "saffron_mushroom_feature", new BrownMushroomFeature(HugeMushroomFeatureConfig.CODEC));
+
+
+    public static final ConfiguredFeature<?, ?> HUGE_BROWN_MUSHROOM;
+    public static final ConfiguredFeature<?, ?> HUGE_RED_MUSHROOM;
+    public static final ConfiguredFeature<?, ?> SAFFRON_MUSHROOM;
+
 
     // single tree features
     public static final ConfiguredFeature<TreeFeatureConfig, ?> APPLE_OAK;
@@ -44,6 +56,13 @@ public class MBTreeFeatures {
     public static final ConfiguredFeature<TreeFeatureConfig, ?> GOLDEN_BIRCH_BEES_002;
     public static final ConfiguredFeature<TreeFeatureConfig, ?> GOLDEN_BIRCH_BEES_005;
     public static final ConfiguredFeature<TreeFeatureConfig, ?> SUPER_GOLDEN_BIRCH_BEES_0002;
+
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> RED_OAK;
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> RED_OAK_BEES_0002;
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> RED_OAK_BEES_002;
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> RED_OAK_BEES_005;
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> BIG_RED_OAK;
+
     public static final ConfiguredFeature<TreeFeatureConfig, ?> JACARANDA;
     public static final ConfiguredFeature<TreeFeatureConfig, ?> JACARANDA_BEES_002;
     public static final ConfiguredFeature<TreeFeatureConfig, ?> JACARANDA_BEES_005;
@@ -83,6 +102,9 @@ public class MBTreeFeatures {
     private static TreeFeatureConfig.Builder superGoldenBirch() {
         return treeBuilder(Blocks.BIRCH_LOG, MBBlocks.GOLDEN_BIRCH_LEAVES, 6, 2, 6, 2).ignoreVines();
     }
+    private static TreeFeatureConfig.Builder redOak() {
+        return treeBuilder(Blocks.DARK_OAK_LOG, MBBlocks.RED_OAK_LEAVES, 4, 2, 0, 2).ignoreVines();
+    }
     private static TreeFeatureConfig.Builder jacaranda() {
         return treeBuilder(MBBlocks.JACARANDA_LOG, MBBlocks.JACARANDA_LEAVES, 6, 3, 0, 2).ignoreVines();
     }
@@ -119,6 +141,34 @@ public class MBTreeFeatures {
                 BEES_0002
         )).build()));
 
+        RED_OAK = ConfiguredFeatures.register("red_oak", Feature.TREE.configure(redOak().decorators(List.of(
+                new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.RED_OAK_LEAF_CARPET))
+        )).build()));
+        RED_OAK_BEES_0002 = ConfiguredFeatures.register("red_oak_bees_0002", Feature.TREE.configure(redOak().decorators(List.of(
+                new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.RED_OAK_LEAF_CARPET)),
+                BEES_0002
+        )).build()));
+        RED_OAK_BEES_002 = ConfiguredFeatures.register("red_oak_bees_002", Feature.TREE.configure(redOak().decorators(List.of(
+                new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.RED_OAK_LEAF_CARPET)),
+                BEES_002
+        )).build()));
+        RED_OAK_BEES_005 = ConfiguredFeatures.register("red_oak_bees_005", Feature.TREE.configure(redOak().decorators(List.of(
+                new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.RED_OAK_LEAF_CARPET)),
+                BEES_005
+        )).build()));
+        BIG_RED_OAK = ConfiguredFeatures.register("big_red_oak", Feature.TREE.configure(
+                new TreeFeatureConfig.Builder(
+                        BlockStateProvider.of(Blocks.DARK_OAK_LOG),
+                        new DarkOakTrunkPlacer(6, 2, 1),
+                        BlockStateProvider.of(MBBlocks.RED_OAK_LEAVES),
+                        new DarkOakFoliagePlacer(ConstantIntProvider.create(0),
+                                ConstantIntProvider.create(0)),
+                        new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty()))
+                        .ignoreVines().decorators(List.of(
+                                new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.RED_OAK_LEAF_CARPET))
+                        )).build()));
+
+
         JACARANDA = ConfiguredFeatures.register("jacaranda", Feature.TREE.configure(jacaranda().decorators(List.of(
                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.JACARANDA_LEAF_CARPET)),
                 new HangingLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.HANGING_JACARANDA_LEAVES))
@@ -133,6 +183,19 @@ public class MBTreeFeatures {
                 new HangingLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.HANGING_JACARANDA_LEAVES)),
                 BEES_005
         )).build()));
+
+        HUGE_RED_MUSHROOM =
+                ConfiguredFeatures.register("mb_red_mushroom", RED_MUSHROOM_FEATURE.configure(new HugeMushroomFeatureConfig(
+                        BlockStateProvider.of(MBBlocks.RED_MUSHROOM_CAP.getDefaultState().with(MushroomBlock.DOWN, false)),
+                        BlockStateProvider.of(MBBlocks.MUSHROOM_STEM.getDefaultState()), 2)));
+        HUGE_BROWN_MUSHROOM =
+                ConfiguredFeatures.register("mb_brown_mushroom", BROWN_MUSHROOM_FEATURE.configure(new HugeMushroomFeatureConfig(
+                        BlockStateProvider.of(MBBlocks.BROWN_MUSHROOM_CAP.getDefaultState().with(MushroomCapBlock.UP, true).with(MushroomCapBlock.DOWN, false)),
+                        BlockStateProvider.of(MBBlocks.MUSHROOM_STEM.getDefaultState()), 3)));
+        SAFFRON_MUSHROOM =
+                ConfiguredFeatures.register("mb_saffron_mushroom", BROWN_MUSHROOM_FEATURE.configure(new HugeMushroomFeatureConfig(
+                        BlockStateProvider.of(MBBlocks.SAFFRON_MUSHROOM_CAP.getDefaultState().with(MushroomCapBlock.UP, true).with(MushroomCapBlock.DOWN, false)),
+                        BlockStateProvider.of(MBBlocks.MUSHROOM_STEM.getDefaultState()), 2)));
 
         FALLEN_OAK = ConfiguredFeatures.register("fallen_oak", FALLEN_LOG.configure(new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(Blocks.OAK_LOG.getDefaultState()))));
         FALLEN_BIRCH = ConfiguredFeatures.register("fallen_birch", FALLEN_LOG.configure(new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(Blocks.BIRCH_LOG.getDefaultState()))));

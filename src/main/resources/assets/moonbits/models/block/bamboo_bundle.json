@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/plants/bamboo_bundle_top",
-    "side": "moonbits:block/plants/bamboo_bundle"
+    "end": "moonbits:block/bamboo_bundle_top",
+    "side": "moonbits:block/bamboo_bundle"
   }
 }

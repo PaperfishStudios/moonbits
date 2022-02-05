@@ -6,7 +6,6 @@
       "minecraft:blackstone",
       "moonbits:cobbled_andesite",
       "moonbits:cobbled_diorite",
-      "moonbits:cobbled_granite",
-      "moonbits:cobbled_dripstone"
+      "moonbits:cobbled_granite"
     ]
 }

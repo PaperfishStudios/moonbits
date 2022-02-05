@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "moonbits:block/stones/red_sandstone/red_sandstone_tiles_cracked"
+    "wall": "moonbits:block/cracked_red_sandstone_tiles"
   }
 }

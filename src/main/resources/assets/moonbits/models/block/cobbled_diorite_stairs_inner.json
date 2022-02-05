@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "bottom": "moonbits:block/stones/diorite/diorite_cobbled",
-    "top": "moonbits:block/stones/diorite/diorite_cobbled",
-    "side": "moonbits:block/stones/diorite/diorite_cobbled"
+    "bottom": "moonbits:block/cobbled_diorite",
+    "top": "moonbits:block/cobbled_diorite",
+    "side": "moonbits:block/cobbled_diorite"
   }
 }

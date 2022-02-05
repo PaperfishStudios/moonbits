@@ -14,6 +14,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.paperfish.moonbits.MBBlockTags;
 import net.paperfish.moonbits.MBData;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -39,16 +40,15 @@ public abstract class CropBlockMixin extends PlantBlock {
 
     @Inject(method = "canPlantOnTop", at = @At("HEAD"), cancellable = true)
     public void plantableCheck(BlockState floor, BlockView world, BlockPos pos, CallbackInfoReturnable<Boolean> cir){
-        if (floor.isIn(MBData.PLANTER_BOXES)) {
+        if (floor.isIn(MBBlockTags.PLANTER_BOXES)) {
             cir.setReturnValue(true);
         }
     }
 
-    @Inject(method = "randomTick", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/block/CropBlock;getAvailableMoisture(Lnet/minecraft/block/Block;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)F"),
-            locals = LocalCapture.CAPTURE_FAILSOFT)
-    private void onGetMoisture(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci, int i, float f) {
-        if (world.getBlockState(pos.down()).isIn(MBData.PLANTER_BOXES)) {
-            f = 10.0f;
+    @Inject(method = "getAvailableMoisture", at = @At(value = "HEAD"), cancellable = true)
+    private static void onGetMoisture(Block block, BlockView world, BlockPos pos, CallbackInfoReturnable<Float> cir) {
+        if (world.getBlockState(pos.down()).isIn(MBBlockTags.PLANTER_BOXES)) {
+            cir.setReturnValue(10.0f);
         }
     }
 

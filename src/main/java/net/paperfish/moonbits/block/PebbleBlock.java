@@ -91,9 +91,9 @@ public class PebbleBlock extends Block implements Waterloggable {
     static {
         PEBBLES = IntProperty.of("pebbles", 1, 4);
         WATERLOGGED = Properties.WATERLOGGED;
-        ONE_PEBBLE_SHAPE = Block.createCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 6.0D, 10.0D);
-        TWO_PEBBLES_SHAPE = Block.createCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 6.0D, 13.0D);
-        THREE_PEBBLES_SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 6.0D, 14.0D);
-        FOUR_PEBBLES_SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 7.0D, 14.0D);
+        ONE_PEBBLE_SHAPE = Block.createCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 2.0D, 10.0D);
+        TWO_PEBBLES_SHAPE = Block.createCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 3.0D, 13.0D);
+        THREE_PEBBLES_SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 3.0D, 14.0D);
+        FOUR_PEBBLES_SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 3.0D, 14.0D);
     }
 }

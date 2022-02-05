@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "moonbits:block/plants/sea_beets"
+    "cross": "moonbits:block/sea_beets"
   }
 }

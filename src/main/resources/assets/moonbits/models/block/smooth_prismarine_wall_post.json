@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "moonbits:block/stones/prismarine/prismarine_smooth"
+    "wall": "moonbits:block/smooth_prismarine"
   }
 }

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "moonbits:lime_glass_shard"
+    }
+  },
+  "result": {
+    "item": "minecraft:lime_stained_glass"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/wood/stick_stack_top",
-    "side": "moonbits:block/wood/stick_stack"
+    "end": "moonbits:block/stick_stack_top",
+    "side": "moonbits:block/stick_stack"
   }
 }

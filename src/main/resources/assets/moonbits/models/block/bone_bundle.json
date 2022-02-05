@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/natural/bone_bundle_top",
-    "side": "moonbits:block/natural/bone_bundle"
+    "end": "moonbits:block/bone_bundle_top",
+    "side": "moonbits:block/bone_bundle"
   }
 }

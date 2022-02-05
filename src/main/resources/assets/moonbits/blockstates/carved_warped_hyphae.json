@@ -1,7 +1,7 @@
 {
-    "variants": {
-      "": {
-        "model": "moonbits:block/carved_warped_hyphae"
-      }
+  "variants": {
+    "": {
+      "model": "moonbits:block/carved_warped_hyphae"
     }
   }
+}

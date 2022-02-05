@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:mossy_cobbled_deepslate"
-  },
-  "result": "moonbits:mossy_cobbled_deepslate_stairs",
-  "count": 1
-}

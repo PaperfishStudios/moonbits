@@ -1,7 +1,5 @@
 package net.paperfish.moonbits;
 
-import java.util.Map;
-
 import com.google.common.collect.ImmutableMap;
 
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -17,31 +15,18 @@ import net.minecraft.item.Item;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 
+import java.util.Map;
+
 public class MBData {
     // for initializing anything that isnt big enough for its own class i guess
 
-    // tags go here
-	// tag containing all mb bookshelves
-    public static final Tag<Block> BOOKSHELVES = TagFactory.BLOCK.create(new Identifier("moonbits", "bookshelves"));
-	// fabric common tag containing all bookshelves
-	public static final Tag<Block> C_BOOKSHELVES = TagFactory.BLOCK.create(new Identifier("c", "bookshelves"));
-	// blocks that increase the enchanting power of a table
-    public static final Tag<Block> VALID_ENCHANTERS = TagFactory.BLOCK.create(new Identifier("moonbits", "valid_enchanting_blocks"));
-	// tag containing every planter variant
-    public static final Tag<Block> PLANTER_BOXES = TagFactory.BLOCK.create(new Identifier("moonbits", "planter_boxes"));
-	// used for tough dirt & other similar blocks that work as dirt but cannot be replaced by tree growth n such
-	public static final Tag<Block> SOIL_NON_REPLACEABLE = TagFactory.BLOCK.create(new Identifier("moonbits", "soil_non_replaceable"));
-	// tag for which blocks can be replaced by deposits in worldgen (tough dirt ores)
-	public static final Tag<Block> TOUGH_DIRT = TagFactory.BLOCK.create(new Identifier("moonbits", "tough_soils"));
+	public static final Map<Block, Block> STRIPPED_BLOCKS;
 
 	// used to remove 1 seed from the drop table of crops when harvested by right-click
 	public static final Tag<Item> SEEDS_ROOTS = TagFactory.ITEM.create(new Identifier("moonbits", "seeds_roots"));
 	// items that will attract glares
 	public static final Tag<Item> GLARE_LIKES = TagFactory.ITEM.create(new Identifier("moonbits", "glare_likes"));
 
-
-
-	public static final Map<Block, Block> STRIPPED_BLOCKS;
 
 	static {
 			STRIPPED_BLOCKS = ImmutableMap.<Block, Block>builder()

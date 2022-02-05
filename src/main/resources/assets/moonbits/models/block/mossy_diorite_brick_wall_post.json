@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "moonbits:block/stones/diorite/diorite_bricks_mossy"
+    "wall": "moonbits:block/mossy_diorite_bricks"
   }
 }

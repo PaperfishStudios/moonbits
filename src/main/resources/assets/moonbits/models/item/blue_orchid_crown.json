@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:item/crowns/blue_orchid_crown"
+    "layer0": "moonbits:item/blue_orchid_crown"
   }
 }

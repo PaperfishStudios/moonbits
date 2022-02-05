@@ -1,15 +1,14 @@
 {
-    "replace": false,
-    "values": [
-      "minecraft:bookshelf",
-      "moonbits:birch_bookshelf",
-      "moonbits:spruce_bookshelf",
-      "moonbits:jungle_bookshelf",
-      "moonbits:acacia_bookshelf",
-      "moonbits:dark_oak_bookshelf",
-      "moonbits:crimson_bookshelf",
-      "moonbits:warped_bookshelf",
-      "moonbits:jacaranda_bookshelf",
-      "moonbits:honey_bookshelf"
-    ]
+  "replace": false,
+  "values": [
+    "minecraft:bookshelf",
+    "moonbits:spruce_bookshelf",
+    "moonbits:birch_bookshelf",
+    "moonbits:jungle_bookshelf",
+    "moonbits:acacia_bookshelf",
+    "moonbits:dark_oak_bookshelf",
+    "moonbits:crimson_bookshelf",
+    "moonbits:warped_bookshelf",
+    "moonbits:honey_bookshelf"
+  ]
 }

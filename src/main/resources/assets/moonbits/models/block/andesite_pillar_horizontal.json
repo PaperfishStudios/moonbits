@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "moonbits:block/stones/andesite/andesite_pillar_top",
-    "side": "moonbits:block/stones/andesite/andesite_pillar"
-  }
-}

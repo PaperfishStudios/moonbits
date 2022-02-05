@@ -195,11 +195,6 @@ public class MBAdvancementsProvider extends FabricAdvancementsProvider {
                 new TranslatableText("advancements.husbandry.root.description"),
                 new Identifier("textures/gui/advancements/backgrounds/husbandry.png"), AdvancementFrame.TASK, false, false, false)
                 .criterion("consumed_item", ConsumeItemCriterion.Conditions.any()).build(consumer, "husbandry/root");
-        //todo: add the kiln lmao
-        Advancement kiln = Advancement.Task.create().parent(root).display(Items.BLAST_FURNACE,
-                        new TranslatableText("advancements.story.kiln.title"),
-                        new TranslatableText("advancements.story.kiln.description"), null, AdvancementFrame.TASK, true, true, false)
-                .criterion("kiln", InventoryChangedCriterion.Conditions.items(Items.BLAST_FURNACE)).build(consumer, "story/kiln");
 
         Advancement plant_seed = Advancement.Task.create().parent(root).display(Items.WHEAT,
                 new TranslatableText("advancements.husbandry.plant_seed.title"),
@@ -210,8 +205,8 @@ public class MBAdvancementsProvider extends FabricAdvancementsProvider {
                     .criterion("melon_stem", PlacedBlockCriterion.Conditions.block(Blocks.MELON_STEM))
                     .criterion("beetroots", PlacedBlockCriterion.Conditions.block(Blocks.BEETROOTS))
                     .criterion("nether_wart", PlacedBlockCriterion.Conditions.block(Blocks.NETHER_WART))
-                    .criterion("sweet_pits", PlacedBlockCriterion.Conditions.block(MBItems.SWEET_BERRY_PITS_BLOCK))
-                    .criterion("glow_pits", PlacedBlockCriterion.Conditions.block(MBItems.GLOW_BERRY_PITS_BLOCK)).build(consumer, "husbandry/plant_seed");
+                    .criterion("sweet_pits", PlacedBlockCriterion.Conditions.block(MBItems.SWEET_BERRY_PITS))
+                    .criterion("glow_pits", PlacedBlockCriterion.Conditions.block(MBItems.GLOW_BERRY_PITS)).build(consumer, "husbandry/plant_seed");
         Advancement breed_an_animal = Advancement.Task.create().parent(root).display(Items.WHEAT,
                 new TranslatableText("advancements.husbandry.breed_an_animal.title"),
                 new TranslatableText("advancements.husbandry.breed_an_animal.description"), null, AdvancementFrame.TASK, true, true, false)
@@ -298,13 +293,25 @@ public class MBAdvancementsProvider extends FabricAdvancementsProvider {
     public void adventure(Consumer<Advancement> consumer) {
 
     }
+    public void architect(Consumer<Advancement> consumer) {
+        Advancement root = Advancement.Task.create().display(Blocks.BRICKS,
+                        new TranslatableText("advancements.architect.root.title"),
+                        new TranslatableText("advancements.architect.root.description"),
+                        new Identifier(Moonbits.MOD_ID, "textures/gui/advancements/backgrounds/architect.png"), AdvancementFrame.TASK, false, false, false)
+                .criterion("crafting_table", InventoryChangedCriterion.Conditions.items(Blocks.CRAFTING_TABLE)).build(consumer, "architect/root");
+        //todo: add the kiln lmao
+        Advancement kiln = Advancement.Task.create().parent(root).display(Items.BLAST_FURNACE,
+                        new TranslatableText("advancements.architect.kiln.title"),
+                        new TranslatableText("advancements.architect.kiln.description"), null, AdvancementFrame.TASK, true, true, false)
+                .criterion("kiln", InventoryChangedCriterion.Conditions.items(Items.BLAST_FURNACE)).build(consumer, "story/kiln");
+    }
     public void redstone(Consumer<Advancement> consumer) {
-        Advancement root = Advancement.Task.create().display(Blocks.GRASS_BLOCK,
+        Advancement root = Advancement.Task.create().display(Items.REDSTONE,
                         new TranslatableText("advancements.redstone.root.title"),
                         new TranslatableText("advancements.redstone.root.description"),
                         new Identifier(Moonbits.MOD_ID, "textures/gui/advancements/backgrounds/quartz.png"), AdvancementFrame.TASK, false, false, false)
-                .criterion("crafting_table", InventoryChangedCriterion.Conditions.items(Blocks.CRAFTING_TABLE)).build(consumer, "redstone/root");
-        Advancement redstone_torch = Advancement.Task.create().parent(root).display(Items.WOODEN_PICKAXE,
+                .criterion("crafting_table", InventoryChangedCriterion.Conditions.items(Items.REDSTONE)).build(consumer, "redstone/root");
+        Advancement redstone_torch = Advancement.Task.create().parent(root).display(Items.REDSTONE_TORCH,
                         new TranslatableText("advancements.redstone.redstone_torch.title"),
                         new TranslatableText("advancements.redstone.redstone_torch.description"), null, AdvancementFrame.TASK, true, true, false)
                 .criterion("redstone_torch", InventoryChangedCriterion.Conditions.items(Blocks.REDSTONE_TORCH)).build(consumer, "redstone/redstone_torch");

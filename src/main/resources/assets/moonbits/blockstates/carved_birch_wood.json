@@ -1,7 +1,7 @@
 {
-    "variants": {
-      "": {
-        "model": "moonbits:block/carved_birch_wood"
-      }
+  "variants": {
+    "": {
+      "model": "moonbits:block/carved_birch_wood"
     }
   }
+}

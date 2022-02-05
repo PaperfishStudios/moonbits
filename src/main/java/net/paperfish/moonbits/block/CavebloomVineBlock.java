@@ -47,7 +47,7 @@ public class CavebloomVineBlock extends AbstractLichenBlock implements Fertiliza
                     .map(world::getBlockState)
                     .map(BlockState::getBlock)
                     .filter(List.of(MBBlocks.CAVEBLOOM_VINE, MBBlocks.CAVEBLOOM_FLOWERS)::contains)
-                    .toList().size() <= 8) { // if there are no more than 8 caveblooms/vines within a 2-block radius
+                    .toList().size() <= 4) { // if there are no more than 8 caveblooms/vines within a 2-block radius
                 grow(world, random, pos, state);
             }
         }

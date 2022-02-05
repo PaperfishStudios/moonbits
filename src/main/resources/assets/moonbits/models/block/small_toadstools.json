@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "moonbits:block/plants/small_toadstools"
+    "cross": "moonbits:block/small_toadstools"
   }
 }

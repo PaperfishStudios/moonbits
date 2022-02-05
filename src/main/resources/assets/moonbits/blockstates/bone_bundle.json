@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "moonbits:block/bone_bundle_horizontal",
+      "model": "moonbits:block/bone_bundle",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "moonbits:block/bone_bundle"
     },
     "axis=z": {
-      "model": "moonbits:block/bone_bundle_horizontal",
+      "model": "moonbits:block/bone_bundle",
       "x": 90
     }
   }

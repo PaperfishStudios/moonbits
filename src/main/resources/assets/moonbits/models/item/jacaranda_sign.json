@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:item/wood/jacaranda/jacaranda_sign"
+    "layer0": "moonbits:item/jacaranda_sign"
   }
 }

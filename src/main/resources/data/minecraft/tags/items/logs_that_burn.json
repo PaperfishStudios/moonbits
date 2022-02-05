@@ -1,6 +1,6 @@
 {
-    "replace": false,
-    "values": [
-        "#moonbits:jacaranda_logs"
-    ]
+  "replace": false,
+  "values": [
+    "#moonbits:jacaranda_logs"
+  ]
 }

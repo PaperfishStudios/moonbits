@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "bottom": "minecraft:block/warped_nylium",
-    "top": "minecraft:block/warped_nylium",
-    "side": "minecraft:block/warped_nylium"
+    "bottom": "moonbits:block/warped_nylium_turf",
+    "top": "moonbits:block/warped_nylium_turf",
+    "side": "moonbits:block/warped_nylium_turf"
   }
 }

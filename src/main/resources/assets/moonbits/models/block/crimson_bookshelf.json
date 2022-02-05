@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_column",
   "textures": {
     "end": "minecraft:block/crimson_planks",
-    "side": "moonbits:block/wood/crimson/crimson_bookshelf"
+    "side": "moonbits:block/crimson_bookshelf"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/leaves",
   "textures": {
-    "all": "moonbits:block/wood/birch/golden_birch_leaves"
+    "all": "moonbits:block/golden_birch_leaves"
   }
 }

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:brown_mush_lamp"
+    ]
+  },
+  "criteria": {
+    "has_lamproot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:lamproot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:brown_mush_lamp"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_lamproot",
+      "has_the_recipe"
+    ]
+  ]
+}

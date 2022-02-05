@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:block/wood/birch/golden_birch_sapling"
+    "layer0": "moonbits:block/golden_birch_sapling"
   }
 }

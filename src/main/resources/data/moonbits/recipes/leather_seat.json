@@ -2,18 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "LLL",
-    "###"
+    "PPP"
   ],
   "key": {
     "L": {
       "item": "minecraft:leather"
     },
-    "#": {
-      "tag": "minecraft:wooden_slabs"
+    "P": {
+      "tag": "minecraft:planks"
     }
   },
   "result": {
-    "item": "moonbits:leather_seat",
-    "count": 1
+    "item": "moonbits:leather_seat"
   }
 }

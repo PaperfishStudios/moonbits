@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "moonbits:block/stones/prismarine/prismarine_bricks_cracked"
+    "wall": "moonbits:block/cracked_prismarine_bricks"
   }
 }

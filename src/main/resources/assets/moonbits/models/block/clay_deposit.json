@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "moonbits:block/natural/clay_deposit"
+    "all": "moonbits:block/clay_deposit"
   }
 }

@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "moonbits:block/stones/red_sandstone/red_sandstone_tiles_mossy"
-  }
-}

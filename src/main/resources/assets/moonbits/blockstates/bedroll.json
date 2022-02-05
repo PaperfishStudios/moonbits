@@ -1,34 +1,34 @@
 {
   "variants": {
-    "part=head,facing=north": {
-      "model": "moonbits:block/bedroll_head"
+    "facing=east,part=foot": {
+      "model": "moonbits:block/bedroll_foot",
+      "y": 270
     },
-    "part=foot,facing=north": {
+    "facing=east,part=head": {
+      "model": "moonbits:block/bedroll_head",
+      "y": 270
+    },
+    "facing=north,part=foot": {
       "model": "moonbits:block/bedroll_foot"
     },
-    "part=head,facing=east": {
-      "model": "moonbits:block/bedroll_head",
-      "y": 90
+    "facing=north,part=head": {
+      "model": "moonbits:block/bedroll_head"
     },
-    "part=foot,facing=east": {
-      "model": "moonbits:block/bedroll_foot",
-      "y": 90
-    },
-    "part=head,facing=south": {
-      "model": "moonbits:block/bedroll_head",
-      "y": 180
-    },
-    "part=foot,facing=south": {
+    "facing=south,part=foot": {
       "model": "moonbits:block/bedroll_foot",
       "y": 180
     },
-    "part=head,facing=west": {
+    "facing=south,part=head": {
       "model": "moonbits:block/bedroll_head",
-      "y": 270
+      "y": 180
     },
-    "part=foot,facing=west": {
+    "facing=west,part=foot": {
       "model": "moonbits:block/bedroll_foot",
-      "y": 270
+      "y": 90
+    },
+    "facing=west,part=head": {
+      "model": "moonbits:block/bedroll_head",
+      "y": 90
     }
   }
 }

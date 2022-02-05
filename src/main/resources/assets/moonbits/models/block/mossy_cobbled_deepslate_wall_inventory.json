@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "moonbits:block/stones/deepslate/deepslate_cobbled_mossy"
+    "wall": "moonbits:block/mossy_cobbled_deepslate"
   }
 }

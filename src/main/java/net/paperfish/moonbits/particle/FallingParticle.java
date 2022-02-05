@@ -84,6 +84,25 @@ public class FallingParticle extends SpriteBillboardParticle {
             return fallingParticle;
         }
     }
+    @Environment(EnvType.CLIENT)
+    public static class FallingSporeFactory implements ParticleFactory<DefaultParticleType> {
+        protected final SpriteProvider spriteProvider;
+        private final Random random;
+
+        public FallingSporeFactory(SpriteProvider spriteProvider) {
+            this.spriteProvider = spriteProvider;
+            this.random = new Random();
+        }
+
+        public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
+            int j = (int)(64.0F / MathHelper.nextBetween(this.random, 0.1F, 0.9F));
+            FallingParticle fallingParticle = new FallingParticle.Falling(clientWorld, d, e, f, Fluids.EMPTY, j);
+            fallingParticle.gravityStrength = 0.0005F;
+            //fallingParticle.setColor(0.32F, 0.5F, 0.22F);
+            fallingParticle.setSprite(this.spriteProvider);
+            return fallingParticle;
+        }
+    }
 
     @Environment(EnvType.CLIENT)
     private static class Falling extends FallingParticle {

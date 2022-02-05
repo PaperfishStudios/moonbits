@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:block/plants/small_toadstools"
+    "layer0": "moonbits:block/small_toadstools"
   }
 }

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:glass_from_glass_shard"
+    ]
+  },
+  "criteria": {
+    "has_glass_shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:glass_shard"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:glass_from_glass_shard"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_glass_shard",
+      "has_the_recipe"
+    ]
+  ]
+}

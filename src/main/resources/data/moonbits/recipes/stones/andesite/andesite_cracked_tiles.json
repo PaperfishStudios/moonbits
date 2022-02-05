@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "moonbits:andesite_tiles"
-  },
-  "result": "moonbits:cracked_andesite_tiles",
-  "experience": 0.1,
-  "cookingtime": 200
-}

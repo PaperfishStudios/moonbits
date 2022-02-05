@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "moonbits:block/sugar_cane_bundle_horizontal",
+      "model": "moonbits:block/sugar_cane_bundle",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "moonbits:block/sugar_cane_bundle"
     },
     "axis=z": {
-      "model": "moonbits:block/sugar_cane_bundle_horizontal",
+      "model": "moonbits:block/sugar_cane_bundle",
       "x": 90
     }
   }

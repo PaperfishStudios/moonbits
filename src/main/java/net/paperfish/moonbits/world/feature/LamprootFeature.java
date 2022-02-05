@@ -11,8 +11,8 @@ import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SimpleBlockFeatureConfig;
 import net.minecraft.world.gen.feature.util.FeatureContext;
+import net.paperfish.moonbits.MBBlockTags;
 import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBData;
 
 import java.util.List;
 
@@ -30,12 +30,12 @@ public class LamprootFeature extends Feature<SimpleBlockFeatureConfig> {
         if (!world.getBlockState(pos.down()).isAir() || !world.getBlockState(pos).isAir()) return false;
 
         // determine what side its attached to
-        if (world.getBlockState(pos.up()).isIn(MBData.TOUGH_DIRT)) {
+        if (world.getBlockState(pos.up()).isIn(MBBlockTags.TOUGH_DIRT)) {
             blockState = MBBlocks.LAMPROOT.getDefaultState().with(Properties.FACING, Direction.UP);
         } else {
             List<Direction> list = List.of(Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST);
             for (Direction direction : list) {
-                if (world.getBlockState(pos.offset(direction)).isIn(MBData.TOUGH_DIRT)) {
+                if (world.getBlockState(pos.offset(direction)).isIn(MBBlockTags.TOUGH_DIRT)) {
                     blockState = MBBlocks.LAMPROOT.getDefaultState().with(Properties.FACING, direction.getOpposite());
                 }
             }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "moonbits:block/bamboo_bundle_horizontal",
+      "model": "moonbits:block/bamboo_bundle",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "moonbits:block/bamboo_bundle"
     },
     "axis=z": {
-      "model": "moonbits:block/bamboo_bundle_horizontal",
+      "model": "moonbits:block/bamboo_bundle",
       "x": 90
     }
   }

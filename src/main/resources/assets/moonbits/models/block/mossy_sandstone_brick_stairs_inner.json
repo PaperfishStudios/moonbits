@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "moonbits:block/stones/sandstone/sandstone_bricks_mossy",
-    "top": "moonbits:block/stones/sandstone/sandstone_bricks_mossy",
-    "side": "moonbits:block/stones/sandstone/sandstone_bricks_mossy"
-  }
-}
