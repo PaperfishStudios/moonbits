@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "ingredient": {
+    "item": "moonbits:andesite_bricks"
+  },
+  "result": "moonbits:cracked_andesite_bricks",
+  "experience": 0.1,
+  "cookingtime": 100
+}

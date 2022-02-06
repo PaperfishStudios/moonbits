@@ -3,17 +3,25 @@ package net.paperfish.moonbits.block;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.paperfish.moonbits.MBBlocks;
 import org.jetbrains.annotations.Nullable;
 
 public class KilnBlock extends AbstractFurnaceBlock {
     public KilnBlock(Settings settings) {
         super(settings);
+    }
+
+    @Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState blockState, BlockEntityType<T> blockEntityType) {
+        return checkType(world, blockEntityType, MBBlocks.KILN_BLOCK_ENTITY);
     }
 
     @Nullable

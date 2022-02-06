@@ -5,6 +5,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.PlantBlock;
 import net.minecraft.block.SaplingBlock;
@@ -15,6 +16,7 @@ import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBData;
 import net.paperfish.moonbits.MBParticles;
 import net.paperfish.moonbits.Moonbits;
+import net.paperfish.moonbits.screen.KilnScreen;
 
 import java.util.Objects;
 
@@ -81,6 +83,8 @@ public class MoonbitsClient implements ClientModInitializer {
         MBParticles.registerParticleClient();
 
         MBEntityType.initEntityClient();
+
+        ScreenRegistry.register(MBData.KILN_SCREEN_HANDLER, KilnScreen::new);
 
         HudRenderCallback.EVENT.register((((matrixStack, tickDelta) -> {
             compassHud.renderCompass(matrixStack);

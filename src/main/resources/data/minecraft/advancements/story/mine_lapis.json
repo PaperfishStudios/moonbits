@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:story/smelt_iron",
+  "parent": "minecraft:story/iron_tools",
   "display": {
     "icon": {
       "item": "minecraft:lapis_lazuli"
@@ -16,7 +16,7 @@
     "hidden": false
   },
   "criteria": {
-    "lapis_lazuli": {
+    "lapis": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -31,7 +31,7 @@
   },
   "requirements": [
     [
-      "lapis_lazuli"
-	]
+      "lapis"
+    ]
   ]
 }

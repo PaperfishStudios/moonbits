@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "moonbits:block/apple_oak_leaves"
+      "model": "moonbits:blocks/fruiting_oak_leaves"
     }
   }
 }

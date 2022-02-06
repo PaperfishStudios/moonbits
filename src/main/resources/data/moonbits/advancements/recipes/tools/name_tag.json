@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:name_tag"
+    ]
+  },
+  "criteria": {
+    "tame_animal": {
+      "trigger": "minecraft:tame_animal",
+      "conditions": {}
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:name_tag"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tame_animal",
+      "has_the_recipe"
+    ]
+  ]
+}

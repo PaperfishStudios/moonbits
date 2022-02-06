@@ -11,16 +11,14 @@ import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.registry.Registry;
-import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBItemGroup;
-import net.paperfish.moonbits.MBItems;
-import net.paperfish.moonbits.Moonbits;
+import net.paperfish.moonbits.*;
 import net.paperfish.moonbits.registry.MBBlockFamilies;
 import net.paperfish.moonbits.registry.MBBlockFamily;
 
@@ -43,6 +41,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
     public static final HashMap<ItemConvertible, ItemConvertible> COMPACT = new HashMap<>();
 
     public static final HashMap<ItemConvertible, ItemConvertible> SMELTING = new HashMap<>();
+    public static final HashMap<ItemConvertible, ItemConvertible> FIRING = new HashMap<>();
 
     // 2x2 > 4x output block
     public static final HashMap<ItemConvertible, ItemConvertible> POLISH = new HashMap<>();
@@ -61,6 +60,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
     public static final int DEFAULT_SMELT_TIME = 200;
     public static final int DEFAULT_BLAST_TIME = DEFAULT_SMELT_TIME / 2;
     public static final int DEFAULT_SMOKE_TIME = DEFAULT_BLAST_TIME;
+    public static final int DEFAULT_FIRE_TIME = DEFAULT_BLAST_TIME;
     public static final int DEFAULT_CAMPFIRE_TIME = DEFAULT_SMELT_TIME * 3;
 
     public void addRecipes() {
@@ -210,33 +210,25 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 MBItems.COPPER_NUGGET, Items.COPPER_INGOT
         ));
 
-        SMELTING.putAll(Map.of(
-                MBBlocks.COBBLED_ANDESITE, Blocks.ANDESITE,
-                MBBlocks.COBBLED_DIORITE, Blocks.DIORITE,
-                MBBlocks.COBBLED_GRANITE, Blocks.GRANITE,
-                MBBlocks.COBBLED_DRIPSTONE, Blocks.DRIPSTONE_BLOCK
-        )); SMELTING.putAll(Map.of(
-                MBBlocks.STONE_TILES, MBBlocks.CRACKED_STONE_TILES,
-                MBBlocks.ANDESITE_BRICKS, MBBlocks.CRACKED_ANDESITE_BRICKS,
-                MBBlocks.ANDESITE_TILES, MBBlocks.CRACKED_ANDESITE_TILES,
-                MBBlocks.DIORITE_BRICKS, MBBlocks.CRACKED_DIORITE_BRICKS,
-                MBBlocks.DIORITE_TILES, MBBlocks.CRACKED_DIORITE_TILES,
-                MBBlocks.GRANITE_BRICKS, MBBlocks.CRACKED_GRANITE_BRICKS,
-                MBBlocks.GRANITE_TILES, MBBlocks.CRACKED_GRANITE_TILES
-        )); SMELTING.putAll(Map.of(
-                MBBlocks.SANDSTONE_BRICKS, MBBlocks.CRACKED_SANDSTONE_BRICKS,
-                MBBlocks.SANDSTONE_TILES, MBBlocks.CRACKED_SANDSTONE_TILES,
-                MBBlocks.RED_SANDSTONE_BRICKS, MBBlocks.CRACKED_RED_SANDSTONE_BRICKS,
-                MBBlocks.RED_SANDSTONE_TILES, MBBlocks.CRACKED_RED_SANDSTONE_TILES
-        ));
+        FIRING.put(MBBlocks.COBBLED_ANDESITE, Blocks.ANDESITE);
+        FIRING.put(MBBlocks.COBBLED_DIORITE, Blocks.DIORITE);
+        FIRING.put(MBBlocks.COBBLED_GRANITE, Blocks.GRANITE);
+
+        FIRING.put(MBBlocks.STONE_TILES, MBBlocks.CRACKED_STONE_TILES);
+        FIRING.put(MBBlocks.ANDESITE_BRICKS, MBBlocks.CRACKED_ANDESITE_BRICKS);
+        FIRING.put(MBBlocks.ANDESITE_TILES, MBBlocks.CRACKED_ANDESITE_TILES);
+        FIRING.put(MBBlocks.DIORITE_BRICKS, MBBlocks.CRACKED_DIORITE_BRICKS);
+        FIRING.put(MBBlocks.DIORITE_TILES, MBBlocks.CRACKED_DIORITE_TILES);
+        FIRING.put(MBBlocks.GRANITE_BRICKS, MBBlocks.CRACKED_GRANITE_BRICKS);
+        FIRING.put(MBBlocks.GRANITE_TILES, MBBlocks.CRACKED_GRANITE_TILES);
+        FIRING.put(MBBlocks.SANDSTONE_BRICKS, MBBlocks.CRACKED_SANDSTONE_BRICKS);
+        FIRING.put(MBBlocks.SANDSTONE_TILES, MBBlocks.CRACKED_SANDSTONE_TILES);
+        FIRING.put(MBBlocks.RED_SANDSTONE_BRICKS, MBBlocks.CRACKED_RED_SANDSTONE_BRICKS);
+        FIRING.put(MBBlocks.RED_SANDSTONE_TILES, MBBlocks.CRACKED_RED_SANDSTONE_TILES);
 
         CUTTING.putAll(Map.of(
                 Blocks.STONE, List.of(Blocks.COBBLESTONE, Blocks.COBBLESTONE_SLAB, Blocks.COBBLESTONE_STAIRS, Blocks.COBBLESTONE_WALL),
                 Blocks.DEEPSLATE, List.of(Blocks.COBBLED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE_SLAB, Blocks.COBBLED_DEEPSLATE_STAIRS, Blocks.COBBLED_DEEPSLATE_WALL)
-                //Blocks.ANDESITE, List.of(MBBlocks.COBBLED_ANDESITE, MBBlocks.COBBLED_ANDESITE_SLAB, MBBlocks.COBBLED_ANDESITE_STAIRS, MBBlocks.COBBLED_ANDESITE_WALL),
-                //Blocks.DIORITE, List.of(MBBlocks.COBBLED_DIORITE, MBBlocks.COBBLED_DIORITE_SLAB, MBBlocks.COBBLED_DIORITE_STAIRS, MBBlocks.COBBLED_DIORITE_WALL),
-                //Blocks.GRANITE, List.of(MBBlocks.COBBLED_GRANITE, MBBlocks.COBBLED_GRANITE_SLAB, MBBlocks.COBBLED_GRANITE_STAIRS, MBBlocks.COBBLED_GRANITE_WALL)
-                //Blocks.DRIPSTONE_BLOCK, List.of(MBBlocks.COBBLED_DRIPSTONE, MBBlocks.COBBLED_DRIPSTONE_SLAB, MBBlocks.COBBLED_DRIPSTONE_STAIRS, MBBlocks.COBBLED_DRIPSTONE_WALL)
         ));
     }
 
@@ -251,6 +243,45 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         TRANSMUTE.forEach((blocks, count) -> transmute(exporter, blocks.get(0), blocks.get(1), count));
 
         SMELTING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
+
+        FIRING.forEach((in, out) -> firing(exporter, in, out, 0.1f, DEFAULT_FIRE_TIME));
+        FIRING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
+
+        firing(exporter, Items.CLAY_BALL, Items.BRICK, 0.3f, DEFAULT_FIRE_TIME);
+        firing(exporter, ItemTags.LOGS_THAT_BURN, Items.CHARCOAL, 0.15f, DEFAULT_FIRE_TIME, "has_log");
+        firing(exporter, Items.CHORUS_FRUIT, Items.POPPED_CHORUS_FRUIT, 0.1f, DEFAULT_FIRE_TIME);
+        firing(exporter, ItemTags.SAND, Items.GLASS, 0.15f, DEFAULT_FIRE_TIME, "has_sand");
+        firing(exporter, Blocks.SEA_PICKLE, Items.LIME_DYE, 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.CACTUS, Items.GREEN_DYE, 1.0F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.CLAY, Blocks.TERRACOTTA, 0.35F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.NETHERRACK, Items.NETHER_BRICK, 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.WET_SPONGE, Blocks.SPONGE.asItem(), 0.15F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.COBBLESTONE, Blocks.STONE.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.STONE, Blocks.SMOOTH_STONE.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.SANDSTONE, Blocks.SMOOTH_SANDSTONE.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.RED_SANDSTONE, Blocks.SMOOTH_RED_SANDSTONE.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.QUARTZ_BLOCK, Blocks.SMOOTH_QUARTZ.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.STONE_BRICKS, Blocks.CRACKED_STONE_BRICKS.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.BLACK_TERRACOTTA, Blocks.BLACK_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.BLUE_TERRACOTTA, Blocks.BLUE_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.BROWN_TERRACOTTA, Blocks.BROWN_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.CYAN_TERRACOTTA, Blocks.CYAN_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.GRAY_TERRACOTTA, Blocks.GRAY_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.GREEN_TERRACOTTA, Blocks.GREEN_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.LIGHT_BLUE_TERRACOTTA, Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.LIGHT_GRAY_TERRACOTTA, Blocks.LIGHT_GRAY_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.LIME_TERRACOTTA, Blocks.LIME_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.MAGENTA_TERRACOTTA, Blocks.MAGENTA_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.ORANGE_TERRACOTTA, Blocks.ORANGE_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.PINK_TERRACOTTA, Blocks.PINK_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.PURPLE_TERRACOTTA, Blocks.PURPLE_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.RED_TERRACOTTA, Blocks.RED_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.WHITE_TERRACOTTA, Blocks.WHITE_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.YELLOW_TERRACOTTA, Blocks.YELLOW_GLAZED_TERRACOTTA.asItem(), 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.BASALT, Blocks.SMOOTH_BASALT, 0.1F, DEFAULT_FIRE_TIME);
+        firing(exporter, Blocks.COBBLED_DEEPSLATE, Blocks.DEEPSLATE, 0.1F, DEFAULT_FIRE_TIME);
+
+
 
         CUTTING.forEach((in, out) -> {
             out.forEach((output) -> {
@@ -399,6 +430,10 @@ public class MBRecipeProvider extends FabricRecipesProvider {
             Block inputItem = family.getBaseBlock();
                 offerStonecuttingRecipe(exporter, block, inputItem);
         });
+        family.childBlocks.forEach(block -> {
+            Block inputItem = family.getBaseBlock();
+            offerStonecuttingRecipe(exporter, block, inputItem);
+        });
     }
 
     public static Block getVariantRecipeInput(MBBlockFamily family, MBBlockFamily.Variant variant) {
@@ -488,6 +523,16 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         CookingRecipeJsonFactory.create(Ingredient.ofItems(input), output, experience, cookingTime, RecipeSerializer.SMOKING)
                 .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
                 .offerTo(exporter, "smoking_" + RecipesProvider.getItemPath(output));
+    }
+    public static void firing(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {
+        CookingRecipeJsonFactory.create(Ingredient.ofItems(input), output, experience, cookingTime, (CookingRecipeSerializer<?>) MBData.KILN_RECIPE_SERIALIZER)
+                .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
+                .offerTo(exporter, "firing_" + RecipesProvider.getItemPath(output));
+    }
+    public static void firing(Consumer<RecipeJsonProvider> exporter, Tag<Item> input, ItemConvertible output, float experience, int cookingTime, String criterion) {
+        CookingRecipeJsonFactory.create(Ingredient.fromTag(input), output, experience, cookingTime, (CookingRecipeSerializer<?>) MBData.KILN_RECIPE_SERIALIZER)
+                .criterion(criterion, RecipesProvider.conditionsFromTag(input))
+                .offerTo(exporter, "firing_" + RecipesProvider.getItemPath(output));
     }
     public static void campfire(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {
         CookingRecipeJsonFactory.create(Ingredient.ofItems(input), output, experience, cookingTime, RecipeSerializer.CAMPFIRE_COOKING)

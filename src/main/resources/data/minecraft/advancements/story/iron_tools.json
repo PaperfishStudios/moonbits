@@ -1,14 +1,15 @@
 {
-  "parent": "minecraft:story/root",
+  "parent": "minecraft:story/smelt_iron",
   "display": {
     "icon": {
-      "item": "moonbits:peat"
+      "item": "minecraft:iron_pickaxe",
+      "nbt": "{Damage:0}"
     },
     "title": {
-      "translate": "advancements.story.get_peat.title"
+      "translate": "advancements.story.iron_tools.title"
     },
     "description": {
-      "translate": "advancements.story.get_peat.description"
+      "translate": "advancements.story.iron_tools.description"
     },
     "frame": "task",
     "show_toast": true,
@@ -16,13 +17,13 @@
     "hidden": false
   },
   "criteria": {
-    "peat": {
+    "iron_pickaxe": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:peat"
+              "minecraft:iron_pickaxe"
             ]
           }
         ]
@@ -31,7 +32,7 @@
   },
   "requirements": [
     [
-      "peat"
+      "iron_pickaxe"
     ]
   ]
 }

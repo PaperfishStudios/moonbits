@@ -1,14 +1,14 @@
 {
-  "parent": "minecraft:story/mine_stone",
+  "parent": "minecraft:story/smelt_gold",
   "display": {
     "icon": {
-      "item": "minecraft:coal"
+      "item": "minecraft:golden_apple"
     },
     "title": {
-      "translate": "advancements.story.get_coal.title"
+      "translate": "advancements.story.golden_apple.title"
     },
     "description": {
-      "translate": "advancements.story.get_coal.description"
+      "translate": "advancements.story.golden_apple.description"
     },
     "frame": "task",
     "show_toast": true,
@@ -16,13 +16,13 @@
     "hidden": false
   },
   "criteria": {
-    "coal": {
+    "golden_apple": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:coal"
+              "minecraft:enchanted_golden_apple"
             ]
           }
         ]
@@ -31,7 +31,7 @@
   },
   "requirements": [
     [
-      "coal"
+      "golden_apple"
     ]
   ]
 }

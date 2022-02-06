@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "ingredient": {
+    "item": "moonbits:cobbled_diorite"
+  },
+  "result": "minecraft:diorite",
+  "experience": 0.1,
+  "cookingtime": 100
+}

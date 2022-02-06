@@ -95,6 +95,8 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerItemModel(MBBlocks.ROPE_LADDER);
         generator.registerNorthDefaultHorizontalRotation(MBBlocks.IRON_LADDER);
         generator.registerItemModel(MBBlocks.IRON_LADDER);
+        generator.registerCooker(MBBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
+        generator.registerItemModel(MBBlocks.KILN);
 
         seatBlock(MBBlocks.LEATHER_SEAT, generator);
         seatBlock(MBBlocks.WHITE_LEATHER_SEAT, generator);
@@ -117,9 +119,12 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerDoor(MBBlocks.GLASS_DOOR);
 
         // trese
-        generator.registerSingleton(MBBlocks.BUDDING_OAK_LEAVES, TexturedModel.LEAVES);
-        generator.registerSingleton(MBBlocks.FLOWERING_OAK_LEAVES, TexturedModel.LEAVES);
-        generator.registerSingleton(MBBlocks.FRUITING_OAK_LEAVES, TexturedModel.LEAVES);
+        generator.registerParentedItemModel(MBBlocks.BUDDING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/budding_oak_leaves"));
+        generator.registerParentedItemModel(MBBlocks.FLOWERING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/flowering_oak_leaves"));
+        generator.registerParentedItemModel(MBBlocks.FRUITING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/fruiting_oak_leaves"));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.BUDDING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/budding_oak_leaves")));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FLOWERING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/flowering_oak_leaves")));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FRUITING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/fruiting_oak_leaves")));
         flowerPotPlant(MBBlocks.APPLE_OAK_SPROUT, MBBlocks.POTTED_APPLE_OAK_SPROUT, TintType.NOT_TINTED, generator, false);
         flowerPotPlant(MBBlocks.APPLE_OAK_SAPLING, MBBlocks.POTTED_APPLE_OAK_SAPLING, TintType.NOT_TINTED, generator);
 

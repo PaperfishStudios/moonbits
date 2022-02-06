@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/stairs",
   "textures": {
-    "all": "moonbits:block/honeycomb_brick_stairs"
+    "bottom": "moonbits:block/honeycomb_bricks",
+    "top": "moonbits:block/honeycomb_bricks",
+    "side": "moonbits:block/honeycomb_bricks"
   }
 }

@@ -16,7 +16,7 @@
 	"advancements.story.mine_peat.description": "Dig up some peat",
 	
 	"advancements.story.mine_coal.title": "Fossil Fuel",
-	"advancements.story.mine_coal.description": "Obtain coal, a useful fuel source! But at what cost...",
+	"advancements.story.mine_coal.description": "Obtain coal! A useful fuel source, but at what cost...",
 	
 	"advancements.story.smelt_gold.title": "Prospector",
 	"advancements.story.smelt_gold.description": "Strike gold!",
@@ -24,8 +24,8 @@
 	"advancements.story.smelt_copper.title": "I Hardly Know 'Er!",
 	"advancements.story.smelt_copper.description": "Smelt a copper ingot",
 	
-	"advancements.story.craft_blast_furnace.title": "Blast Processing",
-	"advancements.story.craft_blast_furnace.description": "Upgrade to a blast furnace and smelt ores at twice the speed!",
+	"advancements.story.blast_furnace.title": "Blast Processing",
+	"advancements.story.blast_furnace.description": "Upgrade to a blast furnace and smelt ores at twice the speed!",
 	
 	"advancements.story.mine_lapis.title": "Something Blue",
 	"advancements.story.mine_lapis.description": "Find Lapis Lazuli",
@@ -37,21 +37,38 @@
 	"advancements.adventure.mine_amethyst.title": "Let There Be Light",
 	"advancements.adventure.mine_amethyst.description": "Find a geode underground! Listen carefully...",
 	
+	"advancements.story.craft_compass.title": "Get Your Bearings",
+	"advancements.story.craft_compass.description": "Hold a compass to guide you in your travels",
+	
+	"advancements.story.golden_apple.title": "Apple Of My Eye",
+	"advancements.story.golden_apple.description": "Find an Enchanted Golden Apple",
+	
+	
 	
 	"advancements.husbandry.flower_crown.title": "Flower Child",
 	"advancements.husbandry.flower_crown.description": "Take a kinder approach to beekeeping",
 	
-	"advancements.husbandry.craft_smoker.title": "Smokin' Hot",
-	"advancements.husbandry.craft_smoker.description": " Craft a smoker and cook yourself a nice meal",
+	"advancements.husbandry.campfire.title": "Bonfire Lit",
+	"advancements.husbandry.campfire.description": "Rest in the warmth of a campfire and enjoy a nice cooked meal",
 	
-	"advancements.husbandry.craft_kiln.title": "If Looks Could Kiln",
-	"advancements.husbandry.craft_kiln.description": " Craft a furnace into a kiln to bake materials faster",
+	"advancements.husbandry.smoker.title": "Smokin' Hot",
+	"advancements.husbandry.smoker.description": "Craft a smoker and cook yourself a nice meal",
 	
 	"advancements.husbandry.planter_box.title": "???",
 	"advancements.husbandry.planter_box.description": "this is temporary!",
 	
 	
-	"advancements.redstone.root.title": "Redstone",
+	"advancements.architect.root.title": "Building",
+	"advancements.architect.root.description": "Release your creativity!",
+	
+	"advancements.architect.mushblock.title": "???",
+	"advancements.architect.mushblock.description": " Combine mushrooms with bone meal for some environmentally friendly building!",
+	
+	"advancements.architect.kiln.title": "If Looks Could Kiln",
+	"advancements.architect.kiln.description": " Craft a furnace into a kiln to bake materials faster!",
+	
+	
+	"advancements.redstone.root.title": "Engineering",
 	"advancements.redstone.root.description": "Playing with power.",
 	
 	"advancements.redstone.torch.title": "Inversion",
@@ -74,6 +91,9 @@
 	
 	"advancements.redstone.sculk_sensor.title": "Bad Vibrations",
 	"advancements.redstone.sculk_sensor.description": "Sculk will react to Vibrations nearby. A Sculk Sensor is able to convert these into redstone energy",
+	
+	"advancements.redstone.hopper.title": "Hop To It",
+	"advancements.redstone.hopper.description": "Hoppers can suck items from containers and transport them around, but they can't go up.",
 	
 	
 	"advancements.nether.4096.title": "4096",

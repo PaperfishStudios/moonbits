@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "top": "moonbits:block/kiln_top",
+    "bottom": "moonbits:block/kiln_bottom",
+    "side": "moonbits:block/kiln_side",
+    "front": "moonbits:block/kiln_front"
+  }
+}

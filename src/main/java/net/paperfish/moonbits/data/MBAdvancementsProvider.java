@@ -29,6 +29,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.StructureFeature;
+import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBEntities;
 import net.paperfish.moonbits.MBItems;
 import net.paperfish.moonbits.Moonbits;
@@ -55,7 +56,13 @@ public class MBAdvancementsProvider extends FabricAdvancementsProvider {
 
     @Override
     public void generateAdvancement(Consumer<Advancement> consumer) {
-
+        story(consumer);
+        nether(consumer);
+        end(consumer);
+        husbandry(consumer);
+        adventure(consumer);
+        architect(consumer);
+        redstone(consumer);
     }
     
     public void story(Consumer<Advancement> consumer) {
@@ -101,7 +108,7 @@ public class MBAdvancementsProvider extends FabricAdvancementsProvider {
         Advancement golden_apple = Advancement.Task.create().parent(smelt_gold).display(Items.GOLDEN_APPLE,
                         new TranslatableText("advancements.story.golden_apple.title"),
                         new TranslatableText("advancements.story.golden_apple.description"), null, AdvancementFrame.TASK, true, true, false)
-                .criterion("golden_apple", InventoryChangedCriterion.Conditions.items(Items.GOLDEN_APPLE)).build(consumer, "story/golden_apple");
+                .criterion("golden_apple", InventoryChangedCriterion.Conditions.items(Items.ENCHANTED_GOLDEN_APPLE)).build(consumer, "story/golden_apple");
 
         Advancement iron_tools = Advancement.Task.create().parent(smelt_iron).display(Items.IRON_PICKAXE,
                 new TranslatableText("advancements.story.iron_tools.title"),
@@ -299,11 +306,10 @@ public class MBAdvancementsProvider extends FabricAdvancementsProvider {
                         new TranslatableText("advancements.architect.root.description"),
                         new Identifier(Moonbits.MOD_ID, "textures/gui/advancements/backgrounds/architect.png"), AdvancementFrame.TASK, false, false, false)
                 .criterion("crafting_table", InventoryChangedCriterion.Conditions.items(Blocks.CRAFTING_TABLE)).build(consumer, "architect/root");
-        //todo: add the kiln lmao
-        Advancement kiln = Advancement.Task.create().parent(root).display(Items.BLAST_FURNACE,
+        Advancement kiln = Advancement.Task.create().parent(root).display(MBBlocks.KILN,
                         new TranslatableText("advancements.architect.kiln.title"),
                         new TranslatableText("advancements.architect.kiln.description"), null, AdvancementFrame.TASK, true, true, false)
-                .criterion("kiln", InventoryChangedCriterion.Conditions.items(Items.BLAST_FURNACE)).build(consumer, "story/kiln");
+                .criterion("kiln", InventoryChangedCriterion.Conditions.items(MBBlocks.KILN)).build(consumer, "architect/kiln");
     }
     public void redstone(Consumer<Advancement> consumer) {
         Advancement root = Advancement.Task.create().display(Items.REDSTONE,

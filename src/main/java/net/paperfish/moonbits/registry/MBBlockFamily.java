@@ -15,6 +15,7 @@ public class MBBlockFamily {
     private final Block baseBlock;
     final Map<Variant, Block> variants = Maps.newHashMap();
     public List<Block> cuttable = new ArrayList<>();
+    public List<Block> childBlocks = new ArrayList<>();
     boolean generateModels = true;
     boolean generateRecipes = true;
     @Nullable
@@ -182,8 +183,9 @@ public class MBBlockFamily {
         }
 
         public MBBlockFamily.Builder child(MBBlockFamily child) {
-            child.getVariants().forEach((variant, block) -> this.family.cuttable.add(block));
-            this.family.cuttable.addAll(child.cuttable);
+            child.getVariants().forEach((variant, block) -> this.family.childBlocks.add(block));
+            this.family.childBlocks.addAll(child.cuttable);
+            this.family.childBlocks.addAll(child.childBlocks);
             return this;
         }
 

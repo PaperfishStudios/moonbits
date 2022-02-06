@@ -13,16 +13,37 @@
     {
       "when": {
         "east": "false",
-        "down": "false",
         "north": "false",
-        "west": "false",
+        "down": "false",
+        "south": "false",
         "up": "false",
-        "south": "false"
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/cavebloom_flowers",
         "y": 90,
         "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers"
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "north": "false",
+        "down": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers"
       }
     },
     {
@@ -38,86 +59,15 @@
     {
       "when": {
         "east": "false",
-        "down": "false",
         "north": "false",
-        "west": "false",
+        "down": "false",
+        "south": "false",
         "up": "false",
-        "south": "false"
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/cavebloom_flowers",
         "x": 90,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "north": "true"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers"
-      }
-    },
-    {
-      "when": {
-        "east": "false",
-        "down": "false",
-        "north": "false",
-        "west": "false",
-        "up": "false",
-        "south": "false"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers"
-      }
-    },
-    {
-      "when": {
-        "west": "true"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers",
-        "y": 270,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "east": "false",
-        "down": "false",
-        "north": "false",
-        "west": "false",
-        "up": "false",
-        "south": "false"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers",
-        "y": 270,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "up": "true"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers",
-        "x": 270,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "east": "false",
-        "down": "false",
-        "north": "false",
-        "west": "false",
-        "up": "false",
-        "south": "false"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers",
-        "x": 270,
         "uvlock": true
       }
     },
@@ -134,15 +84,65 @@
     {
       "when": {
         "east": "false",
-        "down": "false",
         "north": "false",
-        "west": "false",
+        "down": "false",
+        "south": "false",
         "up": "false",
-        "south": "false"
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/cavebloom_flowers",
         "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "north": "false",
+        "down": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers",
+        "y": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "north": "false",
+        "down": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers",
+        "y": 270,
         "uvlock": true
       }
     }

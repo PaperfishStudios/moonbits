@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "ingredient": {
+    "item": "moonbits:diorite_bricks"
+  },
+  "result": "moonbits:cracked_diorite_bricks",
+  "experience": 0.1,
+  "cookingtime": 100
+}

@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "ingredient": {
+    "item": "moonbits:stone_tiles"
+  },
+  "result": "moonbits:cracked_stone_tiles",
+  "experience": 0.1,
+  "cookingtime": 100
+}

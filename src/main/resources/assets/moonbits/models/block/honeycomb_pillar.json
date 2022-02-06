@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "moonbits:block/honeycomb_pillar"
+    "end": "moonbits:block/honeycomb_pillar_top",
+    "side": "moonbits:block/honeycomb_pillar"
   }
 }

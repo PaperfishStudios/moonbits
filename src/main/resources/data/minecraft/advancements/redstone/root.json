@@ -16,7 +16,7 @@
     "background": "moonbits:textures/gui/advancements/backgrounds/quartz.png"
   },
   "criteria": {
-    "redstone_dust": {
+    "crafting_table": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -31,7 +31,7 @@
   },
   "requirements": [
     [
-      "redstone_dust"
+      "crafting_table"
     ]
   ]
 }

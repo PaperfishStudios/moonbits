@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/slab",
   "textures": {
-    "all": "moonbits:block/cracked_sandstone_tile_slab"
+    "bottom": "moonbits:block/cracked_sandstone_tiles",
+    "top": "moonbits:block/cracked_sandstone_tiles",
+    "side": "moonbits:block/cracked_sandstone_tiles"
   }
 }

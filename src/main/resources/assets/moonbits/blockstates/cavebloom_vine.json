@@ -13,16 +13,37 @@
     {
       "when": {
         "east": "false",
-        "down": "false",
         "north": "false",
-        "west": "false",
+        "down": "false",
+        "south": "false",
         "up": "false",
-        "south": "false"
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/cavebloom_vine",
         "y": 90,
         "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine"
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "north": "false",
+        "down": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine"
       }
     },
     {
@@ -38,86 +59,15 @@
     {
       "when": {
         "east": "false",
-        "down": "false",
         "north": "false",
-        "west": "false",
+        "down": "false",
+        "south": "false",
         "up": "false",
-        "south": "false"
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/cavebloom_vine",
         "x": 90,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "north": "true"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_vine"
-      }
-    },
-    {
-      "when": {
-        "east": "false",
-        "down": "false",
-        "north": "false",
-        "west": "false",
-        "up": "false",
-        "south": "false"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_vine"
-      }
-    },
-    {
-      "when": {
-        "west": "true"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_vine",
-        "y": 270,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "east": "false",
-        "down": "false",
-        "north": "false",
-        "west": "false",
-        "up": "false",
-        "south": "false"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_vine",
-        "y": 270,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "up": "true"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_vine",
-        "x": 270,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "east": "false",
-        "down": "false",
-        "north": "false",
-        "west": "false",
-        "up": "false",
-        "south": "false"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_vine",
-        "x": 270,
         "uvlock": true
       }
     },
@@ -134,15 +84,65 @@
     {
       "when": {
         "east": "false",
-        "down": "false",
         "north": "false",
-        "west": "false",
+        "down": "false",
+        "south": "false",
         "up": "false",
-        "south": "false"
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/cavebloom_vine",
         "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "up": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "north": "false",
+        "down": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "x": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "y": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "north": "false",
+        "down": "false",
+        "south": "false",
+        "up": "false",
+        "west": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_vine",
+        "y": 270,
         "uvlock": true
       }
     }

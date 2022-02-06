@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:redstone/piston",
+  "display": {
+    "icon": {
+      "item": "minecraft:slime_ball"
+    },
+    "title": {
+      "translate": "advancements.redstone.sticky_piston.title"
+    },
+    "description": {
+      "translate": "advancements.redstone.sticky_piston.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "sticky_piston": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:sticky_piston"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sticky_piston"
+    ]
+  ]
+}

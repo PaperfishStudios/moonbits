@@ -87,9 +87,9 @@
     },
     {
       "when": {
-        "ne": "true",
         "east": "false",
-        "north": "false"
+        "north": "false",
+        "ne": "true"
       },
       "apply": {
         "model": "moonbits:block/crimson_planter_box_inner",
@@ -99,9 +99,9 @@
     },
     {
       "when": {
-        "ne": "false",
         "east": "false",
-        "north": "false"
+        "north": "false",
+        "ne": "false"
       },
       "apply": {
         "model": "moonbits:block/crimson_planter_box",
@@ -145,8 +145,8 @@
     {
       "when": {
         "east": "false",
-        "se": "true",
-        "south": "false"
+        "south": "false",
+        "se": "true"
       },
       "apply": {
         "model": "moonbits:block/crimson_planter_box_inner",
@@ -157,8 +157,8 @@
     {
       "when": {
         "east": "false",
-        "se": "false",
-        "south": "false"
+        "south": "false",
+        "se": "false"
       },
       "apply": {
         "model": "moonbits:block/crimson_planter_box",
@@ -168,8 +168,8 @@
     },
     {
       "when": {
-        "west": "true",
-        "south": "true"
+        "south": "true",
+        "west": "true"
       },
       "apply": {
         "model": "moonbits:block/crimson_planter_box_outer",
@@ -179,8 +179,8 @@
     },
     {
       "when": {
-        "west": "true",
-        "south": "false"
+        "south": "false",
+        "west": "true"
       },
       "apply": {
         "model": "moonbits:block/crimson_planter_box_side",
@@ -190,8 +190,8 @@
     },
     {
       "when": {
-        "west": "false",
-        "south": "true"
+        "south": "true",
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/crimson_planter_box_side_b",
@@ -201,9 +201,9 @@
     },
     {
       "when": {
-        "west": "false",
+        "south": "false",
         "sw": "true",
-        "south": "false"
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/crimson_planter_box_inner",
@@ -213,9 +213,9 @@
     },
     {
       "when": {
-        "west": "false",
+        "south": "false",
         "sw": "false",
-        "south": "false"
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/crimson_planter_box",

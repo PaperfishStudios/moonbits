@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.fabricmc.fabric.api.tag.TagFactory;
 import net.fabricmc.fabric.mixin.content.registry.AxeItemAccessor;
 import net.minecraft.block.Block;
@@ -15,10 +16,12 @@ import net.minecraft.item.Item;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.recipe.KilnRecipe;
+import net.paperfish.moonbits.screen.KilnScreenHandler;
 
 import java.util.Map;
 
@@ -33,7 +36,8 @@ public class MBData {
 	public static final Tag<Item> GLARE_LIKES = TagFactory.ITEM.create(new Identifier("moonbits", "glare_likes"));
 
 	public static final RecipeType<KilnRecipe> KILN_RECIPE_TYPE;
-	//public static final RecipeSerializer<KilnRecipe> KILN_RECIPE_SERIALIZER;
+	public static final RecipeSerializer<KilnRecipe> KILN_RECIPE_SERIALIZER;
+	public static final ScreenHandlerType<KilnScreenHandler> KILN_SCREEN_HANDLER;
 
 	static {
 			STRIPPED_BLOCKS = ImmutableMap.<Block, Block>builder()
@@ -46,7 +50,8 @@ public class MBData {
 				@Override
 				public String toString() {return "kiln";}
 			});
-		//KILN_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MOD_ID, "kiln"), new CookingRecipeSerializer<>(KilnRecipe::new, 200));
+		KILN_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MOD_ID, "kiln"), new CookingRecipeSerializer<>(KilnRecipe::new, 200));
+		KILN_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Moonbits.MOD_ID, "kiln"), KilnScreenHandler::new);
 	}
 
 

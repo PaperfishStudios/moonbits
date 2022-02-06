@@ -57,6 +57,7 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
 
         addDrop(MBBlocks.ROPE_LADDER);
         addDrop(MBBlocks.IRON_LADDER);
+        addDrop(MBBlocks.KILN, BlockLootTableGenerator::nameableContainerDrops);
         addDrop(MBBlocks.LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
         addDrop(MBBlocks.WHITE_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
         addDrop(MBBlocks.LIGHT_GRAY_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);

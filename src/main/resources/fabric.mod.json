@@ -36,6 +36,7 @@
     "minecraft": "1.18.x",
     "java": ">=17"
   },
+  "accessWidener" : "moonbits.accesswidener",
   "suggests": {
     "another-mod": "*"
   }

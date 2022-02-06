@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/stairs",
   "textures": {
-    "all": "moonbits:block/calcite_tile_stairs"
+    "bottom": "moonbits:block/calcite_tiles",
+    "top": "moonbits:block/calcite_tiles",
+    "side": "moonbits:block/calcite_tiles"
   }
 }

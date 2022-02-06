@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:firing_lime_dye"
+    ]
+  },
+  "criteria": {
+    "has_sea_pickle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:sea_pickle"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:firing_lime_dye"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_sea_pickle",
+      "has_the_recipe"
+    ]
+  ]
+}

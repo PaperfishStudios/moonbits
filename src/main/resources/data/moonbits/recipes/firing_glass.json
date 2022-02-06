@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "ingredient": {
+    "tag": "minecraft:sand"
+  },
+  "result": "minecraft:glass",
+  "experience": 0.15,
+  "cookingtime": 100
+}
