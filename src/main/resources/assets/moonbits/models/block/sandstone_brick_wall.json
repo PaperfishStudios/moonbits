@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moonbits:block/sandstone_brick_wall"
+  }
+}

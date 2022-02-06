@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:granite_tiles"
-  },
-  "result": "moonbits:granite_tiles",
-  "count": 1
-}

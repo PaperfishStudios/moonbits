@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:honeycomb_tiles"
-  },
-  "result": "moonbits:honeycomb_tiles",
-  "count": 1
-}

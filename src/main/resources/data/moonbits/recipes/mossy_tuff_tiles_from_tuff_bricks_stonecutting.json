@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:tuff_bricks"
+  },
+  "result": "moonbits:mossy_tuff_tiles",
+  "count": 1
+}

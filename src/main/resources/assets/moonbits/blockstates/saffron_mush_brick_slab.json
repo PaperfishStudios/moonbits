@@ -1,13 +1,7 @@
 {
   "variants": {
-    "type=bottom": {
+    "": {
       "model": "moonbits:block/saffron_mush_brick_slab"
-    },
-    "type=double": {
-      "model": "moonbits:block/saffron_mush_bricks"
-    },
-    "type=top": {
-      "model": "moonbits:block/saffron_mush_brick_slab_top"
     }
   }
 }

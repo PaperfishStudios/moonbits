@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:polished_tuff_wall"
-  },
-  "result": "moonbits:polished_tuff_wall",
-  "count": 1
-}

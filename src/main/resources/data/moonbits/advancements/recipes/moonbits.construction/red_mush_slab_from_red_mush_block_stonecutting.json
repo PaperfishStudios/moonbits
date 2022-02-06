@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:red_mush_slab_from_red_mush_block_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_red_mush_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:red_mush_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:red_mush_slab_from_red_mush_block_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_mush_block",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -181,6 +181,12 @@ public class MBBlockFamily {
             return this;
         }
 
+        public MBBlockFamily.Builder child(MBBlockFamily child) {
+            child.getVariants().forEach((variant, block) -> this.family.cuttable.add(block));
+            this.family.cuttable.addAll(child.cuttable);
+            return this;
+        }
+
         public MBBlockFamily.Builder noGenerateModels() {
             this.family.generateModels = false;
             return this;

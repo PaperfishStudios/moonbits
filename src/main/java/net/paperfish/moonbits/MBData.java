@@ -12,8 +12,13 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.client.color.item.ItemColorProvider;
 import net.minecraft.item.Item;
+import net.minecraft.recipe.CookingRecipeSerializer;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.RecipeType;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.paperfish.moonbits.recipe.KilnRecipe;
 
 import java.util.Map;
 
@@ -27,6 +32,8 @@ public class MBData {
 	// items that will attract glares
 	public static final Tag<Item> GLARE_LIKES = TagFactory.ITEM.create(new Identifier("moonbits", "glare_likes"));
 
+	public static final RecipeType<KilnRecipe> KILN_RECIPE_TYPE;
+	//public static final RecipeSerializer<KilnRecipe> KILN_RECIPE_SERIALIZER;
 
 	static {
 			STRIPPED_BLOCKS = ImmutableMap.<Block, Block>builder()
@@ -34,6 +41,12 @@ public class MBData {
 				.put(MBBlocks.JACARANDA_LOG, MBBlocks.STRIPPED_JACARANDA_LOG)
 				.put(MBBlocks.JACARANDA_WOOD, MBBlocks.STRIPPED_JACARANDA_WOOD)
 				.build();
+
+			KILN_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MOD_ID, "kiln"), new RecipeType<KilnRecipe>() {
+				@Override
+				public String toString() {return "kiln";}
+			});
+		//KILN_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MOD_ID, "kiln"), new CookingRecipeSerializer<>(KilnRecipe::new, 200));
 	}
 
 

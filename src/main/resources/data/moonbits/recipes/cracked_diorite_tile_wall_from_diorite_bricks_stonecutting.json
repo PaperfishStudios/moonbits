@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:diorite_bricks"
+  },
+  "result": "moonbits:cracked_diorite_tile_wall",
+  "count": 1
+}

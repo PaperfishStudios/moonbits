@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:grass_turf_slab"
-  },
-  "result": "moonbits:grass_turf_slab",
-  "count": 1
-}

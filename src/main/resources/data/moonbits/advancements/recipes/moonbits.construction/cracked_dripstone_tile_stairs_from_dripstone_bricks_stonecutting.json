@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:cracked_dripstone_tile_stairs_from_dripstone_bricks_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_dripstone_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:dripstone_bricks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:cracked_dripstone_tile_stairs_from_dripstone_bricks_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dripstone_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

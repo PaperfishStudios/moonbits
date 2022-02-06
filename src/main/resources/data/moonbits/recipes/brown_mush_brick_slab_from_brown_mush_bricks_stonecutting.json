@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:brown_mush_bricks"
+  },
+  "result": "moonbits:brown_mush_brick_slab",
+  "count": 1
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:andesite_slab"
+  },
+  "result": "moonbits:chiseled_andesite",
+  "count": 1
+}

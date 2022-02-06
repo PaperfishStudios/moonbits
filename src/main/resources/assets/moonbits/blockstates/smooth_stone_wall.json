@@ -13,7 +13,7 @@
         "north": "low"
       },
       "apply": {
-        "model": "moonbits:block/smooth_stone_wall_side",
+        "model": "moonbits:block/smooth_stone_wall_side_b",
         "uvlock": true
       }
     },
@@ -32,7 +32,7 @@
         "south": "low"
       },
       "apply": {
-        "model": "moonbits:block/smooth_stone_wall_side",
+        "model": "moonbits:block/smooth_stone_wall_side_b",
         "y": 180,
         "uvlock": true
       }

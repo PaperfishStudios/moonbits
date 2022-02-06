@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:stone_tiles"
+  },
+  "result": "moonbits:cracked_stone_tile_wall",
+  "count": 1
+}

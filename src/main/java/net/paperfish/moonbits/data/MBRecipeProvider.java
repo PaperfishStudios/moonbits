@@ -2,6 +2,7 @@ package net.paperfish.moonbits.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipesProvider;
+import net.minecraft.advancement.criterion.TameAnimalCriterion;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.registry.Registry;
@@ -131,7 +133,8 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 List.of(MBBlocks.LIGHT_BLUE_HYACINTH, Items.LIGHT_BLUE_DYE), 2,
                 List.of(MBBlocks.PINK_HYACINTH, Items.PINK_DYE), 2,
                 List.of(MBBlocks.WHITE_HYACINTH, Items.WHITE_DYE), 2,
-                List.of(MBBlocks.RED_HYACINTH, Items.RED_DYE), 2
+                List.of(MBBlocks.RED_HYACINTH, Items.RED_DYE), 2,
+                List.of(MBBlocks.SAFFRON_MUSHROOM, Items.ORANGE_DYE), 1
         )); TRANSMUTE.putAll(Map.of(
                 List.of(Items.APPLE, MBItems.APPLE_SEEDS), 1,
                 List.of(Items.SWEET_BERRIES, MBItems.SWEET_BERRY_PITS), 1,
@@ -229,10 +232,10 @@ public class MBRecipeProvider extends FabricRecipesProvider {
 
         CUTTING.putAll(Map.of(
                 Blocks.STONE, List.of(Blocks.COBBLESTONE, Blocks.COBBLESTONE_SLAB, Blocks.COBBLESTONE_STAIRS, Blocks.COBBLESTONE_WALL),
-                Blocks.DEEPSLATE, List.of(Blocks.COBBLED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE_SLAB, Blocks.COBBLED_DEEPSLATE_STAIRS, Blocks.COBBLED_DEEPSLATE_WALL),
-                Blocks.ANDESITE, List.of(MBBlocks.COBBLED_ANDESITE, MBBlocks.COBBLED_ANDESITE_SLAB, MBBlocks.COBBLED_ANDESITE_STAIRS, MBBlocks.COBBLED_ANDESITE_WALL),
-                Blocks.DIORITE, List.of(MBBlocks.COBBLED_DIORITE, MBBlocks.COBBLED_DIORITE_SLAB, MBBlocks.COBBLED_DIORITE_STAIRS, MBBlocks.COBBLED_DIORITE_WALL),
-                Blocks.GRANITE, List.of(MBBlocks.COBBLED_GRANITE, MBBlocks.COBBLED_GRANITE_SLAB, MBBlocks.COBBLED_GRANITE_STAIRS, MBBlocks.COBBLED_GRANITE_WALL)
+                Blocks.DEEPSLATE, List.of(Blocks.COBBLED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE_SLAB, Blocks.COBBLED_DEEPSLATE_STAIRS, Blocks.COBBLED_DEEPSLATE_WALL)
+                //Blocks.ANDESITE, List.of(MBBlocks.COBBLED_ANDESITE, MBBlocks.COBBLED_ANDESITE_SLAB, MBBlocks.COBBLED_ANDESITE_STAIRS, MBBlocks.COBBLED_ANDESITE_WALL),
+                //Blocks.DIORITE, List.of(MBBlocks.COBBLED_DIORITE, MBBlocks.COBBLED_DIORITE_SLAB, MBBlocks.COBBLED_DIORITE_STAIRS, MBBlocks.COBBLED_DIORITE_WALL),
+                //Blocks.GRANITE, List.of(MBBlocks.COBBLED_GRANITE, MBBlocks.COBBLED_GRANITE_SLAB, MBBlocks.COBBLED_GRANITE_STAIRS, MBBlocks.COBBLED_GRANITE_WALL)
                 //Blocks.DRIPSTONE_BLOCK, List.of(MBBlocks.COBBLED_DRIPSTONE, MBBlocks.COBBLED_DRIPSTONE_SLAB, MBBlocks.COBBLED_DRIPSTONE_STAIRS, MBBlocks.COBBLED_DRIPSTONE_WALL)
         ));
     }
@@ -309,6 +312,36 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .pattern("LLL").pattern("CLB").pattern(" U ")
                 .criterion(RecipesProvider.hasItem(MBItems.LETTUCE_LEAF), RecipesProvider.conditionsFromItem(MBItems.LETTUCE_LEAF)).offerTo(exporter);
 
+        ShapelessRecipeJsonFactory.create(Items.NAME_TAG)
+                .input(Items.PAPER).input(Items.STRING).input(Items.INK_SAC)
+                .criterion("tame_animal", TameAnimalCriterion.Conditions.any()).offerTo(exporter);
+
+        campfire(exporter, Items.STICK, Items.TORCH, 0.1f, 600);
+
+        ShapedRecipeJsonFactory.create(Blocks.PODZOL, 4).input('D', Blocks.DIRT).input('G', Blocks.SAND)
+                .pattern("DG").pattern("GD")
+                .criterion("has_sand", RecipesProvider.conditionsFromItem(Blocks.SAND)).offerTo(exporter);
+        ShapedRecipeJsonFactory.create(MBBlocks.LEAFBED, 4).input('D', Blocks.DIRT).input('G', ItemTags.LEAVES)
+                .pattern("DG").pattern("GD")
+                .criterion("has_leaves", RecipesProvider.conditionsFromItem(Items.SHEARS)).offerTo(exporter);
+
+        ShapedRecipeJsonFactory.create(Items.SADDLE).input('#', Items.LEATHER).input('S', Items.STRING).input('I', Items.IRON_INGOT)
+                .pattern("###").pattern("#S#").pattern(" I ")
+                .criterion("has_leather", RecipesProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
+
+        ShapedRecipeJsonFactory.create(Items.LEATHER_HORSE_ARMOR).input('#', Items.LEATHER).input('W', ItemTags.WOOL)
+                .pattern("  #").pattern("###").pattern("#W#")
+                .criterion("has_leather", RecipesProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
+        ShapedRecipeJsonFactory.create(Items.IRON_HORSE_ARMOR).input('#', Items.IRON_INGOT).input('W', ItemTags.WOOL)
+                .pattern("  #").pattern("###").pattern("#W#")
+                .criterion("has_iron", RecipesProvider.conditionsFromItem(Items.IRON_INGOT)).offerTo(exporter);
+        ShapedRecipeJsonFactory.create(Items.GOLDEN_HORSE_ARMOR).input('#', Items.GOLD_INGOT).input('W', ItemTags.WOOL)
+                .pattern("  #").pattern("###").pattern("#W#")
+                .criterion("has_gold", RecipesProvider.conditionsFromItem(Items.GOLD_INGOT)).offerTo(exporter);
+        ShapedRecipeJsonFactory.create(Items.DIAMOND_HORSE_ARMOR).input('#', Items.DIAMOND).input('W', ItemTags.WOOL)
+                .pattern("  #").pattern("###").pattern("#W#")
+                .criterion("has_diamond", RecipesProvider.conditionsFromItem(Items.DIAMOND)).offerTo(exporter);
+
     }
 
     public static void generateFamily(Consumer<RecipeJsonProvider> exporter, MBBlockFamily family) {
@@ -321,28 +354,35 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                     family.getGroup().ifPresent(group -> factory.group(group + (variant == MBBlockFamily.Variant.CUT ? "" : "_" + variant.getName())));
                     factory.criterion(family.getUnlockCriterionName().orElseGet(() -> RecipesProvider.hasItem(inputItem)), RecipesProvider.conditionsFromItem(inputItem));
                     factory.offerTo(exporter);
-                    offerStonecuttingRecipe(exporter, family.getVariant(variant), block);
+                    offerStonecuttingRecipe(exporter, family.getVariant(variant), inputItem);
                 }
-                if (variant == MBBlockFamily.Variant.CRACKED) {
+                else if (variant == MBBlockFamily.Variant.CRACKED) {
                     RecipesProvider.offerCrackingRecipe(exporter, block, inputItem);
                     offerStonecuttingRecipe(exporter, block, inputItem);
                 }
-                if (variant == MBBlockFamily.Variant.PILLAR || variant == MBBlockFamily.Variant.COLUMN) {
+                else if (variant == MBBlockFamily.Variant.PILLAR || variant == MBBlockFamily.Variant.COLUMN) {
                     pillar(exporter, inputItem, block);
                 }
-                if (variant == MBBlockFamily.Variant.MOSSY) {
+                else if (variant == MBBlockFamily.Variant.MOSSY) {
                     mossy(exporter, inputItem, block);
                 }
-                if (variant == MBBlockFamily.Variant.BOOKSHELF) {
+                else if (variant == MBBlockFamily.Variant.BOOKSHELF) {
                     bookshelf(exporter, inputItem, block);
                 }
-                if (variant == MBBlockFamily.Variant.PLANTER_BOX) {
+                else if (variant == MBBlockFamily.Variant.PLANTER_BOX) {
                     planterBox(exporter, inputItem, block);
                 }
-                if (variant == MBBlockFamily.Variant.CARPET) {
+                else if (variant == MBBlockFamily.Variant.CARPET) {
                     carpetRecipe(exporter, inputItem, block);
                 }
-                if (variant == MBBlockFamily.Variant.CARVED) {
+                else if (variant == MBBlockFamily.Variant.POLISHED) {
+                    condense(exporter, inputItem, block);
+                }
+                else if (variant == MBBlockFamily.Variant.CHISELED) {
+                    offerChiseledBlockRecipe(exporter, inputItem, block);
+                    offerStonecuttingRecipe(exporter, block, inputItem);
+                }
+                else if (variant == MBBlockFamily.Variant.CARVED) {
                     if (block instanceof SlabBlock) {
                         offerStonecuttingRecipe(exporter, block, inputItem, 2);
                     }
@@ -350,14 +390,14 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                         offerStonecuttingRecipe(exporter, block, inputItem);
                     }
                 }
+//                else {
+//                    offerStonecuttingRecipe(exporter, block, inputItem);
+//                }
             }
         });
         family.cuttable.forEach(block -> {
             Block inputItem = family.getBaseBlock();
-            if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MOD_ID)
-                    || Objects.equals(Registry.BLOCK.getId(inputItem).getNamespace(), Moonbits.MOD_ID)) {
                 offerStonecuttingRecipe(exporter, block, inputItem);
-            }
         });
     }
 
@@ -474,12 +514,12 @@ public class MBRecipeProvider extends FabricRecipesProvider {
     }
     public static void bookshelf(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output) {
         ShapedRecipeJsonFactory.create(output).input('#', input).input('B', Items.BOOK).pattern("###").pattern("BBB").pattern("###")
-                .criterion(RecipesProvider.hasItem(Items.BOOK), RecipesProvider.conditionsFromItem(input)).group("bookshelves")
+                .criterion(RecipesProvider.hasItem(Items.BOOK), RecipesProvider.conditionsFromItem(Items.BOOK)).group("bookshelves")
                 .offerTo(exporter);
     }
     public static void planterBox(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output) {
         ShapedRecipeJsonFactory.create(output).input('#', input).input('P', MBItems.PEAT).pattern("# #").pattern("#P#").pattern("###")
-                .criterion(RecipesProvider.hasItem(MBItems.PEAT), RecipesProvider.conditionsFromItem(input)).group("planter_boxes")
+                .criterion(RecipesProvider.hasItem(MBItems.PEAT), RecipesProvider.conditionsFromItem(MBItems.PEAT)).group("planter_boxes")
                 .offerTo(exporter);
     }
 

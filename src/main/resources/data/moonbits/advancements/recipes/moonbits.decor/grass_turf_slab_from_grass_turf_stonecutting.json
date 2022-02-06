@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:grass_turf_slab_from_grass_turf_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_grass_turf": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:grass_turf"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:grass_turf_slab_from_grass_turf_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_grass_turf",
+      "has_the_recipe"
+    ]
+  ]
+}

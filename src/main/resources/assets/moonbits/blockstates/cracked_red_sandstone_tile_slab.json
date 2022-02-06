@@ -1,13 +1,7 @@
 {
   "variants": {
-    "type=bottom": {
+    "": {
       "model": "moonbits:block/cracked_red_sandstone_tile_slab"
-    },
-    "type=double": {
-      "model": "moonbits:block/cracked_red_sandstone_tiles"
-    },
-    "type=top": {
-      "model": "moonbits:block/cracked_red_sandstone_tile_slab_top"
     }
   }
 }

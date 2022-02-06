@@ -1,8 +1,6 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "bottom": "moonbits:block/toadstool_mush_bricks",
-    "top": "moonbits:block/toadstool_mush_bricks",
-    "side": "moonbits:block/toadstool_mush_bricks"
+    "all": "moonbits:block/toadstool_mush_brick_slab"
   }
 }

@@ -1,9 +1,6 @@
 package net.paperfish.moonbits.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.block.Waterloggable;
+import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -35,22 +32,22 @@ public class PebbleBlock extends Block implements Waterloggable {
 
     public PebbleBlock(Settings settings) {
         super(settings);
-        setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(PEBBLES, 1)).with(WATERLOGGED, false));
+        setDefaultState(this.stateManager.getDefaultState().with(PEBBLES, 1).with(WATERLOGGED, false));
     }
 
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos());
         if (blockState.isOf(this)) {
-            return (BlockState)blockState.with(PEBBLES, Math.min(4, (Integer)blockState.get(PEBBLES) + 1));
+            return blockState.with(PEBBLES, Math.min(4, blockState.get(PEBBLES) + 1));
         } else {
             FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
             boolean bl = fluidState.getFluid() == Fluids.WATER;
-            return (BlockState)super.getPlacementState(ctx).with(WATERLOGGED, bl);
+            return super.getPlacementState(ctx).with(WATERLOGGED, bl);
         }
     }
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        return !context.shouldCancelInteraction() && context.getStack().getItem() == this.asItem() && (Integer) state.get(PEBBLES) < 4 || super.canReplace(state, context);
+        return !context.shouldCancelInteraction() && context.getStack().getItem() == this.asItem() && state.get(PEBBLES) < 4 || super.canReplace(state, context);
     }
 
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
@@ -63,35 +60,33 @@ public class PebbleBlock extends Block implements Waterloggable {
     }
 
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if ((Boolean)state.get(WATERLOGGED)) {
+        if (state.get(WATERLOGGED)) {
             world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        }
+        if (direction == Direction.DOWN && !canPlaceAt(state, world, pos)) {
+            return Blocks.AIR.getDefaultState();
         }
 
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
     public FluidState getFluidState(BlockState state) {
-        return (Boolean)state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        switch((Integer)state.get(PEBBLES)) {
-            case 1:
-            default:
-                return ONE_PEBBLE_SHAPE;
-            case 2:
-                return TWO_PEBBLES_SHAPE;
-            case 3:
-                return THREE_PEBBLES_SHAPE;
-            case 4:
-                return FOUR_PEBBLES_SHAPE;
-        }
+        return switch (state.get(PEBBLES)) {
+            case 2 -> TWO_PEBBLES_SHAPE;
+            case 3 -> THREE_PEBBLES_SHAPE;
+            case 4 -> FOUR_PEBBLES_SHAPE;
+            default -> ONE_PEBBLE_SHAPE;
+        };
     }
 
     static {
         PEBBLES = IntProperty.of("pebbles", 1, 4);
         WATERLOGGED = Properties.WATERLOGGED;
-        ONE_PEBBLE_SHAPE = Block.createCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 2.0D, 10.0D);
+        ONE_PEBBLE_SHAPE = Block.createCuboidShape(4.0D, 0.0D, 4.0D, 12.0D, 2.0D, 12.0D);
         TWO_PEBBLES_SHAPE = Block.createCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 3.0D, 13.0D);
         THREE_PEBBLES_SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 3.0D, 14.0D);
         FOUR_PEBBLES_SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 3.0D, 14.0D);

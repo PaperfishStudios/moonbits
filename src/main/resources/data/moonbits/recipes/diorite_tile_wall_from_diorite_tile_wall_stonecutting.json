@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:diorite_tile_wall"
-  },
-  "result": "moonbits:diorite_tile_wall",
-  "count": 1
-}

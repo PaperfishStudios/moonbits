@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:saffron_mush_brick_slab"
-  },
-  "result": "moonbits:saffron_mush_brick_slab",
-  "count": 1
-}

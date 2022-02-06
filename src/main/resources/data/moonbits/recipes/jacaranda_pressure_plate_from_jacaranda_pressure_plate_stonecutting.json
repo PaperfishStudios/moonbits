@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:jacaranda_pressure_plate"
-  },
-  "result": "moonbits:jacaranda_pressure_plate",
-  "count": 1
-}

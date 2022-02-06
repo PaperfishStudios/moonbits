@@ -1,8 +1,6 @@
 {
-  "parent": "minecraft:block/stairs",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "bottom": "moonbits:block/cracked_diorite_tiles",
-    "top": "moonbits:block/cracked_diorite_tiles",
-    "side": "moonbits:block/cracked_diorite_tiles"
+    "all": "moonbits:block/cracked_diorite_tile_stairs"
   }
 }

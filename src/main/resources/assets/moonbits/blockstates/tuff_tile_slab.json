@@ -1,13 +1,7 @@
 {
   "variants": {
-    "type=bottom": {
+    "": {
       "model": "moonbits:block/tuff_tile_slab"
-    },
-    "type=double": {
-      "model": "moonbits:block/tuff_tiles"
-    },
-    "type=top": {
-      "model": "moonbits:block/tuff_tile_slab_top"
     }
   }
 }

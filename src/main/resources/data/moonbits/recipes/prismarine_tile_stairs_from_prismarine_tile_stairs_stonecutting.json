@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:prismarine_tile_stairs"
-  },
-  "result": "moonbits:prismarine_tile_stairs",
-  "count": 1
-}

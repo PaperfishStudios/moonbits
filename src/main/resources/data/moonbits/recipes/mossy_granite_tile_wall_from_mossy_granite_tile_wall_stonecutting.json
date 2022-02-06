@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:mossy_granite_tile_wall"
-  },
-  "result": "moonbits:mossy_granite_tile_wall",
-  "count": 1
-}

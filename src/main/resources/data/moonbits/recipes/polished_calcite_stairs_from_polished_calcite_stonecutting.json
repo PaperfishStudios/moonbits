@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:polished_calcite"
+  },
+  "result": "moonbits:polished_calcite_stairs",
+  "count": 1
+}

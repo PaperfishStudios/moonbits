@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:honey_button"
-  },
-  "result": "moonbits:honey_button",
-  "count": 1
-}

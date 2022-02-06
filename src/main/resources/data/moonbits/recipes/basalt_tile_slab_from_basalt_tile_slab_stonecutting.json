@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:basalt_tile_slab"
-  },
-  "result": "moonbits:basalt_tile_slab",
-  "count": 1
-}

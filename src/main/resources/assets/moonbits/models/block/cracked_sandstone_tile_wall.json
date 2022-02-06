@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moonbits:block/cracked_sandstone_tile_wall"
+  }
+}

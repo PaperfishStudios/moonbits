@@ -1,16 +1,7 @@
 {
   "variants": {
-    "axis=x": {
-      "model": "moonbits:block/honeycomb_pillar",
-      "x": 90,
-      "y": 90
-    },
-    "axis=y": {
+    "": {
       "model": "moonbits:block/honeycomb_pillar"
-    },
-    "axis=z": {
-      "model": "moonbits:block/honeycomb_pillar",
-      "x": 90
     }
   }
 }

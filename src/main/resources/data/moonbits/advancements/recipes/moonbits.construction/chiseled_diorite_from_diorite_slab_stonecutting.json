@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:chiseled_diorite_from_diorite_slab_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_diorite_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:diorite_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:chiseled_diorite_from_diorite_slab_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_diorite_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

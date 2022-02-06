@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:cobbled_diorite_wall"
-  },
-  "result": "moonbits:cobbled_diorite_wall",
-  "count": 1
-}

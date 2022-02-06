@@ -1,8 +1,8 @@
 {
     "ambientocclusion": false,
     "textures": {
-      "particle": "moonbits:block/utility/rope_ladder",
-      "texture": "moonbits:block/utility/rope_ladder"
+      "particle": "moonbits:block/rope_ladder",
+      "texture": "moonbits:block/rope_ladder"
     },
     "elements": [
       {

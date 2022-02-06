@@ -1,23 +1,20 @@
 package net.paperfish.moonbits.block;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.block.Waterloggable;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
@@ -25,6 +22,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -32,11 +30,13 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Random;
+
 public class IronLadderBlock extends Block implements Waterloggable {
    public static final DirectionProperty FACING;
    public static final BooleanProperty WATERLOGGED;
-   protected static final float field_31106 = 3.0F;
-   public int supportDistance = 10;
+   public static int supportDistance = 10;
+   public static final IntProperty DISTANCE = IntProperty.of("distance", 1, supportDistance);
    protected static final VoxelShape EAST_SHAPE;
    protected static final VoxelShape WEST_SHAPE;
    protected static final VoxelShape SOUTH_SHAPE;
@@ -46,21 +46,17 @@ public class IronLadderBlock extends Block implements Waterloggable {
 
    public IronLadderBlock(AbstractBlock.Settings settings) {
       super(settings);
-      this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(WATERLOGGED, false));
+      this.setDefaultState(stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(DISTANCE, 1));
    }
 
    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-      switch((Direction)state.get(FACING)) {
-      case NORTH:
-         return NORTH_SHAPE;
-      case SOUTH:
-         return SOUTH_SHAPE;
-      case WEST:
-         return WEST_SHAPE;
-      case EAST:
-      default:
-         return EAST_SHAPE;
-      }
+      return switch (state.get(FACING)) {
+         case DOWN, UP -> null;
+         case NORTH -> NORTH_SHAPE;
+         case SOUTH -> SOUTH_SHAPE;
+         case WEST -> WEST_SHAPE;
+         case EAST -> EAST_SHAPE;
+      };
    }
 
    private boolean hasSupport(BlockView world, BlockPos pos, Direction side, BlockState thisState, Direction vertical) {
@@ -92,30 +88,61 @@ public class IronLadderBlock extends Block implements Waterloggable {
    }
 
    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-      Direction direction = (Direction)state.get(FACING);
-      if (this.hasSupport(world, pos, direction, state, Direction.UP) || this.hasSupport(world, pos, direction, state, Direction.DOWN)) {
-         return true; 
-      }
-      return false;
+      Direction direction = state.get(FACING);
+      BlockPos behindPos = pos.offset(direction.getOpposite());
+      BlockState behind = world.getBlockState(behindPos);
+      BlockState above = world.getBlockState(pos.up());
+      return state.get(DISTANCE) < supportDistance || (above.isOf(this) && above.get(FACING) == state.get(FACING));
+      //return this.hasSupport(world, pos, direction, state, Direction.UP) || this.hasSupport(world, pos, direction, state, Direction.DOWN);
    }
 
    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+      if (direction == state.get(FACING).getOpposite() || direction.getAxis() == Direction.Axis.Y) {
+         int i = getDistanceFromBlock(neighborState, world, neighborPos, direction.getOpposite()) + 1;
+         if (i != 1 || state.get(DISTANCE) != i) {
+            world.createAndScheduleBlockTick(pos, this, 1);
+         }
+      }
       if (!state.canPlaceAt(world, pos)) {
          return Blocks.AIR.getDefaultState();
-      } else {
-         if ((Boolean)state.get(WATERLOGGED)) {
+      }
+      else {
+         if (state.get(WATERLOGGED)) {
             world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
          }
 
          return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
       }
    }
+   private static int getDistanceFromBlock(BlockState state, WorldAccess world, BlockPos pos, Direction direction) {
+      if (state.isSideSolidFullSquare(world, pos, direction)) {
+         return 0;
+      }
+      if (state.getBlock() instanceof IronLadderBlock) {
+         return state.get(DISTANCE);
+      }
+      return supportDistance;
+   }
+   private static BlockState updateDistanceFromBlock(BlockState state, WorldAccess world, BlockPos pos) {
+      int i = 7;
+      BlockPos.Mutable mutable = new BlockPos.Mutable();
+      for (Direction direction : Direction.values()) {
+         mutable.set(pos, direction);
+         i = Math.min(i, getDistanceFromBlock(world.getBlockState(mutable), world, pos, direction) + 1);
+         if (i == 1) break;
+      }
+      return state.with(DISTANCE, i);
+   }
+   @Override
+   public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+      world.setBlockState(pos, updateDistanceFromBlock(state, world, pos), Block.NOTIFY_ALL);
+   }
 
    @Override
    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult traceResult) {
 		ItemStack stack = player.getStackInHand(hand);
 		if (stack.getItem() == this.asItem()) {
-         if (placeChain(state, world, pos)){
+         if (placeChain(state, world, pos, player)){
             if(!player.isCreative())
                stack.decrement(1);
             world.playSound(null, pos, SoundEvents.BLOCK_LADDER_PLACE, SoundCategory.BLOCKS, 0.5F, 1.0F);
@@ -125,13 +152,29 @@ public class IronLadderBlock extends Block implements Waterloggable {
 		return ActionResult.PASS;
 	}
 
-   public boolean placeChain(BlockState state, World world, BlockPos pos){
+   public boolean placeChain(BlockState state, World world, BlockPos pos, PlayerEntity player){
       BlockPos nextPos = pos;
       BlockState nextBlock = world.getBlockState(nextPos);
-      Direction direction = (Direction)state.get(FACING);
-      if (this.hasSupport(world, pos, direction, state, Direction.UP)) {
-         while (nextBlock == state){
-            nextPos = nextPos.down();
+      Direction direction = state.get(FACING);
+      BlockState above = world.getBlockState(pos.up());
+      BlockState below = world.getBlockState(pos.down());
+      int supportDir;
+      if (above.isOf(this) && below.isOf(this)) {
+         // above support - below support should equal either 1 or -1
+         supportDir = world.getBlockState(pos.up()).get(DISTANCE) - world.getBlockState(pos.down()).get(DISTANCE);
+      }
+      else if (below.isAir()) {
+            supportDir = -1;
+      }
+      else if (above.isAir()) {
+            supportDir = 1;
+      }
+      else {
+         supportDir = 0;
+      }
+      if (supportDir == 1 || supportDir == -1) {
+         while (nextBlock == state && nextBlock.get(DISTANCE) < supportDistance - 1){
+            nextPos = nextPos.offset(Direction.Axis.Y, supportDir);
             nextBlock = world.getBlockState(nextPos);
             if (nextBlock.getBlock() == Blocks.AIR) {
                world.setBlockState(nextPos, state, Block.NOTIFY_ALL);
@@ -139,16 +182,16 @@ public class IronLadderBlock extends Block implements Waterloggable {
             }
          }
       }
-      else if (this.hasSupport(world, pos, direction, state, Direction.DOWN)) {
-         while (nextBlock == state){
-            nextPos = nextPos.up();
-            nextBlock = world.getBlockState(nextPos);
-            if (nextBlock.getBlock() == Blocks.AIR) {
-               world.setBlockState(nextPos, state, Block.NOTIFY_ALL);
-               return true;
-            }
-         }
-      }
+//      else if (this.hasSupport(world, pos, direction, state, Direction.DOWN)) {
+//         while (nextBlock == state && nextBlock.get(DISTANCE) < supportDistance - 1){
+//            nextPos = nextPos.up();
+//            nextBlock = world.getBlockState(nextPos);
+//            if (nextBlock.getBlock() == Blocks.AIR) {
+//               world.setBlockState(nextPos, state, Block.NOTIFY_ALL);
+//               return true;
+//            }
+//         }
+//      }
       return false;
    }
 
@@ -166,16 +209,14 @@ public class IronLadderBlock extends Block implements Waterloggable {
       WorldView worldView = ctx.getWorld();
       BlockPos blockPos = ctx.getBlockPos();
       FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-      Direction[] var6 = ctx.getPlacementDirections();
-      int var7 = var6.length;
+      Direction[] directions = ctx.getPlacementDirections();
 
-      for(int var8 = 0; var8 < var7; ++var8) {
-         Direction direction = var6[var8];
+      for (Direction direction : directions) {
          if (direction.getAxis().isHorizontal()) {
             // i think this part checks for the block behind it?
-            blockState2 = (BlockState)blockState2.with(FACING, direction.getOpposite());
+            blockState2 = blockState2.with(FACING, direction.getOpposite());
             if (blockState2.canPlaceAt(worldView, blockPos)) {
-               return (BlockState)blockState2.with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
+               return blockState2.with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
             }
          }
       }
@@ -184,19 +225,19 @@ public class IronLadderBlock extends Block implements Waterloggable {
    }
 
    public BlockState rotate(BlockState state, BlockRotation rotation) {
-      return (BlockState)state.with(FACING, rotation.rotate((Direction)state.get(FACING)));
+      return state.with(FACING, rotation.rotate(state.get(FACING)));
    }
 
    public BlockState mirror(BlockState state, BlockMirror mirror) {
-      return state.rotate(mirror.getRotation((Direction)state.get(FACING)));
+      return state.rotate(mirror.getRotation(state.get(FACING)));
    }
 
    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-      builder.add(FACING, WATERLOGGED);
+      builder.add(FACING, WATERLOGGED, DISTANCE);
    }
 
    public FluidState getFluidState(BlockState state) {
-      return (Boolean)state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
+      return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
    }
 
    static {

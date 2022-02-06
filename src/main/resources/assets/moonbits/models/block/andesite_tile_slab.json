@@ -1,8 +1,6 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "bottom": "moonbits:block/andesite_tiles",
-    "top": "moonbits:block/andesite_tiles",
-    "side": "moonbits:block/andesite_tiles"
+    "all": "moonbits:block/andesite_tile_slab"
   }
 }

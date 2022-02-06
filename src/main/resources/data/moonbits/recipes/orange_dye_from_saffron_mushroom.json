@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:saffron_mushroom"
+    }
+  ],
+  "result": {
+    "item": "minecraft:orange_dye"
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:chiseled_prismarine"
-  },
-  "result": "moonbits:chiseled_prismarine",
-  "count": 1
-}

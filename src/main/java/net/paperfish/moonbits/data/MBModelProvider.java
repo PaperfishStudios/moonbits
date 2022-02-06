@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.enums.BedPart;
+import net.minecraft.block.enums.WallShape;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.model.*;
 import net.minecraft.item.Item;
@@ -325,7 +326,12 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
                     fenceGate(block, family.getBaseBlock(), generator);
                 }
                 else if (variant == MBBlockFamily.Variant.WALL) {
-                    wall(block, family.getBaseBlock(), generator);
+                    if (block == MBBlocks.SMOOTH_STONE_WALL) {
+                        smoothStoneWall(block, family.getBaseBlock(), generator);
+                    }
+                    else {
+                        wall(block, family.getBaseBlock(), generator);
+                    }
                 }
                 else if (variant == MBBlockFamily.Variant.STAIRS) {
                     stairs(block, family.getBaseBlock(), generator);
@@ -644,7 +650,7 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         Identifier identifier = TINTED_INNER_STAIRS.upload(stairs, texturedModel.getTexture(), generator.modelCollector);
         Identifier identifier2 = TINTED_STAIRS.upload(stairs, texturedModel.getTexture(), generator.modelCollector);
         Identifier identifier3 = TINTED_OUTER_STAIRS.upload(stairs, texturedModel.getTexture(), generator.modelCollector);
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairs, identifier2, identifier3, identifier));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairs, identifier, identifier2, identifier3));
     }
     public static void tintedCarpet(Block base, Block carpet, BlockStateModelGenerator generator) {
         Identifier identifier = TINTED_CARPET_F.get(base).upload(carpet, generator.modelCollector);
@@ -687,6 +693,36 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.blockStateCollector.accept(BlockStateModelGenerator.createWallBlockState(wallBlock, identifier, identifier2, identifier3));
         Identifier identifier4 = Models.WALL_INVENTORY.upload(wallBlock, texturedModel.getTexture(), generator.modelCollector);
         generator.registerParentedItemModel(wallBlock, identifier4);
+    }
+    public static void smoothStoneWall(Block wallBlock, Block base, BlockStateModelGenerator generator) {
+        TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(base);
+        Identifier identifier = new Identifier(Moonbits.MOD_ID, "block/smooth_stone_wall_post");
+        Identifier identifier2 = new Identifier(Moonbits.MOD_ID, "block/smooth_stone_wall_side");
+        Identifier identifierB = new Identifier(Moonbits.MOD_ID, "block/smooth_stone_wall_side_b");
+        Identifier identifier3 = new Identifier(Moonbits.MOD_ID, "block/smooth_stone_wall_side_tall");
+        generator.blockStateCollector.accept(smoothStoneWallBlockState(wallBlock, identifier, identifier2, identifierB, identifier3));
+        Identifier identifier4 = new Identifier(Moonbits.MOD_ID, "block/smooth_stone_wall_inventory");
+        generator.registerParentedItemModel(wallBlock, identifier4);
+    }
+    public static BlockStateSupplier smoothStoneWallBlockState(Block wallBlock, Identifier postModelId, Identifier lowSideModelId, Identifier lowSideModelIdB, Identifier tallSideModelId) {
+        return MultipartBlockStateSupplier.create(wallBlock)
+                .with(When.create().set(Properties.UP, true), BlockStateVariant.create().put(VariantSettings.MODEL, postModelId))
+                .with(When.create().set(Properties.NORTH_WALL_SHAPE, WallShape.LOW), BlockStateVariant.create().put(VariantSettings.MODEL, lowSideModelIdB)
+                        .put(VariantSettings.UVLOCK, true))
+                .with(When.create().set(Properties.EAST_WALL_SHAPE, WallShape.LOW), BlockStateVariant.create().put(VariantSettings.MODEL, lowSideModelId)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R90).put(VariantSettings.UVLOCK, true))
+                .with(When.create().set(Properties.SOUTH_WALL_SHAPE, WallShape.LOW), BlockStateVariant.create().put(VariantSettings.MODEL, lowSideModelIdB)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R180).put(VariantSettings.UVLOCK, true))
+                .with(When.create().set(Properties.WEST_WALL_SHAPE, WallShape.LOW), BlockStateVariant.create().put(VariantSettings.MODEL, lowSideModelId)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R270).put(VariantSettings.UVLOCK, true))
+                .with(When.create().set(Properties.NORTH_WALL_SHAPE, WallShape.TALL), BlockStateVariant.create().put(VariantSettings.MODEL, tallSideModelId)
+                        .put(VariantSettings.UVLOCK, true))
+                .with(When.create().set(Properties.EAST_WALL_SHAPE, WallShape.TALL), BlockStateVariant.create().put(VariantSettings.MODEL, tallSideModelId)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R90).put(VariantSettings.UVLOCK, true))
+                .with(When.create().set(Properties.SOUTH_WALL_SHAPE, WallShape.TALL), BlockStateVariant.create().put(VariantSettings.MODEL, tallSideModelId)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R180).put(VariantSettings.UVLOCK, true))
+                .with(When.create().set(Properties.WEST_WALL_SHAPE, WallShape.TALL), BlockStateVariant.create().put(VariantSettings.MODEL, tallSideModelId)
+                        .put(VariantSettings.Y, VariantSettings.Rotation.R270).put(VariantSettings.UVLOCK, true));
     }
     public static void sign(Block signBlock, Block wallSign, Block base, BlockStateModelGenerator generator) {
         TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(base);

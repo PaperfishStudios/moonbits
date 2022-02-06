@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:tuff_slab"
-  },
-  "result": "moonbits:tuff_slab",
-  "count": 1
-}

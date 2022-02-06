@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:smooth_basalt_wall"
-  },
-  "result": "moonbits:smooth_basalt_wall",
-  "count": 1
-}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:polished_granite"
+  },
+  "result": "moonbits:granite_tile_wall",
+  "count": 1
+}

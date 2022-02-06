@@ -68,21 +68,22 @@ public class RopeLadderBlock extends Block implements Waterloggable {
    // checks if the block above this one is another ladder like it
    private boolean canPlaceUnder(BlockView world, BlockPos pos, BlockState thisState) {
       BlockState blockState = world.getBlockState(pos);
-      if (blockState == thisState){
-         return true;
-      }
-      return false;
+      return blockState == thisState;
    }
 
    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-      Direction direction = (Direction)state.get(FACING);
+      Direction direction = state.get(FACING);
+      BlockPos behindPos = pos.offset(direction.getOpposite());
+      BlockState behind = world.getBlockState(behindPos);
+      BlockState above = world.getBlockState(pos.up());
+      return behind.isSideSolidFullSquare(world, behindPos, direction) || (above.isOf(this) && above.get(FACING) == state.get(FACING));
       // if the side it connects to is solid OR the block above is another matching ladder
-      if (this.canPlaceOn(world, pos.offset(direction.getOpposite()), direction) || this.canPlaceUnder(world, pos.up(), state)){
-         return true;
-      }
-      else {
-         return false;
-      }
+//      if (this.canPlaceOn(world, pos.offset(direction.getOpposite()), direction) || this.canPlaceUnder(world, pos.up(), state)){
+//         return true;
+//      }
+//      else {
+//         return false;
+//      }
    }
 
    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
@@ -92,7 +93,7 @@ public class RopeLadderBlock extends Block implements Waterloggable {
       if (!state.canPlaceAt(world, pos)) {
          return Blocks.AIR.getDefaultState();
       } else {
-         if ((Boolean)state.get(WATERLOGGED)) {
+         if (state.get(WATERLOGGED)) {
             world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
          }
 
@@ -142,16 +143,14 @@ public class RopeLadderBlock extends Block implements Waterloggable {
       WorldView worldView = ctx.getWorld();
       BlockPos blockPos = ctx.getBlockPos();
       FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-      Direction[] var6 = ctx.getPlacementDirections();
-      int var7 = var6.length;
+      Direction[] directions = ctx.getPlacementDirections();
 
-      for(int var8 = 0; var8 < var7; ++var8) {
-         Direction direction = var6[var8];
+      for (Direction direction : directions) {
          if (direction.getAxis().isHorizontal()) {
             // i think this part checks for the block behind it?
-            blockState2 = (BlockState)blockState2.with(FACING, direction.getOpposite());
+            blockState2 = blockState2.with(FACING, direction.getOpposite());
             if (blockState2.canPlaceAt(worldView, blockPos)) {
-               return (BlockState)blockState2.with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
+               return blockState2.with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
             }
          }
       }
@@ -160,11 +159,11 @@ public class RopeLadderBlock extends Block implements Waterloggable {
    }
 
    public BlockState rotate(BlockState state, BlockRotation rotation) {
-      return (BlockState)state.with(FACING, rotation.rotate((Direction)state.get(FACING)));
+      return state.with(FACING, rotation.rotate(state.get(FACING)));
    }
 
    public BlockState mirror(BlockState state, BlockMirror mirror) {
-      return state.rotate(mirror.getRotation((Direction)state.get(FACING)));
+      return state.rotate(mirror.getRotation(state.get(FACING)));
    }
 
    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -172,7 +171,7 @@ public class RopeLadderBlock extends Block implements Waterloggable {
    }
 
    public FluidState getFluidState(BlockState state) {
-      return (Boolean)state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
+      return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
    }
 
    static {

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:cobbled_andesite_wall"
-  },
-  "result": "moonbits:cobbled_andesite_wall",
-  "count": 1
-}

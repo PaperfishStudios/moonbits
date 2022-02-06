@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:basalt_bricks"
-  },
-  "result": "moonbits:basalt_bricks",
-  "count": 1
-}

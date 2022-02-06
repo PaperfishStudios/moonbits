@@ -3,6 +3,7 @@ package net.paperfish.moonbits;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
 import net.minecraft.block.PressurePlateBlock.ActivationRule;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
@@ -26,7 +27,8 @@ public class MBBlocks {
 			.luminance(state -> 15).nonOpaque());
 	public static final Block WALL_SOUL_LANTERN = new WallLanternBlock(AbstractBlock.Settings.of(Material.METAL).requiresTool().strength(3.5f).sounds(BlockSoundGroup.LANTERN)
 			.luminance(state -> 10).nonOpaque());
-
+	public static final Block KILN = new KilnBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.TERRACOTTA_ORANGE).strength(1.2f).sounds(BlockSoundGroup.STONE));
+	public static BlockEntityType<KilnBlockEntity> KILN_BLOCK_ENTITY;
 
 	public static final Block LEATHER_SEAT = new SeatBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.2f).sounds(BlockSoundGroup.WOOD).nonOpaque());
 	public static final Block WHITE_LEATHER_SEAT = new SeatBlock(AbstractBlock.Settings.copy(LEATHER_SEAT).strength(1.2f).sounds(BlockSoundGroup.WOOD).nonOpaque());
@@ -808,6 +810,9 @@ public class MBBlocks {
 
 		createBlock("rope_ladder", ROPE_LADDER, MBItemGroup.UTILITY);
 		createBlock("iron_ladder", IRON_LADDER, MBItemGroup.UTILITY);
+		createBlock("kiln", KILN, MBItemGroup.DECOR);
+		KILN_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MOD_ID, "kiln_block_entity"),
+				FabricBlockEntityTypeBuilder.create(KilnBlockEntity::new, KILN).build(null));
 
 		createBlock("leather_seat", LEATHER_SEAT, MBItemGroup.DECOR);
 		createBlock("white_seat", WHITE_LEATHER_SEAT, MBItemGroup.DECOR);

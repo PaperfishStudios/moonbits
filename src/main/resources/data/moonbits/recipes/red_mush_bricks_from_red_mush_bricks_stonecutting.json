@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:red_mush_bricks"
-  },
-  "result": "moonbits:red_mush_bricks",
-  "count": 1
-}

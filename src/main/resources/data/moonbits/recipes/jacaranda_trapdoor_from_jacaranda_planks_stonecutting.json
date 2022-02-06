@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:jacaranda_planks"
+  },
+  "result": "moonbits:jacaranda_trapdoor",
+  "count": 1
+}

@@ -1,8 +1,6 @@
 {
-  "parent": "minecraft:block/slab",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "bottom": "moonbits:block/honeycomb_bricks",
-    "top": "moonbits:block/honeycomb_bricks",
-    "side": "moonbits:block/honeycomb_bricks"
+    "all": "moonbits:block/honeycomb_brick_slab"
   }
 }

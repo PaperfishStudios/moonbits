@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:calcite_bricks"
-  },
-  "result": "moonbits:calcite_bricks",
-  "count": 1
-}

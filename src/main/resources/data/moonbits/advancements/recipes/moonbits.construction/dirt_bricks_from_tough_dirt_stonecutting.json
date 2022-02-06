@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:dirt_bricks_from_tough_dirt_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_tough_dirt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:tough_dirt"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:dirt_bricks_from_tough_dirt_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tough_dirt",
+      "has_the_recipe"
+    ]
+  ]
+}

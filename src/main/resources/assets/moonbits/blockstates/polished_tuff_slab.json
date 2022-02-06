@@ -1,13 +1,7 @@
 {
   "variants": {
-    "type=bottom": {
+    "": {
       "model": "moonbits:block/polished_tuff_slab"
-    },
-    "type=double": {
-      "model": "moonbits:block/polished_tuff"
-    },
-    "type=top": {
-      "model": "moonbits:block/polished_tuff_slab_top"
     }
   }
 }
