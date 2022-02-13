@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:washing_red_concrete"
+    ]
+  },
+  "criteria": {
+    "has_red_concrete_powder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:red_concrete_powder"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:washing_red_concrete"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_concrete_powder",
+      "has_the_recipe"
+    ]
+  ]
+}

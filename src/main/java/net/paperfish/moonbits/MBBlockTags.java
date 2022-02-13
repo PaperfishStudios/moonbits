@@ -12,6 +12,13 @@ public class MBBlockTags {
     // tags go here
     public static final Tag.Identified<Block> JACARANDA_LOGS = TagFactory.BLOCK.create(new Identifier(Moonbits.MOD_ID, "jacaranda_logs"));
 
+    // mushrooms that can go into food
+    public static final Tag.Identified<Block> EDIBLE_MUSHROOMS = TagFactory.BLOCK.create(new Identifier(Moonbits.MOD_ID, "edible_mushrooms"));
+    // no-no mushrooms
+    //public static final Tag.Identified<Block> UNSAFE_MUSHROOMS = TagFactory.BLOCK.create(new Identifier(Moonbits.MOD_ID, "unsafe_mushrooms"));
+    // all mushrooms
+    public static final Tag.Identified<Block> MUSHROOMS = TagFactory.BLOCK.create(new Identifier(Moonbits.MOD_ID, "mushrooms"));
+
 	// tag containing all mb bookshelves
     public static final Tag.Identified<Block> BOOKSHELVES = TagFactory.BLOCK.create(new Identifier(Moonbits.MOD_ID, "bookshelves"));
     // fabric common tag containing all bookshelves

@@ -412,6 +412,22 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.FORGETMENOT
         );
 
+        this.getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK).add(
+                MBBlocks.LEAFBED,
+                MBBlocks.CRIMSON_NYLIUM_TURF,
+                MBBlocks.WARPED_NYLIUM_TURF
+        );
+
+        this.getOrCreateTagBuilder(MBBlockTags.EDIBLE_MUSHROOMS).add(
+                Blocks.BROWN_MUSHROOM,
+                MBBlocks.SAFFRON_MUSHROOM,
+                MBBlocks.PUFFBALLS
+        );
+        this.getOrCreateTagBuilder(MBBlockTags.MUSHROOMS).add(
+                Blocks.RED_MUSHROOM,
+                MBBlocks.TOADSTOOL
+        ).addTag(MBBlockTags.EDIBLE_MUSHROOMS);
+
         Registry.BLOCK.forEach(block -> {
             if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MOD_ID)) {
                 if (block instanceof CustomStairsBlock && block != MBBlocks.JACARANDA_STAIRS && block != MBBlocks.HONEY_STAIRS) {

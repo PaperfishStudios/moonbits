@@ -2,6 +2,7 @@ package net.paperfish.moonbits.entity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -11,9 +12,11 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
@@ -27,8 +30,8 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBEntities;
-import net.paperfish.moonbits.MBSounds;
+import net.minecraft.world.event.GameEvent;
+import net.paperfish.moonbits.*;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -48,7 +51,8 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
     private UUID targetUuid;
     private AnimationFactory factory = new AnimationFactory(this);
     public static final TrackedData<Boolean> ATTACKING = DataTracker.registerData(GrizzlyBearEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    private static final TrackedData<Boolean> WARNING = DataTracker.registerData(PolarBearEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Boolean> WARNING = DataTracker.registerData(GrizzlyBearEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    public static final TrackedData<Integer> DEPENDENCE = DataTracker.registerData(GrizzlyBearEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     public GrizzlyBearEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
@@ -57,12 +61,13 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
     protected void initGoals() {
         goalSelector.add(0, new SwimGoal(this));
         goalSelector.add(1, new AttackGoal());
-        goalSelector.add(2, new AnimalMateGoal(this, 1.0D));
-        goalSelector.add(3, new TemptGoal(this, 1.25D, Ingredient.ofItems(Items.SALMON), false));
-        goalSelector.add(4, new TemptGoal(this, 1.25D, Ingredient.ofItems(Items.HONEY_BOTTLE), false));
-        goalSelector.add(5, new FollowParentGoal(this, 1.25D));
-        goalSelector.add(6, new WanderAroundFarGoal(this, 1.0D));
-        goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
+        goalSelector.add(2, new FollowPlayerGoal(this, 1.0D, 1.25D));
+        goalSelector.add(3, new AnimalMateGoal(this, 1.0D));
+        goalSelector.add(4, new GrizzlyBearTemptGoal(this, 1.25D, Ingredient.ofItems(Items.SALMON, Items.SALMON_BUCKET), false));
+        goalSelector.add(5, new GrizzlyBearTemptGoal(this, 1.25D, Ingredient.ofItems(Items.HONEY_BOTTLE, Items.HONEYCOMB, MBItems.HONEY_BUN), false));
+        goalSelector.add(6, new FollowParentGoal(this, 1.25D));
+        goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
+        //goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         goalSelector.add(8, new LookAroundGoal(this));
         targetSelector.add(1, new GrizzlyBearRevengeGoal());
         //targetSelector.add(2, new ProtectBabiesGoal());
@@ -74,7 +79,8 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
     protected void initDataTracker() {
         super.initDataTracker();
         this.dataTracker.startTracking(ATTACKING, false);
-        this.dataTracker.startTracking(WARNING, false);
+        this.dataTracker.startTracking(WARNING, false);;
+        this.dataTracker.startTracking(DEPENDENCE, 0);
     }
 
     public void readCustomDataFromNbt(NbtCompound nbt) {
@@ -110,6 +116,11 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
         return MBSounds.GRIZZLY_AMBIENT;
     }
 
+    @Override
+    public EntityDimensions getDimensions(EntityPose pose) {
+        return isBaby() ? EntityDimensions.fixed(0.5F, 0.5F) : EntityDimensions.fixed(1.0F, 0.8F);
+    }
+
     protected SoundEvent getHurtSound(DamageSource source) {
         return MBSounds.GRIZZLY_HURT;
     }
@@ -134,22 +145,28 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
     }
 
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
-//        ItemStack itemStack = player.getStackInHand(hand);
-//        if (itemStack.isOf(Items.BUCKET) && !this.isBaby()) {
-//            player.playSound(SoundEvents.ENTITY_COW_MILK, 1.0F, 1.0F);
-//            ItemStack itemStack2 = ItemUsage.exchangeStack(itemStack, player, Items.MILK_BUCKET.getDefaultStack());
-//            player.setStackInHand(hand, itemStack2);
-//            return ActionResult.success(this.world.isClient);
-//        } else {
-//            return super.interactMob(player, hand);
-//        }
+        Moonbits.LOGGER.info("bear dependence: " + dataTracker.get(DEPENDENCE));
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (itemStack.isIn(MBItemTags.BEAR_LIKES) || (itemStack.isIn(MBItemTags.BEAR_EDIBLE) && dataTracker.get(DEPENDENCE) > 15)) {
+            int i = this.getBreedingAge();
+            if (!this.world.isClient && i == 0 && this.canEat()) {
+                this.eat(player, hand, itemStack);
+                if (random.nextBoolean() && dataTracker.get(DEPENDENCE) < 30) {
+                    dataTracker.set(DEPENDENCE, dataTracker.get(DEPENDENCE) + 1);
+                }
+                //this.lovePlayer(player);
+                this.emitGameEvent(GameEvent.MOB_INTERACT, this.getCameraBlockPos());
+                Moonbits.LOGGER.info("dependence after food: " + dataTracker.get(DEPENDENCE));
+                return ActionResult.SUCCESS;
+            }
+        }
         return super.interactMob(player, hand);
     }
 
     @Nullable
     @Override
     public GrizzlyBearEntity createChild(ServerWorld serverWorld, PassiveEntity passiveEntity) {
-        return (GrizzlyBearEntity) MBEntities.GRIZZLY_BEAR.create(serverWorld);
+        return MBEntities.GRIZZLY_BEAR.create(serverWorld);
     }
 
     protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
@@ -239,8 +256,8 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
     public AnimationFactory getFactory() {
         return this.factory;
     }
-    class AttackGoal
-            extends MeleeAttackGoal {
+
+    class AttackGoal extends MeleeAttackGoal {
         public AttackGoal() {
             super(GrizzlyBearEntity.this, 1.25, true);
         }
@@ -279,8 +296,118 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
         }
     }
 
-    class GrizzlyBearRevengeGoal
-            extends RevengeGoal {
+    class FollowPlayerGoal extends Goal {
+        public static final int field_30209 = 8;
+        public static final int field_30210 = 4;
+        public static final int field_30211 = 3;
+        private final AnimalEntity animal;
+        @Nullable
+        private AnimalEntity targetPlayer;
+        private final double speed;
+        private final double speedB;
+        private int delay;
+
+        public FollowPlayerGoal(AnimalEntity animal, double speed, double speedB) {
+            this.animal = animal;
+            this.speed = speed;
+            this.speedB = speedB;
+        }
+
+        @Override
+        public boolean canStart() {
+            if (this.animal.getBreedingAge() < 0 || dataTracker.get(DEPENDENCE) < 10) {
+                return false;
+            }
+            List<? extends AnimalEntity> list = this.animal.world.getNonSpectatingEntities(this.animal.getClass(), this.animal.getBoundingBox().expand(8.0, 4.0, 8.0));
+            AnimalEntity potentialTarget = null;
+            double maxDistance = Double.MAX_VALUE;
+            for (AnimalEntity animalEntity2 : list) {
+                double e = this.animal.squaredDistanceTo(animalEntity2);
+                if (e > maxDistance) continue;
+                maxDistance = e;
+                potentialTarget = animalEntity2;
+            }
+            if (potentialTarget == null) {
+                return false;
+            }
+            if (maxDistance < 9.0) {
+                return false;
+            }
+            this.targetPlayer = potentialTarget;
+            return true;
+        }
+
+        @Override
+        public boolean shouldContinue() {
+            if (!this.targetPlayer.isAlive()) {
+                return false;
+            }
+            double d = this.animal.squaredDistanceTo(this.targetPlayer);
+            return !(d < 9.0) && !(d > 256.0);
+        }
+
+        @Override
+        public void start() {
+            this.delay = 0;
+        }
+
+        @Override
+        public void stop() {
+            this.targetPlayer = null;
+        }
+
+        @Override
+        public void tick() {
+            if (--this.delay > 0) {
+                return;
+            }
+            this.delay = this.getTickCount(10);
+            this.animal.getNavigation().startMovingTo(this.targetPlayer, dataTracker.get(DEPENDENCE) < 15 ? this.speed : this.speedB);
+        }
+    }
+
+    class GrizzlyBearTemptGoal extends TemptGoal {
+        private int cooldown;
+        private static final TargetPredicate TEMPTING_ENTITY_PREDICATE = TargetPredicate.createNonAttackable().setBaseMaxDistance(10.0).ignoreVisibility();
+        private final TargetPredicate predicate;
+        private final TargetPredicate dependant;
+
+        public GrizzlyBearTemptGoal(PathAwareEntity entity, double speed, Ingredient food, boolean canBeScared) {
+            super(entity, speed, food, canBeScared);
+            this.predicate = TEMPTING_ENTITY_PREDICATE.copy().setPredicate((a) -> a.getMainHandStack().isIn(MBItemTags.BEAR_LIKES) || a.getOffHandStack().isIn(MBItemTags.BEAR_LIKES));
+            this.dependant = TEMPTING_ENTITY_PREDICATE.copy().setPredicate((a) -> a.getMainHandStack().isIn(MBItemTags.BEAR_EDIBLE) || a.getOffHandStack().isIn(MBItemTags.BEAR_EDIBLE));
+        }
+
+        @Override
+        public boolean canStart() {
+            if (dataTracker.get(DEPENDENCE) < 1) {
+                return false;
+            }
+            if (this.cooldown > 0) {
+                --this.cooldown;
+                return false;
+            }
+            this.closestPlayer = dataTracker.get(DEPENDENCE) > 15 ? this.mob.world.getClosestPlayer(this.dependant, this.mob) : this.mob.world.getClosestPlayer(this.predicate, this.mob);
+            return this.closestPlayer != null;
+        }
+
+        @Override
+        protected boolean canBeScared() {
+            return dataTracker.get(DEPENDENCE) < 25;
+        }
+
+        @Override
+        public void tick() {
+            if (dataTracker.get(DEPENDENCE) < 5) {
+                this.mob.getLookControl().lookAt(this.closestPlayer, this.mob.getMaxHeadRotation() + 20, this.mob.getMaxLookPitchChange());
+            }
+            else {
+                super.tick();
+            }
+        }
+    }
+
+    class GrizzlyBearRevengeGoal extends RevengeGoal {
         public GrizzlyBearRevengeGoal() {
             super(GrizzlyBearEntity.this);
         }
@@ -302,8 +429,7 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
         }
     }
 
-    class ProtectBabiesGoal
-            extends ActiveTargetGoal<PlayerEntity> {
+    class ProtectBabiesGoal extends ActiveTargetGoal<PlayerEntity> {
         public ProtectBabiesGoal() {
             super(GrizzlyBearEntity.this, PlayerEntity.class, 20, true, true, null);
         }

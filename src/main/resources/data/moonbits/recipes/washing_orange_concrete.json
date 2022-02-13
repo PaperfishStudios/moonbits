@@ -1,0 +1,8 @@
+{
+  "type": "moonbits:washing",
+  "ingredient": {
+    "item": "minecraft:orange_concrete_powder"
+  },
+  "cauldron": "minecraft:water_cauldron",
+  "result": "minecraft:orange_concrete"
+}

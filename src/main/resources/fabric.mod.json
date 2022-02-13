@@ -6,7 +6,7 @@
   "name": "Moonbits",
   "description": "A minecraft mod designed as a fanmade branch of updates and content :D",
   "authors": [
-    "Paperfish", "mars!"
+    "Paperfish"
   ],
   "contact": {
     "sources": "https://github.com/PaperfishStudios/Moonbits"
@@ -31,7 +31,7 @@
     "moonbits.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.11.3",
+    "fabricloader": ">=0.12.12",
     "fabric": "*",
     "minecraft": "1.18.x",
     "java": ">=17"

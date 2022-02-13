@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:brown_mushroom",
+    "moonbits:saffron_mushroom",
+    "moonbits:puffballs"
+  ]
+}

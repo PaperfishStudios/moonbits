@@ -143,6 +143,9 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.SAFFRON_GILLS, BlockLootTableGenerator::dropsWithShears);
         addDrop(MBBlocks.GIANT_TOADSTOOL_CAP);
         addDrop(MBBlocks.MUSHROOM_STEM);
+        addDrop(MBBlocks.STRIPPED_MUSHROOM_STEM);
+        addDrop(MBBlocks.MUSHROOM_HYPHAE);
+        addDrop(MBBlocks.STRIPPED_MUSHROOM_HYPHAE);
 
         addDrop(MBBlocks.TOADSTOOL_SHELF);
         //addDrop(MBBlocks.RED_MUSH_BRICKS);

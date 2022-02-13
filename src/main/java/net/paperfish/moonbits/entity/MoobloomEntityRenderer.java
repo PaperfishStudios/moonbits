@@ -24,6 +24,8 @@ public class MoobloomEntityRenderer extends MobEntityRenderer<MoobloomEntity, Mo
     private static final Identifier OXEYE_DAISY =  new Identifier("moonbits", "textures/entity/moobloom/moobloom_oxeye.png");
     private static final Identifier CORNFLOWER =  new Identifier("moonbits", "textures/entity/moobloom/moobloom_cornflower.png");
     private static final Identifier LILY_OF_THE_VALLEY =  new Identifier("moonbits", "textures/entity/moobloom/moobloom_lily.png");
+    private static final Identifier DAHLIA =  new Identifier("moonbits", "textures/entity/moobloom/moobloom_dahlia.png");
+    private static final Identifier BLACK_DAHLIA =  new Identifier("moonbits", "textures/entity/moobloom/moobloom_black_dahlia.png");
 
     public MoobloomEntityRenderer(EntityRendererFactory.Context context) {
 	    super(context, new MoobloomEntityModel<>(context.getPart(MBEntityType.MODEL_MOOBLOOM_LAYER)), 0.7F);
@@ -33,7 +35,7 @@ public class MoobloomEntityRenderer extends MobEntityRenderer<MoobloomEntity, Mo
     @Override
     public Identifier getTexture(MoobloomEntity entity) {
         return switch (entity.getMoobloomType().name) {
-            case ("buttercup") -> BUTTERCUP;
+            //case ("buttercup") -> BUTTERCUP;
             case ("forget_me_not") -> FORGETMENOT;
             case ("dandelion") -> DANDELION;
             case ("poppy") -> POPPY;
@@ -47,6 +49,8 @@ public class MoobloomEntityRenderer extends MobEntityRenderer<MoobloomEntity, Mo
             case ("oxeye_daisy") -> OXEYE_DAISY;
             case ("cornflower") -> CORNFLOWER;
             case ("lily_of_the_valley") -> LILY_OF_THE_VALLEY;
+            case ("dahlia") -> DAHLIA;
+            case ("black_dahlia") -> BLACK_DAHLIA;
             default -> BUTTERCUP;
         };
 

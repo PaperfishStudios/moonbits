@@ -171,6 +171,9 @@ public class MBBlocks {
 			.breakInstantly().nonOpaque().noCollision());
 	public static final Block GIANT_TOADSTOOL_CAP = new GiantToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).strength(0.5F).sounds(BlockSoundGroup.NETHER_STEM));
 	public static final Block MUSHROOM_STEM = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block STRIPPED_MUSHROOM_STEM = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.PALE_YELLOW).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block MUSHROOM_HYPHAE = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block STRIPPED_MUSHROOM_HYPHAE = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.PALE_YELLOW).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
 
 	public static final Block SAFFRON_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.STONE));
 	public static final Block SAFFRON_MUSH_STAIRS = new CustomStairsBlock(SAFFRON_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.0F).sounds(BlockSoundGroup.STONE));
@@ -967,6 +970,9 @@ public class MBBlocks {
 		createBlock("saffron_gills", SAFFRON_GILLS, MBItemGroup.CONSTRUCTION);
 		createBlock("giant_toadstool_cap", GIANT_TOADSTOOL_CAP, MBItemGroup.CONSTRUCTION);
 		createBlock("mushroom_stem", MUSHROOM_STEM, MBItemGroup.CONSTRUCTION);
+		createBlock("stripped_mushroom_stem", STRIPPED_MUSHROOM_STEM, MBItemGroup.CONSTRUCTION);
+		createBlock("mushroom_hyphae", MUSHROOM_HYPHAE, MBItemGroup.CONSTRUCTION);
+		createBlock("stripped_mushroom_hyphae", STRIPPED_MUSHROOM_HYPHAE, MBItemGroup.CONSTRUCTION);
 
 		createBlock("toadstool_shelf", TOADSTOOL_SHELF, MBItemGroup.DECOR);
 

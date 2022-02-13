@@ -96,7 +96,7 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerNorthDefaultHorizontalRotation(MBBlocks.IRON_LADDER);
         generator.registerItemModel(MBBlocks.IRON_LADDER);
         generator.registerCooker(MBBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        generator.registerItemModel(MBBlocks.KILN);
+        generator.registerParentedItemModel(MBBlocks.KILN, Registry.BLOCK.getId(MBBlocks.KILN));
 
         seatBlock(MBBlocks.LEATHER_SEAT, generator);
         seatBlock(MBBlocks.WHITE_LEATHER_SEAT, generator);
@@ -119,12 +119,12 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerDoor(MBBlocks.GLASS_DOOR);
 
         // trese
-        generator.registerParentedItemModel(MBBlocks.BUDDING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/budding_oak_leaves"));
-        generator.registerParentedItemModel(MBBlocks.FLOWERING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/flowering_oak_leaves"));
-        generator.registerParentedItemModel(MBBlocks.FRUITING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/fruiting_oak_leaves"));
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.BUDDING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/budding_oak_leaves")));
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FLOWERING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/flowering_oak_leaves")));
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FRUITING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "blocks/fruiting_oak_leaves")));
+        generator.registerParentedItemModel(MBBlocks.BUDDING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/budding_oak_leaves"));
+        generator.registerParentedItemModel(MBBlocks.FLOWERING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/flowering_oak_leaves"));
+        generator.registerParentedItemModel(MBBlocks.FRUITING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/apple_oak_leaves"));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.BUDDING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/budding_oak_leaves")));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FLOWERING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/flowering_oak_leaves")));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FRUITING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/apple_oak_leaves")));
         flowerPotPlant(MBBlocks.APPLE_OAK_SPROUT, MBBlocks.POTTED_APPLE_OAK_SPROUT, TintType.NOT_TINTED, generator, false);
         flowerPotPlant(MBBlocks.APPLE_OAK_SAPLING, MBBlocks.POTTED_APPLE_OAK_SAPLING, TintType.NOT_TINTED, generator);
 
@@ -184,7 +184,8 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerMushroomBlock(MBBlocks.SAFFRON_MUSHROOM_CAP);
         gills(generator);
         giantToadstoolCap(generator);
-        generator.registerAxisRotated(MBBlocks.MUSHROOM_STEM, CUBE_COLUMN);
+        log(MBBlocks.MUSHROOM_STEM, MBBlocks.MUSHROOM_HYPHAE, generator);
+        log(MBBlocks.STRIPPED_MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_HYPHAE, generator);
         generator.registerSimpleCubeAll(MBBlocks.RED_MUSH_LAMP);
         generator.registerSimpleCubeAll(MBBlocks.BROWN_MUSH_LAMP);
         generator.registerSimpleCubeAll(MBBlocks.TOADSTOOL_MUSH_LAMP);
@@ -295,7 +296,12 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
                     generator.registerAxisRotated(block, CUBE_COLUMN);
                 }
                 else if (variant == MBBlockFamily.Variant.COLUMN) {
-                    column(block, family.getVariant(MBBlockFamily.Variant.CARVED), generator);
+                    if (block == MBBlocks.SPRUCE_PILLAR) {
+                        columnHori(block, family.getVariant(MBBlockFamily.Variant.CARVED), generator);
+                    }
+                    else {
+                        column(block, family.getVariant(MBBlockFamily.Variant.CARVED), generator);
+                    }
                 }
                 else if (variant == MBBlockFamily.Variant.CUT) {
                     sideEnd(block, generator);
@@ -608,7 +614,17 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
     private static void column(Block column, Block end, BlockStateModelGenerator generator) {
         Texture texture = Texture.sideEnd(Texture.getId(column), Texture.getId(end));
         Identifier identifier = Models.CUBE_COLUMN.upload(column, texture, generator.modelCollector);
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createAxisRotatedBlockState(column, identifier));
+        Identifier identifier2 = Models.CUBE_COLUMN_HORIZONTAL.upload(column, texture, generator.modelCollector);
+
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createAxisRotatedBlockState(column, identifier, identifier2));
+    }
+    private static void columnHori(Block column, Block end, BlockStateModelGenerator generator) {
+        Texture texture = Texture.sideEnd(Texture.getId(column), Texture.getId(end));
+        Texture texture2 = column(column, end);
+        Identifier identifier = Models.CUBE_COLUMN.upload(column, texture, generator.modelCollector);
+        Identifier identifier2 = Models.CUBE_COLUMN_HORIZONTAL.upload(column, texture2, generator.modelCollector);
+
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createAxisRotatedBlockState(column, identifier, identifier2));
     }
 
     private static void sideEnd(Block block, BlockStateModelGenerator generator) {
@@ -862,6 +878,9 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
     public static Texture grasslike(Block block) {
         return new Texture().put(TextureKey.BOTTOM, Texture.getId(Blocks.DIRT)).put(TextureKey.TOP, Texture.getSubId(block, "_top"))
                 .put(TextureKey.SIDE, Texture.getId(block)).put(OVERLAY, Texture.getSubId(block, "_overlay"));
+    }
+    public static Texture column(Block block, Block end) {
+        return new Texture().put(TextureKey.SIDE, Texture.getSubId(block, "_side")).put(TextureKey.END, Texture.getId(end));
     }
     public static Texture sideEnd(Block block) {
         return new Texture().put(TextureKey.SIDE, Texture.getId(block)).put(TextureKey.END, Texture.getSubId(block, "_top"));

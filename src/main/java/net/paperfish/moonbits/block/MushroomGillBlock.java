@@ -1,9 +1,6 @@
 package net.paperfish.moonbits.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemPlacementContext;
@@ -45,8 +42,6 @@ public class MushroomGillBlock extends Block {
         FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
         Direction[] var3 = ctx.getPlacementDirections();
         BlockState blockState;
-        int var4 = var3.length;
-
         for (Direction direction : var3) {
             if (direction.getAxis() == Direction.Axis.Y) {
                 blockState = this.getDefaultState().with(FACING, Direction.UP);

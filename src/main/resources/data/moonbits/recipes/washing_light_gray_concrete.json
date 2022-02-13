@@ -1,0 +1,8 @@
+{
+  "type": "moonbits:washing",
+  "ingredient": {
+    "item": "minecraft:light_gray_concrete_powder"
+  },
+  "cauldron": "minecraft:water_cauldron",
+  "result": "minecraft:light_gray_concrete"
+}

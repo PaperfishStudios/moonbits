@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:washing_pink_concrete"
+    ]
+  },
+  "criteria": {
+    "has_pink_concrete_powder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:pink_concrete_powder"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:washing_pink_concrete"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pink_concrete_powder",
+      "has_the_recipe"
+    ]
+  ]
+}

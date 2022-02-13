@@ -2,6 +2,7 @@ package net.paperfish.moonbits;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
+import net.paperfish.moonbits.recipe.WashingRecipe;
 import net.paperfish.moonbits.world.feature.MBPlacedCaveFeatures;
 import net.paperfish.moonbits.world.feature.MBPlacedVegFeatures;
 import net.paperfish.moonbits.world.feature.MBTreeFeatures;
@@ -20,6 +21,7 @@ public class Moonbits implements ModInitializer {
 		GeckoLibMod.DISABLE_IN_DEV = true;
 		GeckoLib.initialize();
 
+		//WashingRecipe.registerRecipe();
 		MBItemGroup.initialize(); // workaround for a bug where they dont initialize properly in datagen
 
 		MBEvents.initEvents();

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:firing_saffron_mush_block"
+    ]
+  },
+  "criteria": {
+    "has_toadstool_mushblend": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:toadstool_mushblend"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:firing_saffron_mush_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_toadstool_mushblend",
+      "has_the_recipe"
+    ]
+  ]
+}

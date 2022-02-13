@@ -61,7 +61,7 @@ public class GrassTurfStairsBlock extends StairsBlock implements Fertilizable {
 						continue;
 					}
 
-					placedFeature = ((RandomPatchFeatureConfig)list.get(0).getConfig()).comp_155().get();
+					placedFeature = ((RandomPatchFeatureConfig)list.get(0).getConfig()).feature().get();
 				} else {
 					placedFeature = VegetationPlacedFeatures.GRASS_BONEMEAL;
 				}
