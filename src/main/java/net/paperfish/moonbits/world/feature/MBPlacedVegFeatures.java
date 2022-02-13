@@ -83,10 +83,6 @@ public class MBPlacedVegFeatures {
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_gbf_trees.getValue(),
                 MBVegetationFeatures.GBF_TREES.withPlacement(modifiers(PlacedFeatures.createCountExtraModifier(6, 0.1F, 1))));
 
-        // flower forest trees
-        RegistryKey<PlacedFeature> p_mbff_trees = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Moonbits.MOD_ID, "p_mbff_trees"));
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, p_mbff_trees.getValue(),
-                MBVegetationFeatures.MBFF_TREES.withPlacement(modifiers(PlacedFeatures.createCountExtraModifier(6, 0.1F, 1))));
         // flower forest funky flower pattern
         RegistryKey<PlacedFeature> p_mbff_flowers = RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(Moonbits.MOD_ID, "p_mbff_flowers"));
         Registry.register(BuiltinRegistries.PLACED_FEATURE, p_mbff_flowers,
@@ -196,9 +192,6 @@ public class MBPlacedVegFeatures {
                 .add(ModificationPhase.REPLACEMENTS,
                         BiomeSelectors.includeByKey(BiomeKeys.FLOWER_FOREST),
                         (c)-> {
-                            c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.TREES_FLOWER_FOREST);
-                            c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_mbff_trees);
-
                             c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.FLOWER_FLOWER_FOREST);
                             c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, p_mbff_flowers);
                         }

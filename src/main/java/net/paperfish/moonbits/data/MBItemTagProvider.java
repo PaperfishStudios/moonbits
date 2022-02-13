@@ -70,7 +70,8 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
         copy(BlockTags.STANDING_SIGNS, ItemTags.SIGNS);
         copy(BlockTags.NON_FLAMMABLE_WOOD, ItemTags.NON_FLAMMABLE_WOOD);
 
-        copy(MBBlockTags.JACARANDA_LOGS, MBItemTags.JACARANDA_LOGS);
+        copy(MBBlockTags.JUNIPER_LOGS, MBItemTags.JUNIPER_LOGS);
+        copy(MBBlockTags.CEDAR_LOGS, MBItemTags.CEDAR_LOGS);
 
         copy(MBBlockTags.EDIBLE_MUSHROOMS, MBItemTags.EDIBLE_MUSHROOMS);
         copy(MBBlockTags.MUSHROOMS, MBItemTags.MUSHROOMS);

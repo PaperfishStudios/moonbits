@@ -76,29 +76,35 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.CYAN_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
         addDrop(MBBlocks.BLUE_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
 
-        addDrop(MBBlocks.JACARANDA_LOG);
-        addDrop(MBBlocks.JACARANDA_WOOD);
-        addDrop(MBBlocks.STRIPPED_JACARANDA_LOG);
-        addDrop(MBBlocks.STRIPPED_JACARANDA_WOOD);
+        addDrop(MBBlocks.JUNIPER_LOG);
+        addDrop(MBBlocks.JUNIPER_WOOD);
+        addDrop(MBBlocks.STRIPPED_JUNIPER_LOG);
+        addDrop(MBBlocks.STRIPPED_JUNIPER_WOOD);
+        addDrop(MBBlocks.JUNIPER_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.JUNIPER_SAPLING, SAPLING_DROP_CHANCE));
+        addDrop(MBBlocks.JUNIPER_SAPLING);
+
+        addDrop(MBBlocks.CEDAR_LOG);
+        addDrop(MBBlocks.CEDAR_WOOD);
+        addDrop(MBBlocks.STRIPPED_CEDAR_LOG);
+        addDrop(MBBlocks.STRIPPED_CEDAR_WOOD);
+        addDrop(MBBlocks.CEDAR_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.CEDAR_SAPLING, SAPLING_DROP_CHANCE));
+        addDrop(MBBlocks.CEDAR_SAPLING);
+
+        addDrop(MBBlocks.BARREL_CACTUS);
 
         addDrop(MBBlocks.BUDDING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.FLOWERING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.FRUITING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.GOLDEN_BIRCH_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.GOLDEN_BIRCH_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.RED_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.oakLeavesDrop(l, MBBlocks.RED_OAK_SAPLING, SAPLING_DROP_CHANCE));
-        addDrop(MBBlocks.JACARANDA_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.JACARANDA_SAPLING, SAPLING_DROP_CHANCE));
 
         addDrop(MBBlocks.GOLDEN_BIRCH_LEAF_CARPET, MBLootTableProvider::leafCarpet);
         addDrop(MBBlocks.RED_OAK_LEAF_CARPET, MBLootTableProvider::leafCarpet);
-        addDrop(MBBlocks.JACARANDA_LEAF_CARPET, MBLootTableProvider::leafCarpet);
-        addDrop(MBBlocks.HANGING_JACARANDA_LEAVES, MBLootTableProvider::leafCarpet);
-        addDrop(MBBlocks.HANGING_JACARANDA_LEAVES_PLANT, MBLootTableProvider::leafCarpet);
 
         addDrop(MBBlocks.APPLE_OAK_SPROUT, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.APPLE_SEEDS));
         addDrop(MBBlocks.APPLE_OAK_SAPLING);
         addDrop(MBBlocks.GOLDEN_BIRCH_SAPLING);
         addDrop(MBBlocks.RED_OAK_SAPLING);
-        addDrop(MBBlocks.JACARANDA_SAPLING);
 
         addDrop(MBBlocks.LEAFBED, (Block block) -> BlockLootTableGenerator.drops(block, Blocks.DIRT));
         addDrop(MBBlocks.TOUGH_GRASS, (Block block) -> BlockLootTableGenerator.drops(block, MBBlocks.TOUGH_DIRT));
@@ -162,8 +168,6 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.FUR_BLOCK);
         addDrop(MBBlocks.FUR_CARPET);
         addDrop(MBBlocks.BEDROLL, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, BedBlock.PART, BedPart.HEAD));
-
-        addDrop(MBBlocks.AZALEA_STEM);
 
         addDrop(MBBlocks.MINI_LILY);
         addDrop(MBBlocks.MINI_OXEYE);

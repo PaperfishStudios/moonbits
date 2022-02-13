@@ -32,10 +32,12 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.ROPE_LADDER,
                 MBBlocks.IRON_LADDER,
                 MBBlocks.TOUGH_GRASS,
+
                 MBBlocks.BUTTERCUP,
                 MBBlocks.POTTED_BUTTERCUP,
                 MBBlocks.FORGETMENOT,
                 MBBlocks.POTTED_FORGETMENOT,
+
                 MBBlocks.PUFFBALLS,
                 MBBlocks.POTTED_PUFFBALLS,
                 MBBlocks.SAFFRON_MUSHROOM,
@@ -45,25 +47,32 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.SMALL_TOADSTOOLS,
                 MBBlocks.POTTED_SMALL_TOADSTOOLS,
                 MBBlocks.TOADSTOOL_SHELF,
+
                 MBBlocks.WHITE_HYACINTH,
                 MBBlocks.PINK_HYACINTH,
                 MBBlocks.LIGHT_BLUE_HYACINTH,
                 MBBlocks.RED_HYACINTH,
+
                 MBBlocks.WILD_CARROTS,
                 MBBlocks.WILD_POTATOES,
                 MBBlocks.SEA_BEETS,
+
                 MBBlocks.LAMPROOT,
                 MBBlocks.CAVEBLOOM_VINE,
                 MBBlocks.CAVEBLOOM_FLOWERS,
-                MBBlocks.JACARANDA_LEAF_CARPET,
-                MBBlocks.JACARANDA_SAPLING,
-                MBBlocks.POTTED_JACARANDA_SAPLING,
-                MBBlocks.HANGING_JACARANDA_LEAVES,
-                MBBlocks.HANGING_JACARANDA_LEAVES_PLANT,
-                MBBlocks.JACARANDA_DOOR,
-                MBBlocks.JACARANDA_TRAPDOOR,
+
+                MBBlocks.JUNIPER_DOOR,
+                MBBlocks.JUNIPER_TRAPDOOR,
+                MBBlocks.JUNIPER_SAPLING,
+                MBBlocks.POTTED_JUNIPER_SAPLING,
+                MBBlocks.CEDAR_DOOR,
+                MBBlocks.CEDAR_TRAPDOOR,
+                MBBlocks.CEDAR_SAPLING,
+                MBBlocks.POTTED_CEDAR_SAPLING,
+
                 MBBlocks.HONEY_DOOR,
                 MBBlocks.HONEY_TRAPDOOR,
+
                 MBBlocks.APPLE_OAK_SPROUT,
                 MBBlocks.POTTED_APPLE_OAK_SPROUT,
                 MBBlocks.APPLE_OAK_SAPLING,

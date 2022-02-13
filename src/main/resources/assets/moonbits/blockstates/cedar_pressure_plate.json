@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "moonbits:block/cedar_pressure_plate"
+    },
+    "powered=true": {
+      "model": "moonbits:block/cedar_pressure_plate_down"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "moonbits:cedar_log",
+    "moonbits:cedar_wood",
+    "moonbits:stripped_cedar_log",
+    "moonbits:stripped_cedar_wood"
+  ]
+}

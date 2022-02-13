@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:carved_cedar_wood"
+    }
+  },
+  "result": {
+    "item": "moonbits:cedar_pillar",
+    "count": 2
+  }
+}

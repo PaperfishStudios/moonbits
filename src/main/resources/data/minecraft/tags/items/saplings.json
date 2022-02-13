@@ -1,7 +1,8 @@
 {
   "replace": false,
   "values": [
-    "moonbits:jacaranda_sapling",
+    "moonbits:juniper_sapling",
+    "moonbits:cedar_sapling",
     "moonbits:apple_oak_sapling",
     "moonbits:golden_birch_sapling",
     "moonbits:red_oak_sapling"

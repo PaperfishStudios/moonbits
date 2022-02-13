@@ -17,8 +17,8 @@ public class CreeperMixin extends HostileEntity {
         super(entityType, world);
     }
 
-    @ModifyVariable(method = "explode", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
+    @ModifyVariable(method = "explode", at = @At(value = "FIELD", target = "net/minecraft/world/explosion/Explosion$DestructionType.DESTROY : Lnet/minecraft/world/explosion/Explosion$DestructionType;"))
     public Explosion.DestructionType safeExplode(Explosion.DestructionType old) {
-        return world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? Explosion.DestructionType.BREAK : Explosion.DestructionType.NONE;
+        return old == Explosion.DestructionType.DESTROY ? Explosion.DestructionType.BREAK : Explosion.DestructionType.NONE;
     }
 }

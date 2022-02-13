@@ -1,0 +1,72 @@
+{
+  "variants": {
+    "level=1": [
+      {
+        "model": "moonbits:block/barrel_cactus_tiny"
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_tiny",
+        "y": 90
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_tiny",
+        "y": 180
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_tiny",
+        "y": 270
+      }
+    ],
+    "level=2": [
+      {
+        "model": "moonbits:block/barrel_cactus_small"
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_small",
+        "y": 90
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_small",
+        "y": 180
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_small",
+        "y": 270
+      }
+    ],
+    "level=3": [
+      {
+        "model": "moonbits:block/barrel_cactus_medium"
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_medium",
+        "y": 90
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_medium",
+        "y": 180
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_medium",
+        "y": 270
+      }
+    ],
+    "level=4": [
+      {
+        "model": "moonbits:block/barrel_cactus_large"
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_large",
+        "y": 90
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_large",
+        "y": 180
+      },
+      {
+        "model": "moonbits:block/barrel_cactus_large",
+        "y": 270
+      }
+    ]
+  }
+}

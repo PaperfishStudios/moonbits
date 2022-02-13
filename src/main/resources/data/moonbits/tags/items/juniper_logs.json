@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "moonbits:juniper_log",
+    "moonbits:juniper_wood",
+    "moonbits:stripped_juniper_log",
+    "moonbits:stripped_juniper_wood"
+  ]
+}

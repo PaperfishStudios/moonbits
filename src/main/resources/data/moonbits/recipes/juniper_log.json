@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:stripped_juniper_log"
+    }
+  },
+  "result": {
+    "item": "moonbits:juniper_log",
+    "count": 3
+  }
+}

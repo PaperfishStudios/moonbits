@@ -16,6 +16,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.paperfish.moonbits.MBBlockTags;
 import net.paperfish.moonbits.MBData;
+import net.paperfish.moonbits.MBItemTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -58,7 +59,7 @@ public abstract class CropBlockMixin extends PlantBlock {
             if (!world.isClient) {
                 Block.getDroppedStacks(state, (ServerWorld) world, pos, null).forEach((stack) -> {
                     // if its the thing that u replant, drop 1 less than usual
-                    if (stack.isIn(MBData.SEEDS_ROOTS)) {
+                    if (stack.isIn(MBItemTags.SEEDS_ROOTS)) {
                         stack.setCount(stack.getCount() - 1);
                     }
                     Block.dropStack(world, pos, stack);

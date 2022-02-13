@@ -1,7 +1,8 @@
 {
   "replace": false,
   "values": [
-    "moonbits:jacaranda_pressure_plate",
+    "moonbits:juniper_pressure_plate",
+    "moonbits:cedar_pressure_plate",
     "moonbits:honey_pressure_plate"
   ]
 }

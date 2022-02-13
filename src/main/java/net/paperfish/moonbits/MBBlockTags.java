@@ -10,7 +10,8 @@ import java.util.Map;
 public class MBBlockTags {
 
     // tags go here
-    public static final Tag.Identified<Block> JACARANDA_LOGS = TagFactory.BLOCK.create(new Identifier(Moonbits.MOD_ID, "jacaranda_logs"));
+    public static final Tag.Identified<Block> JUNIPER_LOGS = TagFactory.BLOCK.create(new Identifier(Moonbits.MOD_ID, "juniper_logs"));
+    public static final Tag.Identified<Block> CEDAR_LOGS = TagFactory.BLOCK.create(new Identifier(Moonbits.MOD_ID, "cedar_logs"));
 
     // mushrooms that can go into food
     public static final Tag.Identified<Block> EDIBLE_MUSHROOMS = TagFactory.BLOCK.create(new Identifier(Moonbits.MOD_ID, "edible_mushrooms"));

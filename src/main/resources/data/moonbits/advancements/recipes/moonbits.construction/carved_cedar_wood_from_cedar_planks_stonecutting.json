@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:carved_cedar_wood_from_cedar_planks_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_cedar_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:cedar_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:carved_cedar_wood_from_cedar_planks_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cedar_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

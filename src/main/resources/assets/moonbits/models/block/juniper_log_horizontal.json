@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "moonbits:block/juniper_log_top",
+    "side": "moonbits:block/juniper_log"
+  }
+}

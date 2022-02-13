@@ -78,32 +78,32 @@ public class AzaleaStemBlock extends Block {
         BlockPos hitPos = new BlockPos(ctx.getHitPos());
         BlockState blockState = world.getBlockState(blockPos);
         Direction dir = ctx.getSide();
-        switch (dir) {
-            case UP -> {
-                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(UP, true));
-                blockState = getDefaultState().with(DOWN, true);
-            }
-            case DOWN -> {
-                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(DOWN, true));
-                blockState = getDefaultState().with(UP, true);
-            }
-            case NORTH -> {
-                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(NORTH, true));
-                blockState = getDefaultState().with(SOUTH, true);
-            }
-            case SOUTH -> {
-                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(SOUTH, true));
-                blockState = getDefaultState().with(NORTH, true);
-            }
-            case EAST -> {
-                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(EAST, true));
-                blockState = getDefaultState().with(WEST, true);
-            }
-            case WEST -> {
-                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(WEST, true));
-                blockState = getDefaultState().with(EAST, true);
-            }
-        }
+//        switch (dir) {
+//            case UP -> {
+//                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(UP, true));
+//                blockState = getDefaultState().with(DOWN, true);
+//            }
+//            case DOWN -> {
+//                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(DOWN, true));
+//                blockState = getDefaultState().with(UP, true);
+//            }
+//            case NORTH -> {
+//                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(NORTH, true));
+//                blockState = getDefaultState().with(SOUTH, true);
+//            }
+//            case SOUTH -> {
+//                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(SOUTH, true));
+//                blockState = getDefaultState().with(NORTH, true);
+//            }
+//            case EAST -> {
+//                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(EAST, true));
+//                blockState = getDefaultState().with(WEST, true);
+//            }
+//            case WEST -> {
+//                if (world.getBlockState(hitPos).isOf(MBBlocks.AZALEA_STEM)) world.setBlockState(hitPos, world.getBlockState(hitPos).with(WEST, true));
+//                blockState = getDefaultState().with(EAST, true);
+//            }
+//        }
         return blockState;
     }
 

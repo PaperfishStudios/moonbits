@@ -35,10 +35,6 @@ public class MBData {
 
 	public static final Map<Block, Block> STRIPPED_BLOCKS;
 
-	// used to remove 1 seed from the drop table of crops when harvested by right-click
-	public static final Tag<Item> SEEDS_ROOTS = TagFactory.ITEM.create(new Identifier("moonbits", "seeds_roots"));
-	// items that will attract glares
-	public static final Tag<Item> GLARE_LIKES = TagFactory.ITEM.create(new Identifier("moonbits", "glare_likes"));
 
 	public static final RecipeType<KilnRecipe> KILN_RECIPE_TYPE;
 	public static final RecipeSerializer<KilnRecipe> KILN_RECIPE_SERIALIZER;
@@ -52,8 +48,11 @@ public class MBData {
 	static {
 			STRIPPED_BLOCKS = ImmutableMap.<Block, Block>builder()
 					.putAll(AxeItemAccessor.getStrippedBlocks())
-					.put(MBBlocks.JACARANDA_LOG, MBBlocks.STRIPPED_JACARANDA_LOG)
-					.put(MBBlocks.JACARANDA_WOOD, MBBlocks.STRIPPED_JACARANDA_WOOD)
+					.put(MBBlocks.JUNIPER_LOG, MBBlocks.STRIPPED_JUNIPER_LOG)
+					.put(MBBlocks.JUNIPER_WOOD, MBBlocks.STRIPPED_JUNIPER_WOOD)
+					.put(MBBlocks.CEDAR_LOG, MBBlocks.STRIPPED_CEDAR_LOG)
+					.put(MBBlocks.CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_WOOD)
+
 					.put(MBBlocks.MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_STEM)
 					.put(MBBlocks.MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_HYPHAE)
 				.build();
@@ -111,20 +110,26 @@ public class MBData {
 			return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
 				MBBlocks.BUDDING_OAK_LEAVES,
 				MBBlocks.FLOWERING_OAK_LEAVES,
-				MBBlocks.FRUITING_OAK_LEAVES,
-				MBBlocks.JACARANDA_LEAVES,
-				MBBlocks.JACARANDA_LEAF_CARPET,
-				MBBlocks.HANGING_JACARANDA_LEAVES,
-				MBBlocks.HANGING_JACARANDA_LEAVES_PLANT
+				MBBlocks.FRUITING_OAK_LEAVES
 		);
 		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
 			ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.OAK_LEAVES);
 			return provider == null ? -1 : provider.getColor(stack, tintIndex);},
 				MBBlocks.BUDDING_OAK_LEAVES,
 				MBBlocks.FLOWERING_OAK_LEAVES,
-				MBBlocks.FRUITING_OAK_LEAVES,
-				MBBlocks.JACARANDA_LEAVES,
-				MBBlocks.JACARANDA_LEAF_CARPET
+				MBBlocks.FRUITING_OAK_LEAVES
+		);
+		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
+					BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.SPRUCE_LEAVES);
+					return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
+				MBBlocks.JUNIPER_LEAVES,
+				MBBlocks.CEDAR_LEAVES
+		);
+		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+					ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.SPRUCE_LEAVES);
+					return provider == null ? -1 : provider.getColor(stack, tintIndex);},
+				MBBlocks.JUNIPER_LEAVES,
+				MBBlocks.CEDAR_LEAVES
 		);
 	}
 
@@ -144,18 +149,31 @@ public class MBData {
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.ACACIA_BOOKSHELF, 30, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.DARK_OAK_BOOKSHELF, 30, 20);
 
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JACARANDA_PLANKS, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JACARANDA_SLAB, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JACARANDA_STAIRS, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JACARANDA_FENCE, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JACARANDA_FENCE_GATE, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JACARANDA_LOG, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JACARANDA_WOOD, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_JACARANDA_LOG, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_JACARANDA_WOOD, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JACARANDA_BOOKSHELF, 30, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JACARANDA_PANEL, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JACARANDA_LEAVES, 30, 60);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_PLANKS, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_SLAB, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_STAIRS, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_FENCE, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_FENCE_GATE, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_LOG, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_WOOD, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_JUNIPER_LOG, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_JUNIPER_WOOD, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_BOOKSHELF, 30, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_PANEL, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_LEAVES, 30, 60);
+
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_PLANKS, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_SLAB, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_STAIRS, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_FENCE, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_FENCE_GATE, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_LOG, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_WOOD, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_CEDAR_LOG, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_CEDAR_WOOD, 5, 5);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_BOOKSHELF, 30, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_PANEL, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_LEAVES, 30, 60);
 
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.GOLDEN_BIRCH_LEAVES, 30, 60);
 
@@ -190,7 +208,8 @@ public class MBData {
 		FuelRegistry.INSTANCE.add(MBBlocks.JUNGLE_BOOKSHELF, 300);
 		FuelRegistry.INSTANCE.add(MBBlocks.ACACIA_BOOKSHELF, 300);
 		FuelRegistry.INSTANCE.add(MBBlocks.DARK_OAK_BOOKSHELF, 300);
-		FuelRegistry.INSTANCE.add(MBBlocks.JACARANDA_BOOKSHELF, 300);
+		FuelRegistry.INSTANCE.add(MBBlocks.JUNIPER_BOOKSHELF, 300);
+		FuelRegistry.INSTANCE.add(MBBlocks.CEDAR_BOOKSHELF, 300);
 
 		FuelRegistry.INSTANCE.add(MBBlocks.BAMBOO_BUNDLE, 500);
 		FuelRegistry.INSTANCE.add(MBBlocks.STICK_STACK, 1000);

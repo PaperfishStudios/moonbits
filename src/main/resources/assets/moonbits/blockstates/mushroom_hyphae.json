@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "moonbits:block/mushroom_hyphae",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "moonbits:block/mushroom_hyphae"
+    },
+    "axis=z": {
+      "model": "moonbits:block/mushroom_hyphae",
+      "x": 90
+    }
+  }
+}

@@ -38,7 +38,5 @@ public class Moonbits implements ModInitializer {
 		MBData.registerFlammable();
 		MBData.registerFuel();
 		MBData.registerStrippedBlocks();
-		//TreeConfiguredFeatures.HUGE_BROWN_MUSHROOM = MBTreeFeatures.HUGE_BROWN_MUSHROOM;
-		//TreeConfiguredFeatures.HUGE_RED_MUSHROOM = MBTreeFeatures.HUGE_RED_MUSHROOM;
 	}
 }

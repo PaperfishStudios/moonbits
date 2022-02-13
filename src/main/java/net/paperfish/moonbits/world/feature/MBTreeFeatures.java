@@ -63,14 +63,13 @@ public class MBTreeFeatures {
     public static final ConfiguredFeature<TreeFeatureConfig, ?> RED_OAK_BEES_005;
     public static final ConfiguredFeature<TreeFeatureConfig, ?> BIG_RED_OAK;
 
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> JACARANDA;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> JACARANDA_BEES_002;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> JACARANDA_BEES_005;
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> JUNIPER;
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> CEDAR;
 
     public static final ConfiguredFeature<FallenLogConfig, ?> FALLEN_OAK;
     public static final ConfiguredFeature<FallenLogConfig, ?> FALLEN_BIRCH;
     public static final ConfiguredFeature<FallenLogConfig, ?> FALLEN_SPRUCE;
-    public static final ConfiguredFeature<FallenLogConfig, ?> FALLEN_JACARANDA;
+    public static final ConfiguredFeature<FallenLogConfig, ?> FALLEN_JUNIPER;
 
     private static TreeFeatureConfig.Builder treeBuilder(Block log, Block leaves, int baseHeight, int firstRandomHeight, int secondRandomHeight, int radius) {
         return new TreeFeatureConfig.Builder(
@@ -105,8 +104,11 @@ public class MBTreeFeatures {
     private static TreeFeatureConfig.Builder redOak() {
         return treeBuilder(Blocks.DARK_OAK_LOG, MBBlocks.RED_OAK_LEAVES, 4, 2, 0, 2).ignoreVines();
     }
-    private static TreeFeatureConfig.Builder jacaranda() {
-        return treeBuilder(MBBlocks.JACARANDA_LOG, MBBlocks.JACARANDA_LEAVES, 6, 3, 0, 2).ignoreVines();
+    private static TreeFeatureConfig.Builder juniper() {
+        return treeBuilder(MBBlocks.JUNIPER_LOG, MBBlocks.JUNIPER_LEAVES, 6, 3, 0, 2).ignoreVines();
+    }
+    private static TreeFeatureConfig.Builder cedar() {
+        return treeBuilder(MBBlocks.CEDAR_LOG, MBBlocks.CEDAR_LEAVES, 6, 3, 0, 2).ignoreVines();
     }
 
     static {
@@ -169,20 +171,9 @@ public class MBTreeFeatures {
                         )).build()));
 
 
-        JACARANDA = ConfiguredFeatures.register("jacaranda", Feature.TREE.configure(jacaranda().decorators(List.of(
-                new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.JACARANDA_LEAF_CARPET)),
-                new HangingLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.HANGING_JACARANDA_LEAVES))
-        )).build()));
-        JACARANDA_BEES_002 = ConfiguredFeatures.register("jacaranda_bees_002", Feature.TREE.configure(jacaranda().decorators(List.of(
-                new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.JACARANDA_LEAF_CARPET)),
-                new HangingLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.HANGING_JACARANDA_LEAVES)),
-                BEES_002
-        )).build()));
-        JACARANDA_BEES_005 = ConfiguredFeatures.register("jacaranda_bees_005", Feature.TREE.configure(jacaranda().decorators(List.of(
-                new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.JACARANDA_LEAF_CARPET)),
-                new HangingLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.HANGING_JACARANDA_LEAVES)),
-                BEES_005
-        )).build()));
+        JUNIPER = ConfiguredFeatures.register("juniper", Feature.TREE.configure(juniper().build()));
+
+        CEDAR = ConfiguredFeatures.register("cedar", Feature.TREE.configure(cedar().build()));
 
         HUGE_RED_MUSHROOM =
                 ConfiguredFeatures.register("mb_red_mushroom", RED_MUSHROOM_FEATURE.configure(new HugeMushroomFeatureConfig(
@@ -200,6 +191,6 @@ public class MBTreeFeatures {
         FALLEN_OAK = ConfiguredFeatures.register("fallen_oak", FALLEN_LOG.configure(new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(Blocks.OAK_LOG.getDefaultState()))));
         FALLEN_BIRCH = ConfiguredFeatures.register("fallen_birch", FALLEN_LOG.configure(new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(Blocks.BIRCH_LOG.getDefaultState()))));
         FALLEN_SPRUCE = ConfiguredFeatures.register("fallen_spruce", FALLEN_LOG.configure(new FallenLogConfig(UniformIntProvider.create(4, 6), BlockStateProvider.of(Blocks.SPRUCE_LOG.getDefaultState()))));
-        FALLEN_JACARANDA = ConfiguredFeatures.register("fallen_jacaranda", FALLEN_LOG.configure(new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(MBBlocks.JACARANDA_LOG.getDefaultState()))));
+        FALLEN_JUNIPER = ConfiguredFeatures.register("fallen_juniper", FALLEN_LOG.configure(new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(MBBlocks.JUNIPER_LOG.getDefaultState()))));
     }
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/carved_cedar_wood",
+    "side": "moonbits:block/cedar_pillar"
+  }
+}

@@ -14,9 +14,8 @@ public class MBPlacedTreeFeatures {
     public static final PlacedFeature RED_OAK;
     public static final PlacedFeature RED_OAK_BEES_002;
     public static final PlacedFeature RED_OAK_BEES_005;
-    public static final PlacedFeature JACARANDA;
-    public static final PlacedFeature JACARANDA_BEES_002;
-    public static final PlacedFeature JACARANDA_BEES_005;
+    public static final PlacedFeature JUNIPER;
+    public static final PlacedFeature CEDAR;
 
     static {
         GOLDEN_BIRCH = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Moonbits.MOD_ID, "p_golden_birch"),
@@ -33,11 +32,9 @@ public class MBPlacedTreeFeatures {
         RED_OAK_BEES_005 = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Moonbits.MOD_ID, "p_red_oak_005"),
                 MBTreeFeatures.GOLDEN_BIRCH_BEES_005.withWouldSurviveFilter(MBBlocks.RED_OAK_SAPLING));
 
-        JACARANDA = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Moonbits.MOD_ID, "p_jacaranda"),
-                MBTreeFeatures.JACARANDA.withWouldSurviveFilter(MBBlocks.JACARANDA_SAPLING));
-        JACARANDA_BEES_002 = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Moonbits.MOD_ID, "p_jacaranda_002"),
-                MBTreeFeatures.JACARANDA_BEES_002.withWouldSurviveFilter(MBBlocks.JACARANDA_SAPLING));
-        JACARANDA_BEES_005 = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Moonbits.MOD_ID, "p_jacaranda_005"),
-                MBTreeFeatures.JACARANDA_BEES_005.withWouldSurviveFilter(MBBlocks.JACARANDA_SAPLING));
+        JUNIPER = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Moonbits.MOD_ID, "p_juniper"),
+                MBTreeFeatures.JUNIPER.withWouldSurviveFilter(MBBlocks.JUNIPER_SAPLING));
+        CEDAR = Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Moonbits.MOD_ID, "p_cedar"),
+                MBTreeFeatures.CEDAR.withWouldSurviveFilter(MBBlocks.CEDAR_SAPLING));
     }
 }

@@ -18,6 +18,7 @@ import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBItems;
 import net.paperfish.moonbits.Moonbits;
+import net.paperfish.moonbits.block.BarrelCactusBlock;
 import net.paperfish.moonbits.block.PebbleBlock;
 import net.paperfish.moonbits.block.PlanterBoxBlock;
 import net.paperfish.moonbits.block.ToadstoolBlock;
@@ -136,10 +137,22 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerSingleton(MBBlocks.RED_OAK_LEAVES, TexturedModel.LEAVES);
         leafCarpet(MBBlocks.RED_OAK_LEAVES, MBBlocks.RED_OAK_LEAF_CARPET, generator);
 
-        log(MBBlocks.JACARANDA_LOG, MBBlocks.JACARANDA_WOOD, generator);
-        log(MBBlocks.STRIPPED_JACARANDA_LOG, MBBlocks.STRIPPED_JACARANDA_WOOD, generator);
-        flowerPotPlant(MBBlocks.JACARANDA_SAPLING, MBBlocks.POTTED_JACARANDA_SAPLING, TintType.NOT_TINTED, generator);
-        jacaranda(generator);
+        log(MBBlocks.JUNIPER_LOG, MBBlocks.JUNIPER_WOOD, generator);
+        log(MBBlocks.STRIPPED_JUNIPER_LOG, MBBlocks.STRIPPED_JUNIPER_WOOD, generator);
+        flowerPotPlant(MBBlocks.JUNIPER_SAPLING, MBBlocks.POTTED_JUNIPER_SAPLING, TintType.NOT_TINTED, generator);
+        generator.registerSingleton(MBBlocks.JUNIPER_LEAVES, TexturedModel.LEAVES);
+
+        log(MBBlocks.CEDAR_LOG, MBBlocks.CEDAR_WOOD, generator);
+        log(MBBlocks.STRIPPED_CEDAR_LOG, MBBlocks.STRIPPED_CEDAR_WOOD, generator);
+        flowerPotPlant(MBBlocks.CEDAR_SAPLING, MBBlocks.POTTED_CEDAR_SAPLING, TintType.NOT_TINTED, generator);
+        generator.registerSingleton(MBBlocks.CEDAR_LEAVES, TexturedModel.LEAVES);
+
+        barrelCactus(generator);
+
+//        log(MBBlocks.JACARANDA_LOG, MBBlocks.JACARANDA_WOOD, generator);
+//        log(MBBlocks.STRIPPED_JACARANDA_LOG, MBBlocks.STRIPPED_JACARANDA_WOOD, generator);
+//        flowerPotPlant(MBBlocks.JACARANDA_SAPLING, MBBlocks.POTTED_JACARANDA_SAPLING, TintType.NOT_TINTED, generator);
+//        jacaranda(generator);
 
         // foragin :3
         tintableCross(MBBlocks.WILD_POTATOES, TintType.NOT_TINTED, generator);
@@ -259,9 +272,6 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         blazeRod(generator);
         wallLantern(MBBlocks.WALL_LANTERN, Blocks.LANTERN, generator);
         wallLantern(MBBlocks.WALL_SOUL_LANTERN, Blocks.SOUL_LANTERN, generator);
-
-        // these are just dummy bc i dont actually care to make generator stuff for em right now
-        generator.registerSingleton(MBBlocks.AZALEA_STEM, TexturedModel.PARTICLE);
 
         for (Item mbItem : MBItems.MB_EGGS) {
             generator.registerParentedItemModel(mbItem, ModelIds.getMinecraftNamespacedItem("template_spawn_egg"));
@@ -397,6 +407,15 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
                 .register(4, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/four_pebbles"))))
         ));
     }
+    public static void barrelCactus(BlockStateModelGenerator generator) {
+        generator.registerParentedItemModel(MBBlocks.BARREL_CACTUS, new Identifier(Moonbits.MOD_ID, "block/barrel_cactus_tiny"));
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.BARREL_CACTUS).coordinate(BlockStateVariantMap.create(BarrelCactusBlock.LEVEL)
+                .register(1, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/barrel_cactus_tiny"))))
+                .register(2, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/barrel_cactus_small"))))
+                .register(3, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/barrel_cactus_medium"))))
+                .register(4, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/barrel_cactus_large"))))
+        ));
+    }
     public static void blazeRod(BlockStateModelGenerator generator) {
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.BLAZE_ROD).coordinate(BlockStateVariantMap.create(Properties.FACING)
                 .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/blaze_rod")))
@@ -471,16 +490,16 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
                         .put(VariantSettings.Y, VariantSettings.Rotation.R90))
         ));
     }
-    public static void jacaranda(BlockStateModelGenerator generator) {
-        generator.registerParentedItemModel(MBBlocks.JACARANDA_LEAVES, new Identifier(Moonbits.MOD_ID, "block/jacaranda_leaves"));
-        generator.registerParentedItemModel(MBBlocks.JACARANDA_LEAF_CARPET, new Identifier(Moonbits.MOD_ID, "block/jacaranda_leaf_carpet"));
-        generator.registerItemModel(MBBlocks.HANGING_JACARANDA_LEAVES);
-        generator.registerItemModel(MBBlocks.HANGING_JACARANDA_LEAVES_PLANT);
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.JACARANDA_LEAVES, new Identifier(Moonbits.MOD_ID, "block/jacaranda_leaves")));
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.JACARANDA_LEAF_CARPET, new Identifier(Moonbits.MOD_ID, "block/jacaranda_leaf_carpet")));
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.HANGING_JACARANDA_LEAVES, new Identifier(Moonbits.MOD_ID, "block/hanging_jacaranda_leaves")));
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.HANGING_JACARANDA_LEAVES_PLANT, new Identifier(Moonbits.MOD_ID, "block/hanging_jacaranda_leaves_plant")));
-    }
+//    public static void jacaranda(BlockStateModelGenerator generator) {
+//        generator.registerParentedItemModel(MBBlocks.JACARANDA_LEAVES, new Identifier(Moonbits.MOD_ID, "block/jacaranda_leaves"));
+//        generator.registerParentedItemModel(MBBlocks.JACARANDA_LEAF_CARPET, new Identifier(Moonbits.MOD_ID, "block/jacaranda_leaf_carpet"));
+//        generator.registerItemModel(MBBlocks.HANGING_JACARANDA_LEAVES);
+//        generator.registerItemModel(MBBlocks.HANGING_JACARANDA_LEAVES_PLANT);
+//        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.JACARANDA_LEAVES, new Identifier(Moonbits.MOD_ID, "block/jacaranda_leaves")));
+//        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.JACARANDA_LEAF_CARPET, new Identifier(Moonbits.MOD_ID, "block/jacaranda_leaf_carpet")));
+//        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.HANGING_JACARANDA_LEAVES, new Identifier(Moonbits.MOD_ID, "block/hanging_jacaranda_leaves")));
+//        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.HANGING_JACARANDA_LEAVES_PLANT, new Identifier(Moonbits.MOD_ID, "block/hanging_jacaranda_leaves_plant")));
+//    }
     public final void redBrownMushrooms(BlockStateModelGenerator generator) {
         Identifier identifier = Models.TEMPLATE_SINGLE_FACE.upload(MBBlocks.RED_MUSHROOM_CAP, Texture.texture(Blocks.RED_MUSHROOM_BLOCK), generator.modelCollector);
         Identifier identifier2 = ModelIds.getMinecraftNamespacedBlock("mushroom_block_inside");

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/cedar_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/cedar_planks"
+    },
+    "type=top": {
+      "model": "moonbits:block/cedar_slab_top"
+    }
+  }
+}

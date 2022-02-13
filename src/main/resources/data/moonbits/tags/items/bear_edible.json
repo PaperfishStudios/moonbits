@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#moonbits:bear_likes",
+    "minecraft:cooked_salmon",
+    "minecraft:cod",
+    "minecraft:cooked_cod",
+    "minecraft:beef",
+    "minecraft:cooked_beef"
+  ]
+}

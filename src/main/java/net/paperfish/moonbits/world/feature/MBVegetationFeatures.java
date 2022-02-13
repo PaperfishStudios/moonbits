@@ -51,7 +51,6 @@ public class MBVegetationFeatures {
 
     public static final ConfiguredFeature<RandomFeatureConfig, ?> GBF_TREES;
 
-    public static final ConfiguredFeature<RandomFeatureConfig, ?> MBFF_TREES;
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> MBFF_FLOWERS;
     public static final List<BlockState> MBFF_FLOWER_LIST;
     public static final ConfiguredFeature<RandomPatchFeatureConfig, ?> MB_MEADOW_FLOWERS;
@@ -191,13 +190,6 @@ public class MBVegetationFeatures {
                         MBPlacedTreeFeatures.GOLDEN_BIRCH_BEES_005
                 )));
 
-        MBFF_TREES = ConfiguredFeatures.register("mbff_trees", Feature.RANDOM_SELECTOR.configure(
-                new RandomFeatureConfig(List.of(
-                        new RandomFeatureEntry(TreePlacedFeatures.BIRCH_BEES_002, 0.8F),
-                        new RandomFeatureEntry(TreePlacedFeatures.OAK_BEES_002, 0.4F),
-                        new RandomFeatureEntry(TreePlacedFeatures.FANCY_OAK_BEES_002, 0.1F)),
-                        MBPlacedTreeFeatures.JACARANDA_BEES_005
-                )));
         MBFF_FLOWERS = ConfiguredFeatures.register("mbff_flowers", Feature.FLOWER.configure(new RandomPatchFeatureConfig(96, 6, 2, () -> {
             return Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(new NoiseBlockStateProvider(2345L,
                             new DoublePerlinNoiseSampler.NoiseParameters(0, 1.0D, new double[0]), 0.020833334F, MBFF_FLOWER_LIST)))

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#moonbits:jacaranda_logs"
+    "#moonbits:juniper_logs",
+    "#moonbits:cedar_logs"
   ]
 }

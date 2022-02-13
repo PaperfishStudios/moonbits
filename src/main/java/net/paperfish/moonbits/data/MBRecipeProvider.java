@@ -265,6 +265,14 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         POLISH.forEach((polished, brick) -> bricksRecipe(exporter, polished, brick));
         STORAGE.forEach((item, storage) -> compact(exporter, item, storage));
 
+        RecipesProvider.offerBarkBlockRecipe(exporter, MBBlocks.JUNIPER_LOG, MBBlocks.STRIPPED_JUNIPER_LOG);
+        RecipesProvider.offerBarkBlockRecipe(exporter, MBBlocks.JUNIPER_WOOD, MBBlocks.STRIPPED_JUNIPER_WOOD);
+        RecipesProvider.offerBarkBlockRecipe(exporter, MBBlocks.CEDAR_LOG, MBBlocks.STRIPPED_CEDAR_LOG);
+        RecipesProvider.offerBarkBlockRecipe(exporter, MBBlocks.CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_WOOD);
+
+        RecipesProvider.offerBarkBlockRecipe(exporter, MBBlocks.MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_STEM);
+        RecipesProvider.offerBarkBlockRecipe(exporter, MBBlocks.MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_HYPHAE);
+
         crossRecipe(exporter, Items.RED_MUSHROOM, Items.BONE_MEAL, MBItems.RED_MUSHBLEND, 4);
         crossRecipe(exporter, Items.BROWN_MUSHROOM, Items.BONE_MEAL, MBItems.BROWN_MUSHBLEND, 4);
         crossRecipe(exporter, MBBlocks.SAFFRON_MUSHROOM, Items.BONE_MEAL, MBItems.SAFFRON_MUSHBLEND, 4);
@@ -311,7 +319,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         condense(exporter, MBItems.PUMPKIN_SLICE, Items.PUMPKIN);
         condense(exporter, MBItems.LETTUCE_LEAF, MBBlocks.LETTUCE_BLOCK);
 
-        ShapelessRecipeJsonFactory.create(Items.MUSHROOM_STEM)
+        ShapelessRecipeJsonFactory.create(Items.MUSHROOM_STEW)
                 .input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.EDIBLE_MUSHROOMS).input(Items.BOWL)
                 .criterion("has_mushroom", RecipesProvider.conditionsFromTag(MBItemTags.EDIBLE_MUSHROOMS))
                 .offerTo(exporter);
@@ -334,6 +342,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .criterion("tame_animal", TameAnimalCriterion.Conditions.any()).offerTo(exporter);
 
         campfire(exporter, Items.STICK, Items.TORCH, 0.1f, 600);
+        campfire(exporter, Items.WET_SPONGE, Items.SPONGE, 0f, 600);
 
         ShapedRecipeJsonFactory.create(Blocks.PODZOL, 4).input('D', Blocks.DIRT).input('G', Blocks.SAND)
                 .pattern("DG").pattern("GD")

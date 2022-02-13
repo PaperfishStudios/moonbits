@@ -12,7 +12,6 @@
     "ClientRecipeBookMixin",
     "CocoaPodMixin",
     "ConfiguredFeaturesMixin",
-    "CreeperMixin",
     "CriteriaAccessor",
     "CropBlockMixin",
     "EnchantingTableBlockMixin",

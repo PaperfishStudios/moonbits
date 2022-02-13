@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:juniper_pillar"
+    ]
+  },
+  "criteria": {
+    "has_carved_juniper_wood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:carved_juniper_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:juniper_pillar"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_carved_juniper_wood",
+      "has_the_recipe"
+    ]
+  ]
+}

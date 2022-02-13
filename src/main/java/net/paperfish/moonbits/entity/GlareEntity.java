@@ -27,6 +27,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.paperfish.moonbits.MBData;
+import net.paperfish.moonbits.MBItemTags;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -76,7 +77,7 @@ public class GlareEntity extends PassiveEntity implements IAnimatable {
     }
 
     protected void initGoals() {
-        goalSelector.add(1, new TemptGoal(this, 1.25, Ingredient.fromTag(MBData.GLARE_LIKES), false));
+        goalSelector.add(1, new TemptGoal(this, 1.25, Ingredient.fromTag(MBItemTags.GLARE_LIKES), false));
         this.tantrumGoal = new TantrumGoal();
         goalSelector.add(2, this.tantrumGoal);
         this.moveToDarknessGoal = new MoveToDarknessGoal();
