@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B",
+    "B#"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:saffron_mushroom"
+    },
+    "B": {
+      "item": "minecraft:bone_meal"
+    }
+  },
+  "result": {
+    "item": "moonbits:saffron_mushblend",
+    "count": 4
+  }
+}

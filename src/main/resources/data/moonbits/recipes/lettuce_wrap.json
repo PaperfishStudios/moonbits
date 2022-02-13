@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:lettuce_leaf"
+    },
+    {
+      "item": "moonbits:lettuce_leaf"
+    },
+    {
+      "item": "minecraft:cooked_chicken"
+    }
+  ],
+  "result": {
+    "item": "moonbits:lettuce_wrap"
+  }
+}

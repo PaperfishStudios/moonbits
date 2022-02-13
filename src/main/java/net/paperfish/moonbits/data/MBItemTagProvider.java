@@ -2,10 +2,12 @@ package net.paperfish.moonbits.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.item.Items;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
 import net.paperfish.moonbits.MBBlockTags;
 import net.paperfish.moonbits.MBItemTags;
+import net.paperfish.moonbits.MBItems;
 import org.jetbrains.annotations.Nullable;
 
 public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
@@ -69,5 +71,11 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
         copy(BlockTags.NON_FLAMMABLE_WOOD, ItemTags.NON_FLAMMABLE_WOOD);
 
         copy(MBBlockTags.JACARANDA_LOGS, MBItemTags.JACARANDA_LOGS);
+
+        copy(MBBlockTags.EDIBLE_MUSHROOMS, MBItemTags.EDIBLE_MUSHROOMS);
+        copy(MBBlockTags.MUSHROOMS, MBItemTags.MUSHROOMS);
+
+        getOrCreateTagBuilder(MBItemTags.BEAR_LIKES).add(Items.SALMON, Items.SALMON_BUCKET, Items.HONEY_BOTTLE, Items.HONEYCOMB, MBItems.HONEY_BUN);
+        getOrCreateTagBuilder(MBItemTags.BEAR_EDIBLE).addTag(MBItemTags.BEAR_LIKES).add(Items.COOKED_SALMON, Items.COD, Items.COOKED_COD, Items.BEEF, Items.COOKED_BEEF);
     }
 }

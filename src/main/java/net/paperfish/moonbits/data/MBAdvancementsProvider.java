@@ -33,6 +33,7 @@ import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBEntities;
 import net.paperfish.moonbits.MBItems;
 import net.paperfish.moonbits.Moonbits;
+import net.paperfish.moonbits.advancement.ItemWashedCriterion;
 
 import java.util.function.Consumer;
 
@@ -306,10 +307,39 @@ public class MBAdvancementsProvider extends FabricAdvancementsProvider {
                         new TranslatableText("advancements.architect.root.description"),
                         new Identifier(Moonbits.MOD_ID, "textures/gui/advancements/backgrounds/architect.png"), AdvancementFrame.TASK, false, false, false)
                 .criterion("crafting_table", InventoryChangedCriterion.Conditions.items(Blocks.CRAFTING_TABLE)).build(consumer, "architect/root");
+        Advancement wrench = Advancement.Task.create().parent(root).display(MBItems.WRENCH,
+                        new TranslatableText("advancements.architect.wrench.title"),
+                        new TranslatableText("advancements.architect.wrench.description"), null, AdvancementFrame.TASK, true, true, false)
+                .criterion("wrench", InventoryChangedCriterion.Conditions.items(MBItems.WRENCH)).build(consumer, "architect/wrench");
+        Advancement glazed_terracotta = Advancement.Task.create().parent(wrench).display(Blocks.WHITE_GLAZED_TERRACOTTA,
+                        new TranslatableText("advancements.architect.glazed_terracotta.title"),
+                        new TranslatableText("advancements.architect.glazed_terracotta.description"), null, AdvancementFrame.TASK, true, true, false)
+                .criterion("glazed_terracotta", ItemWashedCriterion.Conditions.items(
+                        Blocks.WHITE_GLAZED_TERRACOTTA, Blocks.LIGHT_GRAY_GLAZED_TERRACOTTA, Blocks.GRAY_GLAZED_TERRACOTTA, Blocks.BLACK_GLAZED_TERRACOTTA,
+                        Blocks.GREEN_GLAZED_TERRACOTTA, Blocks.LIME_GLAZED_TERRACOTTA, Blocks.YELLOW_GLAZED_TERRACOTTA, Blocks.ORANGE_GLAZED_TERRACOTTA,
+                        Blocks.BROWN_GLAZED_TERRACOTTA, Blocks.RED_GLAZED_TERRACOTTA, Blocks.PINK_GLAZED_TERRACOTTA, Blocks.MAGENTA_GLAZED_TERRACOTTA,
+                        Blocks.PURPLE_GLAZED_TERRACOTTA, Blocks.LIGHT_BLUE_GLAZED_TERRACOTTA, Blocks.CYAN_GLAZED_TERRACOTTA, Blocks.BLUE_GLAZED_TERRACOTTA)).build(consumer, "architect/glazed_terracotta");
+        Advancement wash_concrete = Advancement.Task.create().parent(root).display(Blocks.WHITE_CONCRETE,
+                        new TranslatableText("advancements.architect.wash_concrete.title"),
+                        new TranslatableText("advancements.architect.wash_concrete.description"), null, AdvancementFrame.TASK, true, true, false)
+                .criterion("wash_concrete", InventoryChangedCriterion.Conditions.items(
+                        Blocks.WHITE_CONCRETE, Blocks.LIGHT_GRAY_CONCRETE, Blocks.GRAY_CONCRETE, Blocks.BLACK_CONCRETE,
+                        Blocks.GREEN_CONCRETE, Blocks.LIME_CONCRETE, Blocks.YELLOW_CONCRETE, Blocks.ORANGE_CONCRETE,
+                        Blocks.BROWN_CONCRETE, Blocks.RED_CONCRETE, Blocks.PINK_CONCRETE, Blocks.MAGENTA_CONCRETE,
+                        Blocks.PURPLE_CONCRETE, Blocks.LIGHT_BLUE_CONCRETE, Blocks.CYAN_CONCRETE, Blocks.BLUE_CONCRETE)).build(consumer, "architect/wash_concrete");
+        Advancement stonecutter = Advancement.Task.create().parent(root).display(Blocks.STONECUTTER,
+                        new TranslatableText("advancements.architect.stonecutter.title"),
+                        new TranslatableText("advancements.architect.stonecutter.description"), null, AdvancementFrame.TASK, true, true, false)
+                .criterion("stonecutter", InventoryChangedCriterion.Conditions.items(Blocks.STONECUTTER)).build(consumer, "architect/stonecutter");
         Advancement kiln = Advancement.Task.create().parent(root).display(MBBlocks.KILN,
                         new TranslatableText("advancements.architect.kiln.title"),
                         new TranslatableText("advancements.architect.kiln.description"), null, AdvancementFrame.TASK, true, true, false)
                 .criterion("kiln", InventoryChangedCriterion.Conditions.items(MBBlocks.KILN)).build(consumer, "architect/kiln");
+        Advancement mushblock = Advancement.Task.create().parent(kiln).display(MBItems.RED_MUSHBLEND,
+                        new TranslatableText("advancements.architect.mushblock.title"),
+                        new TranslatableText("advancements.architect.mushblock.description"), null, AdvancementFrame.TASK, true, true, false)
+                .criterion("kiln", InventoryChangedCriterion.Conditions.items(
+                        MBBlocks.RED_MUSH_BLOCK, MBBlocks.BROWN_MUSH_BLOCK, MBBlocks.TOADSTOOL_MUSH_BLOCK, MBBlocks.SAFFRON_MUSH_BLOCK)).build(consumer, "architect/mushblock");
     }
     public void redstone(Consumer<Advancement> consumer) {
         Advancement root = Advancement.Task.create().display(Items.REDSTONE,

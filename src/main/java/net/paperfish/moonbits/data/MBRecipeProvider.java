@@ -19,6 +19,7 @@ import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.*;
+import net.paperfish.moonbits.recipe.WashingRecipeJsonFactory;
 import net.paperfish.moonbits.registry.MBBlockFamilies;
 import net.paperfish.moonbits.registry.MBBlockFamily;
 
@@ -77,55 +78,6 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         VARIANT_FACTORIES.put(MBBlockFamily.Variant.POLISHED, (output, input) -> RecipesProvider.createCondensingRecipe(output, Ingredient.ofItems(input)));
         VARIANT_FACTORIES.put(MBBlockFamily.Variant.TRAPDOOR, (output, input) -> RecipesProvider.createTrapdoorRecipe(output, Ingredient.ofItems(input)));
         VARIANT_FACTORIES.put(MBBlockFamily.Variant.WALL, (output, input) -> RecipesProvider.getWallRecipe(output, Ingredient.ofItems(input)));
-
-        PARTS_SET.putAll(Map.of(
-                MBBlocks.TOUGH_DIRT, List.of(MBBlocks.TOUGH_DIRT_SLAB, MBBlocks.TOUGH_DIRT_STAIRS),
-                MBBlocks.DIRT_BRICKS, List.of(MBBlocks.DIRT_BRICK_SLAB, MBBlocks.DIRT_BRICK_STAIRS),
-                MBBlocks.PEAT_BRICKS, List.of(MBBlocks.PEAT_BRICK_SLAB, MBBlocks.PEAT_BRICK_STAIRS, MBBlocks.PEAT_BRICK_WALL)
-        )); PARTS_SET.putAll(Map.of(
-                MBBlocks.JACARANDA_PLANKS, List.of(MBBlocks.JACARANDA_SLAB, MBBlocks.JACARANDA_STAIRS, MBBlocks.JACARANDA_FENCE, MBBlocks.JACARANDA_FENCE_GATE),
-                MBBlocks.HONEY_PLANKS, List.of(MBBlocks.HONEY_SLAB, MBBlocks.HONEY_STAIRS, MBBlocks.HONEY_FENCE, MBBlocks.HONEY_FENCE_GATE)
-        )); PARTS_SET.putAll(Map.of(
-                Blocks.HONEYCOMB_BLOCK, List.of(MBBlocks.HONEYCOMB_SLAB, MBBlocks.HONEYCOMB_STAIRS, MBBlocks.HONEYCOMB_WALL),
-                MBBlocks.HONEYCOMB_BRICKS, List.of(MBBlocks.HONEYCOMB_BRICK_SLAB, MBBlocks.HONEYCOMB_BRICK_STAIRS, MBBlocks.HONEYCOMB_BRICK_WALL),
-                MBBlocks.HONEYCOMB_TILES, List.of(MBBlocks.HONEYCOMB_TILE_SLAB, MBBlocks.HONEYCOMB_TILE_STAIRS, MBBlocks.HONEYCOMB_TILE_WALL)
-        )); PARTS_SET.putAll(Map.of(
-                MBBlocks.STONE_TILES, List.of(MBBlocks.STONE_TILE_SLAB, MBBlocks.STONE_TILE_STAIRS, MBBlocks.STONE_TILE_WALL),
-                MBBlocks.CRACKED_STONE_TILES, List.of(MBBlocks.CRACKED_STONE_TILE_SLAB, MBBlocks.CRACKED_STONE_TILE_STAIRS, MBBlocks.CRACKED_STONE_TILE_WALL),
-                MBBlocks.MOSSY_STONE_TILES, List.of(MBBlocks.MOSSY_STONE_TILE_SLAB, MBBlocks.MOSSY_STONE_TILE_STAIRS, MBBlocks.MOSSY_STONE_TILE_WALL),
-                MBBlocks.ANDESITE_BRICKS, List.of(MBBlocks.ANDESITE_BRICK_SLAB, MBBlocks.ANDESITE_BRICK_STAIRS, MBBlocks.ANDESITE_BRICK_WALL),
-                MBBlocks.CRACKED_ANDESITE_BRICKS, List.of(MBBlocks.CRACKED_ANDESITE_BRICK_SLAB, MBBlocks.CRACKED_ANDESITE_BRICK_STAIRS, MBBlocks.CRACKED_ANDESITE_BRICK_WALL),
-                MBBlocks.MOSSY_ANDESITE_BRICKS, List.of(MBBlocks.MOSSY_ANDESITE_BRICK_SLAB, MBBlocks.MOSSY_ANDESITE_BRICK_STAIRS, MBBlocks.MOSSY_ANDESITE_BRICK_WALL),
-                MBBlocks.ANDESITE_TILES, List.of(MBBlocks.ANDESITE_TILE_SLAB, MBBlocks.ANDESITE_TILE_STAIRS, MBBlocks.ANDESITE_TILE_WALL),
-                MBBlocks.CRACKED_ANDESITE_TILES, List.of(MBBlocks.CRACKED_ANDESITE_TILE_SLAB, MBBlocks.CRACKED_ANDESITE_TILE_STAIRS, MBBlocks.CRACKED_ANDESITE_TILE_WALL),
-                MBBlocks.MOSSY_ANDESITE_TILES, List.of(MBBlocks.MOSSY_ANDESITE_TILE_SLAB, MBBlocks.MOSSY_ANDESITE_TILE_STAIRS, MBBlocks.MOSSY_ANDESITE_TILE_WALL)
-        )); PARTS_SET.putAll(Map.of(
-                MBBlocks.DIORITE_BRICKS, List.of(MBBlocks.DIORITE_BRICK_SLAB, MBBlocks.DIORITE_BRICK_STAIRS, MBBlocks.DIORITE_BRICK_WALL),
-                MBBlocks.CRACKED_DIORITE_BRICKS, List.of(MBBlocks.CRACKED_DIORITE_BRICK_SLAB, MBBlocks.CRACKED_DIORITE_BRICK_STAIRS, MBBlocks.CRACKED_DIORITE_BRICK_WALL),
-                MBBlocks.MOSSY_DIORITE_BRICKS, List.of(MBBlocks.MOSSY_DIORITE_BRICK_SLAB, MBBlocks.MOSSY_DIORITE_BRICK_STAIRS, MBBlocks.MOSSY_DIORITE_BRICK_WALL),
-                MBBlocks.DIORITE_TILES, List.of(MBBlocks.DIORITE_TILE_SLAB, MBBlocks.DIORITE_TILE_STAIRS, MBBlocks.DIORITE_TILE_WALL),
-                MBBlocks.CRACKED_DIORITE_TILES, List.of(MBBlocks.CRACKED_DIORITE_TILE_SLAB, MBBlocks.CRACKED_DIORITE_TILE_STAIRS, MBBlocks.CRACKED_DIORITE_TILE_WALL),
-                MBBlocks.MOSSY_DIORITE_TILES, List.of(MBBlocks.MOSSY_DIORITE_TILE_SLAB, MBBlocks.MOSSY_DIORITE_TILE_STAIRS, MBBlocks.MOSSY_DIORITE_TILE_WALL)
-        )); PARTS_SET.putAll(Map.of(
-                MBBlocks.GRANITE_BRICKS, List.of(MBBlocks.GRANITE_BRICK_SLAB, MBBlocks.GRANITE_BRICK_STAIRS, MBBlocks.GRANITE_BRICK_WALL),
-                MBBlocks.CRACKED_GRANITE_BRICKS, List.of(MBBlocks.CRACKED_GRANITE_BRICK_SLAB, MBBlocks.CRACKED_GRANITE_BRICK_STAIRS, MBBlocks.CRACKED_GRANITE_BRICK_WALL),
-                MBBlocks.MOSSY_GRANITE_BRICKS, List.of(MBBlocks.MOSSY_GRANITE_BRICK_SLAB, MBBlocks.MOSSY_GRANITE_BRICK_STAIRS, MBBlocks.MOSSY_GRANITE_BRICK_WALL),
-                MBBlocks.GRANITE_TILES, List.of(MBBlocks.GRANITE_TILE_SLAB, MBBlocks.GRANITE_TILE_STAIRS, MBBlocks.GRANITE_TILE_WALL),
-                MBBlocks.CRACKED_GRANITE_TILES, List.of(MBBlocks.CRACKED_GRANITE_TILE_SLAB, MBBlocks.CRACKED_GRANITE_TILE_STAIRS, MBBlocks.CRACKED_GRANITE_TILE_WALL),
-                MBBlocks.MOSSY_GRANITE_TILES, List.of(MBBlocks.MOSSY_GRANITE_TILE_SLAB, MBBlocks.MOSSY_GRANITE_TILE_STAIRS, MBBlocks.MOSSY_GRANITE_TILE_WALL)
-        )); PARTS_SET.putAll(Map.of(
-                MBBlocks.SANDSTONE_BRICKS, List.of(MBBlocks.SANDSTONE_BRICK_SLAB, MBBlocks.SANDSTONE_BRICK_STAIRS, MBBlocks.SANDSTONE_BRICK_WALL),
-                MBBlocks.CRACKED_SANDSTONE_BRICKS, List.of(MBBlocks.CRACKED_SANDSTONE_BRICK_SLAB, MBBlocks.CRACKED_SANDSTONE_BRICK_STAIRS, MBBlocks.CRACKED_SANDSTONE_BRICK_WALL),
-                MBBlocks.SANDSTONE_TILES, List.of(MBBlocks.SANDSTONE_TILE_SLAB, MBBlocks.SANDSTONE_TILE_STAIRS, MBBlocks.SANDSTONE_TILE_WALL),
-                MBBlocks.CRACKED_SANDSTONE_TILES, List.of(MBBlocks.CRACKED_SANDSTONE_TILE_SLAB, MBBlocks.CRACKED_SANDSTONE_TILE_STAIRS, MBBlocks.CRACKED_SANDSTONE_TILE_WALL),
-                MBBlocks.RED_SANDSTONE_BRICKS, List.of(MBBlocks.RED_SANDSTONE_BRICK_SLAB, MBBlocks.RED_SANDSTONE_BRICK_STAIRS, MBBlocks.RED_SANDSTONE_BRICK_WALL),
-                MBBlocks.CRACKED_RED_SANDSTONE_BRICKS, List.of(MBBlocks.CRACKED_RED_SANDSTONE_BRICK_SLAB, MBBlocks.CRACKED_RED_SANDSTONE_BRICK_STAIRS, MBBlocks.CRACKED_RED_SANDSTONE_BRICK_WALL),
-                MBBlocks.RED_SANDSTONE_TILES, List.of(MBBlocks.RED_SANDSTONE_TILE_SLAB, MBBlocks.RED_SANDSTONE_TILE_STAIRS, MBBlocks.RED_SANDSTONE_TILE_WALL),
-                MBBlocks.CRACKED_RED_SANDSTONE_TILES, List.of(MBBlocks.CRACKED_RED_SANDSTONE_TILE_SLAB, MBBlocks.CRACKED_RED_SANDSTONE_TILE_STAIRS, MBBlocks.CRACKED_RED_SANDSTONE_TILE_WALL)
-        )); PARTS_SET.putAll(Map.of(
-                MBBlocks.POLISHED_PRISMARINE, List.of(MBBlocks.POLISHED_PRISMARINE_SLAB, MBBlocks.POLISHED_PRISMARINE_STAIRS, MBBlocks.POLISHED_PRISMARINE_WALL),
-                MBBlocks.PRISMARINE_TILES, List.of(MBBlocks.PRISMARINE_TILE_SLAB, MBBlocks.PRISMARINE_TILE_STAIRS, MBBlocks.PRISMARINE_TILE_WALL)
-        ));
 
         TRANSMUTE.putAll(Map.of(
                 List.of(MBBlocks.BUTTERCUP, Items.YELLOW_DYE), 1,
@@ -227,8 +179,8 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         FIRING.put(MBBlocks.RED_SANDSTONE_TILES, MBBlocks.CRACKED_RED_SANDSTONE_TILES);
 
         CUTTING.putAll(Map.of(
-                Blocks.STONE, List.of(Blocks.COBBLESTONE, Blocks.COBBLESTONE_SLAB, Blocks.COBBLESTONE_STAIRS, Blocks.COBBLESTONE_WALL),
-                Blocks.DEEPSLATE, List.of(Blocks.COBBLED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE_SLAB, Blocks.COBBLED_DEEPSLATE_STAIRS, Blocks.COBBLED_DEEPSLATE_WALL)
+                Blocks.STONE, List.of(Blocks.COBBLESTONE, Blocks.COBBLESTONE_SLAB, Blocks.COBBLESTONE_STAIRS, Blocks.COBBLESTONE_WALL)
+                //Blocks.DEEPSLATE, List.of(Blocks.COBBLED_DEEPSLATE, Blocks.COBBLED_DEEPSLATE_SLAB, Blocks.COBBLED_DEEPSLATE_STAIRS, Blocks.COBBLED_DEEPSLATE_WALL)
         ));
     }
 
@@ -281,7 +233,22 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         firing(exporter, Blocks.BASALT, Blocks.SMOOTH_BASALT, 0.1F, DEFAULT_FIRE_TIME);
         firing(exporter, Blocks.COBBLED_DEEPSLATE, Blocks.DEEPSLATE, 0.1F, DEFAULT_FIRE_TIME);
 
-
+        washing(exporter, Blocks.WHITE_CONCRETE_POWDER, Blocks.WHITE_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.LIGHT_GRAY_CONCRETE_POWDER, Blocks.LIGHT_GRAY_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.GRAY_CONCRETE_POWDER, Blocks.GRAY_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.BLACK_CONCRETE_POWDER, Blocks.BLACK_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.GREEN_CONCRETE_POWDER, Blocks.GREEN_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.LIME_CONCRETE_POWDER, Blocks.LIME_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.YELLOW_CONCRETE_POWDER, Blocks.YELLOW_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.ORANGE_CONCRETE_POWDER, Blocks.ORANGE_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.BROWN_CONCRETE_POWDER, Blocks.BROWN_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.RED_CONCRETE_POWDER, Blocks.RED_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.PINK_CONCRETE_POWDER, Blocks.PINK_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.MAGENTA_CONCRETE_POWDER, Blocks.MAGENTA_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.PURPLE_CONCRETE_POWDER, Blocks.PURPLE_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.LIGHT_BLUE_CONCRETE_POWDER, Blocks.LIGHT_BLUE_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.CYAN_CONCRETE_POWDER, Blocks.CYAN_CONCRETE, Blocks.WATER_CAULDRON);
+        washing(exporter, Blocks.BLUE_CONCRETE_POWDER, Blocks.BLUE_CONCRETE, Blocks.WATER_CAULDRON);
 
         CUTTING.forEach((in, out) -> {
             out.forEach((output) -> {
@@ -298,6 +265,14 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         POLISH.forEach((polished, brick) -> bricksRecipe(exporter, polished, brick));
         STORAGE.forEach((item, storage) -> compact(exporter, item, storage));
 
+        crossRecipe(exporter, Items.RED_MUSHROOM, Items.BONE_MEAL, MBItems.RED_MUSHBLEND, 4);
+        crossRecipe(exporter, Items.BROWN_MUSHROOM, Items.BONE_MEAL, MBItems.BROWN_MUSHBLEND, 4);
+        crossRecipe(exporter, MBBlocks.SAFFRON_MUSHROOM, Items.BONE_MEAL, MBItems.SAFFRON_MUSHBLEND, 4);
+        crossRecipe(exporter, MBBlocks.SMALL_TOADSTOOLS, Items.BONE_MEAL, MBItems.TOADSTOOL_MUSHBLEND, 4);
+        firing(exporter, MBItems.RED_MUSHBLEND, MBBlocks.RED_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
+        firing(exporter, MBItems.BROWN_MUSHBLEND, MBBlocks.BROWN_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
+        firing(exporter, MBItems.SAFFRON_MUSHBLEND, MBBlocks.TOADSTOOL_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
+        firing(exporter, MBItems.TOADSTOOL_MUSHBLEND, MBBlocks.SAFFRON_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
         insetRecipe(exporter, MBBlocks.RED_MUSH_BLOCK, MBBlocks.LAMPROOT, MBBlocks.RED_MUSH_LAMP);
         insetRecipe(exporter, MBBlocks.BROWN_MUSH_BLOCK, MBBlocks.LAMPROOT, MBBlocks.BROWN_MUSH_LAMP);
         insetRecipe(exporter, MBBlocks.TOADSTOOL_MUSH_BLOCK, MBBlocks.LAMPROOT, MBBlocks.TOADSTOOL_MUSH_LAMP);
@@ -333,6 +308,17 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .criterion(RecipesProvider.hasItem(Items.LEATHER), RecipesProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
 
         campfire(exporter, Items.SWEET_BERRIES, MBItems.ROASTED_BERRIES, 0.1f,50);
+        condense(exporter, MBItems.PUMPKIN_SLICE, Items.PUMPKIN);
+        condense(exporter, MBItems.LETTUCE_LEAF, MBBlocks.LETTUCE_BLOCK);
+
+        ShapelessRecipeJsonFactory.create(Items.MUSHROOM_STEM)
+                .input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.EDIBLE_MUSHROOMS).input(Items.BOWL)
+                .criterion("has_mushroom", RecipesProvider.conditionsFromTag(MBItemTags.EDIBLE_MUSHROOMS))
+                .offerTo(exporter);
+        ShapelessRecipeJsonFactory.create(MBItems.LETTUCE_WRAP)
+                .input(MBItems.LETTUCE_LEAF).input(MBItems.LETTUCE_LEAF).input(Items.COOKED_CHICKEN)
+                .criterion("has_lettuce", RecipesProvider.conditionsFromItem(MBItems.LETTUCE_LEAF))
+                .offerTo(exporter);
 
         ShapedRecipeJsonFactory.create(MBItems.GLOW_BERRY_TART, 8)
                 .input('G', Items.GLOW_BERRIES).input('E', Items.EGG).input('W', Items.WHEAT).input('S', Items.SUGAR)
@@ -476,6 +462,12 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input)).offerTo(exporter);
     }
 
+    public static void crossRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible inputB, ItemConvertible output, int count) {
+        ShapedRecipeJsonFactory.create(output, count).input('#', input).input('B', inputB).pattern("#B").pattern("B#")
+                .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
+                .offerTo(exporter);
+    }
+
     public static void bricksRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output) {
         ShapedRecipeJsonFactory.create(output, 4).input('S', input).pattern("SS").pattern("SS")
                 .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
@@ -538,6 +530,11 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         CookingRecipeJsonFactory.create(Ingredient.ofItems(input), output, experience, cookingTime, RecipeSerializer.CAMPFIRE_COOKING)
                 .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
                 .offerTo(exporter, "campfire_" + RecipesProvider.getItemPath(output));
+    }
+    public static void washing(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output, Block cauldron) {
+        WashingRecipeJsonFactory.create(Ingredient.ofItems(input.asItem()), output.asItem(), cauldron)
+                .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
+                .offerTo(exporter, "washing_" + RecipesProvider.getItemPath(output));
     }
 
     public static void planksRecipe(Consumer<RecipeJsonProvider> exporter, Tag<Item> input, ItemConvertible output) {

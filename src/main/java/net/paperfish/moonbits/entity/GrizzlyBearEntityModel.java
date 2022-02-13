@@ -28,8 +28,20 @@ public class GrizzlyBearEntityModel extends AnimatedGeoModel<GrizzlyBearEntity> 
         super.setLivingAnimations(bear, uniqueID, customPredicate);
         EntityModelData extraData = (EntityModelData) customPredicate.getExtraDataOfType(EntityModelData.class).get(0);
 
+        IBone root = this.getAnimationProcessor().getBone("root");
         IBone head = this.getAnimationProcessor().getBone("head");
         head.setRotationX(extraData.headPitch * ((float) Math.PI / 180F));
         head.setRotationY(extraData.netHeadYaw * ((float) Math.PI / 180F));
+
+        if (bear.isBaby()) {
+            head.setScaleX(2f);
+            head.setScaleY(2f);
+            head.setScaleZ(2f);
+        }
+        else {
+            head.setScaleX(1f);
+            head.setScaleY(1f);
+            head.setScaleZ(1f);
+        }
     }
 }

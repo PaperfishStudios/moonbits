@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "moonbits:lettuce_leaf"
+    }
+  },
+  "result": {
+    "item": "moonbits:lettuce_block"
+  }
+}

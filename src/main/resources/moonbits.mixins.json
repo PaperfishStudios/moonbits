@@ -11,6 +11,9 @@
     "ChickenRenderMixin",
     "ClientRecipeBookMixin",
     "CocoaPodMixin",
+    "ConfiguredFeaturesMixin",
+    "CreeperMixin",
+    "CriteriaAccessor",
     "CropBlockMixin",
     "EnchantingTableBlockMixin",
     "EnchantmentScreenHandlerMixin",
@@ -31,7 +34,6 @@
     "SugarCaneMixin",
     "TexturedModelAccessor",
     "TextureKeyAccessor",
-    "ConfiguredFeaturesMixin",
     "TreeDecoratorTypeInvoker",
     "TurtleEntityMixin",
     "VanillaSurfaceRulesMixin"

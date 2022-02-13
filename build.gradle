@@ -61,12 +61,11 @@ assemble.dependsOn(runDatagen)
 
 
 dependencies {
-	minecraft "com.mojang:minecraft:1.18.1"
-	mappings "net.fabricmc:yarn:1.18.1+build.22"
-	modImplementation "net.fabricmc:fabric-loader:0.13.1"
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	//Fabric api
-	modImplementation "net.fabricmc.fabric-api:fabric-api:0.46.4+1.18"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// geckolib??
 	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.18:3.0.23'
@@ -110,13 +109,7 @@ jar {
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
-			// add all the jars that should be included when publishing to maven
-			artifact(remapJar) {
-				builtBy remapJar
-			}
-			artifact(sourcesJar) {
-				builtBy remapSourcesJar
-			}
+			from components.java
 		}
 	}
 

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:mushroom_stem"
+    ]
+  },
+  "criteria": {
+    "has_mushroom": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "moonbits:edible_mushrooms"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:mushroom_stem"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mushroom",
+      "has_the_recipe"
+    ]
+  ]
+}

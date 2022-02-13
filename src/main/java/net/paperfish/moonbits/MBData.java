@@ -8,6 +8,8 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.fabricmc.fabric.api.tag.TagFactory;
 import net.fabricmc.fabric.mixin.content.registry.AxeItemAccessor;
+import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.color.block.BlockColorProvider;
@@ -20,7 +22,10 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.paperfish.moonbits.advancement.ItemWashedCriterion;
+import net.paperfish.moonbits.mixin.CriteriaAccessor;
 import net.paperfish.moonbits.recipe.KilnRecipe;
+import net.paperfish.moonbits.recipe.WashingRecipe;
 import net.paperfish.moonbits.screen.KilnScreenHandler;
 
 import java.util.Map;
@@ -39,19 +44,44 @@ public class MBData {
 	public static final RecipeSerializer<KilnRecipe> KILN_RECIPE_SERIALIZER;
 	public static final ScreenHandlerType<KilnScreenHandler> KILN_SCREEN_HANDLER;
 
+	public static final RecipeType<WashingRecipe> WASHING_RECIPE_TYPE;
+	public static final RecipeSerializer<WashingRecipe> WASHING_RECIPE_SERIALIZER;
+
+	public static final ItemWashedCriterion ITEM_WASHED = CriteriaAccessor.callRegister(new ItemWashedCriterion());
+
 	static {
 			STRIPPED_BLOCKS = ImmutableMap.<Block, Block>builder()
-				.putAll(AxeItemAccessor.getStrippedBlocks())
-				.put(MBBlocks.JACARANDA_LOG, MBBlocks.STRIPPED_JACARANDA_LOG)
-				.put(MBBlocks.JACARANDA_WOOD, MBBlocks.STRIPPED_JACARANDA_WOOD)
+					.putAll(AxeItemAccessor.getStrippedBlocks())
+					.put(MBBlocks.JACARANDA_LOG, MBBlocks.STRIPPED_JACARANDA_LOG)
+					.put(MBBlocks.JACARANDA_WOOD, MBBlocks.STRIPPED_JACARANDA_WOOD)
+					.put(MBBlocks.MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_STEM)
+					.put(MBBlocks.MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_HYPHAE)
 				.build();
 
-			KILN_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MOD_ID, "kiln"), new RecipeType<KilnRecipe>() {
+		KILN_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MOD_ID, "kiln"), new RecipeType<KilnRecipe>() {
 				@Override
-				public String toString() {return "kiln";}
+				public String toString() {return Moonbits.MOD_ID.concat("kiln");}
 			});
 		KILN_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MOD_ID, "kiln"), new CookingRecipeSerializer<>(KilnRecipe::new, 200));
 		KILN_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Moonbits.MOD_ID, "kiln"), KilnScreenHandler::new);
+
+		WASHING_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MOD_ID, "washing"), new RecipeType<WashingRecipe>() {
+			@Override
+			public String toString() {
+				return Moonbits.MOD_ID.concat("washing");
+			}
+		});
+		WASHING_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MOD_ID, "washing"), new WashingRecipe.WashingSerializer());
+
+//		WASHING_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MOD_ID, "washing"), new RecipeType<WashingRecipe>() {
+//			@Override
+//			public String toString() {return "washing";}
+//		});
+//		WASHING_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MOD_ID, "washing"), new WashingRecipe.WashingSerializer());
+	}
+
+	public static String getString(Identifier id) {
+		return id.toString();
 	}
 
 

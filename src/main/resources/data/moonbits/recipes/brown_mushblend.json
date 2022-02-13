@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B",
+    "B#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:brown_mushroom"
+    },
+    "B": {
+      "item": "minecraft:bone_meal"
+    }
+  },
+  "result": {
+    "item": "moonbits:brown_mushblend",
+    "count": 4
+  }
+}

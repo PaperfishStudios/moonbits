@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:lettuce_block_from_lettuce_leaf"
+    ]
+  },
+  "criteria": {
+    "has_lettuce_leaf": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:lettuce_leaf"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:lettuce_block_from_lettuce_leaf"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_lettuce_leaf",
+      "has_the_recipe"
+    ]
+  ]
+}

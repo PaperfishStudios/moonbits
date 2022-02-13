@@ -183,9 +183,28 @@ public class MBBlockFamily {
         }
 
         public MBBlockFamily.Builder child(MBBlockFamily child) {
-            child.getVariants().forEach((variant, block) -> this.family.childBlocks.add(block));
-            this.family.childBlocks.addAll(child.cuttable);
-            this.family.childBlocks.addAll(child.childBlocks);
+            child.getVariants().forEach((variant, block) -> {
+                if (!family.childBlocks.contains(block)) {
+                    this.family.childBlocks.add(block);
+                }
+            });
+            child.cuttable.forEach(block -> {
+                if (!family.childBlocks.contains(block)) {
+                    this.family.childBlocks.add(block);
+                }});
+            child.childBlocks.forEach(block -> {
+                if (!family.childBlocks.contains(block)) {
+                    this.family.childBlocks.add(block);
+                }});
+            return this;
+        }
+
+        public MBBlockFamily.Builder child(BlockFamily child) {
+            child.getVariants().forEach((variant, block) -> {
+                if (!family.childBlocks.contains(block)) {
+                    this.family.childBlocks.add(block);
+                }
+            });
             return this;
         }
 

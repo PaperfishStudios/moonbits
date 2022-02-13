@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "moonbits:blocks/flowering_oak_leaves"
+      "model": "moonbits:block/flowering_oak_leaves"
     }
   }
 }

@@ -2,7 +2,9 @@ package net.paperfish.moonbits.entity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
@@ -29,10 +31,15 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBEntities;
 import net.paperfish.moonbits.Moonbits;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Random;
 
 public class MoobloomEntity extends CowEntity {
 	private static final TrackedData<String> TYPE;
@@ -118,14 +125,14 @@ public class MoobloomEntity extends CowEntity {
 
     @Override
     public MoobloomEntity createChild(ServerWorld world, PassiveEntity entity) {
-        MoobloomEntity moobloomEntity = (MoobloomEntity)MBEntities.MOOBLOOM.create(world);
+        MoobloomEntity moobloomEntity = MBEntities.MOOBLOOM.create(world);
 		moobloomEntity.setType(this.chooseBabyType((MoobloomEntity)entity));
 		return moobloomEntity;
     }
 
     private MoobloomEntity.Type chooseBabyType(MoobloomEntity moobloom) {
-		MoobloomEntity.Type parentA = this.babyType;
-		MoobloomEntity.Type parentB = moobloom.babyType;
+		MoobloomEntity.Type parentA = this.random.nextInt(4) == 0 ? this.babyType : this.getMoobloomType();
+		MoobloomEntity.Type parentB = this.random.nextInt(4) == 0 ? moobloom.babyType : moobloom.getMoobloomType();
 		MoobloomEntity.Type child;
 
 		child = this.random.nextBoolean() ? parentA : parentB;
@@ -144,8 +151,8 @@ public class MoobloomEntity extends CowEntity {
 		}
 		return super.interactMob(player, hand);
 	}
-
-    static {
+	
+	static {
 		TYPE = DataTracker.registerData(MoobloomEntity.class, TrackedDataHandlerRegistry.STRING);
 		BREEDING_INGREDIENT = Ingredient.fromTag(ItemTags.SMALL_FLOWERS);
 		POLLEN_TIME = 400;

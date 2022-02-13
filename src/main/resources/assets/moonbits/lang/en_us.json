@@ -57,15 +57,30 @@
 	"advancements.husbandry.planter_box.title": "???",
 	"advancements.husbandry.planter_box.description": "this is temporary!",
 	
+	"advancements.husbandry.lamproot.title": "?",
+	"advancements.husbandry.lamproot.description": "Plant a lamproot and see what happens!",
+	
 	
 	"advancements.architect.root.title": "Building",
 	"advancements.architect.root.description": "Release your creativity!",
 	
-	"advancements.architect.mushblock.title": "???",
-	"advancements.architect.mushblock.description": " Combine mushrooms with bone meal for some environmentally friendly building!",
+	"advancements.architect.wrench.title": "Socket To Em!",
+	"advancements.architect.wrench.description": "Craft a wrench to rotate and adjust blocks you place",
+	
+	"advancements.architect.sawmill.title": "???",
+	"advancements.architect.sawmill.description": "Craft a sawmill to make crafting and cutting more efficient!",
 	
 	"advancements.architect.kiln.title": "If Looks Could Kiln",
-	"advancements.architect.kiln.description": " Craft a furnace into a kiln to bake materials faster!",
+	"advancements.architect.kiln.description": "Craft a furnace into a kiln to bake materials faster!",
+	
+	"advancements.architect.structure.title": "Environmental Storytelling",
+	"advancements.architect.structure.description": "Find an abandoned structure. Surely they won't mind you borrowing some materials?",
+	
+	"advancements.architect.mushblock.title": "???",
+	"advancements.architect.mushblock.description": "Combine mushrooms with bone meal for some environmentally friendly building!",
+	
+	"advancements.architect.honeywood.title": "???",
+	"advancements.architect.honeywood.description": "Pour honey on wood to get some hive-themed blocks!",
 	
 	
 	"advancements.redstone.root.title": "Engineering",

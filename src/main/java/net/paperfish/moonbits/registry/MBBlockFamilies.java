@@ -122,7 +122,7 @@ public class MBBlockFamilies {
             .slab(MBBlocks.HONEYCOMB_BRICK_SLAB).stairs(MBBlocks.HONEYCOMB_BRICK_STAIRS)
             .wall(MBBlocks.HONEYCOMB_BRICK_WALL).chiseled(MBBlocks.CHISELED_HONEYCOMB_BRICKS).pillar(MBBlocks.HONEYCOMB_PILLAR)
             .polished(MBBlocks.HONEYCOMB_TILES).build();
-    public static final MBBlockFamily POLISHED_HONEYCOMB = register(MBBlocks.POLISHED_HONEYCOMB).child(HONEYCOMB_BRICKS).build();
+    public static final MBBlockFamily POLISHED_HONEYCOMB = register(MBBlocks.POLISHED_HONEYCOMB).polished(MBBlocks.HONEYCOMB_BRICKS).child(HONEYCOMB_BRICKS).build();
     public static final MBBlockFamily HONEYCOMB = register(Blocks.HONEYCOMB_BLOCK)
             .slab(MBBlocks.HONEYCOMB_SLAB).stairs(MBBlocks.HONEYCOMB_STAIRS)
             .wall(MBBlocks.HONEYCOMB_WALL)
@@ -183,6 +183,7 @@ public class MBBlockFamilies {
     public static final MBBlockFamily STONE_BRICKS_MB = register(Blocks.STONE_BRICKS).slab(Blocks.STONE_BRICK_SLAB)
             .chiseled(Blocks.CHISELED_STONE_BRICKS).pillar(MBBlocks.STONE_PILLAR).polished(MBBlocks.STONE_TILES).child(STONE_TILES).build();
     public static final MBBlockFamily SMOOTH_STONE_MB = register(Blocks.SMOOTH_STONE).stairs(MBBlocks.SMOOTH_STONE_STAIRS).wall(MBBlocks.SMOOTH_STONE_WALL).build();
+    public static final MBBlockFamily STONE_MB = register(Blocks.STONE).child(SMOOTH_STONE_MB).child(STONE_BRICKS_MB).build();
 
 
     public static final MBBlockFamily CRACKED_ANDESITE_TILES = register(MBBlocks.CRACKED_ANDESITE_TILES)
@@ -368,8 +369,6 @@ public class MBBlockFamilies {
             .slab(MBBlocks.DRIPSTONE_SLAB).stairs(MBBlocks.DRIPSTONE_STAIRS).wall(MBBlocks.DRIPSTONE_WALL)
             .polished(MBBlocks.POLISHED_DRIPSTONE).chiseled(MBBlocks.CHISELED_DRIPSTONE).pillar(MBBlocks.DRIPSTONE_PILLAR).child(POLISHED_DRIPSTONE).build();
 
-    public static final MBBlockFamily C_DEEPSLATE_MB = register(Blocks.COBBLED_DEEPSLATE).slab(Blocks.COBBLED_DEEPSLATE_SLAB)
-            .mossy(MBBlocks.MOSSY_COBBLED_DEEPSLATE).chiseled(Blocks.CHISELED_DEEPSLATE).pillar(MBBlocks.DEEPSLATE_PILLAR).build();
     public static final MBBlockFamily MOSSY_COBBLED_DEEPSLATE = register(MBBlocks.MOSSY_COBBLED_DEEPSLATE).slab(MBBlocks.MOSSY_COBBLED_DEEPSLATE_SLAB)
             .stairs(MBBlocks.MOSSY_COBBLED_DEEPSLATE_STAIRS).wall(MBBlocks.MOSSY_COBBLED_DEEPSLATE_WALL).build();
     public static final MBBlockFamily DEEPSLATE_BRICKS_MB = register(Blocks.DEEPSLATE_BRICKS)
@@ -380,6 +379,9 @@ public class MBBlockFamilies {
             .mossy(MBBlocks.MOSSY_DEEPSLATE_TILES).build();
     public static final MBBlockFamily MOSSY_DEEPSLATE_TILES = register(MBBlocks.MOSSY_DEEPSLATE_TILES)
             .slab(MBBlocks.MOSSY_DEEPSLATE_TILE_SLAB).stairs(MBBlocks.MOSSY_DEEPSLATE_TILE_STAIRS).wall(MBBlocks.MOSSY_DEEPSLATE_TILE_WALL).build();
+    public static final MBBlockFamily C_DEEPSLATE_MB = register(Blocks.COBBLED_DEEPSLATE).slab(Blocks.COBBLED_DEEPSLATE_SLAB)
+            .mossy(MBBlocks.MOSSY_COBBLED_DEEPSLATE).chiseled(Blocks.CHISELED_DEEPSLATE).pillar(MBBlocks.DEEPSLATE_PILLAR).build();
+    public static final MBBlockFamily DEEPSLATE_MB = register(Blocks.DEEPSLATE).child(C_DEEPSLATE_MB).child(BlockFamilies.COBBLED_DEEPSLATE).build();
 
     public static final MBBlockFamily CRACKED_PRISMARINE_TILES = register(MBBlocks.CRACKED_PRISMARINE_TILES)
             .slab(MBBlocks.CRACKED_PRISMARINE_TILE_SLAB).stairs(MBBlocks.CRACKED_PRISMARINE_TILE_STAIRS).wall(MBBlocks.CRACKED_PRISMARINE_TILE_WALL).build();

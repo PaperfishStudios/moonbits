@@ -10,6 +10,7 @@ import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.passive.StriderEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -19,7 +20,9 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.paperfish.moonbits.mixin.PigSaddleAccess;
 import net.paperfish.moonbits.mixin.StriderSaddleAccess;
+import net.paperfish.moonbits.recipe.WashingHandler;
 
+import javax.swing.*;
 import java.util.Random;
 
 import static java.lang.Character.toUpperCase;
@@ -35,6 +38,16 @@ public class MBEvents {
             BlockPos targetPos = hitResult.getBlockPos();
             BlockState targetBlock = world.getBlockState(targetPos);
             ItemStack heldItem = player.getStackInHand(hand);
+
+            if(targetBlock.getBlock() instanceof AbstractCauldronBlock && !world.isClient) {
+                if (player.shouldCancelInteraction()) {
+                    return ActionResult.PASS;
+                }
+                else {
+                    Moonbits.LOGGER.info("washing recipe triggered");
+                    return WashingHandler.washItem(heldItem, targetBlock, (ServerPlayerEntity) player, hand, (ServerWorld) world);
+                }
+            }
 
             // shearing grass
             if (targetBlock.isOf(Blocks.GRASS_BLOCK) && heldItem.getItem() == Items.SHEARS) {

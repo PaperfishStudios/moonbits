@@ -23,8 +23,7 @@ public class MBEntities {
             new Identifier("moonbits", "grizzly_bear"),
             FabricEntityTypeBuilder.createMob().spawnGroup(SpawnGroup.CREATURE).entityFactory(GrizzlyBearEntity::new)
                     .defaultAttributes(GrizzlyBearEntity::createGrizzAttributes)
-                    .dimensions(EntityDimensions.fixed(1.4F, 1.1F)).build());
-
+                    .dimensions(EntityDimensions.fixed(1.0F, 0.8F)).build());
     public static final EntityType<GlareEntity> GLARE = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("moonbits", "glare"),
