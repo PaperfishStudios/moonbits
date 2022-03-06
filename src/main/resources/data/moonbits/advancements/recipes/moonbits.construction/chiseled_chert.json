@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:chiseled_chert"
+    ]
+  },
+  "criteria": {
+    "has_chert_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:chert_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:chiseled_chert"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chert_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:pepper_crate_from_pepper"
+    ]
+  },
+  "criteria": {
+    "has_pepper_crate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:pepper_crate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:pepper_crate_from_pepper"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pepper_crate",
+      "has_the_recipe"
+    ]
+  ]
+}

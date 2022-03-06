@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/chert_tile_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/chert_tiles"
+    },
+    "type=top": {
+      "model": "moonbits:block/chert_tile_slab_top"
+    }
+  }
+}

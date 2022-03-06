@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 public class MBItemGroup {
     public static final ItemGroup CONSTRUCTION = FabricItemGroupBuilder.build(
 		new Identifier("moonbits", "construction"),
-		() -> new ItemStack(MBBlocks.COBBLED_DRIPSTONE));
+		() -> new ItemStack(MBBlocks.CEDAR_PLANKS));
 	
 	public static final ItemGroup DECOR = FabricItemGroupBuilder.build(
 		new Identifier("moonbits", "decor"),

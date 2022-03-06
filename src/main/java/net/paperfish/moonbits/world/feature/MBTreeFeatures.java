@@ -8,6 +8,7 @@ import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.ThreeLayersFeatureSize;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
@@ -42,34 +43,34 @@ public class MBTreeFeatures {
     public static final BrownMushroomFeature SAFFRON_MUSHROOM_FEATURE = Registry.register(Registry.FEATURE, "saffron_mushroom_feature", new BrownMushroomFeature(HugeMushroomFeatureConfig.CODEC));
 
 
-    public static final ConfiguredFeature<?, ?> HUGE_BROWN_MUSHROOM;
-    public static final ConfiguredFeature<?, ?> HUGE_RED_MUSHROOM;
-    public static final ConfiguredFeature<?, ?> SAFFRON_MUSHROOM;
+    public static final RegistryEntry<ConfiguredFeature<HugeMushroomFeatureConfig, ?>> HUGE_BROWN_MUSHROOM;
+    public static final RegistryEntry<ConfiguredFeature<HugeMushroomFeatureConfig, ?>> HUGE_RED_MUSHROOM;
+    public static final RegistryEntry<ConfiguredFeature<HugeMushroomFeatureConfig, ?>> SAFFRON_MUSHROOM;
 
 
     // single tree features
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> APPLE_OAK;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> APPLE_OAK_BEES_005;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> APPLE_OAK;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  APPLE_OAK_BEES_005;
 
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> GOLDEN_BIRCH;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> GOLDEN_BIRCH_BEES_0002;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> GOLDEN_BIRCH_BEES_002;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> GOLDEN_BIRCH_BEES_005;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> SUPER_GOLDEN_BIRCH_BEES_0002;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  GOLDEN_BIRCH;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  GOLDEN_BIRCH_BEES_0002;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  GOLDEN_BIRCH_BEES_002;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  GOLDEN_BIRCH_BEES_005;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  SUPER_GOLDEN_BIRCH_BEES_0002;
 
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> RED_OAK;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> RED_OAK_BEES_0002;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> RED_OAK_BEES_002;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> RED_OAK_BEES_005;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> BIG_RED_OAK;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  RED_OAK;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  RED_OAK_BEES_0002;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  RED_OAK_BEES_002;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  RED_OAK_BEES_005;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  BIG_RED_OAK;
 
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> JUNIPER;
-    public static final ConfiguredFeature<TreeFeatureConfig, ?> CEDAR;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  JUNIPER;
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  CEDAR;
 
-    public static final ConfiguredFeature<FallenLogConfig, ?> FALLEN_OAK;
-    public static final ConfiguredFeature<FallenLogConfig, ?> FALLEN_BIRCH;
-    public static final ConfiguredFeature<FallenLogConfig, ?> FALLEN_SPRUCE;
-    public static final ConfiguredFeature<FallenLogConfig, ?> FALLEN_JUNIPER;
+    public static final RegistryEntry<ConfiguredFeature<FallenLogConfig, ?>>  FALLEN_OAK;
+    public static final RegistryEntry<ConfiguredFeature<FallenLogConfig, ?>>  FALLEN_BIRCH;
+    public static final RegistryEntry<ConfiguredFeature<FallenLogConfig, ?>>  FALLEN_SPRUCE;
+    public static final RegistryEntry<ConfiguredFeature<FallenLogConfig, ?>>  FALLEN_JUNIPER;
 
     private static TreeFeatureConfig.Builder treeBuilder(Block log, Block leaves, int baseHeight, int firstRandomHeight, int secondRandomHeight, int radius) {
         return new TreeFeatureConfig.Builder(
@@ -87,8 +88,8 @@ public class MBTreeFeatures {
                 new StraightTrunkPlacer(4, 2, 0),
                 new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
                         .add(Blocks.OAK_LEAVES.getDefaultState(), 10)
-                        .add(MBBlocks.FLOWERING_OAK_LEAVES.getDefaultState(), 1)
-                        .add(MBBlocks.BUDDING_OAK_LEAVES.getDefaultState(), 2)
+//                        .add(MBBlocks.FLOWERING_OAK_LEAVES.getDefaultState(), 1)
+//                        .add(MBBlocks.BUDDING_OAK_LEAVES.getDefaultState(), 2)
                 ), // Foliage block provider
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
@@ -119,46 +120,46 @@ public class MBTreeFeatures {
 
         FALLEN_LOG = Registry.register(Registry.FEATURE, "fallen_log_feature", new FallenLogFeature(FallenLogConfig.CODEC));
 
-        APPLE_OAK = ConfiguredFeatures.register("apple_oak", Feature.TREE.configure(appleOak().build()));
-        APPLE_OAK_BEES_005 = ConfiguredFeatures.register("apple_oak_bees_005", Feature.TREE.configure(appleOak().decorators(List.of(BEES_005)).build()));
+        APPLE_OAK = ConfiguredFeatures.register("apple_oak", Feature.TREE, appleOak().build());
+        APPLE_OAK_BEES_005 = ConfiguredFeatures.register("apple_oak_bees_005", Feature.TREE, appleOak().decorators(List.of(BEES_005)).build());
 
-        GOLDEN_BIRCH = ConfiguredFeatures.register("golden_birch", Feature.TREE.configure(goldenBirch().decorators(List.of(
+        GOLDEN_BIRCH = ConfiguredFeatures.register("golden_birch", Feature.TREE, goldenBirch().decorators(List.of(
                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.GOLDEN_BIRCH_LEAF_CARPET))
-        )).build()));
-        GOLDEN_BIRCH_BEES_0002 = ConfiguredFeatures.register("golden_birch_bees_0002", Feature.TREE.configure(goldenBirch().decorators(List.of(
+        )).build());
+        GOLDEN_BIRCH_BEES_0002 = ConfiguredFeatures.register("golden_birch_bees_0002", Feature.TREE, goldenBirch().decorators(List.of(
                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.GOLDEN_BIRCH_LEAF_CARPET)),
                 BEES_0002
-        )).build()));
-        GOLDEN_BIRCH_BEES_002 = ConfiguredFeatures.register("golden_birch_bees_002", Feature.TREE.configure(goldenBirch().decorators(List.of(
+        )).build());
+        GOLDEN_BIRCH_BEES_002 = ConfiguredFeatures.register("golden_birch_bees_002", Feature.TREE, goldenBirch().decorators(List.of(
                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.GOLDEN_BIRCH_LEAF_CARPET)),
                 BEES_002
-        )).build()));
-        GOLDEN_BIRCH_BEES_005 = ConfiguredFeatures.register("golden_birch_bees_005", Feature.TREE.configure(goldenBirch().decorators(List.of(
+        )).build());
+        GOLDEN_BIRCH_BEES_005 = ConfiguredFeatures.register("golden_birch_bees_005", Feature.TREE, goldenBirch().decorators(List.of(
                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.GOLDEN_BIRCH_LEAF_CARPET)),
                 BEES_005
-        )).build()));
+        )).build());
 
-        SUPER_GOLDEN_BIRCH_BEES_0002 = ConfiguredFeatures.register("super_golden_birch_bees_002", Feature.TREE.configure(superGoldenBirch().decorators(List.of(
+        SUPER_GOLDEN_BIRCH_BEES_0002 = ConfiguredFeatures.register("super_golden_birch_bees_002", Feature.TREE, superGoldenBirch().decorators(List.of(
                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.GOLDEN_BIRCH_LEAF_CARPET)),
                 BEES_0002
-        )).build()));
+        )).build());
 
-        RED_OAK = ConfiguredFeatures.register("red_oak", Feature.TREE.configure(redOak().decorators(List.of(
+        RED_OAK = ConfiguredFeatures.register("red_oak", Feature.TREE, redOak().decorators(List.of(
                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.RED_OAK_LEAF_CARPET))
-        )).build()));
-        RED_OAK_BEES_0002 = ConfiguredFeatures.register("red_oak_bees_0002", Feature.TREE.configure(redOak().decorators(List.of(
+        )).build());
+        RED_OAK_BEES_0002 = ConfiguredFeatures.register("red_oak_bees_0002", Feature.TREE, redOak().decorators(List.of(
                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.RED_OAK_LEAF_CARPET)),
                 BEES_0002
-        )).build()));
-        RED_OAK_BEES_002 = ConfiguredFeatures.register("red_oak_bees_002", Feature.TREE.configure(redOak().decorators(List.of(
+        )).build());
+        RED_OAK_BEES_002 = ConfiguredFeatures.register("red_oak_bees_002", Feature.TREE, redOak().decorators(List.of(
                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.RED_OAK_LEAF_CARPET)),
                 BEES_002
-        )).build()));
-        RED_OAK_BEES_005 = ConfiguredFeatures.register("red_oak_bees_005", Feature.TREE.configure(redOak().decorators(List.of(
+        )).build());
+        RED_OAK_BEES_005 = ConfiguredFeatures.register("red_oak_bees_005", Feature.TREE, redOak().decorators(List.of(
                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.RED_OAK_LEAF_CARPET)),
                 BEES_005
-        )).build()));
-        BIG_RED_OAK = ConfiguredFeatures.register("big_red_oak", Feature.TREE.configure(
+        )).build());
+        BIG_RED_OAK = ConfiguredFeatures.register("big_red_oak", Feature.TREE,
                 new TreeFeatureConfig.Builder(
                         BlockStateProvider.of(Blocks.DARK_OAK_LOG),
                         new DarkOakTrunkPlacer(6, 2, 1),
@@ -168,29 +169,29 @@ public class MBTreeFeatures {
                         new ThreeLayersFeatureSize(1, 1, 0, 1, 2, OptionalInt.empty()))
                         .ignoreVines().decorators(List.of(
                                 new FallenLeavesTreeDecorator(BlockStateProvider.of(MBBlocks.RED_OAK_LEAF_CARPET))
-                        )).build()));
+                        )).build());
 
 
-        JUNIPER = ConfiguredFeatures.register("juniper", Feature.TREE.configure(juniper().build()));
+        JUNIPER = ConfiguredFeatures.register("juniper", Feature.TREE, juniper().build());
 
-        CEDAR = ConfiguredFeatures.register("cedar", Feature.TREE.configure(cedar().build()));
+        CEDAR = ConfiguredFeatures.register("cedar", Feature.TREE, cedar().build());
 
         HUGE_RED_MUSHROOM =
-                ConfiguredFeatures.register("mb_red_mushroom", RED_MUSHROOM_FEATURE.configure(new HugeMushroomFeatureConfig(
+                ConfiguredFeatures.register("mb_red_mushroom", RED_MUSHROOM_FEATURE, new HugeMushroomFeatureConfig(
                         BlockStateProvider.of(MBBlocks.RED_MUSHROOM_CAP.getDefaultState().with(MushroomBlock.DOWN, false)),
-                        BlockStateProvider.of(MBBlocks.MUSHROOM_STEM.getDefaultState()), 2)));
+                        BlockStateProvider.of(MBBlocks.MUSHROOM_STEM.getDefaultState()), 2));
         HUGE_BROWN_MUSHROOM =
-                ConfiguredFeatures.register("mb_brown_mushroom", BROWN_MUSHROOM_FEATURE.configure(new HugeMushroomFeatureConfig(
+                ConfiguredFeatures.register("mb_brown_mushroom", BROWN_MUSHROOM_FEATURE, new HugeMushroomFeatureConfig(
                         BlockStateProvider.of(MBBlocks.BROWN_MUSHROOM_CAP.getDefaultState().with(MushroomCapBlock.UP, true).with(MushroomCapBlock.DOWN, false)),
-                        BlockStateProvider.of(MBBlocks.MUSHROOM_STEM.getDefaultState()), 3)));
+                        BlockStateProvider.of(MBBlocks.MUSHROOM_STEM.getDefaultState()), 3));
         SAFFRON_MUSHROOM =
-                ConfiguredFeatures.register("mb_saffron_mushroom", BROWN_MUSHROOM_FEATURE.configure(new HugeMushroomFeatureConfig(
+                ConfiguredFeatures.register("mb_saffron_mushroom", BROWN_MUSHROOM_FEATURE, new HugeMushroomFeatureConfig(
                         BlockStateProvider.of(MBBlocks.SAFFRON_MUSHROOM_CAP.getDefaultState().with(MushroomCapBlock.UP, true).with(MushroomCapBlock.DOWN, false)),
-                        BlockStateProvider.of(MBBlocks.MUSHROOM_STEM.getDefaultState()), 2)));
+                        BlockStateProvider.of(MBBlocks.MUSHROOM_STEM.getDefaultState()), 2));
 
-        FALLEN_OAK = ConfiguredFeatures.register("fallen_oak", FALLEN_LOG.configure(new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(Blocks.OAK_LOG.getDefaultState()))));
-        FALLEN_BIRCH = ConfiguredFeatures.register("fallen_birch", FALLEN_LOG.configure(new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(Blocks.BIRCH_LOG.getDefaultState()))));
-        FALLEN_SPRUCE = ConfiguredFeatures.register("fallen_spruce", FALLEN_LOG.configure(new FallenLogConfig(UniformIntProvider.create(4, 6), BlockStateProvider.of(Blocks.SPRUCE_LOG.getDefaultState()))));
-        FALLEN_JUNIPER = ConfiguredFeatures.register("fallen_juniper", FALLEN_LOG.configure(new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(MBBlocks.JUNIPER_LOG.getDefaultState()))));
+        FALLEN_OAK = ConfiguredFeatures.register("fallen_oak", FALLEN_LOG, new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(Blocks.OAK_LOG.getDefaultState())));
+        FALLEN_BIRCH = ConfiguredFeatures.register("fallen_birch", FALLEN_LOG, new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(Blocks.BIRCH_LOG.getDefaultState())));
+        FALLEN_SPRUCE = ConfiguredFeatures.register("fallen_spruce", FALLEN_LOG, new FallenLogConfig(UniformIntProvider.create(4, 6), BlockStateProvider.of(Blocks.SPRUCE_LOG.getDefaultState())));
+        FALLEN_JUNIPER = ConfiguredFeatures.register("fallen_juniper", FALLEN_LOG, new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(MBBlocks.JUNIPER_LOG.getDefaultState())));
     }
 }

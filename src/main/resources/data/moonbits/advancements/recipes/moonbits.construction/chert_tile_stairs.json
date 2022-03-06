@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:chert_tile_stairs"
+    ]
+  },
+  "criteria": {
+    "has_chert_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:chert_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:chert_tile_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chert_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

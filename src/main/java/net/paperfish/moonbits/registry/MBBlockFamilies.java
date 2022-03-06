@@ -183,6 +183,25 @@ public class MBBlockFamilies {
             .slab(MBBlocks.WARPED_NYLIUM_TURF_SLAB).stairs(MBBlocks.WARPED_NYLIUM_TURF_STAIRS)
             .carpet(MBBlocks.WARPED_NYLIUM_CARPET).build();
 
+    public static final MBBlockFamily CRACKED_CHERT_TILES = register(MBBlocks.CRACKED_CHERT_TILES)
+            .slab(MBBlocks.CRACKED_CHERT_TILE_SLAB).stairs(MBBlocks.CRACKED_CHERT_TILE_STAIRS).wall(MBBlocks.CRACKED_CHERT_TILE_WALL).build();
+    public static final MBBlockFamily CHERT_TILES = register(MBBlocks.CHERT_TILES)
+            .slab(MBBlocks.CHERT_TILE_SLAB).stairs(MBBlocks.CHERT_TILE_STAIRS).wall(MBBlocks.CHERT_TILE_WALL)
+            .cracked(MBBlocks.CRACKED_CHERT_TILES).child(CRACKED_CHERT_TILES).build();
+
+    public static final MBBlockFamily CRACKED_CHERT_BRICKS = register(MBBlocks.CRACKED_CHERT_BRICKS)
+            .slab(MBBlocks.CRACKED_CHERT_BRICK_SLAB).stairs(MBBlocks.CRACKED_CHERT_BRICK_STAIRS).wall(MBBlocks.CRACKED_CHERT_BRICK_WALL).build();
+    public static final MBBlockFamily CHERT_BRICKS = register(MBBlocks.CHERT_BRICKS)
+            .slab(MBBlocks.CHERT_BRICK_SLAB).stairs(MBBlocks.CHERT_BRICK_STAIRS).wall(MBBlocks.CHERT_BRICK_WALL)
+            .cracked(MBBlocks.CRACKED_CHERT_BRICKS).polished(MBBlocks.CHERT_TILES).child(CRACKED_CHERT_BRICKS).child(CHERT_TILES).build();
+
+    public static final MBBlockFamily POLISHED_CHERT = register(MBBlocks.POLISHED_CHERT)
+            .slab(MBBlocks.POLISHED_CHERT_SLAB).stairs(MBBlocks.POLISHED_CHERT_STAIRS).wall(MBBlocks.POLISHED_CHERT_WALL)
+            .polished(MBBlocks.CHERT_BRICKS).child(CHERT_BRICKS).build();
+    public static final MBBlockFamily CHERT = register(MBBlocks.CHERT)
+            .slab(MBBlocks.CHERT_SLAB).stairs(MBBlocks.CHERT_STAIRS).wall(MBBlocks.CHERT_WALL)
+            .polished(MBBlocks.POLISHED_CHERT).cut(MBBlocks.CUT_CHERT).chiseled(MBBlocks.CHISELED_CHERT).pillar(MBBlocks.CHERT_PILLAR).child(POLISHED_CHERT).build();
+
 
     public static final MBBlockFamily CRACKED_STONE_TILES = register(MBBlocks.CRACKED_STONE_TILES)
             .slab(MBBlocks.CRACKED_STONE_TILE_SLAB).stairs(MBBlocks.CRACKED_STONE_TILE_STAIRS)

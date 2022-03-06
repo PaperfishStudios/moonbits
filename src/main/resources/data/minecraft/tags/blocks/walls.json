@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
+    "moonbits:chert_wall",
+    "moonbits:polished_chert_wall",
+    "moonbits:chert_brick_wall",
+    "moonbits:cracked_chert_brick_wall",
+    "moonbits:chert_tile_wall",
+    "moonbits:cracked_chert_tile_wall",
     "moonbits:honeycomb_wall",
     "moonbits:honeycomb_brick_wall",
     "moonbits:honeycomb_tile_wall",

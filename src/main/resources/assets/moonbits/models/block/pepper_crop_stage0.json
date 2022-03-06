@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "moonbits:block/pepper_crop_stage0"
+  }
+}

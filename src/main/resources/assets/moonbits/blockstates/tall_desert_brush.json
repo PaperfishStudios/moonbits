@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "moonbits:block/tall_desert_brush_bottom"
+    },
+    "half=upper": {
+      "model": "moonbits:block/tall_desert_brush_top"
+    }
+  }
+}

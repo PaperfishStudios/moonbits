@@ -2,52 +2,6 @@
   "multipart": [
     {
       "when": {
-        "east": "true"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers",
-        "y": 90,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "east": "false",
-        "north": "false",
-        "down": "false",
-        "south": "false",
-        "up": "false",
-        "west": "false"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers",
-        "y": 90,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "north": "true"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers"
-      }
-    },
-    {
-      "when": {
-        "east": "false",
-        "north": "false",
-        "down": "false",
-        "south": "false",
-        "up": "false",
-        "west": "false"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers"
-      }
-    },
-    {
-      "when": {
         "down": "true"
       },
       "apply": {
@@ -58,41 +12,16 @@
     },
     {
       "when": {
-        "east": "false",
-        "north": "false",
         "down": "false",
-        "south": "false",
         "up": "false",
-        "west": "false"
+        "south": "false",
+        "north": "false",
+        "west": "false",
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/cavebloom_flowers",
         "x": 90,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "south": "true"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers",
-        "y": 180,
-        "uvlock": true
-      }
-    },
-    {
-      "when": {
-        "east": "false",
-        "north": "false",
-        "down": "false",
-        "south": "false",
-        "up": "false",
-        "west": "false"
-      },
-      "apply": {
-        "model": "moonbits:block/cavebloom_flowers",
-        "y": 180,
         "uvlock": true
       }
     },
@@ -108,17 +37,63 @@
     },
     {
       "when": {
-        "east": "false",
-        "north": "false",
         "down": "false",
-        "south": "false",
         "up": "false",
-        "west": "false"
+        "south": "false",
+        "north": "false",
+        "west": "false",
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/cavebloom_flowers",
         "x": 270,
         "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "south": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "down": "false",
+        "up": "false",
+        "south": "false",
+        "north": "false",
+        "west": "false",
+        "east": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers"
+      }
+    },
+    {
+      "when": {
+        "down": "false",
+        "up": "false",
+        "south": "false",
+        "north": "false",
+        "west": "false",
+        "east": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers"
       }
     },
     {
@@ -133,16 +108,41 @@
     },
     {
       "when": {
-        "east": "false",
-        "north": "false",
         "down": "false",
-        "south": "false",
         "up": "false",
-        "west": "false"
+        "south": "false",
+        "north": "false",
+        "west": "false",
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/cavebloom_flowers",
         "y": 270,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers",
+        "y": 90,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "down": "false",
+        "up": "false",
+        "south": "false",
+        "north": "false",
+        "west": "false",
+        "east": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/cavebloom_flowers",
+        "y": 90,
         "uvlock": true
       }
     }

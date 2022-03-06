@@ -17,6 +17,8 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void generateTags() {
+        getOrCreateTagBuilder(MBItemTags.AXES).add(Items.WOODEN_AXE, Items.STONE_AXE, Items.IRON_AXE, Items.GOLDEN_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE);
+
         copy(BlockTags.WOOL, ItemTags.WOOL);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
 //        copy(BlockTags.STONE_BRICKS, ItemTags.STONE_BRICKS);

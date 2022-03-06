@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moonbits:block/cracked_chert_tiles",
+    "top": "moonbits:block/cracked_chert_tiles",
+    "side": "moonbits:block/cracked_chert_tiles"
+  }
+}

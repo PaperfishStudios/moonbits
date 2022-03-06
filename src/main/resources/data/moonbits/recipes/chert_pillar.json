@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:chiseled_chert"
+    }
+  },
+  "result": {
+    "item": "moonbits:chert_pillar",
+    "count": 2
+  }
+}

@@ -3,24 +3,27 @@ package net.paperfish.moonbits.client;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.EmptyEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.util.Identifier;
+import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBEntities;
+import net.paperfish.moonbits.block.SnowyBlockEntityRenderer;
 import net.paperfish.moonbits.entity.*;
 
 @Environment(EnvType.CLIENT)
 public class MBEntityType {
     public static final EntityModelLayer MODEL_MOOBLOOM_LAYER = new EntityModelLayer(new Identifier("moonbits", "moobloom"), "main");
 
-    public static final EntityModelLayer MODEL_GRIZZLY_LAYER = new EntityModelLayer(new Identifier("moonbits", "grizzly_bear"), "main");
+//    public static final EntityModelLayer MODEL_GRIZZLY_LAYER = new EntityModelLayer(new Identifier("moonbits", "grizzly_bear"), "main");
 
-    public static final EntityModelLayer MODEL_GLARE = new EntityModelLayer(new Identifier("moonbits", "glare"), "main");
+//    public static final EntityModelLayer MODEL_GLARE = new EntityModelLayer(new Identifier("moonbits", "glare"), "main");
 
-    public static final EntityModelLayer MODEL_SEAT_BLOCK = new EntityModelLayer(new Identifier("moonbits", "seat"), "main");
+//    public static final EntityModelLayer MODEL_SEAT_BLOCK = new EntityModelLayer(new Identifier("moonbits", "seat"), "main");
 
     // block entities :D
     //public static final EntityModelLayer BEDROLL_HEAD = new EntityModelLayer(new Identifier("moonbits", "bedroll_head"), "head");
@@ -45,6 +48,8 @@ public class MBEntityType {
             out.accept(new ModelIdentifier(new Identifier("moonbits", "item_hook"),""));
             out.accept(new ModelIdentifier(new Identifier("moonbits", "glow_item_hook"),""));
         });
+
+        BlockEntityRendererRegistry.register(MBBlocks.SNOWY_BLOCK_ENTITY, SnowyBlockEntityRenderer::new);
 
 //        EntityRendererRegistry.register(MBEntities.SEAT_BLOCK_ENTITY, SeatEntityRenderer::new);
 //        EntityModelLayerRegistry.registerModelLayer(MODEL_SEAT_BLOCK, SeatEntityModel::getTexturedModelData);

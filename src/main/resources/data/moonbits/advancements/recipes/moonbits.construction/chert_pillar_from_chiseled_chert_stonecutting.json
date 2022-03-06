@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:chert_pillar_from_chiseled_chert_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_chiseled_chert": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:chiseled_chert"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:chert_pillar_from_chiseled_chert_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chiseled_chert",
+      "has_the_recipe"
+    ]
+  ]
+}

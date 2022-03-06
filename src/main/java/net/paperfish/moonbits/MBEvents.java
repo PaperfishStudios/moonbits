@@ -3,17 +3,27 @@ package net.paperfish.moonbits;
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
+import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
+import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.block.*;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.passive.StriderEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.LootFunctionTypes;
+import net.minecraft.loot.function.LootingEnchantLootFunction;
+import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.loot.provider.number.LootNumberProviderTypes;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -73,17 +83,6 @@ public class MBEvents {
                 return ActionResult.SUCCESS;
             }
 
-            // un-tilling farmland with a shovel
-            if (targetBlock.isOf(Blocks.FARMLAND) && heldItem.isIn(FabricToolTags.SHOVELS)) {
-                Moonbits.LOGGER.info("cleared farmland");
-                world.setBlockState(targetPos, Blocks.DIRT.getDefaultState());
-                if(!player.isCreative())
-                    heldItem.damage(1, new Random(), null);
-
-                world.playSound(null, player.getBlockPos(), SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 0.5F, 1.0F);
-                return ActionResult.SUCCESS;
-            }
-
             // applying slime to piston
             if (targetBlock.isOf(Blocks.PISTON) && heldItem.getItem() == Items.SLIME_BALL) {
                 world.setBlockState(targetPos, Blocks.STICKY_PISTON.getDefaultState().with(PistonBlock.FACING, targetBlock.get(PistonBlock.FACING))); 
@@ -95,7 +94,7 @@ public class MBEvents {
             }
 
             // scraping slime off piston
-            if (targetBlock.isOf(Blocks.STICKY_PISTON) && heldItem.isIn(FabricToolTags.AXES)) {
+            if (targetBlock.isOf(Blocks.STICKY_PISTON) && heldItem.isIn(MBItemTags.AXES)) {
                 world.setBlockState(targetPos, Blocks.PISTON.getDefaultState().with(PistonBlock.FACING, targetBlock.get(PistonBlock.FACING))); 
                 if(!player.isCreative())
                     heldItem.damage(1, new Random(), null);
@@ -122,7 +121,7 @@ public class MBEvents {
                     heldItem.damage(1, new Random(), null);
                 // spawn items
                 if (!world.isClient()) {
-                    BlockState a = (BlockState)Blocks.SWEET_BERRY_BUSH.getDefaultState();
+                    BlockState a = Blocks.SWEET_BERRY_BUSH.getDefaultState();
                     Block.getDroppedStacks(a.with(SweetBerryBushBlock.AGE, 3), (ServerWorld) world, dropFromFullBlock(targetPos, world), null).forEach((stack) -> {
                         Block.dropStack(world, dropFromFullBlock(targetPos, world), stack);
                     });
@@ -138,7 +137,7 @@ public class MBEvents {
                     heldItem.damage(1, new Random(), null);
                 // spawn items
                 if (!world.isClient()) {
-                    BlockState a = (BlockState)Blocks.CAVE_VINES_PLANT.getDefaultState();
+                    BlockState a = Blocks.CAVE_VINES_PLANT.getDefaultState();
                     Block.getDroppedStacks(a.with(CaveVinesBodyBlock.BERRIES, true), (ServerWorld) world, dropFromFullBlock(targetPos, world), null).forEach((stack) -> {
                         Block.dropStack(world, dropFromFullBlock(targetPos, world), stack);
                     });
@@ -166,6 +165,15 @@ public class MBEvents {
                 world.syncWorldEvent(1505, targetPos, 0);
 
                 world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_BONE_MEAL_USE, SoundCategory.BLOCKS, 0.5F, 1.0F);
+                return ActionResult.SUCCESS;
+            }
+
+            // adding snow to plant
+            if (targetBlock.isIn(MBBlockTags.SNOWABLE_PLANTS) && heldItem.getItem() == Items.SNOW && !targetBlock.get(Properties.SNOWY)) {
+                world.setBlockState(targetPos, targetBlock.with(Properties.SNOWY, true));
+                if(!player.isCreative())
+                    heldItem.decrement(1);
+                world.playSound(null, targetPos, Blocks.SNOW.getSoundGroup(Blocks.SNOW.getDefaultState()).getPlaceSound(), SoundCategory.BLOCKS, 0.5F, 1.0F);
                 return ActionResult.SUCCESS;
             }
 
@@ -206,6 +214,18 @@ public class MBEvents {
 
         EntitySleepEvents.ALLOW_SETTING_SPAWN.register((player, sleepingPos) -> {
             return !player.getWorld().getBlockState(sleepingPos).isOf(MBBlocks.BEDROLL);
+        });
+
+
+        LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
+            if (EntityType.HUSK.getLootTableId().equals(id)) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(ItemEntry.builder(MBItems.DUSTY_CLOTH)).withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 1)).build())
+                        .apply(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0f, 1.0f)));
+
+                table.pool(poolBuilder);
+            }
         });
     }
 

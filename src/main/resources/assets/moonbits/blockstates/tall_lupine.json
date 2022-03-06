@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "moonbits:block/tall_lupine_bottom"
+    },
+    "half=upper": {
+      "model": "moonbits:block/tall_lupine_top"
+    }
+  }
+}

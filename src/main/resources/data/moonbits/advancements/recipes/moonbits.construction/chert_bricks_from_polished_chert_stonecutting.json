@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:chert_bricks_from_polished_chert_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_polished_chert": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:polished_chert"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:chert_bricks_from_polished_chert_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_chert",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:cracked_chert_tile_wall"
+    ]
+  },
+  "criteria": {
+    "has_cracked_chert_tiles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:cracked_chert_tiles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:cracked_chert_tile_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cracked_chert_tiles",
+      "has_the_recipe"
+    ]
+  ]
+}

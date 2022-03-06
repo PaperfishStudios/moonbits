@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.tag.Tag;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3i;
@@ -24,7 +25,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class CavebloomFeature extends Feature<CavebloomFeatureConfig> {
-    public static Tag<Block> canPlaceOn = MBBlockTags.TOUGH_DIRT;
+    public static TagKey<Block> canPlaceOn = MBBlockTags.TOUGH_DIRT;
     public static List<Direction> directions = Lists.newArrayList();
 
     public CavebloomFeature(Codec<CavebloomFeatureConfig> codec) {
@@ -66,7 +67,7 @@ public class CavebloomFeature extends Feature<CavebloomFeatureConfig> {
         BlockPos.Mutable mutable = pos.mutableCopy();
         for (Direction direction : directions) {
             BlockState blockState = world.getBlockState(mutable.set((Vec3i)pos, direction));
-            if (!canPlaceOn.contains(blockState.getBlock()) && !blockState.isOf(MBBlocks.TOUGH_GRASS)) continue;
+            if (!blockState.isIn(canPlaceOn) && !blockState.isOf(MBBlocks.TOUGH_GRASS)) continue;
             if (flower) {
                 CavebloomFlowerBlock flowerBlock = (CavebloomFlowerBlock)MBBlocks.CAVEBLOOM_FLOWERS;
                 BlockState blockState2 = flowerBlock.withDirection(state, world, pos, direction);

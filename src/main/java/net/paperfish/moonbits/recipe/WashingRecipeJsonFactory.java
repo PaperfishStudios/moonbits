@@ -7,7 +7,7 @@ import net.minecraft.advancement.CriterionMerger;
 import net.minecraft.advancement.criterion.CriterionConditions;
 import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
 import net.minecraft.block.Block;
-import net.minecraft.data.server.recipe.CraftingRecipeJsonFactory;
+import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
@@ -21,12 +21,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
-public class WashingRecipeJsonFactory implements CraftingRecipeJsonFactory {
+public class WashingRecipeJsonFactory implements CraftingRecipeJsonBuilder {
     private final Item output;
     private final Ingredient input;
     private final Block cauldron;
 
-    private final Advancement.Task builder = Advancement.Task.create();
+    private final Advancement.Builder builder = Advancement.Builder.create();
     @Nullable
     private String group;
     private final RecipeSerializer<WashingRecipe> serializer;
@@ -43,17 +43,17 @@ public class WashingRecipeJsonFactory implements CraftingRecipeJsonFactory {
     }
 
     @Override
-    public CraftingRecipeJsonFactory criterion(String string, CriterionConditions criterionConditions) {
+    public CraftingRecipeJsonBuilder criterion(String string, CriterionConditions criterionConditions) {
         this.builder.criterion(string, criterionConditions);
         return this;
     }
 
     @Override
-    public CraftingRecipeJsonFactory group(@Nullable String string) {
+    public CraftingRecipeJsonBuilder group(@Nullable String string) {
         this.group = string;
         return this;
     }
-    public CraftingRecipeJsonFactory group() {
+    public CraftingRecipeJsonBuilder group() {
         return group(this.group);
     }
 
@@ -83,11 +83,11 @@ public class WashingRecipeJsonFactory implements CraftingRecipeJsonFactory {
         private final Ingredient input;
         private final Item output;
         private final Block cauldron;
-        private final Advancement.Task builder;
+        private final Advancement.Builder builder;
         private final Identifier advancementId;
         private final RecipeSerializer<WashingRecipe> serializer;
 
-        public WashingRecipeJsonProvider(Identifier identifier, String string, Ingredient ingredient, Item output, Block cauldron, Advancement.Task task, Identifier identifier2, RecipeSerializer<WashingRecipe> recipeSerializer) {
+        public WashingRecipeJsonProvider(Identifier identifier, String string, Ingredient ingredient, Item output, Block cauldron, Advancement.Builder task, Identifier identifier2, RecipeSerializer<WashingRecipe> recipeSerializer) {
             this.recipeId = identifier;
             this.group = string;
             this.input = ingredient;

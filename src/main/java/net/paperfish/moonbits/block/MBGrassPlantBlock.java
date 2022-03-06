@@ -1,0 +1,75 @@
+package net.paperfish.moonbits.block;
+
+import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.property.Properties;
+import net.minecraft.tag.BlockTags;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import net.paperfish.moonbits.MBBlockTags;
+import net.paperfish.moonbits.MBBlocks;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Random;
+
+public class MBGrassPlantBlock extends FernBlock implements BlockEntityProvider {
+    public MBGrassPlantBlock(Settings settings) {
+        super(settings);
+    }
+
+    @Override
+    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+        TallPlantBlock tallPlantBlock = (TallPlantBlock) Blocks.TALL_GRASS;
+        if (state.isOf(MBBlocks.BEACHGRASS)) {
+            tallPlantBlock = (TallPlantBlock) MBBlocks.TALL_BEACHGRASS;
+        }
+        else if (state.isOf(MBBlocks.COTTONGRASS)) {
+            tallPlantBlock = (TallPlantBlock) MBBlocks.TALL_BEACHGRASS;
+        }
+        else if (state.isOf(MBBlocks.DESERT_BRUSH)) {
+            tallPlantBlock = (TallPlantBlock) MBBlocks.TALL_BEACHGRASS;
+        }
+
+        if (tallPlantBlock.getDefaultState().canPlaceAt(world, pos) && world.isAir(pos.up())) {
+            TallPlantBlock.placeAt(world, tallPlantBlock.getDefaultState(), pos, 2);
+        }
+    }
+
+    @Override
+    public boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
+        if (this.getDefaultState().isOf(MBBlocks.BEACHGRASS) && floor.isIn(BlockTags.SAND)) {
+            return true;
+        }
+        return super.canPlantOnTop(floor, world, pos);
+    }
+
+    @Nullable
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos());
+        if (blockState.isOf(Blocks.SNOW)) {
+            return this.getDefaultState().with(Properties.SNOWY, true);
+        }
+        return this.getDefaultState().with(Properties.SNOWY, false);
+    }
+    @Override
+    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack stack) {
+        if (state.get(Properties.SNOWY)) {
+            world.setBlockState(pos, Blocks.SNOW.getDefaultState());
+        }
+        super.onBreak(world, pos, state, player);
+    }
+
+    @Override
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        if (!state.isIn(MBBlockTags.SNOWABLE_PLANTS)) {
+            return null;
+        }
+        return state.get(Properties.SNOWY) ? new SnowyBlockEntity(pos, state) : null;
+    }
+}

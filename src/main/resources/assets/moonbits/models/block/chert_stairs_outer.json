@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "moonbits:block/chert",
+    "top": "moonbits:block/chert",
+    "side": "moonbits:block/chert"
+  }
+}

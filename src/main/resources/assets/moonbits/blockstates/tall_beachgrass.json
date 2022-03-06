@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "moonbits:block/tall_beachgrass_bottom"
+    },
+    "half=upper": {
+      "model": "moonbits:block/tall_beachgrass_top"
+    }
+  }
+}

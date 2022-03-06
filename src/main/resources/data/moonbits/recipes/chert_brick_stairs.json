@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:chert_bricks"
+    }
+  },
+  "result": {
+    "item": "moonbits:chert_brick_stairs",
+    "count": 4
+  }
+}

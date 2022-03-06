@@ -7,12 +7,16 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_state",
+              "block": "moonbits:barrel_cactus",
+              "properties": [
+                "level"
+              ]
+            }
+          ],
           "name": "moonbits:barrel_cactus"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
         }
       ]
     }

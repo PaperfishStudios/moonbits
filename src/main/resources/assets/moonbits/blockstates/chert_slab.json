@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/chert_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/chert"
+    },
+    "type=top": {
+      "model": "moonbits:block/chert_slab_top"
+    }
+  }
+}

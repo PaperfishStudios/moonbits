@@ -20,7 +20,7 @@ public class AppleSproutBlock extends PlantBlock implements Fertilizable {
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (world.getLightLevel(pos.up()) >= 9 && random.nextInt(7) == 0) {
-            world.setBlockState(pos, MBBlocks.APPLE_OAK_SAPLING.getDefaultState(), NOTIFY_NEIGHBORS);
+            //world.setBlockState(pos, MBBlocks.APPLE_OAK_SAPLING.getDefaultState(), NOTIFY_NEIGHBORS);
         }
     }
 
@@ -41,6 +41,6 @@ public class AppleSproutBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        world.setBlockState(pos, MBBlocks.APPLE_OAK_SAPLING.getDefaultState(), NOTIFY_NEIGHBORS);
+        //world.setBlockState(pos, MBBlocks.APPLE_OAK_SAPLING.getDefaultState(), NOTIFY_NEIGHBORS);
     }
 }

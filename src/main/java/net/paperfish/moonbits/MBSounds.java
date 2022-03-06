@@ -7,10 +7,8 @@ import net.minecraft.util.registry.Registry;
 
 public class MBSounds {
     // block sounds
-    public static final Identifier GLASS_DOOR_OPEN_ID = new Identifier(Moonbits.MOD_ID, "block.glass_door.open");
-    public static SoundEvent GLASS_DOOR_OPEN = new SoundEvent(GLASS_DOOR_OPEN_ID);
-    public static final Identifier GLASS_DOOR_CLOSE_ID = new Identifier(Moonbits.MOD_ID, "block.glass_door.close");
-    public static SoundEvent GLASS_DOOR_CLOSE = new SoundEvent(GLASS_DOOR_CLOSE_ID);
+    public static SoundEvent GLASS_DOOR_OPEN = register("block.glass_door.open");
+    public static SoundEvent GLASS_DOOR_CLOSE = register("block.glass_door.close");
 
     public static final SoundEvent BLOCK_BUNDLE_BREAK = register("block.bundle.break");
     public static final SoundEvent BLOCK_BUNDLE_FALL = register("block.bundle.fall");
@@ -29,8 +27,7 @@ public class MBSounds {
 
 
     // item sounds
-    public static final Identifier WRENCH_ID = new Identifier(Moonbits.MOD_ID, "item.wrench.use");
-    public static SoundEvent WRENCH = new SoundEvent(WRENCH_ID);
+    public static SoundEvent WRENCH = register("item.wrench.use");
 
     public static SoundEvent GRIZZLY_AMBIENT = register("entity.mbgrizzly.ambient");
     public static SoundEvent BABY_GRIZZ_AMBIENT = register("entity.mbgrizzly.ambient_baby");
@@ -40,10 +37,7 @@ public class MBSounds {
     public static SoundEvent GRIZZLY_WARN = register("entity.mbgrizzly.warning");
 
     public static void initSounds() {
-        register("block.glass_door.open", GLASS_DOOR_OPEN);
-        register("block.glass_door.close", GLASS_DOOR_CLOSE);
 
-        register("item.wrench.use", WRENCH);
     }
 
     public static void register(String id, SoundEvent event) {

@@ -6,12 +6,14 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.paperfish.moonbits.entity.MBBoatTypes;
 import net.paperfish.moonbits.item.*;
 
 import java.util.ArrayList;
@@ -36,7 +38,13 @@ public class MBItems {
 	public static final Item SALAD = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8f)
 			.statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0f).build()));
 
-	public static final Item APPLE_SEEDS = new AliasedBlockItem(MBBlocks.APPLE_OAK_SPROUT, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
+	public static final Item PEPPER_SEEDS = new AliasedBlockItem(MBBlocks.PEPPER_CROP, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
+	public static final Item PEPPER = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(2).saturationModifier(0.3f).build()));
+	public static final Item STUFFED_PEPPER = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(6).saturationModifier(1.0f).build()));
+
+	//public static final Item APPLE_SEEDS = new AliasedBlockItem(MBBlocks.APPLE_OAK_SPROUT, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Block SWEET_BERRY_PITS = new SweetBerryPitsBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH));
 	public static final Block GLOW_BERRY_PITS = new GlowBerryPitsBlock(AbstractBlock.Settings.of(Material.PLANT).ticksRandomly().noCollision().luminance(CaveVines.getLuminanceSupplier(14)).breakInstantly().sounds(BlockSoundGroup.CAVE_VINES));
 	public static final Item ROASTED_BERRIES = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8F).build()));
@@ -47,26 +55,16 @@ public class MBItems {
 	public static final Item HONEY_BUN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F).build()));
 
     public static final Item PEAT = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
+	public static final Item MAGNETITE = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
+
 	public static final Item COPPER_NUGGET = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
 	public static final Item FUR = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
+	public static final Item DUSTY_CLOTH = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
 
 	public static final Item RED_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
 	public static final Item BROWN_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
 	public static final Item SAFFRON_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
 	public static final Item TOADSTOOL_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-
-	public static final Item POPPY_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
-	public static final Item DANDELION_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
-	public static final Item OXEYE_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
-	public static final Item ALLIUM_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
-	public static final Item LILY_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
-	public static final Item ORCHID_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
-	public static final Item CORNFLOWER_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
-	public static final Item AZURE_BLUET_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
-	public static final Item TULIP_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
-
-	public static final Item BUTTERCUP_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
-	public static final Item FORGETMENOT_CROWN = new ArmorItem(MBArmorMaterials.FLOWER_CROWN, EquipmentSlot.HEAD, new Item.Settings().group(MBItemGroup.UTILITY));
 
 	public static final Item WRENCH = new WrenchItem(new FabricItemSettings().group(ItemGroup.TOOLS));
 	
@@ -74,7 +72,10 @@ public class MBItems {
 	(new Item.Settings()).maxCount(1).group(MBItemGroup.UTILITY));
     public static final Item BABY_STRIDER_BUCKET = new EntityBucketItem(EntityType.STRIDER, Fluids.LAVA, SoundEvents.ITEM_BUCKET_EMPTY_FISH, 
 	(new Item.Settings()).maxCount(1).group(MBItemGroup.UTILITY));
-    
+
+	public static final Item JUNIPER_BOAT = new BoatItem(MBBoatTypes.JUNIPER, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
+	public static final Item CEDAR_BOAT = new BoatItem(MBBoatTypes.CEDAR, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
+
 	// Glass Shards
 	public static final Item GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
 	public static final Item WHITE_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
@@ -125,8 +126,11 @@ public class MBItems {
 		addItem("lettuce_leaf", LETTUCE_LEAF);
 		addItem("lettuce_wrap", LETTUCE_WRAP);
 		addItem("salad", SALAD);
+		add("pepper_seeds", PEPPER_SEEDS);
+		addItem("pepper", PEPPER);
+		addItem("stuffed_pepper", STUFFED_PEPPER);
 
-		addItem("apple_seeds", APPLE_SEEDS);
+		//addItem("apple_seeds", APPLE_SEEDS);
 
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "sweet_berry_pits"), SWEET_BERRY_PITS);
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "sweet_berry_pits"), new BlockItem(SWEET_BERRY_PITS, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
@@ -144,28 +148,19 @@ public class MBItems {
 		addItem("saffron_mushblend", SAFFRON_MUSHBLEND);
 		addItem("toadstool_mushblend", TOADSTOOL_MUSHBLEND);
 
-//		addItem("poppy_crown", POPPY_CROWN);
-//		addItem("dandelion_crown", DANDELION_CROWN);
-//		addItem("oxeye_daisy_crown", OXEYE_CROWN);
-//		addItem("allium_crown", ALLIUM_CROWN);
-//		addItem("lily_of_the_valley_crown", LILY_CROWN);
-//		addItem("blue_orchid_crown", ORCHID_CROWN);
-//		addItem("cornflower_crown", CORNFLOWER_CROWN);
-//		addItem("azure_bluet_crown", AZURE_BLUET_CROWN);
-//		addItem("tulip_crown", TULIP_CROWN);
-//
-//		addItem("buttercup_crown", BUTTERCUP_CROWN);
-//		addItem("forget_me_not_crown", FORGETMENOT_CROWN);
+		addItem("juniper_boat", JUNIPER_BOAT);
+		addItem("cedar_boat", CEDAR_BOAT);
 
 		addTool("wrench", WRENCH);
-		//Registry.register(Registry.ITEM, new Identifier(MoonbitsMain.MOD_ID, "redstone_"), WRENCH);
 
 		addItem("baby_turtle_bucket", BABY_TURTLE_BUCKET);
 		addItem("baby_strider_bucket", BABY_STRIDER_BUCKET);
 
 		addItem("peat", PEAT);
+		addItem("magnetite", MAGNETITE);
 		addItem("copper_nugget", COPPER_NUGGET);
 		addItem("fur", FUR);
+		addItem("dusty_cloth", DUSTY_CLOTH);
 
 		addItem("glass_shard", GLASS_SHARD);
 		addItem("white_glass_shard", WHITE_GLASS_SHARD);

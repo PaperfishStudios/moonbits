@@ -4,25 +4,27 @@ import com.google.common.collect.ImmutableMap;
 
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.FlattenableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.TillableBlockRegistry;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
-import net.fabricmc.fabric.api.tag.TagFactory;
 import net.fabricmc.fabric.mixin.content.registry.AxeItemAccessor;
-import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.advancement.criterion.InventoryChangedCriterion;
+import net.fabricmc.fabric.mixin.object.builder.ModelPredicateProviderRegistrySpecificAccessor;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.client.color.item.ItemColorProvider;
-import net.minecraft.item.Item;
+import net.minecraft.item.HoeItem;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.screen.ScreenHandlerType;
-import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.advancement.ItemWashedCriterion;
+import net.paperfish.moonbits.block.BarrelCactusBlock;
 import net.paperfish.moonbits.mixin.CriteriaAccessor;
 import net.paperfish.moonbits.recipe.KilnRecipe;
 import net.paperfish.moonbits.recipe.WashingRecipe;
@@ -79,13 +81,8 @@ public class MBData {
 //		WASHING_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MOD_ID, "washing"), new WashingRecipe.WashingSerializer());
 	}
 
-	public static String getString(Identifier id) {
-		return id.toString();
-	}
-
-
 	// this one's client side btw
-	public static void registerBlockColours() {
+	public static void registerClient() {
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
 			BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.GRASS);
 			return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
@@ -106,19 +103,20 @@ public class MBData {
 		);
 
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
-			BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.OAK_LEAVES);
+			BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.ACACIA_LEAVES);
 			return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
-				MBBlocks.BUDDING_OAK_LEAVES,
-				MBBlocks.FLOWERING_OAK_LEAVES,
-				MBBlocks.FRUITING_OAK_LEAVES
+				MBBlocks.FLOWERING_ACACIA_LEAVES,
+				MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES,
+				MBBlocks.TALL_FLOWERING_ACACIA_LEAVES
 		);
 		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-			ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.OAK_LEAVES);
+			ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.ACACIA_LEAVES);
 			return provider == null ? -1 : provider.getColor(stack, tintIndex);},
-				MBBlocks.BUDDING_OAK_LEAVES,
-				MBBlocks.FLOWERING_OAK_LEAVES,
-				MBBlocks.FRUITING_OAK_LEAVES
+				MBBlocks.FLOWERING_ACACIA_LEAVES,
+				MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES,
+				MBBlocks.TALL_FLOWERING_ACACIA_LEAVES
 		);
+
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
 					BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.SPRUCE_LEAVES);
 					return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
@@ -131,9 +129,30 @@ public class MBData {
 				MBBlocks.JUNIPER_LEAVES,
 				MBBlocks.CEDAR_LEAVES
 		);
+
+		// item model predicates uwu
+		ModelPredicateProviderRegistrySpecificAccessor.callRegister(MBBlocks.BARREL_CACTUS.asItem(), new Identifier("water_level"), (stack, world, entity, seed) -> {
+			NbtCompound nbtCompound = stack.getSubNbt("BlockStateTag");
+			try {
+				NbtElement nbtElement;
+				if (nbtCompound != null && (nbtElement = nbtCompound.get(BarrelCactusBlock.LEVEL.getName())) != null) {
+					return switch (Integer.parseInt(nbtElement.asString())) {
+						default -> 0;
+						case 2 -> 1.0f;
+						case 3 -> 2.0f;
+						case 4 -> 3.0f;
+					};
+				}
+			}
+			catch (NumberFormatException numberFormatException) {
+				// empty catch block
+			}
+			return 1.0f;
+		});
 	}
 
-    public static void registerFlammable() {
+    public static void registerData() {
+		// flammable blocks
 		FlammableBlockRegistry.getDefaultInstance().add(Blocks.COBWEB, 60, 20);
 
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.OAK_PANEL, 5, 20);
@@ -187,8 +206,8 @@ public class MBData {
 
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.PAPER_BUNDLE, 60, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STICK_STACK, 30, 60);
-	}
-	public static void registerFuel() {
+
+		// fuel
 		FuelRegistry.INSTANCE.add(Blocks.WARPED_ROOTS, 200);
 		FuelRegistry.INSTANCE.add(Blocks.CRIMSON_ROOTS, 200);
 		FuelRegistry.INSTANCE.add(Blocks.NETHER_SPROUTS, 200);
@@ -215,9 +234,15 @@ public class MBData {
 		FuelRegistry.INSTANCE.add(MBBlocks.STICK_STACK, 1000);
 		FuelRegistry.INSTANCE.add(MBBlocks.CHARCOAL_LOG, 16000);
 		FuelRegistry.INSTANCE.add(MBBlocks.BLAZE_ROD_BUNDLE, 24000);
-	}
 
-	public static void registerStrippedBlocks() {
+		// register strippable blocks
 		AxeItemAccessor.setStrippedBlocks(STRIPPED_BLOCKS);
+
+		TillableBlockRegistry.register(MBBlocks.LEAFBED, HoeItem::canTillFarmland, Blocks.FARMLAND.getDefaultState());
+		TillableBlockRegistry.register(Blocks.DIRT_PATH, (a) -> true, Blocks.DIRT.getDefaultState());
+
+		FlattenableBlockRegistry.register(Blocks.FARMLAND, Blocks.DIRT.getDefaultState());
+
+
 	}
 }

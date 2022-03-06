@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTablesProvider
 import net.minecraft.block.*;
 import net.minecraft.block.enums.BedPart;
 import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.data.client.model.TexturedModel;
 import net.minecraft.data.server.BlockLootTableGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemConvertible;
@@ -13,13 +12,13 @@ import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
-import net.minecraft.loot.function.ApplyBonusLootFunction;
-import net.minecraft.loot.function.LootFunction;
-import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.function.*;
+import net.minecraft.loot.provider.nbt.ContextLootNbtProvider;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
@@ -28,9 +27,7 @@ import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBItems;
 import net.paperfish.moonbits.Moonbits;
-import net.paperfish.moonbits.block.CustomStairsBlock;
-import net.paperfish.moonbits.block.LettuceCropBlock;
-import net.paperfish.moonbits.block.PebbleBlock;
+import net.paperfish.moonbits.block.*;
 import net.paperfish.moonbits.registry.MBBlockFamilies;
 import net.paperfish.moonbits.registry.MBBlockFamily;
 
@@ -90,19 +87,21 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.CEDAR_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.CEDAR_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.CEDAR_SAPLING);
 
-        addDrop(MBBlocks.BARREL_CACTUS);
+        addDrop(MBBlocks.BARREL_CACTUS, (Block l) -> LootTable.builder().pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
+                .with((ItemEntry.builder(l))
+                        .apply(CopyStateFunction.builder(l).addProperty(BarrelCactusBlock.LEVEL)))));
 
-        addDrop(MBBlocks.BUDDING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
-        addDrop(MBBlocks.FLOWERING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
-        addDrop(MBBlocks.FRUITING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
+//        addDrop(MBBlocks.BUDDING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
+//        addDrop(MBBlocks.FLOWERING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
+//        addDrop(MBBlocks.FRUITING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.GOLDEN_BIRCH_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.GOLDEN_BIRCH_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.RED_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.oakLeavesDrop(l, MBBlocks.RED_OAK_SAPLING, SAPLING_DROP_CHANCE));
 
         addDrop(MBBlocks.GOLDEN_BIRCH_LEAF_CARPET, MBLootTableProvider::leafCarpet);
         addDrop(MBBlocks.RED_OAK_LEAF_CARPET, MBLootTableProvider::leafCarpet);
 
-        addDrop(MBBlocks.APPLE_OAK_SPROUT, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.APPLE_SEEDS));
-        addDrop(MBBlocks.APPLE_OAK_SAPLING);
+//        addDrop(MBBlocks.APPLE_OAK_SPROUT, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.APPLE_SEEDS));
+//        addDrop(MBBlocks.APPLE_OAK_SAPLING);
         addDrop(MBBlocks.GOLDEN_BIRCH_SAPLING);
         addDrop(MBBlocks.RED_OAK_SAPLING);
 
@@ -118,6 +117,23 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.COPPER_DEPOSIT, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 2f, 5f));
         addDrop(MBBlocks.FOSSIL, (Block block) -> BlockLootTableGenerator.drops(block, Items.NAUTILUS_SHELL));
 
+        addDrop(MBBlocks.CHERT_COAL_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.COAL));
+        addDrop(MBBlocks.CHERT_GOLD_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.RAW_GOLD));
+        addDrop(MBBlocks.CHERT_COPPER_ORE, BlockLootTableGenerator::copperOreDrops);
+        addDrop(MBBlocks.CHERT_REDSTONE_ORE, BlockLootTableGenerator::redstoneOreDrops);
+        addDrop(MBBlocks.CHERT_LAPIS_ORE, BlockLootTableGenerator::lapisOreDrops);
+
+        addDrop(MBBlocks.PAVED_SANDSTONE_BRICKS);
+        addDrop(MBBlocks.CRACKED_PAVED_SANDSTONE_BRICKS);
+        addDrop(MBBlocks.PAVED_RED_SANDSTONE_BRICKS);
+        addDrop(MBBlocks.CRACKED_PAVED_RED_SANDSTONE_BRICKS);
+        addDrop(MBBlocks.BANDED_IRON, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.RAW_IRON));
+        addDrop(MBBlocks.MAGNETITE_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.MAGNETITE));
+        addDrop(MBBlocks.MAGNETITE_BLOCK);
+
+        addDrop(MBBlocks.CANVAS);
+        addDrop(MBBlocks.FRAMED_CANVAS);
+
         addDrop(MBBlocks.PEBBLES, (Block block) -> LootTable.builder().pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
                 .with(BlockLootTableGenerator.applyExplosionDecay(MBBlocks.PEBBLES,
                         (ItemEntry.builder(block).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0f))
@@ -125,12 +141,27 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(3.0f)).conditionally(BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(PebbleBlock.PEBBLES, 3))))
                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(4.0f)).conditionally(BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(PebbleBlock.PEBBLES, 4))))))));
 
-        addDrop(MBBlocks.WILD_CARROTS, (Block block) -> oreDrops(block, Items.CARROT, 1f, 2f));
-        addDrop(MBBlocks.WILD_POTATOES, (Block block) -> oreDrops(block, Items.POTATO, 1f, 3f));
-        addDrop(MBBlocks.SEA_BEETS, (Block block) -> oreDrops(block, Items.BEETROOT_SEEDS, 0f, 2f));
+        addDrop(MBBlocks.WILD_CARROTS, (Block block) -> grassDrops(block, Items.CARROT, 1f, 2f));
+        addDrop(MBBlocks.WILD_POTATOES, (Block block) -> grassDrops(block, Items.POTATO, 1f, 3f));
+        addDrop(MBBlocks.SEA_BEETS, (Block block) -> grassDrops(block, Items.BEETROOT_SEEDS, 1f, 2f));
 
         addDrop(MBBlocks.LETTUCE_CROP, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.LETTUCE_SEEDS));
         addDrop(MBBlocks.LETTUCE_BLOCK, (Block block) -> oreDrops(block, MBItems.LETTUCE_LEAF, 3f, 6f));
+
+        addDrop(MBBlocks.BEACHGRASS, (Block block) -> grassDrops(block, Items.WHEAT_SEEDS, 1f, 1f));
+        addDrop(MBBlocks.TALL_BEACHGRASS, (Block block) -> BlockLootTableGenerator.tallGrassDrops(block, MBBlocks.BEACHGRASS));
+
+        addDrop(MBBlocks.COTTONGRASS, (Block block) -> grassDrops(block, Items.WHEAT_SEEDS, 1f, 1f));
+        addDrop(MBBlocks.TALL_COTTONGRASS, (Block block) -> BlockLootTableGenerator.tallGrassDrops(block, MBBlocks.COTTONGRASS));
+        addDrop(MBBlocks.LUPINE, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
+
+        addDrop(MBBlocks.DESERT_BRUSH, (Block block) -> grassDrops(block, Items.WHEAT_SEEDS, 1f, 1f));
+        addDrop(MBBlocks.TALL_DESERT_BRUSH, (Block block) -> BlockLootTableGenerator.tallGrassDrops(block, MBBlocks.DESERT_BRUSH));
+
+        addDrop(MBBlocks.MARIGOLD);
+
+        addDrop(MBBlocks.PEPPER_CROP, BlockLootTableGenerator.cropDrops(MBBlocks.PEPPER_CROP, MBItems.PEPPER, MBItems.PEPPER_SEEDS,
+                BlockStatePropertyLootCondition.builder(MBBlocks.PEPPER_CROP).properties(StatePredicate.Builder.create().exactMatch(PepperCropBlock.AGE, 7))));
 
         addDrop(MBBlocks.BUTTERCUP);
         addDrop(MBBlocks.FORGETMENOT);
@@ -187,6 +218,8 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.CARROT_CRATE);
         addDrop(MBBlocks.POTATO_CRATE);
         addDrop(MBBlocks.BEETROOT_CRATE);
+        addDrop(MBBlocks.PEPPER_CRATE);
+
         addDrop(MBBlocks.EGG_BASKET);
         addDrop(MBBlocks.COCOA_SACK);
         addDrop(MBBlocks.GLISTERING_MELON_BLOCK);
@@ -263,6 +296,11 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         return BlockLootTableGenerator.dropsWithSilkTouchOrShears(block,
         BlockLootTableGenerator.applyExplosionDecay(block, ItemEntry.builder(Items.STICK).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f))))
                 .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, 0.02f, 0.022222223f, 0.025f, 0.033333335f, 0.1f)));
+    }
+    public static LootTable.Builder grassDrops(Block dropWithShears, ItemConvertible item, float min, float max) {
+        return BlockLootTableGenerator.dropsWithShears(dropWithShears, BlockLootTableGenerator.applyExplosionDecay(dropWithShears,
+                (ItemEntry.builder(item).conditionally(RandomChanceLootCondition.builder(0.125f)))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(min, max)))).apply(ApplyBonusLootFunction.uniformBonusCount(Enchantments.FORTUNE, 2)));
     }
     public static LootTable.Builder oreDrops(Block ore, ItemConvertible item, float min, float max) {
         return BlockLootTableGenerator.dropsWithSilkTouch(ore, BlockLootTableGenerator.applyExplosionDecay(ore,

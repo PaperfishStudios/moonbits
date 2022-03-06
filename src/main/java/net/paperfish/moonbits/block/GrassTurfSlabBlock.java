@@ -11,6 +11,7 @@ import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
@@ -53,19 +54,19 @@ public class GrassTurfSlabBlock extends SlabBlock implements Fertilizable {
 			}
 
 			if (j.isAir()) {
-				PlacedFeature placedFeature;
+				RegistryEntry<PlacedFeature> placedFeature;
 				if (random.nextInt(8) == 0) {
-					List<ConfiguredFeature<?, ?>> list = world.getBiome(blockPos2).getGenerationSettings().getFlowerFeatures();
+					List<ConfiguredFeature<?, ?>> list = world.getBiome(blockPos2).value().getGenerationSettings().getFlowerFeatures();
 					if (list.isEmpty()) {
 						continue;
 					}
 
-					placedFeature = ((RandomPatchFeatureConfig)list.get(0).getConfig()).feature().get();
+					placedFeature = ((RandomPatchFeatureConfig)list.get(0).config()).feature();
 				} else {
 					placedFeature = VegetationPlacedFeatures.GRASS_BONEMEAL;
 				}
 
-				placedFeature.generateUnregistered(world, world.getChunkManager().getChunkGenerator(), random, blockPos2);
+				placedFeature.value().generateUnregistered(world, world.getChunkManager().getChunkGenerator(), random, blockPos2);
 			}
 		}
 	}

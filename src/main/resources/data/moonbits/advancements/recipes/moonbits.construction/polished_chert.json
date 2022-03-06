@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:polished_chert"
+    ]
+  },
+  "criteria": {
+    "has_chert": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:chert"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:polished_chert"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_chert",
+      "has_the_recipe"
+    ]
+  ]
+}

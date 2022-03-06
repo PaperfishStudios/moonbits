@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:pepper_crate"
+    }
+  ],
+  "result": {
+    "item": "moonbits:pepper",
+    "count": 9
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/polished_chert_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/polished_chert"
+    },
+    "type=top": {
+      "model": "moonbits:block/polished_chert_slab_top"
+    }
+  }
+}

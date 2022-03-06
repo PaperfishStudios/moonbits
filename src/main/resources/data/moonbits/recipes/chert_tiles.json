@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "moonbits:chert_bricks"
+    }
+  },
+  "result": {
+    "item": "moonbits:chert_tiles",
+    "count": 4
+  }
+}

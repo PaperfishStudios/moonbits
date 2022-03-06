@@ -3,10 +3,8 @@
   "values": [
     "moonbits:golden_birch_leaves",
     "moonbits:red_oak_leaves",
-    "moonbits:budding_oak_leaves",
-    "moonbits:flowering_oak_leaves",
-    "moonbits:apple_oak_leaves",
     "moonbits:juniper_leaves",
-    "moonbits:cedar_leaves"
+    "moonbits:cedar_leaves",
+    "minecraft:air"
   ]
 }

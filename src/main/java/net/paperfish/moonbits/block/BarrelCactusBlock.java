@@ -3,12 +3,18 @@ package net.paperfish.moonbits.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.entity.BeehiveBlockEntity;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
@@ -18,10 +24,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
+import net.minecraft.world.*;
 
 import java.util.Random;
 
@@ -46,6 +49,16 @@ public class BarrelCactusBlock extends Block {
     }
 
     @Override
+    public boolean hasComparatorOutput(BlockState state) {
+        return true;
+    }
+
+    @Override
+    public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
+        return state.get(LEVEL);
+    }
+
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return switch (state.get(LEVEL)) {
             default -> TINY;
@@ -53,6 +66,35 @@ public class BarrelCactusBlock extends Block {
             case 3 -> MEDIUM;
             case 4 -> LARGE;
         };
+    }
+
+    @Override
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!world.isClient && !player.isCreative() && world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS)) {
+            ItemStack itemStack = new ItemStack(this);
+            int i = state.get(LEVEL);
+            if (i > 0) {
+                NbtCompound nbtCompound;
+                nbtCompound = new NbtCompound();
+                nbtCompound.putInt(LEVEL.getName(), state.get(LEVEL));
+                itemStack.setSubNbt("BlockStateTag", nbtCompound);
+                ItemEntity itemEntity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), itemStack);
+                itemEntity.setToDefaultPickupDelay();
+                world.spawnEntity(itemEntity);
+            }
+        }
+        super.onBreak(world, pos, state, player);
+    }
+
+    @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        ItemStack itemStack = super.getPickStack(world, pos, state);
+        if (state.get(LEVEL) > 0) {
+            NbtCompound nbtCompound = new NbtCompound();
+            nbtCompound.putInt(LEVEL.getName(), state.get(LEVEL));
+            itemStack.setSubNbt("BlockStateTag", nbtCompound);
+        }
+        return itemStack;
     }
 
     @Override

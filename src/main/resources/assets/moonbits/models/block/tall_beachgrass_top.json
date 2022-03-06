@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "moonbits:block/tall_beachgrass_top"
+  }
+}

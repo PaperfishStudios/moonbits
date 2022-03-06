@@ -29,7 +29,7 @@ public class FruitingLeavesBlock extends LeavesBlock {
         if (!world.isClient) {
             Block.dropStack(world, dropFromFullBlock(pos, world), new ItemStack(Items.APPLE));
             world.playSound(null, pos, SoundEvents.BLOCK_CAVE_VINES_PICK_BERRIES, SoundCategory.BLOCKS, 1F, 1.0F);
-            world.setBlockState(pos, MBBlocks.BUDDING_OAK_LEAVES.getDefaultState());
+            //world.setBlockState(pos, MBBlocks.BUDDING_OAK_LEAVES.getDefaultState());
         }
         return ActionResult.SUCCESS;
     }

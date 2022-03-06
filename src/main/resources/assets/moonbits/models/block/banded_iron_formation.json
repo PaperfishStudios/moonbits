@@ -1,0 +1,12 @@
+{
+    "parent": "block/ctm/connected_side_end",
+    "textures": {
+        "all": "block/banded_iron_formation",
+        "north": "block/banded_iron_formation_edge",
+        "south": "block/banded_iron_formation_edge",
+        "east": "block/banded_iron_formation_edge",
+        "west": "block/banded_iron_formation_edge",
+        "up": "block/cut_chert_top",
+        "down": "block/cut_chert_top"
+    }
+}

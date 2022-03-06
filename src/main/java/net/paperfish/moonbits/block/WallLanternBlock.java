@@ -90,6 +90,7 @@ public class WallLanternBlock extends Block implements Waterloggable {
     @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
+        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
         Direction[] directions = ctx.getPlacementDirections();
         BlockState blockState = this.getDefaultState();
         World worldView = ctx.getWorld();
@@ -97,7 +98,7 @@ public class WallLanternBlock extends Block implements Waterloggable {
         for (Direction direction : directions) {
             Direction opposite = direction.getOpposite();
             if (!direction.getAxis().isHorizontal() || !(blockState = blockState.with(FACING, opposite)).canPlaceAt(worldView, blockPos)) continue;
-            return blockState;
+            return blockState.with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
         }
         return null;
     }

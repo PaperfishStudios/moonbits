@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:smelting_cracked_paved_red_sandstone_bricks"
+    ]
+  },
+  "criteria": {
+    "has_paved_red_sandstone_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:paved_red_sandstone_bricks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:smelting_cracked_paved_red_sandstone_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_paved_red_sandstone_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

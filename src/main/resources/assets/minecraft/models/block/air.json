@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "minecraft:block/air_top",
+    "side": "minecraft:block/air"
+  }
+}

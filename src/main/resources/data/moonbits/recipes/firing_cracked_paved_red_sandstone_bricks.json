@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "ingredient": {
+    "item": "moonbits:paved_red_sandstone_bricks"
+  },
+  "result": "moonbits:cracked_paved_red_sandstone_bricks",
+  "experience": 0.1,
+  "cookingtime": 100
+}

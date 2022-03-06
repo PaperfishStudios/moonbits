@@ -6,19 +6,12 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
-import net.minecraft.block.FlowerPotBlock;
-import net.minecraft.block.PlantBlock;
-import net.minecraft.block.SaplingBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBData;
 import net.paperfish.moonbits.MBParticles;
-import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.screen.KilnScreen;
-
-import java.util.Objects;
 
 
 @Environment(EnvType.CLIENT)
@@ -53,9 +46,22 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.LIGHT_BLUE_HYACINTH,
                 MBBlocks.RED_HYACINTH,
 
+                MBBlocks.LUPINE,
+
+                MBBlocks.BARREL_CACTUS,
+                MBBlocks.MARIGOLD,
+                MBBlocks.POTTED_MARIGOLD,
+
                 MBBlocks.WILD_CARROTS,
                 MBBlocks.WILD_POTATOES,
                 MBBlocks.SEA_BEETS,
+
+                MBBlocks.BEACHGRASS,
+                MBBlocks.TALL_BEACHGRASS,
+                MBBlocks.COTTONGRASS,
+                MBBlocks.TALL_COTTONGRASS,
+                MBBlocks.DESERT_BRUSH,
+                MBBlocks.TALL_DESERT_BRUSH,
 
                 MBBlocks.LAMPROOT,
                 MBBlocks.CAVEBLOOM_VINE,
@@ -70,13 +76,13 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.CEDAR_SAPLING,
                 MBBlocks.POTTED_CEDAR_SAPLING,
 
+                MBBlocks.FLOWERING_ACACIA_LEAVES,
+                MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES,
+                MBBlocks.TALL_FLOWERING_ACACIA_LEAVES,
+
                 MBBlocks.HONEY_DOOR,
                 MBBlocks.HONEY_TRAPDOOR,
 
-                MBBlocks.APPLE_OAK_SPROUT,
-                MBBlocks.POTTED_APPLE_OAK_SPROUT,
-                MBBlocks.APPLE_OAK_SAPLING,
-                MBBlocks.POTTED_APPLE_OAK_SAPLING,
                 MBBlocks.RED_OAK_LEAF_CARPET,
                 MBBlocks.RED_OAK_SAPLING,
                 MBBlocks.POTTED_RED_OAK_SAPLING,
@@ -88,7 +94,7 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.WALL_SOUL_LANTERN
         );
 
-        MBData.registerBlockColours();
+        MBData.registerClient();
         MBParticles.registerParticleClient();
 
         MBEntityType.initEntityClient();

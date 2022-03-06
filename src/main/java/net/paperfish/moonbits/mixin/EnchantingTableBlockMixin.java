@@ -15,13 +15,13 @@ import net.minecraft.world.World;
 public class EnchantingTableBlockMixin {
     
     // replace all the checks for bookshelf with a check for the bookshelf *tag*
-    @Redirect(method = "randomDisplayTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"))
-	private boolean hookOnContentChanged(BlockState state, Block block) {
+    @Redirect(method = "canAccessBookshelf(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"))
+	private static boolean hookOnContentChanged(BlockState state, Block block) {
 		return state.isIn(MBBlockTags.C_BOOKSHELVES);
 	}
     // replace all the checks for air with a check for transparent blocks
-    @Redirect(method = "randomDisplayTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;isAir(Lnet/minecraft/util/math/BlockPos;)Z"))
-	private boolean transparentBlocks(World world, BlockPos pos) {
+    @Redirect(method = "canAccessBookshelf(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;)Z", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/World;isAir(Lnet/minecraft/util/math/BlockPos;)Z"))
+	private static boolean transparentBlocks(World world, BlockPos pos) {
 		return !world.getBlockState(pos).isFullCube(world, pos);
 	}
 }

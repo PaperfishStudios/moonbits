@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "moonbits:block/chert_pillar",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "moonbits:block/chert_pillar"
+    },
+    "axis=z": {
+      "model": "moonbits:block/chert_pillar",
+      "x": 90
+    }
+  }
+}

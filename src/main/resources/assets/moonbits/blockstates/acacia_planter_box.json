@@ -54,8 +54,8 @@
     },
     {
       "when": {
-        "east": "true",
-        "north": "true"
+        "north": "true",
+        "east": "true"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box_outer",
@@ -65,8 +65,8 @@
     },
     {
       "when": {
-        "east": "true",
-        "north": "false"
+        "north": "false",
+        "east": "true"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box_side",
@@ -76,8 +76,8 @@
     },
     {
       "when": {
-        "east": "false",
-        "north": "true"
+        "north": "true",
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box_side_b",
@@ -87,9 +87,9 @@
     },
     {
       "when": {
-        "east": "false",
+        "ne": "true",
         "north": "false",
-        "ne": "true"
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box_inner",
@@ -99,9 +99,9 @@
     },
     {
       "when": {
-        "east": "false",
+        "ne": "false",
         "north": "false",
-        "ne": "false"
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box",
@@ -111,8 +111,8 @@
     },
     {
       "when": {
-        "east": "true",
-        "south": "true"
+        "south": "true",
+        "east": "true"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box_outer",
@@ -122,8 +122,8 @@
     },
     {
       "when": {
-        "east": "false",
-        "south": "true"
+        "south": "true",
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box_side",
@@ -133,8 +133,8 @@
     },
     {
       "when": {
-        "east": "true",
-        "south": "false"
+        "south": "false",
+        "east": "true"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box_side_b",
@@ -144,9 +144,9 @@
     },
     {
       "when": {
-        "east": "false",
         "south": "false",
-        "se": "true"
+        "se": "true",
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box_inner",
@@ -156,9 +156,9 @@
     },
     {
       "when": {
-        "east": "false",
         "south": "false",
-        "se": "false"
+        "se": "false",
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box",
@@ -202,8 +202,8 @@
     {
       "when": {
         "south": "false",
-        "sw": "true",
-        "west": "false"
+        "west": "false",
+        "sw": "true"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box_inner",
@@ -214,8 +214,8 @@
     {
       "when": {
         "south": "false",
-        "sw": "false",
-        "west": "false"
+        "west": "false",
+        "sw": "false"
       },
       "apply": {
         "model": "moonbits:block/acacia_planter_box",

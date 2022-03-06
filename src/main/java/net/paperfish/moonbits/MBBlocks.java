@@ -1,9 +1,9 @@
 package net.paperfish.moonbits;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
 import net.minecraft.block.PressurePlateBlock.ActivationRule;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
@@ -11,12 +11,12 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.SignType;
-import net.minecraft.util.registry.*;
-import net.minecraft.world.gen.feature.TreeConfiguredFeatures;
-import net.paperfish.moonbits.world.feature.*;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.paperfish.moonbits.mixin.SignTypeAccessor;
+import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.block.*;
+import net.paperfish.moonbits.mixin.SignTypeAccessor;
+import net.paperfish.moonbits.world.feature.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MBBlocks {
 
@@ -67,7 +67,10 @@ public class MBBlocks {
 	// FORAGING
 	public static final Block WILD_CARROTS = new WildCropBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block WILD_POTATOES = new WildCropBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block SEA_BEETS = new WildCropBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block SEA_BEETS = new SandyPlantBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+	public static final Block BEACHGRASS = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block TALL_BEACHGRASS = new SandyTallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
 	public static final Block PEBBLES = new PebbleBlock(AbstractBlock.Settings.of(Material.STONE).noCollision().breakInstantly().sounds(BlockSoundGroup.TUFF));
 
@@ -115,15 +118,6 @@ public class MBBlocks {
 	public static final Block DARK_OAK_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CRIMSON_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
 	public static final Block WARPED_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.NETHER_STEM));
-
-	// APPLE OAKS
-	public static final Block FRUITING_OAK_LEAVES = new FruitingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES));
-	public static final Block FLOWERING_OAK_LEAVES = new GrowingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), FRUITING_OAK_LEAVES);
-	public static final Block BUDDING_OAK_LEAVES = new GrowingLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).ticksRandomly().nonOpaque(), FLOWERING_OAK_LEAVES);
-	public static final Block APPLE_OAK_SPROUT =new AppleSproutBlock(AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
-	public static final Block POTTED_APPLE_OAK_SPROUT = new FlowerPotBlock(APPLE_OAK_SPROUT, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
-	public static final Block APPLE_OAK_SAPLING =new MBSaplingBlock(new AppleOakSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
-	public static final Block POTTED_APPLE_OAK_SAPLING = new FlowerPotBlock(APPLE_OAK_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
 	// AUTUMN BIRCH FOREST
 	public static final Block GOLDEN_BIRCH_LEAVES = new ParticleLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES), MBParticles.FALLING_LEAF);
@@ -198,6 +192,8 @@ public class MBBlocks {
 	public static final Block FUR_CARPET = new CarpetBlock(AbstractBlock.Settings.of(Material.WOOL, MapColor.BROWN).strength(0.2F).sounds(BlockSoundGroup.WOOL).nonOpaque());
 
 	// SNOW DAY
+	public static BlockEntityType<SnowyBlockEntity> SNOWY_BLOCK_ENTITY;
+
 	public static final Block JUNIPER_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
 	public static final Block JUNIPER_STAIRS = new CustomStairsBlock(JUNIPER_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
 	public static final Block JUNIPER_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB));
@@ -226,6 +222,11 @@ public class MBBlocks {
 			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD), JUNIPER_SIGN_TYPE);
 	public static final Block JUNIPER_WALL_SIGN = new WallSignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_PURPLE)
 			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(JUNIPER_SIGN), JUNIPER_SIGN_TYPE);
+
+	public static final Block COTTONGRASS = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block TALL_COTTONGRASS = new TallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+	public static final Block LUPINE = new TallFlowerBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
 	// WARM RECEPTION
 	public static final Block CEDAR_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
@@ -258,6 +259,62 @@ public class MBBlocks {
 			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(CEDAR_SIGN), CEDAR_SIGN_TYPE);
 
 	public static final Block BARREL_CACTUS = new BarrelCactusBlock(FabricBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+	public static final Block DESERT_BRUSH = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block TALL_DESERT_BRUSH = new SandyTallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block MARIGOLD = new SandyFlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block POTTED_MARIGOLD = new FlowerPotBlock(MARIGOLD, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+
+	public static final Block CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
+	public static final Block FRAMED_CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
+
+	// CHERT
+	public static final Block CHERT = new Block(AbstractBlock.Settings.copy(Blocks.STONE));
+	public static final Block CHERT_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.STONE));
+	public static final Block CHERT_STAIRS = new CustomStairsBlock(CHERT.getDefaultState(), AbstractBlock.Settings.copy(Blocks.STONE));
+	public static final Block CHERT_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.STONE));
+
+	public static final Block POLISHED_CHERT = new Block(AbstractBlock.Settings.copy(CHERT));
+	public static final Block POLISHED_CHERT_SLAB = new SlabBlock(AbstractBlock.Settings.copy(CHERT));
+	public static final Block POLISHED_CHERT_STAIRS = new CustomStairsBlock(POLISHED_CHERT.getDefaultState(), AbstractBlock.Settings.copy(CHERT));
+	public static final Block POLISHED_CHERT_WALL = new WallBlock(AbstractBlock.Settings.copy(CHERT));
+
+	public static final Block CHERT_BRICKS = new Block(AbstractBlock.Settings.copy(CHERT));
+	public static final Block CHERT_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(CHERT));
+	public static final Block CHERT_BRICK_STAIRS = new CustomStairsBlock(CHERT_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(CHERT));
+	public static final Block CHERT_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(CHERT));
+
+	public static final Block CRACKED_CHERT_BRICKS = new Block(AbstractBlock.Settings.copy(CHERT));
+	public static final Block CRACKED_CHERT_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(CHERT));
+	public static final Block CRACKED_CHERT_BRICK_STAIRS = new CustomStairsBlock(CRACKED_CHERT_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(CHERT));
+	public static final Block CRACKED_CHERT_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(CHERT));
+
+	public static final Block CHERT_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(CHERT));
+	public static final Block CUT_CHERT = new Block(AbstractBlock.Settings.copy(CHERT));
+	public static final Block CHISELED_CHERT = new Block(AbstractBlock.Settings.copy(CHERT));
+
+	public static final Block CHERT_TILES = new Block(AbstractBlock.Settings.copy(CHERT));
+	public static final Block CHERT_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(CHERT));
+	public static final Block CHERT_TILE_STAIRS = new CustomStairsBlock(CHERT_TILES.getDefaultState(), AbstractBlock.Settings.copy(CHERT));
+	public static final Block CHERT_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(CHERT));
+
+	public static final Block CRACKED_CHERT_TILES = new Block(AbstractBlock.Settings.copy(CHERT));
+	public static final Block CRACKED_CHERT_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(CHERT));
+	public static final Block CRACKED_CHERT_TILE_STAIRS = new CustomStairsBlock(CRACKED_CHERT_TILES.getDefaultState(), AbstractBlock.Settings.copy(CHERT));
+	public static final Block CRACKED_CHERT_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(CHERT));
+
+	public static final Block CHERT_COAL_ORE = new Block(AbstractBlock.Settings.copy(Blocks.COAL_ORE));
+	public static final Block CHERT_GOLD_ORE = new Block(AbstractBlock.Settings.copy(Blocks.GOLD_ORE));
+	public static final Block CHERT_COPPER_ORE = new Block(AbstractBlock.Settings.copy(Blocks.COPPER_ORE));
+	public static final Block CHERT_REDSTONE_ORE = new RedstoneOreBlock(AbstractBlock.Settings.copy(Blocks.REDSTONE_ORE));
+	public static final Block CHERT_LAPIS_ORE = new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_ORE));
+	public static final Block BANDED_IRON = new BandedIronBlock(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
+	public static final Block MAGNETITE_ORE = new BandedIronBlock(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
+	public static final Block MAGNETITE_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK));
+
+	public static final Block FLOWERING_ACACIA_LEAVES = new ParticleLeavesBlock(AbstractBlock.Settings.copy(Blocks.ACACIA_LEAVES).mapColor(MapColor.PALE_YELLOW), MBParticles.FALLING_WATTLE);
+	public static final Block HANGING_FLOWERING_ACACIA_LEAVES = new HangingAcaciaBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().mapColor(MapColor.PALE_YELLOW));
+	public static final Block TALL_FLOWERING_ACACIA_LEAVES = new TallHangingAcaciaBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().mapColor(MapColor.PALE_YELLOW));
+	public static final Block CRACKED_MUD = new PillarBlock(AbstractBlock.Settings.copy(Blocks.TERRACOTTA).mapColor(MapColor.PALE_YELLOW));
 
 	// FLOWER FOREST
 	public static final Block BUTTERCUP = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
@@ -283,8 +340,6 @@ public class MBBlocks {
 	public static final Block MINI_TULIP_O = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block MINI_TULIP_R = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block MINI_FORGETMENOT = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-
-	//public static final Block AZALEA_STEM = new AzaleaStemBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 
 	// - HONEY CONTENT LMAO
 	public static final Block HONEY_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
@@ -345,8 +400,13 @@ public class MBBlocks {
 	public static final Block PEAT_BRICK_STAIRS = new CustomStairsBlock(PEAT_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.5f));
 	public static final Block PEAT_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.STONE));
 
-	public static final Block LETTUCE_CROP = new LettuceCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly().nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
-	public static final Block LETTUCE_BLOCK = new LettuceBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().strength(0.3f).nonOpaque().sounds(BlockSoundGroup.GRASS));
+	public static final Block PEPPER_CROP = new PepperCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
+			.nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
+
+	public static final Block LETTUCE_CROP = new LettuceCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
+			.nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
+	public static final Block LETTUCE_BLOCK = new LettuceBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().strength(0.3f)
+			.nonOpaque().sounds(BlockSoundGroup.GRASS));
 
 	public static final Block LAMPROOT = new LamprootBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).luminance((state) -> 7));
 	public static final Block CAVEBLOOM_FLOWERS = new CavebloomFlowerBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().ticksRandomly().sounds(BlockSoundGroup.GRASS));
@@ -367,7 +427,6 @@ public class MBBlocks {
 
 	// MISC.
 	public static final Block GLASS_DOOR = new MBDoorBlock(FabricBlockSettings.copy(Blocks.GLASS));
-	//public static final Block FULGURITE = new FulguriteBlock(FabricBlockSettings.of(Material.GLASS).strength(0.3F).sounds(BlockSoundGroup.GLASS).nonOpaque());
 
 	// STONE
     public static final Block STONE_PILLAR = new PillarBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
@@ -513,11 +572,13 @@ public class MBBlocks {
 	public static final Block SANDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE));
 	public static final Block SANDSTONE_BRICK_STAIRS = new CustomStairsBlock(SANDSTONE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block SANDSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block PAVED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 	
 	public static final Block CRACKED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block CRACKED_SANDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE));
 	public static final Block CRACKED_SANDSTONE_BRICK_STAIRS = new CustomStairsBlock(CRACKED_SANDSTONE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block CRACKED_SANDSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_PAVED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 
 	public static final Block SANDSTONE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block SANDSTONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE));
@@ -535,11 +596,13 @@ public class MBBlocks {
 	public static final Block RED_SANDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE));
 	public static final Block RED_SANDSTONE_BRICK_STAIRS = new CustomStairsBlock(RED_SANDSTONE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block RED_SANDSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block PAVED_RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 	
 	public static final Block CRACKED_RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block CRACKED_RED_SANDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE));
 	public static final Block CRACKED_RED_SANDSTONE_BRICK_STAIRS = new CustomStairsBlock(CRACKED_RED_SANDSTONE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block CRACKED_RED_SANDSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_PAVED_RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 
 	public static final Block RED_SANDSTONE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block RED_SANDSTONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE));
@@ -643,11 +706,6 @@ public class MBBlocks {
 	public static final Block DRIPSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_STAIRS = new CustomStairsBlock(Blocks.DRIPSTONE_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-
-	public static final Block COBBLED_DRIPSTONE = new Block(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-	public static final Block COBBLED_DRIPSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-	public static final Block COBBLED_DRIPSTONE_STAIRS = new CustomStairsBlock(COBBLED_DRIPSTONE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-	public static final Block COBBLED_DRIPSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	
 	public static final Block POLISHED_DRIPSTONE = new Block(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block POLISHED_DRIPSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
@@ -721,11 +779,6 @@ public class MBBlocks {
 	public static final Block CRACKED_PRISMARINE_BRICK_STAIRS = new CustomStairsBlock(CRACKED_PRISMARINE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CRACKED_PRISMARINE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	
-	public static final Block ALGAL_PRISMARINE_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	public static final Block ALGAL_PRISMARINE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	public static final Block ALGAL_PRISMARINE_BRICK_STAIRS = new CustomStairsBlock(ALGAL_PRISMARINE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	public static final Block ALGAL_PRISMARINE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	
 	public static final Block PRISMARINE_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CHISELED_PRISMARINE = new Block(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CUT_PRISMARINE = new Block(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
@@ -739,11 +792,6 @@ public class MBBlocks {
 	public static final Block CRACKED_PRISMARINE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CRACKED_PRISMARINE_TILE_STAIRS = new CustomStairsBlock(CRACKED_PRISMARINE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CRACKED_PRISMARINE_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	
-	public static final Block ALGAL_PRISMARINE_TILES = new Block(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	public static final Block ALGAL_PRISMARINE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	public static final Block ALGAL_PRISMARINE_TILE_STAIRS = new CustomStairsBlock(ALGAL_PRISMARINE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	public static final Block ALGAL_PRISMARINE_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 
 	// BASALT
 	public static final Block BASALT_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.BASALT));
@@ -772,39 +820,21 @@ public class MBBlocks {
 	public static final Block SMOOTH_BASALT_STAIRS = new CustomStairsBlock(Blocks.SMOOTH_BASALT.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block SMOOTH_BASALT_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.SMOOTH_BASALT));
 
-	// LAPIS LAZULI BLOCKS
-	public static final Block SMOOTH_LAPIS = new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-	public static final Block SMOOTH_LAPIS_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-	public static final Block SMOOTH_LAPIS_STAIRS = new CustomStairsBlock(SMOOTH_LAPIS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-
-	public static final Block LAPIS_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-	public static final Block LAPIS_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-	public static final Block LAPIS_BRICK_STAIRS = new CustomStairsBlock(LAPIS_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-
-	public static final Block LAPIS_TILES = new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-	public static final Block LAPIS_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-	public static final Block LAPIS_TILE_STAIRS = new CustomStairsBlock(LAPIS_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-
-	public static final Block LAPIS_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(Blocks.LAPIS_BLOCK));
-
 	public static final Block QUARTZ_SHARD_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK));
-	// AMETHYST BLOCKS
 	public static final Block AMETHYST_SHARD_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
-	public static final Block POLISHED_AMETHYST = new Block(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
-	public static final Block AMETHYST_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
-	public static final Block AMETHYST_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
-	public static final Block AMETHYST_BRICK_STAIRS = new CustomStairsBlock(AMETHYST_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
 
 	// STORAGE BLOCKS
-	public static final Block APPLE_CRATE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
-	public static final Block CARROT_CRATE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
-	public static final Block POTATO_CRATE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
-	public static final Block BEETROOT_CRATE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
-	
-	public static final Block EGG_BASKET = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(MBSounds.SACK));
-	public static final Block COCOA_SACK = new PillarBlock(FabricBlockSettings.of(Material.WOOL).strength(2.0F,3.0F).sounds(MBSounds.SACK));
+	public static final Block APPLE_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+	public static final Block CARROT_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+	public static final Block POTATO_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+	public static final Block BEETROOT_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
 
-	public static final Block GLISTERING_MELON_BLOCK = new PillarBlock(FabricBlockSettings.of(Material.GOURD).hardness(1.0F).sounds(BlockSoundGroup.WOOD).luminance((state) -> 12));
+	public static final Block PEPPER_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+	
+	public static final Block EGG_BASKET = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(MBSounds.SACK));
+	public static final Block COCOA_SACK = new Block(FabricBlockSettings.of(Material.WOOL).strength(2.0F,3.0F).sounds(MBSounds.SACK));
+
+	public static final Block GLISTERING_MELON_BLOCK = new Block(FabricBlockSettings.of(Material.GOURD).hardness(1.0F).sounds(BlockSoundGroup.WOOD).luminance((state) -> 12));
 
 	public static final Block SWEET_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.5F).sounds(BlockSoundGroup.NYLIUM));
 	public static final Block GLOW_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.5F).sounds(BlockSoundGroup.NYLIUM).luminance((state) -> 12));
@@ -834,6 +864,15 @@ public class MBBlocks {
 	public static final Block BLAZE_ROD = new MBRodBlock(FabricBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));
 	public static final Block BLAZE_ROD_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));
 	public static final Block ENDER_PEARL_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).hardness(1f).sounds(BlockSoundGroup.COPPER));
+
+	public static List<Block> snowablePlants = new ArrayList<>(List.of(
+			Blocks.GRASS, Blocks.FERN, Blocks.POPPY, Blocks.DANDELION,Blocks.BLUE_ORCHID, Blocks.ALLIUM, Blocks.AZURE_BLUET,
+			Blocks.RED_TULIP, Blocks.ORANGE_TULIP, Blocks.WHITE_TULIP, Blocks.PINK_TULIP, Blocks.OXEYE_DAISY, Blocks.CORNFLOWER,
+			Blocks.LILY_OF_THE_VALLEY, Blocks.WITHER_ROSE, Blocks.SUNFLOWER, Blocks.LILAC, Blocks.PEONY, Blocks.ROSE_BUSH,
+			MBBlocks.BEACHGRASS, MBBlocks.TALL_BEACHGRASS, MBBlocks.COTTONGRASS, MBBlocks.TALL_COTTONGRASS, MBBlocks.DESERT_BRUSH, MBBlocks.TALL_DESERT_BRUSH,
+			MBBlocks.BUTTERCUP, MBBlocks.FORGETMENOT, MBBlocks.MARIGOLD, MBBlocks.WILD_CARROTS, MBBlocks.WILD_POTATOES, MBBlocks.SEA_BEETS,
+			MBBlocks.WHITE_HYACINTH, MBBlocks.LIGHT_BLUE_HYACINTH, MBBlocks.PINK_HYACINTH, MBBlocks.RED_HYACINTH
+	));
 
 	public static void createBlock(String block_id, Block block, ItemGroup group) {
 		
@@ -912,6 +951,9 @@ public class MBBlocks {
 		createBlock("wild_potatoes", WILD_POTATOES, MBItemGroup.DECOR);
 		createBlock("sea_beets", SEA_BEETS, MBItemGroup.DECOR);
 
+		createBlock("beachgrass", BEACHGRASS, MBItemGroup.DECOR);
+		createBlock("tall_beachgrass", TALL_BEACHGRASS, MBItemGroup.DECOR);
+
 		createBlock("pebbles", PEBBLES, MBItemGroup.DECOR);
 
 		// WOOD
@@ -969,13 +1011,13 @@ public class MBBlocks {
 		createBlock("crimson_planter_box", CRIMSON_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("warped_planter_box", WARPED_PLANTER_BOX, MBItemGroup.DECOR);
 		// - APPLE OAK
-		createBlock("budding_oak_leaves", BUDDING_OAK_LEAVES, MBItemGroup.DECOR);
-		createBlock("flowering_oak_leaves", FLOWERING_OAK_LEAVES, MBItemGroup.DECOR);
-		createBlock("apple_oak_leaves", FRUITING_OAK_LEAVES, MBItemGroup.DECOR);
-		createBlock("apple_oak_sapling", APPLE_OAK_SAPLING, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_apple_oak_sapling"), POTTED_APPLE_OAK_SAPLING);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "apple_oak_sprout"), APPLE_OAK_SPROUT);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_apple_oak_sprout"), POTTED_APPLE_OAK_SPROUT);
+//		createBlock("budding_oak_leaves", BUDDING_OAK_LEAVES, MBItemGroup.DECOR);
+//		createBlock("flowering_oak_leaves", FLOWERING_OAK_LEAVES, MBItemGroup.DECOR);
+//		createBlock("apple_oak_leaves", FRUITING_OAK_LEAVES, MBItemGroup.DECOR);
+//		createBlock("apple_oak_sapling", APPLE_OAK_SAPLING, MBItemGroup.DECOR);
+//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_apple_oak_sapling"), POTTED_APPLE_OAK_SAPLING);
+//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "apple_oak_sprout"), APPLE_OAK_SPROUT);
+//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_apple_oak_sprout"), POTTED_APPLE_OAK_SPROUT);
 		// - GOLDEN BIRCH
 		createBlock("golden_birch_leaves", GOLDEN_BIRCH_LEAVES, MBItemGroup.DECOR);
 		createBlock("golden_birch_leaf_carpet", GOLDEN_BIRCH_LEAF_CARPET, MBItemGroup.DECOR);
@@ -1079,6 +1121,12 @@ public class MBBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "juniper_wall_sign"), JUNIPER_WALL_SIGN);
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "juniper_sign"),
 				(Item)(new SignItem(new Item.Settings().maxCount(16).group(ItemGroup.DECORATIONS), JUNIPER_SIGN, JUNIPER_WALL_SIGN)));
+
+		createBlock("cottongrass", COTTONGRASS, MBItemGroup.DECOR);
+		createBlock("tall_cottongrass", TALL_COTTONGRASS, MBItemGroup.DECOR);
+
+		createBlock("lupine", LUPINE, MBItemGroup.DECOR);
+
 		// - CEDAR WOOD
 		createBlock("cedar_planks", CEDAR_PLANKS, MBItemGroup.CONSTRUCTION);
 		createBlock("cedar_stairs", CEDAR_STAIRS, MBItemGroup.CONSTRUCTION);
@@ -1108,6 +1156,64 @@ public class MBBlocks {
 				(Item)(new SignItem(new Item.Settings().maxCount(16).group(ItemGroup.DECORATIONS), CEDAR_SIGN, CEDAR_WALL_SIGN)));
 
 		createBlock("barrel_cactus", BARREL_CACTUS, MBItemGroup.DECOR);
+		createBlock("desert_brush", DESERT_BRUSH, MBItemGroup.DECOR);
+		createBlock("tall_desert_brush", TALL_DESERT_BRUSH, MBItemGroup.DECOR);
+		createBlock("marigold", MARIGOLD, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_marigold"), POTTED_MARIGOLD);
+
+		createBlock("canvas", CANVAS, MBItemGroup.CONSTRUCTION);
+		createBlock("framed_canvas", FRAMED_CANVAS, MBItemGroup.CONSTRUCTION);
+
+		// CHERT
+		createBlock("chert", CHERT, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_slab", CHERT_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_stairs", CHERT_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_wall", CHERT_WALL, MBItemGroup.CONSTRUCTION);
+
+		createBlock("polished_chert", POLISHED_CHERT, MBItemGroup.CONSTRUCTION);
+		createBlock("polished_chert_slab", POLISHED_CHERT_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("polished_chert_stairs", POLISHED_CHERT_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("polished_chert_wall", POLISHED_CHERT_WALL, MBItemGroup.CONSTRUCTION);
+
+		createBlock("chert_bricks", CHERT_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_brick_slab", CHERT_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_brick_stairs", CHERT_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_brick_wall", CHERT_BRICK_WALL, MBItemGroup.CONSTRUCTION);
+
+		createBlock("cracked_chert_bricks", CRACKED_CHERT_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("cracked_chert_brick_slab", CRACKED_CHERT_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("cracked_chert_brick_stairs", CRACKED_CHERT_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("cracked_chert_brick_wall", CRACKED_CHERT_BRICK_WALL, MBItemGroup.CONSTRUCTION);
+
+		createBlock("chert_pillar", CHERT_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("chiseled_chert", CHISELED_CHERT, MBItemGroup.CONSTRUCTION);
+		createBlock("cut_chert", CUT_CHERT, MBItemGroup.CONSTRUCTION);
+
+		createBlock("chert_tiles", CHERT_TILES, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_tile_slab", CHERT_TILE_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_tile_stairs", CHERT_TILE_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_tile_wall", CHERT_TILE_WALL, MBItemGroup.CONSTRUCTION);
+
+		createBlock("cracked_chert_tiles", CRACKED_CHERT_TILES, MBItemGroup.CONSTRUCTION);
+		createBlock("cracked_chert_tile_slab", CRACKED_CHERT_TILE_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("cracked_chert_tile_stairs", CRACKED_CHERT_TILE_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("cracked_chert_tile_wall", CRACKED_CHERT_TILE_WALL, MBItemGroup.CONSTRUCTION);
+
+		createBlock("chert_coal_ore", CHERT_COAL_ORE, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_gold_ore", CHERT_GOLD_ORE, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_copper_ore", CHERT_COPPER_ORE, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_redstone_ore", CHERT_REDSTONE_ORE, MBItemGroup.CONSTRUCTION);
+		createBlock("chert_lapis_ore", CHERT_LAPIS_ORE, MBItemGroup.CONSTRUCTION);
+
+		createBlock("banded_iron", BANDED_IRON, MBItemGroup.CONSTRUCTION);
+		createBlock("magnetite_ore", MAGNETITE_ORE, MBItemGroup.CONSTRUCTION);
+		createBlock("magnetite_block", MAGNETITE_BLOCK, MBItemGroup.CONSTRUCTION);
+
+		createBlock("flowering_acacia_leaves", FLOWERING_ACACIA_LEAVES, MBItemGroup.CONSTRUCTION);
+		createBlock("hanging_flowering_acacia_leaves", HANGING_FLOWERING_ACACIA_LEAVES, MBItemGroup.CONSTRUCTION);
+		createBlock("tall_flowering_acacia_leaves", TALL_FLOWERING_ACACIA_LEAVES, MBItemGroup.CONSTRUCTION);
+
+		createBlock("cracked_mud", CRACKED_MUD, MBItemGroup.CONSTRUCTION);
 
 		createBlock("honey_planks", HONEY_PLANKS, MBItemGroup.CONSTRUCTION);
 		createBlock("honey_stairs", HONEY_STAIRS, MBItemGroup.CONSTRUCTION);
@@ -1170,6 +1276,8 @@ public class MBBlocks {
 
 		createBlock("lettuce_block", LETTUCE_BLOCK, MBItemGroup.MB_FOOD);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "lettuce_crop"), LETTUCE_CROP);
+
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "pepper_crop"), PEPPER_CROP);
 
 		createBlock("lamproot", LAMPROOT, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "cavebloom_flowers"), CAVEBLOOM_FLOWERS);
@@ -1327,11 +1435,13 @@ public class MBBlocks {
 		createBlock("sandstone_brick_slab", SANDSTONE_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("sandstone_brick_stairs", SANDSTONE_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("sandstone_brick_wall", SANDSTONE_BRICK_WALL, MBItemGroup.CONSTRUCTION);
+		createBlock("paved_sandstone_bricks", PAVED_SANDSTONE_BRICKS, MBItemGroup.CONSTRUCTION);
 
 		createBlock("cracked_sandstone_bricks", CRACKED_SANDSTONE_BRICKS, MBItemGroup.CONSTRUCTION);
 		createBlock("cracked_sandstone_brick_slab", CRACKED_SANDSTONE_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("cracked_sandstone_brick_stairs", CRACKED_SANDSTONE_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("cracked_sandstone_brick_wall", CRACKED_SANDSTONE_BRICK_WALL, MBItemGroup.CONSTRUCTION);
+		createBlock("cracked_paved_sandstone_bricks", CRACKED_PAVED_SANDSTONE_BRICKS, MBItemGroup.CONSTRUCTION);
 
 		createBlock("sandstone_pillar", SANDSTONE_PILLAR, MBItemGroup.CONSTRUCTION);
 
@@ -1349,11 +1459,13 @@ public class MBBlocks {
 		createBlock("red_sandstone_brick_slab", RED_SANDSTONE_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("red_sandstone_brick_stairs", RED_SANDSTONE_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("red_sandstone_brick_wall", RED_SANDSTONE_BRICK_WALL, MBItemGroup.CONSTRUCTION);
+		createBlock("paved_red_sandstone_bricks", PAVED_RED_SANDSTONE_BRICKS, MBItemGroup.CONSTRUCTION);
 
 		createBlock("cracked_red_sandstone_bricks", CRACKED_RED_SANDSTONE_BRICKS, MBItemGroup.CONSTRUCTION);
 		createBlock("cracked_red_sandstone_brick_slab", CRACKED_RED_SANDSTONE_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("cracked_red_sandstone_brick_stairs", CRACKED_RED_SANDSTONE_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("cracked_red_sandstone_brick_wall", CRACKED_RED_SANDSTONE_BRICK_WALL, MBItemGroup.CONSTRUCTION);
+		createBlock("cracked_paved_red_sandstone_bricks", CRACKED_PAVED_RED_SANDSTONE_BRICKS, MBItemGroup.CONSTRUCTION);
 
 		createBlock("red_sandstone_pillar", RED_SANDSTONE_PILLAR, MBItemGroup.CONSTRUCTION);
 
@@ -1458,11 +1570,6 @@ public class MBBlocks {
 		createBlock("dripstone_stairs", DRIPSTONE_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("dripstone_wall", DRIPSTONE_WALL, MBItemGroup.CONSTRUCTION);
 
-//		createBlock("cobbled_dripstone", COBBLED_DRIPSTONE, MBItemGroup.CONSTRUCTION);
-//		createBlock("cobbled_dripstone_slab", COBBLED_DRIPSTONE_SLAB, MBItemGroup.CONSTRUCTION);
-//		createBlock("cobbled_dripstone_stairs", COBBLED_DRIPSTONE_STAIRS, MBItemGroup.CONSTRUCTION);
-//		createBlock("cobbled_dripstone_wall", COBBLED_DRIPSTONE_WALL, MBItemGroup.CONSTRUCTION);
-
 		createBlock("polished_dripstone", POLISHED_DRIPSTONE, MBItemGroup.CONSTRUCTION);
 		createBlock("polished_dripstone_slab", POLISHED_DRIPSTONE_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("polished_dripstone_stairs", POLISHED_DRIPSTONE_STAIRS, MBItemGroup.CONSTRUCTION);
@@ -1535,11 +1642,6 @@ public class MBBlocks {
 		createBlock("cracked_prismarine_brick_stairs", CRACKED_PRISMARINE_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("cracked_prismarine_brick_wall", CRACKED_PRISMARINE_BRICK_WALL, MBItemGroup.CONSTRUCTION);
 
-//		createBlock("algal_prismarine_bricks", ALGAL_PRISMARINE_BRICKS, MBItemGroup.CONSTRUCTION);
-//		createBlock("algal_prismarine_brick_slab", ALGAL_PRISMARINE_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
-//		createBlock("algal_prismarine_brick_stairs", ALGAL_PRISMARINE_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
-//		createBlock("algal_prismarine_brick_wall", ALGAL_PRISMARINE_BRICK_WALL, MBItemGroup.CONSTRUCTION);
-
 		createBlock("prismarine_pillar", PRISMARINE_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("chiseled_prismarine", CHISELED_PRISMARINE, MBItemGroup.CONSTRUCTION);
 		createBlock("cut_prismarine", CUT_PRISMARINE, MBItemGroup.CONSTRUCTION);
@@ -1553,11 +1655,6 @@ public class MBBlocks {
 		createBlock("cracked_prismarine_tile_slab", CRACKED_PRISMARINE_TILE_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("cracked_prismarine_tile_stairs", CRACKED_PRISMARINE_TILE_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("cracked_prismarine_tile_wall", CRACKED_PRISMARINE_TILE_WALL, MBItemGroup.CONSTRUCTION);
-
-//		createBlock("algal_prismarine_tiles", ALGAL_PRISMARINE_TILES, MBItemGroup.CONSTRUCTION);
-//		createBlock("algal_prismarine_tile_slab", ALGAL_PRISMARINE_TILE_SLAB, MBItemGroup.CONSTRUCTION);
-//		createBlock("algal_prismarine_tile_stairs", ALGAL_PRISMARINE_TILE_STAIRS, MBItemGroup.CONSTRUCTION);
-//		createBlock("algal_prismarine_tile_wall", ALGAL_PRISMARINE_TILE_WALL, MBItemGroup.CONSTRUCTION);
 
 		// BASALT
 		createBlock("basalt_bricks", BASALT_BRICKS, MBItemGroup.CONSTRUCTION);
@@ -1586,35 +1683,17 @@ public class MBBlocks {
 		createBlock("smooth_basalt_stairs", SMOOTH_BASALT_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("smooth_basalt_wall", SMOOTH_BASALT_WALL, MBItemGroup.CONSTRUCTION);
 
-		// MINERAL BLOCKS
-		// - LAPIS LAZULI BLOCKS
-//		createBlock("smooth_lapis", SMOOTH_LAPIS, MBItemGroup.CONSTRUCTION);
-//		createBlock("smooth_lapis_slab", SMOOTH_LAPIS_SLAB, MBItemGroup.CONSTRUCTION);
-//		createBlock("smooth_lapis_stairs", SMOOTH_LAPIS_STAIRS, MBItemGroup.CONSTRUCTION);
-//
-//		createBlock("lapis_bricks", LAPIS_BRICKS, MBItemGroup.CONSTRUCTION);
-//		createBlock("lapis_brick_slab", LAPIS_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
-//		createBlock("lapis_brick_stairs", LAPIS_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
-//
-//		createBlock("lapis_tiles", LAPIS_TILES, MBItemGroup.CONSTRUCTION);
-//		createBlock("lapis_tile_slab", LAPIS_TILE_SLAB, MBItemGroup.CONSTRUCTION);
-//		createBlock("lapis_tile_stairs", LAPIS_TILE_STAIRS, MBItemGroup.CONSTRUCTION);
-//
-//		createBlock("lapis_pillar", LAPIS_PILLAR, MBItemGroup.CONSTRUCTION);
-
 		// - AMETHYST BLOCKS
 		createBlock("quartz_shard_block", QUARTZ_SHARD_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("amethyst_shard_block", AMETHYST_SHARD_BLOCK, MBItemGroup.CONSTRUCTION);
-//		createBlock("polished_amethyst", POLISHED_AMETHYST, MBItemGroup.CONSTRUCTION);
-//		createBlock("amethyst_bricks", AMETHYST_BRICKS, MBItemGroup.CONSTRUCTION);
-//		createBlock("amethyst_brick_slab", AMETHYST_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
-//		createBlock("amethyst_brick_stairs", AMETHYST_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
 
 		// STORAGE BLOCKS
 		createBlock("apple_crate", APPLE_CRATE, MBItemGroup.DECOR);
 		createBlock("carrot_crate", CARROT_CRATE, MBItemGroup.DECOR);
 		createBlock("potato_crate", POTATO_CRATE, MBItemGroup.DECOR);
 		createBlock("beetroot_crate", BEETROOT_CRATE, MBItemGroup.DECOR);
+
+		createBlock("pepper_crate", PEPPER_CRATE, MBItemGroup.DECOR);
 
 		createBlock("egg_basket", EGG_BASKET, MBItemGroup.DECOR);
 		createBlock("cocoa_sack", COCOA_SACK, MBItemGroup.DECOR);
@@ -1653,7 +1732,14 @@ public class MBBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "blaze_rod"), BLAZE_ROD);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "wall_lantern"), WALL_LANTERN);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "wall_soul_lantern"), WALL_SOUL_LANTERN);
-    }
+
+
+
+		int i = snowablePlants.size();
+		SNOWY_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MOD_ID, "snowy_block_entity"),
+				FabricBlockEntityTypeBuilder.create(SnowyBlockEntity::new, snowablePlants.toArray(new Block[i])).build(null));
+
+	}
 
 	
 
