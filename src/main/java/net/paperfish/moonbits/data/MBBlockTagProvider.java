@@ -477,8 +477,6 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.MARIGOLD
         );
 
-        MBBlocks.snowablePlants.forEach((block) -> getOrCreateTagBuilder(MBBlockTags.SNOWABLE_PLANTS).add(block));
-
         this.getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK).add(
                 MBBlocks.LEAFBED,
                 MBBlocks.CRIMSON_NYLIUM_TURF,

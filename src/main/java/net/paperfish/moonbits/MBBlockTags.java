@@ -17,8 +17,6 @@ public class MBBlockTags {
 
     public static final TagKey<Block> BANDED_IRON = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "banded_iron"));
 
-    public static final TagKey<Block> SNOWABLE_PLANTS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "snowable_plants"));
-
     // mushrooms that can go into food
     public static final TagKey<Block> EDIBLE_MUSHROOMS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "edible_mushrooms"));
     // no-no mushrooms

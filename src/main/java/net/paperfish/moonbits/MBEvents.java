@@ -168,15 +168,6 @@ public class MBEvents {
                 return ActionResult.SUCCESS;
             }
 
-            // adding snow to plant
-            if (targetBlock.isIn(MBBlockTags.SNOWABLE_PLANTS) && heldItem.getItem() == Items.SNOW && !targetBlock.get(Properties.SNOWY)) {
-                world.setBlockState(targetPos, targetBlock.with(Properties.SNOWY, true));
-                if(!player.isCreative())
-                    heldItem.decrement(1);
-                world.playSound(null, targetPos, Blocks.SNOW.getSoundGroup(Blocks.SNOW.getDefaultState()).getPlaceSound(), SoundCategory.BLOCKS, 0.5F, 1.0F);
-                return ActionResult.SUCCESS;
-            }
-
             // pass if nothing happened
             return ActionResult.PASS;
         });

@@ -20,6 +20,7 @@ import net.paperfish.moonbits.entity.SeatBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 
 public class SeatBlock extends SlabBlock {
     public static final EnumProperty<SlabType> TYPE;
@@ -47,7 +48,7 @@ public class SeatBlock extends SlabBlock {
         if (player.isSneaking()) {
             return ActionResult.PASS; // bc sneaking stops any block-specific actions
         }
-        List<SeatBlockEntity> seats = world.getEntitiesByClass(SeatBlockEntity.class, new Box(pos), (Entity) -> true);
+        List<SeatBlockEntity> seats = world.getEntitiesByClass(SeatBlockEntity.class, new Box(pos), Objects::nonNull);
         if (!seats.isEmpty()) {
             Moonbits.LOGGER.info("seat exists");
             SeatBlockEntity seat = seats.get(0);

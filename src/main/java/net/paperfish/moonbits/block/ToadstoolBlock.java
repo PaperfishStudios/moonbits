@@ -31,6 +31,7 @@ import net.paperfish.moonbits.entity.SeatBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 @SuppressWarnings({"deprecation"})
@@ -99,23 +100,11 @@ public class ToadstoolBlock extends Block implements Fertilizable, Waterloggable
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-//        if (isNull(entity)) {
-//            createEntity(world, pos, state);
-//        }
-//        if (player.shouldCancelInteraction()) {
-//            return ActionResult.PASS;
-//        } else if (entity.hasPassengers()) {
-//            return ActionResult.PASS;
-//        } else if (!world.isClient) {
-//            return player.startRiding(entity) ? ActionResult.CONSUME : ActionResult.PASS;
-//        } else {
-//            return ActionResult.SUCCESS;
-//        }
         if (state.get(CAP)) {
             if (player.isSneaking()) {
                 return ActionResult.PASS; // bc sneaking stops any block-specific actions
             }
-            List<SeatBlockEntity> seats = world.getEntitiesByClass(SeatBlockEntity.class, new Box(pos), (Entity) -> true);
+            List<SeatBlockEntity> seats = world.getEntitiesByClass(SeatBlockEntity.class, new Box(pos), Objects::nonNull);
             if (!seats.isEmpty()) {
                 Moonbits.LOGGER.info("seat exists");
                 SeatBlockEntity seat = seats.get(0);

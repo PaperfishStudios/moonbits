@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
-public class MBGrassPlantBlock extends FernBlock implements BlockEntityProvider {
+public class MBGrassPlantBlock extends FernBlock {
     public MBGrassPlantBlock(Settings settings) {
         super(settings);
     }
@@ -46,30 +46,5 @@ public class MBGrassPlantBlock extends FernBlock implements BlockEntityProvider 
             return true;
         }
         return super.canPlantOnTop(floor, world, pos);
-    }
-
-    @Nullable
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos());
-        if (blockState.isOf(Blocks.SNOW)) {
-            return this.getDefaultState().with(Properties.SNOWY, true);
-        }
-        return this.getDefaultState().with(Properties.SNOWY, false);
-    }
-    @Override
-    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack stack) {
-        if (state.get(Properties.SNOWY)) {
-            world.setBlockState(pos, Blocks.SNOW.getDefaultState());
-        }
-        super.onBreak(world, pos, state, player);
-    }
-
-    @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        if (!state.isIn(MBBlockTags.SNOWABLE_PLANTS)) {
-            return null;
-        }
-        return state.get(Properties.SNOWY) ? new SnowyBlockEntity(pos, state) : null;
     }
 }

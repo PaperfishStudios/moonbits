@@ -12,7 +12,6 @@ import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.util.Identifier;
 import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBEntities;
-import net.paperfish.moonbits.block.SnowyBlockEntityRenderer;
 import net.paperfish.moonbits.entity.*;
 
 @Environment(EnvType.CLIENT)
@@ -48,8 +47,6 @@ public class MBEntityType {
             out.accept(new ModelIdentifier(new Identifier("moonbits", "item_hook"),""));
             out.accept(new ModelIdentifier(new Identifier("moonbits", "glow_item_hook"),""));
         });
-
-        BlockEntityRendererRegistry.register(MBBlocks.SNOWY_BLOCK_ENTITY, SnowyBlockEntityRenderer::new);
 
 //        EntityRendererRegistry.register(MBEntities.SEAT_BLOCK_ENTITY, SeatEntityRenderer::new);
 //        EntityModelLayerRegistry.registerModelLayer(MODEL_SEAT_BLOCK, SeatEntityModel::getTexturedModelData);

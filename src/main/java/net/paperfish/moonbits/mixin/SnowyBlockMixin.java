@@ -1,6 +1,7 @@
 package net.paperfish.moonbits.mixin;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SnowyBlock;
 import net.minecraft.state.property.Properties;
 import net.paperfish.moonbits.MBBlockTags;
@@ -14,7 +15,7 @@ public class SnowyBlockMixin {
 
     @Inject(method = "isSnow", at = @At("HEAD"), cancellable = true)
     private static void checkSnowyPlants(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        if (state.isIn(MBBlockTags.SNOWABLE_PLANTS) && state.get(Properties.SNOWY)) {
+        if (state.isOf(Blocks.SNOW_BLOCK)) {
             cir.setReturnValue(true);
         }
     }
