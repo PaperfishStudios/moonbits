@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "carpet",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:mycelium_turf"
+    }
+  },
+  "result": {
+    "item": "moonbits:mycelium_carpet",
+    "count": 3
+  }
+}

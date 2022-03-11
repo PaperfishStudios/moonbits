@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:stripped_juniper_log_from_juniper_log_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_juniper_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:juniper_log"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:stripped_juniper_log_from_juniper_log_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_juniper_log",
+      "has_the_recipe"
+    ]
+  ]
+}

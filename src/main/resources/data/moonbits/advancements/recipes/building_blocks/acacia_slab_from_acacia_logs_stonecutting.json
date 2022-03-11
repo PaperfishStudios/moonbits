@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:acacia_slab_from_acacia_logs_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_acacia_logs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:acacia_logs"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:acacia_slab_from_acacia_logs_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_acacia_logs",
+      "has_the_recipe"
+    ]
+  ]
+}

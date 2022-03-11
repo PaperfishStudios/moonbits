@@ -1,24 +1,28 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "LLL",
-    "CLB",
-    " U "
-  ],
-  "key": {
-    "L": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "moonbits:lettuce_leaf"
     },
-    "C": {
+    {
+      "item": "moonbits:lettuce_leaf"
+    },
+    {
+      "item": "moonbits:lettuce_leaf"
+    },
+    {
+      "item": "moonbits:lettuce_leaf"
+    },
+    {
       "item": "minecraft:carrot"
     },
-    "B": {
+    {
       "item": "minecraft:beetroot"
     },
-    "U": {
+    {
       "item": "minecraft:bowl"
     }
-  },
+  ],
   "result": {
     "item": "moonbits:salad"
   }

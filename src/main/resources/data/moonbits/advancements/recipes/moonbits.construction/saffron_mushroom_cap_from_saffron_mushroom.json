@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:saffron_mushroom_cap_from_saffron_mushroom"
+    ]
+  },
+  "criteria": {
+    "has_saffron_mushroom": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:saffron_mushroom"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:saffron_mushroom_cap_from_saffron_mushroom"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_saffron_mushroom",
+      "has_the_recipe"
+    ]
+  ]
+}

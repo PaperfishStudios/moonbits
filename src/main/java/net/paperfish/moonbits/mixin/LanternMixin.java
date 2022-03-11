@@ -19,10 +19,12 @@ public class LanternMixin {
 
     @Inject(method = "getPlacementState", at = @At("HEAD"), cancellable = true)
     public void wallPlacement(ItemPlacementContext ctx, CallbackInfoReturnable<BlockState> cir) {
-        for (Direction direction : ctx.getPlacementDirections()) {
-            Block wallBlock = ctx.getStack().isOf(Items.LANTERN) ? MBBlocks.WALL_LANTERN : MBBlocks.WALL_SOUL_LANTERN;
-            if (direction.getAxis() != Direction.Axis.Y ) {
-                cir.setReturnValue(wallBlock.getPlacementState(ctx));
+        if (ctx.getSide().getAxis() != Direction.Axis.Y) {
+            for (Direction direction : ctx.getPlacementDirections()) {
+                Block wallBlock = ctx.getStack().isOf(Items.LANTERN) ? MBBlocks.WALL_LANTERN : MBBlocks.WALL_SOUL_LANTERN;
+                if (direction.getAxis() != Direction.Axis.Y) {
+                    cir.setReturnValue(wallBlock.getPlacementState(ctx));
+                }
             }
         }
     }

@@ -42,7 +42,8 @@ public class MBGrassPlantBlock extends FernBlock {
 
     @Override
     public boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        if (this.getDefaultState().isOf(MBBlocks.BEACHGRASS) && floor.isIn(BlockTags.SAND)) {
+        BlockState state = this.getDefaultState();
+        if ((state.isOf(MBBlocks.BEACHGRASS) || state.isOf(MBBlocks.DESERT_BRUSH)) && floor.isIn(BlockTags.SAND)) {
             return true;
         }
         return super.canPlantOnTop(floor, world, pos);

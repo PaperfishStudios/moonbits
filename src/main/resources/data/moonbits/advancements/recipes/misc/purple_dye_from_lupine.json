@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:purple_dye_from_lupine"
+    ]
+  },
+  "criteria": {
+    "has_lupine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:lupine"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:purple_dye_from_lupine"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_lupine",
+      "has_the_recipe"
+    ]
+  ]
+}

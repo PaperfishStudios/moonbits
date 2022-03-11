@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "moonbits:rich_mud"
+  },
+  "result": "moonbits:mudstone",
+  "experience": 0.1,
+  "cookingtime": 200
+}

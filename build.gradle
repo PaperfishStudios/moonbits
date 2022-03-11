@@ -18,6 +18,15 @@ repositories {
 	// for more information about repositories.
 
 	maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+	maven { url = "https://jitpack.io" }
+
+	maven {
+		name = "Modrinth"
+		url = "https://api.modrinth.com/maven/"
+		content {
+			includeGroup "maven.modrinth"
+		}
+	}
 }
 
 sourceSets {
@@ -68,7 +77,13 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// geckolib??
-	modImplementation 'software.bernie.geckolib:geckolib-fabric-1.18:3.0.35'
+	modImplementation "software.bernie.geckolib:geckolib-fabric-1.18:3.0.35"
+	modImplementation include("maven.modrinth:booking_it:1.0.1")
+
+	modImplementation include("com.github.Chocohead:Fabric-ASM:v${project.mm_version}") {
+		exclude (group: "net.fabricmc.fabric-api")
+	}
+
 }
 
 processResources {

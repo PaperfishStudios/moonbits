@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:stripped_mushroom_stem"
+    }
+  },
+  "result": {
+    "item": "moonbits:stripped_mushroom_hyphae",
+    "count": 3
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "moonbits:block/palisade/palisade_inventory",
+  "textures": {
+    "side": "moonbits:block/aspen_palisade",
+    "end": "moonbits:block/aspen_palisade_top"
+  }
+}

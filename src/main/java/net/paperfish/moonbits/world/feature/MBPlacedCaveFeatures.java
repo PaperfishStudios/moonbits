@@ -5,6 +5,8 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.YOffset;
+import net.minecraft.world.gen.feature.OreConfiguredFeatures;
+import net.minecraft.world.gen.feature.OrePlacedFeatures;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.*;
@@ -14,11 +16,14 @@ import java.util.List;
 public class MBPlacedCaveFeatures {
     // regolith transition
     public static final RegistryEntry<PlacedFeature> T_REGOLITH = PlacedFeatures.register("t_regolith",
-            MBCaveFeatures.T_REGOLITH, modifiersWithRarity(16, HeightRangePlacementModifier.uniform(YOffset.fixed(42), YOffset.fixed(50))));
+            MBCaveFeatures.T_REGOLITH, modifiersWithRarity(8, HeightRangePlacementModifier.uniform(YOffset.fixed(42), YOffset.fixed(50))));
 
     // regolith clumps
     public static final RegistryEntry<PlacedFeature> ORE_REGOLITH = PlacedFeatures.register("p_regolith",
             MBCaveFeatures.ORE_REGOLITH, modifiersWithCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(60))));
+
+    public static final RegistryEntry<PlacedFeature> ORE_SANDSTONE = PlacedFeatures.register("p_sandstone",
+            MBCaveFeatures.ORE_SANDSTONE, modifiersWithCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(60))));
 
     // deposits
     public static final RegistryEntry<PlacedFeature> ORE_PEAT = PlacedFeatures.register("p_peat",
@@ -35,6 +40,29 @@ public class MBPlacedCaveFeatures {
             MBCaveFeatures.ORE_GOLD_DEPOSIT, modifiersWithCount(28, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(128))));
     public static final RegistryEntry<PlacedFeature> ORE_COPPER_DEPOSIT = PlacedFeatures.register("p_copper",
             MBCaveFeatures.ORE_COPPER_DEPOSIT, modifiersWithCount(24, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(68))));
+
+    // chert ores
+    public static final RegistryEntry<PlacedFeature> CHERT_COAL_LOWER = PlacedFeatures.register(
+            "chert_coal_low", MBCaveFeatures.ORE_CHERT_COAL_BURIED, modifiersWithCount(20, HeightRangePlacementModifier.trapezoid(YOffset.fixed(0), YOffset.fixed(192))));
+    public static final RegistryEntry<PlacedFeature> CHERT_GOLD_EXTRA = PlacedFeatures.register(
+            "chert_gold_ex", MBCaveFeatures.ORE_CHERT_GOLD, modifiersWithCount(50, HeightRangePlacementModifier.uniform(YOffset.fixed(32), YOffset.fixed(256))));
+    public static final RegistryEntry<PlacedFeature> CHERT_GOLD = PlacedFeatures.register(
+            "chert_gold", MBCaveFeatures.ORE_CHERT_GOLD_BURIED, modifiersWithCount(4, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-64), YOffset.fixed(32))));
+    public static final RegistryEntry<PlacedFeature> CHERT_GOLD_LOWER = PlacedFeatures.register(
+            "chert_gold_low", MBCaveFeatures.ORE_CHERT_GOLD_BURIED, modifiers(CountPlacementModifier.of(UniformIntProvider.create(0, 1)), HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(48))));
+    public static final RegistryEntry<PlacedFeature> CHERT_REDSTONE = PlacedFeatures.register(
+            "chert_redstone", MBCaveFeatures.ORE_CHERT_REDSTONE, modifiersWithCount(4, HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(32))));
+    public static final RegistryEntry<PlacedFeature> CHERT_REDSTONE_LOWER = PlacedFeatures.register(
+            "chert_redstone_lower", MBCaveFeatures.ORE_CHERT_REDSTONE, modifiersWithCount(8, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-32), YOffset.aboveBottom(72))));
+    public static final RegistryEntry<PlacedFeature> CHERT_LAPIS = PlacedFeatures.register(
+            "chert_lapis", MBCaveFeatures.ORE_CHERT_LAPIS, modifiersWithCount(2, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-32), YOffset.fixed(32))));
+    public static final RegistryEntry<PlacedFeature> CHERT_LAPIS_BURIED = PlacedFeatures.register(
+            "chert_lapis_buried", MBCaveFeatures.ORE_CHERT_LAPIS_BURIED, modifiersWithCount(4, HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))));
+    public static final RegistryEntry<PlacedFeature> CHERT_COPPER = PlacedFeatures.register(
+            "chert_copper", MBCaveFeatures.ORE_CHERT_COPPER_SMALL, modifiersWithCount(16, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
+    public static final RegistryEntry<PlacedFeature> CHERT_COPPER_LARGE = PlacedFeatures.register(
+            "chert_copper_large", MBCaveFeatures.ORE_CHERT_COPPER_LARGE, modifiersWithCount(16, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
+
 
     // regolith floor
     public static final RegistryEntry<PlacedFeature> REGOLITH_FLOOR = PlacedFeatures.register("p_rg_floor",

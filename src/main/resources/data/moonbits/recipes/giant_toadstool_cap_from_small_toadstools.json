@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "moonbits:small_toadstools"
+    }
+  },
+  "result": {
+    "item": "moonbits:giant_toadstool_cap",
+    "count": 2
+  }
+}

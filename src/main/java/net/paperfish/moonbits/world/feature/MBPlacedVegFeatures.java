@@ -7,19 +7,28 @@ import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
+import net.minecraft.world.gen.feature.VegetationConfiguredFeatures;
 import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
 
 public class MBPlacedVegFeatures {
     public static final RegistryEntry<PlacedFeature> PEBBLES = PlacedFeatures.register("p_pebbles",
-            MBVegetationFeatures.PEBBLES, CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+            MBVegetationFeatures.PEBBLES, CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> PATCH_MYCELIUM = PlacedFeatures.register("p_mycelium", MBVegetationFeatures.PATCH_MYCELIUM,
+            NoiseThresholdCountPlacementModifier.of(-0.8, 5, 10), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> PATCH_DESERT_BRUSH = PlacedFeatures.register("p_desert_brush", MBVegetationFeatures.PATCH_DESERT_BRUSH,
+            NoiseThresholdCountPlacementModifier.of(-0.9, 3, 6), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
 
     // flower patches
     public static final RegistryEntry<PlacedFeature> BUTTERCUP_PATCH = PlacedFeatures.register("p_buttercups",
             MBVegetationFeatures.BUTTERCUP_PATCH, CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> FORGETMENOT_PATCH = PlacedFeatures.register("p_forgetmenot",
             MBVegetationFeatures.FORGETMENOT_PATCH, CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+    public static final RegistryEntry<PlacedFeature> MARIGOLD_PATCH = PlacedFeatures.register("p_marigold",
+            MBVegetationFeatures.MARIGOLD_PATCH, CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> ROSE_BUSH = PlacedFeatures.register("p_rose_bushes",
             MBVegetationFeatures.ROSE_BUSH, CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
@@ -55,6 +64,9 @@ public class MBPlacedVegFeatures {
 
     public static final RegistryEntry<PlacedFeature> PUMPKIN_PATCH = PlacedFeatures.register("p_pumpkins",
             MBVegetationFeatures.PUMPKIN_PATCH, CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> BARREL_CACTI = PlacedFeatures.register("p_barrel_cacti",
+            MBVegetationFeatures.BARREL_CACTI, CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
 
     // trees
     public static final RegistryEntry<PlacedFeature> GOLDEN_BIRCH_BEES_0002 = PlacedFeatures.register("p_gb_0002",

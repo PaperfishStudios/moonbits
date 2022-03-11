@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/cracked_mud_top",
+    "side": "moonbits:block/cracked_mud"
+  }
+}

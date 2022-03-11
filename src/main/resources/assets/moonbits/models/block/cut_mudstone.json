@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "moonbits:block/cut_mudstone_top",
+    "bottom": "moonbits:block/cut_mudstone_bottom",
+    "side": "moonbits:block/cut_mudstone"
+  }
+}

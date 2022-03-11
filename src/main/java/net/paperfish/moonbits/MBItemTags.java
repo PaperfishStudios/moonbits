@@ -12,6 +12,7 @@ import net.minecraft.util.registry.Registry;
 public class MBItemTags {
     public static final TagKey<Item> JUNIPER_LOGS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MOD_ID, "juniper_logs"));
     public static final TagKey<Item> CEDAR_LOGS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MOD_ID, "cedar_logs"));
+    public static final TagKey<Item> ASPEN_TRUNKS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MOD_ID, "aspen_trunks"));
 
     public static final TagKey<Item> BEAR_LIKES = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MOD_ID, "bear_likes"));
     public static final TagKey<Item> BEAR_EDIBLE = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MOD_ID, "bear_edible"));

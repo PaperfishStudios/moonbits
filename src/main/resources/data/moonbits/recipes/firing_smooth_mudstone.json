@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "ingredient": {
+    "item": "moonbits:mudstone"
+  },
+  "result": "moonbits:smooth_mudstone",
+  "experience": 0.1,
+  "cookingtime": 100
+}

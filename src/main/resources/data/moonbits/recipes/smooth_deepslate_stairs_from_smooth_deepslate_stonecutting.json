@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:smooth_deepslate"
+  },
+  "result": "moonbits:smooth_deepslate_stairs",
+  "count": 1
+}

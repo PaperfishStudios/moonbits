@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:mudstone_bricks"
+    }
+  },
+  "result": {
+    "item": "moonbits:mudstone_brick_slab",
+    "count": 6
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:mudstone"
+    }
+  },
+  "result": {
+    "item": "moonbits:mudstone_stairs",
+    "count": 4
+  }
+}

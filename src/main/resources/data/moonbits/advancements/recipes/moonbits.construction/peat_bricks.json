@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_peat": {
+    "has_peat_moss": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:peat"
+              "moonbits:peat_moss"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_peat",
+      "has_peat_moss",
       "has_the_recipe"
     ]
   ]

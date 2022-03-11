@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:orange_dye_from_orange_heather"
+    ]
+  },
+  "criteria": {
+    "has_orange_heather": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:orange_heather"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:orange_dye_from_orange_heather"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_orange_heather",
+      "has_the_recipe"
+    ]
+  ]
+}

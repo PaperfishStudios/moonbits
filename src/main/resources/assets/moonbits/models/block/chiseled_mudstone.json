@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/chiseled_mudstone_top",
+    "side": "moonbits:block/chiseled_mudstone"
+  }
+}

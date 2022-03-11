@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:mudstone"
+  },
+  "result": "moonbits:chiseled_mudstone",
+  "count": 1
+}

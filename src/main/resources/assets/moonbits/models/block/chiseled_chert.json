@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "moonbits:block/chiseled_chert"
+    "end": "moonbits:block/cut_chert_top",
+    "side": "moonbits:block/chiseled_chert"
   }
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:warped_slab_from_warped_stems_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_warped_stems": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:warped_stems"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:warped_slab_from_warped_stems_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_warped_stems",
+      "has_the_recipe"
+    ]
+  ]
+}

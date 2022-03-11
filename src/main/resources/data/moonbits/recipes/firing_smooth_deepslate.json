@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "ingredient": {
+    "item": "minecraft:deepslate"
+  },
+  "result": "moonbits:smooth_deepslate",
+  "experience": 0.1,
+  "cookingtime": 100
+}

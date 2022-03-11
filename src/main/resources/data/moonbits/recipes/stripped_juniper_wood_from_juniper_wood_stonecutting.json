@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:juniper_wood"
+  },
+  "result": "moonbits:stripped_juniper_wood",
+  "count": 1
+}

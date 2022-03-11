@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:smooth_mudstone"
+    }
+  },
+  "result": {
+    "item": "moonbits:smooth_mudstone_wall",
+    "count": 6
+  }
+}

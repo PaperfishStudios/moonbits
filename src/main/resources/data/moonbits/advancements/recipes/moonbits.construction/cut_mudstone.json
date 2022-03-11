@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:cut_mudstone"
+    ]
+  },
+  "criteria": {
+    "has_mudstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:mudstone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:cut_mudstone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mudstone",
+      "has_the_recipe"
+    ]
+  ]
+}

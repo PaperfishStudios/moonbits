@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:peat_moss"
+  },
+  "result": "moonbits:peat_bricks",
+  "count": 4
+}

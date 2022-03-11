@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "moonbits:block/aspen_trunk_post",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "moonbits:block/aspen_trunk_post"
+    },
+    "axis=z": {
+      "model": "moonbits:block/aspen_trunk_post",
+      "x": 90
+    }
+  }
+}

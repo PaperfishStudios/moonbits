@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "moonbits:block/tall_flowering_acacia_leaves_bottom"
+    },
+    "half=upper": {
+      "model": "moonbits:block/tall_flowering_acacia_leaves_top"
+    }
+  }
+}

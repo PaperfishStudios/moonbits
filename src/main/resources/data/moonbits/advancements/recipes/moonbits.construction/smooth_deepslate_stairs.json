@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:smooth_deepslate_stairs"
+    ]
+  },
+  "criteria": {
+    "has_smooth_deepslate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:smooth_deepslate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:smooth_deepslate_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_deepslate",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -14,6 +14,7 @@ public class MBBlockTags {
     // tags go here
     public static final TagKey<Block> JUNIPER_LOGS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "juniper_logs"));
     public static final TagKey<Block> CEDAR_LOGS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "cedar_logs"));
+    public static final TagKey<Block> ASPEN_TRUNKS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "aspen_trunks"));
 
     public static final TagKey<Block> BANDED_IRON = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "banded_iron"));
 
@@ -34,6 +35,8 @@ public class MBBlockTags {
     public static final TagKey<Block> PLANTER_BOXES = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "planter_boxes"));
     // used for tough dirt & other similar blocks that work as dirt but cannot be replaced by tree growth n such
 	public static final TagKey<Block> SOIL_NON_REPLACEABLE = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "soil_non_replaceable"));
+    // used for blocks that desert & beach plants can be planted on.
+    public static final TagKey<Block> SANDY_SOILS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "sandy_soils"));
     // tag for which blocks can be replaced by deposits in worldgen (tough dirt ores)
 	public static final TagKey<Block> TOUGH_DIRT = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "tough_soils"));
     // tag for seat blocks

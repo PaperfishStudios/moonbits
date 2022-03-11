@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:aspen_palisade"
+    ]
+  },
+  "criteria": {
+    "has_aspen_trunk": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:aspen_trunk"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:aspen_palisade"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_aspen_trunk",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -10,8 +10,6 @@
     "BoatDropsMixin",
     "BoatTypeMixin",
     "CarverMixin",
-    "ChickenRenderMixin",
-    "ClientRecipeBookMixin",
     "CocoaPodMixin",
     "ConfiguredFeaturesMixin",
     "CriteriaAccessor",
@@ -41,7 +39,10 @@
     "TurtleEntityMixin",
     "VanillaSurfaceRulesMixin"
   ],
-  "client": [],
+  "client": [
+    "ChickenRenderMixin",
+    "ClientRecipeBookMixin"
+  ],
   "server": [],
   "injectors": {
     "defaultRequire": 1

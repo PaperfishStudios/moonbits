@@ -14,9 +14,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
-import net.minecraft.tag.Tag;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.*;
@@ -80,15 +78,22 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         VARIANT_FACTORIES.put(MBBlockFamily.Variant.TRAPDOOR, (output, input) -> RecipeProvider.createTrapdoorRecipe(output, Ingredient.ofItems(input)));
         VARIANT_FACTORIES.put(MBBlockFamily.Variant.WALL, (output, input) -> RecipeProvider.getWallRecipe(output, Ingredient.ofItems(input)));
 
-
+        // 1-1 recipes
         TRANSMUTE.put(List.of(MBBlocks.MARIGOLD, Items.ORANGE_DYE), 1);
         TRANSMUTE.put(List.of(MBBlocks.BUTTERCUP, Items.YELLOW_DYE), 1);
         TRANSMUTE.put(List.of(MBBlocks.FORGETMENOT, Items.LIGHT_BLUE_DYE), 1);
+
+        TRANSMUTE.put(List.of(MBBlocks.WHITE_HEATHER, Items.WHITE_DYE), 1);
+        TRANSMUTE.put(List.of(MBBlocks.RED_HEATHER, Items.RED_DYE), 1);
+        TRANSMUTE.put(List.of(MBBlocks.ORANGE_HEATHER, Items.ORANGE_DYE), 1);
+        TRANSMUTE.put(List.of(MBBlocks.PURPLE_HEATHER, Items.PURPLE_DYE), 1);
 
         TRANSMUTE.put(List.of(MBBlocks.LIGHT_BLUE_HYACINTH, Items.LIGHT_BLUE_DYE), 2);
         TRANSMUTE.put(List.of(MBBlocks.PINK_HYACINTH, Items.PINK_DYE), 2);
         TRANSMUTE.put(List.of(MBBlocks.WHITE_HYACINTH, Items.WHITE_DYE), 2);
         TRANSMUTE.put(List.of(MBBlocks.RED_HYACINTH, Items.RED_DYE), 2);
+
+        TRANSMUTE.put(List.of(MBBlocks.LUPINE, Items.PURPLE_DYE), 2);
 
         TRANSMUTE.put(List.of(MBBlocks.SAFFRON_MUSHROOM, Items.ORANGE_DYE), 1);
 
@@ -97,40 +102,41 @@ public class MBRecipeProvider extends FabricRecipesProvider {
 
         TRANSMUTE.put(List.of(Items.IRON_NUGGET, MBItems.ITEM_HOOK), 1);
 
-        COMPACT.putAll(Map.of(
-                MBBlocks.PEBBLES, Blocks.COBBLESTONE,
-                MBItems.GRASS_TUFT, MBBlocks.GRASS_TURF,
-                Items.CRIMSON_ROOTS, MBBlocks.CRIMSON_NYLIUM_TURF,
-                Items.WARPED_ROOTS, MBBlocks.WARPED_NYLIUM_TURF,
-                MBBlocks.COBBLED_DIORITE, Blocks.DIORITE,
-                MBBlocks.COBBLED_GRANITE, Blocks.GRANITE
-        )); COMPACT.putAll(Map.of(
-                MBItems.GLASS_SHARD, Blocks.GLASS,
-                MBItems.WHITE_GLASS_SHARD, Blocks.WHITE_STAINED_GLASS,
-                MBItems.LIGHT_GRAY_GLASS_SHARD, Blocks.LIGHT_GRAY_STAINED_GLASS,
-                MBItems.GRAY_GLASS_SHARD, Blocks.GRAY_STAINED_GLASS,
-                MBItems.BLACK_GLASS_SHARD, Blocks.BLACK_STAINED_GLASS,
-                MBItems.LIME_GLASS_SHARD, Blocks.LIME_STAINED_GLASS,
-                MBItems.GREEN_GLASS_SHARD, Blocks.GREEN_STAINED_GLASS,
-                MBItems.YELLOW_GLASS_SHARD, Blocks.YELLOW_STAINED_GLASS,
-                MBItems.ORANGE_GLASS_SHARD, Blocks.ORANGE_STAINED_GLASS,
-                MBItems.BROWN_GLASS_SHARD, Blocks.BROWN_STAINED_GLASS
-        )); COMPACT.putAll(Map.of(
-                MBItems.RED_GLASS_SHARD, Blocks.RED_STAINED_GLASS,
-                MBItems.PINK_GLASS_SHARD, Blocks.PINK_STAINED_GLASS,
-                MBItems.MAGENTA_GLASS_SHARD, Blocks.MAGENTA_STAINED_GLASS,
-                MBItems.PURPLE_GLASS_SHARD, Blocks.PURPLE_STAINED_GLASS,
-                MBItems.LIGHT_BLUE_GLASS_SHARD, Blocks.LIGHT_BLUE_STAINED_GLASS,
-                MBItems.CYAN_GLASS_SHARD, Blocks.CYAN_STAINED_GLASS,
-                MBItems.BLUE_GLASS_SHARD, Blocks.BLUE_STAINED_GLASS
-        ));
+        // 2x2 recipes w/ output of one
+        COMPACT.put(MBBlocks.PEBBLES, Blocks.COBBLESTONE);
+        COMPACT.put(MBItems.PEAT, MBBlocks.PEAT_MOSS);
 
+        COMPACT.put(MBItems.GRASS_TUFT, MBBlocks.GRASS_TURF);
+        COMPACT.put(MBBlocks.MYCELIUM_ROOTS, MBBlocks.MYCELIUM_TURF);
+        COMPACT.put(Items.CRIMSON_ROOTS, MBBlocks.CRIMSON_NYLIUM_TURF);
+        COMPACT.put(Items.WARPED_ROOTS, MBBlocks.WARPED_NYLIUM_TURF);
 
-        POLISH.putAll(Map.of(
-                MBItems.PEAT, MBBlocks.PEAT_BRICKS
-        ));
+        COMPACT.put(Items.RED_MUSHROOM, MBBlocks.RED_MUSHROOM_CAP);
+        COMPACT.put(Items.BROWN_MUSHROOM, MBBlocks.BROWN_MUSHROOM_CAP);
+        COMPACT.put(MBBlocks.SAFFRON_MUSHROOM, MBBlocks.SAFFRON_MUSHROOM_CAP);
 
+        COMPACT.put(MBItems.GLASS_SHARD, Blocks.GLASS);
+        COMPACT.put(MBItems.WHITE_GLASS_SHARD, Blocks.WHITE_STAINED_GLASS);
+        COMPACT.put(MBItems.LIGHT_GRAY_GLASS_SHARD, Blocks.LIGHT_GRAY_STAINED_GLASS);
+        COMPACT.put(MBItems.GRAY_GLASS_SHARD, Blocks.GRAY_STAINED_GLASS);
+        COMPACT.put(MBItems.BLACK_GLASS_SHARD, Blocks.BLACK_STAINED_GLASS);
+        COMPACT.put(MBItems.LIME_GLASS_SHARD, Blocks.LIME_STAINED_GLASS);
+        COMPACT.put(MBItems.GREEN_GLASS_SHARD, Blocks.GREEN_STAINED_GLASS);
+        COMPACT.put(MBItems.YELLOW_GLASS_SHARD, Blocks.YELLOW_STAINED_GLASS);
+        COMPACT.put(MBItems.ORANGE_GLASS_SHARD, Blocks.ORANGE_STAINED_GLASS);
+        COMPACT.put(MBItems.BROWN_GLASS_SHARD, Blocks.BROWN_STAINED_GLASS);
+        COMPACT.put(MBItems.RED_GLASS_SHARD, Blocks.RED_STAINED_GLASS);
+        COMPACT.put(MBItems.PINK_GLASS_SHARD, Blocks.PINK_STAINED_GLASS);
+        COMPACT.put(MBItems.MAGENTA_GLASS_SHARD, Blocks.MAGENTA_STAINED_GLASS);
+        COMPACT.put(MBItems.PURPLE_GLASS_SHARD, Blocks.PURPLE_STAINED_GLASS);
+        COMPACT.put(MBItems.LIGHT_BLUE_GLASS_SHARD, Blocks.LIGHT_BLUE_STAINED_GLASS);
+        COMPACT.put(MBItems.CYAN_GLASS_SHARD, Blocks.CYAN_STAINED_GLASS);
+        COMPACT.put(MBItems.BLUE_GLASS_SHARD, Blocks.BLUE_STAINED_GLASS);
 
+        // 2x2 recipe with an output of 4
+        POLISH.put(MBBlocks.PEAT_MOSS, MBBlocks.PEAT_BRICKS);
+
+        // 3x3 unpackable recipe
         STORAGE.put(Items.APPLE, MBBlocks.APPLE_CRATE);
         STORAGE.put(Items.CARROT, MBBlocks.CARROT_CRATE);
         STORAGE.put(Items.POTATO, MBBlocks.POTATO_CRATE);
@@ -165,6 +171,10 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         FIRING.put(MBBlocks.COBBLED_ANDESITE, Blocks.ANDESITE);
         FIRING.put(MBBlocks.COBBLED_DIORITE, Blocks.DIORITE);
         FIRING.put(MBBlocks.COBBLED_GRANITE, Blocks.GRANITE);
+        FIRING.put(Blocks.DEEPSLATE, MBBlocks.SMOOTH_DEEPSLATE);
+
+        FIRING.put(MBBlocks.RICH_MUD, MBBlocks.MUDSTONE);
+        FIRING.put(MBBlocks.MUDSTONE, MBBlocks.SMOOTH_MUDSTONE);
 
         FIRING.put(MBBlocks.STONE_TILES, MBBlocks.CRACKED_STONE_TILES);
         FIRING.put(MBBlocks.ANDESITE_BRICKS, MBBlocks.CRACKED_ANDESITE_BRICKS);
@@ -198,6 +208,8 @@ public class MBRecipeProvider extends FabricRecipesProvider {
 
         FIRING.forEach((in, out) -> firing(exporter, in, out, 0.1f, DEFAULT_FIRE_TIME));
         FIRING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
+
+        blasting(exporter, MBBlocks.RICH_MUD, MBBlocks.CRACKED_MUD, 0.1f, DEFAULT_BLAST_TIME);
 
         firing(exporter, Items.CLAY_BALL, Items.BRICK, 0.3f, DEFAULT_FIRE_TIME);
         firing(exporter, ItemTags.LOGS_THAT_BURN, Items.CHARCOAL, 0.15f, DEFAULT_FIRE_TIME, "has_log");
@@ -261,17 +273,115 @@ public class MBRecipeProvider extends FabricRecipesProvider {
             });
         });
 
-        COMPACT.forEach((in, out) -> condense(exporter, in, out));
+        COMPACT.forEach((in, out) -> condense(exporter, in, out, 1));
         POLISH.forEach((polished, brick) -> bricksRecipe(exporter, polished, brick));
         STORAGE.forEach((item, storage) -> compact(exporter, item, storage));
 
-        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.JUNIPER_LOG, MBBlocks.STRIPPED_JUNIPER_LOG);
-        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.JUNIPER_WOOD, MBBlocks.STRIPPED_JUNIPER_WOOD);
-        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.CEDAR_LOG, MBBlocks.STRIPPED_CEDAR_LOG);
-        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_WOOD);
+        // WOOD
+        // oak logs
+        woodStonecut(exporter, ItemTags.OAK_LOGS, Blocks.OAK_PLANKS, 4, "oak_logs");
+        woodStonecut(exporter, ItemTags.OAK_LOGS, Blocks.OAK_SLAB, 8, "oak_logs");
+        woodStonecut(exporter, ItemTags.OAK_LOGS, Blocks.OAK_STAIRS, 4, "oak_logs");
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_OAK_LOG, Blocks.OAK_LOG);
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_OAK_WOOD, Blocks.OAK_WOOD);
+        reversibleCut(exporter, Blocks.OAK_WOOD, Blocks.OAK_LOG);
+        reversibleCut(exporter, Blocks.STRIPPED_OAK_WOOD, Blocks.STRIPPED_OAK_LOG);
+        // spruce logs
+        woodStonecut(exporter, ItemTags.SPRUCE_LOGS, Blocks.SPRUCE_PLANKS, 4, "spruce_logs");
+        woodStonecut(exporter, ItemTags.SPRUCE_LOGS, Blocks.SPRUCE_SLAB, 8, "spruce_logs");
+        woodStonecut(exporter, ItemTags.SPRUCE_LOGS, Blocks.SPRUCE_STAIRS, 4, "spruce_logs");
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_SPRUCE_LOG, Blocks.SPRUCE_LOG);
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_SPRUCE_WOOD, Blocks.SPRUCE_WOOD);
+        reversibleCut(exporter, Blocks.SPRUCE_WOOD, Blocks.SPRUCE_LOG);
+        reversibleCut(exporter, Blocks.STRIPPED_SPRUCE_WOOD, Blocks.STRIPPED_SPRUCE_LOG);
+        // birch logs
+        woodStonecut(exporter, ItemTags.BIRCH_LOGS, Blocks.BIRCH_PLANKS, 4, "birch_logs");
+        woodStonecut(exporter, ItemTags.BIRCH_LOGS, Blocks.BIRCH_SLAB, 8, "birch_logs");
+        woodStonecut(exporter, ItemTags.BIRCH_LOGS, Blocks.BIRCH_STAIRS, 4, "birch_logs");
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_BIRCH_LOG, Blocks.BIRCH_LOG);
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_BIRCH_WOOD, Blocks.BIRCH_WOOD);
+        reversibleCut(exporter, Blocks.BIRCH_WOOD, Blocks.BIRCH_LOG);
+        reversibleCut(exporter, Blocks.STRIPPED_BIRCH_WOOD, Blocks.STRIPPED_BIRCH_LOG);
+        // jungle logs
+        woodStonecut(exporter, ItemTags.JUNGLE_LOGS, Blocks.JUNGLE_PLANKS, 4, "jungle_logs");
+        woodStonecut(exporter, ItemTags.JUNGLE_LOGS, Blocks.JUNGLE_SLAB, 8, "jungle_logs");
+        woodStonecut(exporter, ItemTags.JUNGLE_LOGS, Blocks.JUNGLE_STAIRS, 4, "jungle_logs");
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_JUNGLE_LOG, Blocks.JUNGLE_LOG);
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_JUNGLE_WOOD, Blocks.JUNGLE_WOOD);
+        reversibleCut(exporter, Blocks.JUNGLE_WOOD, Blocks.JUNGLE_LOG);
+        reversibleCut(exporter, Blocks.STRIPPED_JUNGLE_WOOD, Blocks.STRIPPED_JUNGLE_LOG);
+        // acacia logs
+        woodStonecut(exporter, ItemTags.ACACIA_LOGS, Blocks.ACACIA_PLANKS, 4, "acacia_logs");
+        woodStonecut(exporter, ItemTags.ACACIA_LOGS, Blocks.ACACIA_SLAB, 8, "acacia_logs");
+        woodStonecut(exporter, ItemTags.ACACIA_LOGS, Blocks.ACACIA_STAIRS, 4, "acacia_logs");
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_ACACIA_LOG, Blocks.ACACIA_LOG);
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_ACACIA_WOOD, Blocks.ACACIA_WOOD);
+        reversibleCut(exporter, Blocks.ACACIA_WOOD, Blocks.ACACIA_LOG);
+        reversibleCut(exporter, Blocks.STRIPPED_ACACIA_WOOD, Blocks.STRIPPED_ACACIA_LOG);
+        // dark_oak logs
+        woodStonecut(exporter, ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_PLANKS, 4, "dark_oak_logs");
+        woodStonecut(exporter, ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_SLAB, 8, "dark_oak_logs");
+        woodStonecut(exporter, ItemTags.DARK_OAK_LOGS, Blocks.DARK_OAK_STAIRS, 4, "dark_oak_logs");
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_DARK_OAK_LOG, Blocks.DARK_OAK_LOG);
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_DARK_OAK_WOOD, Blocks.DARK_OAK_WOOD);
+        reversibleCut(exporter, Blocks.DARK_OAK_WOOD, Blocks.DARK_OAK_LOG);
+        reversibleCut(exporter, Blocks.STRIPPED_DARK_OAK_WOOD, Blocks.STRIPPED_DARK_OAK_LOG);
+        // crimson logs
+        woodStonecut(exporter, ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_PLANKS, 4, "crimson_stems");
+        woodStonecut(exporter, ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_SLAB, 8, "crimson_stems");
+        woodStonecut(exporter, ItemTags.CRIMSON_STEMS, Blocks.CRIMSON_STAIRS, 4, "crimson_stems");
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_CRIMSON_STEM, Blocks.CRIMSON_STEM);
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_CRIMSON_HYPHAE, Blocks.CRIMSON_HYPHAE);
+        reversibleCut(exporter, Blocks.CRIMSON_HYPHAE, Blocks.CRIMSON_STEM);
+        reversibleCut(exporter, Blocks.STRIPPED_CRIMSON_HYPHAE, Blocks.STRIPPED_CRIMSON_STEM);
+        // warped stems
+        woodStonecut(exporter, ItemTags.WARPED_STEMS, Blocks.WARPED_PLANKS, 4, "warped_stems");
+        woodStonecut(exporter, ItemTags.WARPED_STEMS, Blocks.WARPED_SLAB, 8, "warped_stems");
+        woodStonecut(exporter, ItemTags.WARPED_STEMS, Blocks.WARPED_STAIRS, 4, "warped_stems");
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_WARPED_STEM, Blocks.WARPED_STEM);
+        offerStonecuttingRecipe(exporter, Blocks.STRIPPED_WARPED_HYPHAE, Blocks.WARPED_HYPHAE);
+        reversibleCut(exporter, Blocks.WARPED_HYPHAE, Blocks.WARPED_STEM);
+        reversibleCut(exporter, Blocks.STRIPPED_WARPED_HYPHAE, Blocks.STRIPPED_WARPED_STEM);
+        // juniper logs
+        woodStonecut(exporter, MBItemTags.JUNIPER_LOGS, MBBlocks.JUNIPER_PLANKS, 4, "juniper_logs");
+        woodStonecut(exporter, MBItemTags.JUNIPER_LOGS, MBBlocks.JUNIPER_SLAB, 8, "juniper_logs");
+        woodStonecut(exporter, MBItemTags.JUNIPER_LOGS, MBBlocks.JUNIPER_STAIRS, 4, "juniper_logs");
+        offerStonecuttingRecipe(exporter, MBBlocks.STRIPPED_JUNIPER_LOG, MBBlocks.JUNIPER_LOG);
+        offerStonecuttingRecipe(exporter, MBBlocks.STRIPPED_JUNIPER_WOOD, MBBlocks.JUNIPER_WOOD);
+        reversibleCut(exporter, MBBlocks.JUNIPER_WOOD, MBBlocks.JUNIPER_LOG);
+        reversibleCut(exporter, MBBlocks.STRIPPED_JUNIPER_WOOD, MBBlocks.STRIPPED_JUNIPER_LOG);
+        // cedar logs
+        woodStonecut(exporter, MBItemTags.CEDAR_LOGS, MBBlocks.CEDAR_PLANKS, 4, "cedar_logs");
+        woodStonecut(exporter, MBItemTags.CEDAR_LOGS, MBBlocks.CEDAR_SLAB, 8, "cedar_logs");
+        woodStonecut(exporter, MBItemTags.CEDAR_LOGS, MBBlocks.CEDAR_STAIRS, 4, "cedar_logs");
+        offerStonecuttingRecipe(exporter, MBBlocks.STRIPPED_CEDAR_LOG, MBBlocks.CEDAR_LOG);
+        offerStonecuttingRecipe(exporter, MBBlocks.STRIPPED_CEDAR_WOOD, MBBlocks.CEDAR_WOOD);
+        reversibleCut(exporter, MBBlocks.CEDAR_WOOD, MBBlocks.CEDAR_LOG);
+        reversibleCut(exporter, MBBlocks.STRIPPED_CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_LOG);
 
-        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_STEM);
-        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_HYPHAE);
+        woodStonecut(exporter, ItemTags.LOGS, Items.STICK, 16, "logs");
+        woodStonecut(exporter, ItemTags.PLANKS, Items.LADDER, 2, "planks");
+        woodStonecut(exporter, ItemTags.PLANKS, Items.BOWL, 4, "planks");
+
+
+        ShapedRecipeJsonBuilder.create(MBBlocks.ASPEN_PLANKS, 4).input('S', Ingredient.fromTag(MBItemTags.ASPEN_TRUNKS)).pattern("SS").pattern("SS")
+                .criterion("has_aspen_trunk", RecipeProvider.conditionsFromTag(MBItemTags.ASPEN_TRUNKS))
+                .offerTo(exporter);
+        RecipeProvider.offerStonecuttingRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_TRUNK);
+        RecipeProvider.offerStonecuttingRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.STRIPPED_ASPEN_TRUNK);
+        wallRecipe(exporter, MBBlocks.ASPEN_TRUNK, MBBlocks.ASPEN_PALISADE);
+        wallRecipe(exporter, MBBlocks.STRIPPED_ASPEN_TRUNK, MBBlocks.STRIPPED_ASPEN_PALISADE);
+        paneRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_LATTICE);
+        slabRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_SLAB);
+        stairsRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_STAIRS);
+
+        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.JUNIPER_WOOD, MBBlocks.JUNIPER_LOG);
+        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.STRIPPED_JUNIPER_WOOD, MBBlocks.STRIPPED_JUNIPER_LOG);
+        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.CEDAR_WOOD, MBBlocks.CEDAR_LOG);
+        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.STRIPPED_CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_LOG);
+
+        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.MUSHROOM_HYPHAE, MBBlocks.MUSHROOM_STEM);
+        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.STRIPPED_MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_STEM);
 
         RecipeProvider.offerStonecuttingRecipe(exporter, MBBlocks.PAVED_SANDSTONE_BRICKS, MBBlocks.SANDSTONE_BRICKS);
         RecipeProvider.offerStonecuttingRecipe(exporter, MBBlocks.CRACKED_PAVED_SANDSTONE_BRICKS, MBBlocks.SANDSTONE_BRICKS);
@@ -307,6 +417,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         crossRecipe(exporter, Items.BROWN_MUSHROOM, Items.BONE_MEAL, MBItems.BROWN_MUSHBLEND, 4);
         crossRecipe(exporter, MBBlocks.SAFFRON_MUSHROOM, Items.BONE_MEAL, MBItems.SAFFRON_MUSHBLEND, 4);
         crossRecipe(exporter, MBBlocks.SMALL_TOADSTOOLS, Items.BONE_MEAL, MBItems.TOADSTOOL_MUSHBLEND, 4);
+        condense(exporter, MBBlocks.SMALL_TOADSTOOLS, MBBlocks.GIANT_TOADSTOOL_CAP, 2);
         firing(exporter, MBItems.RED_MUSHBLEND, MBBlocks.RED_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
         firing(exporter, MBItems.BROWN_MUSHBLEND, MBBlocks.BROWN_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
         firing(exporter, MBItems.SAFFRON_MUSHBLEND, MBBlocks.TOADSTOOL_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
@@ -346,8 +457,8 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .criterion(RecipeProvider.hasItem(Items.LEATHER), RecipeProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
 
         campfire(exporter, Items.SWEET_BERRIES, MBItems.ROASTED_BERRIES, 0.1f,50);
-        condense(exporter, MBItems.PUMPKIN_SLICE, Items.PUMPKIN);
-        condense(exporter, MBItems.LETTUCE_LEAF, MBBlocks.LETTUCE_BLOCK);
+        condense(exporter, MBItems.PUMPKIN_SLICE, Items.PUMPKIN, 1);
+        condense(exporter, MBItems.LETTUCE_LEAF, MBBlocks.LETTUCE_BLOCK, 1);
 
         ShapelessRecipeJsonBuilder.create(Items.MUSHROOM_STEW)
                 .input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.EDIBLE_MUSHROOMS).input(Items.BOWL)
@@ -362,9 +473,8 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .input('G', Items.GLOW_BERRIES).input('E', Items.EGG).input('W', Items.WHEAT).input('S', Items.SUGAR)
                 .pattern("GEG").pattern("WSW")
                 .criterion(RecipeProvider.hasItem(Items.GLOW_BERRIES), RecipeProvider.conditionsFromItem(Items.GLOW_BERRIES)).offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(MBItems.SALAD)
-                .input('L', MBItems.LETTUCE_LEAF).input('C', Items.CARROT).input('B', Items.BEETROOT).input('U', Items.BOWL)
-                .pattern("LLL").pattern("CLB").pattern(" U ")
+        ShapelessRecipeJsonBuilder.create(MBItems.SALAD)
+                .input(MBItems.LETTUCE_LEAF, 4).input(Items.CARROT).input(Items.BEETROOT).input(Items.BOWL)
                 .criterion(RecipeProvider.hasItem(MBItems.LETTUCE_LEAF), RecipeProvider.conditionsFromItem(MBItems.LETTUCE_LEAF)).offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(Items.NAME_TAG)
@@ -397,7 +507,6 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         ShapedRecipeJsonBuilder.create(Items.DIAMOND_HORSE_ARMOR).input('#', Items.DIAMOND).input('W', ItemTags.WOOL)
                 .pattern("  #").pattern("###").pattern("#W#")
                 .criterion("has_diamond", RecipeProvider.conditionsFromItem(Items.DIAMOND)).offerTo(exporter);
-
     }
 
     public static void generateFamily(Consumer<RecipeJsonProvider> exporter, MBBlockFamily family) {
@@ -410,7 +519,12 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                     family.getGroup().ifPresent(group -> factory.group(group + (variant == MBBlockFamily.Variant.CUT ? "" : "_" + variant.getName())));
                     factory.criterion(family.getUnlockCriterionName().orElseGet(() -> RecipeProvider.hasItem(inputItem)), RecipeProvider.conditionsFromItem(inputItem));
                     factory.offerTo(exporter);
-                    offerStonecuttingRecipe(exporter, family.getVariant(variant), inputItem);
+                    if (block instanceof SlabBlock) {
+                        offerStonecuttingRecipe(exporter, block, family.getBaseBlock(), 2);
+                    }
+                    else {
+                        offerStonecuttingRecipe(exporter, block, family.getBaseBlock());
+                    }
                 }
                 else if (variant == MBBlockFamily.Variant.CRACKED) {
                     RecipeProvider.offerCrackingRecipe(exporter, block, inputItem);
@@ -418,6 +532,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 }
                 else if (variant == MBBlockFamily.Variant.PILLAR || variant == MBBlockFamily.Variant.COLUMN) {
                     pillar(exporter, inputItem, block);
+                    offerStonecuttingRecipe(exporter, block, family.getBaseBlock());
                 }
                 else if (variant == MBBlockFamily.Variant.MOSSY) {
                     mossy(exporter, inputItem, block);
@@ -432,7 +547,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                     carpetRecipe(exporter, inputItem, block);
                 }
                 else if (variant == MBBlockFamily.Variant.POLISHED) {
-                    condense(exporter, inputItem, block);
+                    condense(exporter, inputItem, block, 4);
                 }
                 else if (variant == MBBlockFamily.Variant.CHISELED) {
                     offerChiseledBlockRecipe(exporter, inputItem, block);
@@ -446,18 +561,29 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                         offerStonecuttingRecipe(exporter, block, inputItem);
                     }
                 }
-//                else {
-//                    offerStonecuttingRecipe(exporter, block, inputItem);
-//                }
             }
         });
         family.cuttable.forEach(block -> {
-            Block inputItem = family.getBaseBlock();
-                offerStonecuttingRecipe(exporter, block, inputItem);
+            if (Registry.BLOCK.getId(block).getNamespace().equals(Moonbits.MOD_ID)) {
+                Block inputItem = family.getBaseBlock();
+                if (block instanceof SlabBlock) {
+                    offerStonecuttingRecipe(exporter, block, inputItem, 2);
+                }
+                else {
+                    offerStonecuttingRecipe(exporter, block, inputItem);
+                }
+            }
         });
         family.childBlocks.forEach(block -> {
-            Block inputItem = family.getBaseBlock();
-            offerStonecuttingRecipe(exporter, block, inputItem);
+            if (Registry.BLOCK.getId(block).getNamespace().equals(Moonbits.MOD_ID)) {
+                Block inputItem = family.getBaseBlock();
+                if (block instanceof SlabBlock) {
+                    offerStonecuttingRecipe(exporter, block, inputItem, 2);
+                }
+                else {
+                    offerStonecuttingRecipe(exporter, block, inputItem);
+                }
+            }
         });
     }
 
@@ -483,14 +609,23 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         return family.getBaseBlock();
     }
 
+    public static void woodStonecut(Consumer<RecipeJsonProvider> exporter, TagKey<Item> input, ItemConvertible output, int count, String criteria) {
+        SingleItemRecipeJsonBuilder.createStonecutting(Ingredient.fromTag(input), output, count)
+                .criterion("has_" + criteria, RecipeProvider.conditionsFromTag(input)).offerTo(exporter, RecipeProvider.getItemPath(output) + "_from_" + criteria + "_stonecutting");
+    }
+    public static void reversibleCut(Consumer<RecipeJsonProvider> exporter, ItemConvertible one, ItemConvertible two) {
+        offerStonecuttingRecipe(exporter, one, two);
+        offerStonecuttingRecipe(exporter, two, one);
+    }
+
     // 1:1, 2x2 & 3x3 recipes
     public static void transmute(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output, int count) {
         ShapelessRecipeJsonBuilder.create(output, count).input(input)
                 .criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input))
                 .offerTo(exporter, RecipeProvider.convertBetween(output, input));
     }
-    public static void condense(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output) {
-        ShapedRecipeJsonBuilder.create(output).input('S', input).pattern("SS").pattern("SS")
+    public static void condense(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output, int count) {
+        ShapedRecipeJsonBuilder.create(output, count).input('S', input).pattern("SS").pattern("SS")
                 .criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input))
                 .offerTo(exporter, RecipeProvider.convertBetween(output, input));
     }
@@ -511,7 +646,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         ShapedRecipeJsonBuilder.create(output, 4).input('S', input).pattern("SS").pattern("SS")
                 .criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input))
                 .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, output, input);
+        RecipeProvider.offerStonecuttingRecipe(exporter, output, input, 4);
     }
     public static void slabRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output) {
         ShapedRecipeJsonBuilder.create(output, 6).input('#', input).pattern("###")
@@ -530,6 +665,12 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input))
                 .offerTo(exporter);
         RecipeProvider.offerStonecuttingRecipe(exporter, output, input);
+    }
+    public static void paneRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output) {
+        ShapedRecipeJsonBuilder.create(output, 16).input('#', input).pattern("###").pattern("###")
+                .criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input))
+                .offerTo(exporter);
+        RecipeProvider.offerStonecuttingRecipe(exporter, output, input, 3);
     }
     public static void insetRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible base, ItemConvertible insert, ItemConvertible output) {
         ShapedRecipeJsonBuilder.create(output, 4)

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:mycelium_turf"
+    }
+  },
+  "result": {
+    "item": "moonbits:mycelium_turf_stairs",
+    "count": 4
+  }
+}

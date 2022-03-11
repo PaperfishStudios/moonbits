@@ -25,6 +25,9 @@
     ],
     "fabric-datagen": [
       "net.paperfish.moonbits.data.MBDataGenerator"
+    ],
+    "booking_it:recipe_book": [
+      "net.paperfish.moonbits.recipe.MBRecipeBook"
     ]
   },
   "mixins": [
@@ -34,7 +37,8 @@
     "fabricloader": ">=0.12.12",
     "fabric": "*",
     "minecraft": "1.18.x",
-    "java": ">=17"
+    "java": ">=17",
+    "booking_it": "*"
   },
   "accessWidener" : "moonbits.accesswidener",
   "suggests": {

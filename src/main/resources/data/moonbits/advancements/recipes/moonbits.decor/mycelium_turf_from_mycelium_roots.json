@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:mycelium_turf_from_mycelium_roots"
+    ]
+  },
+  "criteria": {
+    "has_mycelium_roots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:mycelium_roots"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:mycelium_turf_from_mycelium_roots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mycelium_roots",
+      "has_the_recipe"
+    ]
+  ]
+}

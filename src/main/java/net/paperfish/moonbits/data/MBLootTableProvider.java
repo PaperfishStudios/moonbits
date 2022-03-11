@@ -18,6 +18,7 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.*;
+import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.nbt.ContextLootNbtProvider;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
@@ -91,25 +92,41 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
                 .with((ItemEntry.builder(l))
                         .apply(CopyStateFunction.builder(l).addProperty(BarrelCactusBlock.LEVEL)))));
 
-//        addDrop(MBBlocks.BUDDING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
-//        addDrop(MBBlocks.FLOWERING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
-//        addDrop(MBBlocks.FRUITING_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.APPLE_OAK_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.GOLDEN_BIRCH_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.GOLDEN_BIRCH_SAPLING, SAPLING_DROP_CHANCE));
-        addDrop(MBBlocks.RED_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.oakLeavesDrop(l, MBBlocks.RED_OAK_SAPLING, SAPLING_DROP_CHANCE));
-
         addDrop(MBBlocks.GOLDEN_BIRCH_LEAF_CARPET, MBLootTableProvider::leafCarpet);
-        addDrop(MBBlocks.RED_OAK_LEAF_CARPET, MBLootTableProvider::leafCarpet);
-
-//        addDrop(MBBlocks.APPLE_OAK_SPROUT, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.APPLE_SEEDS));
-//        addDrop(MBBlocks.APPLE_OAK_SAPLING);
         addDrop(MBBlocks.GOLDEN_BIRCH_SAPLING);
+
+        addDrop(MBBlocks.RED_OAK_LEAVES, (Block l) -> BlockLootTableGenerator.oakLeavesDrop(l, MBBlocks.RED_OAK_SAPLING, SAPLING_DROP_CHANCE));
+        addDrop(MBBlocks.RED_OAK_LEAF_CARPET, MBLootTableProvider::leafCarpet);
         addDrop(MBBlocks.RED_OAK_SAPLING);
+
+        addDrop(MBBlocks.ASPEN_TRUNK);
+        addDrop(MBBlocks.STRIPPED_ASPEN_TRUNK);
+        addDrop(MBBlocks.ASPEN_PLANKS);
+        addDrop(MBBlocks.ASPEN_SLAB, BlockLootTableGenerator::slabDrops);
+        addDrop(MBBlocks.ASPEN_STAIRS);
+        addDrop(MBBlocks.ASPEN_LATTICE);
+        addDrop(MBBlocks.ASPEN_PALISADE);
+        addDrop(MBBlocks.STRIPPED_ASPEN_PALISADE);
+        addDrop(MBBlocks.ASPEN_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.ASPEN_SAPLING, SAPLING_DROP_CHANCE));
+        addDrop(MBBlocks.ASPEN_LEAF_CARPET, MBLootTableProvider::leafCarpet);
+        addDrop(MBBlocks.ASPEN_SAPLING);
+
+        addDrop(MBBlocks.FLOWERING_ACACIA_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, Blocks.ACACIA_SAPLING, SAPLING_DROP_CHANCE));
+        addDrop(MBBlocks.TALL_FLOWERING_ACACIA_LEAVES, MBLootTableProvider::leafCarpet);
+        addDrop(MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES, MBLootTableProvider::leafCarpet);
 
         addDrop(MBBlocks.LEAFBED, (Block block) -> BlockLootTableGenerator.drops(block, Blocks.DIRT));
         addDrop(MBBlocks.TOUGH_GRASS, (Block block) -> BlockLootTableGenerator.drops(block, MBBlocks.TOUGH_DIRT));
         addDrop(MBBlocks.REGOLITH, (Block block) -> BlockLootTableGenerator.dropsWithSilkTouch(block,
                 BlockLootTableGenerator.addSurvivesExplosionCondition(block, ItemEntry.builder(block)
                         .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, 0.25f, 0.14285715f, 0.1f, 0f)).alternatively(ItemEntry.builder(MBBlocks.PEBBLES)))));
+        addDrop(MBBlocks.PEAT_MOSS, (Block block) -> BlockLootTableGenerator.dropsWithSilkTouch(block,
+                BlockLootTableGenerator.applyExplosionDecay(block, (ItemEntry.builder(MBItems.PEAT)
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0f, 4.0f))))
+                        .apply(ApplyBonusLootFunction.uniformBonusCount(Enchantments.FORTUNE))
+                        .apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1, 4))))));
+
         addDrop(MBBlocks.PEAT_BLOCK);
         addDrop(MBBlocks.PEAT_DEPOSIT, (Block block) -> oreDrops(block, MBItems.PEAT, 1f, 2f));
         addDrop(MBBlocks.CLAY_DEPOSIT, (Block block) -> oreDrops(block, Items.CLAY_BALL, 2f, 4f));
@@ -123,13 +140,18 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.CHERT_REDSTONE_ORE, BlockLootTableGenerator::redstoneOreDrops);
         addDrop(MBBlocks.CHERT_LAPIS_ORE, BlockLootTableGenerator::lapisOreDrops);
 
+        addDrop(MBBlocks.BANDED_IRON, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.RAW_IRON));
+        addDrop(MBBlocks.MAGNETITE_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.MAGNETITE));
+        addDrop(MBBlocks.MAGNETITE_BLOCK);
+
+        addDrop(MBBlocks.CRACKED_MUD);
+        addDrop(MBBlocks.RICH_MUD);
+        addDrop(MBBlocks.MUD_GOLD_DEPOSIT, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 1f, 4f));
+
         addDrop(MBBlocks.PAVED_SANDSTONE_BRICKS);
         addDrop(MBBlocks.CRACKED_PAVED_SANDSTONE_BRICKS);
         addDrop(MBBlocks.PAVED_RED_SANDSTONE_BRICKS);
         addDrop(MBBlocks.CRACKED_PAVED_RED_SANDSTONE_BRICKS);
-        addDrop(MBBlocks.BANDED_IRON, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.RAW_IRON));
-        addDrop(MBBlocks.MAGNETITE_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.MAGNETITE));
-        addDrop(MBBlocks.MAGNETITE_BLOCK);
 
         addDrop(MBBlocks.CANVAS);
         addDrop(MBBlocks.FRAMED_CANVAS);
@@ -141,9 +163,15 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(3.0f)).conditionally(BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(PebbleBlock.PEBBLES, 3))))
                                 .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(4.0f)).conditionally(BlockStatePropertyLootCondition.builder(block).properties(StatePredicate.Builder.create().exactMatch(PebbleBlock.PEBBLES, 4))))))));
 
-        addDrop(MBBlocks.WILD_CARROTS, (Block block) -> grassDrops(block, Items.CARROT, 1f, 2f));
-        addDrop(MBBlocks.WILD_POTATOES, (Block block) -> grassDrops(block, Items.POTATO, 1f, 3f));
-        addDrop(MBBlocks.SEA_BEETS, (Block block) -> grassDrops(block, Items.BEETROOT_SEEDS, 1f, 2f));
+        addDrop(MBBlocks.WILD_CARROTS, (Block block) -> LootTable.builder().pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
+                .with(BlockLootTableGenerator.applyExplosionDecay(block, (ItemEntry.builder(Items.CARROT))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)))))));
+        addDrop(MBBlocks.WILD_POTATOES, (Block block) -> LootTable.builder().pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
+                .with(BlockLootTableGenerator.applyExplosionDecay(block, (ItemEntry.builder(Items.POTATO))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)))))));
+        addDrop(MBBlocks.SEA_BEETS, (Block block) -> LootTable.builder().pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
+                .with(BlockLootTableGenerator.applyExplosionDecay(block, (ItemEntry.builder(Items.BEETROOT_SEEDS))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)))))));
 
         addDrop(MBBlocks.LETTUCE_CROP, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.LETTUCE_SEEDS));
         addDrop(MBBlocks.LETTUCE_BLOCK, (Block block) -> oreDrops(block, MBItems.LETTUCE_LEAF, 3f, 6f));
@@ -153,6 +181,10 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
 
         addDrop(MBBlocks.COTTONGRASS, (Block block) -> grassDrops(block, Items.WHEAT_SEEDS, 1f, 1f));
         addDrop(MBBlocks.TALL_COTTONGRASS, (Block block) -> BlockLootTableGenerator.tallGrassDrops(block, MBBlocks.COTTONGRASS));
+        addDrop(MBBlocks.WHITE_HEATHER);
+        addDrop(MBBlocks.RED_HEATHER);
+        addDrop(MBBlocks.ORANGE_HEATHER);
+        addDrop(MBBlocks.PURPLE_HEATHER);
         addDrop(MBBlocks.LUPINE, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
 
         addDrop(MBBlocks.DESERT_BRUSH, (Block block) -> grassDrops(block, Items.WHEAT_SEEDS, 1f, 1f));
@@ -174,6 +206,7 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.TOADSTOOL);
         addDrop(MBBlocks.SMALL_TOADSTOOLS);
 
+        addDrop(MBBlocks.MYCELIUM_ROOTS, BlockLootTableGenerator::dropsWithShears);
         addDrop(MBBlocks.RED_MUSHROOM_CAP);
         addDrop(MBBlocks.BROWN_MUSHROOM_CAP);
         addDrop(MBBlocks.SAFFRON_MUSHROOM_CAP);

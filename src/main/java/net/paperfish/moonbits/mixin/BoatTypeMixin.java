@@ -48,7 +48,7 @@ public class BoatTypeMixin {
         var juniper = newType("JUNIPER", last.ordinal() + 1, MBBlocks.JUNIPER_PLANKS, "juniper");
         MBBoatTypes.JUNIPER = juniper;
         types.add(juniper);
-        var cedar = newType("CEDAR", last.ordinal() + 1, MBBlocks.CEDAR_PLANKS, "cedar");
+        var cedar = newType("CEDAR", last.ordinal() + 2, MBBlocks.CEDAR_PLANKS, "cedar");
         MBBoatTypes.CEDAR = cedar;
         types.add(cedar);
 

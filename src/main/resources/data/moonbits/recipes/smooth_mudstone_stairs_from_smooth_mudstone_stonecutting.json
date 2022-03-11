@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:smooth_mudstone"
+  },
+  "result": "moonbits:smooth_mudstone_stairs",
+  "count": 1
+}

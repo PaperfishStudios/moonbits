@@ -42,6 +42,9 @@ public class MBCaveFeatures {
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> T_REGOLITH;
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_REGOLITH;
 
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_SANDSTONE = ConfiguredFeatures.register("or_sanston",
+            Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, Blocks.SANDSTONE.getDefaultState(), 48));
+
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_PEAT;
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_PEAT_HIGH;
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CLAY_DEPOSIT;
@@ -49,6 +52,39 @@ public class MBCaveFeatures {
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_GOLD_DEPOSIT;
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_GOLD_HIGH;
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_COPPER_DEPOSIT;
+
+    public static final RuleTest CHERT_REPLACE = new BlockMatchRuleTest(MBBlocks.CHERT);
+
+    public static final List<OreFeatureConfig.Target> CHERT_GOLD = List.of(
+            OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_GOLD_ORE.getDefaultState()));
+    public static final List<OreFeatureConfig.Target> CHERT_LAPIS = List.of(
+            OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_LAPIS_ORE.getDefaultState()));
+    public static final List<OreFeatureConfig.Target> CHERT_COPPER = List.of(
+            OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_COPPER_ORE.getDefaultState()));
+    public static final List<OreFeatureConfig.Target> CHERT_COAL = List.of(
+            OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_COAL_ORE.getDefaultState()));
+    public static final List<OreFeatureConfig.Target> CHERT_REDSTONE = List.of(
+            OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_COAL_ORE.getDefaultState()));
+
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_COAL = ConfiguredFeatures.register(
+            "ore_chert_coal", Feature.ORE, new OreFeatureConfig(CHERT_COAL, 17, 0.1f));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_COAL_BURIED = ConfiguredFeatures.register(
+            "ore_chert_coal_buried", Feature.ORE, new OreFeatureConfig(CHERT_COAL, 17, 0.6f));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_GOLD = ConfiguredFeatures.register(
+            "ore_chert_gold", Feature.ORE, new OreFeatureConfig(CHERT_GOLD, 9, 0.1f));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_GOLD_BURIED = ConfiguredFeatures.register(
+            "ore_chert_gold_buried", Feature.ORE, new OreFeatureConfig(CHERT_GOLD, 9, 0.6f));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_REDSTONE = ConfiguredFeatures.register(
+            "ore_chert_redstone", Feature.ORE, new OreFeatureConfig(CHERT_REDSTONE, 8, 0.1f));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_LAPIS = ConfiguredFeatures.register(
+            "ore_chert_lapis", Feature.ORE, new OreFeatureConfig(CHERT_LAPIS, 7, 0.1f));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_LAPIS_BURIED = ConfiguredFeatures.register(
+            "ore_chert_lapis_buried", Feature.ORE, new OreFeatureConfig(CHERT_LAPIS, 7, 1.0f));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_COPPER_SMALL = ConfiguredFeatures.register(
+            "ore_chert_copper_small", Feature.ORE, new OreFeatureConfig(CHERT_COPPER, 10, 0.2f));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_COPPER_LARGE = ConfiguredFeatures.register(
+            "ore_chert_copper_large", Feature.ORE, new OreFeatureConfig(CHERT_COPPER, 20, 0.9f));
+
 
     //public static final ConfiguredFeature<ReplaceBlobsFeatureConfig, ?> TOUGH_GRASS;
 
@@ -104,8 +140,8 @@ public class MBCaveFeatures {
                 OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.COPPER_DEPOSIT.getDefaultState()),
                 OreFeatureConfig.createTarget(REGOLITH, MBBlocks.COPPER_DEPOSIT.getDefaultState()));
 
-        T_REGOLITH = ConfiguredFeatures.register("trans_regolith", Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, MBBlocks.REGOLITH.getDefaultState(), 64));
-        ORE_REGOLITH = ConfiguredFeatures.register("ore_regolith", Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, MBBlocks.REGOLITH.getDefaultState(), 64));
+        T_REGOLITH = ConfiguredFeatures.register("trans_regolith", Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, MBBlocks.REGOLITH.getDefaultState(), 32));
+        ORE_REGOLITH = ConfiguredFeatures.register("ore_regolith", Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, MBBlocks.REGOLITH.getDefaultState(), 32));
 
         ORE_PEAT = ConfiguredFeatures.register("ore_peat", Feature.ORE, new OreFeatureConfig(PEAT_GEN, 12, 0.1f));
         ORE_PEAT_HIGH = ConfiguredFeatures.register("ore_peat_high", Feature.ORE, new OreFeatureConfig(PEAT_GEN, 14, 0.0f));

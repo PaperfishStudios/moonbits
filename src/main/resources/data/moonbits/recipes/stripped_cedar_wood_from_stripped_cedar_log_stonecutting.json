@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:stripped_cedar_log"
+  },
+  "result": "moonbits:stripped_cedar_wood",
+  "count": 1
+}

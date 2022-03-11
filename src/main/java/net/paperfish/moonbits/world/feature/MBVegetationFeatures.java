@@ -21,6 +21,8 @@ import net.minecraft.world.gen.stateprovider.DualNoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.NoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.block.BarrelCactusBlock;
+import net.paperfish.moonbits.block.PebbleBlock;
 
 import java.util.List;
 
@@ -28,6 +30,9 @@ public class MBVegetationFeatures {
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> WILD_CARROT_PATCH;
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> WILD_POTATO_PATCH;
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> SEA_BEET_PATCH;
+
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PATCH_MYCELIUM =
+            ConfiguredFeatures.register("patch_mycelium", Feature.RANDOM_PATCH, createPatch(32, BlockStateProvider.of(MBBlocks.MYCELIUM_ROOTS)));
 
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> BUTTERCUP_PATCH;
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> FORGETMENOT_PATCH;
@@ -44,8 +49,28 @@ public class MBVegetationFeatures {
     public static final Feature<CountConfig> PEBBLE_FEATURE;
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PUMPKIN_PATCH;
 
-    public static final RegistryEntry<ConfiguredFeature<CountConfig, ?>> PEBBLES;
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PEBBLES = ConfiguredFeatures.register("mb_pebbles",
+            Feature.RANDOM_PATCH, createPatch(1, 12, 2, new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
+                    .add(MBBlocks.PEBBLES.getDefaultState(), 3)
+                    .add(MBBlocks.PEBBLES.getDefaultState().with(PebbleBlock.PEBBLES, 2), 6)
+                    .add(MBBlocks.PEBBLES.getDefaultState().with(PebbleBlock.PEBBLES, 3), 4)
+                    .add(MBBlocks.PEBBLES.getDefaultState().with(PebbleBlock.PEBBLES, 4), 1)
+                    .build())));
     public static final RegistryEntry<ConfiguredFeature<GeodeFeatureConfig, ?>> BOULDER;
+
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PATCH_DESERT_BRUSH =
+            ConfiguredFeatures.register("patch_desert_brush", Feature.RANDOM_PATCH, createPatch(12, BlockStateProvider.of(MBBlocks.DESERT_BRUSH)));
+
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> MARIGOLD_PATCH = ConfiguredFeatures.register(
+            "patch_marigold", Feature.RANDOM_PATCH, createPatch(6, MBBlocks.MARIGOLD));
+
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> BARREL_CACTI = ConfiguredFeatures.register(
+            "barrel_cacti", Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(6, 6, 2,
+                    PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
+                            .add(MBBlocks.BARREL_CACTUS.getDefaultState(), 4)
+                            .add(MBBlocks.BARREL_CACTUS.getDefaultState().with(BarrelCactusBlock.LEVEL, 2), 6)
+                            .add(MBBlocks.BARREL_CACTUS.getDefaultState().with(BarrelCactusBlock.LEVEL, 3), 1)
+                            .build())))));
 
     public static final RegistryEntry<ConfiguredFeature<ReplaceBlobsFeatureConfig, ?>> COARSE_DIRT_PATCH;
     public static final RegistryEntry<ConfiguredFeature<ReplaceBlobsFeatureConfig, ?>> PODZOL_PATCH;
@@ -60,6 +85,24 @@ public class MBVegetationFeatures {
 
     private static RandomPatchFeatureConfig createPatch(Block block) {
         return ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(block)));
+    }
+    private static RandomPatchFeatureConfig createPatch(int tries, Block block) {
+        return new RandomPatchFeatureConfig(tries, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(block))));
+    }
+    private static RandomPatchFeatureConfig createPatch(int tries, BlockStateProvider block) {
+        return new RandomPatchFeatureConfig(tries, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(block)));
+    }
+    private static RandomPatchFeatureConfig createPatch(int tries, int xzSpread, int ySpread, Block block) {
+        return new RandomPatchFeatureConfig(tries, xzSpread, ySpread, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(block))));
+    }
+    private static RandomPatchFeatureConfig createPatch(int tries, int xzSpread, int ySpread, BlockStateProvider block) {
+        return new RandomPatchFeatureConfig(tries, xzSpread, ySpread, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(block)));
+    }
+    public static RandomPatchFeatureConfig createPatch(int tries, BlockStateProvider block, List<Block> validGround) {
+        return new RandomPatchFeatureConfig(tries, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(block), createBlockPredicate(validGround)));
+    }
+    private static BlockPredicate createBlockPredicate(List<Block> validGround) {
+        return !validGround.isEmpty() ? BlockPredicate.bothOf(BlockPredicate.IS_AIR, BlockPredicate.matchingBlocks(validGround, new BlockPos(0, -1, 0))) : BlockPredicate.IS_AIR;
     }
 
     static {
@@ -104,18 +147,17 @@ public class MBVegetationFeatures {
                 .add(Blocks.POPPY.getDefaultState(), 1)
                 .build();
 
-        WILD_CARROT_PATCH = ConfiguredFeatures.register("patch_carrots", Feature.RANDOM_PATCH, createPatch(MBBlocks.WILD_CARROTS));
-        WILD_POTATO_PATCH = ConfiguredFeatures.register("patch_potatoes", Feature.RANDOM_PATCH, createPatch(MBBlocks.WILD_POTATOES));
-        SEA_BEET_PATCH = ConfiguredFeatures.register("patch_beets", Feature.RANDOM_PATCH, createPatch(MBBlocks.SEA_BEETS));
+        WILD_CARROT_PATCH = ConfiguredFeatures.register("patch_carrots", Feature.RANDOM_PATCH, createPatch(6, MBBlocks.WILD_CARROTS));
+        WILD_POTATO_PATCH = ConfiguredFeatures.register("patch_potatoes", Feature.RANDOM_PATCH, createPatch(6, MBBlocks.WILD_POTATOES));
+        SEA_BEET_PATCH = ConfiguredFeatures.register("patch_beets", Feature.RANDOM_PATCH, createPatch(6, MBBlocks.SEA_BEETS));
 
-        BUTTERCUP_PATCH = ConfiguredFeatures.register("patch_buttercups", Feature.RANDOM_PATCH, createPatch(MBBlocks.BUTTERCUP));
-        FORGETMENOT_PATCH = ConfiguredFeatures.register("patch_forgetmenot", Feature.RANDOM_PATCH, createPatch(MBBlocks.FORGETMENOT));
-        PUFFBALLS_PATCH = ConfiguredFeatures.register("patch_puffballs", Feature.RANDOM_PATCH, createPatch(MBBlocks.PUFFBALLS));
-        TOADSTOOLS = ConfiguredFeatures.register("toadstools", Feature.RANDOM_PATCH, ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(TOADSTOOL_LIST))));
-        AUTUMN_FLOWERS = ConfiguredFeatures.register("autumn_flowers", Feature.RANDOM_PATCH,
-                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.LARGE_FERN))));
-        ROSE_BUSH = ConfiguredFeatures.register("rose_bush", Feature.RANDOM_PATCH, createPatch(Blocks.ROSE_BUSH));
-        SUNFLOWERS = ConfiguredFeatures.register("mb_sunflowers", Feature.RANDOM_PATCH, createPatch(Blocks.SUNFLOWER));
+        BUTTERCUP_PATCH = ConfiguredFeatures.register("patch_buttercups", Feature.RANDOM_PATCH, createPatch(32, MBBlocks.BUTTERCUP));
+        FORGETMENOT_PATCH = ConfiguredFeatures.register("patch_forgetmenot", Feature.RANDOM_PATCH, createPatch(16, MBBlocks.FORGETMENOT));
+        PUFFBALLS_PATCH = ConfiguredFeatures.register("patch_puffballs", Feature.RANDOM_PATCH, createPatch(8, MBBlocks.PUFFBALLS));
+        TOADSTOOLS = ConfiguredFeatures.register("toadstools", Feature.RANDOM_PATCH, createPatch(3, new WeightedBlockStateProvider(TOADSTOOL_LIST)));
+        AUTUMN_FLOWERS = ConfiguredFeatures.register("autumn_flowers", Feature.RANDOM_PATCH, createPatch(12, new WeightedBlockStateProvider(AUTUMN_FLOWER_LIST)));
+        ROSE_BUSH = ConfiguredFeatures.register("rose_bush", Feature.RANDOM_PATCH, createPatch(8, Blocks.ROSE_BUSH));
+        SUNFLOWERS = ConfiguredFeatures.register("mb_sunflowers", Feature.RANDOM_PATCH, createPatch(6, Blocks.SUNFLOWER));
 
         HYACINTHS = ConfiguredFeatures.register("hyacinths", Feature.SIMPLE_RANDOM_SELECTOR, new SimpleRandomFeatureConfig(RegistryEntryList.of(
                 PlacedFeatures.createEntry(Feature.RANDOM_PATCH, (ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, (
@@ -129,10 +171,10 @@ public class MBVegetationFeatures {
         )));
 
         PUMPKIN_PATCH = ConfiguredFeatures.register("mb_pumpkin_patch", Feature.RANDOM_PATCH,
-                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.PUMPKIN)), List.of(Blocks.GRASS_BLOCK)));
+                createPatch(8, BlockStateProvider.of(Blocks.PUMPKIN), List.of(Blocks.GRASS_BLOCK)));
 
         PEBBLE_FEATURE = Registry.register(Registry.FEATURE, "pebble_feature", new PebbleFeature(CountConfig.CODEC));
-        PEBBLES = ConfiguredFeatures.register("pebbles", PEBBLE_FEATURE, new CountConfig(4));
+        //PEBBLES = ConfiguredFeatures.register("pebbles", PEBBLE_FEATURE, new CountConfig(4));
         BOULDER = ConfiguredFeatures.register("stone_boulder", Feature.GEODE,
                 new GeodeFeatureConfig(new GeodeLayerConfig(
                         BlockStateProvider.of(Blocks.STONE),

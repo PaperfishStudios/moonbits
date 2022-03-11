@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:stripped_aspen_trunk"
+  },
+  "result": "moonbits:aspen_planks",
+  "count": 1
+}

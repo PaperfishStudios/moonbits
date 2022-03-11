@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/mycelium_turf_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/mycelium_turf"
+    },
+    "type=top": {
+      "model": "moonbits:block/mycelium_turf_slab_top"
+    }
+  }
+}

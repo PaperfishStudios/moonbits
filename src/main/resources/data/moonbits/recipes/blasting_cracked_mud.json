@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "moonbits:rich_mud"
+  },
+  "result": "moonbits:cracked_mud",
+  "experience": 0.1,
+  "cookingtime": 100
+}

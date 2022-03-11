@@ -28,6 +28,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldEvents;
 import net.paperfish.moonbits.mixin.PigSaddleAccess;
 import net.paperfish.moonbits.mixin.StriderSaddleAccess;
 import net.paperfish.moonbits.recipe.WashingHandler;
@@ -59,24 +60,18 @@ public class MBEvents {
                 }
             }
 
-            // shearing grass
-            if (targetBlock.isOf(Blocks.GRASS_BLOCK) && heldItem.getItem() == Items.SHEARS) {
-                Moonbits.LOGGER.info("sheared grass block");
-                world.setBlockState(targetPos, Blocks.DIRT.getDefaultState());
-                if(!player.isCreative())
-                    heldItem.damage(1, new Random(), null);
-                // spawn grass tuft item
-                //Block.dropStack(world, targetPos, new ItemStack(MBItems.GRASS_TUFT));
-                world.spawnEntity(new ItemEntity(world, targetPos.getX() + .5, targetPos.getY() + 1, targetPos.getZ() + .5, new ItemStack(MBItems.GRASS_TUFT)));
-                // play shearing sound
-                world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 0.5F, 1.0F);
-                return ActionResult.SUCCESS;
-            }
-
             // planting grass
             if (targetBlock.isOf(Blocks.DIRT) && heldItem.getItem() == MBItems.GRASS_TUFT) {
                 Moonbits.LOGGER.info("placed grass tuft");
                 world.setBlockState(targetPos, Blocks.GRASS_BLOCK.getDefaultState());
+                if(!player.isCreative())
+                    heldItem.decrement(1);
+                world.playSound(null, targetPos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 0.5F, 1.0F);
+                return ActionResult.SUCCESS;
+            }
+
+            if (targetBlock.isOf(Blocks.DIRT) && heldItem.getItem() == MBBlocks.MYCELIUM_ROOTS.asItem()) {
+                world.setBlockState(targetPos, Blocks.MYCELIUM.getDefaultState());
                 if(!player.isCreative())
                     heldItem.decrement(1);
                 world.playSound(null, targetPos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 0.5F, 1.0F);
@@ -89,7 +84,7 @@ public class MBEvents {
                 if(!player.isCreative())
                     heldItem.decrement(1);
                 world.playSound(null, targetPos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.BLOCKS, 0.5F, 1.0F);
-                world.syncWorldEvent(1505, targetPos, 0);
+                world.addBlockBreakParticles(targetPos, Blocks.SLIME_BLOCK.getDefaultState());
                 return ActionResult.SUCCESS;
             }
 
@@ -100,7 +95,7 @@ public class MBEvents {
                     heldItem.damage(1, new Random(), null);
                 world.playSound(null, targetPos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 0.8F, 1.0F);
                 world.playSound(null, targetPos, SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.BLOCKS, 0.3F, 0.3F);
-                world.syncWorldEvent(player, 3005, targetPos, 0);
+                world.syncWorldEvent(player, WorldEvents.BLOCK_SCRAPED, targetPos, 0);
                 return ActionResult.SUCCESS;
             }
 
@@ -109,63 +104,72 @@ public class MBEvents {
                 world.setBlockState(targetPos, Blocks.JACK_O_LANTERN.getDefaultState().with(CarvedPumpkinBlock.FACING, targetBlock.get(CarvedPumpkinBlock.FACING))); 
                 if(!player.isCreative())
                     heldItem.decrement(1);
-                world.playSound(null, targetPos, Blocks.NETHER_BRICKS.getSoundGroup(Blocks.NETHER_BRICKS.getDefaultState()).getPlaceSound(), SoundCategory.BLOCKS, 0.5F, 1.0F);
+                world.playSound(null, targetPos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 0.5F, 1.0F);
                 return ActionResult.SUCCESS;
             }
 
-            // shearing berry hedges
-            if (targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) && heldItem.getItem() == Items.SHEARS) {
-                Moonbits.LOGGER.info("sheared berry hedge");
-                world.setBlockState(targetPos, MBBlocks.PLUCKED_SWEET_BERRY_HEDGE.getDefaultState());
-                if(!player.isCreative())
-                    heldItem.damage(1, new Random(), null);
-                // spawn items
-                if (!world.isClient()) {
-                    BlockState a = Blocks.SWEET_BERRY_BUSH.getDefaultState();
-                    Block.getDroppedStacks(a.with(SweetBerryBushBlock.AGE, 3), (ServerWorld) world, dropFromFullBlock(targetPos, world), null).forEach((stack) -> {
-                        Block.dropStack(world, dropFromFullBlock(targetPos, world), stack);
-                    });
+            if (heldItem.isIn(MBItemTags.AXES)) {
+                boolean success = false;
+                if (targetBlock.isOf(MBBlocks.ASPEN_PALISADE)) {
+                    world.setBlockState(targetPos, MBBlocks.STRIPPED_ASPEN_PALISADE.getStateWithProperties(targetBlock));
+                    world.playSound(player, targetPos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                    success = true;
                 }
-
-                world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 0.5F, 1.0F);
-                return ActionResult.SUCCESS;
-            }
-            if (targetBlock.isOf(MBBlocks.GLOW_BERRY_HEDGE) && heldItem.getItem() == Items.SHEARS) {
-                Moonbits.LOGGER.info("sheared berry hedge");
-                world.setBlockState(targetPos, MBBlocks.PLUCKED_GLOW_BERRY_HEDGE.getDefaultState());
-                if(!player.isCreative())
-                    heldItem.damage(1, new Random(), null);
-                // spawn items
-                if (!world.isClient()) {
-                    BlockState a = Blocks.CAVE_VINES_PLANT.getDefaultState();
-                    Block.getDroppedStacks(a.with(CaveVinesBodyBlock.BERRIES, true), (ServerWorld) world, dropFromFullBlock(targetPos, world), null).forEach((stack) -> {
-                        Block.dropStack(world, dropFromFullBlock(targetPos, world), stack);
-                    });
+                if (success) {
+                    if (!player.isCreative()) heldItem.damage(1, new Random(), null);
+                    return ActionResult.SUCCESS;
                 }
-
-                world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 0.5F, 1.0F);
-                return ActionResult.SUCCESS;
             }
-            // regrowing berry hedges
-            if (targetBlock.isOf(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE) && heldItem.getItem() == Items.BONE_MEAL) {
-                Moonbits.LOGGER.info("bonemealed berry hedge");
-                world.setBlockState(targetPos, MBBlocks.SWEET_BERRY_HEDGE.getDefaultState());
-                if(!player.isCreative())
-                    heldItem.decrement(1);
-                world.syncWorldEvent(1505, targetPos, 0);
-
-                world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_BONE_MEAL_USE, SoundCategory.BLOCKS, 0.5F, 1.0F);
-                return ActionResult.SUCCESS;
+            if (heldItem.isOf(Items.SHEARS)) {
+                boolean success = false;
+                if (targetBlock.isOf(Blocks.GRASS_BLOCK) || targetBlock.isOf(MBBlocks.TOUGH_GRASS)) {
+                    world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.TOUGH_GRASS) ? MBBlocks.TOUGH_DIRT.getDefaultState() : Blocks.DIRT.getDefaultState());
+                    Block.dropStack(world, dropFromFullBlock(targetPos, world), new ItemStack(MBItems.GRASS_TUFT));
+                    success = true;
+                }
+                if (targetBlock.isOf(Blocks.MYCELIUM)) {
+                    world.setBlockState(targetPos, Blocks.DIRT.getDefaultState());
+                    Block.dropStack(world, dropFromFullBlock(targetPos, world), new ItemStack(MBBlocks.MYCELIUM_ROOTS));
+                    success = true;
+                }
+                else if (targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) || targetBlock.isOf(MBBlocks.GLOW_BERRY_HEDGE)) {
+                    Moonbits.LOGGER.info("sheared berry hedge");
+                    world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) ? MBBlocks.PLUCKED_SWEET_BERRY_HEDGE.getDefaultState() : MBBlocks.PLUCKED_GLOW_BERRY_HEDGE.getDefaultState());
+                    Block.dropStack(world, dropFromFullBlock(targetPos, world),
+                            new ItemStack(targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) ? Items.SWEET_BERRIES : Items.GLOW_BERRIES, world.random.nextInt(3)+1));
+                    success = true;
+                }
+                if (success) {
+                    world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 0.5F, 1.0F);
+                    if (!player.isCreative()) heldItem.damage(1, new Random(), null);
+                    return ActionResult.SUCCESS;
+                }
             }
-            if (targetBlock.isOf(MBBlocks.PLUCKED_GLOW_BERRY_HEDGE) && heldItem.getItem() == Items.BONE_MEAL) {
-                Moonbits.LOGGER.info("bonemealed berry hedge");
-                world.setBlockState(targetPos, MBBlocks.GLOW_BERRY_HEDGE.getDefaultState());
-                if(!player.isCreative())
-                    heldItem.decrement(1);
-                world.syncWorldEvent(1505, targetPos, 0);
-
-                world.playSound(null, player.getBlockPos(), SoundEvents.ITEM_BONE_MEAL_USE, SoundCategory.BLOCKS, 0.5F, 1.0F);
-                return ActionResult.SUCCESS;
+            if (heldItem.isOf(Items.BONE_MEAL)) {
+                boolean success = false;
+                if (targetBlock.isOf(Blocks.DIRT) || targetBlock.isOf(MBBlocks.TOUGH_DIRT)) {
+                    if (!world.getBlockState(targetPos.up()).isSideSolidFullSquare(world, targetPos.up(), Direction.DOWN)) {
+                        for (BlockPos blockPos : BlockPos.iterate(targetPos.add(-1, -1, -1), targetPos.add(1, 1, 1))) {
+                            BlockState blockState = world.getBlockState(blockPos);
+                            if (blockState.isOf(Blocks.GRASS_BLOCK) || blockState.isOf(MBBlocks.TOUGH_GRASS)) {
+                                success = true;
+                                world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.TOUGH_DIRT) ? MBBlocks.TOUGH_GRASS.getDefaultState() : Blocks.GRASS_BLOCK.getDefaultState());
+                                world.syncWorldEvent(WorldEvents.BONE_MEAL_USED, targetPos.up(), 0);
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if (targetBlock.isOf(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE) || targetBlock.isOf(MBBlocks.PLUCKED_GLOW_BERRY_HEDGE)) {
+                    Moonbits.LOGGER.info("bonemealed berry hedge");
+                    world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE) ? MBBlocks.SWEET_BERRY_HEDGE.getDefaultState() : MBBlocks.GLOW_BERRY_HEDGE.getDefaultState());
+                    world.syncWorldEvent(WorldEvents.BONE_MEAL_USED, targetPos, 0);
+                    success = true;
+                }
+                if (success) {
+                    if (!player.isCreative()) heldItem.decrement(1);
+                    return ActionResult.SUCCESS;
+                }
             }
 
             // pass if nothing happened

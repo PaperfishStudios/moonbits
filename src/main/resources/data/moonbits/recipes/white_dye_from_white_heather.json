@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:white_heather"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_dye"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moonbits:block/hanging_flowering_acacia_leaves"
+  }
+}

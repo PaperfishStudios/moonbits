@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:smooth_mudstone_wall"
+    ]
+  },
+  "criteria": {
+    "has_smooth_mudstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:smooth_mudstone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:smooth_mudstone_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_mudstone",
+      "has_the_recipe"
+    ]
+  ]
+}

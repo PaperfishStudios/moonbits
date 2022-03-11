@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:blasting_cracked_mud"
+    ]
+  },
+  "criteria": {
+    "has_rich_mud": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:rich_mud"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:blasting_cracked_mud"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_rich_mud",
+      "has_the_recipe"
+    ]
+  ]
+}

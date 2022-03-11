@@ -1,5 +1,6 @@
 package net.paperfish.moonbits;
 
+import com.github.aws404.booking_it.BookingIt;
 import com.google.common.collect.ImmutableMap;
 
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -20,6 +21,7 @@ import net.minecraft.nbt.NbtElement;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -37,6 +39,7 @@ public class MBData {
 
 	public static final Map<Block, Block> STRIPPED_BLOCKS;
 
+	public static final RecipeBookCategory KILN_BOOK_CATEGORY;
 
 	public static final RecipeType<KilnRecipe> KILN_RECIPE_TYPE;
 	public static final RecipeSerializer<KilnRecipe> KILN_RECIPE_SERIALIZER;
@@ -55,9 +58,14 @@ public class MBData {
 					.put(MBBlocks.CEDAR_LOG, MBBlocks.STRIPPED_CEDAR_LOG)
 					.put(MBBlocks.CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_WOOD)
 
+					.put(MBBlocks.ASPEN_TRUNK, MBBlocks.STRIPPED_ASPEN_TRUNK)
+					//.put(MBBlocks.ASPEN_PALISADE, MBBlocks.STRIPPED_ASPEN_PALISADE)
+
 					.put(MBBlocks.MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_STEM)
 					.put(MBBlocks.MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_HYPHAE)
 				.build();
+
+		KILN_BOOK_CATEGORY = BookingIt.getCategory("FIRING");
 
 		KILN_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MOD_ID, "kiln"), new RecipeType<KilnRecipe>() {
 				@Override
