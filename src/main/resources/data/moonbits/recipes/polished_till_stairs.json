@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:polished_till"
+    }
+  },
+  "result": {
+    "item": "moonbits:polished_till_stairs",
+    "count": 4
+  }
+}

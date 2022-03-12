@@ -72,6 +72,14 @@ public class MBVegetationFeatures {
                             .add(MBBlocks.BARREL_CACTUS.getDefaultState().with(BarrelCactusBlock.LEVEL, 3), 1)
                             .build())))));
 
+    public static final RegistryEntry<ConfiguredFeature<ReplaceBlobsFeatureConfig, ?>> TUNDRA_FROST
+            = ConfiguredFeatures.register("tundra_frost", Feature.NETHERRACK_REPLACE_BLOBS,
+            new ReplaceBlobsFeatureConfig(
+                    Blocks.GRASS_BLOCK.getDefaultState(),
+                    MBBlocks.PERMAFROST.getDefaultState(),
+                    UniformIntProvider.create(6, 12)
+            ));
+
     public static final RegistryEntry<ConfiguredFeature<ReplaceBlobsFeatureConfig, ?>> COARSE_DIRT_PATCH;
     public static final RegistryEntry<ConfiguredFeature<ReplaceBlobsFeatureConfig, ?>> PODZOL_PATCH;
     public static final RegistryEntry<ConfiguredFeature<ReplaceBlobsFeatureConfig, ?>> LEAFBED_PATCH;

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/smooth_dirt_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/smooth_dirt"
+    },
+    "type=top": {
+      "model": "moonbits:block/smooth_dirt_slab_top"
+    }
+  }
+}

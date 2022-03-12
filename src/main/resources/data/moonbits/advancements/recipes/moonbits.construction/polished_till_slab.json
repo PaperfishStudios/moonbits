@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:polished_till_slab"
+    ]
+  },
+  "criteria": {
+    "has_polished_till": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:polished_till"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:polished_till_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_till",
+      "has_the_recipe"
+    ]
+  ]
+}

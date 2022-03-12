@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:smooth_dirt"
+    }
+  },
+  "result": {
+    "item": "moonbits:smooth_dirt_stairs",
+    "count": 4
+  }
+}

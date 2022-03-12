@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:frosty_till_brick_stairs_from_frosty_till_bricks_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_frosty_till_bricks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:frosty_till_bricks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:frosty_till_brick_stairs_from_frosty_till_bricks_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_frosty_till_bricks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:cobbled_chert"
+    }
+  },
+  "result": {
+    "item": "moonbits:cobbled_chert_stairs",
+    "count": 4
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/smooth_deepslate_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/smooth_deepslate"
+    },
+    "type=top": {
+      "model": "moonbits:block/smooth_deepslate_slab_top"
+    }
+  }
+}

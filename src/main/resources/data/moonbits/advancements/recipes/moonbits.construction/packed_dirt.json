@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:packed_dirt"
+    ]
+  },
+  "criteria": {
+    "has_smooth_dirt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:smooth_dirt"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:packed_dirt"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_dirt",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:dusty_cloth_book"
+    ]
+  },
+  "criteria": {
+    "has_cloth": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:dusty_cloth"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:dusty_cloth_book"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cloth",
+      "has_the_recipe"
+    ]
+  ]
+}

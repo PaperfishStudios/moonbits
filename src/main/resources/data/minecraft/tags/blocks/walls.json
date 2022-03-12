@@ -1,7 +1,12 @@
 {
   "replace": false,
   "values": [
+    "moonbits:till_wall",
+    "moonbits:polished_till_wall",
+    "moonbits:till_brick_wall",
+    "moonbits:frosty_till_brick_wall",
     "moonbits:chert_wall",
+    "moonbits:cobbled_chert_wall",
     "moonbits:polished_chert_wall",
     "moonbits:chert_brick_wall",
     "moonbits:cracked_chert_brick_wall",

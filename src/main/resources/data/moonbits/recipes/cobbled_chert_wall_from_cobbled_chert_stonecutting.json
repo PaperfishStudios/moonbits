@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:cobbled_chert"
+  },
+  "result": "moonbits:cobbled_chert_wall",
+  "count": 1
+}

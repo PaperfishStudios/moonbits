@@ -135,6 +135,9 @@ public class MBRecipeProvider extends FabricRecipesProvider {
 
         // 2x2 recipe with an output of 4
         POLISH.put(MBBlocks.PEAT_MOSS, MBBlocks.PEAT_BRICKS);
+        POLISH.put(Blocks.SNOW_BLOCK, MBBlocks.SNOW_BRICKS);
+        POLISH.put(Blocks.ICE, MBBlocks.ICE_BRICKS);
+        POLISH.put(Blocks.PACKED_ICE, MBBlocks.PACKED_ICE_BRICKS);
 
         // 3x3 unpackable recipe
         STORAGE.put(Items.APPLE, MBBlocks.APPLE_CRATE);
@@ -172,6 +175,8 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         FIRING.put(MBBlocks.COBBLED_DIORITE, Blocks.DIORITE);
         FIRING.put(MBBlocks.COBBLED_GRANITE, Blocks.GRANITE);
         FIRING.put(Blocks.DEEPSLATE, MBBlocks.SMOOTH_DEEPSLATE);
+
+        FIRING.put(MBBlocks.COBBLED_CHERT, MBBlocks.CHERT);
 
         FIRING.put(MBBlocks.RICH_MUD, MBBlocks.MUDSTONE);
         FIRING.put(MBBlocks.MUDSTONE, MBBlocks.SMOOTH_MUDSTONE);
@@ -427,6 +432,19 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         insetRecipe(exporter, MBBlocks.TOADSTOOL_MUSH_BLOCK, MBBlocks.LAMPROOT, MBBlocks.TOADSTOOL_MUSH_LAMP);
         insetRecipe(exporter, MBBlocks.SAFFRON_MUSH_BLOCK, MBBlocks.LAMPROOT, MBBlocks.SAFFRON_MUSH_LAMP);
 
+        ShapedRecipeJsonBuilder.create(MBBlocks.CANVAS, 4).input('#', MBItems.DUSTY_CLOTH).pattern("##").pattern("##")
+                .criterion(RecipeProvider.hasItem(MBItems.DUSTY_CLOTH), RecipeProvider.conditionsFromItem(MBItems.DUSTY_CLOTH))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(MBBlocks.FRAMED_CANVAS, 2).input('#', MBBlocks.CANVAS).input('S', Items.STICK)
+                .pattern(" S ").pattern("S#S").pattern(" S ")
+                .criterion(RecipeProvider.hasItem(MBItems.DUSTY_CLOTH), RecipeProvider.conditionsFromItem(MBItems.DUSTY_CLOTH))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(MBBlocks.FROSTY_TILL_BRICKS)
+                .input(MBBlocks.TILL_BRICKS).input(Items.SNOWBALL)
+                .criterion("has_snowball", RecipeProvider.conditionsFromItem(Items.SNOWBALL))
+                .offerTo(exporter);
+
         ShapedRecipeJsonBuilder.create(Items.TORCH, 2)
                 .input('P', MBItems.PEAT).input('S', Items.STICK)
                 .pattern("P").pattern("S")
@@ -481,6 +499,10 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .input(Items.PAPER).input(Items.STRING).input(Items.INK_SAC)
                 .criterion("tame_animal", TameAnimalCriterion.Conditions.any()).offerTo(exporter);
 
+        ShapelessRecipeJsonBuilder.create(Items.BOOK)
+                .input(Items.PAPER).input(Items.PAPER).input(Items.PAPER).input(MBItems.DUSTY_CLOTH)
+                .criterion("has_cloth", RecipeProvider.conditionsFromItem(MBItems.DUSTY_CLOTH)).offerTo(exporter, "dusty_cloth_book");
+
         campfire(exporter, Items.STICK, Items.TORCH, 0.1f, 600);
         campfire(exporter, Items.WET_SPONGE, Items.SPONGE, 0f, 600);
 
@@ -490,9 +512,12 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         ShapedRecipeJsonBuilder.create(MBBlocks.LEAFBED, 4).input('D', Blocks.DIRT).input('G', ItemTags.LEAVES)
                 .pattern("DG").pattern("GD")
                 .criterion("has_leaves", RecipeProvider.conditionsFromItem(Items.SHEARS)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(MBBlocks.PERMAFROST, 4).input('D', Blocks.DIRT).input('G', Items.SNOWBALL)
+                .pattern("DG").pattern("GD")
+                .criterion("has_snow", RecipeProvider.conditionsFromItem(Items.SNOWBALL)).offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(Items.SADDLE).input('#', Items.LEATHER).input('S', Items.STRING).input('I', Items.IRON_INGOT)
-                .pattern("###").pattern("#S#").pattern(" I ")
+                .pattern("###").pattern("SIS")
                 .criterion("has_leather", RecipeProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(Items.LEATHER_HORSE_ARMOR).input('#', Items.LEATHER).input('W', ItemTags.WOOL)
@@ -507,6 +532,26 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         ShapedRecipeJsonBuilder.create(Items.DIAMOND_HORSE_ARMOR).input('#', Items.DIAMOND).input('W', ItemTags.WOOL)
                 .pattern("  #").pattern("###").pattern("#W#")
                 .criterion("has_diamond", RecipeProvider.conditionsFromItem(Items.DIAMOND)).offerTo(exporter);
+
+        // mixed cobble recipes
+        ShapedRecipeJsonBuilder.create(Blocks.DISPENSER).input('R', Items.REDSTONE).input('#', MBItemTags.COBBLESTONE).input('X', Items.BOW)
+                .pattern("###").pattern("#X#").pattern("#R#").criterion("has_bow", RecipeProvider.conditionsFromItem(Items.BOW)).offerTo(exporter, "dispenser_mixed_cobble");
+
+        ShapedRecipeJsonBuilder.create(Blocks.DISPENSER).input('#', Items.STICK).input('X', Items.STRING).input('D', Items.DROPPER)
+                .pattern(" #X").pattern("#DX").pattern(" #X").criterion("has_string", RecipeProvider.conditionsFromItem(Items.STRING)).offerTo(exporter, "alt_dispenser");
+
+        ShapedRecipeJsonBuilder.create(Blocks.DROPPER).input('R', Items.REDSTONE).input('#', MBItemTags.COBBLESTONE)
+                .pattern("###").pattern("# #").pattern("#R#").criterion("has_redstone", RecipeProvider.conditionsFromItem(Items.REDSTONE)).offerTo(exporter, "dropper_mixed_cobble");
+        ShapedRecipeJsonBuilder.create(Blocks.LEVER).input('#', MBItemTags.COBBLESTONE).input('X', Items.STICK)
+                .pattern("X").pattern("#").criterion("has_cobblestone", RecipeProvider.conditionsFromTag(MBItemTags.COBBLESTONE)).offerTo(exporter, "lever_mixed_cobble");
+        ShapedRecipeJsonBuilder.create(Blocks.OBSERVER).input('Q', Items.QUARTZ).input('R', Items.REDSTONE).input('#', MBItemTags.COBBLESTONE)
+                .pattern("###").pattern("RRQ").pattern("###").criterion("has_quartz", RecipeProvider.conditionsFromItem(Items.QUARTZ)).offerTo(exporter, "observer_mixed_cobble");
+        ShapedRecipeJsonBuilder.create(Blocks.PISTON).input('R', Items.REDSTONE).input('#', MBItemTags.COBBLESTONE).input('T', ItemTags.PLANKS).input('X', Items.IRON_INGOT)
+                .pattern("TTT").pattern("#X#").pattern("#R#").criterion("has_redstone", RecipeProvider.conditionsFromItem(Items.REDSTONE)).offerTo(exporter, "piston_mixed_cobble");
+
+        ShapedRecipeJsonBuilder.create(Blocks.BLAST_FURNACE).input('#', MBBlocks.SMOOTH_DEEPSLATE).input('X', Blocks.FURNACE).input('I', Items.IRON_INGOT)
+                .pattern("III").pattern("IXI").pattern("###").criterion("has_smooth_deepslate", RecipeProvider.conditionsFromItem(MBBlocks.SMOOTH_DEEPSLATE))
+                .offerTo(exporter, "blast_furnace_deepslate");
     }
 
     public static void generateFamily(Consumer<RecipeJsonProvider> exporter, MBBlockFamily family) {
@@ -646,7 +691,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         ShapedRecipeJsonBuilder.create(output, 4).input('S', input).pattern("SS").pattern("SS")
                 .criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input))
                 .offerTo(exporter);
-        RecipeProvider.offerStonecuttingRecipe(exporter, output, input, 4);
+        RecipeProvider.offerStonecuttingRecipe(exporter, output, input);
     }
     public static void slabRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output) {
         ShapedRecipeJsonBuilder.create(output, 6).input('#', input).pattern("###")

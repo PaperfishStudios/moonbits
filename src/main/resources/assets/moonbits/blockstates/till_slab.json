@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/till_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/till"
+    },
+    "type=top": {
+      "model": "moonbits:block/till_slab_top"
+    }
+  }
+}

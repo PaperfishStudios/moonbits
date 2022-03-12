@@ -72,6 +72,11 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
         copy(BlockTags.STANDING_SIGNS, ItemTags.SIGNS);
         copy(BlockTags.NON_FLAMMABLE_WOOD, ItemTags.NON_FLAMMABLE_WOOD);
 
+        copy(MBBlockTags.COBBLESTONE, MBItemTags.COBBLESTONE);
+        copy(MBBlockTags.STONE, MBItemTags.STONE);
+        copy(MBBlockTags.COBBLESTONE, ItemTags.STONE_CRAFTING_MATERIALS);
+        copy(MBBlockTags.COBBLESTONE, ItemTags.STONE_TOOL_MATERIALS);
+
         copy(MBBlockTags.JUNIPER_LOGS, MBItemTags.JUNIPER_LOGS);
         copy(MBBlockTags.CEDAR_LOGS, MBItemTags.CEDAR_LOGS);
         copy(MBBlockTags.ASPEN_TRUNKS, MBItemTags.ASPEN_TRUNKS);

@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "ingredient": {
+    "item": "moonbits:cobbled_chert"
+  },
+  "result": "moonbits:chert",
+  "experience": 0.1,
+  "cookingtime": 100
+}

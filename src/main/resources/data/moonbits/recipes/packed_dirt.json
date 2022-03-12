@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "moonbits:smooth_dirt"
+    }
+  },
+  "result": {
+    "item": "moonbits:packed_dirt",
+    "count": 4
+  }
+}

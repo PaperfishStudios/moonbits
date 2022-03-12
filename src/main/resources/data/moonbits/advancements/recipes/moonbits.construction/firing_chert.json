@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:firing_chert"
+    ]
+  },
+  "criteria": {
+    "has_cobbled_chert": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:cobbled_chert"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:firing_chert"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cobbled_chert",
+      "has_the_recipe"
+    ]
+  ]
+}

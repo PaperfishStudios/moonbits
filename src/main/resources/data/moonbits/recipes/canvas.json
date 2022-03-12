@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:dusty_cloth"
+    }
+  },
+  "result": {
+    "item": "moonbits:canvas",
+    "count": 4
+  }
+}

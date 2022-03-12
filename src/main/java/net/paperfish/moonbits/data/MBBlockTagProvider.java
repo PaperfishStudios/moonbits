@@ -39,6 +39,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         MBBlockFamilies.DIRT_MB.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.TOUGH_DIRT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.DIRT_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
+        MBBlockFamilies.SMOOTH_DIRT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
+        MBBlockFamilies.PACKED_DIRT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.PEAT_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.GRASS_TURF.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.MYCELIUM_TURF.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
@@ -57,6 +59,11 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         MBBlockFamilies.HONEYCOMB.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.HONEYCOMB_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.HONEYCOMB_TILES.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+
+        MBBlockFamilies.TILL.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+        MBBlockFamilies.POLISHED_TILL.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+        MBBlockFamilies.TILL_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+        MBBlockFamilies.FROSTY_TILL_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
 
         MBBlockFamilies.CHERT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.CHERT_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
@@ -175,6 +182,15 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.GOLD_DEPOSIT,
                 MBBlocks.PEAT_DEPOSIT,
                 MBBlocks.PEAT_BLOCK,
+
+                MBBlocks.PERMAFROST,
+                MBBlocks.FROST_CLAY,
+                MBBlocks.FROST_GOLD,
+                MBBlocks.FROST_COPPER,
+                MBBlocks.FROST_PEAT,
+
+                MBBlocks.SNOW_BRICKS,
+
                 MBBlocks.RICH_MUD,
                 MBBlocks.MUD_GOLD_DEPOSIT
         );
@@ -264,15 +280,23 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.TOADSTOOL_MUSH_LAMP,
                 MBBlocks.SAFFRON_MUSH_LAMP,
 
+                MBBlocks.PAVED_SANDSTONE_BRICKS,
+                MBBlocks.CRACKED_PAVED_SANDSTONE_BRICKS,
+                MBBlocks.PAVED_RED_SANDSTONE_BRICKS,
+                MBBlocks.CRACKED_PAVED_RED_SANDSTONE_BRICKS,
+
+                MBBlocks.ICE_BRICKS,
+                MBBlocks.PACKED_ICE_BRICKS,
+
                 MBBlocks.CHERT_COAL_ORE,
                 MBBlocks.CHERT_COPPER_ORE,
                 MBBlocks.CHERT_GOLD_ORE,
                 MBBlocks.CHERT_LAPIS_ORE,
                 MBBlocks.CHERT_REDSTONE_ORE,
-                MBBlocks.PAVED_SANDSTONE_BRICKS,
-                MBBlocks.CRACKED_PAVED_SANDSTONE_BRICKS,
-                MBBlocks.PAVED_RED_SANDSTONE_BRICKS,
-                MBBlocks.CRACKED_PAVED_RED_SANDSTONE_BRICKS,
+                MBBlocks.REDSTONE_CLUSTER,
+                MBBlocks.LARGE_REDSTONE_BUD,
+                MBBlocks.MEDIUM_REDSTONE_BUD,
+                MBBlocks.SMALL_REDSTONE_BUD,
                 MBBlocks.BANDED_IRON,
                 MBBlocks.MAGNETITE_ORE,
                 MBBlocks.MAGNETITE_BLOCK,
@@ -316,6 +340,24 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 Blocks.LIGHT_BLUE_STAINED_GLASS_PANE,
                 Blocks.CYAN_STAINED_GLASS_PANE,
                 Blocks.BLUE_STAINED_GLASS_PANE
+        );
+
+
+        this.getOrCreateTagBuilder(MBBlockTags.COBBLESTONE).add(
+                Blocks.COBBLESTONE,
+                Blocks.COBBLED_DEEPSLATE,
+                MBBlocks.COBBLED_ANDESITE,
+                MBBlocks.COBBLED_DIORITE,
+                MBBlocks.COBBLED_GRANITE,
+                MBBlocks.COBBLED_CHERT
+        );
+        this.getOrCreateTagBuilder(MBBlockTags.STONE).add(
+                Blocks.STONE,
+                Blocks.ANDESITE,
+                Blocks.DIORITE,
+                Blocks.GRANITE,
+                Blocks.DEEPSLATE,
+                MBBlocks.CHERT
         );
 
         this.getOrCreateTagBuilder(MBBlockTags.JUNIPER_LOGS).add(

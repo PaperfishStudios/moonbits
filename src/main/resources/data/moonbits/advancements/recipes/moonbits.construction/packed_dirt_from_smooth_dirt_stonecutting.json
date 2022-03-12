@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:packed_dirt_from_smooth_dirt_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_smooth_dirt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:smooth_dirt"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:packed_dirt_from_smooth_dirt_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_dirt",
+      "has_the_recipe"
+    ]
+  ]
+}

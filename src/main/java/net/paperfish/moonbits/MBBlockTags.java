@@ -12,6 +12,9 @@ import java.util.List;
 public class MBBlockTags {
 
     // tags go here
+    public static final TagKey<Block> COBBLESTONE = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "cobblestone"));
+    public static final TagKey<Block> STONE = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "stone"));
+
     public static final TagKey<Block> JUNIPER_LOGS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "juniper_logs"));
     public static final TagKey<Block> CEDAR_LOGS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "cedar_logs"));
     public static final TagKey<Block> ASPEN_TRUNKS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "aspen_trunks"));

@@ -10,6 +10,9 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class MBItemTags {
+    public static final TagKey<Item> COBBLESTONE = TagKey.of(Registry.ITEM_KEY, new Identifier("c", "cobblestone"));
+    public static final TagKey<Item> STONE = TagKey.of(Registry.ITEM_KEY, new Identifier("c", "stone"));
+
     public static final TagKey<Item> JUNIPER_LOGS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MOD_ID, "juniper_logs"));
     public static final TagKey<Item> CEDAR_LOGS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MOD_ID, "cedar_logs"));
     public static final TagKey<Item> ASPEN_TRUNKS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MOD_ID, "aspen_trunks"));

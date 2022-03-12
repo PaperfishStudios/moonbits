@@ -1,14 +1,11 @@
 {
-    "replace": false,
-    "values": [
-      "minecraft:stone",
-      "minecraft:deepslate",
-      "minecraft:blackstone",
-      "minecraft:andesite",
-      "minecraft:diorite",
-      "minecraft:granite",
-      "minecraft:dripstone_block",
-      "minecraft:smooth_basalt",
-      "minecraft:tuff"
-    ]
+  "replace": false,
+  "values": [
+    "minecraft:stone",
+    "minecraft:andesite",
+    "minecraft:diorite",
+    "minecraft:granite",
+    "minecraft:deepslate",
+    "moonbits:chert"
+  ]
 }

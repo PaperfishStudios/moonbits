@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:till_bricks_from_till_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_till": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:till"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:till_bricks_from_till_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_till",
+      "has_the_recipe"
+    ]
+  ]
+}

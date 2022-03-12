@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:till_bricks"
+    }
+  },
+  "result": {
+    "item": "moonbits:till_brick_slab",
+    "count": 6
+  }
+}

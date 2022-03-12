@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:canvas"
+    ]
+  },
+  "criteria": {
+    "has_dusty_cloth": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:dusty_cloth"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:canvas"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dusty_cloth",
+      "has_the_recipe"
+    ]
+  ]
+}

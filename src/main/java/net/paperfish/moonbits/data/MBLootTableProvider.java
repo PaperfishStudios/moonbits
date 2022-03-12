@@ -134,11 +134,26 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.COPPER_DEPOSIT, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 2f, 5f));
         addDrop(MBBlocks.FOSSIL, (Block block) -> BlockLootTableGenerator.drops(block, Items.NAUTILUS_SHELL));
 
+        addDrop(MBBlocks.PERMAFROST);
+        addDrop(MBBlocks.FROST_PEAT, (Block block) -> oreDrops(block, MBItems.PEAT, 1f, 2f));
+        addDrop(MBBlocks.FROST_CLAY, (Block block) -> oreDrops(block, Items.CLAY_BALL, 2f, 4f));
+        addDrop(MBBlocks.FROST_GOLD, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 1f, 4f));
+        addDrop(MBBlocks.FROST_COPPER, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 2f, 5f));
+
+        addDrop(MBBlocks.SNOW_BRICKS);
+        addDrop(MBBlocks.ICE_BRICKS);
+        addDrop(MBBlocks.PACKED_ICE_BRICKS);
+
         addDrop(MBBlocks.CHERT_COAL_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.COAL));
         addDrop(MBBlocks.CHERT_GOLD_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.RAW_GOLD));
         addDrop(MBBlocks.CHERT_COPPER_ORE, BlockLootTableGenerator::copperOreDrops);
         addDrop(MBBlocks.CHERT_REDSTONE_ORE, BlockLootTableGenerator::redstoneOreDrops);
         addDrop(MBBlocks.CHERT_LAPIS_ORE, BlockLootTableGenerator::lapisOreDrops);
+
+        addDrop(MBBlocks.REDSTONE_CLUSTER, (Block block) -> oreDrops(block, Items.REDSTONE, 2f, 5f));
+        addDrop(MBBlocks.LARGE_REDSTONE_BUD, (Block block) -> oreDrops(block, Items.REDSTONE, 1f, 3f));
+        addDrop(MBBlocks.MEDIUM_REDSTONE_BUD, (Block block) -> oreDrops(block, Items.REDSTONE, 0f, 2f));
+        addDrop(MBBlocks.SMALL_REDSTONE_BUD, (Block block) -> oreDrops(block, Items.REDSTONE, 0f, 1f));
 
         addDrop(MBBlocks.BANDED_IRON, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.RAW_IRON));
         addDrop(MBBlocks.MAGNETITE_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.MAGNETITE));

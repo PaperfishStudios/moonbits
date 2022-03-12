@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "moonbits:block/medium_redstone_bud"
+  }
+}

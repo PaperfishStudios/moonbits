@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:smooth_dirt"
+    }
+  },
+  "result": {
+    "item": "moonbits:smooth_dirt_slab",
+    "count": 6
+  }
+}

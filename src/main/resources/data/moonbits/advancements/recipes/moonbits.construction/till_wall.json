@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:till_wall"
+    ]
+  },
+  "criteria": {
+    "has_till": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:till"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:till_wall"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_till",
+      "has_the_recipe"
+    ]
+  ]
+}

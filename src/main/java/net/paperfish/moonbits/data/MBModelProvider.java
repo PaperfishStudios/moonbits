@@ -214,6 +214,16 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerSimpleCubeAll(MBBlocks.GOLD_DEPOSIT);
         generator.registerSimpleCubeAll(MBBlocks.COPPER_DEPOSIT);
 
+        generator.registerSimpleCubeAll(MBBlocks.PERMAFROST);
+        generator.registerSimpleCubeAll(MBBlocks.FROST_PEAT);
+        generator.registerSimpleCubeAll(MBBlocks.FROST_CLAY);
+        generator.registerSimpleCubeAll(MBBlocks.FROST_GOLD);
+        generator.registerSimpleCubeAll(MBBlocks.FROST_COPPER);
+
+        generator.registerSimpleCubeAll(MBBlocks.SNOW_BRICKS);
+        generator.registerSimpleCubeAll(MBBlocks.ICE_BRICKS);
+        generator.registerSimpleCubeAll(MBBlocks.PACKED_ICE_BRICKS);
+
         pebbles(generator);
         generator.registerSimpleCubeAll(MBBlocks.FOSSIL);
 
@@ -222,6 +232,11 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerSimpleCubeAll(MBBlocks.CHERT_COPPER_ORE);
         generator.registerSimpleCubeAll(MBBlocks.CHERT_REDSTONE_ORE);
         generator.registerSimpleCubeAll(MBBlocks.CHERT_LAPIS_ORE);
+
+        tintableCross(MBBlocks.REDSTONE_CLUSTER, TintType.NOT_TINTED, generator);
+        tintableCross(MBBlocks.LARGE_REDSTONE_BUD, TintType.NOT_TINTED, generator);
+        tintableCross(MBBlocks.MEDIUM_REDSTONE_BUD, TintType.NOT_TINTED, generator);
+        tintableCross(MBBlocks.SMALL_REDSTONE_BUD, TintType.NOT_TINTED, generator);
 
         cubeTopBottomSpec(MBBlocks.PAVED_SANDSTONE_BRICKS, MBBlocks.SANDSTONE_BRICKS, generator);
         cubeTopBottomSpec(MBBlocks.CRACKED_PAVED_SANDSTONE_BRICKS, MBBlocks.CRACKED_SANDSTONE_BRICKS, generator);
