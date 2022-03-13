@@ -26,7 +26,7 @@ public class ParticleLeavesBlock extends LeavesBlock {
             double d = (double) i + random.nextDouble();
             double e = (double) j + 0.7D;
             double f = (double) k + random.nextDouble();
-            world.addParticle(particle, d, e, f, 0.0D, 0.0D, 0.0D);
+            world.addParticle(particle, d, e, f, random.nextDouble() / 5D, 0.0D, random.nextDouble() / 5D);
         }
 
         if (world.hasRain(pos.up())) {

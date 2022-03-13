@@ -9,19 +9,15 @@ import net.minecraft.util.Identifier;
 public class MBItemGroup {
     public static final ItemGroup CONSTRUCTION = FabricItemGroupBuilder.build(
 		new Identifier("moonbits", "construction"),
-		() -> new ItemStack(MBBlocks.CEDAR_PLANKS));
+		() -> new ItemStack(MBBlocks.CHERT_BRICKS));
 	
 	public static final ItemGroup DECOR = FabricItemGroupBuilder.build(
 		new Identifier("moonbits", "decor"),
 		() -> new ItemStack(MBBlocks.BIRCH_BOOKSHELF));
 	
-	public static final ItemGroup MATERIALS = FabricItemGroupBuilder.build(
-		new Identifier("moonbits", "materials"),
+	public static final ItemGroup MB_MISC = FabricItemGroupBuilder.build(
+		new Identifier("moonbits", "misc"),
 		() -> new ItemStack(MBItems.PEAT));
-	
-	public static final ItemGroup UTILITY = FabricItemGroupBuilder.build(
-		new Identifier("moonbits", "utility"),
-		() -> new ItemStack(MBBlocks.ROPE_LADDER));
 	
 	public static final ItemGroup MB_FOOD = FabricItemGroupBuilder.build(
 		new Identifier("moonbits", "food"),

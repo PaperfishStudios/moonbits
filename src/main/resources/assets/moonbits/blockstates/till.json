@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "snowy=false": {
       "model": "moonbits:block/till"
+    },
+    "snowy=true": {
+      "model": "moonbits:block/till_snowy"
     }
   }
 }

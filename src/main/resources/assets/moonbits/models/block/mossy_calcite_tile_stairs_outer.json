@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "moonbits:block/mossy_calcite_tiles",
-    "top": "moonbits:block/mossy_calcite_tiles",
-    "side": "moonbits:block/mossy_calcite_tiles"
-  }
-}

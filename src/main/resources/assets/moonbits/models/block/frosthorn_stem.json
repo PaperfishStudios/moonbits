@@ -1,0 +1,31 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"textures": {
+		"1": "moonbits:block/frosthorn_stem_top",
+		"all": "moonbits:block/frosthorn_stem",
+		"particle": "moonbits:block/frosthorn_stem"
+	},
+	"elements": [
+		{
+			"from": [4, 0, 3],
+			"to": [12, 16, 13],
+			"faces": {
+				"east": {"uv": [3, 0, 13, 16], "texture": "#all"},
+				"west": {"uv": [3, 0, 13, 16], "texture": "#all"},
+				"up": {"uv": [4, 3, 12, 13], "texture": "#1"},
+				"down": {"uv": [4, 3, 12, 13], "texture": "#1"}
+			}
+		},
+		{
+			"from": [3, 0, 4],
+			"to": [13, 16, 12],
+			"faces": {
+				"north": {"uv": [3, 0, 13, 16], "texture": "#all"},
+				"south": {"uv": [3, 0, 13, 16], "texture": "#all"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#all"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#all"}
+			}
+		}
+	]
+}

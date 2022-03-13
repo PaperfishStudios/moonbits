@@ -1,0 +1,28 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"textures": {
+		"2": "moonbits:block/frosthorn_leaves"
+		"particle": "#2"
+	},
+	"elements": [
+		{
+			"from": [0.5, 0, 8],
+			"to": [15.5, 16, 8],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 1.5, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 15, 16], "texture": "#2"},
+				"south": {"uv": [0, 0, 15, 16], "texture": "#2"}
+			}
+		},
+		{
+			"from": [0.5, 0, 8],
+			"to": [15.5, 16, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 1.5, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 15, 16], "texture": "#2"},
+				"south": {"uv": [0, 0, 15, 16], "texture": "#2"}
+			}
+		}
+	]
+}

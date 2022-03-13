@@ -28,23 +28,12 @@ public class VanillaSurfaceRulesMixin {
     private static void appendMBSurface(CallbackInfoReturnable<MaterialRules.MaterialRule> cir) {
         MaterialRules.MaterialRule rules = cir.getReturnValue();
         MaterialRules.MaterialCondition notDesert = MaterialRules.not(MaterialRules.biome(
-                BiomeKeys.DESERT,
-                BiomeKeys.DEEP_FROZEN_OCEAN,
-                BiomeKeys.DEEP_LUKEWARM_OCEAN,
-                BiomeKeys.DEEP_COLD_OCEAN,
-                BiomeKeys.OCEAN,
-                BiomeKeys.DEEP_OCEAN,
-                BiomeKeys.COLD_OCEAN,
-                BiomeKeys.LUKEWARM_OCEAN,
-                BiomeKeys.FROZEN_OCEAN,
-                BiomeKeys.BEACH,
-                BiomeKeys.STONY_SHORE,
-                BiomeKeys.SNOWY_BEACH,
-                BiomeKeys.GROVE,
-                BiomeKeys.FROZEN_PEAKS,
-                BiomeKeys.JAGGED_PEAKS,
-                BiomeKeys.SNOWY_SLOPES,
-                BiomeKeys.STONY_PEAKS,
+                BiomeKeys.DESERT, BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, BiomeKeys.WINDSWEPT_SAVANNA,
+                BiomeKeys.DEEP_FROZEN_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_COLD_OCEAN,
+                BiomeKeys.OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.COLD_OCEAN, BiomeKeys.LUKEWARM_OCEAN, BiomeKeys.FROZEN_OCEAN,
+                BiomeKeys.BEACH, BiomeKeys.STONY_SHORE, BiomeKeys.SNOWY_BEACH,
+                BiomeKeys.GROVE, BiomeKeys.SNOWY_PLAINS,
+                BiomeKeys.FROZEN_PEAKS, BiomeKeys.JAGGED_PEAKS, BiomeKeys.SNOWY_SLOPES, BiomeKeys.STONY_PEAKS,
                 BiomeKeys.RIVER,
                 BiomeKeys.FROZEN_RIVER
         ));
@@ -53,41 +42,34 @@ public class VanillaSurfaceRulesMixin {
         MaterialRules.MaterialRule regolith = MaterialRules.block(MBBlocks.REGOLITH.getDefaultState());
 
         cir.setReturnValue(MaterialRules.sequence(
-            rules,
-            MaterialRules.condition(MaterialRules.biome(BiomeKeys.DESERT), MaterialRules.block(MBBlocks.CHERT.getDefaultState())),
-//            MaterialRules.condition(
-//                MaterialRules.water(-4, 0),
-//                MaterialRules.sequence(
-//                    MaterialRules.condition(
-//                        notDesert,
-//                        MaterialRules.condition(
-//                            MaterialRules.aboveY(YOffset.fixed(55), 0),
-//                            tough_dirt
-//                        )
-//                        //MaterialRules.condition(MaterialRules.stoneDepth(0, true, true, VerticalSurfaceType.FLOOR), tough_dirt)
-//                    )
-//                )
-//            ),
-//            MaterialRules.condition(
-//                notDesert,
-//                MaterialRules.condition(
-//                    MaterialRules.aboveY(YOffset.fixed(47), 0),
-//                    MaterialRules.condition(
-//                            MaterialRules.noiseThreshold(MBNoiseParameters.DIRT_CAVES, 0.4, 0.9),
-//                            MaterialRules.condition(
-//                                    MaterialRules.not(MaterialRules.verticalGradient("tough_dirt", YOffset.fixed(48), YOffset.fixed(55))), tough_dirt
-//                    ))
-//                )
-//            ),
-            MaterialRules.condition(
-                notDesert,
-                MaterialRules.condition(MaterialRules.surface(),
-                MaterialRules.condition(MaterialRules.stoneDepth(0, true, 34, VerticalSurfaceType.FLOOR),
-                MaterialRules.sequence(
+                rules,
+                MaterialRules.condition(MaterialRules.biome(BiomeKeys.DESERT), MaterialRules.block(MBBlocks.CHERT.getDefaultState())),
+                MaterialRules.condition(MaterialRules.biome(BiomeKeys.SNOWY_SLOPES, BiomeKeys.SNOWY_PLAINS), MaterialRules.condition(
+                        MaterialRules.stoneDepth(0, true, 12, VerticalSurfaceType.FLOOR),
+                        MaterialRules.block(MBBlocks.PERMAFROST.getDefaultState()))
+                ),
                 MaterialRules.condition(
-                        MaterialRules.stoneDepth(0, true, 30, VerticalSurfaceType.FLOOR), tough_dirt), regolith
-                ))
-            )))
+                        notDesert,
+                        MaterialRules.condition(MaterialRules.surface(),
+                                MaterialRules.condition(MaterialRules.stoneDepth(0, true, 30, VerticalSurfaceType.FLOOR), tough_dirt
+                                        )
+                        )),
+//                        MaterialRules.condition(
+//                                notDesert,
+//                                MaterialRules.condition(MaterialRules.surface(),
+//                                        MaterialRules.condition(MaterialRules.stoneDepth(0, true, 34, VerticalSurfaceType.FLOOR),
+//                                                MaterialRules.sequence(
+//                                                        MaterialRules.condition(
+//                                                                MaterialRules.stoneDepth(0, true, 30, VerticalSurfaceType.FLOOR), tough_dirt), regolith
+//                                                ))
+//                                )),
+                MaterialRules.condition(
+                        notDesert,
+                        MaterialRules.condition(MaterialRules.surface(),
+                                MaterialRules.condition(MaterialRules.stoneDepth(25, true, 15, VerticalSurfaceType.FLOOR), regolith
+                                )
+                        ))
+                )
         );
     }
 }

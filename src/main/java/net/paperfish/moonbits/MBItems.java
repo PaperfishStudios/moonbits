@@ -3,10 +3,8 @@ package net.paperfish.moonbits;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
@@ -24,7 +22,7 @@ public class MBItems {
 	public static List<Item> MB_TOOLS = new ArrayList<>();
 	public static List<Item> MB_EGGS = new ArrayList<>();
     
-	public static final Item GRASS_TUFT = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
+	public static final Item GRASS_TUFT = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item ITEM_HOOK = new ItemHookItem(MBEntities.ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
 	public static final Item GLOW_ITEM_HOOK = new ItemHookItem(MBEntities.GLOW_ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
 
@@ -37,6 +35,8 @@ public class MBItems {
 			.food((new FoodComponent.Builder()).hunger(7).saturationModifier(0.8f).build()));
 	public static final Item SALAD = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8f)
 			.statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0f).build()));
+
+	public static final Item FROSTHORN_SEED = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item PEPPER_SEEDS = new AliasedBlockItem(MBBlocks.PEPPER_CROP, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Item PEPPER = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
@@ -54,52 +54,52 @@ public class MBItems {
 
 	public static final Item HONEY_BUN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F).build()));
 
-    public static final Item PEAT = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item MAGNETITE = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
+    public static final Item PEAT = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item MAGNETITE = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
-	public static final Item COPPER_NUGGET = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item FUR = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item DUSTY_CLOTH = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
+	public static final Item COPPER_NUGGET = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item FUR = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item DUSTY_CLOTH = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
-	public static final Item RED_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item BROWN_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item SAFFRON_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item TOADSTOOL_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
+	public static final Item RED_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item BROWN_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item SAFFRON_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item TOADSTOOL_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item WRENCH = new WrenchItem(new FabricItemSettings().group(ItemGroup.TOOLS));
 	
     public static final Item BABY_TURTLE_BUCKET = new EntityBucketItem(EntityType.TURTLE, Fluids.WATER, SoundEvents.ITEM_BUCKET_EMPTY_FISH,
-	(new Item.Settings()).maxCount(1).group(MBItemGroup.UTILITY));
+	(new Item.Settings()).maxCount(1).group(MBItemGroup.MB_MISC));
     public static final Item BABY_STRIDER_BUCKET = new EntityBucketItem(EntityType.STRIDER, Fluids.LAVA, SoundEvents.ITEM_BUCKET_EMPTY_FISH, 
-	(new Item.Settings()).maxCount(1).group(MBItemGroup.UTILITY));
+	(new Item.Settings()).maxCount(1).group(MBItemGroup.MB_MISC));
 
 	public static final Item JUNIPER_BOAT = new BoatItem(MBBoatTypes.JUNIPER, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
 	public static final Item CEDAR_BOAT = new BoatItem(MBBoatTypes.CEDAR, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
 
 	// Glass Shards
-	public static final Item GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item WHITE_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item LIGHT_GRAY_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item GRAY_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item BLACK_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item GREEN_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item LIME_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item YELLOW_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item ORANGE_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item BROWN_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item RED_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item PINK_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item MAGENTA_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item PURPLE_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item LIGHT_BLUE_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item CYAN_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
-	public static final Item BLUE_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MATERIALS));
+	public static final Item GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item WHITE_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item LIGHT_GRAY_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item GRAY_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item BLACK_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item GREEN_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item LIME_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item YELLOW_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item ORANGE_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item BROWN_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item RED_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item PINK_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item MAGENTA_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item PURPLE_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item LIGHT_BLUE_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item CYAN_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item BLUE_GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
 
 	// Spawn eggs
-	public static final Item MOOBLOOM_SPAWN_EGG = new SpawnEggItem(MBEntities.MOOBLOOM, 16771888, 16777215, new Item.Settings().group(MBItemGroup.UTILITY));
-	public static final Item GRIZZLY_SPAWN_EGG = new SpawnEggItem(MBEntities.GRIZZLY_BEAR, 5782045, 15707403, new Item.Settings().group(MBItemGroup.UTILITY));
-	public static final Item GLARE_SPAWN_EGG = new SpawnEggItem(MBEntities.GLARE, 5403430, 657930, new Item.Settings().group(MBItemGroup.UTILITY));
+	public static final Item MOOBLOOM_SPAWN_EGG = new SpawnEggItem(MBEntities.MOOBLOOM, 16771888, 16777215, new Item.Settings().group(MBItemGroup.MB_MISC));
+	public static final Item GRIZZLY_SPAWN_EGG = new SpawnEggItem(MBEntities.GRIZZLY_BEAR, 5782045, 15707403, new Item.Settings().group(MBItemGroup.MB_MISC));
+	public static final Item GLARE_SPAWN_EGG = new SpawnEggItem(MBEntities.GLARE, 5403430, 657930, new Item.Settings().group(MBItemGroup.MB_MISC));
 
 	public static void add(String id, Item item) {
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, id), item);
@@ -126,6 +126,7 @@ public class MBItems {
 		addItem("lettuce_leaf", LETTUCE_LEAF);
 		addItem("lettuce_wrap", LETTUCE_WRAP);
 		addItem("salad", SALAD);
+		addItem("frosthorn_seed", FROSTHORN_SEED);
 		add("pepper_seeds", PEPPER_SEEDS);
 		addItem("pepper", PEPPER);
 		addItem("stuffed_pepper", STUFFED_PEPPER);

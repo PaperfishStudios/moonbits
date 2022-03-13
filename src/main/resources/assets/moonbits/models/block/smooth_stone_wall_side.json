@@ -1,7 +1,7 @@
 {
     "textures": {
-		"wall": "moonbits:block/stones/stone/smooth_stone_wall",
-		"top": "moonbits:block/stones/stone/smooth_stone_wall_top",
+		"wall": "moonbits:block/smooth_stone_wall",
+		"top": "moonbits:block/smooth_stone_wall_top",
         "particle": "#wall"
     },
     "elements": [

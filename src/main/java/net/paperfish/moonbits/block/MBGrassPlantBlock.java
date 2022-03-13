@@ -29,10 +29,10 @@ public class MBGrassPlantBlock extends FernBlock {
             tallPlantBlock = (TallPlantBlock) MBBlocks.TALL_BEACHGRASS;
         }
         else if (state.isOf(MBBlocks.COTTONGRASS)) {
-            tallPlantBlock = (TallPlantBlock) MBBlocks.TALL_BEACHGRASS;
+            tallPlantBlock = (TallPlantBlock) MBBlocks.TALL_COTTONGRASS;
         }
         else if (state.isOf(MBBlocks.DESERT_BRUSH)) {
-            tallPlantBlock = (TallPlantBlock) MBBlocks.TALL_BEACHGRASS;
+            tallPlantBlock = (TallPlantBlock) MBBlocks.TALL_DESERT_BRUSH;
         }
 
         if (tallPlantBlock.getDefaultState().canPlaceAt(world, pos) && world.isAir(pos.up())) {

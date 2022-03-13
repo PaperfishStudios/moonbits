@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "attached=false": {
+      "model": "moonbits:block/frosthorn_crown"
+    },
+    "attached=true": {
+      "model": "moonbits:block/frosthorn_crown_stem"
+    }
+  }
+}

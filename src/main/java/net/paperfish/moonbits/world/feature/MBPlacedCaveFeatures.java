@@ -25,13 +25,21 @@ public class MBPlacedCaveFeatures {
     public static final RegistryEntry<PlacedFeature> ORE_SANDSTONE = PlacedFeatures.register("p_sandstone",
             MBCaveFeatures.ORE_SANDSTONE, modifiersWithCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(60))));
 
+    public static final RegistryEntry<PlacedFeature> ORE_COBBLECHERT = PlacedFeatures.register("p_cobblechert",
+            MBCaveFeatures.ORE_COBBLECHERT, modifiersWithCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(60))));
+
+    public static final RegistryEntry<PlacedFeature> ORE_TILL = PlacedFeatures.register("p_till",
+            MBCaveFeatures.ORE_TILL, modifiersWithCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(128))));
+
     // deposits
     public static final RegistryEntry<PlacedFeature> ORE_PEAT = PlacedFeatures.register("p_peat",
-            MBCaveFeatures.ORE_PEAT, modifiersWithCount(24, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(120))));
+            MBCaveFeatures.ORE_PEAT, modifiersWithCount(24, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(128))));
     public static final RegistryEntry<PlacedFeature> ORE_PEAT_HIGH = PlacedFeatures.register("p_peat_swamp",
-            MBCaveFeatures.ORE_PEAT_HIGH, modifiersWithCount(28, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(120))));
+            MBCaveFeatures.ORE_PEAT_HIGH, modifiersWithCount(28, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(128))));
     public static final RegistryEntry<PlacedFeature> ORE_CLAY_DEPOSIT = PlacedFeatures.register("p_clay",
             MBCaveFeatures.ORE_CLAY_DEPOSIT, modifiersWithCount(24, HeightRangePlacementModifier.uniform(YOffset.fixed(55), YOffset.fixed(70))));
+    public static final RegistryEntry<PlacedFeature> ORE_CLAY_DEPOSIT_UPPER = PlacedFeatures.register("p_clay_upper",
+            MBCaveFeatures.ORE_CLAY_DEPOSIT, modifiersWithCount(18, HeightRangePlacementModifier.uniform(YOffset.fixed(70), YOffset.fixed(128))));
     public static final RegistryEntry<PlacedFeature> LUSH_CLAY_DEPOSIT = PlacedFeatures.register("p_lush_clay",
             MBCaveFeatures.LUSH_CLAY_DEPOSIT, modifiersWithCount(28, HeightRangePlacementModifier.uniform(YOffset.fixed(53), YOffset.fixed(78))));
     public static final RegistryEntry<PlacedFeature> ORE_GOLD_DEPOSIT = PlacedFeatures.register("p_gold",
@@ -51,9 +59,9 @@ public class MBPlacedCaveFeatures {
     public static final RegistryEntry<PlacedFeature> CHERT_GOLD_LOWER = PlacedFeatures.register(
             "chert_gold_low", MBCaveFeatures.ORE_CHERT_GOLD_BURIED, modifiers(CountPlacementModifier.of(UniformIntProvider.create(0, 1)), HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(48))));
     public static final RegistryEntry<PlacedFeature> CHERT_REDSTONE = PlacedFeatures.register(
-            "chert_redstone", MBCaveFeatures.ORE_CHERT_REDSTONE, modifiersWithCount(4, HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(32))));
+            "chert_redstone", MBCaveFeatures.ORE_CHERT_REDSTONE, modifiersWithCount(6, HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(48))));
     public static final RegistryEntry<PlacedFeature> CHERT_REDSTONE_LOWER = PlacedFeatures.register(
-            "chert_redstone_lower", MBCaveFeatures.ORE_CHERT_REDSTONE, modifiersWithCount(8, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-32), YOffset.aboveBottom(72))));
+            "chert_redstone_lower", MBCaveFeatures.ORE_CHERT_REDSTONE, modifiersWithCount(12, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-32), YOffset.aboveBottom(80))));
     public static final RegistryEntry<PlacedFeature> CHERT_LAPIS = PlacedFeatures.register(
             "chert_lapis", MBCaveFeatures.ORE_CHERT_LAPIS, modifiersWithCount(2, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-32), YOffset.fixed(32))));
     public static final RegistryEntry<PlacedFeature> CHERT_LAPIS_BURIED = PlacedFeatures.register(
@@ -162,7 +170,7 @@ public class MBPlacedCaveFeatures {
         return List.of(countModifier, SquarePlacementModifier.of(), heightModifier, BiomePlacementModifier.of());
     }
 
-    private static List<PlacementModifier> modifiersWithCount(int count, PlacementModifier heightModfier) {
+    static List<PlacementModifier> modifiersWithCount(int count, PlacementModifier heightModfier) {
         return modifiers(CountPlacementModifier.of(count), heightModfier);
     }
 

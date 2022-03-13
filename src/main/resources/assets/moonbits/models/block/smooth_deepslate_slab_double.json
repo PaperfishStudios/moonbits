@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/smooth_deepslate",
+    "side": "moonbits:block/smooth_deepslate_slab_side"
+  }
+}

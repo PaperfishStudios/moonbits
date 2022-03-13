@@ -77,7 +77,7 @@ public class MBBlocks {
 
 	public static final Block PEBBLES = new PebbleBlock(AbstractBlock.Settings.of(Material.STONE).noCollision().breakInstantly().sounds(BlockSoundGroup.TUFF));
 
-	public static final Block MYCELIUM_ROOTS = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block MYCELIUM_ROOTS = new OmniRootsBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
 	// WOOD
 	public static final Block OAK_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -253,6 +253,11 @@ public class MBBlocks {
 	public static final Block PURPLE_HEATHER = new FlowerBlock(StatusEffects.RESISTANCE, 3, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block LUPINE = new TallFlowerBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
+	public static final Block FROSTHORN_CROWN = new FrosthornCrownBlock(AbstractBlock.Settings.copy(Blocks.MELON).ticksRandomly());
+	public static final Block FROSTHORN_STEM = new FrosthornStemBlock(AbstractBlock.Settings.copy(Blocks.MELON));
+	public static final Block FROSTHORN_LEAVES = new FrosthornLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).ticksRandomly().noCollision().nonOpaque().breakInstantly());
+	public static final Block FROSTHORN_FRUIT = new FrosthornFruitBlock(AbstractBlock.Settings.copy(Blocks.MELON).breakInstantly());
+
 	public static final Block PERMAFROST = new MBSnowyBlock(AbstractBlock.Settings.copy(Blocks.DIRT));
 	public static final Block FROST_PEAT = new Block(AbstractBlock.Settings.copy(PERMAFROST));
 	public static final Block FROST_GOLD = new Block(AbstractBlock.Settings.copy(PERMAFROST));
@@ -369,14 +374,14 @@ public class MBBlocks {
 	public static final Block MAGNETITE_ORE = new BandedIronBlock(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
 	public static final Block MAGNETITE_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK));
 
-	public static final Block REDSTONE_CLUSTER = new AmethystClusterBlock(7, 3, AbstractBlock.Settings.of(Material.STONE).mapColor(MapColor.BRIGHT_RED)
-			.nonOpaque().ticksRandomly().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(1.5f).luminance(state -> 5));
-	public static final Block LARGE_REDSTONE_BUD = new AmethystClusterBlock(5, 3, AbstractBlock.Settings.copy(REDSTONE_CLUSTER)
-			.sounds(BlockSoundGroup.MEDIUM_AMETHYST_BUD).luminance(state -> 4));
-	public static final Block MEDIUM_REDSTONE_BUD = new AmethystClusterBlock(4, 3, AbstractBlock.Settings.copy(REDSTONE_CLUSTER)
-			.sounds(BlockSoundGroup.LARGE_AMETHYST_BUD).luminance(blockState -> 2));
-	public static final Block SMALL_REDSTONE_BUD = new AmethystClusterBlock(3, 4, AbstractBlock.Settings.copy(REDSTONE_CLUSTER)
-			.sounds(BlockSoundGroup.SMALL_AMETHYST_BUD).luminance(blockState -> 1));
+	public static final Block REDSTONE_CLUSTER = new RedstoneClusterBlock(7, 3, AbstractBlock.Settings.of(Material.STONE).mapColor(MapColor.BRIGHT_RED)
+			.nonOpaque().ticksRandomly().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(1.5f).luminance(state -> state.get(RedstoneClusterBlock.LIT) ? 10 : 5));
+	public static final Block LARGE_REDSTONE_BUD = new RedstoneClusterBlock(5, 3, AbstractBlock.Settings.copy(REDSTONE_CLUSTER)
+			.sounds(BlockSoundGroup.MEDIUM_AMETHYST_BUD).luminance(state -> state.get(RedstoneClusterBlock.LIT) ? 9 : 4), REDSTONE_CLUSTER);
+	public static final Block MEDIUM_REDSTONE_BUD = new RedstoneClusterBlock(4, 3, AbstractBlock.Settings.copy(REDSTONE_CLUSTER)
+			.sounds(BlockSoundGroup.LARGE_AMETHYST_BUD).luminance(state -> state.get(RedstoneClusterBlock.LIT) ? 7 : 2), LARGE_REDSTONE_BUD);
+	public static final Block SMALL_REDSTONE_BUD = new RedstoneClusterBlock(3, 4, AbstractBlock.Settings.copy(REDSTONE_CLUSTER)
+			.sounds(BlockSoundGroup.SMALL_AMETHYST_BUD).luminance(state -> state.get(RedstoneClusterBlock.LIT) ? 6 : 1), MEDIUM_REDSTONE_BUD);
 
 	public static final Block FLOWERING_ACACIA_LEAVES = new ParticleLeavesBlock(AbstractBlock.Settings.copy(Blocks.ACACIA_LEAVES).mapColor(MapColor.PALE_YELLOW), MBParticles.FALLING_WATTLE);
 	public static final Block HANGING_FLOWERING_ACACIA_LEAVES = new HangingAcaciaBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().mapColor(MapColor.PALE_YELLOW));
@@ -964,11 +969,12 @@ public class MBBlocks {
     
     public static void registerBlocks(){
 
-		createBlock("rope_ladder", ROPE_LADDER, MBItemGroup.UTILITY);
-		createBlock("iron_ladder", IRON_LADDER, MBItemGroup.UTILITY);
 		createBlock("kiln", KILN, MBItemGroup.DECOR);
 		KILN_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MOD_ID, "kiln_block_entity"),
 				FabricBlockEntityTypeBuilder.create(KilnBlockEntity::new, KILN).build(null));
+
+		createBlock("rope_ladder", ROPE_LADDER, MBItemGroup.DECOR);
+		createBlock("iron_ladder", IRON_LADDER, MBItemGroup.DECOR);
 
 		createBlock("leather_seat", LEATHER_SEAT, MBItemGroup.DECOR);
 		createBlock("white_seat", WHITE_LEATHER_SEAT, MBItemGroup.DECOR);
@@ -1193,7 +1199,7 @@ public class MBBlocks {
 		// - Bedroll setup, registers the block entity too :b
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "bedroll"), BEDROLL);
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "bedroll"),
-				(BlockItem)(new BedItem(BEDROLL, (new Item.Settings()).maxCount(1).group(MBItemGroup.UTILITY))));
+				(BlockItem)(new BedItem(BEDROLL, (new Item.Settings()).maxCount(1).group(MBItemGroup.MB_MISC))));
 		BEDROLL_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MOD_ID, "bedroll_block_entity"),
 				FabricBlockEntityTypeBuilder.create(BedrollBlockEntity::new, BEDROLL).build(null));
 
@@ -1234,11 +1240,16 @@ public class MBBlocks {
 		createBlock("purple_heather", PURPLE_HEATHER, MBItemGroup.DECOR);
 		createBlock("lupine", LUPINE, MBItemGroup.DECOR);
 
+		createBlock("frosthorn_crown", FROSTHORN_CROWN, MBItemGroup.DECOR);
+		createBlock("frosthorn_stem", FROSTHORN_STEM, MBItemGroup.DECOR);
+		createBlock("frosthorn_leaves", FROSTHORN_LEAVES, MBItemGroup.DECOR);
+		createBlock("frosthorn_fruit", FROSTHORN_FRUIT, MBItemGroup.MB_MISC);
+
 		createBlock("permafrost", PERMAFROST, MBItemGroup.CONSTRUCTION);
-		createBlock("frost_peat", FROST_PEAT, MBItemGroup.CONSTRUCTION);
-		createBlock("frost_clay", FROST_CLAY, MBItemGroup.CONSTRUCTION);
-		createBlock("frost_gold", FROST_GOLD, MBItemGroup.CONSTRUCTION);
-		createBlock("frost_copper", FROST_COPPER, MBItemGroup.CONSTRUCTION);
+		createBlock("frost_peat_deposit", FROST_PEAT, MBItemGroup.CONSTRUCTION);
+		createBlock("frost_clay_deposit", FROST_CLAY, MBItemGroup.CONSTRUCTION);
+		createBlock("frost_gold_deposit", FROST_GOLD, MBItemGroup.CONSTRUCTION);
+		createBlock("frost_copper_deposit", FROST_COPPER, MBItemGroup.CONSTRUCTION);
 
 		createBlock("till", TILL, MBItemGroup.CONSTRUCTION);
 		createBlock("till_slab", TILL_SLAB, MBItemGroup.CONSTRUCTION);

@@ -1,7 +1,56 @@
 {
   "variants": {
-    "": {
+    "facing=down,lit=false": {
+      "model": "moonbits:block/small_redstone_bud_unlit",
+      "x": 180
+    },
+    "facing=down,lit=true": {
+      "model": "moonbits:block/small_redstone_bud",
+      "x": 180
+    },
+    "facing=east,lit=false": {
+      "model": "moonbits:block/small_redstone_bud_unlit",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,lit=true": {
+      "model": "moonbits:block/small_redstone_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,lit=false": {
+      "model": "moonbits:block/small_redstone_bud_unlit",
+      "x": 90
+    },
+    "facing=north,lit=true": {
+      "model": "moonbits:block/small_redstone_bud",
+      "x": 90
+    },
+    "facing=south,lit=false": {
+      "model": "moonbits:block/small_redstone_bud_unlit",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,lit=true": {
+      "model": "moonbits:block/small_redstone_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,lit=false": {
+      "model": "moonbits:block/small_redstone_bud_unlit"
+    },
+    "facing=up,lit=true": {
       "model": "moonbits:block/small_redstone_bud"
+    },
+    "facing=west,lit=false": {
+      "model": "moonbits:block/small_redstone_bud_unlit",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,lit=true": {
+      "model": "moonbits:block/small_redstone_bud",
+      "x": 90,
+      "y": 270
     }
   }
 }

@@ -24,7 +24,7 @@ public class ClientRecipeBookMixin {
             if (itemGroup == MBItemGroup.CONSTRUCTION) {
                 cir.setReturnValue(RecipeBookGroup.CRAFTING_BUILDING_BLOCKS);
             }
-            else if (itemGroup == MBItemGroup.UTILITY) {
+            else if (itemGroup == MBItemGroup.MB_MISC) {
                 cir.setReturnValue(RecipeBookGroup.CRAFTING_EQUIPMENT);
             }
         }

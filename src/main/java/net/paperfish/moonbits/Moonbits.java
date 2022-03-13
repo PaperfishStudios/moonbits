@@ -8,6 +8,7 @@ import net.paperfish.moonbits.world.feature.MBPlacedTreeFeatures;
 import net.paperfish.moonbits.world.feature.MBPlacedVegFeatures;
 import net.paperfish.moonbits.world.gen.MBNoiseParameters;
 import org.slf4j.Logger;
+import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
 
 public class Moonbits implements ModInitializer {
@@ -17,7 +18,7 @@ public class Moonbits implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// register and initialise the Stuff uwu
-		//GeckoLibMod.DISABLE_IN_DEV = true;
+		GeckoLibMod.DISABLE_IN_DEV = true;
 		GeckoLib.initialize();
 
 		MBPlacedVegFeatures.init();

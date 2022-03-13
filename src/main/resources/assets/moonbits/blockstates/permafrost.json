@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "snowy=false": {
       "model": "moonbits:block/permafrost"
+    },
+    "snowy=true": {
+      "model": "moonbits:block/permafrost_snowy"
     }
   }
 }

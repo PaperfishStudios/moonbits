@@ -54,6 +54,11 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.PURPLE_HEATHER,
                 MBBlocks.LUPINE,
 
+                MBBlocks.FROSTHORN_CROWN,
+                MBBlocks.FROSTHORN_STEM,
+                MBBlocks.FROSTHORN_LEAVES,
+                MBBlocks.FROSTHORN_FRUIT,
+
                 MBBlocks.BARREL_CACTUS,
                 MBBlocks.MARIGOLD,
                 MBBlocks.POTTED_MARIGOLD,
@@ -68,6 +73,11 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.TALL_COTTONGRASS,
                 MBBlocks.DESERT_BRUSH,
                 MBBlocks.TALL_DESERT_BRUSH,
+
+                MBBlocks.REDSTONE_CLUSTER,
+                MBBlocks.LARGE_REDSTONE_BUD,
+                MBBlocks.MEDIUM_REDSTONE_BUD,
+                MBBlocks.SMALL_REDSTONE_BUD,
 
                 MBBlocks.LAMPROOT,
                 MBBlocks.CAVEBLOOM_VINE,
@@ -103,6 +113,9 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.GLASS_DOOR,
                 MBBlocks.WALL_LANTERN,
                 MBBlocks.WALL_SOUL_LANTERN
+        );
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),
+                MBBlocks.ICE_BRICKS
         );
 
         MBData.registerClient();

@@ -15,15 +15,11 @@ import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LeafEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.*;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
-import net.minecraft.loot.provider.nbt.ContextLootNbtProvider;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBItems;
@@ -202,6 +198,11 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.PURPLE_HEATHER);
         addDrop(MBBlocks.LUPINE, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
 
+        addDrop(MBBlocks.FROSTHORN_CROWN);
+        addDrop(MBBlocks.FROSTHORN_STEM, (Block block) -> grassDrops(block, MBItems.FROSTHORN_SEED, 1f, 1f));
+        addDrop(MBBlocks.FROSTHORN_LEAVES, dropsWithShears(MBBlocks.FROSTHORN_LEAVES));
+        addDrop(MBBlocks.FROSTHORN_FRUIT);
+
         addDrop(MBBlocks.DESERT_BRUSH, (Block block) -> grassDrops(block, Items.WHEAT_SEEDS, 1f, 1f));
         addDrop(MBBlocks.TALL_DESERT_BRUSH, (Block block) -> BlockLootTableGenerator.tallGrassDrops(block, MBBlocks.DESERT_BRUSH));
 
@@ -321,6 +322,9 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
                             }
                             else if (variant == MBBlockFamily.Variant.SLAB) {
                                 addDrop(block, BlockLootTableGenerator::slabDrops);
+                            }
+                            else if (block == MBBlocks.CHERT) {
+                                addDrop(block, MBBlocks.COBBLED_CHERT);
                             }
                             else {
                                 addDrop(block);

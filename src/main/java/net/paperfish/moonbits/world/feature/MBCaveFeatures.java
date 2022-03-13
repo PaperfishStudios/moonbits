@@ -35,6 +35,7 @@ public class MBCaveFeatures {
     public static final RuleTest TOUGH_DIRT;
     public static final RuleTest COARSE_DIRT;
     public static final RuleTest REGOLITH;
+    public static final RuleTest PERMAFROST;
 
     public static final LamprootFeature LAMPROOT_FEATURE;
     public static final CavebloomFeature CAVEBLOOM_FEATURE;
@@ -44,6 +45,11 @@ public class MBCaveFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_SANDSTONE = ConfiguredFeatures.register("or_sanston",
             Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, Blocks.SANDSTONE.getDefaultState(), 48));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_COBBLECHERT = ConfiguredFeatures.register("or_cobblechert",
+            Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, MBBlocks.COBBLED_CHERT.getDefaultState(), 48));
+
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_TILL = ConfiguredFeatures.register("ore_till",
+            Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, MBBlocks.TILL.getDefaultState(), 48));
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_PEAT;
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_PEAT_HIGH;
@@ -64,7 +70,7 @@ public class MBCaveFeatures {
     public static final List<OreFeatureConfig.Target> CHERT_COAL = List.of(
             OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_COAL_ORE.getDefaultState()));
     public static final List<OreFeatureConfig.Target> CHERT_REDSTONE = List.of(
-            OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_COAL_ORE.getDefaultState()));
+            OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_REDSTONE_ORE.getDefaultState()));
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_COAL = ConfiguredFeatures.register(
             "ore_chert_coal", Feature.ORE, new OreFeatureConfig(CHERT_COAL, 17, 0.1f));
@@ -123,22 +129,27 @@ public class MBCaveFeatures {
         TOUGH_DIRT = new BlockMatchRuleTest(MBBlocks.TOUGH_DIRT);
         COARSE_DIRT = new BlockMatchRuleTest(Blocks.COARSE_DIRT);
         REGOLITH = new BlockMatchRuleTest(MBBlocks.REGOLITH);
+        PERMAFROST = new BlockMatchRuleTest(MBBlocks.PERMAFROST);
         List<OreFeatureConfig.Target> PEAT_GEN = List.of(
                 OreFeatureConfig.createTarget(TOUGH_DIRT, MBBlocks.PEAT_DEPOSIT.getDefaultState()),
                 OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.PEAT_DEPOSIT.getDefaultState()),
-                OreFeatureConfig.createTarget(REGOLITH, MBBlocks.PEAT_DEPOSIT.getDefaultState()));
+                OreFeatureConfig.createTarget(REGOLITH, MBBlocks.PEAT_DEPOSIT.getDefaultState()),
+                OreFeatureConfig.createTarget(PERMAFROST, MBBlocks.FROST_PEAT.getDefaultState()));
         List<OreFeatureConfig.Target> CLAY_GEN = List.of(
                 OreFeatureConfig.createTarget(TOUGH_DIRT, MBBlocks.CLAY_DEPOSIT.getDefaultState()),
                 OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.CLAY_DEPOSIT.getDefaultState()),
-                OreFeatureConfig.createTarget(REGOLITH, MBBlocks.CLAY_DEPOSIT.getDefaultState()));
+                OreFeatureConfig.createTarget(REGOLITH, MBBlocks.CLAY_DEPOSIT.getDefaultState()),
+                OreFeatureConfig.createTarget(PERMAFROST, MBBlocks.FROST_CLAY.getDefaultState()));
         List<OreFeatureConfig.Target> GOLD_GEN = List.of(
                 OreFeatureConfig.createTarget(TOUGH_DIRT, MBBlocks.GOLD_DEPOSIT.getDefaultState()),
                 OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.GOLD_DEPOSIT.getDefaultState()),
-                OreFeatureConfig.createTarget(REGOLITH, MBBlocks.GOLD_DEPOSIT.getDefaultState()));
+                OreFeatureConfig.createTarget(REGOLITH, MBBlocks.GOLD_DEPOSIT.getDefaultState()),
+                OreFeatureConfig.createTarget(PERMAFROST, MBBlocks.FROST_GOLD.getDefaultState()));
         List<OreFeatureConfig.Target> COPPER_GEN = List.of(
                 OreFeatureConfig.createTarget(TOUGH_DIRT, MBBlocks.COPPER_DEPOSIT.getDefaultState()),
                 OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.COPPER_DEPOSIT.getDefaultState()),
-                OreFeatureConfig.createTarget(REGOLITH, MBBlocks.COPPER_DEPOSIT.getDefaultState()));
+                OreFeatureConfig.createTarget(REGOLITH, MBBlocks.COPPER_DEPOSIT.getDefaultState()),
+                OreFeatureConfig.createTarget(PERMAFROST, MBBlocks.FROST_COPPER.getDefaultState()));
 
         T_REGOLITH = ConfiguredFeatures.register("trans_regolith", Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, MBBlocks.REGOLITH.getDefaultState(), 32));
         ORE_REGOLITH = ConfiguredFeatures.register("ore_regolith", Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, MBBlocks.REGOLITH.getDefaultState(), 32));
@@ -154,14 +165,10 @@ public class MBCaveFeatures {
         TG_VEGETATION = ConfiguredFeatures.register("tg_vegetation", Feature.SIMPLE_BLOCK,
                 new SimpleBlockFeatureConfig(
                         new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
-                                .add(Blocks.AIR.getDefaultState(), 50)
+                                .add(Blocks.AIR.getDefaultState(), 70)
                                 .add(Blocks.GRASS.getDefaultState(), 20)
-                                .add(Blocks.TALL_GRASS.getDefaultState(), 1)
+                                .add(Blocks.TALL_GRASS.getDefaultState(), 6)
                                 .add(MBBlocks.FORGETMENOT.getDefaultState(), 4)
-                                .add(MBBlocks.BUTTERCUP.getDefaultState(), 7)
-                                .add(Blocks.ORANGE_TULIP.getDefaultState(), 8)
-                                .add(Blocks.WHITE_TULIP.getDefaultState(), 12)
-                                .add(Blocks.PINK_TULIP.getDefaultState(), 6)
                         )
                 )
         );

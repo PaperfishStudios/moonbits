@@ -1,0 +1,35 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"textures": {
+		"1": "moonbits:block/frosthorn_crown_top",
+		"all": "moonbits:block/frosthorn_crown",
+		"particle": "moonbits:block/frosthorn_crown_top"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 2],
+			"to": [15, 13, 14],
+			"faces": {
+				"north": {"uv": [1, 1, 15, 14], "texture": "#all"},
+				"south": {"uv": [1, 1, 15, 14], "texture": "#all"}
+			}
+		},
+		{
+			"from": [2, 0, 1],
+			"to": [14, 13, 15],
+			"faces": {
+				"east": {"uv": [1, 1, 15, 14], "texture": "#all"},
+				"west": {"uv": [1, 1, 15, 14], "texture": "#all"}
+			}
+		},
+		{
+			"from": [2, 1, 2],
+			"to": [14, 12, 14],
+			"faces": {
+				"up": {"uv": [2, 2, 14, 14], "texture": "#1"},
+				"down": {"uv": [2, 2, 14, 14], "texture": "#1"}
+			}
+		}
+	]
+}

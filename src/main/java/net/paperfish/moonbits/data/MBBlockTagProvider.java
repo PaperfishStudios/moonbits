@@ -47,6 +47,10 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         MBBlockFamilies.CRIMSON_NYLIUM_TURF.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.WARPED_NYLIUM_TURF.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
 
+        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.RED_MUSH_BLOCK);
+        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.BROWN_MUSH_BLOCK);
+        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.TOADSTOOL_MUSH_BLOCK);
+        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.SAFFRON_MUSH_BLOCK);
         MBBlockFamilies.RED_MUSH_BLOCK.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.RED_MUSH_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.BROWN_MUSH_BLOCK.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
@@ -60,18 +64,23 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         MBBlockFamilies.HONEYCOMB_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.HONEYCOMB_TILES.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
 
+        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.TILL);
         MBBlockFamilies.TILL.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.POLISHED_TILL.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.TILL_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.FROSTY_TILL_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
 
+        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.CHERT);
+        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.COBBLED_CHERT);
         MBBlockFamilies.CHERT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+        MBBlockFamilies.COBBLED_CHERT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.CHERT_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.CHERT_TILES.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.CRACKED_CHERT_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.CRACKED_CHERT_TILES.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.POLISHED_CHERT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
 
+        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.MUDSTONE);
         MBBlockFamilies.MUDSTONE.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.MUDSTONE_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.SMOOTH_MUDSTONE.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
@@ -181,6 +190,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.COPPER_DEPOSIT,
                 MBBlocks.GOLD_DEPOSIT,
                 MBBlocks.PEAT_DEPOSIT,
+                MBBlocks.PEAT_MOSS,
                 MBBlocks.PEAT_BLOCK,
 
                 MBBlocks.PERMAFROST,
@@ -204,6 +214,9 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.GIANT_TOADSTOOL_CAP,
                 MBBlocks.MUSHROOM_STEM,
                 MBBlocks.TOADSTOOL_SHELF,
+
+                MBBlocks.FROSTHORN_CROWN,
+                MBBlocks.FROSTHORN_STEM,
 
                 MBBlocks.APPLE_CRATE,
                 MBBlocks.CARROT_CRATE,
@@ -485,9 +498,16 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.GRASS_TURF,
                 MBBlocks.GRASS_TURF_STAIRS,
                 MBBlocks.GRASS_TURF_SLAB,
+                MBBlocks.MYCELIUM_TURF,
+                MBBlocks.MYCELIUM_TURF_STAIRS,
+                MBBlocks.MYCELIUM_TURF_SLAB,
                 MBBlocks.TOUGH_GRASS,
                 MBBlocks.TOUGH_DIRT,
                 MBBlocks.DIRT_BRICKS,
+                MBBlocks.SMOOTH_DIRT,
+                MBBlocks.PACKED_DIRT,
+                MBBlocks.PERMAFROST,
+                MBBlocks.PEAT_MOSS,
                 MBBlocks.PEAT_BLOCK,
                 MBBlocks.PEAT_BRICKS
         );
@@ -504,10 +524,33 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.BASE_STONE_OVERWORLD).add(
                 MBBlocks.CHERT
         );
+
         this.getOrCreateTagBuilder(MBBlockTags.BANDED_IRON).add(
                 MBBlocks.BANDED_IRON,
                 MBBlocks.MAGNETITE_ORE
         );
+        this.getOrCreateTagBuilder(BlockTags.COAL_ORES).add(
+                MBBlocks.CHERT_COAL_ORE
+        );
+        this.getOrCreateTagBuilder(BlockTags.GOLD_ORES).add(
+                MBBlocks.CHERT_GOLD_ORE
+        );
+        this.getOrCreateTagBuilder(BlockTags.COPPER_ORES).add(
+                MBBlocks.CHERT_COPPER_ORE
+        );
+        this.getOrCreateTagBuilder(BlockTags.REDSTONE_ORES).add(
+                MBBlocks.CHERT_REDSTONE_ORE
+        );
+        this.getOrCreateTagBuilder(BlockTags.LAPIS_ORES).add(
+                MBBlocks.CHERT_LAPIS_ORE
+        );
+        this.getOrCreateTagBuilder(BlockTags.IRON_ORES).add(
+                MBBlocks.BANDED_IRON
+        );
+        this.getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
+                MBBlocks.MAGNETITE_BLOCK
+        );
+
         this.getOrCreateTagBuilder(MBBlockTags.VALID_SEATS).add(
                 MBBlocks.LEATHER_SEAT,
                 MBBlocks.WHITE_LEATHER_SEAT,
@@ -549,6 +592,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK).add(
                 MBBlocks.LEAFBED,
                 MBBlocks.PEAT_MOSS,
+                MBBlocks.MYCELIUM_TURF,
                 MBBlocks.CRIMSON_NYLIUM_TURF,
                 MBBlocks.WARPED_NYLIUM_TURF
         );

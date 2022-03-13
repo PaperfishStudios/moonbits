@@ -1,7 +1,26 @@
 {
   "variants": {
-    "": {
+    "facing=down": {
+      "model": "moonbits:block/mycelium_roots",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "moonbits:block/mycelium_roots_wall",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "moonbits:block/mycelium_roots_wall"
+    },
+    "facing=south": {
+      "model": "moonbits:block/mycelium_roots_wall",
+      "y": 180
+    },
+    "facing=up": {
       "model": "moonbits:block/mycelium_roots"
+    },
+    "facing=west": {
+      "model": "moonbits:block/mycelium_roots_wall",
+      "y": 270
     }
   }
 }

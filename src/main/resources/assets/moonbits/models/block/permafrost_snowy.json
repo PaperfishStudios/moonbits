@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "minecraft:block/snow_block",
+    "bottom": "moonbits:block/permafrost",
+    "side": "moonbits:block/permafrost_snowy"
+  }
+}

@@ -3,6 +3,7 @@ package net.paperfish.moonbits.world.feature;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.dynamic.Range;
@@ -72,13 +73,56 @@ public class MBVegetationFeatures {
                             .add(MBBlocks.BARREL_CACTUS.getDefaultState().with(BarrelCactusBlock.LEVEL, 3), 1)
                             .build())))));
 
-    public static final RegistryEntry<ConfiguredFeature<ReplaceBlobsFeatureConfig, ?>> TUNDRA_FROST
-            = ConfiguredFeatures.register("tundra_frost", Feature.NETHERRACK_REPLACE_BLOBS,
-            new ReplaceBlobsFeatureConfig(
-                    Blocks.GRASS_BLOCK.getDefaultState(),
-                    MBBlocks.PERMAFROST.getDefaultState(),
-                    UniformIntProvider.create(6, 12)
-            ));
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> COTTONGRASS =
+            ConfiguredFeatures.register("patch_cottongrass", Feature.RANDOM_PATCH, createPatch(12, BlockStateProvider.of(MBBlocks.COTTONGRASS)));
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> LUPINE = ConfiguredFeatures.register(
+            "patch_lupine", Feature.RANDOM_PATCH, createPatch(6, MBBlocks.LUPINE));
+
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> HEATHER = ConfiguredFeatures.register(
+            "heather", Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(9, 2, 2,
+                    PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
+                            .add(MBBlocks.PURPLE_HEATHER.getDefaultState(), 8)
+                            .add(MBBlocks.RED_HEATHER.getDefaultState(), 5)
+                            .add(MBBlocks.ORANGE_HEATHER.getDefaultState(), 6)
+                            .add(MBBlocks.WHITE_HEATHER.getDefaultState(), 1)
+                            .build())))));
+
+    public static final List<OreFeatureConfig.Target> PERMAFROST = List.of(
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.GRASS_BLOCK), MBBlocks.PERMAFROST.getDefaultState()),
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.DIRT), MBBlocks.PERMAFROST.getDefaultState())
+    );
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> TUNDRA_FROST = ConfiguredFeatures.register(
+            "tundra_frost", Feature.ORE, new OreFeatureConfig(PERMAFROST, 48));
+
+    public static final RegistryEntry<ConfiguredFeature<SingleStateFeatureConfig, ?>> TILL_ROCK = ConfiguredFeatures.register(
+            "till_rock", Feature.FOREST_ROCK, new SingleStateFeatureConfig(MBBlocks.TILL.getDefaultState()));
+
+    public static final List<OreFeatureConfig.Target> CRACKED_MUD = List.of(
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.GRASS_BLOCK), MBBlocks.CRACKED_MUD.getDefaultState()),
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.DIRT), MBBlocks.CRACKED_MUD.getDefaultState()),
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(MBBlocks.TOUGH_DIRT), MBBlocks.CRACKED_MUD.getDefaultState()),
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.SAND), MBBlocks.CRACKED_MUD.getDefaultState())
+    );
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> PATCH_CRACKED_MUD = ConfiguredFeatures.register(
+            "patch_cracked_mud", Feature.ORE, new OreFeatureConfig(CRACKED_MUD, 32));
+
+    public static final List<OreFeatureConfig.Target> RICH_MUD = List.of(
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.GRASS_BLOCK), MBBlocks.RICH_MUD.getDefaultState()),
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.DIRT), MBBlocks.RICH_MUD.getDefaultState()),
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(MBBlocks.TOUGH_DIRT), MBBlocks.RICH_MUD.getDefaultState()),
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.SAND), MBBlocks.RICH_MUD.getDefaultState())
+    );
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> PATCH_RICH_MUD = ConfiguredFeatures.register(
+            "patch_rich_mud", Feature.ORE, new OreFeatureConfig(RICH_MUD, 32));
+
+    public static final List<OreFeatureConfig.Target> PEAT_MOSS = List.of(
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.GRASS_BLOCK), MBBlocks.PEAT_MOSS.getDefaultState()),
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.DIRT), MBBlocks.PEAT_MOSS.getDefaultState()),
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(MBBlocks.TOUGH_DIRT), MBBlocks.PEAT_MOSS.getDefaultState()),
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.SAND), MBBlocks.PEAT_MOSS.getDefaultState())
+    );
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> PATCH_PEAT_MOSS = ConfiguredFeatures.register(
+            "patch_peat_moss", Feature.ORE, new OreFeatureConfig(PEAT_MOSS, 14));
 
     public static final RegistryEntry<ConfiguredFeature<ReplaceBlobsFeatureConfig, ?>> COARSE_DIRT_PATCH;
     public static final RegistryEntry<ConfiguredFeature<ReplaceBlobsFeatureConfig, ?>> PODZOL_PATCH;

@@ -4,7 +4,7 @@
       "model": "moonbits:block/smooth_deepslate_slab"
     },
     "type=double": {
-      "model": "moonbits:block/smooth_deepslate"
+      "model": "moonbits:block/smooth_deepslate_slab_double"
     },
     "type=top": {
       "model": "moonbits:block/smooth_deepslate_slab_top"
