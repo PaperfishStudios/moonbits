@@ -136,6 +136,8 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.FROST_GOLD, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 1f, 4f));
         addDrop(MBBlocks.FROST_COPPER, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 2f, 5f));
 
+        addDrop(Blocks.ICE, (Block block) -> oreDrops(block, MBItems.ICE_CUBES, 1f, 2f));
+
         addDrop(MBBlocks.SNOW_BRICKS);
         addDrop(MBBlocks.ICE_BRICKS);
         addDrop(MBBlocks.PACKED_ICE_BRICKS);

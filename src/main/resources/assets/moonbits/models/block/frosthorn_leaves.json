@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"textures": {
-		"2": "moonbits:block/frosthorn_leaves"
+		"2": "moonbits:block/frosthorn_leaves",
 		"particle": "#2"
 	},
 	"elements": [

@@ -791,10 +791,13 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.blockStateCollector.accept(BlockStateModelGenerator.createBlockStateWithRandomHorizontalRotations(block, identifier2));
     }
     public static void seatBlock(Block block, BlockStateModelGenerator generator) {
-        TextureMap texture = TextureMap.sideTopBottom(block).put(TextureKey.SIDE, TextureMap.getId(block)).put(TextureKey.BOTTOM, TextureMap.getSubId(MBBlocks.LEATHER_SEAT, "_bottom"));
+        TextureMap texture = TextureMap.of(TextureKey.TOP, TextureMap.getSubId(block, "_top"))
+                .put(TextureKey.SIDE, TextureMap.getId(block)).put(TextureKey.BOTTOM, TextureMap.getSubId(MBBlocks.LEATHER_SEAT, "_bottom"));
         Identifier identifier = Models.SLAB.upload(block, texture, generator.modelCollector);
         Identifier identifier2 = Models.SLAB_TOP.upload(block, texture, generator.modelCollector);
-        Identifier identifier3 = TexturedModel.CUBE_BOTTOM_TOP.get(block).textures(tex -> tex.put(TextureKey.SIDE, TextureMap.getSubId(block, "_double")))
+        Identifier identifier3 = TexturedModel.CUBE_BOTTOM_TOP.get(block)
+                .textures(tex -> tex.put(TextureKey.SIDE, TextureMap.getSubId(block, "_double"))
+                        .put(TextureKey.BOTTOM, TextureMap.getSubId(MBBlocks.LEATHER_SEAT, "_bottom")))
                 .upload(block, "_double", generator.modelCollector);
         generator.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(block, identifier, identifier2, identifier3));
     }

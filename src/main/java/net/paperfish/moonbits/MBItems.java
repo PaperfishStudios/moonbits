@@ -36,6 +36,8 @@ public class MBItems {
 	public static final Item SALAD = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8f)
 			.statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0f).build()));
 
+	public static final Item ICE_CUBES = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+
 	public static final Item FROSTHORN_SEED = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item PEPPER_SEEDS = new AliasedBlockItem(MBBlocks.PEPPER_CROP, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
@@ -126,6 +128,7 @@ public class MBItems {
 		addItem("lettuce_leaf", LETTUCE_LEAF);
 		addItem("lettuce_wrap", LETTUCE_WRAP);
 		addItem("salad", SALAD);
+		addItem("ice_cubes", ICE_CUBES);
 		addItem("frosthorn_seed", FROSTHORN_SEED);
 		add("pepper_seeds", PEPPER_SEEDS);
 		addItem("pepper", PEPPER);

@@ -1,9 +1,6 @@
 package net.paperfish.moonbits.mixin;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.PlantBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -29,7 +26,7 @@ import java.util.Random;
 
 @SuppressWarnings("deprecation")
 @Mixin(CropBlock.class)
-public abstract class CropBlockMixin extends PlantBlock {
+public abstract class CropBlockMixin extends PlantBlock implements Fertilizable {
 
     protected CropBlockMixin(Settings settings) {
         super(settings);
@@ -46,12 +43,24 @@ public abstract class CropBlockMixin extends PlantBlock {
         }
     }
 
-    @Inject(method = "getAvailableMoisture", at = @At(value = "HEAD"), cancellable = true)
-    private static void onGetMoisture(Block block, BlockView world, BlockPos pos, CallbackInfoReturnable<Float> cir) {
+    @Inject(method = "randomTick", at = @At(value = "HEAD"), cancellable = true)
+    private void onRandomTick(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
+        int i = this.getAge(state);
         if (world.getBlockState(pos.down()).isIn(MBBlockTags.PLANTER_BOXES)) {
-            cir.setReturnValue(10.0f);
+            if (world.getBaseLightLevel(pos, 0) >= 9 && i < this.getMaxAge() && random.nextInt(2) == 0) {
+                world.setBlockState(pos, this.withAge(i + 1), Block.NOTIFY_LISTENERS);
+                ci.cancel();
+            }
         }
     }
+
+    @Shadow
+    public int getMaxAge() {
+        return 7;
+    }
+
+    @Shadow
+    protected abstract int getAge(BlockState state);
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {

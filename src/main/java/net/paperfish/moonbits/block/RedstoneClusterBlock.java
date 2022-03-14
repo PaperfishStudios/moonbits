@@ -113,17 +113,22 @@ public class RedstoneClusterBlock extends Block implements Waterloggable {
             return;
         }
 
-        if (world.isReceivingRedstonePower(pos.offset(state.get(FACING))) && !state.get(LIT)) {
-            world.setBlockState(pos, state.cycle(LIT), Block.NOTIFY_LISTENERS);
+        boolean bl = world.isReceivingRedstonePower(pos.offset(state.get(FACING).getOpposite()));
+        if (bl && !state.get(LIT)) {
+            world.setBlockState(pos, state.with(LIT, true), Block.NOTIFY_LISTENERS);
+        }
+        else if (state.get(LIT) && !bl){
+            world.createAndScheduleBlockTick(pos, this, world.random.nextInt(20) + 1);
         }
     }
     @Override
     public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
         if (!world.isClient) {
             BlockPos blockPos = hit.getBlockPos();
-            world.setBlockState(blockPos, state.cycle(LIT), Block.NOTIFY_LISTENERS);
+            world.setBlockState(blockPos, state.with(LIT, true), Block.NOTIFY_LISTENERS);
             world.playSound(null, blockPos, SoundEvents.BLOCK_AMETHYST_BLOCK_HIT, SoundCategory.BLOCKS, 1.0f, 0.5f + world.random.nextFloat() * 1.2f);
             world.playSound(null, blockPos, SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME, SoundCategory.BLOCKS, 1.0f, 0.5f + world.random.nextFloat() * 1.2f);
+            world.createAndScheduleBlockTick(blockPos, this, world.random.nextInt(20) + 1);
         }
     }
 
@@ -160,6 +165,13 @@ public class RedstoneClusterBlock extends Block implements Waterloggable {
             else if (!world.isReceivingRedstonePower(pos)) {
                 world.setBlockState(pos, state.with(LIT, false), Block.NOTIFY_ALL);
             }
+        }
+    }
+
+    @Override
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if (!world.isReceivingRedstonePower(pos) && !state.get(LIT)) {
+            world.setBlockState(pos, state.with(LIT, false), Block.NOTIFY_ALL);
         }
     }
 

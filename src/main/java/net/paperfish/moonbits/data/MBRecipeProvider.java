@@ -34,7 +34,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         super(dataGenerator);
     }
 
-    private static Map<MBBlockFamily.Variant, BiFunction<ItemConvertible, ItemConvertible, CraftingRecipeJsonBuilder>> VARIANT_FACTORIES = new HashMap<>();
+    private static final Map<MBBlockFamily.Variant, BiFunction<ItemConvertible, ItemConvertible, CraftingRecipeJsonBuilder>> VARIANT_FACTORIES = new HashMap<>();
 
     // input, output, output amount
     public static final HashMap<List<ItemConvertible>, Integer> TRANSMUTE = new HashMap<>();
@@ -105,6 +105,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         // 2x2 recipes w/ output of one
         COMPACT.put(MBBlocks.PEBBLES, Blocks.COBBLESTONE);
         COMPACT.put(MBItems.PEAT, MBBlocks.PEAT_MOSS);
+        COMPACT.put(MBItems.ICE_CUBES, Blocks.ICE);
 
         COMPACT.put(MBItems.GRASS_TUFT, MBBlocks.GRASS_TURF);
         COMPACT.put(MBBlocks.MYCELIUM_ROOTS, MBBlocks.MYCELIUM_TURF);

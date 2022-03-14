@@ -425,10 +425,16 @@
     "block.moonbits.frosty_till_brick_stairs": "Frosty Till Brick Stairs",
     "block.moonbits.frosty_till_brick_wall": "Frosty Till Brick Wall",
 	
-    "block.moonbits.frosthorn": "Frosthorn",
-    "item.moonbits.frostberry": "Frostberry",
-    "block.moonbits.frostberry_crate": "Frostberry Crate",
-    "block.moonbits.frostbomb": "Frostbomb",
+    "block.moonbits.frosthorn_crown": "Frost Thistle Crown",
+    "block.moonbits.frosthorn_stem": "Frost Thistle Stem",
+    "block.moonbits.frosthorn_leaves": "Frost Thistle Leaves",
+    "block.moonbits.frosthorn_fruit": "Frostplum",
+    "item.moonbits.frosthorn_seed": "Frost Thistle Seed",
+	
+    "block.moonbits.frost_mine": "Frost Mine",
+	
+    "item.moonbits.ice_cubes": "Ice Cubes",
+    "item.moonbits.melon_sorbet": "Melon Sorbet",
 	
     "block.moonbits.snow_bricks": "Snow Bricks",
     "block.moonbits.ice_bricks": "Ice Bricks",
