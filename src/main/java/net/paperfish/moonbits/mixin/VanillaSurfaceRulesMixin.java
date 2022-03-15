@@ -45,13 +45,14 @@ public class VanillaSurfaceRulesMixin {
                 rules,
                 MaterialRules.condition(MaterialRules.biome(BiomeKeys.DESERT), MaterialRules.block(MBBlocks.CHERT.getDefaultState())),
                 MaterialRules.condition(MaterialRules.biome(BiomeKeys.SNOWY_SLOPES, BiomeKeys.SNOWY_PLAINS), MaterialRules.condition(
+                        MaterialRules.surface(), MaterialRules.condition(
                         MaterialRules.stoneDepth(0, true, 12, VerticalSurfaceType.FLOOR),
-                        MaterialRules.block(MBBlocks.PERMAFROST.getDefaultState()))
+                        MaterialRules.block(MBBlocks.PERMAFROST.getDefaultState())))
                 ),
                 MaterialRules.condition(
                         notDesert,
                         MaterialRules.condition(MaterialRules.surface(),
-                                MaterialRules.condition(MaterialRules.stoneDepth(0, true, 20, VerticalSurfaceType.FLOOR), tough_dirt
+                                MaterialRules.condition(MaterialRules.stoneDepth(2, true, 12, VerticalSurfaceType.FLOOR), tough_dirt
                                         )
                         )),
 //                        MaterialRules.condition(
@@ -66,7 +67,7 @@ public class VanillaSurfaceRulesMixin {
                 MaterialRules.condition(
                         notDesert,
                         MaterialRules.condition(MaterialRules.surface(),
-                                MaterialRules.condition(MaterialRules.stoneDepth(18, true, 1, VerticalSurfaceType.FLOOR), regolith
+                                MaterialRules.condition(MaterialRules.stoneDepth(12, true, 4, VerticalSurfaceType.FLOOR), regolith
                                 )
                         ))
                 )

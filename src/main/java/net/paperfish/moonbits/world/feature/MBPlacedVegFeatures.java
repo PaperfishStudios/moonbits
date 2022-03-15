@@ -56,7 +56,7 @@ public class MBPlacedVegFeatures {
     public static final RegistryEntry<PlacedFeature> LUPINE = PlacedFeatures.register("p_lupine",
             MBVegetationFeatures.LUPINE, CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> HEATHER = PlacedFeatures.register("p_heather",
-            MBVegetationFeatures.HEATHER, CountPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+            MBVegetationFeatures.HEATHER, CountPlacementModifier.of(6), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
 
     // fungi
     public static final RegistryEntry<PlacedFeature> PUFFBALLS_PATCH = PlacedFeatures.register("p_puffballs",

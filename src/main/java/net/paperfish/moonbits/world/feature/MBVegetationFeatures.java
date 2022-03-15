@@ -78,14 +78,31 @@ public class MBVegetationFeatures {
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> LUPINE = ConfiguredFeatures.register(
             "patch_lupine", Feature.RANDOM_PATCH, createPatch(6, MBBlocks.LUPINE));
 
+    public static final List<BlockState> HEATHER_LIST = List.of(
+            MBBlocks.PURPLE_HEATHER.getDefaultState(),
+            MBBlocks.PURPLE_HEATHER.getDefaultState(),
+            MBBlocks.PURPLE_HEATHER.getDefaultState(),
+            MBBlocks.PURPLE_HEATHER.getDefaultState(),
+            MBBlocks.RED_HEATHER.getDefaultState(),
+            MBBlocks.RED_HEATHER.getDefaultState(),
+            MBBlocks.RED_HEATHER.getDefaultState(),
+            MBBlocks.RED_HEATHER.getDefaultState(),
+            MBBlocks.ORANGE_HEATHER.getDefaultState(),
+            MBBlocks.ORANGE_HEATHER.getDefaultState(),
+            MBBlocks.ORANGE_HEATHER.getDefaultState(),
+            MBBlocks.WHITE_HEATHER.getDefaultState()
+            );
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> HEATHER = ConfiguredFeatures.register(
-            "heather", Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(9, 2, 2,
-                    PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
-                            .add(MBBlocks.PURPLE_HEATHER.getDefaultState(), 8)
-                            .add(MBBlocks.RED_HEATHER.getDefaultState(), 5)
-                            .add(MBBlocks.ORANGE_HEATHER.getDefaultState(), 6)
-                            .add(MBBlocks.WHITE_HEATHER.getDefaultState(), 1)
-                            .build())))));
+            "heather", Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 2, 2,
+                    PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new NoiseBlockStateProvider(2345L,
+                            new DoublePerlinNoiseSampler.NoiseParameters(0, 1.0D), 0.020433334F, HEATHER_LIST))
+                    )));
+//            new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
+//                            .add(MBBlocks.PURPLE_HEATHER.getDefaultState(), 8)
+//                            .add(MBBlocks.RED_HEATHER.getDefaultState(), 5)
+//                            .add(MBBlocks.ORANGE_HEATHER.getDefaultState(), 6)
+//                            .add(MBBlocks.WHITE_HEATHER.getDefaultState(), 1)
+//                            .build())))));
 
     public static final List<OreFeatureConfig.Target> PERMAFROST = List.of(
             OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.GRASS_BLOCK), MBBlocks.PERMAFROST.getDefaultState()),
@@ -276,7 +293,7 @@ public class MBVegetationFeatures {
         MB_MEADOW_FLOWERS = ConfiguredFeatures.register("mb_meadow_flowers", Feature.FLOWER, new RandomPatchFeatureConfig(96, 6, 2,
                 PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new DualNoiseBlockStateProvider(new Range<>(1, 3),
                         new DoublePerlinNoiseSampler.NoiseParameters(-10, 1.0), 1.0f, 2345L,
-                        new DoublePerlinNoiseSampler.NoiseParameters(-3, 1.0), 1.0f,MB_MEADOW_FLOWER_LIST)
+                        new DoublePerlinNoiseSampler.NoiseParameters(-3, 1.0), 1.0f, MB_MEADOW_FLOWER_LIST)
                 ))
         ));
 

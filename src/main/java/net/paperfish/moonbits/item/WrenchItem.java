@@ -19,6 +19,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.paperfish.moonbits.MBSounds;
+import net.paperfish.moonbits.block.LatticeBlock;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
@@ -62,15 +63,30 @@ public class WrenchItem extends Item {
         if (collection.isEmpty()) {
             return false; // if there r no blockstates that wrenches can change
         }
-        if (block instanceof StairsBlock || block instanceof HopperBlock || block instanceof DispenserBlock ||
-                block instanceof ObserverBlock || block instanceof AbstractFurnaceBlock || block instanceof BeehiveBlock) { // if its stairs, rotate!
+        if (block instanceof StairsBlock || block instanceof TrapdoorBlock) { // if its stairs, rotate!
+            BlockState newState;
+            if (player.isSneaking()) {
+                newState = state.cycle(Properties.BLOCK_HALF);
+            }
+            else {
+                newState = block.rotate(state, BlockRotation.CLOCKWISE_90);
+            }
+            world.setBlockState(pos, newState, Block.NOTIFY_ALL);
+            return true;
+        }
+        if (block instanceof HopperBlock || block instanceof DispenserBlock ||
+                block instanceof ObserverBlock || block instanceof AbstractFurnaceBlock || block instanceof BeehiveBlock) { // rotate!
             BlockState newState = block.rotate(state, BlockRotation.CLOCKWISE_90);
             world.setBlockState(pos, newState, Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
             return true;
         }
-        if (block instanceof PistonBlock && !state.get(Properties.EXTENDED)) {
-
+        if ((block instanceof PistonBlock && !state.get(Properties.EXTENDED)) || block instanceof RodBlock) {
             BlockState newState = state.with(Properties.FACING, rotate(state.get(Properties.FACING)));
+            world.setBlockState(pos, newState, Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
+            return true;
+        }
+        if (block instanceof LatticeBlock) {
+            BlockState newState = (state.get(LatticeBlock.AXIS) == Axis.X) ? state.with(LatticeBlock.AXIS, Axis.Z) : state.with(LatticeBlock.AXIS, Axis.X);
             world.setBlockState(pos, newState, Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
             return true;
         }
@@ -91,7 +107,7 @@ public class WrenchItem extends Item {
             world.setBlockState(pos, newState, Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
             return true;
         }
-        if (block instanceof DoorBlock) { // if its a slab, flip!
+        if (block instanceof DoorBlock) { // if its a door, flip da hinge!
             switch (state.get(Properties.DOOR_HINGE)) {
                 case LEFT -> {
                     world.setBlockState(pos, state.with(Properties.DOOR_HINGE, DoorHinge.RIGHT), Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
@@ -119,7 +135,7 @@ public class WrenchItem extends Item {
     }
 
     private static <T extends Comparable<T>> BlockState cycle(BlockState state, Property<T> property, boolean inverse) {
-        return (BlockState)state.with(property, cycle(property.getValues(), state.get(property), inverse));
+        return state.with(property, cycle(property.getValues(), state.get(property), inverse));
     }
 
     private static <T> T cycle(Iterable<T> elements, @Nullable T current, boolean inverse) {

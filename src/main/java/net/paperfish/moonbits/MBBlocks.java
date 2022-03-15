@@ -962,7 +962,6 @@ public class MBBlocks {
 	public static final Block ENDER_PEARL_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).hardness(1f).sounds(BlockSoundGroup.COPPER));
 
 	public static void createBlock(String block_id, Block block, ItemGroup group) {
-		
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, block_id), block);
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, block_id), new BlockItem(block, new Item.Settings().group(group)));
 	}

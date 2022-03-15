@@ -47,12 +47,12 @@ public class FrosthornCrownBlock extends Block implements Fertilizable {
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (random.nextInt(16) == 0 && world.getBlockState(pos.up()).isAir()){
+        if (random.nextInt(12) == 0 && world.getBlockState(pos.up()).isAir()){
             if (world.getBlockState(pos.down()).isOf(MBBlocks.FROSTHORN_STEM)) {
                 world.setBlockState(pos.up(), MBBlocks.FROSTHORN_LEAVES.getDefaultState(), NOTIFY_LISTENERS);
             } else if (state.get(ATTACHED)) {
-                world.setBlockState(pos.up(), state.with(ATTACHED, true), NOTIFY_LISTENERS);
                 world.setBlockState(pos, MBBlocks.FROSTHORN_STEM.getDefaultState(), NOTIFY_LISTENERS);
+                world.setBlockState(pos.up(), state.with(ATTACHED, true), NOTIFY_LISTENERS);
             } else {
                 world.setBlockState(pos, state.with(ATTACHED, true), NOTIFY_LISTENERS);
             }
@@ -63,6 +63,9 @@ public class FrosthornCrownBlock extends Block implements Fertilizable {
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         BlockState floor = ctx.getWorld().getBlockState(ctx.getBlockPos().down());
+        if (floor.isOf(this)) {
+            ctx.getWorld().setBlockState(ctx.getBlockPos().down(), MBBlocks.FROSTHORN_STEM.getDefaultState());
+        }
         return floor.isOf(MBBlocks.FROSTHORN_STEM) ? getDefaultState().with(ATTACHED, true) : getDefaultState();
     }
 
