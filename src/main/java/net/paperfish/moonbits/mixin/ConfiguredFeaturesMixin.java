@@ -2,7 +2,7 @@ package net.paperfish.moonbits.mixin;
 
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.*;
-import net.paperfish.moonbits.world.feature.MBTreeFeatures;
+import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

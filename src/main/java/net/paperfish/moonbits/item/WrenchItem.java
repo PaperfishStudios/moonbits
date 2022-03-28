@@ -16,6 +16,7 @@ import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Direction.Axis;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.paperfish.moonbits.MBSounds;
@@ -74,7 +75,7 @@ public class WrenchItem extends Item {
             world.setBlockState(pos, newState, Block.NOTIFY_ALL);
             return true;
         }
-        if (block instanceof HopperBlock || block instanceof DispenserBlock ||
+        if (block instanceof HopperBlock || block instanceof DispenserBlock || block instanceof GlazedTerracottaBlock ||
                 block instanceof ObserverBlock || block instanceof AbstractFurnaceBlock || block instanceof BeehiveBlock) { // rotate!
             BlockState newState = block.rotate(state, BlockRotation.CLOCKWISE_90);
             world.setBlockState(pos, newState, Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);

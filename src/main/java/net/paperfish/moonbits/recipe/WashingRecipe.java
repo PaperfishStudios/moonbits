@@ -3,7 +3,6 @@ package net.paperfish.moonbits.recipe;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.block.Block;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -16,7 +15,6 @@ import net.paperfish.moonbits.MBData;
 import net.paperfish.moonbits.Moonbits;
 
 import javax.annotation.Nullable;
-import java.util.Optional;
 
 public class WashingRecipe implements Recipe<Inventory> {
     //public static final WashingSerializer SERIALIZER = registerSerializer(new WashingSerializer());
@@ -84,7 +82,7 @@ public class WashingRecipe implements Recipe<Inventory> {
         }
 
         public static final WashingSerializer INSTANCE = new WashingSerializer();
-        public static final Identifier ID = new Identifier(Moonbits.MOD_ID, "washing");
+        public static final Identifier ID = new Identifier(Moonbits.MODID, "washing");
 
         @Override
         public WashingRecipe read(Identifier recipeId, JsonObject json) {

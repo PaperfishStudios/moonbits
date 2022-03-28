@@ -41,9 +41,9 @@ public class MBSounds {
     }
 
     public static void register(String id, SoundEvent event) {
-        Registry.register(Registry.SOUND_EVENT, new Identifier(Moonbits.MOD_ID, id), event);
+        Registry.register(Registry.SOUND_EVENT, new Identifier(Moonbits.MODID, id), event);
     }
     public static SoundEvent register(String id) {
-        return Registry.register(Registry.SOUND_EVENT, new Identifier(Moonbits.MOD_ID, id), new SoundEvent(new Identifier(Moonbits.MOD_ID, id)));
+        return Registry.register(Registry.SOUND_EVENT, new Identifier(Moonbits.MODID, id), new SoundEvent(new Identifier(Moonbits.MODID, id)));
     }
 }

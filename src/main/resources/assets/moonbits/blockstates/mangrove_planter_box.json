@@ -1,0 +1,227 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "west": "true",
+        "north": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_outer",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "north": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_side",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "north": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_side_b",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "nw": "true",
+        "north": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_inner",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "nw": "false",
+        "north": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "north": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_outer",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "north": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_side",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "north": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_side_b",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "ne": "true",
+        "east": "false",
+        "north": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_inner",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "ne": "false",
+        "east": "false",
+        "north": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "south": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_outer",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "south": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_side",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "south": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_side_b",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "se": "true",
+        "east": "false",
+        "south": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_inner",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "se": "false",
+        "east": "false",
+        "south": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "south": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_outer",
+        "uvlock": true,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "south": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_side",
+        "uvlock": true,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "south": "true"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_side_b",
+        "uvlock": true,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "sw": "true",
+        "south": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box_inner",
+        "uvlock": true,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "west": "false",
+        "sw": "false",
+        "south": "false"
+      },
+      "apply": {
+        "model": "moonbits:block/mangrove_planter_box",
+        "uvlock": true,
+        "y": 270
+      }
+    }
+  ]
+}

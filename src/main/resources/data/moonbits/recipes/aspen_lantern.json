@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "lOl",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:aspen_slab"
+    },
+    "l": {
+      "item": "minecraft:paper"
+    },
+    "O": {
+      "item": "minecraft:torch"
+    }
+  },
+  "result": {
+    "item": "moonbits:aspen_lantern"
+  }
+}

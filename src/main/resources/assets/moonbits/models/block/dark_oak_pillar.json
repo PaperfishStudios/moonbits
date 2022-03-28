@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/carved_dark_oak_wood",
+    "end": "moonbits:block/dark_oak_pillar_top",
     "side": "moonbits:block/dark_oak_pillar"
   }
 }

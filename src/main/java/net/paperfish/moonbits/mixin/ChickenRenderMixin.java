@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ChickenEntityRenderer.class)
 public class ChickenRenderMixin {
-    private static final Identifier BABY_TEXTURE = new Identifier(Moonbits.MOD_ID, "textures/entity/baby_chick.png");
+    private static final Identifier BABY_TEXTURE = new Identifier(Moonbits.MODID, "textures/entity/baby_chick.png");
 
     @Inject(method = "getTexture*", at = @At("HEAD"), cancellable = true)
     public void onGetTexture(ChickenEntity chick, CallbackInfoReturnable<Identifier> cir) {

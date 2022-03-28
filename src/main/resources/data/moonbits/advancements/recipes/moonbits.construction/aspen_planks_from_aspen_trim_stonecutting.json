@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:aspen_planks_from_aspen_trim_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_aspen_trim": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:aspen_trim"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:aspen_planks_from_aspen_trim_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_aspen_trim",
+      "has_the_recipe"
+    ]
+  ]
+}

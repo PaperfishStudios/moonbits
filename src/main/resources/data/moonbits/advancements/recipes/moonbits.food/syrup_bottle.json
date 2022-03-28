@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:syrup_bottle"
+    ]
+  },
+  "criteria": {
+    "has_syrup_bottle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:syrup_bottle"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:syrup_bottle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_syrup_bottle",
+      "has_the_recipe"
+    ]
+  ]
+}

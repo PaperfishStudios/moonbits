@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:chert"
+          "name": "moonbits:cobbled_chert"
         }
       ],
       "conditions": [

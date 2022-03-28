@@ -215,6 +215,19 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.MUSHROOM_STEM,
                 MBBlocks.TOADSTOOL_SHELF,
 
+                MBBlocks.ASPEN_TRUNK,
+                MBBlocks.STRIPPED_ASPEN_TRUNK,
+                MBBlocks.ASPEN_PALISADE,
+                MBBlocks.STRIPPED_ASPEN_PALISADE,
+                MBBlocks.ASPEN_PLANKS,
+                MBBlocks.ASPEN_STAIRS,
+                MBBlocks.ASPEN_SLAB,
+                MBBlocks.ASPEN_WINDOW,
+                MBBlocks.ASPEN_LANTERN,
+                MBBlocks.ASPEN_SOUL_LANTERN,
+                MBBlocks.ASPEN_TRIM,
+                MBBlocks.ASPEN_LATTICE,
+
                 MBBlocks.FROSTHORN_CROWN,
                 MBBlocks.FROSTHORN_STEM,
 
@@ -267,9 +280,11 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CEDAR_LEAVES,
                 MBBlocks.GOLDEN_BIRCH_LEAVES,
                 MBBlocks.RED_OAK_LEAVES,
+                MBBlocks.ASPEN_LEAVES,
                 MBBlocks.FLOWERING_ACACIA_LEAVES,
                 MBBlocks.GOLDEN_BIRCH_LEAF_CARPET,
                 MBBlocks.RED_OAK_LEAF_CARPET,
+                MBBlocks.ASPEN_LEAF_CARPET,
 
                 MBBlocks.EGG_BASKET,
                 MBBlocks.COCOA_SACK,
@@ -287,6 +302,10 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(
                 MBBlocks.REGOLITH,
                 MBBlocks.IRON_LADDER,
+
+                MBBlocks.TREE_TAP,
+                MBBlocks.HONEY_CAULDRON,
+                MBBlocks.SYRUP_CAULDRON,
 
                 MBBlocks.RED_MUSH_LAMP,
                 MBBlocks.BROWN_MUSH_LAMP,
@@ -362,7 +381,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.COBBLED_ANDESITE,
                 MBBlocks.COBBLED_DIORITE,
                 MBBlocks.COBBLED_GRANITE,
-                MBBlocks.COBBLED_CHERT
+                MBBlocks.COBBLED_CHERT,
+                MBBlocks.TILL
         );
         this.getOrCreateTagBuilder(MBBlockTags.STONE).add(
                 Blocks.STONE,
@@ -371,6 +391,12 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 Blocks.GRANITE,
                 Blocks.DEEPSLATE,
                 MBBlocks.CHERT
+        );
+
+        this.getOrCreateTagBuilder(BlockTags.CLIMBABLE).add(
+                MBBlocks.ROPE_LADDER,
+                MBBlocks.IRON_LADDER,
+                MBBlocks.ASPEN_LATTICE
         );
 
         this.getOrCreateTagBuilder(MBBlockTags.JUNIPER_LOGS).add(
@@ -608,7 +634,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ).addTag(MBBlockTags.EDIBLE_MUSHROOMS);
 
         Registry.BLOCK.forEach(block -> {
-            if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MOD_ID)) {
+            if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MODID)) {
                 if (block instanceof MBStairsBlock && block.getDefaultState().getMaterial() != Material.WOOD) {
                     this.getOrCreateTagBuilder(BlockTags.STAIRS).add(block);
                 }

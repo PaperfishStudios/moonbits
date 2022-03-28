@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_side_alt",
+  "textures": {
+    "pane": "moonbits:block/aspen_window",
+    "edge": "moonbits:block/aspen_window_top"
+  }
+}

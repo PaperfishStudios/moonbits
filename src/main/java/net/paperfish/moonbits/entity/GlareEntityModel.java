@@ -7,16 +7,16 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class GlareEntityModel extends AnimatedGeoModel<GlareEntity> {
     @Override
     public Identifier getModelLocation(GlareEntity glare) {
-        return new Identifier(Moonbits.MOD_ID, "geo/entity/glare.geo.json");
+        return new Identifier(Moonbits.MODID, "geo/entity/glare.geo.json");
     }
 
     @Override
     public Identifier getTextureLocation(GlareEntity glare) {
-        return new Identifier(Moonbits.MOD_ID, "textures/entity/glare/glare.png");
+        return new Identifier(Moonbits.MODID, "textures/entity/glare/glare.png");
     }
 
     @Override
     public Identifier getAnimationFileLocation(GlareEntity glare) {
-        return new Identifier(Moonbits.MOD_ID, "animations/entity/glare.animation.json");
+        return new Identifier(Moonbits.MODID, "animations/entity/glare.animation.json");
     }
 }

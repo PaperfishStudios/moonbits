@@ -1,16 +1,16 @@
 {
   "replace": false,
   "values": [
-    "moonbits:potted_buttercup",
-    "moonbits:potted_forget_me_not",
-    "moonbits:potted_golden_birch_sapling",
-    "moonbits:potted_red_oak_sapling",
-    "moonbits:potted_aspen_sapling",
-    "moonbits:potted_puffballs",
-    "moonbits:potted_saffron_mushroom",
-    "moonbits:potted_small_toadstools",
     "moonbits:potted_juniper_sapling",
     "moonbits:potted_cedar_sapling",
-    "moonbits:potted_marigold"
+    "moonbits:potted_aspen_sapling",
+    "moonbits:potted_golden_birch_sapling",
+    "moonbits:potted_red_oak_sapling",
+    "moonbits:potted_buttercup",
+    "moonbits:potted_forget_me_not",
+    "moonbits:potted_marigold",
+    "moonbits:potted_puffballs",
+    "moonbits:potted_saffron_mushroom",
+    "moonbits:potted_small_toadstools"
   ]
 }

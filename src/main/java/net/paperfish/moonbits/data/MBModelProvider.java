@@ -2,10 +2,7 @@ package net.paperfish.moonbits.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockStateDefinitionProvider;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.enums.BedPart;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.block.enums.WallShape;
@@ -34,6 +31,7 @@ import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBItems;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
+import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
 import net.paperfish.moonbits.mixin.TextureKeyAccessor;
 import net.paperfish.moonbits.mixin.TexturedModelAccessor;
 import net.paperfish.moonbits.registry.MBBlockFamilies;
@@ -55,6 +53,17 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
     public static final Model BARS_POST_ENDS = block("bars/bars_post_ends", "_post_ends", TextureKey.SIDE, TextureKey.END);
     public static final Model BARS_SIDE = block("bars/bars_side", "_side", TextureKey.SIDE, TextureKey.END);
     public static final Model BARS_SIDE_ALT = block("bars/bars_side_alt", "_side_alt", TextureKey.SIDE, TextureKey.END);
+
+    public static final Model T_HONEY_CAULDRON_1 = block("cauldron/t_honey_cauldron_level1",
+            TextureKey.CONTENT, TextureKey.INSIDE, TextureKey.PARTICLE, TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE);
+    public static final Model T_HONEY_CAULDRON_2 = block("cauldron/t_honey_cauldron_level2",
+            TextureKey.CONTENT, TextureKey.INSIDE, TextureKey.PARTICLE, TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE);
+    public static final Model T_HONEY_CAULDRON_3 = block("cauldron/t_honey_cauldron_level3",
+            TextureKey.CONTENT, TextureKey.INSIDE, TextureKey.PARTICLE, TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE);
+
+    public static final TextureKey POST = TextureKeyAccessor.createTextureKey("post", TextureKey.SIDE);
+    public static final Model TRIM = block("template_trim", TextureKey.TOP, POST);
+    public static final Model TRIM_HANGING = block("template_trim_hanging", TextureKey.TOP, POST);
 
     public static final TexturedModel.Factory CUBE_BOTTOM_TOP = TexturedModelAccessor.callMakeFactory(MBModelProvider::sideTopBottom, Models.CUBE_BOTTOM_TOP);
     public static final TexturedModel.Factory CUBE_COLUMN = TexturedModelAccessor.callMakeFactory(MBModelProvider::sideEnd, Models.CUBE_COLUMN);
@@ -115,13 +124,21 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         MBBlockFamilies.getFamilies().filter(MBBlockFamily::shouldGenerateModels)
                 .forEach(family -> generateFamily(generator, family, this));
 
+        // TEMP
+        generator.registerSimpleCubeAll(MBBlocks.MANGROVE_BOARDS);
+        generator.registerSimpleCubeAll(MBBlocks.MANGROVE_PANEL);
+        generator.registerSimpleCubeAll(MBBlocks.CARVED_MANGROVE);
+        bookshelf(MBBlocks.MANGROVE_BOOKSHELF, Blocks.CRIMSON_PLANKS, generator);
+        planterBox(MBBlocks.MANGROVE_PLANTER_BOX, generator);
+        column(MBBlocks.MANGROVE_PILLAR, generator);
+
         // utility blocks :>
         generator.registerNorthDefaultHorizontalRotation(MBBlocks.ROPE_LADDER);
         generator.registerItemModel(MBBlocks.ROPE_LADDER);
         generator.registerNorthDefaultHorizontalRotation(MBBlocks.IRON_LADDER);
         generator.registerItemModel(MBBlocks.IRON_LADDER);
         generator.registerCooker(MBBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
-        generator.registerParentedItemModel(MBBlocks.KILN, new Identifier(Moonbits.MOD_ID, "block/kiln"));
+        generator.registerParentedItemModel(MBBlocks.KILN, new Identifier(Moonbits.MODID, "block/kiln"));
 
         seatBlock(MBBlocks.LEATHER_SEAT, generator);
         seatBlock(MBBlocks.WHITE_LEATHER_SEAT, generator);
@@ -143,16 +160,6 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
 
         generator.registerDoor(MBBlocks.GLASS_DOOR);
 
-        // trese
-//        generator.registerParentedItemModel(MBBlocks.BUDDING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/budding_oak_leaves"));
-//        generator.registerParentedItemModel(MBBlocks.FLOWERING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/flowering_oak_leaves"));
-//        generator.registerParentedItemModel(MBBlocks.FRUITING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/apple_oak_leaves"));
-//        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.BUDDING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/budding_oak_leaves")));
-//        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FLOWERING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/flowering_oak_leaves")));
-//        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FRUITING_OAK_LEAVES, new Identifier(Moonbits.MOD_ID, "block/apple_oak_leaves")));
-//        flowerPotPlant(MBBlocks.APPLE_OAK_SPROUT, MBBlocks.POTTED_APPLE_OAK_SPROUT, TintType.NOT_TINTED, generator, false);
-//        flowerPotPlant(MBBlocks.APPLE_OAK_SAPLING, MBBlocks.POTTED_APPLE_OAK_SAPLING, TintType.NOT_TINTED, generator);
-
         flowerPotPlant(MBBlocks.GOLDEN_BIRCH_SAPLING, MBBlocks.POTTED_GOLDEN_BIRCH_SAPLING, TintType.NOT_TINTED, generator);
         generator.registerSingleton(MBBlocks.GOLDEN_BIRCH_LEAVES, TexturedModel.LEAVES);
         leafCarpet(MBBlocks.GOLDEN_BIRCH_LEAVES, MBBlocks.GOLDEN_BIRCH_LEAF_CARPET, generator);
@@ -169,10 +176,33 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         thinLog(MBBlocks.STRIPPED_ASPEN_TRUNK, generator);
         palisade(MBBlocks.ASPEN_PALISADE, generator);
         palisade(MBBlocks.STRIPPED_ASPEN_PALISADE, generator);
-        generator.registerSimpleCubeAll(MBBlocks.ASPEN_PLANKS);
-        slab(MBBlocks.ASPEN_SLAB, MBBlocks.ASPEN_PLANKS, generator);
-        stairs(MBBlocks.ASPEN_STAIRS, MBBlocks.ASPEN_PLANKS, generator);
+        pane(MBBlocks.ASPEN_WINDOW, generator);
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.ASPEN_LANTERN)
+                .coordinate(BlockStateVariantMap.create(Properties.FACING)
+                        .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern")))
+                        .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_hanging")))
+                        .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall")))
+                        .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                        .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                        .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                ));
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.ASPEN_SOUL_LANTERN)
+                .coordinate(BlockStateVariantMap.create(Properties.FACING)
+                        .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern")))
+                        .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_hanging")))
+                        .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall")))
+                        .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                        .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                        .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
+                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                ));
         pane(MBBlocks.ASPEN_LATTICE, generator);
+        trim(MBBlocks.ASPEN_TRIM, generator);
 
         log(MBBlocks.JUNIPER_LOG, MBBlocks.JUNIPER_WOOD, generator);
         log(MBBlocks.STRIPPED_JUNIPER_LOG, MBBlocks.STRIPPED_JUNIPER_WOOD, generator);
@@ -194,6 +224,34 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         tintableCross(MBBlocks.SEA_BEETS, TintType.NOT_TINTED, generator);
 
         omniCross(MBBlocks.MYCELIUM_ROOTS, generator, true);
+
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.HONEY_CAULDRON)
+                .coordinate(BlockStateVariantMap.create(HoneyCauldronBlock.LEVEL)
+                        .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, T_HONEY_CAULDRON_1
+                                .upload(MBBlocks.HONEY_CAULDRON, "_level1", TextureMap.cauldron(TextureMap.getSubId(Blocks.HONEY_BLOCK, "_top")), generator.modelCollector)))
+                        .register(2, BlockStateVariant.create().put(VariantSettings.MODEL, T_HONEY_CAULDRON_2
+                                .upload(MBBlocks.HONEY_CAULDRON, "_level2", TextureMap.cauldron(TextureMap.getSubId(Blocks.HONEY_BLOCK, "_top")), generator.modelCollector)))
+                        .register(3, BlockStateVariant.create().put(VariantSettings.MODEL, T_HONEY_CAULDRON_3
+                                .upload(MBBlocks.HONEY_CAULDRON, "_level3", TextureMap.cauldron(TextureMap.getSubId(Blocks.HONEY_BLOCK, "_top")), generator.modelCollector)))
+                        .register(4, BlockStateVariant.create().put(VariantSettings.MODEL, Models.TEMPLATE_CAULDRON_FULL
+                                .upload(MBBlocks.HONEY_CAULDRON, "_full", TextureMap.cauldron(TextureMap.getSubId(Blocks.HONEY_BLOCK, "_top")), generator.modelCollector)))));
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.SYRUP_CAULDRON)
+                .coordinate(BlockStateVariantMap.create(HoneyCauldronBlock.LEVEL)
+                        .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, T_HONEY_CAULDRON_1
+                                .upload(MBBlocks.SYRUP_CAULDRON, "_level1", TextureMap.cauldron(TextureMap.getId(MBBlocks.SYRUP_BLOCK)), generator.modelCollector)))
+                        .register(2, BlockStateVariant.create().put(VariantSettings.MODEL, T_HONEY_CAULDRON_2
+                                .upload(MBBlocks.SYRUP_CAULDRON, "_level2", TextureMap.cauldron(TextureMap.getId(MBBlocks.SYRUP_BLOCK)), generator.modelCollector)))
+                        .register(3, BlockStateVariant.create().put(VariantSettings.MODEL, T_HONEY_CAULDRON_3
+                                .upload(MBBlocks.SYRUP_CAULDRON, "_level3", TextureMap.cauldron(TextureMap.getId(MBBlocks.SYRUP_BLOCK)), generator.modelCollector)))
+                        .register(4, BlockStateVariant.create().put(VariantSettings.MODEL, Models.TEMPLATE_CAULDRON_FULL
+                                .upload(MBBlocks.SYRUP_CAULDRON, "_full", TextureMap.cauldron(TextureMap.getId(MBBlocks.SYRUP_BLOCK)), generator.modelCollector)))));
+
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TREE_TAP,
+                BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap")))
+                .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+
+        generator.registerSimpleCubeAll(MBBlocks.SYRUP_BLOCK);
+
 
         generator.registerCrop(MBBlocks.LETTUCE_CROP, Properties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
         generator.registerSingleton(MBBlocks.LETTUCE_BLOCK, CUBE_BOTTOM_TOP);
@@ -281,8 +339,6 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         flowerPotPlant(MBBlocks.SAFFRON_MUSHROOM, MBBlocks.POTTED_SAFFRON_MUSHROOM, TintType.NOT_TINTED, generator);
         flowerPotPlant(MBBlocks.SMALL_TOADSTOOLS, MBBlocks.POTTED_SMALL_TOADSTOOLS, TintType.NOT_TINTED, generator);
         toadstool(generator);
-//        generator.registerSimpleCubeAll(MBBlocks.RED_MUSH_BRICKS);
-//        generator.registerSimpleCubeAll(MBBlocks.BROWN_MUSH_BRICKS);
 
         redBrownMushrooms(generator);
         generator.registerMushroomBlock(MBBlocks.SAFFRON_MUSHROOM_CAP);
@@ -356,39 +412,13 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerAxisRotated(MBBlocks.BONE_BUNDLE, CUBE_COLUMN);
         generator.registerSimpleCubeAll(MBBlocks.SPIDER_EYE_BLOCK);
         generator.registerSimpleCubeAll(MBBlocks.PHANTOM_MEMBRANE_BLOCK);
-        //generator.registerAxisRotated(MBBlocks.BLAZE_ROD, ModelIds.getBlockModelId(Blocks.CHAIN));
+
         generator.registerAxisRotated(MBBlocks.BLAZE_ROD_BUNDLE, CUBE_COLUMN);
         generator.registerSimpleCubeAll(MBBlocks.ENDER_PEARL_BLOCK);
-
-        generator.registerSimpleCubeAll(MBBlocks.QUARTZ_SHARD_BLOCK);
-        generator.registerSimpleCubeAll(MBBlocks.AMETHYST_SHARD_BLOCK);
 
         blazeRod(generator);
         wallLantern(MBBlocks.WALL_LANTERN, Blocks.LANTERN, generator);
         wallLantern(MBBlocks.WALL_SOUL_LANTERN, Blocks.SOUL_LANTERN, generator);
-
-        // GENERATING BLOCKSTATES FOR VANILLA PLANTS WITH THE SNOW LAYER ADDITION
-//        vanillaPlantSnowy(Blocks.GRASS, generator);
-//        vanillaPlantSnowy(Blocks.FERN, generator);
-//
-//        vanillaPlantSnowy(Blocks.DANDELION, generator);
-//        vanillaPlantSnowy(Blocks.POPPY, generator);
-//        vanillaPlantSnowy(Blocks.BLUE_ORCHID, generator);
-//        vanillaPlantSnowy(Blocks.ALLIUM, generator);
-//        vanillaPlantSnowy(Blocks.AZURE_BLUET, generator);
-//        vanillaPlantSnowy(Blocks.RED_TULIP, generator);
-//        vanillaPlantSnowy(Blocks.ORANGE_TULIP, generator);
-//        vanillaPlantSnowy(Blocks.WHITE_TULIP, generator);
-//        vanillaPlantSnowy(Blocks.PINK_TULIP, generator);
-//        vanillaPlantSnowy(Blocks.OXEYE_DAISY, generator);
-//        vanillaPlantSnowy(Blocks.CORNFLOWER, generator);
-//        vanillaPlantSnowy(Blocks.LILY_OF_THE_VALLEY, generator);
-//        vanillaPlantSnowy(Blocks.WITHER_ROSE, generator);
-//
-//        vanillaPlantSnowy(Blocks.RED_MUSHROOM, generator);
-//        vanillaPlantSnowy(Blocks.BROWN_MUSHROOM, generator);
-//
-//        vanillaPlantSnowy(Blocks.DEAD_BUSH, generator);
 
 
         for (Item mbItem : MBItems.MB_EGGS) {
@@ -400,8 +430,6 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
     public void generateItemModels(ItemModelGenerator generator) {
         generator.register(MBItems.SWEET_BERRY_PITS.asItem(), Models.GENERATED);
         generator.register(MBItems.GLOW_BERRY_PITS.asItem(), Models.GENERATED);
-        //generator.register(MBBlocks.BEDROLL.asItem(), Models.GENERATED);
-        //generator.register(MBBlocks.PEBBLES.asItem(), Models.GENERATED);
 
         for (Item mbItem : MBItems.MB_ITEMS) {
             generator.register(mbItem, Models.GENERATED);
@@ -413,7 +441,7 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
 
     public static void generateFamily(BlockStateModelGenerator generator, MBBlockFamily family, MBModelProvider self) {
         Block base = family.getBaseBlock();
-        if (Objects.equals(Registry.BLOCK.getId(base).getNamespace(), Moonbits.MOD_ID) && !self.generatedBlocks.contains(base)) {
+        if (Objects.equals(Registry.BLOCK.getId(base).getNamespace(), Moonbits.MODID) && !self.generatedBlocks.contains(base)) {
             if (base == MBBlocks.TILL) {
                 snowyBlock(base, generator);
             }
@@ -424,17 +452,17 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         self.generatedBlocks.add(family.getBaseBlock());
 
         family.getVariants().forEach((variant, block) -> {
-            if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MOD_ID) && !self.generatedBlocks.contains(block)) { // should hopefully only make the model/blockstates if its a new block..?
+            if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MODID) && !self.generatedBlocks.contains(block)) { // should hopefully only make the model/blockstates if its a new block..?
                 self.generatedBlocks.add(block); // this is the worst thing i have ever done but lets see if it works :b
                 if (variant == MBBlockFamily.Variant.PILLAR) {
                     generator.registerAxisRotated(block, CUBE_COLUMN);
                 }
                 else if (variant == MBBlockFamily.Variant.COLUMN) {
                     if (block == MBBlocks.SPRUCE_PILLAR) {
-                        columnHori(block, family.getVariant(MBBlockFamily.Variant.CARVED), generator);
+                        columnHori(block, generator);
                     }
                     else {
-                        column(block, family.getVariant(MBBlockFamily.Variant.CARVED), generator);
+                        column(block, generator);
                     }
                 }
                 else if (variant == MBBlockFamily.Variant.CUT) {
@@ -512,7 +540,7 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
             }
         });
         family.cuttable.forEach(block -> {
-            if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MOD_ID) && !self.generatedBlocks.contains(block)) {
+            if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MODID) && !self.generatedBlocks.contains(block)) {
                 self.generatedBlocks.add(block);
                 generator.registerSimpleCubeAll(block);
             }
@@ -540,87 +568,87 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
     public static void pebbles(BlockStateModelGenerator generator) {
         generator.registerItemModel(MBBlocks.PEBBLES.asItem());
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.PEBBLES).coordinate(BlockStateVariantMap.create(PebbleBlock.PEBBLES)
-                .register(1, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/pebble"))))
-                .register(2, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/two_pebbles"))))
-                .register(3, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/three_pebbles"))))
-                .register(4, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/four_pebbles"))))
+                .register(1, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/pebble"))))
+                .register(2, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/two_pebbles"))))
+                .register(3, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/three_pebbles"))))
+                .register(4, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/four_pebbles"))))
         ));
     }
     public static void barrelCactus(BlockStateModelGenerator generator) {
         generator.excludeFromSimpleItemModelGeneration(MBBlocks.BARREL_CACTUS);
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.BARREL_CACTUS).coordinate(BlockStateVariantMap.create(BarrelCactusBlock.LEVEL)
-                .register(1, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/barrel_cactus_tiny"))))
-                .register(2, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/barrel_cactus_small"))))
-                .register(3, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/barrel_cactus_medium"))))
-                .register(4, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MOD_ID, "block/barrel_cactus_large"))))
+                .register(1, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/barrel_cactus_tiny"))))
+                .register(2, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/barrel_cactus_small"))))
+                .register(3, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/barrel_cactus_medium"))))
+                .register(4, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/barrel_cactus_large"))))
         ));
     }
     public static void blazeRod(BlockStateModelGenerator generator) {
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.BLAZE_ROD).coordinate(BlockStateVariantMap.create(Properties.FACING)
-                .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/blaze_rod")))
-                .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/blaze_rod")))
-                .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/blaze_rod")).put(VariantSettings.X, VariantSettings.Rotation.R90))
-                .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/blaze_rod")).put(VariantSettings.X, VariantSettings.Rotation.R90))
-                .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/blaze_rod"))
+                .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/blaze_rod")))
+                .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/blaze_rod")))
+                .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/blaze_rod")).put(VariantSettings.X, VariantSettings.Rotation.R90))
+                .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/blaze_rod")).put(VariantSettings.X, VariantSettings.Rotation.R90))
+                .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/blaze_rod"))
                         .put(VariantSettings.X, VariantSettings.Rotation.R90).put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/blaze_rod"))
+                .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/blaze_rod"))
                         .put(VariantSettings.X, VariantSettings.Rotation.R90).put(VariantSettings.Y, VariantSettings.Rotation.R90))
         ));
     }
     public static void toadstool(BlockStateModelGenerator generator) {
-        generator.registerParentedItemModel(MBBlocks.TOADSTOOL.asItem(), new Identifier(Moonbits.MOD_ID, "block/toadstool_cap"));
+        generator.registerParentedItemModel(MBBlocks.TOADSTOOL.asItem(), new Identifier(Moonbits.MODID, "block/toadstool_cap"));
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TOADSTOOL).coordinate(BlockStateVariantMap.create(ToadstoolBlock.CAP)
-                .register(true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/toadstool_cap")))
-                .register(false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/toadstool_stem")))
+                .register(true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_cap")))
+                .register(false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_stem")))
         ));
-        generator.registerParentedItemModel(MBBlocks.TOADSTOOL_SHELF.asItem(), new Identifier(Moonbits.MOD_ID, "block/toadstool_shelf"));
+        generator.registerParentedItemModel(MBBlocks.TOADSTOOL_SHELF.asItem(), new Identifier(Moonbits.MODID, "block/toadstool_shelf"));
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TOADSTOOL_SHELF).coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.ATTACHED)
-                .register(Direction.NORTH, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/toadstool_shelf")))
-                .register(Direction.SOUTH, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/toadstool_shelf"))
+                .register(Direction.NORTH, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf")))
+                .register(Direction.SOUTH, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf"))
                         .put(VariantSettings.Y, VariantSettings.Rotation.R180).put(VariantSettings.UVLOCK, true))
-                .register(Direction.EAST, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/toadstool_shelf"))
+                .register(Direction.EAST, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf"))
                         .put(VariantSettings.Y, VariantSettings.Rotation.R90).put(VariantSettings.UVLOCK, true))
-                .register(Direction.WEST, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/toadstool_shelf"))
+                .register(Direction.WEST, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf"))
                         .put(VariantSettings.Y, VariantSettings.Rotation.R270).put(VariantSettings.UVLOCK, true))
-                .register(Direction.NORTH, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/toadstool_shelf_detached")))
-                .register(Direction.SOUTH, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/toadstool_shelf_detached")))
-                .register(Direction.EAST, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/toadstool_shelf_detached")))
-                .register(Direction.WEST, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/toadstool_shelf_detached")))
+                .register(Direction.NORTH, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf_detached")))
+                .register(Direction.SOUTH, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf_detached")))
+                .register(Direction.EAST, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf_detached")))
+                .register(Direction.WEST, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf_detached")))
         ));
     }
     public static void lamproot(BlockStateModelGenerator generator) {
         generator.registerItemModel(MBBlocks.LAMPROOT.asItem());
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.LAMPROOT).coordinate(BlockStateVariantMap.create(Properties.FACING)
-                .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/lamproot")))
-                .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/lamproot")))
-                .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/lamproot_horizontal")).put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/lamproot_horizontal")))
-                .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/lamproot_horizontal")).put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/lamproot_horizontal")).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/lamproot")))
+                .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/lamproot")))
+                .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/lamproot_horizontal")).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/lamproot_horizontal")))
+                .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/lamproot_horizontal")).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/lamproot_horizontal")).put(VariantSettings.Y, VariantSettings.Rotation.R90))
         ));
     }
     public static void gills(BlockStateModelGenerator generator) {
         generator.registerItemModel(MBBlocks.SAFFRON_GILLS);
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.SAFFRON_GILLS).coordinate(BlockStateVariantMap.create(Properties.FACING)
-                .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/saffron_gills")))
-                .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/saffron_gills")))
-                .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/saffron_gills_wall")))
-                .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/saffron_gills_wall")).put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/saffron_gills_wall")).put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/saffron_gills_wall")).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+                .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/saffron_gills")))
+                .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/saffron_gills")))
+                .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/saffron_gills_wall")))
+                .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/saffron_gills_wall")).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+                .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/saffron_gills_wall")).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/saffron_gills_wall")).put(VariantSettings.Y, VariantSettings.Rotation.R270))
         ));
     }
     public static void frosthorn(BlockStateModelGenerator generator) {
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.FROSTHORN_CROWN).coordinate(BlockStateVariantMap.create(Properties.ATTACHED)
-                .register(false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/frosthorn_crown")))
-                .register(true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/frosthorn_crown_stem")))
+                .register(false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/frosthorn_crown")))
+                .register(true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/frosthorn_crown_stem")))
         ));
-        generator.registerParentedItemModel(MBBlocks.FROSTHORN_CROWN, new Identifier(Moonbits.MOD_ID, "block/frosthorn_crown"));
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FROSTHORN_STEM, new Identifier(Moonbits.MOD_ID, "block/frosthorn_stem")));
-        generator.registerParentedItemModel(MBBlocks.FROSTHORN_STEM, new Identifier(Moonbits.MOD_ID, "block/frosthorn_stem"));
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FROSTHORN_LEAVES, new Identifier(Moonbits.MOD_ID, "block/frosthorn_leaves")));
+        generator.registerParentedItemModel(MBBlocks.FROSTHORN_CROWN, new Identifier(Moonbits.MODID, "block/frosthorn_crown"));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FROSTHORN_STEM, new Identifier(Moonbits.MODID, "block/frosthorn_stem")));
+        generator.registerParentedItemModel(MBBlocks.FROSTHORN_STEM, new Identifier(Moonbits.MODID, "block/frosthorn_stem"));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FROSTHORN_LEAVES, new Identifier(Moonbits.MODID, "block/frosthorn_leaves")));
         generator.registerItemModel(MBBlocks.FROSTHORN_LEAVES);
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FROSTHORN_FRUIT, new Identifier(Moonbits.MOD_ID, "block/frosthorn_fruit")));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FROSTHORN_FRUIT, new Identifier(Moonbits.MODID, "block/frosthorn_fruit")));
         generator.registerItemModel(MBBlocks.FROSTHORN_FRUIT.asItem());
     }
     public static void cubeTopBottomSpec(Block block, Block bottom, BlockStateModelGenerator generator) {
@@ -634,10 +662,10 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         Identifier id = TexturedModel.CUBE_ALL.upload(block, "_inventory", generator.modelCollector);
         generator.registerParentedItemModel(block, id);
 
-        Identifier connected = new Identifier(Moonbits.MOD_ID, "block/" + Registry.BLOCK.getId(block).getPath());
-        Identifier single = new Identifier(Moonbits.MOD_ID, "block/" + Registry.BLOCK.getId(block).getPath() + "_single");
+        Identifier connected = new Identifier(Moonbits.MODID, "block/" + Registry.BLOCK.getId(block).getPath());
+        Identifier single = new Identifier(Moonbits.MODID, "block/" + Registry.BLOCK.getId(block).getPath() + "_single");
 
-        Identifier identifier = Models.TEMPLATE_SINGLE_FACE.upload(block, "_top", TextureMap.texture(new Identifier(Moonbits.MOD_ID, "block/cut_chert_top")), generator.modelCollector);
+        Identifier identifier = Models.TEMPLATE_SINGLE_FACE.upload(block, "_top", TextureMap.texture(new Identifier(Moonbits.MODID, "block/cut_chert_top")), generator.modelCollector);
 
         generator.blockStateCollector.accept(MultipartBlockStateSupplier.create(block)
                 .with(BlockStateVariant.create().put(VariantSettings.MODEL, identifier)
@@ -664,32 +692,32 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
     public static void bedroll(BlockStateModelGenerator generator) {
         generator.registerItemModel(MBBlocks.BEDROLL.asItem());
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.BEDROLL).coordinate(BlockStateVariantMap.create(Properties.BED_PART, Properties.HORIZONTAL_FACING)
-                .register(BedPart.HEAD, Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/bedroll_head")))
-                .register(BedPart.HEAD, Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/bedroll_head"))
+                .register(BedPart.HEAD, Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/bedroll_head")))
+                .register(BedPart.HEAD, Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/bedroll_head"))
                         .put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                .register(BedPart.HEAD, Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/bedroll_head"))
+                .register(BedPart.HEAD, Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/bedroll_head"))
                         .put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                .register(BedPart.HEAD, Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/bedroll_head"))
+                .register(BedPart.HEAD, Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/bedroll_head"))
                         .put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                .register(BedPart.FOOT, Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/bedroll_foot")))
-                .register(BedPart.FOOT, Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/bedroll_foot"))
+                .register(BedPart.FOOT, Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/bedroll_foot")))
+                .register(BedPart.FOOT, Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/bedroll_foot"))
                         .put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                .register(BedPart.FOOT, Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/bedroll_foot"))
+                .register(BedPart.FOOT, Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/bedroll_foot"))
                         .put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                .register(BedPart.FOOT, Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/bedroll_foot"))
+                .register(BedPart.FOOT, Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/bedroll_foot"))
                         .put(VariantSettings.Y, VariantSettings.Rotation.R90))
         ));
     }
     public static void floweringAcacia(BlockStateModelGenerator generator) {
-        generator.registerParentedItemModel(MBBlocks.FLOWERING_ACACIA_LEAVES, new Identifier(Moonbits.MOD_ID, "block/flowering_acacia_leaves"));
+        generator.registerParentedItemModel(MBBlocks.FLOWERING_ACACIA_LEAVES, new Identifier(Moonbits.MODID, "block/flowering_acacia_leaves"));
         generator.registerItemModel(MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES);
         generator.registerItemModel(MBBlocks.TALL_FLOWERING_ACACIA_LEAVES);
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FLOWERING_ACACIA_LEAVES, new Identifier(Moonbits.MOD_ID, "block/flowering_acacia_leaves")));
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES, new Identifier(Moonbits.MOD_ID, "block/hanging_flowering_acacia_leaves")));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FLOWERING_ACACIA_LEAVES, new Identifier(Moonbits.MODID, "block/flowering_acacia_leaves")));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES, new Identifier(Moonbits.MODID, "block/hanging_flowering_acacia_leaves")));
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TALL_FLOWERING_ACACIA_LEAVES)
                 .coordinate(BlockStateVariantMap.create(Properties.DOUBLE_BLOCK_HALF)
-                        .register(DoubleBlockHalf.LOWER, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/tall_flowering_acacia_leaves_bottom")))
-                        .register(DoubleBlockHalf.UPPER, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MOD_ID, "block/tall_flowering_acacia_leaves_top")))));
+                        .register(DoubleBlockHalf.LOWER, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tall_flowering_acacia_leaves_bottom")))
+                        .register(DoubleBlockHalf.UPPER, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tall_flowering_acacia_leaves_top")))));
 
     }
     public final void redBrownMushrooms(BlockStateModelGenerator generator) {
@@ -876,7 +904,7 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         TextureMap texture = TextureMap.cross(block);
         Identifier identifier = Models.CROSS.upload(block, texture, generator.modelCollector);
         Identifier identifier2 = Models.CORAL_WALL_FAN.upload(block, "_wall", TextureMap.of(TextureKey.FAN,
-                new Identifier(Moonbits.MOD_ID, "block/" + Registry.BLOCK.getId(block).getPath() + "_wall")), generator.modelCollector);
+                new Identifier(Moonbits.MODID, "block/" + Registry.BLOCK.getId(block).getPath() + "_wall")), generator.modelCollector);
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(block).coordinate(BlockStateVariantMap.create(Properties.FACING)
                 .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
                 .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, identifier).put(VariantSettings.X, VariantSettings.Rotation.R180))
@@ -933,9 +961,10 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
 
     public void pane(Block block, BlockStateModelGenerator generator) {
         TextureMap textureMap = TextureMap.paneAndTopForEdge(block, block);
+        TextureMap textureMap2 = TextureMap.paneAndTopForEdge(block, block).put(TextureKey.EDGE, TextureMap.getSubId(block, "_top_a"));
         Identifier identifier = Models.TEMPLATE_GLASS_PANE_POST.upload(block, textureMap, generator.modelCollector);
         Identifier identifier2 = Models.TEMPLATE_GLASS_PANE_SIDE.upload(block, textureMap, generator.modelCollector);
-        Identifier identifier3 = Models.TEMPLATE_GLASS_PANE_SIDE_ALT.upload(block, textureMap, generator.modelCollector);
+        Identifier identifier3 = Models.TEMPLATE_GLASS_PANE_SIDE_ALT.upload(block, block instanceof LatticeBlock ? textureMap2 : textureMap, generator.modelCollector);
         Identifier identifier4 = Models.TEMPLATE_GLASS_PANE_NOSIDE.upload(block, textureMap, generator.modelCollector);
         Identifier identifier5 = Models.TEMPLATE_GLASS_PANE_NOSIDE_ALT.upload(block, textureMap, generator.modelCollector);
         Item item = block.asItem();
@@ -959,20 +988,20 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerDoubleBlock(doubleBlock, identifier, identifier2);
     }
 
-    private static void column(Block column, Block end, BlockStateModelGenerator generator) {
-        TextureMap texture = TextureMap.sideEnd(TextureMap.getId(column), TextureMap.getId(end));
-        Identifier identifier = Models.CUBE_COLUMN.upload(column, texture, generator.modelCollector);
-        Identifier identifier2 = Models.CUBE_COLUMN_HORIZONTAL.upload(column, texture, generator.modelCollector);
+    private static void column(Block block, BlockStateModelGenerator generator) {
+        TextureMap texture = TextureMap.sideEnd(TextureMap.getId(block), TextureMap.getSubId(block, "_top"));
+        Identifier identifier = Models.CUBE_COLUMN.upload(block, texture, generator.modelCollector);
+        Identifier identifier2 = Models.CUBE_COLUMN_HORIZONTAL.upload(block, texture, generator.modelCollector);
 
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createAxisRotatedBlockState(column, identifier, identifier2));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createAxisRotatedBlockState(block, identifier, identifier2));
     }
-    private static void columnHori(Block column, Block end, BlockStateModelGenerator generator) {
-        TextureMap texture = TextureMap.sideEnd(TextureMap.getId(column), TextureMap.getId(end));
-        TextureMap texture2 = column(column, end);
-        Identifier identifier = Models.CUBE_COLUMN.upload(column, texture, generator.modelCollector);
-        Identifier identifier2 = Models.CUBE_COLUMN_HORIZONTAL.upload(column, texture2, generator.modelCollector);
+    private static void columnHori(Block block, BlockStateModelGenerator generator) {
+        TextureMap texture = TextureMap.sideEnd(TextureMap.getId(block), TextureMap.getSubId(block, "_top"));
+        TextureMap texture2 = new TextureMap().put(TextureKey.SIDE, TextureMap.getSubId(block, "_side")).put(TextureKey.END, TextureMap.getSubId(block, "_side_top"));
+        Identifier identifier = Models.CUBE_COLUMN.upload(block, texture, generator.modelCollector);
+        Identifier identifier2 = Models.CUBE_COLUMN_HORIZONTAL.upload(block, texture2, generator.modelCollector);
 
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createAxisRotatedBlockState(column, identifier, identifier2));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createAxisRotatedBlockState(block, identifier, identifier2));
     }
 
     private static void sideEnd(Block block, BlockStateModelGenerator generator) {
@@ -1009,6 +1038,18 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         Identifier identifier2 = Models.STAIRS.upload(stairs, texturedModel.getTextures(), generator.modelCollector);
         Identifier identifier3 = Models.OUTER_STAIRS.upload(stairs, texturedModel.getTextures(), generator.modelCollector);
         generator.blockStateCollector.accept(BlockStateModelGenerator.createStairsBlockState(stairs, identifier, identifier2, identifier3));
+    }
+
+    public static void trim(Block trim, BlockStateModelGenerator generator) {
+        TextureMap texture = new TextureMap().put(TextureKey.TOP, TextureMap.getId(trim)).put(POST, TextureMap.getSubId(trim, "_post"));
+        Identifier id = TRIM.upload(trim, texture, generator.modelCollector);
+        Identifier id2 = TRIM_HANGING.upload(trim, "_hanging", texture, generator.modelCollector);
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(trim, BlockStateVariant.create())
+                .coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_AXIS, Properties.ATTACHED)
+                        .register(Direction.Axis.X, true, BlockStateVariant.create().put(VariantSettings.MODEL, id))
+                        .register(Direction.Axis.Z, true, BlockStateVariant.create().put(VariantSettings.MODEL, id).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                        .register(Direction.Axis.X, false, BlockStateVariant.create().put(VariantSettings.MODEL, id2))
+                        .register(Direction.Axis.Z, false, BlockStateVariant.create().put(VariantSettings.MODEL, id2).put(VariantSettings.Y, VariantSettings.Rotation.R90))));
     }
 
     private static void tintedBlock(Block block, BlockStateModelGenerator generator) {
@@ -1073,12 +1114,12 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
     }
     public static void smoothStoneWall(Block wallBlock, Block base, BlockStateModelGenerator generator) {
         String a = Registry.BLOCK.getId(base).getPath();
-        Identifier identifier = new Identifier(Moonbits.MOD_ID, "block/" + a + "_wall_post");
-        Identifier identifier2 = new Identifier(Moonbits.MOD_ID, "block/" + a + "_wall_side");
-        Identifier identifierB = new Identifier(Moonbits.MOD_ID, "block/" + a + "_wall_side_b");
-        Identifier identifier3 = new Identifier(Moonbits.MOD_ID, "block/" + a + "_wall_side_tall");
+        Identifier identifier = new Identifier(Moonbits.MODID, "block/" + a + "_wall_post");
+        Identifier identifier2 = new Identifier(Moonbits.MODID, "block/" + a + "_wall_side");
+        Identifier identifierB = new Identifier(Moonbits.MODID, "block/" + a + "_wall_side_b");
+        Identifier identifier3 = new Identifier(Moonbits.MODID, "block/" + a + "_wall_side_tall");
         generator.blockStateCollector.accept(smoothStoneWallBlockState(wallBlock, identifier, identifier2, identifierB, identifier3));
-        Identifier identifier4 = new Identifier(Moonbits.MOD_ID, "block/" + a + "_wall_inventory");
+        Identifier identifier4 = new Identifier(Moonbits.MODID, "block/" + a + "_wall_inventory");
         generator.registerParentedItemModel(wallBlock, identifier4);
     }
     public static BlockStateSupplier smoothStoneWallBlockState(Block wallBlock, Identifier postModelId, Identifier lowSideModelId, Identifier lowSideModelIdB, Identifier tallSideModelId) {

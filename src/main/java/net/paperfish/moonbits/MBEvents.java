@@ -7,23 +7,19 @@ import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.passive.StriderEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.function.LootFunctionTypes;
 import net.minecraft.loot.function.LootingEnchantLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.loot.provider.number.LootNumberProviderTypes;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -33,10 +29,7 @@ import net.paperfish.moonbits.mixin.PigSaddleAccess;
 import net.paperfish.moonbits.mixin.StriderSaddleAccess;
 import net.paperfish.moonbits.recipe.WashingHandler;
 
-import javax.swing.*;
 import java.util.Random;
-
-import static java.lang.Character.toUpperCase;
 
 public class MBEvents {
 

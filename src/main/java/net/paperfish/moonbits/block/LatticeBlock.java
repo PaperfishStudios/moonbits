@@ -61,8 +61,8 @@ public class LatticeBlock extends PaneBlock {
 //        }
 
         if (pane.get(NORTH) != pane.get(SOUTH) && pane.get(EAST) != pane.get(WEST) ||
-                (axis == Direction.Axis.X && pane.get(NORTH) != pane.get(SOUTH)) ||
-                (axis == Direction.Axis.Z && pane.get(EAST) != pane.get(WEST))) {
+                (axis == Direction.Axis.X && pane.get(EAST) != pane.get(WEST)) ||
+                (axis == Direction.Axis.Z && pane.get(NORTH) != pane.get(SOUTH))) {
             return pane.with(AXIS, axis); // if it is a corner piece or a T-section, dont force the axis stuff
         }
 
@@ -90,8 +90,8 @@ public class LatticeBlock extends PaneBlock {
                     .with(EAST, eastBlock.getBlock() instanceof LatticeBlock);
 
             if ((result.get(NORTH) != result.get(SOUTH) && result.get(EAST) != result.get(WEST)) ||
-                    (state.get(AXIS) == Direction.Axis.X && result.get(NORTH) != result.get(SOUTH)) ||
-                    (state.get(AXIS) == Direction.Axis.Z && result.get(EAST) != result.get(WEST))) {
+                    (state.get(AXIS) == Direction.Axis.X && result.get(EAST) != result.get(WEST)) ||
+                    (state.get(AXIS) == Direction.Axis.Z && result.get(NORTH) != result.get(SOUTH))) {
                 return result; // if it is a corner piece or a T-section, dont bother with the axis locker thingy
             }
 

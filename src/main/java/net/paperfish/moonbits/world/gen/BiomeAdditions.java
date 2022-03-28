@@ -12,15 +12,13 @@ import net.minecraft.world.gen.feature.MiscPlacedFeatures;
 import net.minecraft.world.gen.feature.OrePlacedFeatures;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.paperfish.moonbits.Moonbits;
-import net.paperfish.moonbits.world.feature.MBPlacedCaveFeatures;
-import net.paperfish.moonbits.world.feature.MBPlacedVegFeatures;
 
 @SuppressWarnings("OptionalGetWithoutIsPresent")
 public class BiomeAdditions {
     public static void registerFeatures() {
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_REGOLITH.getKey().get());
 
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_deposits"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_deposits"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.foundInOverworld(), (c) -> {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_PEAT.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT.getKey().get());
@@ -28,7 +26,7 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_GOLD_DEPOSIT.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_COPPER_DEPOSIT.getKey().get());
                 });
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_dirt_cave"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_dirt_cave"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.categories(
                         Biome.Category.PLAINS,
                         Biome.Category.SAVANNA,
@@ -45,7 +43,7 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, MBPlacedCaveFeatures.CAVEBLOOMS.getKey().get());
                 });
 
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_forests"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_forests"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.tag(BiomeTags.IS_FOREST), (c) -> {
                     c.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MiscPlacedFeatures.FOREST_ROCK.value());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.PEBBLES.getKey().get());
@@ -53,7 +51,7 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.FALLEN_OAK.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_POTATO_PATCH.getKey().get());
                 });
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_taigas"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_taigas"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.tag(BiomeTags.IS_TAIGA), (c) -> {
                     //  c.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MiscPlacedFeatures.FOREST_ROCK.value());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.COARSE_DIRT_PATCH.getKey().get());
@@ -62,7 +60,7 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_POTATO_PATCH.getKey().get());
                 });
 
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_desert"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_desert"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.DESERT), (c) -> {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.CHERT_COAL_LOWER.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.CHERT_GOLD_EXTRA.getKey().get());
@@ -75,8 +73,8 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.CHERT_COPPER.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.CHERT_COPPER_LARGE.getKey().get());
 
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.PEBBLES.getKey().get());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.ORE_CRACKED_MUD.getKey().get());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.PEBBLES.getKey().get());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.ORE_CRACKED_MUD.getKey().get());
 
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PATCH_DESERT_BRUSH.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.MARIGOLD_PATCH.getKey().get());
@@ -88,15 +86,20 @@ public class BiomeAdditions {
                     c.getGenerationSettings().removeBuiltInFeature(OrePlacedFeatures.ORE_DIORITE_LOWER.value());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_COBBLECHERT.getKey().get());
                 });
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_savanna"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_savanna"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.categories(Biome.Category.SAVANNA), (c) -> {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.ORE_CRACKED_MUD.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.ORE_RICH_MUD.getKey().get());
 
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.MARIGOLD_PATCH.getKey().get());
                 });
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_badlands"))
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.categories(Biome.Category.MESA), (c) -> {
+                    c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.TREES_BADLANDS.value());
+                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.CEDARS.getKey().get());
+                });
 
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_tundra"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_tundra"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS), (c) -> {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.ORE_PERMAFROST.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.TILL_ROCK.getKey().get());
@@ -105,17 +108,18 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PATCH_COTTONGRASS.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.HEATHER.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.LUPINE.getKey().get());
+                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.JUNIPERS.getKey().get());
                 })
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS), (c) -> {
                     c.getGenerationSettings().removeBuiltInFeature(OrePlacedFeatures.ORE_GRANITE_LOWER.value());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_TILL.getKey().get());
                 });
 
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_flower_forests"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_flower_forests"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.FLOWER_FOREST), (c) -> c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.HYACINTHS.getKey().get()));
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_mushroom"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_mushroom"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.MUSHROOM_FIELDS), (c) -> c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PATCH_MYCELIUM.getKey().get()));
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_swamps"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_swamps"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.categories(
                         Biome.Category.SWAMP
                 ), (c) -> {
@@ -129,7 +133,7 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.ORE_PEAT_MOSS.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.ORE_RICH_MUD.getKey().get());
                 });
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_meadow"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_meadow"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.MEADOW), (c) -> c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_CARROT_PATCH.getKey().get()))
                 // meadow-only cave stuff
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.MEADOW), (c) -> {
@@ -144,38 +148,39 @@ public class BiomeAdditions {
                     c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.FLOWER_MEADOW.value());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.MB_MEADOW_FLOWERS.getKey().get());
                 });
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_birch_forests"))
-                .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.OLD_GROWTH_BIRCH_FOREST), (c) -> {
-                })
-                .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST), (c) -> {
-                    c.getEffects().setGrassColor(0xB4C63C);
-                    c.getEffects().setSkyColor(0xb1c5e6);
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.LEAFBED_PATCH.getKey().get());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.FALLEN_BIRCH.getKey().get());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.ROSE_BUSH.getKey().get());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.BUTTERCUP_PATCH.getKey().get());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FORGETMENOT_PATCH.getKey().get());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUMPKIN_PATCH.getKey().get());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUFFBALLS_PATCH.getKey().get());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.TOADSTOOLS.getKey().get());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_CARROT_PATCH.getKey().get());
-                })
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.BIRCH_FOREST), (c)-> {
-                    c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.FLOWER_DEFAULT.value());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS.getKey().get());
 
-                    c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.TREES_BIRCH.value());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.GBF_TREES.getKey().get());
-                })
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.OLD_GROWTH_BIRCH_FOREST), (c)-> {
-                    c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.FLOWER_DEFAULT.value());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS.getKey().get());
+//        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_birch_forests"))
+//                .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.OLD_GROWTH_BIRCH_FOREST), (c) -> {
+//                })
+//                .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST), (c) -> {
+//                    c.getEffects().setGrassColor(0xB4C63C);
+//                    c.getEffects().setSkyColor(0xb1c5e6);
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.LEAFBED_PATCH.getKey().get());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.FALLEN_BIRCH.getKey().get());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.ROSE_BUSH.getKey().get());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.BUTTERCUP_PATCH.getKey().get());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FORGETMENOT_PATCH.getKey().get());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUMPKIN_PATCH.getKey().get());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUFFBALLS_PATCH.getKey().get());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.TOADSTOOLS.getKey().get());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_CARROT_PATCH.getKey().get());
+//                })
+//                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.BIRCH_FOREST), (c)-> {
+//                    c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.FLOWER_DEFAULT.value());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS.getKey().get());
+//
+//                    c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.TREES_BIRCH.value());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.GBF_TREES.getKey().get());
+//                })
+//                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.OLD_GROWTH_BIRCH_FOREST), (c)-> {
+//                    c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.FLOWER_DEFAULT.value());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS.getKey().get());
+//
+//                    c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.BIRCH_TALL.value());
+//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.SUPER_GOLDEN_BIRCH_BEES_0002.getKey().get());
+//                });
 
-                    c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.BIRCH_TALL.value());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.SUPER_GOLDEN_BIRCH_BEES_0002.getKey().get());
-                });
-
-        BiomeModifications.create(new Identifier(Moonbits.MOD_ID,"moonbits_rivers"))
+        BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_rivers"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.RIVER), (c) -> {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.COARSE_DIRT_FLOOR.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.PEBBLES.getKey().get());

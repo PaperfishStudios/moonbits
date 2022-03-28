@@ -23,6 +23,8 @@ public class MBItems {
 	public static List<Item> MB_EGGS = new ArrayList<>();
     
 	public static final Item GRASS_TUFT = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item MILK_BOTTLE = new MilkBottleItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16));
+	public static final Item SYRUP_BOTTLE = new MilkBottleItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16));
 	public static final Item ITEM_HOOK = new ItemHookItem(MBEntities.ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
 	public static final Item GLOW_ITEM_HOOK = new ItemHookItem(MBEntities.GLOW_ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
 
@@ -104,19 +106,19 @@ public class MBItems {
 	public static final Item GLARE_SPAWN_EGG = new SpawnEggItem(MBEntities.GLARE, 5403430, 657930, new Item.Settings().group(MBItemGroup.MB_MISC));
 
 	public static void add(String id, Item item) {
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, id), item);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, id), item);
 	}
 	public static void addItem(String id, Item item) {
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, id), item);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, id), item);
 		MB_ITEMS.add(item);
 	}
 
 	public static void addTool(String id, Item item) {
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, id), item);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, id), item);
 		MB_TOOLS.add(item);
 	}
 	public static void addEgg(String id, Item item) {
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, id), item);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, id), item);
 		MB_EGGS.add(item);
 	}
     
@@ -134,12 +136,15 @@ public class MBItems {
 		addItem("pepper", PEPPER);
 		addItem("stuffed_pepper", STUFFED_PEPPER);
 
+		addItem("milk_bottle", MILK_BOTTLE);
+		addItem("syrup_bottle", SYRUP_BOTTLE);
+
 		//addItem("apple_seeds", APPLE_SEEDS);
 
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "sweet_berry_pits"), SWEET_BERRY_PITS);
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "sweet_berry_pits"), new BlockItem(SWEET_BERRY_PITS, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "glow_berry_pits"), GLOW_BERRY_PITS);
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "glow_berry_pits"), new BlockItem(GLOW_BERRY_PITS, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "sweet_berry_pits"), SWEET_BERRY_PITS);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "sweet_berry_pits"), new BlockItem(SWEET_BERRY_PITS, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "glow_berry_pits"), GLOW_BERRY_PITS);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "glow_berry_pits"), new BlockItem(GLOW_BERRY_PITS, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
 
 		add("lettuce_seeds", LETTUCE_SEEDS);
 

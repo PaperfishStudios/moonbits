@@ -33,8 +33,8 @@ import net.paperfish.moonbits.Moonbits;
 public class ItemHookEntityRenderer<T extends ItemHookEntity> extends EntityRenderer<T> {
     private static final Identifier HOOK = new Identifier("moonbits", "block/item_hook");
     //private static final Identifier GLOW_HOOK = new Identifier("moonbits", "glow_item_hook");
-    private static final ModelIdentifier ITEM_HOOK = new ModelIdentifier(new Identifier(Moonbits.MOD_ID, "item_hook"), "");
-    private static final ModelIdentifier GLOW_HOOK = new ModelIdentifier(new Identifier(Moonbits.MOD_ID, "glow_item_hook"), "");
+    private static final ModelIdentifier ITEM_HOOK = new ModelIdentifier(new Identifier(Moonbits.MODID, "item_hook"), "");
+    private static final ModelIdentifier GLOW_HOOK = new ModelIdentifier(new Identifier(Moonbits.MODID, "glow_item_hook"), "");
     private final MinecraftClient client = MinecraftClient.getInstance();
     private final ItemRenderer itemRenderer;
 

@@ -3,6 +3,7 @@ package net.paperfish.moonbits.world.feature;
 import net.minecraft.block.sapling.LargeTreeSaplingGenerator;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 
 import java.util.Random;
 

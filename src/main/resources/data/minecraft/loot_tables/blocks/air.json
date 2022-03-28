@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "moonbits:juniper_sign"
+          "name": "moonbits:cedar_sign"
         }
       ],
       "conditions": [
