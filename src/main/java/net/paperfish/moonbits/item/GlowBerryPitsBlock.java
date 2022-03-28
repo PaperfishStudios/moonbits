@@ -2,6 +2,7 @@ package net.paperfish.moonbits.item;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -18,7 +19,13 @@ import java.util.Random;
 public class GlowBerryPitsBlock extends AbstractPlantStemBlock implements Fertilizable, CaveVines {
     public GlowBerryPitsBlock(Settings settings) {
         super(settings, Direction.DOWN, SHAPE, false, 0.1D);
-        this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(AGE, 0).with(BERRIES, false)));
+        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(BERRIES, false));
+    }
+
+    @Nullable
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return Blocks.CAVE_VINES.getDefaultState();
     }
 
     @Override

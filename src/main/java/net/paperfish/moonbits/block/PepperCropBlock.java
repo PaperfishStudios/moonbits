@@ -14,7 +14,7 @@ public class PepperCropBlock extends CropBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(BlockTags.SAND) || floor.isOf(Blocks.FARMLAND);
+        return floor.isIn(BlockTags.SAND) || super.canPlantOnTop(floor, world, pos);
     }
 
     public PepperCropBlock(Settings settings) {

@@ -28,6 +28,9 @@
     ],
     "booking_it:recipe_book": [
       "net.paperfish.moonbits.recipe.MBRecipeBook"
+    ],
+    "terrablender": [
+      "net.paperfish.moonbits.Moonbits"
     ]
   },
   "mixins": [
@@ -38,7 +41,8 @@
     "fabric": "*",
     "minecraft": "1.18.x",
     "java": ">=17",
-    "booking_it": "*"
+    "booking_it": "*",
+    "terrablender": ">=1.1.0.94"
   },
   "accessWidener" : "moonbits.accesswidener",
   "suggests": {

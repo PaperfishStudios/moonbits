@@ -3,6 +3,7 @@ package net.paperfish.moonbits.item;
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.server.world.ServerWorld;
@@ -23,6 +24,12 @@ public class SweetBerryPitsBlock extends PlantBlock implements Fertilizable {
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         world.setBlockState(pos, Blocks.SWEET_BERRY_BUSH.getDefaultState());
+    }
+
+    @Nullable
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return Blocks.SWEET_BERRY_BUSH.getDefaultState();
     }
 
     @Override

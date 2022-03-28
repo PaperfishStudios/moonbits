@@ -13,8 +13,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.SignType;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.block.*;
+import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
+import net.paperfish.moonbits.block.cauldron.MBCauldronBehaviour;
 import net.paperfish.moonbits.mixin.SignTypeAccessor;
 import net.paperfish.moonbits.world.feature.*;
+import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 
 public class MBBlocks {
 
@@ -86,6 +89,7 @@ public class MBBlocks {
 	public static final Block JUNGLE_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block MANGROVE_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CRIMSON_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block WARPED_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	// BOOKSHELVES
@@ -94,6 +98,7 @@ public class MBBlocks {
 	public static final Block JUNGLE_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block MANGROVE_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CRIMSON_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block WARPED_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	// CARVED
@@ -103,6 +108,7 @@ public class MBBlocks {
 	public static final Block CARVED_JUNGLE = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CARVED_ACACIA = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CARVED_DARK_OAK = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block CARVED_MANGROVE = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CARVED_CRIMSON = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CARVED_WARPED = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	// PILLAR
@@ -112,6 +118,7 @@ public class MBBlocks {
 	public static final Block JUNGLE_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block MANGROVE_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CRIMSON_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block WARPED_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	// BOARDS
@@ -121,6 +128,7 @@ public class MBBlocks {
 	public static final Block JUNGLE_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block MANGROVE_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CRIMSON_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block WARPED_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 
@@ -142,6 +150,10 @@ public class MBBlocks {
 	public static final Block ASPEN_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
 	public static final Block ASPEN_STAIRS = new MBStairsBlock(ASPEN_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
 
+	public static final Block ASPEN_TRIM = new TrimBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
+	public static final Block ASPEN_WINDOW = new MBPaneBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
+	public static final Block ASPEN_LANTERN = new AspenLanternBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS).luminance((state) -> 15));
+	public static final Block ASPEN_SOUL_LANTERN = new AspenLanternBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS).luminance((state) -> 10));
 	public static final Block ASPEN_LATTICE = new LatticeBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
 	public static final Block ASPEN_PALISADE = new PalisadeBlock(AbstractBlock.Settings.copy(ASPEN_TRUNK));
 	public static final Block STRIPPED_ASPEN_PALISADE = new PalisadeBlock(AbstractBlock.Settings.copy(ASPEN_TRUNK).mapColor(MapColor.OFF_WHITE));
@@ -212,6 +224,13 @@ public class MBBlocks {
 	public static BlockEntityType<BedrollBlockEntity> BEDROLL_BLOCK_ENTITY;
 	public static final Block FUR_BLOCK = new Block(AbstractBlock.Settings.of(Material.WOOL, MapColor.BROWN).strength(0.2F).sounds(BlockSoundGroup.WOOL));
 	public static final Block FUR_CARPET = new CarpetBlock(AbstractBlock.Settings.of(Material.WOOL, MapColor.BROWN).strength(0.2F).sounds(BlockSoundGroup.WOOL).nonOpaque());
+
+	public static final Block HONEY_CAULDRON = new HoneyCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON), MBCauldronBehaviour.HONEY_CAULDRON_BEHAVIOR);
+	public static final Block SYRUP_CAULDRON = new HoneyCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON), MBCauldronBehaviour.SYRUP_CAULDRON_BEHAVIOR);
+
+	public static final Block SYRUP_BLOCK = new SyrupBlock(AbstractBlock.Settings.copy(Blocks.HONEY_BLOCK).dynamicBounds());
+
+	public static final Block TREE_TAP = new TreeTapBlock(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK));
 
 	// SNOW DAY
 
@@ -520,6 +539,7 @@ public class MBBlocks {
 	public static final Block JUNGLE_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block ACACIA_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block DARK_OAK_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block MANGROVE_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CRIMSON_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block WARPED_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 
@@ -916,9 +936,6 @@ public class MBBlocks {
 	public static final Block SMOOTH_BASALT_STAIRS = new MBStairsBlock(Blocks.SMOOTH_BASALT.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block SMOOTH_BASALT_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.SMOOTH_BASALT));
 
-	public static final Block QUARTZ_SHARD_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK));
-	public static final Block AMETHYST_SHARD_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK));
-
 	// STORAGE BLOCKS
 	public static final Block APPLE_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
 	public static final Block CARROT_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
@@ -962,293 +979,71 @@ public class MBBlocks {
 	public static final Block ENDER_PEARL_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).hardness(1f).sounds(BlockSoundGroup.COPPER));
 
 	public static void createBlock(String block_id, Block block, ItemGroup group) {
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, block_id), block);
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, block_id), new BlockItem(block, new Item.Settings().group(group)));
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, block_id), block);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, block_id), new BlockItem(block, new Item.Settings().group(group)));
 	}
     
     public static void registerBlocks(){
 
-		createBlock("kiln", KILN, MBItemGroup.DECOR);
-		KILN_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MOD_ID, "kiln_block_entity"),
-				FabricBlockEntityTypeBuilder.create(KilnBlockEntity::new, KILN).build(null));
 
-		createBlock("rope_ladder", ROPE_LADDER, MBItemGroup.DECOR);
-		createBlock("iron_ladder", IRON_LADDER, MBItemGroup.DECOR);
 
-		createBlock("leather_seat", LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("white_seat", WHITE_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("orange_seat", ORANGE_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("magenta_seat", MAGENTA_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("light_blue_seat", LIGHT_BLUE_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("yellow_seat", YELLOW_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("lime_seat", LIME_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("pink_seat", PINK_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("gray_seat", GRAY_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("light_gray_seat", LIGHT_GRAY_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("cyan_seat", CYAN_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("purple_seat", PURPLE_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("blue_seat", BLUE_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("brown_seat", BROWN_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("green_seat", GREEN_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("red_seat", RED_LEATHER_SEAT, MBItemGroup.DECOR);
-		createBlock("black_seat", BLACK_LEATHER_SEAT, MBItemGroup.DECOR);
 
-		createBlock("grass_turf", GRASS_TURF, MBItemGroup.DECOR);
-		createBlock("grass_turf_stairs", GRASS_TURF_STAIRS, MBItemGroup.DECOR);
-		createBlock("grass_turf_slab", GRASS_TURF_SLAB, MBItemGroup.DECOR);
-		createBlock("grass_carpet", GRASS_CARPET, MBItemGroup.DECOR);
-
-		createBlock("mycelium_turf", MYCELIUM_TURF, MBItemGroup.DECOR);
-		createBlock("mycelium_turf_stairs", MYCELIUM_TURF_STAIRS, MBItemGroup.DECOR);
-		createBlock("mycelium_turf_slab", MYCELIUM_TURF_SLAB, MBItemGroup.DECOR);
-		createBlock("mycelium_carpet", MYCELIUM_CARPET, MBItemGroup.DECOR);
-
-		createBlock("crimson_nylium_turf", CRIMSON_NYLIUM_TURF, MBItemGroup.DECOR);
-		createBlock("crimson_nylium_turf_stairs",CRIMSON_NYLIUM_TURF_STAIRS, MBItemGroup.DECOR);
-		createBlock("crimson_nylium_turf_slab", CRIMSON_NYLIUM_TURF_SLAB, MBItemGroup.DECOR);
-		createBlock("crimson_nylium_carpet", CRIMSON_NYLIUM_CARPET, MBItemGroup.DECOR);
-		createBlock("warped_nylium_turf", WARPED_NYLIUM_TURF, MBItemGroup.DECOR);
-		createBlock("warped_nylium_turf_stairs", WARPED_NYLIUM_TURF_STAIRS, MBItemGroup.DECOR);
-		createBlock("warped_nylium_turf_slab", WARPED_NYLIUM_TURF_SLAB, MBItemGroup.DECOR);
-		createBlock("warped_nylium_carpet", WARPED_NYLIUM_CARPET, MBItemGroup.DECOR);
-
-		// FLOWERS
-		createBlock("buttercup", BUTTERCUP, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_buttercup"), POTTED_BUTTERCUP);
-		createBlock("forget_me_not", FORGETMENOT, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_forget_me_not"), POTTED_FORGETMENOT);
-
-		createBlock("white_hyacinth", WHITE_HYACINTH, MBItemGroup.DECOR);
-		createBlock("pink_hyacinth", PINK_HYACINTH, MBItemGroup.DECOR);
-		createBlock("light_blue_hyacinth", LIGHT_BLUE_HYACINTH, MBItemGroup.DECOR);
-		createBlock("red_hyacinth", RED_HYACINTH, MBItemGroup.DECOR);
-
-		// MOOBLOOM FLOWERS
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_lily"), MINI_LILY);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_oxeye"), MINI_OXEYE);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_bluet"), MINI_BLUET);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_dandelion"), MINI_DANDELION);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_poppy"), MINI_POPPY);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_orchid"), MINI_ORCHID);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_cornflower"), MINI_CORNFLOWER);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_allium"), MINI_ALLIUM);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_tulip_w"), MINI_TULIP_W);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_tulip_p"), MINI_TULIP_P);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_tulip_o"), MINI_TULIP_O);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_tulip_r"), MINI_TULIP_R);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "mini_forget_me_not"), MINI_FORGETMENOT);
-
-		// PLANTS
-		createBlock("wild_carrots", WILD_CARROTS, MBItemGroup.DECOR);
-		createBlock("wild_potatoes", WILD_POTATOES, MBItemGroup.DECOR);
-		createBlock("sea_beets", SEA_BEETS, MBItemGroup.DECOR);
-
-		createBlock("beachgrass", BEACHGRASS, MBItemGroup.DECOR);
-		createBlock("tall_beachgrass", TALL_BEACHGRASS, MBItemGroup.DECOR);
-
-		createBlock("pebbles", PEBBLES, MBItemGroup.DECOR);
-
-		createBlock("mycelium_roots", MYCELIUM_ROOTS, MBItemGroup.DECOR);
-
-		// WOOD
-		// - BOARDS
-		createBlock("oak_boards", OAK_BOARDS, MBItemGroup.CONSTRUCTION);
-		createBlock("spruce_boards", SPRUCE_BOARDS, MBItemGroup.CONSTRUCTION);
-		createBlock("birch_boards", BIRCH_BOARDS, MBItemGroup.CONSTRUCTION);
-		createBlock("jungle_boards", JUNGLE_BOARDS, MBItemGroup.CONSTRUCTION);
-		createBlock("acacia_boards", ACACIA_BOARDS, MBItemGroup.CONSTRUCTION);
-		createBlock("dark_oak_boards", DARK_OAK_BOARDS, MBItemGroup.CONSTRUCTION);
-		createBlock("crimson_boards", CRIMSON_BOARDS, MBItemGroup.CONSTRUCTION);
-		createBlock("warped_boards", WARPED_BOARDS, MBItemGroup.CONSTRUCTION);
-		// - PANELS
-		createBlock("oak_panel", OAK_PANEL, MBItemGroup.CONSTRUCTION);
-		createBlock("spruce_panel", SPRUCE_PANEL, MBItemGroup.CONSTRUCTION);
-		createBlock("birch_panel", BIRCH_PANEL, MBItemGroup.CONSTRUCTION);
-		createBlock("jungle_panel", JUNGLE_PANEL, MBItemGroup.CONSTRUCTION);
-		createBlock("acacia_panel", ACACIA_PANEL, MBItemGroup.CONSTRUCTION);
-		createBlock("dark_oak_panel", DARK_OAK_PANEL, MBItemGroup.CONSTRUCTION);
-		createBlock("crimson_panel", CRIMSON_PANEL, MBItemGroup.CONSTRUCTION);
-		createBlock("warped_panel", WARPED_PANEL, MBItemGroup.CONSTRUCTION);
-		// - BOOKSHELVES
-		createBlock("spruce_bookshelf", SPRUCE_BOOKSHELF, MBItemGroup.DECOR);
-		createBlock("birch_bookshelf", BIRCH_BOOKSHELF, MBItemGroup.DECOR);
-		createBlock("jungle_bookshelf", JUNGLE_BOOKSHELF, MBItemGroup.DECOR);
-		createBlock("acacia_bookshelf", ACACIA_BOOKSHELF, MBItemGroup.DECOR);
-		createBlock("dark_oak_bookshelf", DARK_OAK_BOOKSHELF, MBItemGroup.DECOR);
-		createBlock("crimson_bookshelf", CRIMSON_BOOKSHELF, MBItemGroup.DECOR);
-		createBlock("warped_bookshelf", WARPED_BOOKSHELF, MBItemGroup.DECOR);
-		// - CARVED
-		createBlock("carved_oak_wood", CARVED_OAK, MBItemGroup.CONSTRUCTION);
-		createBlock("carved_spruce_wood", CARVED_SPRUCE, MBItemGroup.CONSTRUCTION);
-		createBlock("carved_birch_wood", CARVED_BIRCH, MBItemGroup.CONSTRUCTION);
-		createBlock("carved_jungle_wood", CARVED_JUNGLE, MBItemGroup.CONSTRUCTION);
-		createBlock("carved_acacia_wood", CARVED_ACACIA, MBItemGroup.CONSTRUCTION);
-		createBlock("carved_dark_oak_wood", CARVED_DARK_OAK, MBItemGroup.CONSTRUCTION);
-		createBlock("carved_crimson_hyphae", CARVED_CRIMSON, MBItemGroup.CONSTRUCTION);
-		createBlock("carved_warped_hyphae", CARVED_WARPED, MBItemGroup.CONSTRUCTION);
-		// - PILLARS
-		createBlock("oak_pillar", OAK_PILLAR, MBItemGroup.CONSTRUCTION);
-		createBlock("spruce_pillar", SPRUCE_PILLAR, MBItemGroup.CONSTRUCTION);
-		createBlock("birch_pillar", BIRCH_PILLAR, MBItemGroup.CONSTRUCTION);
-		createBlock("jungle_pillar", JUNGLE_PILLAR, MBItemGroup.CONSTRUCTION);
-		createBlock("acacia_pillar", ACACIA_PILLAR, MBItemGroup.CONSTRUCTION);
-		createBlock("dark_oak_pillar", DARK_OAK_PILLAR, MBItemGroup.CONSTRUCTION);
-		createBlock("crimson_pillar", CRIMSON_PILLAR, MBItemGroup.CONSTRUCTION);
-		createBlock("warped_pillar", WARPED_PILLAR, MBItemGroup.CONSTRUCTION);
-		// - PLANTER BOXES
-		createBlock("oak_planter_box", OAK_PLANTER_BOX, MBItemGroup.DECOR);
-		createBlock("spruce_planter_box", SPRUCE_PLANTER_BOX, MBItemGroup.DECOR);
-		createBlock("birch_planter_box", BIRCH_PLANTER_BOX, MBItemGroup.DECOR);
-		createBlock("jungle_planter_box", JUNGLE_PLANTER_BOX, MBItemGroup.DECOR);
-		createBlock("acacia_planter_box", ACACIA_PLANTER_BOX, MBItemGroup.DECOR);
-		createBlock("dark_oak_planter_box", DARK_OAK_PLANTER_BOX, MBItemGroup.DECOR);
-		createBlock("crimson_planter_box", CRIMSON_PLANTER_BOX, MBItemGroup.DECOR);
-		createBlock("warped_planter_box", WARPED_PLANTER_BOX, MBItemGroup.DECOR);
-		// - APPLE OAK
-//		createBlock("budding_oak_leaves", BUDDING_OAK_LEAVES, MBItemGroup.DECOR);
-//		createBlock("flowering_oak_leaves", FLOWERING_OAK_LEAVES, MBItemGroup.DECOR);
-//		createBlock("apple_oak_leaves", FRUITING_OAK_LEAVES, MBItemGroup.DECOR);
-//		createBlock("apple_oak_sapling", APPLE_OAK_SAPLING, MBItemGroup.DECOR);
-//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_apple_oak_sapling"), POTTED_APPLE_OAK_SAPLING);
-//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "apple_oak_sprout"), APPLE_OAK_SPROUT);
-//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_apple_oak_sprout"), POTTED_APPLE_OAK_SPROUT);
-		// - GOLDEN BIRCH
-		createBlock("golden_birch_leaves", GOLDEN_BIRCH_LEAVES, MBItemGroup.DECOR);
-		createBlock("golden_birch_leaf_carpet", GOLDEN_BIRCH_LEAF_CARPET, MBItemGroup.DECOR);
-		createBlock("golden_birch_sapling", GOLDEN_BIRCH_SAPLING, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_golden_birch_sapling"), POTTED_GOLDEN_BIRCH_SAPLING);
-
-		createBlock("red_oak_leaves", RED_OAK_LEAVES, MBItemGroup.DECOR);
-		createBlock("red_oak_leaf_carpet", RED_OAK_LEAF_CARPET, MBItemGroup.DECOR);
-		createBlock("red_oak_sapling", RED_OAK_SAPLING, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_red_oak_sapling"), POTTED_RED_OAK_SAPLING);
-
-		createBlock("aspen_trunk", ASPEN_TRUNK, MBItemGroup.CONSTRUCTION);
-		createBlock("stripped_aspen_trunk", STRIPPED_ASPEN_TRUNK, MBItemGroup.CONSTRUCTION);
-		createBlock("aspen_planks", ASPEN_PLANKS, MBItemGroup.CONSTRUCTION);
-		createBlock("aspen_slab", ASPEN_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("aspen_stairs", ASPEN_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("aspen_lattice", ASPEN_LATTICE, MBItemGroup.DECOR);
-		createBlock("aspen_palisade", ASPEN_PALISADE, MBItemGroup.DECOR);
-		createBlock("stripped_aspen_palisade", STRIPPED_ASPEN_PALISADE, MBItemGroup.DECOR);
-
-		createBlock("aspen_leaves", ASPEN_LEAVES, MBItemGroup.DECOR);
-		createBlock("aspen_leaf_carpet", ASPEN_LEAF_CARPET, MBItemGroup.DECOR);
-		createBlock("aspen_sapling", ASPEN_SAPLING, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_aspen_sapling"), POTTED_ASPEN_SAPLING);
-
-		createBlock("puffballs", PUFFBALLS, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_puffballs"), POTTED_PUFFBALLS);
-
-		createBlock("saffron_mushroom", SAFFRON_MUSHROOM, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_saffron_mushroom"), POTTED_SAFFRON_MUSHROOM);
-		createBlock("toadstool", TOADSTOOL, MBItemGroup.DECOR);
-		createBlock("small_toadstools", SMALL_TOADSTOOLS, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_small_toadstools"), POTTED_SMALL_TOADSTOOLS);
-
-		createBlock("red_mushroom_cap", RED_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
-		createBlock("brown_mushroom_cap", BROWN_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
-		createBlock("saffron_mushroom_cap", SAFFRON_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
-		createBlock("saffron_gills", SAFFRON_GILLS, MBItemGroup.CONSTRUCTION);
-		createBlock("giant_toadstool_cap", GIANT_TOADSTOOL_CAP, MBItemGroup.CONSTRUCTION);
-
-		createBlock("mushroom_stem", MUSHROOM_STEM, MBItemGroup.CONSTRUCTION);
-		createBlock("stripped_mushroom_stem", STRIPPED_MUSHROOM_STEM, MBItemGroup.CONSTRUCTION);
-		createBlock("mushroom_hyphae", MUSHROOM_HYPHAE, MBItemGroup.CONSTRUCTION);
-		createBlock("stripped_mushroom_hyphae", STRIPPED_MUSHROOM_HYPHAE, MBItemGroup.CONSTRUCTION);
-
-		createBlock("toadstool_shelf", TOADSTOOL_SHELF, MBItemGroup.DECOR);
-
-		createBlock("red_mush_block", RED_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
-		createBlock("red_mush_stairs", RED_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("red_mush_slab", RED_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("red_mush_bricks", RED_MUSH_BRICKS, MBItemGroup.CONSTRUCTION);
-		createBlock("red_mush_brick_stairs", RED_MUSH_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("red_mush_brick_slab", RED_MUSH_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("red_mush_lamp", RED_MUSH_LAMP, MBItemGroup.CONSTRUCTION);
-
-		createBlock("brown_mush_block", BROWN_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
-		createBlock("brown_mush_stairs", BROWN_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("brown_mush_slab", BROWN_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("brown_mush_bricks", BROWN_MUSH_BRICKS, MBItemGroup.CONSTRUCTION);
-		createBlock("brown_mush_brick_stairs", BROWN_MUSH_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("brown_mush_brick_slab", BROWN_MUSH_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("brown_mush_lamp", BROWN_MUSH_LAMP, MBItemGroup.CONSTRUCTION);
-
-		createBlock("toadstool_mush_block", TOADSTOOL_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
-		createBlock("toadstool_mush_stairs", TOADSTOOL_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("toadstool_mush_slab", TOADSTOOL_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("toadstool_mush_bricks", TOADSTOOL_MUSH_BRICKS, MBItemGroup.CONSTRUCTION);
-		createBlock("toadstool_mush_brick_stairs", TOADSTOOL_MUSH_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("toadstool_mush_brick_slab", TOADSTOOL_MUSH_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("toadstool_mush_lamp", TOADSTOOL_MUSH_LAMP, MBItemGroup.CONSTRUCTION);
-
-		createBlock("saffron_mush_block", SAFFRON_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
-		createBlock("saffron_mush_stairs", SAFFRON_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("saffron_mush_slab", SAFFRON_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("saffron_mush_bricks", SAFFRON_MUSH_BRICKS, MBItemGroup.CONSTRUCTION);
-		createBlock("saffron_mush_brick_stairs", SAFFRON_MUSH_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("saffron_mush_brick_slab", SAFFRON_MUSH_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("saffron_mush_lamp", SAFFRON_MUSH_LAMP, MBItemGroup.CONSTRUCTION);
-
-		createBlock("leafbed", LEAFBED, MBItemGroup.CONSTRUCTION);
-
-		createBlock("fur_block", FUR_BLOCK, MBItemGroup.CONSTRUCTION);
-		createBlock("fur_carpet", FUR_CARPET, MBItemGroup.CONSTRUCTION);
 		// - Bedroll setup, registers the block entity too :b
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "bedroll"), BEDROLL);
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "bedroll"),
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "bedroll"), BEDROLL);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "bedroll"),
 				(BlockItem)(new BedItem(BEDROLL, (new Item.Settings()).maxCount(1).group(MBItemGroup.MB_MISC))));
-		BEDROLL_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MOD_ID, "bedroll_block_entity"),
+		BEDROLL_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "bedroll_block_entity"),
 				FabricBlockEntityTypeBuilder.create(BedrollBlockEntity::new, BEDROLL).build(null));
 
-		// - JUNIPER WOOD
-		createBlock("juniper_planks", JUNIPER_PLANKS, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_stairs", JUNIPER_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_slab", JUNIPER_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_log", JUNIPER_LOG, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_wood", JUNIPER_WOOD, MBItemGroup.CONSTRUCTION);
-		createBlock("stripped_juniper_log", STRIPPED_JUNIPER_LOG, MBItemGroup.CONSTRUCTION);
-		createBlock("stripped_juniper_wood", STRIPPED_JUNIPER_WOOD, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_leaves", JUNIPER_LEAVES, MBItemGroup.DECOR);
-		createBlock("juniper_sapling", JUNIPER_SAPLING, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_juniper_sapling"), POTTED_JUNIPER_SAPLING);
-		createBlock("juniper_fence", JUNIPER_FENCE, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_fence_gate", JUNIPER_FENCE_GATE, ItemGroup.REDSTONE);
-		createBlock("juniper_door", JUNIPER_DOOR, ItemGroup.REDSTONE);
-		createBlock("juniper_trapdoor", JUNIPER_TRAPDOOR, ItemGroup.REDSTONE);
-		createBlock("juniper_button", JUNIPER_BUTTON, ItemGroup.REDSTONE);
-		createBlock("juniper_pressure_plate", JUNIPER_PRESSURE_PLATE, ItemGroup.REDSTONE);
-		createBlock("juniper_bookshelf", JUNIPER_BOOKSHELF, MBItemGroup.DECOR);
-		createBlock("juniper_planter_box", JUNIPER_PLANTER_BOX, MBItemGroup.DECOR);
-		createBlock("juniper_boards", JUNIPER_BOARDS, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_panel", JUNIPER_PANEL, MBItemGroup.CONSTRUCTION);
-		createBlock("carved_juniper_wood", CARVED_JUNIPER, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_pillar", JUNIPER_PILLAR, MBItemGroup.CONSTRUCTION);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "juniper_sign"), JUNIPER_SIGN);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "juniper_wall_sign"), JUNIPER_WALL_SIGN);
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "juniper_sign"),
-				(Item)(new SignItem(new Item.Settings().group(ItemGroup.DECORATIONS), JUNIPER_SIGN, JUNIPER_WALL_SIGN)));
 
-		createBlock("cottongrass", COTTONGRASS, MBItemGroup.DECOR);
-		createBlock("tall_cottongrass", TALL_COTTONGRASS, MBItemGroup.DECOR);
-
-		createBlock("white_heather", WHITE_HEATHER, MBItemGroup.DECOR);
-		createBlock("red_heather", RED_HEATHER, MBItemGroup.DECOR);
-		createBlock("orange_heather", ORANGE_HEATHER, MBItemGroup.DECOR);
-		createBlock("purple_heather", PURPLE_HEATHER, MBItemGroup.DECOR);
-		createBlock("lupine", LUPINE, MBItemGroup.DECOR);
-
-		createBlock("frosthorn_crown", FROSTHORN_CROWN, MBItemGroup.DECOR);
-		createBlock("frosthorn_stem", FROSTHORN_STEM, MBItemGroup.DECOR);
-		createBlock("frosthorn_leaves", FROSTHORN_LEAVES, MBItemGroup.DECOR);
 		createBlock("frosthorn_fruit", FROSTHORN_FRUIT, MBItemGroup.MB_MISC);
 
+		// DIRT CAVES
+		createBlock("tough_dirt", TOUGH_DIRT, MBItemGroup.CONSTRUCTION);
+		createBlock("tough_dirt_slab", TOUGH_DIRT_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("tough_dirt_stairs", TOUGH_DIRT_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("tough_grass", TOUGH_GRASS, MBItemGroup.CONSTRUCTION);
+		createBlock("leafbed", LEAFBED, MBItemGroup.CONSTRUCTION);
+
+        createBlock("dirt_bricks", DIRT_BRICKS, MBItemGroup.CONSTRUCTION);
+        createBlock("dirt_brick_slab", DIRT_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
+        createBlock("dirt_brick_stairs", DIRT_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+
+		createBlock("smooth_dirt", SMOOTH_DIRT, MBItemGroup.CONSTRUCTION);
+		createBlock("smooth_dirt_slab", SMOOTH_DIRT_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("smooth_dirt_stairs", SMOOTH_DIRT_STAIRS, MBItemGroup.CONSTRUCTION);
+
+		createBlock("packed_dirt", PACKED_DIRT, MBItemGroup.CONSTRUCTION);
+		createBlock("packed_dirt_slab", PACKED_DIRT_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("packed_dirt_stairs", PACKED_DIRT_STAIRS, MBItemGroup.CONSTRUCTION);
+
+		createBlock("regolith", REGOLITH, MBItemGroup.CONSTRUCTION);
 		createBlock("permafrost", PERMAFROST, MBItemGroup.CONSTRUCTION);
-		createBlock("frost_peat_deposit", FROST_PEAT, MBItemGroup.CONSTRUCTION);
-		createBlock("frost_clay_deposit", FROST_CLAY, MBItemGroup.CONSTRUCTION);
-		createBlock("frost_gold_deposit", FROST_GOLD, MBItemGroup.CONSTRUCTION);
-		createBlock("frost_copper_deposit", FROST_COPPER, MBItemGroup.CONSTRUCTION);
+		createBlock("rich_mud", RICH_MUD, MBItemGroup.CONSTRUCTION);
+		createBlock("cracked_mud", CRACKED_MUD, MBItemGroup.CONSTRUCTION);
+		createBlock("peat_moss", PEAT_MOSS, MBItemGroup.CONSTRUCTION);
+
+		createBlock("snow_bricks", SNOW_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("ice_bricks", ICE_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("packed_ice_bricks", PACKED_ICE_BRICKS, MBItemGroup.CONSTRUCTION);
+
+		createBlock("mudstone", MUDSTONE, MBItemGroup.CONSTRUCTION);
+		createBlock("mudstone_slab", MUDSTONE_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("mudstone_stairs", MUDSTONE_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("mudstone_wall", MUDSTONE_WALL, MBItemGroup.CONSTRUCTION);
+
+		createBlock("smooth_mudstone", SMOOTH_MUDSTONE, MBItemGroup.CONSTRUCTION);
+		createBlock("smooth_mudstone_slab",SMOOTH_MUDSTONE_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("smooth_mudstone_stairs", SMOOTH_MUDSTONE_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("smooth_mudstone_wall", SMOOTH_MUDSTONE_WALL, MBItemGroup.CONSTRUCTION);
+
+		createBlock("mudstone_bricks", MUDSTONE_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("mudstone_brick_slab", MUDSTONE_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("mudstone_brick_stairs", MUDSTONE_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("mudstone_brick_wall", MUDSTONE_BRICK_WALL, MBItemGroup.CONSTRUCTION);
+
+		createBlock("cut_mudstone", CUT_MUDSTONE, MBItemGroup.CONSTRUCTION);
+		createBlock("chiseled_mudstone", CHISELED_MUDSTONE, MBItemGroup.CONSTRUCTION);
 
 		createBlock("till", TILL, MBItemGroup.CONSTRUCTION);
 		createBlock("till_slab", TILL_SLAB, MBItemGroup.CONSTRUCTION);
@@ -1267,47 +1062,6 @@ public class MBBlocks {
 		createBlock("frosty_till_brick_slab", FROSTY_TILL_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("frosty_till_brick_stairs", FROSTY_TILL_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("frosty_till_brick_wall", FROSTY_TILL_BRICK_WALL, MBItemGroup.CONSTRUCTION);
-
-		createBlock("snow_bricks", SNOW_BRICKS, MBItemGroup.CONSTRUCTION);
-		createBlock("ice_bricks", ICE_BRICKS, MBItemGroup.CONSTRUCTION);
-		createBlock("packed_ice_bricks", PACKED_ICE_BRICKS, MBItemGroup.CONSTRUCTION);
-
-		// - CEDAR WOOD
-		createBlock("cedar_planks", CEDAR_PLANKS, MBItemGroup.CONSTRUCTION);
-		createBlock("cedar_stairs", CEDAR_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("cedar_slab", CEDAR_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("cedar_log", CEDAR_LOG, MBItemGroup.CONSTRUCTION);
-		createBlock("cedar_wood", CEDAR_WOOD, MBItemGroup.CONSTRUCTION);
-		createBlock("stripped_cedar_log", STRIPPED_CEDAR_LOG, MBItemGroup.CONSTRUCTION);
-		createBlock("stripped_cedar_wood", STRIPPED_CEDAR_WOOD, MBItemGroup.CONSTRUCTION);
-		createBlock("cedar_leaves", CEDAR_LEAVES, MBItemGroup.DECOR);
-		createBlock("cedar_sapling", CEDAR_SAPLING, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_cedar_sapling"), POTTED_CEDAR_SAPLING);
-		createBlock("cedar_fence", CEDAR_FENCE, MBItemGroup.CONSTRUCTION);
-		createBlock("cedar_fence_gate", CEDAR_FENCE_GATE, ItemGroup.REDSTONE);
-		createBlock("cedar_door", CEDAR_DOOR, ItemGroup.REDSTONE);
-		createBlock("cedar_trapdoor", CEDAR_TRAPDOOR, ItemGroup.REDSTONE);
-		createBlock("cedar_button", CEDAR_BUTTON, ItemGroup.REDSTONE);
-		createBlock("cedar_pressure_plate", CEDAR_PRESSURE_PLATE, ItemGroup.REDSTONE);
-		createBlock("cedar_bookshelf", CEDAR_BOOKSHELF, MBItemGroup.DECOR);
-		createBlock("cedar_planter_box", CEDAR_PLANTER_BOX, MBItemGroup.DECOR);
-		createBlock("cedar_boards", CEDAR_BOARDS, MBItemGroup.CONSTRUCTION);
-		createBlock("cedar_panel", CEDAR_PANEL, MBItemGroup.CONSTRUCTION);
-		createBlock("carved_cedar_wood", CARVED_CEDAR, MBItemGroup.CONSTRUCTION);
-		createBlock("cedar_pillar", CEDAR_PILLAR, MBItemGroup.CONSTRUCTION);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "cedar_sign"), CEDAR_SIGN);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "cedar_wall_sign"), CEDAR_WALL_SIGN);
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "cedar_sign"),
-				(Item)(new SignItem(new Item.Settings().group(ItemGroup.DECORATIONS), CEDAR_SIGN, CEDAR_WALL_SIGN)));
-
-		createBlock("barrel_cactus", BARREL_CACTUS, MBItemGroup.DECOR);
-		createBlock("desert_brush", DESERT_BRUSH, MBItemGroup.DECOR);
-		createBlock("tall_desert_brush", TALL_DESERT_BRUSH, MBItemGroup.DECOR);
-		createBlock("marigold", MARIGOLD, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "potted_marigold"), POTTED_MARIGOLD);
-
-		createBlock("canvas", CANVAS, MBItemGroup.CONSTRUCTION);
-		createBlock("framed_canvas", FRAMED_CANVAS, MBItemGroup.CONSTRUCTION);
 
 		// CHERT
 		createBlock("chert", CHERT, MBItemGroup.CONSTRUCTION);
@@ -1349,6 +1103,16 @@ public class MBBlocks {
 		createBlock("cracked_chert_tile_stairs", CRACKED_CHERT_TILE_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("cracked_chert_tile_wall", CRACKED_CHERT_TILE_WALL, MBItemGroup.CONSTRUCTION);
 
+		createBlock("peat_deposit", PEAT_DEPOSIT, MBItemGroup.CONSTRUCTION);
+		createBlock("frost_peat_deposit", FROST_PEAT, MBItemGroup.CONSTRUCTION);
+		createBlock("clay_deposit", CLAY_DEPOSIT, MBItemGroup.CONSTRUCTION);
+		createBlock("frost_clay_deposit", FROST_CLAY, MBItemGroup.CONSTRUCTION);
+		createBlock("gold_deposit", GOLD_DEPOSIT, MBItemGroup.CONSTRUCTION);
+		createBlock("frost_gold_deposit", FROST_GOLD, MBItemGroup.CONSTRUCTION);
+		createBlock("mud_gold_deposit", MUD_GOLD_DEPOSIT, MBItemGroup.CONSTRUCTION);
+		createBlock("copper_deposit", COPPER_DEPOSIT, MBItemGroup.CONSTRUCTION);
+		createBlock("frost_copper_deposit", FROST_COPPER, MBItemGroup.CONSTRUCTION);
+
 		createBlock("chert_coal_ore", CHERT_COAL_ORE, MBItemGroup.CONSTRUCTION);
 		createBlock("chert_gold_ore", CHERT_GOLD_ORE, MBItemGroup.CONSTRUCTION);
 		createBlock("chert_copper_ore", CHERT_COPPER_ORE, MBItemGroup.CONSTRUCTION);
@@ -1359,37 +1123,42 @@ public class MBBlocks {
 		createBlock("magnetite_ore", MAGNETITE_ORE, MBItemGroup.CONSTRUCTION);
 		createBlock("magnetite_block", MAGNETITE_BLOCK, MBItemGroup.CONSTRUCTION);
 
-		createBlock("redstone_cluster", REDSTONE_CLUSTER, MBItemGroup.CONSTRUCTION);
-		createBlock("large_redstone_bud", LARGE_REDSTONE_BUD, MBItemGroup.CONSTRUCTION);
-		createBlock("medium_redstone_bud", MEDIUM_REDSTONE_BUD, MBItemGroup.CONSTRUCTION);
-		createBlock("small_redstone_bud", SMALL_REDSTONE_BUD, MBItemGroup.CONSTRUCTION);
+		createBlock("peat_block", PEAT_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("peat_bricks", PEAT_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("peat_brick_slab", PEAT_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("peat_brick_stairs", PEAT_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("peat_brick_wall", PEAT_BRICK_WALL, MBItemGroup.CONSTRUCTION);
 
-		createBlock("flowering_acacia_leaves", FLOWERING_ACACIA_LEAVES, MBItemGroup.CONSTRUCTION);
-		createBlock("hanging_flowering_acacia_leaves", HANGING_FLOWERING_ACACIA_LEAVES, MBItemGroup.CONSTRUCTION);
-		createBlock("tall_flowering_acacia_leaves", TALL_FLOWERING_ACACIA_LEAVES, MBItemGroup.CONSTRUCTION);
-
-		createBlock("cracked_mud", CRACKED_MUD, MBItemGroup.CONSTRUCTION);
-
-		createBlock("rich_mud", RICH_MUD, MBItemGroup.CONSTRUCTION);
-		createBlock("mud_gold_deposit", MUD_GOLD_DEPOSIT, MBItemGroup.CONSTRUCTION);
-
-		createBlock("mudstone", MUDSTONE, MBItemGroup.CONSTRUCTION);
-		createBlock("mudstone_slab", MUDSTONE_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("mudstone_stairs", MUDSTONE_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("mudstone_wall", MUDSTONE_WALL, MBItemGroup.CONSTRUCTION);
-
-		createBlock("smooth_mudstone", SMOOTH_MUDSTONE, MBItemGroup.CONSTRUCTION);
-		createBlock("smooth_mudstone_slab",SMOOTH_MUDSTONE_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("smooth_mudstone_stairs", SMOOTH_MUDSTONE_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("smooth_mudstone_wall", SMOOTH_MUDSTONE_WALL, MBItemGroup.CONSTRUCTION);
-
-		createBlock("mudstone_bricks", MUDSTONE_BRICKS, MBItemGroup.CONSTRUCTION);
-		createBlock("mudstone_brick_slab", MUDSTONE_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("mudstone_brick_stairs", MUDSTONE_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("mudstone_brick_wall", MUDSTONE_BRICK_WALL, MBItemGroup.CONSTRUCTION);
-
-		createBlock("cut_mudstone", CUT_MUDSTONE, MBItemGroup.CONSTRUCTION);
-		createBlock("chiseled_mudstone", CHISELED_MUDSTONE, MBItemGroup.CONSTRUCTION);
+		// - JUNIPER WOOD
+		createBlock("juniper_planks", JUNIPER_PLANKS, MBItemGroup.CONSTRUCTION);
+		createBlock("juniper_stairs", JUNIPER_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("juniper_slab", JUNIPER_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("juniper_log", JUNIPER_LOG, MBItemGroup.CONSTRUCTION);
+		createBlock("juniper_wood", JUNIPER_WOOD, MBItemGroup.CONSTRUCTION);
+		createBlock("stripped_juniper_log", STRIPPED_JUNIPER_LOG, MBItemGroup.CONSTRUCTION);
+		createBlock("stripped_juniper_wood", STRIPPED_JUNIPER_WOOD, MBItemGroup.CONSTRUCTION);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_juniper_sapling"), POTTED_JUNIPER_SAPLING);
+		createBlock("juniper_fence", JUNIPER_FENCE, MBItemGroup.CONSTRUCTION);
+		createBlock("juniper_fence_gate", JUNIPER_FENCE_GATE, ItemGroup.REDSTONE);
+		createBlock("juniper_door", JUNIPER_DOOR, ItemGroup.REDSTONE);
+		createBlock("juniper_trapdoor", JUNIPER_TRAPDOOR, ItemGroup.REDSTONE);
+		createBlock("juniper_button", JUNIPER_BUTTON, ItemGroup.REDSTONE);
+		createBlock("juniper_pressure_plate", JUNIPER_PRESSURE_PLATE, ItemGroup.REDSTONE);
+		// - CEDAR WOOD
+		createBlock("cedar_planks", CEDAR_PLANKS, MBItemGroup.CONSTRUCTION);
+		createBlock("cedar_stairs", CEDAR_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("cedar_slab", CEDAR_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("cedar_log", CEDAR_LOG, MBItemGroup.CONSTRUCTION);
+		createBlock("cedar_wood", CEDAR_WOOD, MBItemGroup.CONSTRUCTION);
+		createBlock("stripped_cedar_log", STRIPPED_CEDAR_LOG, MBItemGroup.CONSTRUCTION);
+		createBlock("stripped_cedar_wood", STRIPPED_CEDAR_WOOD, MBItemGroup.CONSTRUCTION);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_cedar_sapling"), POTTED_CEDAR_SAPLING);
+		createBlock("cedar_fence", CEDAR_FENCE, MBItemGroup.CONSTRUCTION);
+		createBlock("cedar_fence_gate", CEDAR_FENCE_GATE, ItemGroup.REDSTONE);
+		createBlock("cedar_door", CEDAR_DOOR, ItemGroup.REDSTONE);
+		createBlock("cedar_trapdoor", CEDAR_TRAPDOOR, ItemGroup.REDSTONE);
+		createBlock("cedar_button", CEDAR_BUTTON, ItemGroup.REDSTONE);
+		createBlock("cedar_pressure_plate", CEDAR_PRESSURE_PLATE, ItemGroup.REDSTONE);
 
 		createBlock("honey_planks", HONEY_PLANKS, MBItemGroup.CONSTRUCTION);
 		createBlock("honey_stairs", HONEY_STAIRS, MBItemGroup.CONSTRUCTION);
@@ -1400,16 +1169,77 @@ public class MBBlocks {
 		createBlock("honey_trapdoor", HONEY_TRAPDOOR, ItemGroup.REDSTONE);
 		createBlock("honey_button", HONEY_BUTTON, ItemGroup.REDSTONE);
 		createBlock("honey_pressure_plate", HONEY_PRESSURE_PLATE, ItemGroup.REDSTONE);
-		createBlock("honey_bookshelf", HONEY_BOOKSHELF, MBItemGroup.DECOR);
-		createBlock("honey_planter_box", HONEY_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("honey_boards", HONEY_BOARDS, MBItemGroup.CONSTRUCTION);
 		createBlock("honey_panel", HONEY_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_honey_wood", CARVED_HONEY, MBItemGroup.CONSTRUCTION);
 		createBlock("honey_pillar", HONEY_PILLAR, MBItemGroup.CONSTRUCTION);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "honey_sign"), HONEY_SIGN);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "honey_wall_sign"), HONEY_WALL_SIGN);
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "honey_sign"), (Item)(new SignItem(new Item.Settings().group(ItemGroup.DECORATIONS), HONEY_SIGN, HONEY_WALL_SIGN)));
 
+		// WOOD
+		// - BOARDS
+		createBlock("oak_boards", OAK_BOARDS, MBItemGroup.CONSTRUCTION);
+		createBlock("spruce_boards", SPRUCE_BOARDS, MBItemGroup.CONSTRUCTION);
+		createBlock("birch_boards", BIRCH_BOARDS, MBItemGroup.CONSTRUCTION);
+		createBlock("jungle_boards", JUNGLE_BOARDS, MBItemGroup.CONSTRUCTION);
+		createBlock("acacia_boards", ACACIA_BOARDS, MBItemGroup.CONSTRUCTION);
+		createBlock("dark_oak_boards", DARK_OAK_BOARDS, MBItemGroup.CONSTRUCTION);
+		createBlock("mangrove_boards", MANGROVE_BOARDS, MBItemGroup.CONSTRUCTION);
+		createBlock("juniper_boards", JUNIPER_BOARDS, MBItemGroup.CONSTRUCTION);
+		createBlock("cedar_boards", CEDAR_BOARDS, MBItemGroup.CONSTRUCTION);
+		createBlock("crimson_boards", CRIMSON_BOARDS, MBItemGroup.CONSTRUCTION);
+		createBlock("warped_boards", WARPED_BOARDS, MBItemGroup.CONSTRUCTION);
+		// - PANELS
+		createBlock("oak_panel", OAK_PANEL, MBItemGroup.CONSTRUCTION);
+		createBlock("spruce_panel", SPRUCE_PANEL, MBItemGroup.CONSTRUCTION);
+		createBlock("birch_panel", BIRCH_PANEL, MBItemGroup.CONSTRUCTION);
+		createBlock("jungle_panel", JUNGLE_PANEL, MBItemGroup.CONSTRUCTION);
+		createBlock("acacia_panel", ACACIA_PANEL, MBItemGroup.CONSTRUCTION);
+		createBlock("dark_oak_panel", DARK_OAK_PANEL, MBItemGroup.CONSTRUCTION);
+		createBlock("mangrove_panel", MANGROVE_PANEL, MBItemGroup.CONSTRUCTION);
+		createBlock("juniper_panel", JUNIPER_PANEL, MBItemGroup.CONSTRUCTION);
+		createBlock("cedar_panel", CEDAR_PANEL, MBItemGroup.CONSTRUCTION);
+		createBlock("crimson_panel", CRIMSON_PANEL, MBItemGroup.CONSTRUCTION);
+		createBlock("warped_panel", WARPED_PANEL, MBItemGroup.CONSTRUCTION);
+		// - CARVED
+		createBlock("carved_oak_wood", CARVED_OAK, MBItemGroup.CONSTRUCTION);
+		createBlock("carved_spruce_wood", CARVED_SPRUCE, MBItemGroup.CONSTRUCTION);
+		createBlock("carved_birch_wood", CARVED_BIRCH, MBItemGroup.CONSTRUCTION);
+		createBlock("carved_jungle_wood", CARVED_JUNGLE, MBItemGroup.CONSTRUCTION);
+		createBlock("carved_acacia_wood", CARVED_ACACIA, MBItemGroup.CONSTRUCTION);
+		createBlock("carved_dark_oak_wood", CARVED_DARK_OAK, MBItemGroup.CONSTRUCTION);
+		createBlock("carved_mangrove_wood", CARVED_MANGROVE, MBItemGroup.CONSTRUCTION);
+		createBlock("carved_juniper_wood", CARVED_JUNIPER, MBItemGroup.CONSTRUCTION);
+		createBlock("carved_cedar_wood", CARVED_CEDAR, MBItemGroup.CONSTRUCTION);
+		createBlock("carved_crimson_hyphae", CARVED_CRIMSON, MBItemGroup.CONSTRUCTION);
+		createBlock("carved_warped_hyphae", CARVED_WARPED, MBItemGroup.CONSTRUCTION);
+		// - PILLARS
+		createBlock("oak_pillar", OAK_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("spruce_pillar", SPRUCE_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("birch_pillar", BIRCH_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("jungle_pillar", JUNGLE_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("acacia_pillar", ACACIA_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("dark_oak_pillar", DARK_OAK_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("mangrove_pillar", MANGROVE_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("juniper_pillar", JUNIPER_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("cedar_pillar", CEDAR_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("crimson_pillar", CRIMSON_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("warped_pillar", WARPED_PILLAR, MBItemGroup.CONSTRUCTION);
+
+		createBlock("aspen_trunk", ASPEN_TRUNK, MBItemGroup.CONSTRUCTION);
+		createBlock("stripped_aspen_trunk", STRIPPED_ASPEN_TRUNK, MBItemGroup.CONSTRUCTION);
+		createBlock("aspen_planks", ASPEN_PLANKS, MBItemGroup.CONSTRUCTION);
+		createBlock("aspen_slab", ASPEN_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("aspen_stairs", ASPEN_STAIRS, MBItemGroup.CONSTRUCTION);
+
+		createBlock("red_mushroom_cap", RED_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
+		createBlock("brown_mushroom_cap", BROWN_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
+		createBlock("saffron_mushroom_cap", SAFFRON_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
+		createBlock("saffron_gills", SAFFRON_GILLS, MBItemGroup.CONSTRUCTION);
+		createBlock("giant_toadstool_cap", GIANT_TOADSTOOL_CAP, MBItemGroup.CONSTRUCTION);
+
+		createBlock("mushroom_stem", MUSHROOM_STEM, MBItemGroup.CONSTRUCTION);
+		createBlock("stripped_mushroom_stem", STRIPPED_MUSHROOM_STEM, MBItemGroup.CONSTRUCTION);
+		createBlock("mushroom_hyphae", MUSHROOM_HYPHAE, MBItemGroup.CONSTRUCTION);
+		createBlock("stripped_mushroom_hyphae", STRIPPED_MUSHROOM_HYPHAE, MBItemGroup.CONSTRUCTION);
 
 		createBlock("honeycomb_slab", HONEYCOMB_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("honeycomb_stairs", HONEYCOMB_STAIRS, MBItemGroup.CONSTRUCTION);
@@ -1426,50 +1256,52 @@ public class MBBlocks {
 		createBlock("honeycomb_tile_wall", HONEYCOMB_TILE_WALL, MBItemGroup.CONSTRUCTION);
 		createBlock("honeycomb_pillar", HONEYCOMB_PILLAR, MBItemGroup.CONSTRUCTION);
 
-		// DIRT CAVES
-		createBlock("tough_dirt", TOUGH_DIRT, MBItemGroup.CONSTRUCTION);
-		createBlock("tough_dirt_slab", TOUGH_DIRT_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("tough_dirt_stairs", TOUGH_DIRT_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("red_mush_block", RED_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("red_mush_stairs", RED_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("red_mush_slab", RED_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("red_mush_bricks", RED_MUSH_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("red_mush_brick_stairs", RED_MUSH_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("red_mush_brick_slab", RED_MUSH_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("red_mush_lamp", RED_MUSH_LAMP, MBItemGroup.CONSTRUCTION);
 
-        createBlock("dirt_bricks", DIRT_BRICKS, MBItemGroup.CONSTRUCTION);
-        createBlock("dirt_brick_slab", DIRT_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
-        createBlock("dirt_brick_stairs", DIRT_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("brown_mush_block", BROWN_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("brown_mush_stairs", BROWN_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("brown_mush_slab", BROWN_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("brown_mush_bricks", BROWN_MUSH_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("brown_mush_brick_stairs", BROWN_MUSH_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("brown_mush_brick_slab", BROWN_MUSH_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("brown_mush_lamp", BROWN_MUSH_LAMP, MBItemGroup.CONSTRUCTION);
 
-		createBlock("smooth_dirt", SMOOTH_DIRT, MBItemGroup.CONSTRUCTION);
-		createBlock("smooth_dirt_slab", SMOOTH_DIRT_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("smooth_dirt_stairs", SMOOTH_DIRT_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_mush_block", TOADSTOOL_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_mush_stairs", TOADSTOOL_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_mush_slab", TOADSTOOL_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_mush_bricks", TOADSTOOL_MUSH_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_mush_brick_stairs", TOADSTOOL_MUSH_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_mush_brick_slab", TOADSTOOL_MUSH_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_mush_lamp", TOADSTOOL_MUSH_LAMP, MBItemGroup.CONSTRUCTION);
 
-		createBlock("packed_dirt", PACKED_DIRT, MBItemGroup.CONSTRUCTION);
-		createBlock("packed_dirt_slab", PACKED_DIRT_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("packed_dirt_stairs", PACKED_DIRT_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("saffron_mush_block", SAFFRON_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("saffron_mush_stairs", SAFFRON_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("saffron_mush_slab", SAFFRON_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("saffron_mush_bricks", SAFFRON_MUSH_BRICKS, MBItemGroup.CONSTRUCTION);
+		createBlock("saffron_mush_brick_stairs", SAFFRON_MUSH_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("saffron_mush_brick_slab", SAFFRON_MUSH_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("saffron_mush_lamp", SAFFRON_MUSH_LAMP, MBItemGroup.CONSTRUCTION);
 
-		createBlock("tough_grass", TOUGH_GRASS, MBItemGroup.CONSTRUCTION);
+		createBlock("fur_block", FUR_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("fur_carpet", FUR_CARPET, MBItemGroup.CONSTRUCTION);
 
-		createBlock("peat_deposit", PEAT_DEPOSIT, MBItemGroup.CONSTRUCTION);
-		createBlock("clay_deposit", CLAY_DEPOSIT, MBItemGroup.CONSTRUCTION);
-		createBlock("gold_deposit", GOLD_DEPOSIT, MBItemGroup.CONSTRUCTION);
-		createBlock("copper_deposit", COPPER_DEPOSIT, MBItemGroup.CONSTRUCTION);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "honey_cauldron"), HONEY_CAULDRON);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "syrup_cauldron"), SYRUP_CAULDRON);
 
-		createBlock("regolith", REGOLITH, MBItemGroup.CONSTRUCTION);
 
-		createBlock("peat_moss", PEAT_MOSS, MBItemGroup.CONSTRUCTION);
-
-		createBlock("peat_block", PEAT_BLOCK, MBItemGroup.CONSTRUCTION);
-		createBlock("peat_bricks", PEAT_BRICKS, MBItemGroup.CONSTRUCTION);
-		createBlock("peat_brick_slab", PEAT_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("peat_brick_stairs", PEAT_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("peat_brick_wall", PEAT_BRICK_WALL, MBItemGroup.CONSTRUCTION);
+		createBlock("canvas", CANVAS, MBItemGroup.CONSTRUCTION);
+		createBlock("framed_canvas", FRAMED_CANVAS, MBItemGroup.CONSTRUCTION);
 
 		createBlock("lettuce_block", LETTUCE_BLOCK, MBItemGroup.MB_FOOD);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "lettuce_crop"), LETTUCE_CROP);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "lettuce_crop"), LETTUCE_CROP);
 
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "pepper_crop"), PEPPER_CROP);
-
-		createBlock("lamproot", LAMPROOT, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "cavebloom_flowers"), CAVEBLOOM_FLOWERS);
-		// so that the item has the right id (not important probably but dw)
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "cavebloom_vine"), CAVEBLOOM_VINE);
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MOD_ID, "caveblooms"), CAVEBLOOMS);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "pepper_crop"), PEPPER_CROP);
 
 		// MISC. CAVES
 		createBlock("fossil", FOSSIL, MBItemGroup.CONSTRUCTION);
@@ -1477,6 +1309,205 @@ public class MBBlocks {
 		// GLASS SHARDS/FULGURITE
 		createBlock("glass_door", GLASS_DOOR, ItemGroup.REDSTONE);
 		//createBlock("fulgurite", FULGURITE, MBItemGroup.MATERIALS);
+
+
+		createBlock("juniper_leaves", JUNIPER_LEAVES, MBItemGroup.DECOR);
+		createBlock("cedar_leaves", CEDAR_LEAVES, MBItemGroup.DECOR);
+		createBlock("aspen_leaves", ASPEN_LEAVES, MBItemGroup.DECOR);
+		createBlock("golden_birch_leaves", GOLDEN_BIRCH_LEAVES, MBItemGroup.DECOR);
+		createBlock("red_oak_leaves", RED_OAK_LEAVES, MBItemGroup.DECOR);
+		createBlock("juniper_sapling", JUNIPER_SAPLING, MBItemGroup.DECOR);
+		createBlock("cedar_sapling", CEDAR_SAPLING, MBItemGroup.DECOR);
+
+		createBlock("flowering_acacia_leaves", FLOWERING_ACACIA_LEAVES, MBItemGroup.DECOR);
+		createBlock("hanging_flowering_acacia_leaves", HANGING_FLOWERING_ACACIA_LEAVES, MBItemGroup.DECOR);
+		createBlock("tall_flowering_acacia_leaves", TALL_FLOWERING_ACACIA_LEAVES, MBItemGroup.DECOR);
+
+		createBlock("aspen_sapling", ASPEN_SAPLING, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_aspen_sapling"), POTTED_ASPEN_SAPLING);
+		createBlock("golden_birch_sapling", GOLDEN_BIRCH_SAPLING, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_golden_birch_sapling"), POTTED_GOLDEN_BIRCH_SAPLING);
+		createBlock("red_oak_sapling", RED_OAK_SAPLING, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_red_oak_sapling"), POTTED_RED_OAK_SAPLING);
+
+		createBlock("aspen_leaf_carpet", ASPEN_LEAF_CARPET, MBItemGroup.DECOR);
+		createBlock("golden_birch_leaf_carpet", GOLDEN_BIRCH_LEAF_CARPET, MBItemGroup.DECOR);
+		createBlock("red_oak_leaf_carpet", RED_OAK_LEAF_CARPET, MBItemGroup.DECOR);
+
+		createBlock("aspen_trim", ASPEN_TRIM, MBItemGroup.DECOR);
+		createBlock("aspen_window", ASPEN_WINDOW, MBItemGroup.DECOR);
+		createBlock("aspen_lantern", ASPEN_LANTERN, MBItemGroup.DECOR);
+		createBlock("aspen_soul_lantern", ASPEN_SOUL_LANTERN, MBItemGroup.DECOR);
+		createBlock("aspen_lattice", ASPEN_LATTICE, MBItemGroup.DECOR);
+		createBlock("aspen_palisade", ASPEN_PALISADE, MBItemGroup.DECOR);
+		createBlock("stripped_aspen_palisade", STRIPPED_ASPEN_PALISADE, MBItemGroup.DECOR);
+
+		createBlock("grass_turf", GRASS_TURF, MBItemGroup.DECOR);
+		createBlock("grass_turf_stairs", GRASS_TURF_STAIRS, MBItemGroup.DECOR);
+		createBlock("grass_turf_slab", GRASS_TURF_SLAB, MBItemGroup.DECOR);
+		createBlock("grass_carpet", GRASS_CARPET, MBItemGroup.DECOR);
+
+		createBlock("mycelium_turf", MYCELIUM_TURF, MBItemGroup.DECOR);
+		createBlock("mycelium_turf_stairs", MYCELIUM_TURF_STAIRS, MBItemGroup.DECOR);
+		createBlock("mycelium_turf_slab", MYCELIUM_TURF_SLAB, MBItemGroup.DECOR);
+		createBlock("mycelium_carpet", MYCELIUM_CARPET, MBItemGroup.DECOR);
+
+		createBlock("crimson_nylium_turf", CRIMSON_NYLIUM_TURF, MBItemGroup.DECOR);
+		createBlock("crimson_nylium_turf_stairs",CRIMSON_NYLIUM_TURF_STAIRS, MBItemGroup.DECOR);
+		createBlock("crimson_nylium_turf_slab", CRIMSON_NYLIUM_TURF_SLAB, MBItemGroup.DECOR);
+		createBlock("crimson_nylium_carpet", CRIMSON_NYLIUM_CARPET, MBItemGroup.DECOR);
+		createBlock("warped_nylium_turf", WARPED_NYLIUM_TURF, MBItemGroup.DECOR);
+		createBlock("warped_nylium_turf_stairs", WARPED_NYLIUM_TURF_STAIRS, MBItemGroup.DECOR);
+		createBlock("warped_nylium_turf_slab", WARPED_NYLIUM_TURF_SLAB, MBItemGroup.DECOR);
+		createBlock("warped_nylium_carpet", WARPED_NYLIUM_CARPET, MBItemGroup.DECOR);
+
+		// PLANTS
+		createBlock("pebbles", PEBBLES, MBItemGroup.DECOR);
+
+		createBlock("beachgrass", BEACHGRASS, MBItemGroup.DECOR);
+		createBlock("cottongrass", COTTONGRASS, MBItemGroup.DECOR);
+		createBlock("desert_brush", DESERT_BRUSH, MBItemGroup.DECOR);
+		createBlock("tall_beachgrass", TALL_BEACHGRASS, MBItemGroup.DECOR);
+		createBlock("tall_cottongrass", TALL_COTTONGRASS, MBItemGroup.DECOR);
+		createBlock("tall_desert_brush", TALL_DESERT_BRUSH, MBItemGroup.DECOR);
+
+		createBlock("mycelium_roots", MYCELIUM_ROOTS, MBItemGroup.DECOR);
+
+		// FLOWERS
+		createBlock("buttercup", BUTTERCUP, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_buttercup"), POTTED_BUTTERCUP);
+		createBlock("forget_me_not", FORGETMENOT, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_forget_me_not"), POTTED_FORGETMENOT);
+		createBlock("marigold", MARIGOLD, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_marigold"), POTTED_MARIGOLD);
+
+		createBlock("white_heather", WHITE_HEATHER, MBItemGroup.DECOR);
+		createBlock("red_heather", RED_HEATHER, MBItemGroup.DECOR);
+		createBlock("orange_heather", ORANGE_HEATHER, MBItemGroup.DECOR);
+		createBlock("purple_heather", PURPLE_HEATHER, MBItemGroup.DECOR);
+
+		createBlock("lupine", LUPINE, MBItemGroup.DECOR);
+
+		createBlock("white_hyacinth", WHITE_HYACINTH, MBItemGroup.DECOR);
+		createBlock("pink_hyacinth", PINK_HYACINTH, MBItemGroup.DECOR);
+		createBlock("light_blue_hyacinth", LIGHT_BLUE_HYACINTH, MBItemGroup.DECOR);
+		createBlock("red_hyacinth", RED_HYACINTH, MBItemGroup.DECOR);
+
+		createBlock("puffballs", PUFFBALLS, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_puffballs"), POTTED_PUFFBALLS);
+
+		createBlock("saffron_mushroom", SAFFRON_MUSHROOM, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_saffron_mushroom"), POTTED_SAFFRON_MUSHROOM);
+		createBlock("small_toadstools", SMALL_TOADSTOOLS, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_small_toadstools"), POTTED_SMALL_TOADSTOOLS);
+		createBlock("toadstool", TOADSTOOL, MBItemGroup.DECOR);
+		createBlock("toadstool_shelf", TOADSTOOL_SHELF, MBItemGroup.DECOR);
+
+		createBlock("wild_carrots", WILD_CARROTS, MBItemGroup.DECOR);
+		createBlock("wild_potatoes", WILD_POTATOES, MBItemGroup.DECOR);
+		createBlock("sea_beets", SEA_BEETS, MBItemGroup.DECOR);
+
+		createBlock("frosthorn_crown", FROSTHORN_CROWN, MBItemGroup.DECOR);
+		createBlock("frosthorn_stem", FROSTHORN_STEM, MBItemGroup.DECOR);
+		createBlock("frosthorn_leaves", FROSTHORN_LEAVES, MBItemGroup.DECOR);
+
+		createBlock("barrel_cactus", BARREL_CACTUS, MBItemGroup.DECOR);
+
+		createBlock("lamproot", LAMPROOT, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "cavebloom_flowers"), CAVEBLOOM_FLOWERS);
+		// so that the item has the right id (not important probably but dw)
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "cavebloom_vine"), CAVEBLOOM_VINE);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "caveblooms"), CAVEBLOOMS);
+
+		// - BOOKSHELVES
+		createBlock("spruce_bookshelf", SPRUCE_BOOKSHELF, MBItemGroup.DECOR);
+		createBlock("birch_bookshelf", BIRCH_BOOKSHELF, MBItemGroup.DECOR);
+		createBlock("jungle_bookshelf", JUNGLE_BOOKSHELF, MBItemGroup.DECOR);
+		createBlock("acacia_bookshelf", ACACIA_BOOKSHELF, MBItemGroup.DECOR);
+		createBlock("dark_oak_bookshelf", DARK_OAK_BOOKSHELF, MBItemGroup.DECOR);
+		createBlock("mangrove_bookshelf", MANGROVE_BOOKSHELF, MBItemGroup.DECOR);
+		createBlock("juniper_bookshelf", JUNIPER_BOOKSHELF, MBItemGroup.DECOR);
+		createBlock("cedar_bookshelf", CEDAR_BOOKSHELF, MBItemGroup.DECOR);
+		createBlock("honey_bookshelf", HONEY_BOOKSHELF, MBItemGroup.DECOR);
+		createBlock("crimson_bookshelf", CRIMSON_BOOKSHELF, MBItemGroup.DECOR);
+		createBlock("warped_bookshelf", WARPED_BOOKSHELF, MBItemGroup.DECOR);
+		// - PLANTER BOXES
+		createBlock("oak_planter_box", OAK_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("spruce_planter_box", SPRUCE_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("birch_planter_box", BIRCH_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("jungle_planter_box", JUNGLE_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("acacia_planter_box", ACACIA_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("dark_oak_planter_box", DARK_OAK_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("mangrove_planter_box", MANGROVE_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("juniper_planter_box", JUNIPER_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("cedar_planter_box", CEDAR_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("honey_planter_box", HONEY_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("crimson_planter_box", CRIMSON_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("warped_planter_box", WARPED_PLANTER_BOX, MBItemGroup.DECOR);
+
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "juniper_sign"), JUNIPER_SIGN);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "juniper_wall_sign"), JUNIPER_WALL_SIGN);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "juniper_sign"),
+				(Item)(new SignItem(new Item.Settings().group(ItemGroup.DECORATIONS), JUNIPER_SIGN, JUNIPER_WALL_SIGN)));
+
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "cedar_sign"), CEDAR_SIGN);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "cedar_wall_sign"), CEDAR_WALL_SIGN);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "cedar_sign"),
+				(Item)(new SignItem(new Item.Settings().group(ItemGroup.DECORATIONS), CEDAR_SIGN, CEDAR_WALL_SIGN)));
+
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "honey_sign"), HONEY_SIGN);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "honey_wall_sign"), HONEY_WALL_SIGN);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "honey_sign"),
+				(Item)(new SignItem(new Item.Settings().group(ItemGroup.DECORATIONS), HONEY_SIGN, HONEY_WALL_SIGN)));
+
+		createBlock("kiln", KILN, MBItemGroup.DECOR);
+		KILN_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "kiln_block_entity"),
+				FabricBlockEntityTypeBuilder.create(KilnBlockEntity::new, KILN).build(null));
+
+		createBlock("tree_tap", TREE_TAP, MBItemGroup.DECOR);
+		createBlock("syrup_block", SYRUP_BLOCK, ItemGroup.REDSTONE);
+
+		createBlock("rope_ladder", ROPE_LADDER, MBItemGroup.DECOR);
+		createBlock("iron_ladder", IRON_LADDER, MBItemGroup.DECOR);
+
+		createBlock("leather_seat", LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("white_seat", WHITE_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("orange_seat", ORANGE_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("magenta_seat", MAGENTA_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("light_blue_seat", LIGHT_BLUE_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("yellow_seat", YELLOW_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("lime_seat", LIME_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("pink_seat", PINK_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("gray_seat", GRAY_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("light_gray_seat", LIGHT_GRAY_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("cyan_seat", CYAN_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("purple_seat", PURPLE_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("blue_seat", BLUE_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("brown_seat", BROWN_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("green_seat", GREEN_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("red_seat", RED_LEATHER_SEAT, MBItemGroup.DECOR);
+		createBlock("black_seat", BLACK_LEATHER_SEAT, MBItemGroup.DECOR);
+
+		createBlock("redstone_cluster", REDSTONE_CLUSTER, MBItemGroup.DECOR);
+		createBlock("large_redstone_bud", LARGE_REDSTONE_BUD, MBItemGroup.DECOR);
+		createBlock("medium_redstone_bud", MEDIUM_REDSTONE_BUD, MBItemGroup.DECOR);
+		createBlock("small_redstone_bud", SMALL_REDSTONE_BUD, MBItemGroup.DECOR);
+
+
+		// MOOBLOOM FLOWERS
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_lily"), MINI_LILY);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_oxeye"), MINI_OXEYE);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_bluet"), MINI_BLUET);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_dandelion"), MINI_DANDELION);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_poppy"), MINI_POPPY);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_orchid"), MINI_ORCHID);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_cornflower"), MINI_CORNFLOWER);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_allium"), MINI_ALLIUM);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_tulip_w"), MINI_TULIP_W);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_tulip_p"), MINI_TULIP_P);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_tulip_o"), MINI_TULIP_O);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_tulip_r"), MINI_TULIP_R);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_forget_me_not"), MINI_FORGETMENOT);
 
 		// STONE
 		createBlock("stone_pillar", STONE_PILLAR, MBItemGroup.CONSTRUCTION);
@@ -1864,10 +1895,6 @@ public class MBBlocks {
 		createBlock("smooth_basalt_stairs", SMOOTH_BASALT_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("smooth_basalt_wall", SMOOTH_BASALT_WALL, MBItemGroup.CONSTRUCTION);
 
-		// - AMETHYST BLOCKS
-		createBlock("quartz_shard_block", QUARTZ_SHARD_BLOCK, MBItemGroup.CONSTRUCTION);
-		createBlock("amethyst_shard_block", AMETHYST_SHARD_BLOCK, MBItemGroup.CONSTRUCTION);
-
 		// STORAGE BLOCKS
 		createBlock("apple_crate", APPLE_CRATE, MBItemGroup.DECOR);
 		createBlock("carrot_crate", CARROT_CRATE, MBItemGroup.DECOR);
@@ -1910,9 +1937,9 @@ public class MBBlocks {
 		createBlock("blaze_rod_bundle", BLAZE_ROD_BUNDLE, MBItemGroup.DECOR);
 		createBlock("ender_pearl_block", ENDER_PEARL_BLOCK, MBItemGroup.DECOR);
 
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "blaze_rod"), BLAZE_ROD);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "wall_lantern"), WALL_LANTERN);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MOD_ID, "wall_soul_lantern"), WALL_SOUL_LANTERN);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "blaze_rod"), BLAZE_ROD);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "wall_lantern"), WALL_LANTERN);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "wall_soul_lantern"), WALL_SOUL_LANTERN);
 
 	}
 

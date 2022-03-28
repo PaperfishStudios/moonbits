@@ -1,7 +1,9 @@
 {
-    "replace": false,
-    "values": [
-      "moonbits:rope_ladder",
-      "moonbits:iron_ladder"
-    ]
-  }
+  "replace": false,
+  "values": [
+    "moonbits:rope_ladder",
+    "moonbits:iron_ladder",
+    "moonbits:aspen_lattice",
+    "moonbits:syrup_block"
+  ]
+}

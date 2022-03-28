@@ -2,7 +2,7 @@
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
     "top": "moonbits:block/pink_seat_top",
-    "bottom": "moonbits:block/pink_seat_bottom",
+    "bottom": "moonbits:block/leather_seat_bottom",
     "side": "moonbits:block/pink_seat_double"
   }
 }

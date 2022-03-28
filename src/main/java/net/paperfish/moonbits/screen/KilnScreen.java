@@ -9,7 +9,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-@Environment(EnvType.CLIENT)
+@Environment(value=EnvType.CLIENT)
 public class KilnScreen extends AbstractFurnaceScreen<KilnScreenHandler> {
     //You can replace the background with whatever you like, just remember there will always be the recipe book button
     private static final Identifier BACKGROUND = new Identifier("textures/gui/container/furnace.png");

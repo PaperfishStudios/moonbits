@@ -29,7 +29,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.ConfiguredStructureFeatureKeys;
-import net.minecraft.world.gen.feature.StructureFeature;
 import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBEntities;
 import net.paperfish.moonbits.MBItems;
@@ -306,7 +305,7 @@ public class MBAdvancementsProvider extends FabricAdvancementsProvider {
         Advancement root = Advancement.Builder.create().display(Blocks.BRICKS,
                         new TranslatableText("advancements.architect.root.title"),
                         new TranslatableText("advancements.architect.root.description"),
-                        new Identifier(Moonbits.MOD_ID, "textures/gui/advancements/backgrounds/architect.png"), AdvancementFrame.TASK, false, false, false)
+                        new Identifier(Moonbits.MODID, "textures/gui/advancements/backgrounds/architect.png"), AdvancementFrame.TASK, false, false, false)
                 .criterion("crafting_table", InventoryChangedCriterion.Conditions.items(Blocks.CRAFTING_TABLE)).build(consumer, "architect/root");
         Advancement wrench = Advancement.Builder.create().parent(root).display(MBItems.WRENCH,
                         new TranslatableText("advancements.architect.wrench.title"),
@@ -346,7 +345,7 @@ public class MBAdvancementsProvider extends FabricAdvancementsProvider {
         Advancement root = Advancement.Builder.create().display(Items.REDSTONE,
                         new TranslatableText("advancements.redstone.root.title"),
                         new TranslatableText("advancements.redstone.root.description"),
-                        new Identifier(Moonbits.MOD_ID, "textures/gui/advancements/backgrounds/quartz.png"), AdvancementFrame.TASK, false, false, false)
+                        new Identifier(Moonbits.MODID, "textures/gui/advancements/backgrounds/quartz.png"), AdvancementFrame.TASK, false, false, false)
                 .criterion("crafting_table", InventoryChangedCriterion.Conditions.items(Items.REDSTONE)).build(consumer, "redstone/root");
         Advancement redstone_torch = Advancement.Builder.create().parent(root).display(Items.REDSTONE_TORCH,
                         new TranslatableText("advancements.redstone.redstone_torch.title"),

@@ -59,7 +59,6 @@ public class MBData {
 					.put(MBBlocks.CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_WOOD)
 
 					.put(MBBlocks.ASPEN_TRUNK, MBBlocks.STRIPPED_ASPEN_TRUNK)
-					//.put(MBBlocks.ASPEN_PALISADE, MBBlocks.STRIPPED_ASPEN_PALISADE)
 
 					.put(MBBlocks.MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_STEM)
 					.put(MBBlocks.MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_HYPHAE)
@@ -67,99 +66,24 @@ public class MBData {
 
 		KILN_BOOK_CATEGORY = BookingIt.getCategory("FIRING");
 
-		KILN_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MOD_ID, "kiln"), new RecipeType<KilnRecipe>() {
+		KILN_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MODID, "kiln"), new RecipeType<KilnRecipe>() {
 				@Override
-				public String toString() {return Moonbits.MOD_ID.concat("kiln");}
+				public String toString() {return Moonbits.MODID.concat(":kiln");}
 			});
-		KILN_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MOD_ID, "kiln"), new CookingRecipeSerializer<>(KilnRecipe::new, 200));
-		KILN_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Moonbits.MOD_ID, "kiln"), KilnScreenHandler::new);
+		KILN_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MODID, "kiln"), new CookingRecipeSerializer<>(KilnRecipe::new, 200));
+		KILN_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, (new Identifier(Moonbits.MODID, "kiln")), new ScreenHandlerType<>(KilnScreenHandler::new));
+		//KILN_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, (new Identifier(Moonbits.MODID, "kiln")), new ScreenHandlerType<>(KilnScreenHandler::new));
 
-		WASHING_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MOD_ID, "washing"), new RecipeType<WashingRecipe>() {
+		WASHING_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MODID, "washing"), new RecipeType<WashingRecipe>() {
 			@Override
 			public String toString() {
-				return Moonbits.MOD_ID.concat("washing");
+				return Moonbits.MODID.concat(":washing");
 			}
 		});
-		WASHING_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MOD_ID, "washing"), new WashingRecipe.WashingSerializer());
-
-//		WASHING_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MOD_ID, "washing"), new RecipeType<WashingRecipe>() {
-//			@Override
-//			public String toString() {return "washing";}
-//		});
-//		WASHING_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MOD_ID, "washing"), new WashingRecipe.WashingSerializer());
+		WASHING_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MODID, "washing"), new WashingRecipe.WashingSerializer());
 	}
 
-	// this one's client side btw
-	public static void registerClient() {
-		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
-			BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.GRASS);
-			return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
-				MBBlocks.TOUGH_GRASS,
-				MBBlocks.GRASS_TURF,
-				MBBlocks.GRASS_TURF_STAIRS,
-				MBBlocks.GRASS_TURF_SLAB,
-				MBBlocks.GRASS_CARPET
-		);
-		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-			ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.GRASS);
-			return provider == null ? -1 : provider.getColor(stack, tintIndex);},
-				MBBlocks.TOUGH_GRASS,
-				MBBlocks.GRASS_TURF,
-				MBBlocks.GRASS_TURF_STAIRS,
-				MBBlocks.GRASS_TURF_SLAB,
-				MBBlocks.GRASS_CARPET
-		);
-
-		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
-			BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.ACACIA_LEAVES);
-			return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
-				MBBlocks.FLOWERING_ACACIA_LEAVES,
-				MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES,
-				MBBlocks.TALL_FLOWERING_ACACIA_LEAVES
-		);
-		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-			ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.ACACIA_LEAVES);
-			return provider == null ? -1 : provider.getColor(stack, tintIndex);},
-				MBBlocks.FLOWERING_ACACIA_LEAVES,
-				MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES,
-				MBBlocks.TALL_FLOWERING_ACACIA_LEAVES
-		);
-
-		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
-					BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.SPRUCE_LEAVES);
-					return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
-				MBBlocks.JUNIPER_LEAVES,
-				MBBlocks.CEDAR_LEAVES
-		);
-		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-					ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.SPRUCE_LEAVES);
-					return provider == null ? -1 : provider.getColor(stack, tintIndex);},
-				MBBlocks.JUNIPER_LEAVES,
-				MBBlocks.CEDAR_LEAVES
-		);
-
-		// item model predicates uwu
-		ModelPredicateProviderRegistrySpecificAccessor.callRegister(MBBlocks.BARREL_CACTUS.asItem(), new Identifier("water_level"), (stack, world, entity, seed) -> {
-			NbtCompound nbtCompound = stack.getSubNbt("BlockStateTag");
-			try {
-				NbtElement nbtElement;
-				if (nbtCompound != null && (nbtElement = nbtCompound.get(BarrelCactusBlock.LEVEL.getName())) != null) {
-					return switch (Integer.parseInt(nbtElement.asString())) {
-						default -> 0;
-						case 2 -> 1.0f;
-						case 3 -> 2.0f;
-						case 4 -> 3.0f;
-					};
-				}
-			}
-			catch (NumberFormatException numberFormatException) {
-				// empty catch block
-			}
-			return 1.0f;
-		});
-	}
-
-    public static void registerData() {
+	public static void registerData() {
 		// flammable blocks
 		FlammableBlockRegistry.getDefaultInstance().add(Blocks.COBWEB, 60, 20);
 

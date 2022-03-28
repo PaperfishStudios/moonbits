@@ -10,17 +10,17 @@ import software.bernie.geckolib3.model.provider.data.EntityModelData;
 public class GrizzlyBearEntityModel extends AnimatedGeoModel<GrizzlyBearEntity> {
     @Override
     public Identifier getModelLocation(GrizzlyBearEntity bear) {
-        return new Identifier(Moonbits.MOD_ID, "geo/entity/grizzly_bear.geo.json");
+        return new Identifier(Moonbits.MODID, "geo/entity/grizzly_bear.geo.json");
     }
 
     @Override
     public Identifier getTextureLocation(GrizzlyBearEntity bear) {
-        return new Identifier(Moonbits.MOD_ID, "textures/entity/bear/grizz.png");
+        return new Identifier(Moonbits.MODID, "textures/entity/bear/grizz.png");
     }
 
     @Override
     public Identifier getAnimationFileLocation(GrizzlyBearEntity bear) {
-        return new Identifier(Moonbits.MOD_ID, "animations/entity/grizzly_bear.animation.json");
+        return new Identifier(Moonbits.MODID, "animations/entity/grizzly_bear.animation.json");
     }
 
     @Override
@@ -33,15 +33,15 @@ public class GrizzlyBearEntityModel extends AnimatedGeoModel<GrizzlyBearEntity> 
         head.setRotationX(extraData.headPitch * ((float) Math.PI / 180F));
         head.setRotationY(extraData.netHeadYaw * ((float) Math.PI / 180F));
 
-        if (bear.isBaby()) {
-            head.setScaleX(2f);
-            head.setScaleY(2f);
-            head.setScaleZ(2f);
-        }
-        else {
-            head.setScaleX(1f);
-            head.setScaleY(1f);
-            head.setScaleZ(1f);
-        }
+//        if (bear.isBaby()) {
+//            head.setScaleX(2f);
+//            head.setScaleY(2f);
+//            head.setScaleZ(2f);
+//        }
+//        else {
+//            head.setScaleX(1f);
+//            head.setScaleY(1f);
+//            head.setScaleZ(1f);
+//        }
     }
 }

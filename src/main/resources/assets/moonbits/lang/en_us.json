@@ -8,114 +8,27 @@
 	"itemGroup.moonbits.debug": "Creative Blocks",
 	
 "_comment": "--advancements--",
-	"advancements.story.craft_furnace.title": "Hot Topic",
-	"advancements.story.craft_furnace.description": "Craft a furnace",
-	
-	"advancements.story.mine_peat.title": "Strike The Earth",
-	"advancements.story.mine_peat.description": "Dig up some peat",
-	
-	"advancements.story.mine_coal.title": "Fossil Fuel",
-	"advancements.story.mine_coal.description": "Obtain coal! A useful fuel source, but at what cost...",
-	
-	"advancements.story.smelt_gold.title": "Prospector",
-	"advancements.story.smelt_gold.description": "Strike gold!",
-	
-	"advancements.story.smelt_copper.title": "I Hardly Know 'Er!",
-	"advancements.story.smelt_copper.description": "Smelt a copper ingot",
-	
-	"advancements.story.blast_furnace.title": "Blast Processing",
-	"advancements.story.blast_furnace.description": "Upgrade to a blast furnace and smelt ores at twice the speed!",
-	
-	"advancements.story.mine_lapis.title": "Something Blue",
-	"advancements.story.mine_lapis.description": "Find Lapis Lazuli",
-	
-	
-	"advancements.adventure.mine_emerald.title": "Money, Money, Money",
-	"advancements.adventure.mine_emerald.description": "Collect an emerald fresh from the earth",
-	
-	"advancements.adventure.mine_amethyst.title": "Let There Be Light",
-	"advancements.adventure.mine_amethyst.description": "Find a geode underground! Listen carefully...",
 	
 	"advancements.story.craft_compass.title": "Get Your Bearings",
 	"advancements.story.craft_compass.description": "Hold a compass to guide you in your travels",
 	
-	"advancements.story.golden_apple.title": "Apple Of My Eye",
-	"advancements.story.golden_apple.description": "Find an Enchanted Golden Apple",
-	
-	
-	
-	"advancements.husbandry.flower_crown.title": "Flower Child",
-	"advancements.husbandry.flower_crown.description": "Take a kinder approach to beekeeping",
-	
-	"advancements.husbandry.campfire.title": "Bonfire Lit",
-	"advancements.husbandry.campfire.description": "Rest in the warmth of a campfire and enjoy a nice cooked meal",
-	
-	"advancements.husbandry.smoker.title": "Smokin' Hot",
-	"advancements.husbandry.smoker.description": "Craft a smoker and cook yourself a nice meal",
-	
-	"advancements.husbandry.planter_box.title": "???",
-	"advancements.husbandry.planter_box.description": "this is temporary!",
-	
 	"advancements.husbandry.lamproot.title": "?",
 	"advancements.husbandry.lamproot.description": "Plant a lamproot and see what happens!",
 	
+	"advancements.husbandry.sniffle.title": "Hidden In The Sand",
+	"advancements.husbandry.sniffle.description": "Feed a Sniffle and see what they find!",
 	
-	"advancements.architect.root.title": "Building",
-	"advancements.architect.root.description": "Release your creativity!",
+	"advancements.husbandry.bear.title": "Don't Feed The Bears",
+	"advancements.husbandry.bear.description": "They get pushy when they expect food",
 	
-	"advancements.architect.wrench.title": "Socket To Em!",
-	"advancements.architect.wrench.description": "Craft a wrench to rotate and adjust blocks you place",
+	"advancements.husbandry.bear_fur.title": "Beauty Rest",
+	"advancements.husbandry.bear_fur.description": "Surely they won't mind you clipping just a bit off the top?",
 	
-	"advancements.architect.sawmill.title": "???",
-	"advancements.architect.sawmill.description": "Craft a sawmill to make crafting and cutting more efficient!",
+	"advancements.husbandry.huffbug.title": "Huff and Puff",
+	"advancements.husbandry.huffbug.description": "Feed Mushblend to a Huffbug",
 	
-	"advancements.architect.kiln.title": "If Looks Could Kiln",
-	"advancements.architect.kiln.description": "Craft a furnace into a kiln to bake materials faster!",
-	
-	"advancements.architect.structure.title": "Environmental Storytelling",
-	"advancements.architect.structure.description": "Find an abandoned structure. Surely they won't mind you borrowing some materials?",
-	
-	"advancements.architect.mushblock.title": "???",
-	"advancements.architect.mushblock.description": "Combine mushrooms with bone meal for some environmentally friendly building!",
-	
-	"advancements.architect.honeywood.title": "???",
-	"advancements.architect.honeywood.description": "Pour honey on wood to get some hive-themed blocks!",
-	
-	
-	"advancements.redstone.root.title": "Engineering",
-	"advancements.redstone.root.description": "Playing with power.",
-	
-	"advancements.redstone.torch.title": "Inversion",
-	"advancements.redstone.torch.description": "A Redstone Torch will provide redstone power as long as it is not being powered itself",
-	
-	"advancements.redstone.wand.title": "Playtesting",
-	"advancements.redstone.wand.description": "Craft a Redstone Wand to quickly test your new circuits!",
-	
-	"advancements.redstone.repeater.title": "Repetition Legitimizes",
-	"advancements.redstone.repeater.description": "A Redstone Repeater will extend redstone signals past their usual limit, with a slight delay",
-	
-	"advancements.redstone.observer.title": "I Spy",
-	"advancements.redstone.observer.description": "An Observer will send a redstone pulse whenever it notices a change in the block it is observin.",
-	
-	"advancements.redstone.piston.title": "Push Comes To Shove",
-	"advancements.redstone.piston.description": "Pistons can push up to twelve blocks upon receiving power",
-	
-	"advancements.redstone.honey.title": "Like Slime And Honey",
-	"advancements.redstone.honey.description": "Slime and Honey Blocks both stick to blocks like Sticky Pistons, but cleanly slide right past each other",
-	
-	"advancements.redstone.sculk_sensor.title": "Bad Vibrations",
-	"advancements.redstone.sculk_sensor.description": "Sculk will react to Vibrations nearby. A Sculk Sensor is able to convert these into redstone energy",
-	
-	"advancements.redstone.hopper.title": "Hop To It",
-	"advancements.redstone.hopper.description": "Hoppers can suck items from containers and transport them around, but they can't go up.",
-	
-	
-	"advancements.nether.4096.title": "4096",
-	"advancements.nether.4096.description": "Mine enough debris to construct a fully-powered Netherite beacon. Now go take a break.",
-	
-	
-	"advancements.end.elytra_boost.title": "Rocket Science",
-	"advancements.end.elytra_boost.description": "Boost your flight with a Firework Rocket! Just make sure there’s no actual explosives inside",
+	"advancements.husbandry.tapping.title": "Tapped Out",
+	"advancements.husbandry.tapping.description": "Affix a Tree Tap to a birch tree and watch the syrup flow!.. eventually,",
 
 "_comment": "--sounds--",
 	
@@ -201,6 +114,7 @@
 	"block.moonbits.copper_deposit": "Copper Deposit",
 	"block.moonbits.regolith": "Regolith",
 	"item.moonbits.peat": "Peat",
+	"block.moonbits.peat_moss": "Peat Moss",
 	"block.moonbits.peat_block": "Peat Block",
 	"block.moonbits.peat_bricks": "Peat Bricks",
 	"block.moonbits.peat_brick_slab": "Peat Brick Slab",
@@ -228,6 +142,7 @@
 	"block.moonbits.jungle_boards": "Jungle Boards",
 	"block.moonbits.acacia_boards": "Acacia Boards",
 	"block.moonbits.dark_oak_boards": "Dark Oak Boards",
+	"block.moonbits.mangrove_boards": "Mangrove Boards",
 	"block.moonbits.crimson_boards": "Crimson Boards",
 	"block.moonbits.warped_boards": "Warped Boards", 
 	
@@ -237,6 +152,7 @@
 	"block.moonbits.jungle_panel": "Jungle Panel",
 	"block.moonbits.acacia_panel": "Acacia Panel",
 	"block.moonbits.dark_oak_panel": "Dark Oak Panel",
+	"block.moonbits.mangrove_panel": "Mangrove Panel",
 	"block.moonbits.crimson_panel": "Crimson Panel",
 	"block.moonbits.warped_panel": "Warped Panel", 
 	
@@ -246,6 +162,7 @@
 	"block.moonbits.carved_jungle_wood": "Carved Jungle Wood",
 	"block.moonbits.carved_acacia_wood": "Carved Acacia Wood",
 	"block.moonbits.carved_dark_oak_wood": "Carved Dark Oak Wood",
+	"block.moonbits.carved_mangrove_wood": "Carved Mangrove Wood",
 	"block.moonbits.carved_crimson_hyphae": "Carved Crimson Hyphae",
 	"block.moonbits.carved_warped_hyphae": "Carved Warped Hyphae", 
 	
@@ -255,6 +172,7 @@
 	"block.moonbits.jungle_pillar": "Carved Jungle Column",
 	"block.moonbits.acacia_pillar": "Carved Acacia Column",
 	"block.moonbits.dark_oak_pillar": "Carved Dark Oak Column",
+	"block.moonbits.mangrove_pillar": "Carved Mangrove Column",
 	"block.moonbits.crimson_pillar": "Carved Crimson Column",
 	"block.moonbits.warped_pillar": "Carved Warped Column", 
 	
@@ -264,6 +182,7 @@
 	"block.moonbits.jungle_bookshelf": "Jungle Bookshelf",
 	"block.moonbits.acacia_bookshelf": "Acacia Bookshelf",
 	"block.moonbits.dark_oak_bookshelf": "Dark Oak Bookshelf",
+	"block.moonbits.mangrove_bookshelf": "Mangrove Bookshelf",
 	"block.moonbits.crimson_bookshelf": "Crimson Bookshelf",
 	"block.moonbits.warped_bookshelf": "Warped Bookshelf", 
 	
@@ -273,6 +192,7 @@
 	"block.moonbits.jungle_planter_box": "Jungle Planter Box", 
 	"block.moonbits.acacia_planter_box": "Acacia Planter Box", 
 	"block.moonbits.dark_oak_planter_box": "Dark Oak Planter Box", 
+	"block.moonbits.mangrove_planter_box": "Mangrove Planter Box", 
 	"block.moonbits.crimson_planter_box": "Crimson Planter Box", 
 	"block.moonbits.warped_planter_box": "Warped Planter Box", 
  
@@ -293,9 +213,23 @@
     "block.moonbits.aspen_planks": "Aspen Planks",
     "block.moonbits.aspen_slab": "Aspen Slab",
     "block.moonbits.aspen_stairs": "Aspen Stairs",
+    "block.moonbits.aspen_trim": "Aspen Trim",
     "block.moonbits.aspen_lattice": "Aspen Lattice",
+    "block.moonbits.aspen_lantern": "Aspen Lantern",
+    "block.moonbits.aspen_soul_lantern": "Aspen Soul Lantern",
+    "block.moonbits.aspen_window": "Aspen Window",
     "block.moonbits.aspen_palisade": "Aspen Palisade",
     "block.moonbits.stripped_aspen_palisade": "Stripped Aspen Palisade",
+	
+    "item.moonbits.milk_bottle": "Milk Bottle",
+    "item.moonbits.syrup_bottle": "Syrup Bottle",
+    "block.moonbits.syrup_block": "Syrup Block",
+    "block.moonbits.syrup_cauldron": "Syrup Cauldron",
+    "block.moonbits.pancakes": "Pancakes",
+    "block.moonbits.syrup_pancakes": "Syrup Pancakes",
+    "block.moonbits.honey_cauldron": "Honey Cauldron",
+	
+    "block.moonbits.tree_tap": "Tree Tap",
 	
     "block.moonbits.puffballs": "Puffballs",
     "block.moonbits.puffstool": "Puffstool",
@@ -883,6 +817,11 @@
 	"block.moonbits.mossy_sandstone_tile_stairs": "Mossy Sandstone Tile Stairs",
 	"block.moonbits.mossy_sandstone_tile_wall": "Mossy Sandstone Tile Wall",
 	"block.moonbits.sandstone_pillar": "Sandstone Pillar",
+	
+	"block.moonbits.paved_sandstone_bricks": "Paved Sandstone Bricks",
+	"block.moonbits.cracked_paved_sandstone_bricks": "Cracked Paved Sandstone Bricks",
+	"block.moonbits.paved_red_sandstone_bricks": "Paved Red Sandstone Bricks",
+	"block.moonbits.cracked_paved_red_sandstone_bricks": "Cracked Paved Red Sandstone Bricks",
 		
 	"block.moonbits.red_sandstone_bricks": "Red Sandstone Bricks",
 	"block.moonbits.red_sandstone_brick_slab": "Red Sandstone Brick Slab",

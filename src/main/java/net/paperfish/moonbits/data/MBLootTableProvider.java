@@ -42,12 +42,20 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
     @Override
     protected void generateBlockLootTables() {
         Registry.BLOCK.forEach(block -> {
-            if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MOD_ID)) {
+            if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MODID)) {
                 if (block instanceof FlowerPotBlock) {
                     addPottedPlantDrop(block);
                 }
             }
         });
+
+        // TEMP
+        addDrop(MBBlocks.MANGROVE_BOARDS);
+        addDrop(MBBlocks.MANGROVE_PANEL);
+        addDrop(MBBlocks.CARVED_MANGROVE);
+        addDrop(MBBlocks.MANGROVE_BOOKSHELF);
+        addDrop(MBBlocks.MANGROVE_PLANTER_BOX);
+        addDrop(MBBlocks.MANGROVE_PILLAR);
 
         addDrop(MBBlocks.ROPE_LADDER);
         addDrop(MBBlocks.IRON_LADDER);
@@ -98,15 +106,24 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
 
         addDrop(MBBlocks.ASPEN_TRUNK);
         addDrop(MBBlocks.STRIPPED_ASPEN_TRUNK);
-        addDrop(MBBlocks.ASPEN_PLANKS);
-        addDrop(MBBlocks.ASPEN_SLAB, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.ASPEN_STAIRS);
+        //addDrop(MBBlocks.ASPEN_PLANKS);
+        //addDrop(MBBlocks.ASPEN_SLAB, BlockLootTableGenerator::slabDrops);
+        //addDrop(MBBlocks.ASPEN_STAIRS);
+        addDrop(MBBlocks.ASPEN_TRIM);
         addDrop(MBBlocks.ASPEN_LATTICE);
+        addDrop(MBBlocks.ASPEN_WINDOW);
+        addDrop(MBBlocks.ASPEN_LANTERN);
+        addDrop(MBBlocks.ASPEN_SOUL_LANTERN);
         addDrop(MBBlocks.ASPEN_PALISADE);
         addDrop(MBBlocks.STRIPPED_ASPEN_PALISADE);
         addDrop(MBBlocks.ASPEN_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.ASPEN_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.ASPEN_LEAF_CARPET, MBLootTableProvider::leafCarpet);
         addDrop(MBBlocks.ASPEN_SAPLING);
+
+        addDrop(MBBlocks.HONEY_CAULDRON, Items.CAULDRON);
+        addDrop(MBBlocks.SYRUP_CAULDRON, Items.CAULDRON);
+        addDrop(MBBlocks.TREE_TAP);
+        addDrop(MBBlocks.SYRUP_BLOCK);
 
         addDrop(MBBlocks.FLOWERING_ACACIA_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, Blocks.ACACIA_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.TALL_FLOWERING_ACACIA_LEAVES, MBLootTableProvider::leafCarpet);
@@ -298,8 +315,6 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.PHANTOM_MEMBRANE_BLOCK);
         addDrop(MBBlocks.BLAZE_ROD_BUNDLE);
         addDrop(MBBlocks.ENDER_PEARL_BLOCK);
-        addDrop(MBBlocks.QUARTZ_SHARD_BLOCK);
-        addDrop(MBBlocks.AMETHYST_SHARD_BLOCK);
 
         addDrop(MBBlocks.BLAZE_ROD, (Block block) -> BlockLootTableGenerator.drops(block, Items.BLAZE_ROD));
         addDrop(MBBlocks.GLASS_DOOR, BlockLootTableGenerator::addDoorDrop);
@@ -309,12 +324,18 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
 
         MBBlockFamilies.getFamilies()
                 .forEach(family -> {
-                    if (Objects.equals(Registry.BLOCK.getId(family.getBaseBlock()).getNamespace(), Moonbits.MOD_ID) && !this.generatedBlocks.contains(family.getBaseBlock())) {
-                        addDrop(family.getBaseBlock());
+                    Block baseBlock = family.getBaseBlock();
+                    if (Objects.equals(Registry.BLOCK.getId(baseBlock).getNamespace(), Moonbits.MODID) && !this.generatedBlocks.contains(baseBlock)) {
+                        if (baseBlock == MBBlocks.CHERT) {
+                            addDrop(baseBlock, MBBlocks.COBBLED_CHERT);
+                        }
+                        else {
+                            addDrop(baseBlock);
+                        }
                         this.generatedBlocks.add(family.getBaseBlock());
                     }
                     family.getVariants().forEach((variant, block) -> {
-                        if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MOD_ID) && !this.generatedBlocks.contains(block)) {
+                        if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MODID) && !this.generatedBlocks.contains(block)) {
                             this.generatedBlocks.add(block);
                             if (variant == MBBlockFamily.Variant.BOOKSHELF) {
                                 addDrop(block, (Block l) -> BlockLootTableGenerator.drops(l, Items.BOOK, ConstantLootNumberProvider.create(3.0f)));
@@ -334,7 +355,7 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
                         }
                     });
                     family.cuttable.forEach(block -> {
-                        if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MOD_ID) && !this.generatedBlocks.contains(block)) {
+                        if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MODID) && !this.generatedBlocks.contains(block)) {
                             this.generatedBlocks.add(block);
                             if (block instanceof SlabBlock) {
                                 addDrop(block, BlockLootTableGenerator::slabDrops);

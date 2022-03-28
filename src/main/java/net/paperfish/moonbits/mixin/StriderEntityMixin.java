@@ -55,12 +55,12 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Bucketa
     public void onInteractMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
 		ItemStack itemStack = player.getStackInHand(hand);
 		if (itemStack.getItem() == Items.LAVA_BUCKET && this.isAlive() && this.isBaby()) {
-            cir.setReturnValue((ActionResult)tryBucket(player, hand, this).orElse(super.interactMob(player, hand)));
+            cir.setReturnValue(tryBucket(player, hand, this).orElse(super.interactMob(player, hand)));
         }
 	}
     
     public boolean isFromBucket() {
-		return (Boolean)this.dataTracker.get(FROM_BUCKET);
+		return this.dataTracker.get(FROM_BUCKET);
 	}
 
 	public void setFromBucket(boolean fromBucket) {

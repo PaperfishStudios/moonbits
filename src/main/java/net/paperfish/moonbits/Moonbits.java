@@ -1,18 +1,21 @@
 package net.paperfish.moonbits;
 
 import net.fabricmc.api.ModInitializer;
-import net.paperfish.moonbits.world.gen.BiomeAdditions;
+import net.paperfish.moonbits.block.cauldron.MBCauldronBehaviour;
+import net.paperfish.moonbits.world.MBBiomeProvider;
+import net.paperfish.moonbits.world.MBBiomes;
+import net.paperfish.moonbits.world.MBSurfaceRules;
+import net.paperfish.moonbits.world.gen.*;
 import com.mojang.logging.LogUtils;
-import net.paperfish.moonbits.world.feature.MBPlacedCaveFeatures;
-import net.paperfish.moonbits.world.feature.MBPlacedTreeFeatures;
-import net.paperfish.moonbits.world.feature.MBPlacedVegFeatures;
-import net.paperfish.moonbits.world.gen.MBNoiseParameters;
 import org.slf4j.Logger;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
+import terrablender.api.TerraBlenderApi;
 
-public class Moonbits implements ModInitializer {
-	public static final String MOD_ID = "moonbits"; //todo: replace the plaintext instances of this with the id, so we dont accidentally make typos
+public class Moonbits implements ModInitializer, TerraBlenderApi {
+	public static final String MODID = "moonbits"; //todo: replace the plaintext instances of this with the id, so we dont accidentally make typos
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	@Override
@@ -30,13 +33,23 @@ public class Moonbits implements ModInitializer {
 		MBParticles.registerParticles();
 
 		MBNoiseParameters.init();
-		BiomeAdditions.registerFeatures();
 
 		MBSounds.initSounds();
+		MBCauldronBehaviour.register();
 		MBBlocks.registerBlocks();
 		MBItems.registerItems();
 		MBEntities.registerEntities();
 
 		MBData.registerData();
+
+		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, Moonbits.MODID, MBSurfaceRules.OVERWORLD_RULES);
+		MBBiomes.registerBiomes();
+		BiomeAdditions.registerFeatures();
+	}
+
+	@Override
+	public void onTerraBlenderInitialized() {
+
+		Regions.register(new MBBiomeProvider());
 	}
 }

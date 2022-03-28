@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "moonbits:block/carved_honey_wood",
+    "end": "moonbits:block/honey_pillar_top",
     "side": "moonbits:block/honey_pillar"
   }
 }

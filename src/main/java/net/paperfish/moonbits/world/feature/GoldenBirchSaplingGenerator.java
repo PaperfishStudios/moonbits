@@ -6,6 +6,7 @@ import net.minecraft.util.registry.RegistryEntry;
 
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 
 public class GoldenBirchSaplingGenerator extends SaplingGenerator {
 

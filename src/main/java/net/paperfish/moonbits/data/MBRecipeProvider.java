@@ -79,6 +79,8 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         VARIANT_FACTORIES.put(MBBlockFamily.Variant.WALL, (output, input) -> RecipeProvider.getWallRecipe(output, Ingredient.ofItems(input)));
 
         // 1-1 recipes
+        TRANSMUTE.put(List.of(Items.CHARCOAL, Items.BLACK_DYE), 1);
+
         TRANSMUTE.put(List.of(MBBlocks.MARIGOLD, Items.ORANGE_DYE), 1);
         TRANSMUTE.put(List.of(MBBlocks.BUTTERCUP, Items.YELLOW_DYE), 1);
         TRANSMUTE.put(List.of(MBBlocks.FORGETMENOT, Items.LIGHT_BLUE_DYE), 1);
@@ -375,11 +377,27 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .offerTo(exporter);
         RecipeProvider.offerStonecuttingRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_TRUNK);
         RecipeProvider.offerStonecuttingRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.STRIPPED_ASPEN_TRUNK);
+        ShapedRecipeJsonBuilder.create(MBBlocks.ASPEN_TRIM, 2)
+                .input('#', MBBlocks.ASPEN_PLANKS)
+                .pattern("###").pattern(" # ")
+                .criterion(RecipeProvider.hasItem(MBBlocks.ASPEN_PLANKS), RecipeProvider.conditionsFromItem(MBBlocks.ASPEN_PLANKS)).offerTo(exporter);
+        RecipeProvider.offerStonecuttingRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_TRIM);
         wallRecipe(exporter, MBBlocks.ASPEN_TRUNK, MBBlocks.ASPEN_PALISADE);
         wallRecipe(exporter, MBBlocks.STRIPPED_ASPEN_TRUNK, MBBlocks.STRIPPED_ASPEN_PALISADE);
         paneRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_LATTICE);
-        slabRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_SLAB);
-        stairsRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_STAIRS);
+        ShapedRecipeJsonBuilder.create(MBBlocks.ASPEN_LANTERN)
+                .input('#', MBBlocks.ASPEN_SLAB).input('l', Items.PAPER).input('O', Items.TORCH)
+                .pattern("###").pattern("lOl").pattern("###")
+                .criterion(RecipeProvider.hasItem(MBBlocks.ASPEN_PLANKS), RecipeProvider.conditionsFromItem(MBBlocks.ASPEN_PLANKS)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(MBBlocks.ASPEN_SOUL_LANTERN)
+                .input('#', MBBlocks.ASPEN_SLAB).input('l', Items.PAPER).input('O', Items.SOUL_TORCH)
+                .pattern("###").pattern("lOl").pattern("###")
+                .criterion(RecipeProvider.hasItem(MBBlocks.ASPEN_PLANKS), RecipeProvider.conditionsFromItem(MBBlocks.ASPEN_PLANKS)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(MBBlocks.ASPEN_WINDOW, 8)
+                .input('#', MBBlocks.ASPEN_PLANKS).input('l', Items.STICK).input('O', Items.GLASS)
+                .pattern("###").pattern("lOl").pattern("###")
+                .criterion(RecipeProvider.hasItem(MBBlocks.ASPEN_PLANKS), RecipeProvider.conditionsFromItem(MBBlocks.ASPEN_PLANKS)).offerTo(exporter);
+
 
         RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.JUNIPER_WOOD, MBBlocks.JUNIPER_LOG);
         RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.STRIPPED_JUNIPER_WOOD, MBBlocks.STRIPPED_JUNIPER_LOG);
@@ -475,9 +493,32 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .pattern("LLL").pattern("PPP")
                 .criterion(RecipeProvider.hasItem(Items.LEATHER), RecipeProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
 
+        ShapedRecipeJsonBuilder.create(MBBlocks.TREE_TAP)
+                .input('I', Items.COPPER_INGOT).input('n', MBItems.COPPER_NUGGET)
+                .pattern("I I").pattern(" n ")
+                .criterion(RecipeProvider.hasItem(Items.COPPER_INGOT), RecipeProvider.conditionsFromItem(Items.COPPER_INGOT)).offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(MBBlocks.SYRUP_BLOCK)
+                .input('#', MBItems.SYRUP_BOTTLE)
+                .pattern("##").pattern("##")
+                .criterion(RecipeProvider.hasItem(MBItems.SYRUP_BOTTLE), RecipeProvider.conditionsFromItem(MBItems.SYRUP_BOTTLE)).offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(MBItems.SYRUP_BOTTLE, 4)
+                .input(MBBlocks.SYRUP_BLOCK).input(Items.GLASS_BOTTLE, 4)
+                .criterion(RecipeProvider.hasItem(MBItems.SYRUP_BOTTLE), RecipeProvider.conditionsFromItem(MBItems.SYRUP_BOTTLE))
+                .offerTo(exporter);
+
         campfire(exporter, Items.SWEET_BERRIES, MBItems.ROASTED_BERRIES, 0.1f,50);
         condense(exporter, MBItems.PUMPKIN_SLICE, Items.PUMPKIN, 1);
         condense(exporter, MBItems.LETTUCE_LEAF, MBBlocks.LETTUCE_BLOCK, 1);
+
+        ShapelessRecipeJsonBuilder.create(MBItems.MILK_BOTTLE, 3)
+                .input(Items.MILK_BUCKET).input(Items.GLASS_BOTTLE, 3)
+                .criterion("has_milk", RecipeProvider.conditionsFromItem(Items.MILK_BUCKET))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(Items.MILK_BUCKET)
+                .input(Items.BUCKET).input(MBItems.MILK_BOTTLE, 3)
+                .criterion("has_milk", RecipeProvider.conditionsFromItem(Items.MILK_BUCKET))
+                .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(Items.MUSHROOM_STEW)
                 .input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.EDIBLE_MUSHROOMS).input(Items.BOWL)
@@ -559,7 +600,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         family.getVariants().forEach((variant, block) -> {
             BiFunction<ItemConvertible, ItemConvertible, CraftingRecipeJsonBuilder> biFunction = VARIANT_FACTORIES.get(variant);
             Block inputItem = getVariantRecipeInput(family, variant);
-            if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MOD_ID) || Objects.equals(Registry.BLOCK.getId(inputItem).getNamespace(), Moonbits.MOD_ID)) { // should hopefully only make the recipe if its a new block..?
+            if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MODID) || Objects.equals(Registry.BLOCK.getId(inputItem).getNamespace(), Moonbits.MODID)) { // should hopefully only make the recipe if its a new block..?
                 if (biFunction != null) {
                     CraftingRecipeJsonBuilder factory = biFunction.apply(block, inputItem);
                     family.getGroup().ifPresent(group -> factory.group(group + (variant == MBBlockFamily.Variant.CUT ? "" : "_" + variant.getName())));
@@ -610,7 +651,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
             }
         });
         family.cuttable.forEach(block -> {
-            if (Registry.BLOCK.getId(block).getNamespace().equals(Moonbits.MOD_ID)) {
+            if (Registry.BLOCK.getId(block).getNamespace().equals(Moonbits.MODID)) {
                 Block inputItem = family.getBaseBlock();
                 if (block instanceof SlabBlock) {
                     offerStonecuttingRecipe(exporter, block, inputItem, 2);
@@ -621,7 +662,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
             }
         });
         family.childBlocks.forEach(block -> {
-            if (Registry.BLOCK.getId(block).getNamespace().equals(Moonbits.MOD_ID)) {
+            if (Registry.BLOCK.getId(block).getNamespace().equals(Moonbits.MODID)) {
                 Block inputItem = family.getBaseBlock();
                 if (block instanceof SlabBlock) {
                     offerStonecuttingRecipe(exporter, block, inputItem, 2);
