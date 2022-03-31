@@ -14,7 +14,7 @@ import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
 import terrablender.api.TerraBlenderApi;
 
-public class Moonbits implements ModInitializer, TerraBlenderApi {
+public class Moonbits implements ModInitializer {
 	public static final String MODID = "moonbits"; //todo: replace the plaintext instances of this with the id, so we dont accidentally make typos
 	public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -32,8 +32,6 @@ public class Moonbits implements ModInitializer, TerraBlenderApi {
 		MBEvents.initEvents();
 		MBParticles.registerParticles();
 
-		MBNoiseParameters.init();
-
 		MBSounds.initSounds();
 		MBCauldronBehaviour.register();
 		MBBlocks.registerBlocks();
@@ -42,14 +40,7 @@ public class Moonbits implements ModInitializer, TerraBlenderApi {
 
 		MBData.registerData();
 
-		SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, Moonbits.MODID, MBSurfaceRules.OVERWORLD_RULES);
 		MBBiomes.registerBiomes();
 		BiomeAdditions.registerFeatures();
-	}
-
-	@Override
-	public void onTerraBlenderInitialized() {
-
-		Regions.register(new MBBiomeProvider());
 	}
 }

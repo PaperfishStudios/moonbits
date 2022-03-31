@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class CedarSaplingGenerator extends SaplingGenerator {
     @Override
-    protected RegistryEntry<? extends ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
+    public RegistryEntry<? extends ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
         return MBTreeFeatures.CEDAR;
     }
 }

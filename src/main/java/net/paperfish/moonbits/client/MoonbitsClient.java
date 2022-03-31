@@ -138,15 +138,18 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.SYRUP_BLOCK
         );
 
-        dataClient();
         registerParticleClient();
+        dataClient();
 
         MBEntityType.initEntityClient();
 
-        HandledScreens.register(MBData.KILN_SCREEN_HANDLER, KilnScreen::new);
 
         HudRenderCallback.EVENT.register((((matrixStack, tickDelta) -> compassHud.renderCompass(matrixStack))));
         
+    }
+
+    static {
+        HandledScreens.register(MBData.KILN_SCREEN_HANDLER, KilnScreen::new);
     }
 
     public static void dataClient() {
@@ -217,7 +220,7 @@ public class MoonbitsClient implements ClientModInitializer {
         });
     }
 
-    @Environment(EnvType.CLIENT)
+//    @Environment(EnvType.CLIENT)
     public static void registerParticleClient() {
         // adds the particle texture to the texture atlas
         ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {

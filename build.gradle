@@ -80,7 +80,7 @@ dependencies {
 	// geckolib??
 	modImplementation "software.bernie.geckolib:geckolib-fabric-1.18:3.0.35"
 
-	modImplementation "com.github.glitchfiend:TerraBlender-fabric:1.18.2-1.1.0.94"
+	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
 
 	modImplementation include("maven.modrinth:booking_it:1.0.1")
 

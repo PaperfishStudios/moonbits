@@ -12,10 +12,7 @@ public class MBTerraBlender implements TerraBlenderApi {
 
     @Override
     public void onTerraBlenderInitialized() {
-        new MBVegetationFeatures();
-        new MBTreeFeatures();
-        new MBCaveFeatures();
-
         Regions.register(new MBBiomeProvider());
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, Moonbits.MODID, MBSurfaceRules.OVERWORLD_RULES);
     }
 }

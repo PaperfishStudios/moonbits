@@ -47,8 +47,8 @@ public class MBBiomes {
         register(TUNDRA, tundra());
         register(MIRE, mire());
     }
-    private static RegistryEntry<Biome> register(RegistryKey<Biome> key, Biome biome) {
-        return BuiltinRegistries.add(BuiltinRegistries.BIOME, key, biome);
+    private static void register(RegistryKey<Biome> key, Biome biome) {
+        BuiltinRegistries.add(BuiltinRegistries.BIOME, key, biome);
     }
 
     public static Biome goldenForest(boolean tall) {
@@ -58,24 +58,30 @@ public class MBBiomes {
         DefaultBiomeFeatures.addDefaultOres(builder);
         DefaultBiomeFeatures.addDefaultDisks(builder);
 
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
         DefaultBiomeFeatures.addDefaultMushrooms(builder);
         DefaultBiomeFeatures.addDefaultVegetation(builder);
 
-        addDefaultDeposits(builder);
-
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS);
-
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, tall ? MBPlacedVegFeatures.SUPER_GOLDEN_BIRCH_BEES_0002 : MBPlacedVegFeatures.GBF_TREES);
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
+//        addDefaultDeposits(builder);
 
         builder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.LEAFBED_PATCH);
         builder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.FALLEN_BIRCH);
+
+
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.ROSE_BUSH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FORGETMENOT_PATCH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.TOADSTOOLS);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUMPKIN_PATCH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUFFBALLS_PATCH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_CARROT_PATCH);
+
+        if (tall) {
+            builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.SUPER_GOLDEN_BIRCH_BEES_0002);
+        }
+        else {
+            builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.GBF_TREES);
+        }
 
         SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addFarmAnimals(builder2);
@@ -93,25 +99,25 @@ public class MBBiomes {
         DefaultBiomeFeatures.addDefaultOres(builder);
         DefaultBiomeFeatures.addDefaultDisks(builder);
 
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
         DefaultBiomeFeatures.addDefaultMushrooms(builder);
         DefaultBiomeFeatures.addDefaultVegetation(builder);
 
-        addDefaultDeposits(builder);
+//        addDefaultDeposits(builder);
 
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS);
 
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PASTURE_TREES);
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUMPKIN_PATCH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUFFBALLS_PATCH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_CARROT_PATCH);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PASTURE_TREES);
 
         SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addFarmAnimals(builder2);
         DefaultBiomeFeatures.addBatsAndMonsters(builder2);
         builder2.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 4, 5, 8));
 
-        return createBiome(Biome.Precipitation.RAIN, Biome.Category.FOREST, 0.6f, 0.6f,
+        return createBiome(Biome.Precipitation.RAIN, Biome.Category.PLAINS, 0.6f, 0.6f,
                 4159204, 329011, builder2, builder, 0xb1c5e6, 0xB4C63C, MusicType.GAME);
     }
 //    public static Biome temperateForest() {
@@ -165,10 +171,10 @@ public class MBBiomes {
         DefaultBiomeFeatures.addDesertDeadBushes(builder);
         DefaultBiomeFeatures.addDefaultMushrooms(builder);
         DefaultBiomeFeatures.addDesertVegetation(builder);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_SUGAR_CANE_DESERT);
 
         addDesertOres(builder);
-//        desertMineables(builder);
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_SUGAR_CANE_DESERT);
+        desertMineables(builder);
         builder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.PEBBLES);
         builder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.ORE_CRACKED_MUD);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PATCH_DESERT_BRUSH);
@@ -203,7 +209,7 @@ public class MBBiomes {
 
         builder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.PEBBLES);
         builder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.ORE_CRACKED_MUD);
-        builder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.COARSE_DIRT_PATCH);
+        builder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.COARSE_DIRT_PATCH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_DESERT_BRUSH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_MARIGOLD_PATCH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_BARREL_CACTI);
@@ -220,18 +226,18 @@ public class MBBiomes {
         DefaultBiomeFeatures.addDefaultOres(builder);
         DefaultBiomeFeatures.addDefaultDisks(builder);
 
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
         DefaultBiomeFeatures.addDefaultMushrooms(builder);
         DefaultBiomeFeatures.addDefaultVegetation(builder);
 
-        addDefaultDeposits(builder);
+//        addDefaultDeposits(builder);
 
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS);
 
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PASTURE_TREES);
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUMPKIN_PATCH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUFFBALLS_PATCH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_CARROT_PATCH);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PASTURE_TREES);
 
         SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addFarmAnimals(builder2);
@@ -265,17 +271,21 @@ public class MBBiomes {
         DefaultBiomeFeatures.addDefaultOres(builder);
         DefaultBiomeFeatures.addDefaultDisks(builder);
 
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
         DefaultBiomeFeatures.addDefaultMushrooms(builder);
         DefaultBiomeFeatures.addDefaultVegetation(builder);
 
-        addDefaultDeposits(builder);
+        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT);
+        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT_UPPER);
+        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_GOLD_DEPOSIT);
+        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_COPPER_DEPOSIT);
+//        addRYSStuff(builder);
 
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS);
-
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PASTURE_TREES);
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUMPKIN_PATCH);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUFFBALLS_PATCH);
+//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS);
+//
+//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PASTURE_TREES);
+//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUMPKIN_PATCH);
+//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUFFBALLS_PATCH);
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_CARROT_PATCH);
 
         SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
@@ -305,7 +315,8 @@ public class MBBiomes {
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT_UPPER);
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, largeGold ? MBPlacedCaveFeatures.ORE_GOLD_DEPOSIT_HIGH : MBPlacedCaveFeatures.ORE_GOLD_DEPOSIT);
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_COPPER_DEPOSIT);
-
+    }
+    public static void addRYSStuff(GenerationSettings.Builder builder) {
         builder.feature(GenerationStep.Feature.RAW_GENERATION, MBPlacedCaveFeatures.T_REGOLITH);
         builder.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, MBPlacedCaveFeatures.REGOLITH_FLOOR);
         builder.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, MBPlacedCaveFeatures.TOUGH_GRASS_PATCH);

@@ -68,7 +68,7 @@ public class MBData {
 
 		KILN_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MODID, "kiln"), new RecipeType<KilnRecipe>() {
 				@Override
-				public String toString() {return Moonbits.MODID.concat(":kiln");}
+				public String toString() {return Moonbits.MODID.concat("kiln");}
 			});
 		KILN_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MODID, "kiln"), new CookingRecipeSerializer<>(KilnRecipe::new, 200));
 		KILN_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, (new Identifier(Moonbits.MODID, "kiln")), new ScreenHandlerType<>(KilnScreenHandler::new));
@@ -77,7 +77,7 @@ public class MBData {
 		WASHING_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MODID, "washing"), new RecipeType<WashingRecipe>() {
 			@Override
 			public String toString() {
-				return Moonbits.MODID.concat(":washing");
+				return Moonbits.MODID.concat("washing");
 			}
 		});
 		WASHING_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MODID, "washing"), new WashingRecipe.WashingSerializer());

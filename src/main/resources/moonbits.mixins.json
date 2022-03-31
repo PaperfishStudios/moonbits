@@ -42,7 +42,8 @@
     "TurtleEntityMixin"
   ],
   "client": [
-    "ChickenRenderMixin"
+    "ChickenRenderMixin",
+    "ClientRecipeBookMixin"
   ],
   "server": [],
   "injectors": {

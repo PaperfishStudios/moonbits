@@ -75,7 +75,7 @@ public class WrenchItem extends Item {
             world.setBlockState(pos, newState, Block.NOTIFY_ALL);
             return true;
         }
-        if (block instanceof HopperBlock || block instanceof DispenserBlock || block instanceof GlazedTerracottaBlock ||
+        if (block instanceof HopperBlock || block instanceof DispenserBlock || //block instanceof GlazedTerracottaBlock ||
                 block instanceof ObserverBlock || block instanceof AbstractFurnaceBlock || block instanceof BeehiveBlock) { // rotate!
             BlockState newState = block.rotate(state, BlockRotation.CLOCKWISE_90);
             world.setBlockState(pos, newState, Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);

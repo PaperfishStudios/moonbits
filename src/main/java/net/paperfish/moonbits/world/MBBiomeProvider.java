@@ -17,7 +17,7 @@ import java.util.function.Consumer;
 
 public class MBBiomeProvider extends Region {
     public MBBiomeProvider() {
-        super(new Identifier(Moonbits.MODID, "mb_biomes"), RegionType.OVERWORLD, 3);
+        super(new Identifier(Moonbits.MODID, "mb_biomes"), RegionType.OVERWORLD, 4);
     }
 
     @Override
@@ -34,10 +34,11 @@ public class MBBiomeProvider extends Region {
             List<MultiNoiseUtil.NoiseHypercube> goldenForest = new ParameterUtils.ParameterPointListBuilder()
                     .temperature(ParameterUtils.Temperature.NEUTRAL)
                     .humidity(ParameterUtils.Humidity.WET)
-                    .continentalness(ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.MID_INLAND, ParameterUtils.Continentalness.FAR_INLAND))
-                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1)
+                    .continentalness(ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.NEAR_INLAND, ParameterUtils.Continentalness.FAR_INLAND))
+                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
-                    .weirdness(ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING)
+                    .weirdness(ParameterUtils.Weirdness.span(ParameterUtils.Weirdness.HIGH_SLICE_NORMAL_DESCENDING, ParameterUtils.Weirdness.MID_SLICE_NORMAL_DESCENDING),
+                            ParameterUtils.Weirdness.span(ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING))
                     .build();
             goldenForest.forEach(point -> builder.replaceBiome(point, MBBiomes.GOLDEN_FOREST));
 
@@ -45,9 +46,9 @@ public class MBBiomeProvider extends Region {
                     .temperature(ParameterUtils.Temperature.NEUTRAL)
                     .humidity(ParameterUtils.Humidity.WET)
                     .continentalness(ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.MID_INLAND, ParameterUtils.Continentalness.FAR_INLAND))
-                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1)
+                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
-                    .weirdness(ParameterUtils.Weirdness.PEAK_VARIANT)
+                    .weirdness(ParameterUtils.Weirdness.LOW_SLICE_NORMAL_DESCENDING, ParameterUtils.Weirdness.VALLEY, ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING)
                     .build();
             tallGoldenForest.forEach(point -> builder.replaceBiome(point, MBBiomes.TALL_GOLDEN_FOREST));
 
@@ -55,7 +56,7 @@ public class MBBiomeProvider extends Region {
                     .temperature(ParameterUtils.Temperature.NEUTRAL, ParameterUtils.Temperature.WARM)
                     .humidity(ParameterUtils.Humidity.NEUTRAL, ParameterUtils.Humidity.WET)
                     .continentalness(ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.MID_INLAND, ParameterUtils.Continentalness.FAR_INLAND))
-                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1)
+                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
                     .weirdness(ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING)
                     .build();
@@ -64,27 +65,27 @@ public class MBBiomeProvider extends Region {
             List<MultiNoiseUtil.NoiseHypercube> floodplain = new ParameterUtils.ParameterPointListBuilder()
                     .temperature(ParameterUtils.Temperature.HOT)
                     .humidity(ParameterUtils.Humidity.ARID)
-                    .continentalness(ParameterUtils.Continentalness.NEAR_INLAND)
-                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1)
+                    .continentalness(ParameterUtils.Continentalness.COAST, ParameterUtils.Continentalness.NEAR_INLAND)
+                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2, ParameterUtils.Erosion.EROSION_3)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
-                    .weirdness(ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING)
+                    .weirdness(ParameterUtils.Weirdness.LOW_SLICE_NORMAL_DESCENDING, ParameterUtils.Weirdness.VALLEY, ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING)
                     .build();
             floodplain.forEach(point -> builder.replaceBiome(point, MBBiomes.FLOOD_PLAINS));
 
             List<MultiNoiseUtil.NoiseHypercube> steppe = new ParameterUtils.ParameterPointListBuilder()
                     .temperature(ParameterUtils.Temperature.HOT)
                     .humidity(ParameterUtils.Humidity.ARID)
-                    .continentalness(ParameterUtils.Continentalness.MID_INLAND)
+                    .continentalness(ParameterUtils.Continentalness.FAR_INLAND, ParameterUtils.Continentalness.INLAND)
                     .erosion(ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
-                    .weirdness(ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING)
+                    .weirdness(ParameterUtils.Weirdness.span( ParameterUtils.Weirdness.PEAK_VARIANT, ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING))
                     .build();
             steppe.forEach(point -> builder.replaceBiome(point, MBBiomes.STEPPE));
 
             List<MultiNoiseUtil.NoiseHypercube> prairie = new ParameterUtils.ParameterPointListBuilder()
                     .temperature(ParameterUtils.Temperature.WARM)
-                    .humidity(ParameterUtils.Humidity.DRY)
-                    .continentalness(ParameterUtils.Continentalness.NEAR_INLAND)
+                    .humidity(ParameterUtils.Humidity.DRY, ParameterUtils.Humidity.ARID)
+                    .continentalness(ParameterUtils.Continentalness.NEAR_INLAND, ParameterUtils.Continentalness.MID_INLAND)
                     .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
                     .weirdness(ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING)

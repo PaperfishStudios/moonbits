@@ -39,21 +39,6 @@ public class RestackingMixin {
             cir.setReturnValue(Registry.register(Registry.ITEM, new Identifier("glow_berries"), new Item(new Item.Settings().group(ItemGroup.FOOD).food(FoodComponents.GLOW_BERRIES))));
         }
     }
-    @Inject(method = "register(Lnet/minecraft/block/Block;Lnet/minecraft/item/ItemGroup;)Lnet/minecraft/item/Item;", at = @At(value="HEAD"), cancellable = true)
-    private static void onRegister(Block block, ItemGroup group, CallbackInfoReturnable<Item> cir) {
-//        if (Objects.equals(block, Blocks.LANTERN)) {
-//            BlockItem a = new MBLanternBlockItem(Blocks.LANTERN, MBBlocks.WALL_LANTERN, new Item.Settings().group(ItemGroup.DECORATIONS));
-//            a.appendBlocks(Item.BLOCK_ITEMS, a);
-//            Registry.register(Registry.ITEM, new Identifier("lantern_old"), new BlockItem(block, new Item.Settings().group(MBItemGroup.DEBUGGING)));
-//            cir.setReturnValue(Registry.register(Registry.ITEM, new Identifier("lantern"), a));
-//        }
-//        if (Objects.equals(block, Blocks.SOUL_LANTERN)) {
-//            BlockItem a = new MBLanternBlockItem(Blocks.SOUL_LANTERN, MBBlocks.WALL_SOUL_LANTERN, new Item.Settings().group(ItemGroup.DECORATIONS));
-//            a.appendBlocks(Item.BLOCK_ITEMS, a);
-//            Registry.register(Registry.ITEM, new Identifier("soul_lantern_old"), new BlockItem(block, new Item.Settings().group(MBItemGroup.DEBUGGING)));
-//            cir.setReturnValue(Registry.register(Registry.ITEM, new Identifier("soul_lantern"), a));
-//        }
-    }
 
     @Inject(method="<clinit>", at = @At("TAIL"))
     private static void adjustStackSize(CallbackInfo ci) {
