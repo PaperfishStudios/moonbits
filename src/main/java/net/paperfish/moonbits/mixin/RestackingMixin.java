@@ -1,13 +1,10 @@
 package net.paperfish.moonbits.mixin;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBItemGroup;
-import net.paperfish.moonbits.block.MBLanternBlockItem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;

@@ -47,16 +47,52 @@ public class MBItems {
 			.food((new FoodComponent.Builder()).hunger(2).saturationModifier(0.3f).build()));
 	public static final Item STUFFED_PEPPER = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
 			.food((new FoodComponent.Builder()).hunger(6).saturationModifier(1.0f).build()));
+	public static final Item CHILI = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
+			.food((new FoodComponent.Builder()).hunger(7).saturationModifier(0.8f).build()));
+
+	public static final Item PRICKLY_PEAR = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(1).saturationModifier(0.3f).build()));
+	public static final Item COOKED_PRICKLY_PEAR = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.6f).build()));
+
+	public static final Item PEANUT = new AliasedBlockItem(MBBlocks.PEANUT_CROP, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
+	public static final Item ROASTED_PEANUTS = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.6f).build()));
+	public static final Item PEANUT_CHICKEN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(7).saturationModifier(1.0f).build()));
+	public static final Item HONEY_PEANUTS = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.6f).build()));
+	public static final Item PEANUT_BRITTLE = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.3f).build()));
+	public static final Item DOG_TREAT = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD));
+
+	// misc dishes
+	public static final Item GLOW_BERRY_TART = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F)
+			.statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 400, 1), 1.0f).build()));
+	public static final Item HONEY_BUN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F).build()));
+	public static final Item BROWNIE = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.3f).build()));
+	public static final Item FRUIT_PIE = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(1.0f).build()));
+	public static final Item PORRIDGE = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
+			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.8f).build()));
+	public static final Item CHICKEN_SOUP = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
+			.food((new FoodComponent.Builder()).hunger(9).saturationModifier(0.8f).build()));
+	public static final Item HEARTY_STEW = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
+			.food((new FoodComponent.Builder()).hunger(10).saturationModifier(1.2f).build()));
+	public static final Item FORAGED_SALAD = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
+			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.6f).build()));
+	public static final Item VEG_STIRFRY = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
+			.food((new FoodComponent.Builder()).hunger(7).saturationModifier(0.8f)
+					.statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0f)
+					.build()));
 
 	//public static final Item APPLE_SEEDS = new AliasedBlockItem(MBBlocks.APPLE_OAK_SPROUT, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Block SWEET_BERRY_PITS = new SweetBerryPitsBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH));
 	public static final Block GLOW_BERRY_PITS = new GlowBerryPitsBlock(AbstractBlock.Settings.of(Material.PLANT).ticksRandomly().noCollision().luminance(CaveVines.getLuminanceSupplier(14)).breakInstantly().sounds(BlockSoundGroup.CAVE_VINES));
 	public static final Item ROASTED_BERRIES = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8F).build()));
-
-	public static final Item GLOW_BERRY_TART = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F)
-			.statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 400, 1), 1.0f).build()));
-
-	public static final Item HONEY_BUN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F).build()));
 
     public static final Item PEAT = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item MAGNETITE = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
@@ -124,8 +160,6 @@ public class MBItems {
     
 	public static void registerItems(){
 		addItem("roasted_berries", ROASTED_BERRIES);
-		addItem("glow_berry_tart", GLOW_BERRY_TART);
-		addItem("honey_bun", HONEY_BUN);
 		addItem("pumpkin_slice", PUMPKIN_SLICE);
 		addItem("lettuce_leaf", LETTUCE_LEAF);
 		addItem("lettuce_wrap", LETTUCE_WRAP);
@@ -135,6 +169,27 @@ public class MBItems {
 		add("pepper_seeds", PEPPER_SEEDS);
 		addItem("pepper", PEPPER);
 		addItem("stuffed_pepper", STUFFED_PEPPER);
+		addItem("chili", CHILI);
+
+		addItem("prickly_pear", PRICKLY_PEAR);
+		addItem("cooked_prickly_pear", COOKED_PRICKLY_PEAR);
+
+		addItem("peanut", PEANUT);
+		addItem("roasted_peanuts", ROASTED_PEANUTS);
+		addItem("peanut_chicken", PEANUT_CHICKEN);
+		addItem("honey_roasted_peanuts", HONEY_PEANUTS);
+		addItem("peanut_brittle", PEANUT_BRITTLE);
+		addItem("dog_treat", DOG_TREAT);
+
+		addItem("glow_berry_tart", GLOW_BERRY_TART);
+		addItem("honey_bun", HONEY_BUN);
+		addItem("brownie", BROWNIE);
+		addItem("fruit_pie", FRUIT_PIE);
+		addItem("porridge", PORRIDGE);
+		addItem("chicken_soup", CHICKEN_SOUP);
+		addItem("hearty_stew", HEARTY_STEW);
+		addItem("foraged_salad", FORAGED_SALAD);
+		addItem("vegetable_stir_fry", VEG_STIRFRY);
 
 		addItem("milk_bottle", MILK_BOTTLE);
 		addItem("syrup_bottle", SYRUP_BOTTLE);

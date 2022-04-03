@@ -8,7 +8,7 @@ import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.MBBlockTags;
 import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.Moonbits;
-import net.paperfish.moonbits.block.MBStairsBlock;
+import net.paperfish.moonbits.block.extended.MBStairsBlock;
 import net.paperfish.moonbits.registry.MBBlockFamilies;
 
 import java.util.Objects;

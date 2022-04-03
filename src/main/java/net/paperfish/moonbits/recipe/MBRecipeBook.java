@@ -14,6 +14,9 @@ public class MBRecipeBook implements RecipeBookAdder {
                         .addSearch()
                         .addGroup("BLOCKS", recipe -> recipe instanceof KilnRecipe, "minecraft:clay_ball", "minecraft:brick")
                         .build(),
+                RecipeBookAdder.builder("COOKING")
+                        .addGroup("DISHES", recipe -> recipe instanceof CookingRecipe, "minecraft:clay_ball", "minecraft:brick")
+                        .build(),
                 RecipeBookAdder.builder("WASHING")
                         .addGroup("ALL", recipe -> recipe instanceof WashingRecipe, "minecraft:water_bucket", "minecraft:cauldron")
                         .build()

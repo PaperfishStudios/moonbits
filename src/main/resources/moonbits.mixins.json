@@ -39,7 +39,8 @@
     "TexturedModelAccessor",
     "TextureKeyAccessor",
     "TreeDecoratorTypeInvoker",
-    "TurtleEntityMixin"
+    "TurtleEntityMixin",
+    "VanillaSurfaceRulesMixin"
   ],
   "client": [
     "ChickenRenderMixin",

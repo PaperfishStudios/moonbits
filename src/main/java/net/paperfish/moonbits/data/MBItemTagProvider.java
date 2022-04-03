@@ -6,6 +6,7 @@ import net.minecraft.item.Items;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
 import net.paperfish.moonbits.MBBlockTags;
+import net.paperfish.moonbits.MBBlocks;
 import net.paperfish.moonbits.MBItemTags;
 import net.paperfish.moonbits.MBItems;
 import org.jetbrains.annotations.Nullable;
@@ -86,5 +87,61 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(MBItemTags.BEAR_LIKES).add(Items.SALMON, Items.SALMON_BUCKET, Items.HONEY_BOTTLE, Items.HONEYCOMB, MBItems.HONEY_BUN);
         getOrCreateTagBuilder(MBItemTags.BEAR_EDIBLE).addTag(MBItemTags.BEAR_LIKES).add(Items.COOKED_SALMON, Items.COD, Items.COOKED_COD, Items.BEEF, Items.COOKED_BEEF);
+
+        // misc item stuffs
+        getOrCreateTagBuilder(MBItemTags.MILK).add(Items.MILK_BUCKET, MBItems.MILK_BOTTLE);
+        getOrCreateTagBuilder(MBItemTags.HONEY).add(Items.HONEY_BOTTLE, Items.HONEYCOMB);
+        getOrCreateTagBuilder(MBItemTags.PEANUT).add(MBItems.PEANUT, MBItems.ROASTED_PEANUTS);
+
+        // cooking tags
+        getOrCreateTagBuilder(MBItemTags.COOKING_FRUITS).add(
+                Items.APPLE, Items.MELON_SLICE,
+                Items.SWEET_BERRIES, Items.GLOW_BERRIES,
+                Items.CHORUS_FRUIT,
+                MBItems.COOKED_PRICKLY_PEAR
+        );
+        getOrCreateTagBuilder(MBItemTags.COOKING_VEG).add(
+                Items.CARROT, Items.BEETROOT,
+                Items.PUMPKIN, MBItems.PUMPKIN_SLICE,
+                MBItems.PEPPER
+        );
+        getOrCreateTagBuilder(MBItemTags.COOKING_MEATS).add(
+                Items.BEEF, Items.COOKED_BEEF,
+                Items.CHICKEN, Items.COOKED_CHICKEN,
+                Items.MUTTON, Items.COOKED_MUTTON,
+                Items.PORKCHOP, Items.COOKED_PORKCHOP,
+                Items.RABBIT, Items.COOKED_RABBIT
+        );
+        getOrCreateTagBuilder(MBItemTags.COOKING_FISH).add(
+                Items.COD, Items.COOKED_COD,
+                Items.SALMON, Items.COOKED_SALMON,
+                Items.TROPICAL_FISH
+        );
+        getOrCreateTagBuilder(MBItemTags.COOKING_SWEET).add(
+                Items.SUGAR,
+                Items.HONEYCOMB, Items.HONEY_BOTTLE,
+                MBItems.SYRUP_BOTTLE
+        );
+        getOrCreateTagBuilder(MBItemTags.COOKING_WILD).addTag(MBItemTags.EDIBLE_MUSHROOMS).add(
+                Items.SWEET_BERRIES, Items.GLOW_BERRIES,
+                Items.FERN, Items.DANDELION, Items.SUNFLOWER,
+                MBBlocks.LAMPROOT.asItem(), MBBlocks.CAVEBLOOMS, MBItems.PEANUT
+        );
+        getOrCreateTagBuilder(MBItemTags.COOKING_MONSTER).add(
+                Items.ROTTEN_FLESH, Items.SPIDER_EYE, Items.MAGMA_CREAM
+        );
+        getOrCreateTagBuilder(MBItemTags.COOKING_FILLER)
+                .addTag(MBItemTags.COOKING_FRUITS).addTag(MBItemTags.COOKING_VEG)
+                .addTag(MBItemTags.COOKING_MEATS).addTag(MBItemTags.COOKING_FISH)
+                .addTag(MBItemTags.COOKING_SWEET)
+                .addTag(MBItemTags.COOKING_WILD)
+                .addTag(MBItemTags.COOKING_MONSTER);
+        getOrCreateTagBuilder(MBItemTags.COOKING_FILLER).add(
+                Items.KELP, Items.DRIED_KELP,
+                Items.WHEAT, Items.POTATO,
+                MBItems.PEANUT, MBItems.PEANUT_BRITTLE,
+                Items.COCOA_BEANS, Items.EGG,
+                Items.STICK, MBItems.GRASS_TUFT
+        );
     }
 }

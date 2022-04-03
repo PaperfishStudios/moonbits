@@ -1,4 +1,4 @@
-package net.paperfish.moonbits.block;
+package net.paperfish.moonbits.block.extended;
 
 import net.minecraft.block.SaplingBlock;
 import net.minecraft.block.sapling.SaplingGenerator;

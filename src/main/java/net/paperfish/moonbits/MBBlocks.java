@@ -15,6 +15,7 @@ import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.block.*;
 import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
 import net.paperfish.moonbits.block.cauldron.MBCauldronBehaviour;
+import net.paperfish.moonbits.block.extended.*;
 import net.paperfish.moonbits.mixin.SignTypeAccessor;
 import net.paperfish.moonbits.world.feature.*;
 import net.paperfish.moonbits.world.gen.MBTreeFeatures;
@@ -30,6 +31,9 @@ public class MBBlocks {
 			.luminance(state -> 10).nonOpaque());
 	public static final Block KILN = new KilnBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.TERRACOTTA_ORANGE).strength(1.2f).sounds(BlockSoundGroup.STONE));
 	public static BlockEntityType<KilnBlockEntity> KILN_BLOCK_ENTITY;
+
+	public static final Block COOKING_POT = new CookingPotBlock(AbstractBlock.Settings.of(Material.METAL, MapColor.ORANGE).strength(1.2f).sounds(BlockSoundGroup.COPPER));
+	public static BlockEntityType<CookingPotBlockEntity> COOKING_POT_ENTITY;
 
 	public static final Block LEATHER_SEAT = new SeatBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.2f).sounds(BlockSoundGroup.WOOD).nonOpaque());
 	public static final Block WHITE_LEATHER_SEAT = new SeatBlock(AbstractBlock.Settings.copy(LEATHER_SEAT).strength(1.2f).sounds(BlockSoundGroup.WOOD).nonOpaque());
@@ -519,6 +523,9 @@ public class MBBlocks {
 	public static final Block PEAT_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.STONE));
 	public static final Block PEAT_BRICK_STAIRS = new MBStairsBlock(PEAT_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.5f));
 	public static final Block PEAT_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.STONE));
+
+	public static final Block PEANUT_CROP = new PeanutCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
+			.nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
 
 	public static final Block PEPPER_CROP = new PepperCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
 			.nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
@@ -1301,6 +1308,7 @@ public class MBBlocks {
 		createBlock("lettuce_block", LETTUCE_BLOCK, MBItemGroup.MB_FOOD);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "lettuce_crop"), LETTUCE_CROP);
 
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "peanut_crop"), PEANUT_CROP);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "pepper_crop"), PEPPER_CROP);
 
 		// MISC. CAVES
@@ -1463,6 +1471,10 @@ public class MBBlocks {
 		createBlock("kiln", KILN, MBItemGroup.DECOR);
 		KILN_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "kiln_block_entity"),
 				FabricBlockEntityTypeBuilder.create(KilnBlockEntity::new, KILN).build(null));
+
+		createBlock("cooking_pot", COOKING_POT, MBItemGroup.DECOR);
+		COOKING_POT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "cooking_pot_entity"),
+				FabricBlockEntityTypeBuilder.create(CookingPotBlockEntity::new, COOKING_POT).build(null));
 
 		createBlock("tree_tap", TREE_TAP, MBItemGroup.DECOR);
 		createBlock("syrup_block", SYRUP_BLOCK, ItemGroup.REDSTONE);

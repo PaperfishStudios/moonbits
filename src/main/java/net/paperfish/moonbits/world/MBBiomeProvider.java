@@ -30,35 +30,34 @@ public class MBBiomeProvider extends Region {
 //            builder.replaceBiome(BiomeKeys.ERODED_BADLANDS, MBBiomes.STEPPE);
 //            builder.replaceBiome(BiomeKeys.SAVANNA_PLATEAU, MBBiomes.PRAIRIE);
             builder.replaceBiome(BiomeKeys.SNOWY_PLAINS, MBBiomes.TUNDRA);
-            builder.replaceBiome(BiomeKeys.SWAMP, MBBiomes.MIRE);
+//            builder.replaceBiome(BiomeKeys.SWAMP, MBBiomes.MIRE);
             List<MultiNoiseUtil.NoiseHypercube> goldenForest = new ParameterUtils.ParameterPointListBuilder()
-                    .temperature(ParameterUtils.Temperature.NEUTRAL)
-                    .humidity(ParameterUtils.Humidity.WET)
+                    .temperature(ParameterUtils.Temperature.COOL, ParameterUtils.Temperature.NEUTRAL)
+                    .humidity(ParameterUtils.Humidity.NEUTRAL, ParameterUtils.Humidity.WET)
                     .continentalness(ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.NEAR_INLAND, ParameterUtils.Continentalness.FAR_INLAND))
-                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2)
+                    .erosion(ParameterUtils.Erosion.EROSION_3, ParameterUtils.Erosion.EROSION_4)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
-                    .weirdness(ParameterUtils.Weirdness.span(ParameterUtils.Weirdness.HIGH_SLICE_NORMAL_DESCENDING, ParameterUtils.Weirdness.MID_SLICE_NORMAL_DESCENDING),
-                            ParameterUtils.Weirdness.span(ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING))
+                    .weirdness(ParameterUtils.Weirdness.span(ParameterUtils.Weirdness.HIGH_SLICE_NORMAL_DESCENDING, ParameterUtils.Weirdness.MID_SLICE_NORMAL_DESCENDING))
                     .build();
             goldenForest.forEach(point -> builder.replaceBiome(point, MBBiomes.GOLDEN_FOREST));
 
             List<MultiNoiseUtil.NoiseHypercube> tallGoldenForest = new ParameterUtils.ParameterPointListBuilder()
                     .temperature(ParameterUtils.Temperature.NEUTRAL)
-                    .humidity(ParameterUtils.Humidity.WET)
+                    .humidity(ParameterUtils.Humidity.NEUTRAL, ParameterUtils.Humidity.WET)
                     .continentalness(ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.MID_INLAND, ParameterUtils.Continentalness.FAR_INLAND))
-                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2)
+                    .erosion(ParameterUtils.Erosion.EROSION_3, ParameterUtils.Erosion.EROSION_4)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
-                    .weirdness(ParameterUtils.Weirdness.LOW_SLICE_NORMAL_DESCENDING, ParameterUtils.Weirdness.VALLEY, ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING)
+                    .weirdness(ParameterUtils.Weirdness.span(ParameterUtils.Weirdness.MID_SLICE_NORMAL_ASCENDING, ParameterUtils.Weirdness.HIGH_SLICE_NORMAL_ASCENDING))
                     .build();
             tallGoldenForest.forEach(point -> builder.replaceBiome(point, MBBiomes.TALL_GOLDEN_FOREST));
 
             List<MultiNoiseUtil.NoiseHypercube> pasture = new ParameterUtils.ParameterPointListBuilder()
-                    .temperature(ParameterUtils.Temperature.NEUTRAL, ParameterUtils.Temperature.WARM)
-                    .humidity(ParameterUtils.Humidity.NEUTRAL, ParameterUtils.Humidity.WET)
+                    .temperature(ParameterUtils.Temperature.COOL, ParameterUtils.Temperature.NEUTRAL)
+                    .humidity(ParameterUtils.Humidity.DRY, ParameterUtils.Humidity.NEUTRAL)
                     .continentalness(ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.MID_INLAND, ParameterUtils.Continentalness.FAR_INLAND))
-                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2)
+                    .erosion(ParameterUtils.Erosion.EROSION_2, ParameterUtils.Erosion.EROSION_3, ParameterUtils.Erosion.EROSION_4)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
-                    .weirdness(ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING)
+                    .weirdness(ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING, ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_ASCENDING)
                     .build();
             pasture.forEach(point -> builder.replaceBiome(point, MBBiomes.PASTURE));
 
@@ -66,9 +65,9 @@ public class MBBiomeProvider extends Region {
                     .temperature(ParameterUtils.Temperature.HOT)
                     .humidity(ParameterUtils.Humidity.ARID)
                     .continentalness(ParameterUtils.Continentalness.COAST, ParameterUtils.Continentalness.NEAR_INLAND)
-                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2, ParameterUtils.Erosion.EROSION_3)
+                    .erosion(ParameterUtils.Erosion.EROSION_4, ParameterUtils.Erosion.EROSION_5)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
-                    .weirdness(ParameterUtils.Weirdness.LOW_SLICE_NORMAL_DESCENDING, ParameterUtils.Weirdness.VALLEY, ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING)
+                    .weirdness(ParameterUtils.Weirdness.LOW_SLICE_NORMAL_DESCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING, ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING)
                     .build();
             floodplain.forEach(point -> builder.replaceBiome(point, MBBiomes.FLOOD_PLAINS));
 
@@ -76,21 +75,32 @@ public class MBBiomeProvider extends Region {
                     .temperature(ParameterUtils.Temperature.HOT)
                     .humidity(ParameterUtils.Humidity.ARID)
                     .continentalness(ParameterUtils.Continentalness.FAR_INLAND, ParameterUtils.Continentalness.INLAND)
-                    .erosion(ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2)
+                    .erosion(ParameterUtils.Erosion.EROSION_4, ParameterUtils.Erosion.EROSION_5)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
-                    .weirdness(ParameterUtils.Weirdness.span( ParameterUtils.Weirdness.PEAK_VARIANT, ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING))
+                    .weirdness(ParameterUtils.Weirdness.LOW_SLICE_NORMAL_DESCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING, ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING)
                     .build();
             steppe.forEach(point -> builder.replaceBiome(point, MBBiomes.STEPPE));
 
             List<MultiNoiseUtil.NoiseHypercube> prairie = new ParameterUtils.ParameterPointListBuilder()
-                    .temperature(ParameterUtils.Temperature.WARM)
-                    .humidity(ParameterUtils.Humidity.DRY, ParameterUtils.Humidity.ARID)
-                    .continentalness(ParameterUtils.Continentalness.NEAR_INLAND, ParameterUtils.Continentalness.MID_INLAND)
-                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1)
+                    .temperature(ParameterUtils.Temperature.WARM, ParameterUtils.Temperature.HOT)
+                    .humidity(ParameterUtils.Humidity.NEUTRAL, ParameterUtils.Humidity.WET)
+                    .continentalness(ParameterUtils.Continentalness.FAR_INLAND)
+                    .erosion(ParameterUtils.Erosion.EROSION_2, ParameterUtils.Erosion.EROSION_3)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
-                    .weirdness(ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING)
+                    .weirdness(ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING, ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING)
                     .build();
             prairie.forEach(point -> builder.replaceBiome(point, MBBiomes.PRAIRIE));
+
+            List<MultiNoiseUtil.NoiseHypercube> mire = new ParameterUtils.ParameterPointListBuilder()
+                    .temperature(ParameterUtils.Temperature.NEUTRAL, ParameterUtils.Temperature.WARM, ParameterUtils.Temperature.HOT)
+                    .humidity(ParameterUtils.Humidity.DRY, ParameterUtils.Humidity.NEUTRAL)
+                    .continentalness(ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.NEAR_INLAND, ParameterUtils.Continentalness.INLAND))
+                    .erosion(ParameterUtils.Erosion.EROSION_6)
+                    .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
+                    .weirdness(ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.LOW_SLICE_NORMAL_DESCENDING,
+                            ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING)
+                    .build();
+            mire.forEach(point -> builder.replaceBiome(point, MBBiomes.MIRE));
         });
     }
 }

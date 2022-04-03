@@ -29,6 +29,20 @@ public class MBItemTags {
 
     public static final TagKey<Item> AXES = TagKey.of(Registry.ITEM_KEY, new Identifier("c", "axes"));
 
+    public static final TagKey<Item> MILK = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "milk"));
+    public static final TagKey<Item> HONEY = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "honey"));
+    public static final TagKey<Item> PEANUT = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "peanuts"));
+
+    // cooking pot tags
+    public static final TagKey<Item> COOKING_FRUITS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "cooking/fruit"));
+    public static final TagKey<Item> COOKING_VEG = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "cooking/veg"));
+    public static final TagKey<Item> COOKING_MEATS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "cooking/meat"));
+    public static final TagKey<Item> COOKING_FISH = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "cooking/fish"));
+    public static final TagKey<Item> COOKING_SWEET = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "cooking/sweet"));
+    public static final TagKey<Item> COOKING_WILD = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "cooking/wild"));
+    public static final TagKey<Item> COOKING_MONSTER = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "cooking/monster"));
+    public static final TagKey<Item> COOKING_FILLER = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "cooking/filler"));
+
     public static void register() {
 
     }

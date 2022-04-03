@@ -21,7 +21,7 @@ public class MBPlacedVegFeatures {
             NoiseThresholdCountPlacementModifier.of(-0.8, 5, 10), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> PATCH_DESERT_BRUSH = MBPlacedFeatures.register("p_desert_brush", MBVegetationFeatures.PATCH_DESERT_BRUSH,
-            NoiseThresholdCountPlacementModifier.of(-0.9, 3, 6), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
+            NoiseThresholdCountPlacementModifier.of(-0.8, 15, 4), RarityFilterPlacementModifier.of(32), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> FLOOD_DESERT_BRUSH = MBPlacedFeatures.register("p_flood_desert_brush", MBVegetationFeatures.FLOOD_DESERT_BRUSH,
             NoiseThresholdCountPlacementModifier.of(-0.8, 5, 10), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
@@ -35,7 +35,7 @@ public class MBPlacedVegFeatures {
     public static final RegistryEntry<PlacedFeature> FORGETMENOT_PATCH = MBPlacedFeatures.register("p_forgetmenot",
             MBVegetationFeatures.FORGETMENOT_PATCH, CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> MARIGOLD_PATCH = MBPlacedFeatures.register("p_marigold",
-            MBVegetationFeatures.MARIGOLD_PATCH, CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+            MBVegetationFeatures.MARIGOLD_PATCH, CountPlacementModifier.of(2), RarityFilterPlacementModifier.of(16), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> FLOOD_MARIGOLD_PATCH = MBPlacedFeatures.register("p_flood_marigold",
             MBVegetationFeatures.FLOOD_MARIGOLD_PATCH, CountPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
 
@@ -114,9 +114,12 @@ public class MBPlacedVegFeatures {
     public static final RegistryEntry<PlacedFeature> CEDARS = MBPlacedFeatures.register("p_cedars",
             MBVegetationFeatures.BADLANDS_TREES,
             modifiers(PlacedFeatures.createCountExtraModifier(4, 0.1F, 1)));
+    public static final RegistryEntry<PlacedFeature> PRAIRIE_TREES = MBPlacedFeatures.register("p_prairie",
+            MBVegetationFeatures.BADLANDS_TREES,
+            modifiers(PlacedFeatures.createCountExtraModifier(1, 0.1F, 1)));
     public static final RegistryEntry<PlacedFeature> JUNIPERS = MBPlacedFeatures.register("p_junipers",
             MBVegetationFeatures.JUNIPER_TREES,
-            modifiers(PlacedFeatures.createCountExtraModifier(2, 0.1F, 1)));
+            modifiers(PlacedFeatures.createCountExtraModifier(1, 0.1F, 1)));
 
     public static final RegistryEntry<PlacedFeature> FALLEN_OAK = MBPlacedFeatures.register("p_fallen_oak",
             MBTreeFeatures.FALLEN_OAK, CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());

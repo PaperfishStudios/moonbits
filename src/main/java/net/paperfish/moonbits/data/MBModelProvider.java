@@ -301,6 +301,7 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         bandedIron(MBBlocks.MAGNETITE_ORE, generator);
         generator.registerSimpleCubeAll(MBBlocks.MAGNETITE_BLOCK);
 
+        generator.registerCrop(MBBlocks.PEANUT_CROP, Properties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
         generator.registerCrop(MBBlocks.PEPPER_CROP, Properties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
 
         generator.registerAxisRotated(MBBlocks.CRACKED_MUD, CUBE_COLUMN);

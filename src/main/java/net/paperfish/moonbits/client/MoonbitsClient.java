@@ -26,6 +26,7 @@ import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.BarrelCactusBlock;
 import net.paperfish.moonbits.particle.DripParticle;
 import net.paperfish.moonbits.particle.FallingParticle;
+import net.paperfish.moonbits.screen.CookingScreen;
 import net.paperfish.moonbits.screen.KilnScreen;
 
 
@@ -83,6 +84,7 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.SEA_BEETS,
 
                 MBBlocks.LETTUCE_CROP,
+                MBBlocks.PEANUT_CROP,
                 MBBlocks.PEPPER_CROP,
 
                 MBBlocks.BEACHGRASS,
@@ -150,6 +152,7 @@ public class MoonbitsClient implements ClientModInitializer {
 
     static {
         HandledScreens.register(MBData.KILN_SCREEN_HANDLER, KilnScreen::new);
+        HandledScreens.register(MBData.COOKING_SCREEN_HANDLER, CookingScreen::new);
     }
 
     public static void dataClient() {

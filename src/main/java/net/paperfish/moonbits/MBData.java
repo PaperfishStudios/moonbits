@@ -3,21 +3,14 @@ package net.paperfish.moonbits;
 import com.github.aws404.booking_it.BookingIt;
 import com.google.common.collect.ImmutableMap;
 
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FlattenableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.TillableBlockRegistry;
-import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.fabricmc.fabric.mixin.content.registry.AxeItemAccessor;
-import net.fabricmc.fabric.mixin.object.builder.ModelPredicateProviderRegistrySpecificAccessor;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.color.block.BlockColorProvider;
-import net.minecraft.client.color.item.ItemColorProvider;
 import net.minecraft.item.HoeItem;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
@@ -26,10 +19,12 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.advancement.ItemWashedCriterion;
-import net.paperfish.moonbits.block.BarrelCactusBlock;
 import net.paperfish.moonbits.mixin.CriteriaAccessor;
+import net.paperfish.moonbits.recipe.CookingPotRecipeSerializer;
+import net.paperfish.moonbits.recipe.CookingRecipe;
 import net.paperfish.moonbits.recipe.KilnRecipe;
 import net.paperfish.moonbits.recipe.WashingRecipe;
+import net.paperfish.moonbits.screen.CookingScreenHandler;
 import net.paperfish.moonbits.screen.KilnScreenHandler;
 
 import java.util.Map;
@@ -44,6 +39,10 @@ public class MBData {
 	public static final RecipeType<KilnRecipe> KILN_RECIPE_TYPE;
 	public static final RecipeSerializer<KilnRecipe> KILN_RECIPE_SERIALIZER;
 	public static final ScreenHandlerType<KilnScreenHandler> KILN_SCREEN_HANDLER;
+
+	public static final RecipeType<CookingRecipe> COOKING_RECIPE_TYPE;
+	public static final RecipeSerializer<CookingRecipe> COOKING_RECIPE_SERIALIZER;
+	public static final ScreenHandlerType<CookingScreenHandler> COOKING_SCREEN_HANDLER;
 
 	public static final RecipeType<WashingRecipe> WASHING_RECIPE_TYPE;
 	public static final RecipeSerializer<WashingRecipe> WASHING_RECIPE_SERIALIZER;
@@ -73,6 +72,13 @@ public class MBData {
 		KILN_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MODID, "kiln"), new CookingRecipeSerializer<>(KilnRecipe::new, 200));
 		KILN_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, (new Identifier(Moonbits.MODID, "kiln")), new ScreenHandlerType<>(KilnScreenHandler::new));
 		//KILN_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, (new Identifier(Moonbits.MODID, "kiln")), new ScreenHandlerType<>(KilnScreenHandler::new));
+
+		COOKING_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MODID, "cooking"), new RecipeType<CookingRecipe>() {
+			@Override
+			public String toString() {return Moonbits.MODID.concat("cooking");}
+		});
+		COOKING_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MODID, "cooking"), new CookingPotRecipeSerializer(200));
+		COOKING_SCREEN_HANDLER = Registry.register(Registry.SCREEN_HANDLER, (new Identifier(Moonbits.MODID, "cooking")), new ScreenHandlerType<>(CookingScreenHandler::new));
 
 		WASHING_RECIPE_TYPE = Registry.register(Registry.RECIPE_TYPE, new Identifier(Moonbits.MODID, "washing"), new RecipeType<WashingRecipe>() {
 			@Override
