@@ -19,7 +19,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Direction.Axis;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.paperfish.moonbits.MBSounds;
+import net.paperfish.moonbits.registry.MBSounds;
 import net.paperfish.moonbits.block.LatticeBlock;
 import org.jetbrains.annotations.Nullable;
 

@@ -3,13 +3,9 @@ package net.paperfish.moonbits.block;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -18,11 +14,10 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.registry.MBBlocks;
 
 import java.util.List;
 import java.util.Random;
-import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 public class CavebloomVineBlock extends AbstractLichenBlock implements Fertilizable {

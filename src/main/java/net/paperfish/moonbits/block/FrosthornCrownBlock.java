@@ -15,8 +15,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-import net.paperfish.moonbits.MBBlockTags;
-import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.registry.MBBlockTags;
+import net.paperfish.moonbits.registry.MBBlocks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;

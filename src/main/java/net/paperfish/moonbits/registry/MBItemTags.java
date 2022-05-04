@@ -1,9 +1,10 @@
-package net.paperfish.moonbits;
+package net.paperfish.moonbits.registry;
 
 import net.minecraft.item.Item;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.paperfish.moonbits.Moonbits;
 
 public class MBItemTags {
     public static final TagKey<Item> COBBLESTONE = TagKey.of(Registry.ITEM_KEY, new Identifier("c", "cobblestone"));

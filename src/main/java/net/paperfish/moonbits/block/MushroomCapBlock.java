@@ -21,7 +21,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
-import net.paperfish.moonbits.MBItemTags;
+import net.paperfish.moonbits.registry.MBItemTags;
 
 import java.util.Map;
 

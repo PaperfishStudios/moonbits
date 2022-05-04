@@ -5,10 +5,10 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Items;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
-import net.paperfish.moonbits.MBBlockTags;
-import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBItemTags;
-import net.paperfish.moonbits.MBItems;
+import net.paperfish.moonbits.registry.MBBlockTags;
+import net.paperfish.moonbits.registry.MBBlocks;
+import net.paperfish.moonbits.registry.MBItemTags;
+import net.paperfish.moonbits.registry.MBItems;
 import org.jetbrains.annotations.Nullable;
 
 public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {

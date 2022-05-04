@@ -1,4 +1,4 @@
-package net.paperfish.moonbits;
+package net.paperfish.moonbits.registry;
 
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;

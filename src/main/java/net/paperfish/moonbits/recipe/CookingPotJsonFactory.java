@@ -17,7 +17,7 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.paperfish.moonbits.MBData;
+import net.paperfish.moonbits.registry.MBData;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

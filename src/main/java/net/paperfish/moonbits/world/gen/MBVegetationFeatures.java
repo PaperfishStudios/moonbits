@@ -20,7 +20,7 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.DualNoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.NoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
-import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.block.BarrelCactusBlock;
 import net.paperfish.moonbits.block.PebbleBlock;
 import net.paperfish.moonbits.world.feature.PebbleFeature;

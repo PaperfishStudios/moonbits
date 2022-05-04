@@ -7,8 +7,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
-import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBParticles;
+import net.paperfish.moonbits.registry.MBParticles;
 
 import java.util.Random;
 

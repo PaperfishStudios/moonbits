@@ -9,9 +9,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBBlockTags;
-import net.paperfish.moonbits.MBEntities;
-import net.paperfish.moonbits.block.SeatBlock;
+import net.paperfish.moonbits.registry.MBBlockTags;
+import net.paperfish.moonbits.registry.MBEntities;
 
 public class SeatBlockEntity extends Entity {
 

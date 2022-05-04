@@ -13,7 +13,7 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.*;
-import net.paperfish.moonbits.MBEntities;
+import net.paperfish.moonbits.registry.MBEntities;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.world.gen.MBPlacedCaveFeatures;
 import net.paperfish.moonbits.world.gen.MBPlacedVegFeatures;

@@ -1,19 +1,11 @@
 package net.paperfish.moonbits.block.extended;
 
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.property.Properties;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.paperfish.moonbits.MBBlockTags;
-import net.paperfish.moonbits.MBBlocks;
-import org.jetbrains.annotations.Nullable;
+import net.paperfish.moonbits.registry.MBBlocks;
 
 import java.util.Random;
 

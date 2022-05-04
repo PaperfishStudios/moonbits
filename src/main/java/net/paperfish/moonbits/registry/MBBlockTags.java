@@ -1,9 +1,10 @@
-package net.paperfish.moonbits;
+package net.paperfish.moonbits.registry;
 
 import net.minecraft.block.Block;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.paperfish.moonbits.Moonbits;
 
 import java.util.ArrayList;
 import java.util.List;

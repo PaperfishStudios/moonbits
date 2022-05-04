@@ -10,8 +10,8 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.event.GameEvent;
-import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBItems;
+import net.paperfish.moonbits.registry.MBBlocks;
+import net.paperfish.moonbits.registry.MBItems;
 
 import java.util.Map;
 

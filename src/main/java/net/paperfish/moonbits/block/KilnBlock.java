@@ -9,9 +9,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.registry.MBBlocks;
 import org.jetbrains.annotations.Nullable;
 
 public class KilnBlock extends AbstractFurnaceBlock {

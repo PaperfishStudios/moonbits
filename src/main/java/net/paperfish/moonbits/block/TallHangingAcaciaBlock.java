@@ -1,13 +1,11 @@
 package net.paperfish.moonbits.block;
 
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -17,8 +15,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.WorldView;
-import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBParticles;
+import net.paperfish.moonbits.registry.MBParticles;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;

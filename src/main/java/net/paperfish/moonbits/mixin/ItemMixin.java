@@ -2,7 +2,7 @@ package net.paperfish.moonbits.mixin;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.paperfish.moonbits.MBItemGroup;
+import net.paperfish.moonbits.registry.MBItemGroup;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

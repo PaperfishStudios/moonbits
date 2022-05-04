@@ -9,7 +9,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
-import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.registry.MBBlocks;
 
 public class FrosthornFruitBlock extends Block {
     public final VoxelShape SHAPE = Block.createCuboidShape(4, 0, 4, 12, 8, 12);

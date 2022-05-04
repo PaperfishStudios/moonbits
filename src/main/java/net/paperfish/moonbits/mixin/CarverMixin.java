@@ -2,7 +2,7 @@ package net.paperfish.moonbits.mixin;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.world.gen.carver.Carver;
-import net.paperfish.moonbits.MBBlockTags;
+import net.paperfish.moonbits.registry.MBBlockTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

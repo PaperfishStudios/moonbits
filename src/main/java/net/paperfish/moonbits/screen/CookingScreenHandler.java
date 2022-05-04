@@ -1,26 +1,16 @@
 package net.paperfish.moonbits.screen;
 
-import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionUtil;
-import net.minecraft.recipe.BrewingRecipeRegistry;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.SmithingRecipe;
 import net.minecraft.screen.*;
 import net.minecraft.screen.slot.FurnaceOutputSlot;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBData;
-import net.paperfish.moonbits.recipe.CookingRecipe;
-
-import java.util.List;
+import net.paperfish.moonbits.registry.MBData;
 
 public class CookingScreenHandler extends ScreenHandler {
     private final World world;

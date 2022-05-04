@@ -9,7 +9,6 @@ import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.*;
-import net.paperfish.moonbits.MBBlocks;
 
 import java.util.List;
 

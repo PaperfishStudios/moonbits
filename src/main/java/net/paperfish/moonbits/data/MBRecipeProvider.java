@@ -20,8 +20,7 @@ import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.*;
 import net.paperfish.moonbits.recipe.CookingPotJsonFactory;
 import net.paperfish.moonbits.recipe.WashingRecipeJsonFactory;
-import net.paperfish.moonbits.registry.MBBlockFamilies;
-import net.paperfish.moonbits.registry.MBBlockFamily;
+import net.paperfish.moonbits.registry.*;
 
 import java.util.HashMap;
 import java.util.List;

@@ -3,7 +3,7 @@ package net.paperfish.moonbits.world.gen;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
-import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.registry.MBBlocks;
 
 public class MBPlacedTreeFeatures {
     public static final RegistryEntry<PlacedFeature> GOLDEN_BIRCH = MBPlacedFeatures.register("p_golden_birch",

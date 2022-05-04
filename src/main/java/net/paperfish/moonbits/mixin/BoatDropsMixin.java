@@ -2,7 +2,7 @@ package net.paperfish.moonbits.mixin;
 
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.Item;
-import net.paperfish.moonbits.MBItems;
+import net.paperfish.moonbits.registry.MBItems;
 import net.paperfish.moonbits.entity.MBBoatTypes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

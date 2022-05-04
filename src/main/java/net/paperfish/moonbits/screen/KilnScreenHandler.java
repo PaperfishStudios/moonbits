@@ -2,13 +2,9 @@ package net.paperfish.moonbits.screen;
 
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.recipe.AbstractCookingRecipe;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.screen.AbstractFurnaceScreenHandler;
 import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.screen.ScreenHandlerType;
-import net.paperfish.moonbits.MBData;
+import net.paperfish.moonbits.registry.MBData;
 
 public class KilnScreenHandler extends AbstractFurnaceScreenHandler {
     public KilnScreenHandler(int i, PlayerInventory playerInventory) {

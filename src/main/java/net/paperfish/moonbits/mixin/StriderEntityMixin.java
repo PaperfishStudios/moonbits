@@ -33,7 +33,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBItems;
+import net.paperfish.moonbits.registry.MBItems;
 
 @Mixin(StriderEntity.class)
 public abstract class StriderEntityMixin extends AnimalEntity implements Bucketable {

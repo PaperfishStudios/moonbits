@@ -10,7 +10,7 @@ import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
-import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.block.PebbleBlock;
 
 import java.util.Random;

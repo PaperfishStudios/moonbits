@@ -4,10 +4,7 @@ import com.google.common.collect.Maps;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamilies;
-import net.minecraft.data.family.BlockFamily;
 import net.minecraft.util.registry.Registry;
-import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBItemGroup;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package net.paperfish.moonbits;
+package net.paperfish.moonbits.registry;
 
 import com.github.aws404.booking_it.BookingIt;
 import com.google.common.collect.ImmutableMap;
@@ -18,6 +18,7 @@ import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.advancement.ItemWashedCriterion;
 import net.paperfish.moonbits.mixin.CriteriaAccessor;
 import net.paperfish.moonbits.recipe.CookingPotRecipeSerializer;

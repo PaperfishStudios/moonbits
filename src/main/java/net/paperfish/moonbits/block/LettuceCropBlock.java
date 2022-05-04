@@ -5,14 +5,13 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBItems;
+import net.paperfish.moonbits.registry.MBBlocks;
+import net.paperfish.moonbits.registry.MBItems;
 
 import java.util.Random;
 

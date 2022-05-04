@@ -1,21 +1,15 @@
 package net.paperfish.moonbits.recipe;
 
-import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsage;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBData;
+import net.paperfish.moonbits.registry.MBData;
 import net.paperfish.moonbits.Moonbits;
 
 import java.util.Optional;

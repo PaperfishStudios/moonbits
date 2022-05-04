@@ -1,4 +1,4 @@
-package net.paperfish.moonbits;
+package net.paperfish.moonbits.registry;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.*;
@@ -11,6 +11,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.entity.MBBoatTypes;
 import net.paperfish.moonbits.item.*;
 

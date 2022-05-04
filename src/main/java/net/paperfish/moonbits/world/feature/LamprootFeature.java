@@ -11,8 +11,8 @@ import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.SimpleBlockFeatureConfig;
 import net.minecraft.world.gen.feature.util.FeatureContext;
-import net.paperfish.moonbits.MBBlockTags;
-import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.registry.MBBlockTags;
+import net.paperfish.moonbits.registry.MBBlocks;
 
 import java.util.List;
 

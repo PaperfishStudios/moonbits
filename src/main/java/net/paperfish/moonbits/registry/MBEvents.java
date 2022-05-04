@@ -1,4 +1,4 @@
-package net.paperfish.moonbits;
+package net.paperfish.moonbits.registry;
 
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -25,6 +25,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
+import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.mixin.PigSaddleAccess;
 import net.paperfish.moonbits.mixin.StriderSaddleAccess;
 import net.paperfish.moonbits.recipe.WashingHandler;

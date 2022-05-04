@@ -2,11 +2,8 @@ package net.paperfish.moonbits.world;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
-import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
-import net.minecraft.world.gen.surfacebuilder.VanillaSurfaceRules;
-import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.registry.MBBlocks;
 
 public class MBSurfaceRules {
     private static final MaterialRules.MaterialRule DIRT = makeStateRule(Blocks.DIRT);

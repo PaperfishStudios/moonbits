@@ -1,9 +1,10 @@
-package net.paperfish.moonbits;
+package net.paperfish.moonbits.registry;
 
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.paperfish.moonbits.Moonbits;
 
 public class MBParticles {
     public static final DefaultParticleType FALLING_LEAF = FabricParticleTypes.simple();

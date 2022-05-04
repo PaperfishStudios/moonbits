@@ -12,11 +12,10 @@ import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.paperfish.moonbits.MBData;
+import net.paperfish.moonbits.registry.MBData;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;

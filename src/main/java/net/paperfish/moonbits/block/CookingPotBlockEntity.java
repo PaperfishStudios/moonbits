@@ -1,22 +1,14 @@
 package net.paperfish.moonbits.block;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.BrewingStandBlock;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.BrewingStandBlockEntity;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.recipe.BrewingRecipeRegistry;
-import net.minecraft.recipe.Recipe;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
@@ -26,14 +18,12 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldEvents;
-import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBData;
+import net.paperfish.moonbits.registry.MBBlocks;
+import net.paperfish.moonbits.registry.MBData;
 import net.paperfish.moonbits.recipe.CookingRecipe;
 import net.paperfish.moonbits.screen.CookingScreenHandler;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 

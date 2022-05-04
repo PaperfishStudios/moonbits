@@ -9,7 +9,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldAccess;
-import net.paperfish.moonbits.MBBlockTags;
+import net.paperfish.moonbits.registry.MBBlockTags;
 import org.jetbrains.annotations.Nullable;
 
 public class BandedIronBlock extends Block {

@@ -1,8 +1,6 @@
 package net.paperfish.moonbits.recipe;
 
 import com.github.aws404.booking_it.RecipeBookAdder;
-import net.minecraft.item.ItemGroup;
-import net.paperfish.moonbits.MBItemGroup;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package net.paperfish.moonbits.mixin;
 
-import net.paperfish.moonbits.MBBlockTags;
+import net.paperfish.moonbits.registry.MBBlockTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.At;

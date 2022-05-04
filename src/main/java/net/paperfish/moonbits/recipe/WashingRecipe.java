@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBData;
+import net.paperfish.moonbits.registry.MBData;
 import net.paperfish.moonbits.Moonbits;
 
 import javax.annotation.Nullable;

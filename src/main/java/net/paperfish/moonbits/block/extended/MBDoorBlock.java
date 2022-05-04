@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-import net.paperfish.moonbits.MBSounds;
+import net.paperfish.moonbits.registry.MBSounds;
 import org.jetbrains.annotations.Nullable;
 
 public class MBDoorBlock extends DoorBlock {

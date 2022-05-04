@@ -2,9 +2,7 @@ package net.paperfish.moonbits.entity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FollowParentGoal;
@@ -31,15 +29,10 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBEntities;
+import net.paperfish.moonbits.registry.MBBlocks;
+import net.paperfish.moonbits.registry.MBEntities;
 import net.paperfish.moonbits.Moonbits;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Random;
 
 public class MoobloomEntity extends CowEntity {
 	private static final TrackedData<String> TYPE;

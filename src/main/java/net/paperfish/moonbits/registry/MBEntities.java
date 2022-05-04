@@ -1,4 +1,4 @@
-package net.paperfish.moonbits;
+package net.paperfish.moonbits.registry;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;

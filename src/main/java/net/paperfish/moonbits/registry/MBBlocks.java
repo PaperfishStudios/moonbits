@@ -1,4 +1,4 @@
-package net.paperfish.moonbits;
+package net.paperfish.moonbits.registry;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -12,6 +12,7 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.SignType;
 import net.minecraft.util.registry.Registry;
+import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
 import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
 import net.paperfish.moonbits.block.cauldron.MBCauldronBehaviour;

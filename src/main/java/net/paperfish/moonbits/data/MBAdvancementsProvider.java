@@ -29,9 +29,9 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.ConfiguredStructureFeatureKeys;
-import net.paperfish.moonbits.MBBlocks;
-import net.paperfish.moonbits.MBEntities;
-import net.paperfish.moonbits.MBItems;
+import net.paperfish.moonbits.registry.MBBlocks;
+import net.paperfish.moonbits.registry.MBEntities;
+import net.paperfish.moonbits.registry.MBItems;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.advancement.ItemWashedCriterion;
 

@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
-import net.paperfish.moonbits.MBBlockTags;
+import net.paperfish.moonbits.registry.MBBlockTags;
 
 public class FrosthornStemBlock extends Block {
     public final VoxelShape SHAPE = Block.createCuboidShape(4, 0, 4, 12, 16, 12);

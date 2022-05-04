@@ -8,8 +8,8 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBEntities;
-import net.paperfish.moonbits.MBItems;
+import net.paperfish.moonbits.registry.MBEntities;
+import net.paperfish.moonbits.registry.MBItems;
 
 public class GlowItemHookEntity extends ItemHookEntity {
     public GlowItemHookEntity(EntityType<? extends ItemHookEntity> entityType, World world) {

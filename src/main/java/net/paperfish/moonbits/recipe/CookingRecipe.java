@@ -6,10 +6,7 @@ import net.minecraft.recipe.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
-import net.paperfish.moonbits.MBData;
-
-import java.util.ArrayList;
-import java.util.List;
+import net.paperfish.moonbits.registry.MBData;
 
 public class CookingRecipe implements Recipe<Inventory> {
     public static final int INPUT_SLOTS = 4;

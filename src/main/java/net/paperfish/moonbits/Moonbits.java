@@ -2,17 +2,13 @@ package net.paperfish.moonbits;
 
 import net.fabricmc.api.ModInitializer;
 import net.paperfish.moonbits.block.cauldron.MBCauldronBehaviour;
-import net.paperfish.moonbits.world.MBBiomeProvider;
+import net.paperfish.moonbits.registry.*;
 import net.paperfish.moonbits.world.MBBiomes;
-import net.paperfish.moonbits.world.MBSurfaceRules;
 import net.paperfish.moonbits.world.gen.*;
 import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
 import software.bernie.example.GeckoLibMod;
 import software.bernie.geckolib3.GeckoLib;
-import terrablender.api.Regions;
-import terrablender.api.SurfaceRuleManager;
-import terrablender.api.TerraBlenderApi;
 
 public class Moonbits implements ModInitializer {
 	public static final String MODID = "moonbits"; //todo: replace the plaintext instances of this with the id, so we dont accidentally make typos

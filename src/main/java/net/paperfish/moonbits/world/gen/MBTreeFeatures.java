@@ -1,11 +1,9 @@
 package net.paperfish.moonbits.world.gen;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MushroomBlock;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
@@ -17,12 +15,11 @@ import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.DarkOakFoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraft.world.gen.trunk.DarkOakTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
-import net.paperfish.moonbits.MBBlocks;
+import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.MushroomCapBlock;
 import net.paperfish.moonbits.mixin.TreeDecoratorTypeInvoker;
@@ -30,7 +27,6 @@ import net.paperfish.moonbits.world.feature.*;
 
 import java.util.List;
 import java.util.OptionalInt;
-import java.util.Random;
 
 public class MBTreeFeatures {
     // beehive decorator probabilities (number indicates %, shift the decimal forward by one)

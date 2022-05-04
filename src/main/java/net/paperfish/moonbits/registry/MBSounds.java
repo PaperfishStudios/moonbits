@@ -1,9 +1,10 @@
-package net.paperfish.moonbits;
+package net.paperfish.moonbits.registry;
 
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.paperfish.moonbits.Moonbits;
 
 public class MBSounds {
     // block sounds
