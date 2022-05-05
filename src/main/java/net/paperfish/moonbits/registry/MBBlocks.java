@@ -338,6 +338,9 @@ public class MBBlocks {
 	public static final Block CEDAR_WALL_SIGN = new WallSignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_ORANGE)
 			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(CEDAR_SIGN), CEDAR_SIGN_TYPE);
 
+	public static final Block PRICKLY_PEAR_CACTUS = new PricklyPearBlock(FabricBlockSettings.of(Material.CACTUS).breakInstantly().noCollision().ticksRandomly().nonOpaque().sounds(BlockSoundGroup.GRASS));
+	public static final Block TALL_PRICKLY_PEAR_CACTUS = new TallPricklyPearBlock(FabricBlockSettings.of(Material.CACTUS).breakInstantly().noCollision().ticksRandomly().nonOpaque().sounds(BlockSoundGroup.GRASS));
+
 	public static final Block BARREL_CACTUS = new BarrelCactusBlock(FabricBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
 	public static final Block DESERT_BRUSH = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block TALL_DESERT_BRUSH = new SandyTallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
@@ -441,20 +444,6 @@ public class MBBlocks {
 	public static final Block LIGHT_BLUE_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block RED_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
-	public static final Block MINI_LILY = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_OXEYE = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_BLUET = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_DANDELION = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_POPPY = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_ORCHID = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_CORNFLOWER = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_ALLIUM = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_TULIP_W = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_TULIP_P = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_TULIP_O = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_TULIP_R = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MINI_FORGETMENOT = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-
 	// - HONEY CONTENT LMAO
 	public static final Block HONEY_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
 	public static final Block HONEY_STAIRS = new MBStairsBlock(HONEY_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
@@ -511,6 +500,17 @@ public class MBBlocks {
 	public static final Block CLAY_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
 	public static final Block GOLD_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
 	public static final Block COPPER_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+
+	public static final Block TIN_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block FROST_TIN_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block TIN_ORE = new Block(FabricBlockSettings.copy(Blocks.COAL_ORE));
+	public static final Block DEEPSLATE_TIN_ORE = new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_COAL_ORE));
+	public static final Block CHERT_TIN_ORE = new Block(FabricBlockSettings.copy(CHERT_COAL_ORE));
+	public static final Block RAW_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.RAW_COPPER_BLOCK));
+	public static final Block TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block TIN_PILLAR = new PillarBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block TIN_DOOR = new MBDoorBlock(FabricBlockSettings.copy(Blocks.IRON_DOOR).nonOpaque());
+	public static final Block TIN_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
 	
 	public static final Block REGOLITH = new Block(FabricBlockSettings.of(Material.AGGREGATE).hardness(1.5f).sounds(BlockSoundGroup.GRAVEL));
 
@@ -542,9 +542,6 @@ public class MBBlocks {
 	public static final Block MANGROVE_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CRIMSON_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block WARPED_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-
-	// MISC. CAVES
-	public static final Block FOSSIL = new Block(FabricBlockSettings.of(Material.STONE).hardness(3f).sounds(BlockSoundGroup.STONE));
 
 	// MISC.
 	public static final Block GLASS_DOOR = new MBDoorBlock(FabricBlockSettings.copy(Blocks.GLASS));
@@ -961,7 +958,7 @@ public class MBBlocks {
 	public static final Block BAMBOO_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.BAMBOO).hardness(1.0f).sounds(MBSounds.BUNDLE));
 	public static final Block KELP_BLOCK = new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC).strength(0.5F, 2.5F).sounds(BlockSoundGroup.WET_GRASS));
 	
-	public static final Block NETHER_WART_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.NETHER_SHOOTS).hardness(1.0f).sounds(BlockSoundGroup.WART_BLOCK));
+	public static final Block NETHER_WART_SACK = new PillarBlock(FabricBlockSettings.of(Material.NETHER_SHOOTS).hardness(1.0f).sounds(BlockSoundGroup.WART_BLOCK));
 
 	public static final Block SPOOL = new PillarBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.8f).sounds(BlockSoundGroup.WOOL));
 	public static final Block PAPER_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.5f).sounds(BlockSoundGroup.WOOL));
@@ -1113,14 +1110,25 @@ public class MBBlocks {
 		createBlock("copper_deposit", COPPER_DEPOSIT, MBItemGroup.CONSTRUCTION);
 		createBlock("frost_copper_deposit", FROST_COPPER, MBItemGroup.CONSTRUCTION);
 
+		createBlock("tin_deposit", TIN_DEPOSIT, MBItemGroup.CONSTRUCTION);
+		createBlock("frost_tin_deposit", FROST_TIN_DEPOSIT, MBItemGroup.CONSTRUCTION);
+
+		createBlock("tin_ore", TIN_ORE, MBItemGroup.CONSTRUCTION);
+		createBlock("deepslate_tin_ore", DEEPSLATE_TIN_ORE, MBItemGroup.CONSTRUCTION);
+
 		createBlock("chert_coal_ore", CHERT_COAL_ORE, MBItemGroup.CONSTRUCTION);
 		createBlock("chert_gold_ore", CHERT_GOLD_ORE, MBItemGroup.CONSTRUCTION);
 		createBlock("chert_copper_ore", CHERT_COPPER_ORE, MBItemGroup.CONSTRUCTION);
 		createBlock("chert_redstone_ore", CHERT_REDSTONE_ORE, MBItemGroup.CONSTRUCTION);
 		createBlock("chert_lapis_ore", CHERT_LAPIS_ORE, MBItemGroup.CONSTRUCTION);
 
+		createBlock("chert_tin_ore", CHERT_TIN_ORE, MBItemGroup.CONSTRUCTION);
+
 		createBlock("banded_iron", BANDED_IRON, MBItemGroup.CONSTRUCTION);
 		createBlock("magnetite_ore", MAGNETITE_ORE, MBItemGroup.CONSTRUCTION);
+		createBlock("raw_tin_block", RAW_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("tin_block", TIN_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("tin_pillar", TIN_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("magnetite_block", MAGNETITE_BLOCK, MBItemGroup.CONSTRUCTION);
 
 		createBlock("peat_block", PEAT_BLOCK, MBItemGroup.CONSTRUCTION);
@@ -1173,6 +1181,10 @@ public class MBBlocks {
 		createBlock("honey_panel", HONEY_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_honey_wood", CARVED_HONEY, MBItemGroup.CONSTRUCTION);
 		createBlock("honey_pillar", HONEY_PILLAR, MBItemGroup.CONSTRUCTION);
+
+
+		createBlock("tin_door", TIN_DOOR, ItemGroup.REDSTONE);
+		createBlock("tin_trapdoor", TIN_TRAPDOOR, ItemGroup.REDSTONE);
 
 		// WOOD
 		// - BOARDS
@@ -1301,9 +1313,6 @@ public class MBBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "peanut_crop"), PEANUT_CROP);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "pepper_crop"), PEPPER_CROP);
 
-		// MISC. CAVES
-		createBlock("fossil", FOSSIL, MBItemGroup.CONSTRUCTION);
-
 		// GLASS SHARDS/FULGURITE
 		createBlock("glass_door", GLASS_DOOR, ItemGroup.REDSTONE);
 		//createBlock("fulgurite", FULGURITE, MBItemGroup.MATERIALS);
@@ -1405,6 +1414,9 @@ public class MBBlocks {
 		createBlock("frosthorn_crown", FROSTHORN_CROWN, MBItemGroup.DECOR);
 		createBlock("frosthorn_stem", FROSTHORN_STEM, MBItemGroup.DECOR);
 		createBlock("frosthorn_leaves", FROSTHORN_LEAVES, MBItemGroup.DECOR);
+
+		createBlock("prickly_pear_cactus", PRICKLY_PEAR_CACTUS, MBItemGroup.DECOR);
+		createBlock("tall_prickly_pear_cactus", TALL_PRICKLY_PEAR_CACTUS, MBItemGroup.DECOR);
 
 		createBlock("barrel_cactus", BARREL_CACTUS, MBItemGroup.DECOR);
 
@@ -1904,7 +1916,7 @@ public class MBBlocks {
 		createBlock("bamboo_bundle", BAMBOO_BUNDLE, MBItemGroup.DECOR);
 		createBlock("kelp_block", KELP_BLOCK, MBItemGroup.DECOR);
 
-		createBlock("nether_wart_bundle", NETHER_WART_BUNDLE, MBItemGroup.DECOR);
+		createBlock("nether_wart_bundle", NETHER_WART_SACK, MBItemGroup.DECOR);
 
 		createBlock("spool", SPOOL, MBItemGroup.DECOR);
 		createBlock("paper_bundle", PAPER_BUNDLE, MBItemGroup.DECOR);

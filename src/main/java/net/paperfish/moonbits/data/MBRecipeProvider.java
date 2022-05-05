@@ -41,6 +41,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
     public static final HashMap<ItemConvertible, ItemConvertible> COMPACT = new HashMap<>();
 
     public static final HashMap<ItemConvertible, ItemConvertible> SMELTING = new HashMap<>();
+    public static final HashMap<ItemConvertible, ItemConvertible> BLASTING = new HashMap<>();
     public static final HashMap<ItemConvertible, ItemConvertible> FIRING = new HashMap<>();
 
     // 2x2 > 4x output block
@@ -158,7 +159,7 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         STORAGE.put(Items.BAMBOO, MBBlocks.BAMBOO_BUNDLE);
         STORAGE.put(Items.KELP, MBBlocks.KELP_BLOCK);
         STORAGE.put(Items.GLISTERING_MELON_SLICE, MBBlocks.GLISTERING_MELON_BLOCK);
-        STORAGE.put(Items.NETHER_WART, MBBlocks.NETHER_WART_BUNDLE);
+        STORAGE.put(Items.NETHER_WART, MBBlocks.NETHER_WART_SACK);
         STORAGE.put(Items.SCUTE, MBBlocks.SCUTE_BLOCK);
         STORAGE.put(Items.STRING, MBBlocks.SPOOL);
         STORAGE.put(Items.PAPER, MBBlocks.PAPER_BUNDLE);
@@ -173,6 +174,11 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         STORAGE.put(MBItems.PEAT, MBBlocks.PEAT_BLOCK);
         STORAGE.put(MBItems.COPPER_NUGGET, Items.COPPER_INGOT);
 
+        STORAGE.put(MBItems.RAW_TIN, MBBlocks.RAW_TIN_BLOCK);
+        STORAGE.put(MBItems.TIN_NUGGET, MBItems.TIN_INGOT);
+        STORAGE.put(MBItems.TIN_INGOT, MBBlocks.TIN_BLOCK);
+
+        BLASTING.put(MBItems.RAW_TIN, MBItems.TIN_INGOT);
 
         FIRING.put(MBBlocks.COBBLED_ANDESITE, Blocks.ANDESITE);
         FIRING.put(MBBlocks.COBBLED_DIORITE, Blocks.DIORITE);
@@ -213,6 +219,9 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         TRANSMUTE.forEach((blocks, count) -> transmute(exporter, blocks.get(0), blocks.get(1), count));
 
         SMELTING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
+
+        BLASTING.forEach((in, out) -> blasting(exporter, in, out, 0.1f, DEFAULT_BLAST_TIME));
+        BLASTING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
 
         FIRING.forEach((in, out) -> firing(exporter, in, out, 0.1f, DEFAULT_FIRE_TIME));
         FIRING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
@@ -398,6 +407,16 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .pattern("###").pattern("lOl").pattern("###")
                 .criterion(RecipeProvider.hasItem(MBBlocks.ASPEN_PLANKS), RecipeProvider.conditionsFromItem(MBBlocks.ASPEN_PLANKS)).offerTo(exporter);
 
+        ShapedRecipeJsonBuilder.create(MBBlocks.TIN_DOOR, 3)
+                .input('#', MBItems.TIN_INGOT)
+                .pattern("##").pattern("##").pattern("##")
+                .criterion(RecipeProvider.hasItem(MBItems.TIN_INGOT), RecipeProvider.conditionsFromItem(MBItems.TIN_INGOT)).offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(MBBlocks.TIN_TRAPDOOR, 1)
+                .input('#', MBItems.TIN_INGOT)
+                .pattern("##")
+                .criterion(RecipeProvider.hasItem(MBItems.TIN_INGOT), RecipeProvider.conditionsFromItem(MBItems.TIN_INGOT)).offerTo(exporter);
+        RecipeProvider.offerStonecuttingRecipe(exporter, MBBlocks.TIN_BLOCK, MBBlocks.TIN_PILLAR);
+
 
         RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.JUNIPER_WOOD, MBBlocks.JUNIPER_LOG);
         RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.STRIPPED_JUNIPER_WOOD, MBBlocks.STRIPPED_JUNIPER_LOG);
@@ -509,7 +528,6 @@ public class MBRecipeProvider extends FabricRecipesProvider {
 
         campfire(exporter, Items.SWEET_BERRIES, MBItems.ROASTED_BERRIES, 0.1f,50);
         condense(exporter, MBItems.PUMPKIN_SLICE, Items.PUMPKIN, 1);
-        condense(exporter, MBItems.LETTUCE_LEAF, MBBlocks.LETTUCE_BLOCK, 1);
 
         ShapelessRecipeJsonBuilder.create(MBItems.MILK_BOTTLE, 3)
                 .input(Items.MILK_BUCKET).input(Items.GLASS_BOTTLE, 3)
@@ -524,18 +542,11 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.EDIBLE_MUSHROOMS).input(Items.BOWL)
                 .criterion("has_mushroom", RecipeProvider.conditionsFromTag(MBItemTags.EDIBLE_MUSHROOMS))
                 .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(MBItems.LETTUCE_WRAP)
-                .input(MBItems.LETTUCE_LEAF).input(MBItems.LETTUCE_LEAF).input(Items.COOKED_CHICKEN)
-                .criterion("has_lettuce", RecipeProvider.conditionsFromItem(MBItems.LETTUCE_LEAF))
-                .offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(MBItems.GLOW_BERRY_TART, 8)
                 .input('G', Items.GLOW_BERRIES).input('E', Items.EGG).input('W', Items.WHEAT).input('S', Items.SUGAR)
                 .pattern("GEG").pattern("WSW")
                 .criterion(RecipeProvider.hasItem(Items.GLOW_BERRIES), RecipeProvider.conditionsFromItem(Items.GLOW_BERRIES)).offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(MBItems.SALAD)
-                .input(MBItems.LETTUCE_LEAF, 4).input(Items.CARROT).input(Items.BEETROOT).input(Items.BOWL)
-                .criterion(RecipeProvider.hasItem(MBItems.LETTUCE_LEAF), RecipeProvider.conditionsFromItem(MBItems.LETTUCE_LEAF)).offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(Items.NAME_TAG)
                 .input(Items.PAPER).input(Items.STRING).input(Items.INK_SAC)

@@ -117,8 +117,6 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.POTTED_ASPEN_SAPLING,
 
                 MBBlocks.FLOWERING_ACACIA_LEAVES,
-                MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES,
-                MBBlocks.TALL_FLOWERING_ACACIA_LEAVES,
 
                 MBBlocks.HONEY_DOOR,
                 MBBlocks.HONEY_TRAPDOOR,
@@ -176,16 +174,12 @@ public class MoonbitsClient implements ClientModInitializer {
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
                     BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.ACACIA_LEAVES);
                     return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
-                MBBlocks.FLOWERING_ACACIA_LEAVES,
-                MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES,
-                MBBlocks.TALL_FLOWERING_ACACIA_LEAVES
+                MBBlocks.FLOWERING_ACACIA_LEAVES
         );
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
                     ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.ACACIA_LEAVES);
                     return provider == null ? -1 : provider.getColor(stack, tintIndex);},
-                MBBlocks.FLOWERING_ACACIA_LEAVES,
-                MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES,
-                MBBlocks.TALL_FLOWERING_ACACIA_LEAVES
+                MBBlocks.FLOWERING_ACACIA_LEAVES
         );
 
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x639956, MBBlocks.CEDAR_LEAVES);

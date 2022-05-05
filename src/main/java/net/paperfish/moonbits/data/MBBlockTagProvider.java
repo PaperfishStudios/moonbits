@@ -193,6 +193,9 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.PEAT_MOSS,
                 MBBlocks.PEAT_BLOCK,
 
+                MBBlocks.TIN_DEPOSIT,
+                MBBlocks.FROST_TIN_DEPOSIT,
+
                 MBBlocks.PERMAFROST,
                 MBBlocks.FROST_CLAY,
                 MBBlocks.FROST_GOLD,
@@ -213,7 +216,6 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.SAFFRON_MUSHROOM_CAP,
                 MBBlocks.GIANT_TOADSTOOL_CAP,
                 MBBlocks.MUSHROOM_STEM,
-                MBBlocks.TOADSTOOL_SHELF,
 
                 MBBlocks.ASPEN_TRUNK,
                 MBBlocks.STRIPPED_ASPEN_TRUNK,
@@ -291,7 +293,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.GLOW_BERRY_BASKET,
                 MBBlocks.SUGAR_CANE_BUNDLE,
                 MBBlocks.KELP_BLOCK,
-                MBBlocks.NETHER_WART_BUNDLE,
+                MBBlocks.NETHER_WART_SACK,
                 MBBlocks.SPOOL,
                 MBBlocks.PAPER_BUNDLE,
                 MBBlocks.ROTTEN_FLESH_BLOCK,
@@ -318,6 +320,15 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 MBBlocks.ICE_BRICKS,
                 MBBlocks.PACKED_ICE_BRICKS,
+
+                MBBlocks.TIN_ORE,
+                MBBlocks.DEEPSLATE_TIN_ORE,
+                MBBlocks.CHERT_TIN_ORE,
+                MBBlocks.TIN_BLOCK,
+                MBBlocks.TIN_PILLAR,
+                MBBlocks.RAW_TIN_BLOCK,
+                MBBlocks.TIN_DOOR,
+                MBBlocks.TIN_TRAPDOOR,
 
                 MBBlocks.CHERT_COAL_ORE,
                 MBBlocks.CHERT_COPPER_ORE,
@@ -371,6 +382,28 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 Blocks.LIGHT_BLUE_STAINED_GLASS_PANE,
                 Blocks.CYAN_STAINED_GLASS_PANE,
                 Blocks.BLUE_STAINED_GLASS_PANE
+        );
+
+        this.getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(
+                MBBlocks.TIN_ORE,
+                MBBlocks.DEEPSLATE_TIN_ORE,
+                MBBlocks.CHERT_TIN_ORE,
+                MBBlocks.TIN_BLOCK,
+                MBBlocks.TIN_PILLAR,
+                MBBlocks.RAW_TIN_BLOCK,
+                MBBlocks.TIN_DOOR,
+                MBBlocks.TIN_TRAPDOOR,
+
+                MBBlocks.CHERT_COAL_ORE,
+                MBBlocks.CHERT_COPPER_ORE,
+                MBBlocks.CHERT_GOLD_ORE,
+
+                MBBlocks.BANDED_IRON,
+                MBBlocks.MAGNETITE_ORE
+        );
+        this.getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).add(
+                MBBlocks.CHERT_LAPIS_ORE,
+                MBBlocks.CHERT_REDSTONE_ORE
         );
 
 
@@ -573,7 +606,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.BANDED_IRON
         );
         this.getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
-                MBBlocks.MAGNETITE_BLOCK
+                MBBlocks.MAGNETITE_BLOCK,
+                MBBlocks.TIN_BLOCK
         );
 
         this.getOrCreateTagBuilder(MBBlockTags.VALID_SEATS).add(

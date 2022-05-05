@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_dusty_cloth": {
+    "has_burlap": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:dusty_cloth"
+              "moonbits:burlap"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_dusty_cloth",
+      "has_burlap",
       "has_the_recipe"
     ]
   ]

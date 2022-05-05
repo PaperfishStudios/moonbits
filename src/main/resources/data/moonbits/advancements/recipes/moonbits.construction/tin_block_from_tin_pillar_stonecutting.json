@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:tin_block_from_tin_pillar_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_tin_pillar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:tin_pillar"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:tin_block_from_tin_pillar_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tin_pillar",
+      "has_the_recipe"
+    ]
+  ]
+}

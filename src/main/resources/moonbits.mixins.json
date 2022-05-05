@@ -15,7 +15,6 @@
     "CropBlockMixin",
     "EnchantingTableBlockMixin",
     "EntityAccessor",
-    "FarmlandMixin",
     "FoliagePlacerTypeAccessor",
     "ItemAccessor",
     "ItemMixin",

@@ -15,7 +15,6 @@ import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.*;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -128,8 +127,6 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.SYRUP_BLOCK);
 
         addDrop(MBBlocks.FLOWERING_ACACIA_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, Blocks.ACACIA_SAPLING, SAPLING_DROP_CHANCE));
-        addDrop(MBBlocks.TALL_FLOWERING_ACACIA_LEAVES, MBLootTableProvider::leafCarpet);
-        addDrop(MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES, MBLootTableProvider::leafCarpet);
 
         addDrop(MBBlocks.LEAFBED, (Block block) -> BlockLootTableGenerator.drops(block, Blocks.DIRT));
         addDrop(MBBlocks.TOUGH_GRASS, (Block block) -> BlockLootTableGenerator.drops(block, MBBlocks.TOUGH_DIRT));
@@ -147,7 +144,17 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.CLAY_DEPOSIT, (Block block) -> oreDrops(block, Items.CLAY_BALL, 2f, 4f));
         addDrop(MBBlocks.GOLD_DEPOSIT, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 1f, 4f));
         addDrop(MBBlocks.COPPER_DEPOSIT, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 2f, 5f));
-        addDrop(MBBlocks.FOSSIL, (Block block) -> BlockLootTableGenerator.drops(block, Items.NAUTILUS_SHELL));
+
+        addDrop(MBBlocks.TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 2f, 5f));
+        addDrop(MBBlocks.FROST_TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 2f, 5f));
+        addDrop(MBBlocks.TIN_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.RAW_TIN));
+        addDrop(MBBlocks.DEEPSLATE_TIN_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.RAW_TIN));
+        addDrop(MBBlocks.CHERT_TIN_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.RAW_TIN));
+        addDrop(MBBlocks.RAW_TIN_BLOCK);
+        addDrop(MBBlocks.TIN_BLOCK);
+        addDrop(MBBlocks.TIN_PILLAR);
+        addDrop(MBBlocks.TIN_TRAPDOOR);
+        addDrop(MBBlocks.TIN_DOOR, BlockLootTableGenerator::addDoorDrop);
 
         addDrop(MBBlocks.PERMAFROST);
         addDrop(MBBlocks.FROST_PEAT, (Block block) -> oreDrops(block, MBItems.PEAT, 1f, 2f));
@@ -205,9 +212,6 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
                 .with(BlockLootTableGenerator.applyExplosionDecay(block, (ItemEntry.builder(Items.BEETROOT_SEEDS))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)))))));
 
-        addDrop(MBBlocks.LETTUCE_CROP, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.LETTUCE_SEEDS));
-        addDrop(MBBlocks.LETTUCE_BLOCK, (Block block) -> oreDrops(block, MBItems.LETTUCE_LEAF, 3f, 6f));
-
         addDrop(MBBlocks.BEACHGRASS, (Block block) -> grassDrops(block, Items.WHEAT_SEEDS, 1f, 1f));
         addDrop(MBBlocks.TALL_BEACHGRASS, (Block block) -> BlockLootTableGenerator.tallGrassDrops(block, MBBlocks.BEACHGRASS));
 
@@ -260,7 +264,6 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.MUSHROOM_HYPHAE);
         addDrop(MBBlocks.STRIPPED_MUSHROOM_HYPHAE);
 
-        addDrop(MBBlocks.TOADSTOOL_SHELF);
         //addDrop(MBBlocks.RED_MUSH_BRICKS);
         //addDrop(MBBlocks.BROWN_MUSH_BRICKS);
         addDrop(MBBlocks.RED_MUSH_LAMP);
@@ -275,20 +278,6 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.FUR_BLOCK);
         addDrop(MBBlocks.FUR_CARPET);
         addDrop(MBBlocks.BEDROLL, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, BedBlock.PART, BedPart.HEAD));
-
-        addDrop(MBBlocks.MINI_LILY);
-        addDrop(MBBlocks.MINI_OXEYE);
-        addDrop(MBBlocks.MINI_BLUET);
-        addDrop(MBBlocks.MINI_DANDELION);
-        addDrop(MBBlocks.MINI_POPPY);
-        addDrop(MBBlocks.MINI_ORCHID);
-        addDrop(MBBlocks.MINI_CORNFLOWER);
-        addDrop(MBBlocks.MINI_ALLIUM);
-        addDrop(MBBlocks.MINI_TULIP_W);
-        addDrop(MBBlocks.MINI_TULIP_P);
-        addDrop(MBBlocks.MINI_TULIP_O);
-        addDrop(MBBlocks.MINI_TULIP_R);
-        addDrop(MBBlocks.MINI_FORGETMENOT);
 
         addDrop(MBBlocks.APPLE_CRATE);
         addDrop(MBBlocks.CARROT_CRATE);
@@ -311,7 +300,7 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.SUGAR_CANE_BUNDLE);
         addDrop(MBBlocks.BAMBOO_BUNDLE);
         addDrop(MBBlocks.KELP_BLOCK);
-        addDrop(MBBlocks.NETHER_WART_BUNDLE);
+        addDrop(MBBlocks.NETHER_WART_SACK);
         addDrop(MBBlocks.SPOOL);
         addDrop(MBBlocks.PAPER_BUNDLE);
         addDrop(MBBlocks.STICK_STACK);

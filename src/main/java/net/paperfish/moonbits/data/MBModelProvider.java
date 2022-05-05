@@ -259,9 +259,6 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerSimpleCubeAll(MBBlocks.SYRUP_BLOCK);
 
 
-        generator.registerCrop(MBBlocks.LETTUCE_CROP, Properties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
-        generator.registerSingleton(MBBlocks.LETTUCE_BLOCK, CUBE_BOTTOM_TOP);
-
         // ground
         topSoil(MBBlocks.LEAFBED, Blocks.DIRT, generator);
         toughGrass(generator);
@@ -275,6 +272,18 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerSimpleCubeAll(MBBlocks.GOLD_DEPOSIT);
         generator.registerSimpleCubeAll(MBBlocks.COPPER_DEPOSIT);
 
+        generator.registerSimpleCubeAll(MBBlocks.TIN_DEPOSIT);
+        generator.registerSimpleCubeAll(MBBlocks.FROST_TIN_DEPOSIT);
+        generator.registerSimpleCubeAll(MBBlocks.TIN_ORE);
+        generator.registerSimpleCubeAll(MBBlocks.DEEPSLATE_TIN_ORE);
+        generator.registerSimpleCubeAll(MBBlocks.CHERT_TIN_ORE);
+        generator.registerSimpleCubeAll(MBBlocks.RAW_TIN_BLOCK);
+        generator.registerSimpleCubeAll(MBBlocks.TIN_BLOCK);
+        generator.registerAxisRotated(MBBlocks.TIN_PILLAR, CUBE_COLUMN);
+
+        generator.registerDoor(MBBlocks.TIN_DOOR);
+        generator.registerOrientableTrapdoor(MBBlocks.TIN_TRAPDOOR);
+
         snowyBlock(MBBlocks.PERMAFROST, generator);
         generator.registerSimpleCubeAll(MBBlocks.FROST_PEAT);
         generator.registerSimpleCubeAll(MBBlocks.FROST_CLAY);
@@ -286,7 +295,6 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerSimpleCubeAll(MBBlocks.PACKED_ICE_BRICKS);
 
         pebbles(generator);
-        generator.registerSimpleCubeAll(MBBlocks.FOSSIL);
 
         generator.registerSimpleCubeAll(MBBlocks.CHERT_COAL_ORE);
         generator.registerSimpleCubeAll(MBBlocks.CHERT_GOLD_ORE);
@@ -358,20 +366,6 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerSimpleCubeAll(MBBlocks.TOADSTOOL_MUSH_LAMP);
         generator.registerSimpleCubeAll(MBBlocks.SAFFRON_MUSH_LAMP);
 
-        tintableCross(MBBlocks.MINI_LILY, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_OXEYE, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_BLUET, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_DANDELION, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_POPPY, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_ORCHID, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_CORNFLOWER, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_ALLIUM, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_TULIP_W, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_TULIP_P, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_TULIP_O, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_TULIP_R, TintType.NOT_TINTED, generator);
-        tintableCross(MBBlocks.MINI_FORGETMENOT, TintType.NOT_TINTED, generator);
-
         lamproot(generator);
         wallPlant(MBBlocks.CAVEBLOOM_FLOWERS, generator);
         wallPlant(MBBlocks.CAVEBLOOM_VINE, generator);
@@ -407,7 +401,7 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerAxisRotated(MBBlocks.BAMBOO_BUNDLE, CUBE_COLUMN);
         generator.registerStateWithModelReference(MBBlocks.KELP_BLOCK, Blocks.DRIED_KELP_BLOCK);
 
-        generator.registerAxisRotated(MBBlocks.NETHER_WART_BUNDLE, CUBE_COLUMN);
+        generator.registerSingleton(MBBlocks.NETHER_WART_SACK, CUBE_BOTTOM_TOP);
         generator.registerAxisRotated(MBBlocks.SPOOL, CUBE_COLUMN);
         generator.registerAxisRotated(MBBlocks.PAPER_BUNDLE, CUBE_COLUMN);
         generator.registerAxisRotated(MBBlocks.STICK_STACK, CUBE_COLUMN);
@@ -608,20 +602,6 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
                 .register(true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_cap")))
                 .register(false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_stem")))
         ));
-        generator.registerParentedItemModel(MBBlocks.TOADSTOOL_SHELF.asItem(), new Identifier(Moonbits.MODID, "block/toadstool_shelf"));
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TOADSTOOL_SHELF).coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING, Properties.ATTACHED)
-                .register(Direction.NORTH, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf")))
-                .register(Direction.SOUTH, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf"))
-                        .put(VariantSettings.Y, VariantSettings.Rotation.R180).put(VariantSettings.UVLOCK, true))
-                .register(Direction.EAST, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf"))
-                        .put(VariantSettings.Y, VariantSettings.Rotation.R90).put(VariantSettings.UVLOCK, true))
-                .register(Direction.WEST, true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf"))
-                        .put(VariantSettings.Y, VariantSettings.Rotation.R270).put(VariantSettings.UVLOCK, true))
-                .register(Direction.NORTH, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf_detached")))
-                .register(Direction.SOUTH, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf_detached")))
-                .register(Direction.EAST, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf_detached")))
-                .register(Direction.WEST, false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_shelf_detached")))
-        ));
     }
     public static void lamproot(BlockStateModelGenerator generator) {
         generator.registerItemModel(MBBlocks.LAMPROOT.asItem());
@@ -717,14 +697,7 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
     }
     public static void floweringAcacia(BlockStateModelGenerator generator) {
         generator.registerParentedItemModel(MBBlocks.FLOWERING_ACACIA_LEAVES, new Identifier(Moonbits.MODID, "block/flowering_acacia_leaves"));
-        generator.registerItemModel(MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES);
-        generator.registerItemModel(MBBlocks.TALL_FLOWERING_ACACIA_LEAVES);
         generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.FLOWERING_ACACIA_LEAVES, new Identifier(Moonbits.MODID, "block/flowering_acacia_leaves")));
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.HANGING_FLOWERING_ACACIA_LEAVES, new Identifier(Moonbits.MODID, "block/hanging_flowering_acacia_leaves")));
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TALL_FLOWERING_ACACIA_LEAVES)
-                .coordinate(BlockStateVariantMap.create(Properties.DOUBLE_BLOCK_HALF)
-                        .register(DoubleBlockHalf.LOWER, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tall_flowering_acacia_leaves_bottom")))
-                        .register(DoubleBlockHalf.UPPER, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tall_flowering_acacia_leaves_top")))));
 
     }
     public final void redBrownMushrooms(BlockStateModelGenerator generator) {

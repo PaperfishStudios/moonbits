@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "moonbits:raw_tin"
+    }
+  },
+  "result": {
+    "item": "moonbits:raw_tin_block"
+  }
+}

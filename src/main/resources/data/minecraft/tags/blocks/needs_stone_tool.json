@@ -1,6 +1,18 @@
 {
-    "replace": false,
-    "values": [
-      "moonbits:iron_ladder"
-    ]
+  "replace": false,
+  "values": [
+    "moonbits:tin_ore",
+    "moonbits:deepslate_tin_ore",
+    "moonbits:chert_tin_ore",
+    "moonbits:tin_block",
+    "moonbits:tin_pillar",
+    "moonbits:raw_tin_block",
+    "moonbits:tin_door",
+    "moonbits:tin_trapdoor",
+    "moonbits:chert_coal_ore",
+    "moonbits:chert_copper_ore",
+    "moonbits:chert_gold_ore",
+    "moonbits:banded_iron",
+    "moonbits:magnetite_ore"
+  ]
 }
