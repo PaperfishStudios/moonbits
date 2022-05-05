@@ -31,13 +31,6 @@ public class MBItems {
 
 	public static final Item PUMPKIN_SLICE = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
 			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.3f).build()));
-	public static final Item LETTUCE_SEEDS = new AliasedBlockItem(MBBlocks.LETTUCE_CROP, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
-	public static final Item LETTUCE_LEAF = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
-			.food((new FoodComponent.Builder()).hunger(1).saturationModifier(0.3f).build()));
-	public static final Item LETTUCE_WRAP = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
-			.food((new FoodComponent.Builder()).hunger(7).saturationModifier(0.8f).build()));
-	public static final Item SALAD = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8f)
-			.statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0f).build()));
 
 	public static final Item ICE_CUBES = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
@@ -100,7 +93,8 @@ public class MBItems {
 
 	public static final Item COPPER_NUGGET = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item FUR = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item DUSTY_CLOTH = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item BURLAP = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item CACTUS_LEATHER = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item RED_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item BROWN_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
@@ -138,9 +132,7 @@ public class MBItems {
 
 
 	// Spawn eggs
-	public static final Item MOOBLOOM_SPAWN_EGG = new SpawnEggItem(MBEntities.MOOBLOOM, 16771888, 16777215, new Item.Settings().group(MBItemGroup.MB_MISC));
 	public static final Item GRIZZLY_SPAWN_EGG = new SpawnEggItem(MBEntities.GRIZZLY_BEAR, 5782045, 15707403, new Item.Settings().group(MBItemGroup.MB_MISC));
-	public static final Item GLARE_SPAWN_EGG = new SpawnEggItem(MBEntities.GLARE, 5403430, 657930, new Item.Settings().group(MBItemGroup.MB_MISC));
 
 	public static void add(String id, Item item) {
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, id), item);
@@ -162,9 +154,6 @@ public class MBItems {
 	public static void registerItems(){
 		addItem("roasted_berries", ROASTED_BERRIES);
 		addItem("pumpkin_slice", PUMPKIN_SLICE);
-		addItem("lettuce_leaf", LETTUCE_LEAF);
-		addItem("lettuce_wrap", LETTUCE_WRAP);
-		addItem("salad", SALAD);
 		addItem("ice_cubes", ICE_CUBES);
 		addItem("frosthorn_seed", FROSTHORN_SEED);
 		add("pepper_seeds", PEPPER_SEEDS);
@@ -175,7 +164,7 @@ public class MBItems {
 		addItem("prickly_pear", PRICKLY_PEAR);
 		addItem("cooked_prickly_pear", COOKED_PRICKLY_PEAR);
 
-		addItem("peanut", PEANUT);
+		add("peanut", PEANUT);
 		addItem("roasted_peanuts", ROASTED_PEANUTS);
 		addItem("peanut_chicken", PEANUT_CHICKEN);
 		addItem("honey_roasted_peanuts", HONEY_PEANUTS);
@@ -202,8 +191,6 @@ public class MBItems {
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "glow_berry_pits"), GLOW_BERRY_PITS);
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "glow_berry_pits"), new BlockItem(GLOW_BERRY_PITS, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
 
-		add("lettuce_seeds", LETTUCE_SEEDS);
-
 		addItem("grass_tuft", GRASS_TUFT);
 		addItem("item_hook", ITEM_HOOK);
 		addItem("glow_item_hook", GLOW_ITEM_HOOK);
@@ -225,7 +212,8 @@ public class MBItems {
 		addItem("magnetite", MAGNETITE);
 		addItem("copper_nugget", COPPER_NUGGET);
 		addItem("fur", FUR);
-		addItem("dusty_cloth", DUSTY_CLOTH);
+		addItem("burlap", BURLAP);
+		addItem("cactus_leather", CACTUS_LEATHER);
 
 		addItem("glass_shard", GLASS_SHARD);
 		addItem("white_glass_shard", WHITE_GLASS_SHARD);
@@ -245,8 +233,6 @@ public class MBItems {
 		addItem("red_glass_shard", RED_GLASS_SHARD);
 		addItem("black_glass_shard", BLACK_GLASS_SHARD);
 
-		addEgg("moobloom_spawn_egg", MOOBLOOM_SPAWN_EGG);
 		addEgg("grizzly_bear_spawn_egg", GRIZZLY_SPAWN_EGG);
-		addEgg("glare_spawn_egg", GLARE_SPAWN_EGG);
 	} 
 }

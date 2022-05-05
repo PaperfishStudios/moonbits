@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:cookin_pumpkin_pie"
+    ]
+  },
+  "criteria": {
+    "has_pumpkin_slice": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:pumpkin_slice"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:cookin_pumpkin_pie"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pumpkin_slice",
+      "has_the_recipe"
+    ]
+  ]
+}

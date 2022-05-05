@@ -1,0 +1,25 @@
+{
+  "type": "moonbits:cooking",
+  "ingredients": [
+    {
+      "tag": "moonbits:edible_mushrooms"
+    },
+    {
+      "tag": "moonbits:edible_mushrooms"
+    },
+    {
+      "tag": "moonbits:edible_mushrooms"
+    },
+    {
+      "tag": "moonbits:edible_mushrooms"
+    }
+  ],
+  "result": {
+    "item": "minecraft:mushroom_stew",
+    "count": 3
+  },
+  "bowl": "minecraft:bowl",
+  "exp": 0.0,
+  "cook_time": 0,
+  "priority": 0
+}

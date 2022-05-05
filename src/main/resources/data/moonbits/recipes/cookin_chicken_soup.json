@@ -1,0 +1,24 @@
+{
+  "type": "moonbits:cooking",
+  "ingredients": [
+    {
+      "item": "minecraft:chicken"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "result": {
+    "item": "moonbits:chicken_soup"
+  },
+  "bowl": "minecraft:bowl",
+  "exp": 0.0,
+  "cook_time": 0,
+  "priority": 0
+}

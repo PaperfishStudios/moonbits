@@ -1,0 +1,112 @@
+{
+  "parent": "minecraft:architect/wrench",
+  "display": {
+    "icon": {
+      "item": "minecraft:white_glazed_terracotta"
+    },
+    "title": {
+      "translate": "advancements.architect.glazed_terracotta.title"
+    },
+    "description": {
+      "translate": "advancements.architect.glazed_terracotta.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "glazed_terracotta": {
+      "trigger": "minecraft:item_washed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:white_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:light_gray_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:gray_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:black_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:green_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:lime_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:yellow_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:orange_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:brown_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:red_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:pink_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:magenta_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:purple_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:light_blue_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:cyan_glazed_terracotta"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:blue_glazed_terracotta"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "glazed_terracotta"
+    ]
+  ]
+}

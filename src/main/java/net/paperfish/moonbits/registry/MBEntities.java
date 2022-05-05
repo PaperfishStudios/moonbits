@@ -11,25 +11,12 @@ import net.paperfish.moonbits.entity.*;
 
 public class MBEntities {
 
-    public static final EntityType<MoobloomEntity> MOOBLOOM = Registry.register(
-        Registry.ENTITY_TYPE, 
-        new Identifier("moonbits", "moobloom"),
-        FabricEntityTypeBuilder.createMob().spawnGroup(SpawnGroup.CREATURE).entityFactory(MoobloomEntity::new)
-                .defaultAttributes(MoobloomEntity::createCowAttributes)
-                .dimensions(EntityDimensions.fixed(0.9F, 1.4F)).build());
-
     public static final EntityType<GrizzlyBearEntity> GRIZZLY_BEAR = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("moonbits", "grizzly_bear"),
             FabricEntityTypeBuilder.createMob().spawnGroup(SpawnGroup.CREATURE).entityFactory(GrizzlyBearEntity::new)
                     .defaultAttributes(GrizzlyBearEntity::createGrizzAttributes)
                     .dimensions(EntityDimensions.fixed(1.0F, 0.8F)).build());
-    public static final EntityType<GlareEntity> GLARE = Registry.register(
-            Registry.ENTITY_TYPE,
-            new Identifier("moonbits", "glare"),
-            FabricEntityTypeBuilder.createMob().spawnGroup(SpawnGroup.CREATURE).entityFactory(GlareEntity::new)
-                    .defaultAttributes(GlareEntity::createAttributes)
-                    .dimensions(EntityDimensions.fixed(1F, 1)).build());
 
     public static final EntityType<ItemHookEntity> ITEM_HOOK_ENTITY = Registry.register(
             Registry.ENTITY_TYPE,
@@ -48,15 +35,6 @@ public class MBEntities {
         FabricEntityTypeBuilder.<SeatBlockEntity>create(SpawnGroup.MISC, SeatBlockEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.35f)).fireImmune().disableSummon().build());
         
     public static void registerEntities() {
-        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(
-                BiomeKeys.FLOWER_FOREST,
-                BiomeKeys.MEADOW
-        ), SpawnGroup.CREATURE, MOOBLOOM, 8, 2, 4);
-
-        BiomeModifications.addSpawn(BiomeSelectors.includeByKey(
-                BiomeKeys.LUSH_CAVES
-        ), SpawnGroup.CREATURE, GLARE, 12, 1, 1);
-
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(
                 BiomeKeys.BIRCH_FOREST,
                 BiomeKeys.OLD_GROWTH_BIRCH_FOREST,

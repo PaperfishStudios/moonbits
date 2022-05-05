@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#moonbits:edible_mushrooms",
+    "minecraft:sweet_berries",
+    "minecraft:glow_berries",
+    "minecraft:fern",
+    "minecraft:dandelion",
+    "minecraft:sunflower",
+    "moonbits:lamproot",
+    "moonbits:caveblooms",
+    "moonbits:peanut"
+  ]
+}

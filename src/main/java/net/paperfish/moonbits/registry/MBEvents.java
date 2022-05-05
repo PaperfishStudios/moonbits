@@ -210,7 +210,7 @@ public class MBEvents {
             if (EntityType.HUSK.getLootTableId().equals(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .with(ItemEntry.builder(MBItems.DUSTY_CLOTH)).withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 1)).build())
+                        .with(ItemEntry.builder(MBItems.BURLAP)).withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 1)).build())
                         .apply(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0f, 1.0f)));
 
                 table.pool(poolBuilder);

@@ -1,7 +1,7 @@
 {
   "parent": "moonbits:block/cauldron/t_honey_cauldron_level3",
   "textures": {
-    "content": "minecraft:block/honey_block_top",
+    "content": "moonbits:block/syrup_block",
     "inside": "minecraft:block/cauldron_inner",
     "particle": "minecraft:block/cauldron_side",
     "top": "minecraft:block/cauldron_top",

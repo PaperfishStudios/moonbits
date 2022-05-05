@@ -2,8 +2,8 @@
   "multipart": [
     {
       "when": {
-        "west": "true",
-        "north": "true"
+        "north": "true",
+        "west": "true"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_outer",
@@ -12,8 +12,8 @@
     },
     {
       "when": {
-        "west": "false",
-        "north": "true"
+        "north": "true",
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_side",
@@ -22,8 +22,8 @@
     },
     {
       "when": {
-        "west": "true",
-        "north": "false"
+        "north": "false",
+        "west": "true"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_side_b",
@@ -32,9 +32,9 @@
     },
     {
       "when": {
-        "west": "false",
+        "north": "false",
         "nw": "true",
-        "north": "false"
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_inner",
@@ -43,9 +43,9 @@
     },
     {
       "when": {
-        "west": "false",
+        "north": "false",
         "nw": "false",
-        "north": "false"
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box",
@@ -54,8 +54,8 @@
     },
     {
       "when": {
-        "east": "true",
-        "north": "true"
+        "north": "true",
+        "east": "true"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_outer",
@@ -65,8 +65,8 @@
     },
     {
       "when": {
-        "east": "true",
-        "north": "false"
+        "north": "false",
+        "east": "true"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_side",
@@ -76,8 +76,8 @@
     },
     {
       "when": {
-        "east": "false",
-        "north": "true"
+        "north": "true",
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_side_b",
@@ -87,9 +87,9 @@
     },
     {
       "when": {
-        "ne": "true",
+        "north": "false",
         "east": "false",
-        "north": "false"
+        "ne": "true"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_inner",
@@ -99,9 +99,9 @@
     },
     {
       "when": {
-        "ne": "false",
+        "north": "false",
         "east": "false",
-        "north": "false"
+        "ne": "false"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box",
@@ -111,8 +111,8 @@
     },
     {
       "when": {
-        "east": "true",
-        "south": "true"
+        "south": "true",
+        "east": "true"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_outer",
@@ -122,8 +122,8 @@
     },
     {
       "when": {
-        "east": "false",
-        "south": "true"
+        "south": "true",
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_side",
@@ -133,8 +133,8 @@
     },
     {
       "when": {
-        "east": "true",
-        "south": "false"
+        "south": "false",
+        "east": "true"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_side_b",
@@ -145,8 +145,8 @@
     {
       "when": {
         "se": "true",
-        "east": "false",
-        "south": "false"
+        "south": "false",
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_inner",
@@ -157,8 +157,8 @@
     {
       "when": {
         "se": "false",
-        "east": "false",
-        "south": "false"
+        "south": "false",
+        "east": "false"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box",
@@ -168,8 +168,8 @@
     },
     {
       "when": {
-        "west": "true",
-        "south": "true"
+        "south": "true",
+        "west": "true"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_outer",
@@ -179,8 +179,8 @@
     },
     {
       "when": {
-        "west": "true",
-        "south": "false"
+        "south": "false",
+        "west": "true"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_side",
@@ -190,8 +190,8 @@
     },
     {
       "when": {
-        "west": "false",
-        "south": "true"
+        "south": "true",
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_side_b",
@@ -201,9 +201,9 @@
     },
     {
       "when": {
-        "west": "false",
         "sw": "true",
-        "south": "false"
+        "south": "false",
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box_inner",
@@ -213,9 +213,9 @@
     },
     {
       "when": {
-        "west": "false",
         "sw": "false",
-        "south": "false"
+        "south": "false",
+        "west": "false"
       },
       "apply": {
         "model": "moonbits:block/honey_planter_box",

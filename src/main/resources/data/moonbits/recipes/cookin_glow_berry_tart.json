@@ -1,0 +1,25 @@
+{
+  "type": "moonbits:cooking",
+  "ingredients": [
+    {
+      "item": "minecraft:glow_berries"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "tag": "moonbits:cooking/sweet"
+    }
+  ],
+  "result": {
+    "item": "moonbits:glow_berry_tart",
+    "count": 8
+  },
+  "bowl": "minecraft:air",
+  "exp": 0.0,
+  "cook_time": 0,
+  "priority": 0
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:cookin_foraged_salad"
+    ]
+  },
+  "criteria": {
+    "has_wild_stuff": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "moonbits:cooking/wild"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:cookin_foraged_salad"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_wild_stuff",
+      "has_the_recipe"
+    ]
+  ]
+}

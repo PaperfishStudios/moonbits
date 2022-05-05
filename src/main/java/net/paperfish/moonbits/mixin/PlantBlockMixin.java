@@ -15,16 +15,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlantBlock.class)
 public class PlantBlockMixin extends Block {
-    private final BooleanProperty SNOWLOGGED = Properties.SNOWY;
 
     public PlantBlockMixin(Settings settings) {
         super(settings);
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(Properties.SNOWY);
-        //super.appendProperties(builder);
     }
 
     @Inject(method = "canPlantOnTop", at = @At("HEAD"), cancellable = true)

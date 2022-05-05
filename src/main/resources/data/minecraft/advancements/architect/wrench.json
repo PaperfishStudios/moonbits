@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:architect/root",
+  "display": {
+    "icon": {
+      "item": "moonbits:wrench"
+    },
+    "title": {
+      "translate": "advancements.architect.wrench.title"
+    },
+    "description": {
+      "translate": "advancements.architect.wrench.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "wrench": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:wrench"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "wrench"
+    ]
+  ]
+}

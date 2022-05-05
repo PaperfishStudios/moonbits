@@ -1,0 +1,24 @@
+{
+  "type": "moonbits:cooking",
+  "ingredients": [
+    {
+      "tag": "moonbits:peanuts"
+    },
+    {
+      "tag": "moonbits:peanuts"
+    },
+    {
+      "item": "minecraft:chicken"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "moonbits:peanut_chicken"
+  },
+  "bowl": "minecraft:air",
+  "exp": 0.0,
+  "cook_time": 0,
+  "priority": 0
+}

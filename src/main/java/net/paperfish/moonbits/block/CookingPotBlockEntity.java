@@ -117,12 +117,12 @@ public class CookingPotBlockEntity extends LockableContainerBlockEntity implemen
         }
 
         List<CookingRecipe> recipes = world.getRecipeManager().listAllOfType(MBData.COOKING_RECIPE_TYPE).stream()
-                .filter((recipe) -> recipe.matches(blockEntity, world)).toList();
+                .filter((recipe) -> recipe.matches(blockEntity, world)).sorted(Comparator.comparing(o -> o.priority)).toList();
 //        List<CookingRecipe> recipes = world.getRecipeManager().getAllMatches(MBData.COOKING_RECIPE_TYPE, blockEntity, world);
         if (recipes.isEmpty()) {
             return null;
         }
-        recipes.sort(Comparator.comparing(o -> o.priority));
+//        recipes.sort(Comparator.comparing(o -> o.priority));
         CookingRecipe recipe = recipes.get(0);
 
         ItemStack output = slots.get(5);
@@ -132,7 +132,7 @@ public class CookingPotBlockEntity extends LockableContainerBlockEntity implemen
         }
 
         // if the recipe needs no bowl or the bowl slot has the right type of container
-        if (recipe.bowl.isEmpty() || (recipe.bowl.equals(blockEntity.inventory.get(4)))) {
+        if (recipe.bowl.isEmpty() || (recipe.bowl.isItemEqual(blockEntity.inventory.get(4))) && blockEntity.inventory.get(4).getCount() > recipe.bowl.getCount()) {
             return recipe;
         }
         return null;
@@ -154,8 +154,8 @@ public class CookingPotBlockEntity extends LockableContainerBlockEntity implemen
         }
         // take bowl if needed
         ItemStack bowl = slots.get(4);
-        if (!recipe.bowl.isEmpty() && bowl.isOf(recipe.bowl.getItem())) {
-            bowl.decrement(1);
+        if (!recipe.bowl.isEmpty() && bowl.isItemEqual(recipe.bowl)) {
+            bowl.decrement(recipe.bowl.getCount());
             slots.set(4, bowl);
         }
 

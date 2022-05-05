@@ -15,6 +15,7 @@ import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.*;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -60,6 +61,7 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.ROPE_LADDER);
         addDrop(MBBlocks.IRON_LADDER);
         addDrop(MBBlocks.KILN, BlockLootTableGenerator::nameableContainerDrops);
+        addDrop(MBBlocks.COOKING_POT, BlockLootTableGenerator::nameableContainerDrops);
         addDrop(MBBlocks.LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
         addDrop(MBBlocks.WHITE_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
         addDrop(MBBlocks.LIGHT_GRAY_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
@@ -222,10 +224,16 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.FROSTHORN_LEAVES, dropsWithShears(MBBlocks.FROSTHORN_LEAVES));
         addDrop(MBBlocks.FROSTHORN_FRUIT);
 
-        addDrop(MBBlocks.DESERT_BRUSH, (Block block) -> grassDrops(block, Items.WHEAT_SEEDS, 1f, 1f));
+        addDrop(MBBlocks.DESERT_BRUSH, (Block block) -> grassDrops(block, MBItems.PEPPER_SEEDS, 1f, 1f));
         addDrop(MBBlocks.TALL_DESERT_BRUSH, (Block block) -> BlockLootTableGenerator.tallGrassDrops(block, MBBlocks.DESERT_BRUSH));
 
         addDrop(MBBlocks.MARIGOLD);
+
+        BlockStatePropertyLootCondition.Builder peanutbuilder = BlockStatePropertyLootCondition.builder(MBBlocks.PEANUT_CROP)
+                .properties(StatePredicate.Builder.create().exactMatch(PeanutCropBlock.AGE, 7));
+        this.addDrop(MBBlocks.PEANUT_CROP, BlockLootTableGenerator.applyExplosionDecay(MBBlocks.PEANUT_CROP, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(Items.CARROT)))
+                .pool(LootPool.builder().conditionally(peanutbuilder).with(ItemEntry.builder(MBItems.PEANUT)
+                        .apply(ApplyBonusLootFunction.binomialWithBonusCount(Enchantments.FORTUNE, 0.5714286f, 3))))));
 
         addDrop(MBBlocks.PEPPER_CROP, BlockLootTableGenerator.cropDrops(MBBlocks.PEPPER_CROP, MBItems.PEPPER, MBItems.PEPPER_SEEDS,
                 BlockStatePropertyLootCondition.builder(MBBlocks.PEPPER_CROP).properties(StatePredicate.Builder.create().exactMatch(PepperCropBlock.AGE, 7))));

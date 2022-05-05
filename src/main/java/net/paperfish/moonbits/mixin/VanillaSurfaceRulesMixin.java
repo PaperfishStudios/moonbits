@@ -45,15 +45,6 @@ public class VanillaSurfaceRulesMixin {
                                 MaterialRules.condition(MaterialRules.stoneDepth(2, true, 12, VerticalSurfaceType.FLOOR), tough_dirt
                                         )
                         )),
-//                        MaterialRules.condition(
-//                                notDesert,
-//                                MaterialRules.condition(MaterialRules.surface(),
-//                                        MaterialRules.condition(MaterialRules.stoneDepth(0, true, 34, VerticalSurfaceType.FLOOR),
-//                                                MaterialRules.sequence(
-//                                                        MaterialRules.condition(
-//                                                                MaterialRules.stoneDepth(0, true, 30, VerticalSurfaceType.FLOOR), tough_dirt), regolith
-//                                                ))
-//                                )),
                 MaterialRules.condition(
                         notDesert,
                         MaterialRules.condition(MaterialRules.surface(),

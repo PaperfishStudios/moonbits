@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:story/upgrade_tools",
+  "display": {
+    "icon": {
+      "item": "moonbits:peat"
+    },
+    "title": {
+      "translate": "advancements.story.mine_peat.title"
+    },
+    "description": {
+      "translate": "advancements.story.mine_peat.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "peat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:peat"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "peat"
+    ]
+  ]
+}

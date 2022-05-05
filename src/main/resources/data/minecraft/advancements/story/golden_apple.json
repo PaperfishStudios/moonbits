@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:story/smelt_gold",
+  "display": {
+    "icon": {
+      "item": "minecraft:golden_apple"
+    },
+    "title": {
+      "translate": "advancements.story.golden_apple.title"
+    },
+    "description": {
+      "translate": "advancements.story.golden_apple.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "golden_apple": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_golden_apple"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "golden_apple"
+    ]
+  ]
+}

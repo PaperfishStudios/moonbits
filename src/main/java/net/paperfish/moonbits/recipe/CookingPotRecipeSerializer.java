@@ -41,7 +41,7 @@ public class CookingPotRecipeSerializer implements RecipeSerializer<CookingRecip
         ItemStack bowlStack = new ItemStack(Registry.ITEM.getOrEmpty(identifier3).orElseThrow(() -> new IllegalStateException("Item: " + string3 + " does not exist")));
 
         float xp = JsonHelper.getFloat(jsonObject, "exp", 0.0f);
-        int cookTime = JsonHelper.getInt(jsonObject, "cook_time", this.cookingTime);
+        int cookTime = JsonHelper.getInt(jsonObject, "cook_time", 200);
         int priority = JsonHelper.getInt(jsonObject, "priority", 0);
 
         return new CookingRecipe(id, string, ingredients, output, bowlStack, xp, cookTime, priority);

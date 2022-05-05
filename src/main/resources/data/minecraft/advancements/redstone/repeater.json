@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:redstone/redstone_torch",
+  "display": {
+    "icon": {
+      "item": "minecraft:repeater"
+    },
+    "title": {
+      "translate": "advancements.redstone.repeater.title"
+    },
+    "description": {
+      "translate": "advancements.redstone.repeater.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "repeater": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:repeater"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "repeater"
+    ]
+  ]
+}

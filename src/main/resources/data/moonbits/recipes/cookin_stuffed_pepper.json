@@ -1,0 +1,25 @@
+{
+  "type": "moonbits:cooking",
+  "ingredients": [
+    {
+      "item": "moonbits:pepper"
+    },
+    {
+      "item": "moonbits:pepper"
+    },
+    {
+      "item": "moonbits:pepper"
+    },
+    {
+      "tag": "moonbits:cooking/meat"
+    }
+  ],
+  "result": {
+    "item": "moonbits:stuffed_pepper",
+    "count": 3
+  },
+  "bowl": "minecraft:air",
+  "exp": 0.0,
+  "cook_time": 0,
+  "priority": 0
+}

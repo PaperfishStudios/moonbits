@@ -1,0 +1,25 @@
+{
+  "type": "moonbits:cooking",
+  "ingredients": [
+    {
+      "tag": "moonbits:peanuts"
+    },
+    {
+      "tag": "moonbits:peanuts"
+    },
+    {
+      "tag": "moonbits:peanuts"
+    },
+    {
+      "tag": "moonbits:honey"
+    }
+  ],
+  "result": {
+    "item": "moonbits:honey_roasted_peanuts",
+    "count": 3
+  },
+  "bowl": "minecraft:air",
+  "exp": 0.0,
+  "cook_time": 0,
+  "priority": 0
+}

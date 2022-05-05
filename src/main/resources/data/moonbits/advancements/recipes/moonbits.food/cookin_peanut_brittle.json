@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:cookin_peanut_brittle"
+    ]
+  },
+  "criteria": {
+    "has_peanut": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:peanut"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:cookin_peanut_brittle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_peanut",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -250,6 +250,12 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
                 BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap")))
                 .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
 
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.COOKING_POT, new Identifier(Moonbits.MODID, "block/cooking_pot")));
+//        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.COOKING_POT,
+//                        BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/cooking_pot")))
+//                .coordinate(BlockStateModelGenerator.createAxisRotatedVariantMap()));
+        generator.registerItemModel(MBBlocks.COOKING_POT.asItem());
+
         generator.registerSimpleCubeAll(MBBlocks.SYRUP_BLOCK);
 
 

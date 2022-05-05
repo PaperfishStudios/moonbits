@@ -269,7 +269,6 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.SAFFRON_MUSHROOM_CAP,
                 MBBlocks.GIANT_TOADSTOOL_CAP,
                 MBBlocks.MUSHROOM_STEM,
-                MBBlocks.TOADSTOOL_SHELF,
 
                 MBBlocks.BARREL_CACTUS,
 

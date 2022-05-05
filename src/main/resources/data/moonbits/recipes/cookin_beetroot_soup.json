@@ -1,0 +1,25 @@
+{
+  "type": "moonbits:cooking",
+  "ingredients": [
+    {
+      "item": "minecraft:beetroot"
+    },
+    {
+      "item": "minecraft:beetroot"
+    },
+    {
+      "item": "minecraft:beetroot"
+    },
+    {
+      "item": "minecraft:beetroot"
+    }
+  ],
+  "result": {
+    "item": "minecraft:beetroot_soup",
+    "count": 6
+  },
+  "bowl": "minecraft:bowl",
+  "exp": 0.0,
+  "cook_time": 0,
+  "priority": 0
+}

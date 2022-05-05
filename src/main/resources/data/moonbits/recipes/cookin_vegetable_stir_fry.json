@@ -1,0 +1,24 @@
+{
+  "type": "moonbits:cooking",
+  "ingredients": [
+    {
+      "tag": "moonbits:cooking/veg"
+    },
+    {
+      "tag": "moonbits:cooking/veg"
+    },
+    {
+      "tag": "moonbits:cooking/veg"
+    },
+    {
+      "tag": "moonbits:cooking/veg"
+    }
+  ],
+  "result": {
+    "item": "moonbits:vegetable_stir_fry"
+  },
+  "bowl": "minecraft:bowl",
+  "exp": 0.0,
+  "cook_time": 0,
+  "priority": 0
+}

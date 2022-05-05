@@ -57,7 +57,6 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.TOADSTOOL,
                 MBBlocks.SMALL_TOADSTOOLS,
                 MBBlocks.POTTED_SMALL_TOADSTOOLS,
-                MBBlocks.TOADSTOOL_SHELF,
 
                 MBBlocks.WHITE_HYACINTH,
                 MBBlocks.PINK_HYACINTH,
@@ -83,7 +82,6 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.WILD_POTATOES,
                 MBBlocks.SEA_BEETS,
 
-                MBBlocks.LETTUCE_CROP,
                 MBBlocks.PEANUT_CROP,
                 MBBlocks.PEPPER_CROP,
 

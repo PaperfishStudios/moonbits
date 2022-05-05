@@ -451,12 +451,12 @@ public class MBRecipeProvider extends FabricRecipesProvider {
         insetRecipe(exporter, MBBlocks.TOADSTOOL_MUSH_BLOCK, MBBlocks.LAMPROOT, MBBlocks.TOADSTOOL_MUSH_LAMP);
         insetRecipe(exporter, MBBlocks.SAFFRON_MUSH_BLOCK, MBBlocks.LAMPROOT, MBBlocks.SAFFRON_MUSH_LAMP);
 
-        ShapedRecipeJsonBuilder.create(MBBlocks.CANVAS, 4).input('#', MBItems.DUSTY_CLOTH).pattern("##").pattern("##")
-                .criterion(RecipeProvider.hasItem(MBItems.DUSTY_CLOTH), RecipeProvider.conditionsFromItem(MBItems.DUSTY_CLOTH))
+        ShapedRecipeJsonBuilder.create(MBBlocks.CANVAS, 4).input('#', MBItems.BURLAP).pattern("##").pattern("##")
+                .criterion(RecipeProvider.hasItem(MBItems.BURLAP), RecipeProvider.conditionsFromItem(MBItems.BURLAP))
                 .offerTo(exporter);
         ShapedRecipeJsonBuilder.create(MBBlocks.FRAMED_CANVAS, 2).input('#', MBBlocks.CANVAS).input('S', Items.STICK)
                 .pattern(" S ").pattern("S#S").pattern(" S ")
-                .criterion(RecipeProvider.hasItem(MBItems.DUSTY_CLOTH), RecipeProvider.conditionsFromItem(MBItems.DUSTY_CLOTH))
+                .criterion(RecipeProvider.hasItem(MBItems.BURLAP), RecipeProvider.conditionsFromItem(MBItems.BURLAP))
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(MBBlocks.FROSTY_TILL_BRICKS)
@@ -542,8 +542,8 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .criterion("tame_animal", TameAnimalCriterion.Conditions.any()).offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(Items.BOOK)
-                .input(Items.PAPER).input(Items.PAPER).input(Items.PAPER).input(MBItems.DUSTY_CLOTH)
-                .criterion("has_cloth", RecipeProvider.conditionsFromItem(MBItems.DUSTY_CLOTH)).offerTo(exporter, "dusty_cloth_book");
+                .input(Items.PAPER).input(Items.PAPER).input(Items.PAPER).input(MBItems.BURLAP)
+                .criterion("has_cloth", RecipeProvider.conditionsFromItem(MBItems.BURLAP)).offerTo(exporter, "dusty_cloth_book");
 
         campfire(exporter, Items.STICK, Items.TORCH, 0.1f, 600);
         campfire(exporter, Items.WET_SPONGE, Items.SPONGE, 0f, 600);
@@ -597,12 +597,15 @@ public class MBRecipeProvider extends FabricRecipesProvider {
 
         // cookin pot
         CookingPotJsonFactory.create(Items.MUSHROOM_STEW, 3).input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.EDIBLE_MUSHROOMS)
+                .bowl(Items.BOWL)
                 .criterion("has_shrooms", RecipeProvider.conditionsFromTag(MBItemTags.EDIBLE_MUSHROOMS))
                 .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(Items.MUSHROOM_STEW));
         CookingPotJsonFactory.create(Items.RABBIT_STEW, 3).input(Items.RABBIT).input(Items.CARROT).input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.COOKING_VEG)
+                .bowl(Items.BOWL)
                 .criterion(RecipeProvider.hasItem(Items.RABBIT), RecipeProvider.conditionsFromItem(Items.RABBIT))
                 .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(Items.RABBIT_STEW));
         CookingPotJsonFactory.create(Items.BEETROOT_SOUP, 6).input(Items.BEETROOT).input(Items.BEETROOT).input(Items.BEETROOT).input(Items.BEETROOT)
+                .bowl(Items.BOWL)
                 .criterion(RecipeProvider.hasItem(Items.BEETROOT), RecipeProvider.conditionsFromItem(Items.BEETROOT))
                 .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(Items.BEETROOT_SOUP));
         CookingPotJsonFactory.create(Items.PUMPKIN_PIE, 3).input(MBItems.PUMPKIN_SLICE).input(MBItems.PUMPKIN_SLICE).input(Items.EGG).input(MBItemTags.COOKING_SWEET)
@@ -620,27 +623,33 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .criterion(RecipeProvider.hasItem(MBItems.PEPPER), RecipeProvider.conditionsFromItem(MBItems.PEPPER))
                 .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(MBItems.STUFFED_PEPPER));
 
-        CookingPotJsonFactory.create(MBItems.FRUIT_PIE, 6).input(Items.GLOW_BERRIES).input(Items.WHEAT).input(Items.EGG).input(MBItemTags.COOKING_SWEET)
-                .criterion(RecipeProvider.hasItem(Items.GLOW_BERRIES), RecipeProvider.conditionsFromItem(Items.GLOW_BERRIES))
-                .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(MBItems.GLOW_BERRY_TART));
+        CookingPotJsonFactory.create(MBItems.FRUIT_PIE, 6).input(MBItemTags.COOKING_FRUITS).input(MBItemTags.COOKING_FRUITS).input(Items.WHEAT).input(MBItemTags.COOKING_SWEET)
+                .criterion("has_fruit", RecipeProvider.conditionsFromTag(MBItemTags.COOKING_FRUITS))
+                .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(MBItems.FRUIT_PIE));
 
         CookingPotJsonFactory.create(MBItems.PORRIDGE).input(Items.WHEAT).input(Items.WHEAT).input(MBItemTags.COOKING_SWEET).input(MBItemTags.COOKING_FILLER)
+                .bowl(Items.BOWL)
                 .criterion(RecipeProvider.hasItem(Items.WHEAT), RecipeProvider.conditionsFromItem(Items.WHEAT))
                 .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(MBItems.PORRIDGE));
         CookingPotJsonFactory.create(MBItems.CHICKEN_SOUP).input(Items.CHICKEN).input(Items.WHEAT).input(Items.CARROT).input(Items.CARROT)
+                .bowl(Items.BOWL)
                 .criterion(RecipeProvider.hasItem(Items.CHICKEN), RecipeProvider.conditionsFromItem(Items.CHICKEN))
                 .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(MBItems.CHICKEN_SOUP));
         CookingPotJsonFactory.create(MBItems.HEARTY_STEW).input(Items.COOKED_BEEF).input(Items.POTATO).input(Items.WHEAT).input(MBItemTags.COOKING_VEG)
+                .bowl(Items.BOWL)
                 .criterion(RecipeProvider.hasItem(Items.COOKED_BEEF), RecipeProvider.conditionsFromItem(Items.COOKED_BEEF))
                 .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(MBItems.HEARTY_STEW));
         CookingPotJsonFactory.create(MBItems.FORAGED_SALAD).input(MBItemTags.COOKING_WILD).input(MBItemTags.COOKING_WILD).input(MBItemTags.COOKING_WILD).input(MBItemTags.COOKING_WILD)
+                .bowl(Items.BOWL)
                 .criterion("has_wild_stuff", RecipeProvider.conditionsFromTag(MBItemTags.COOKING_WILD))
                 .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(MBItems.FORAGED_SALAD));
         CookingPotJsonFactory.create(MBItems.VEG_STIRFRY).input(MBItemTags.COOKING_VEG).input(MBItemTags.COOKING_VEG).input(MBItemTags.COOKING_VEG).input(MBItemTags.COOKING_VEG)
+                .bowl(Items.BOWL)
                 .criterion("has_veg", RecipeProvider.conditionsFromTag(MBItemTags.COOKING_VEG))
                 .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(MBItems.VEG_STIRFRY));
 
         CookingPotJsonFactory.create(MBItems.CHILI).input(MBItems.PEPPER).input(MBItems.PEPPER).input(MBItems.PEPPER).input(MBItemTags.COOKING_MEATS)
+                .bowl(Items.BOWL)
                 .criterion(RecipeProvider.hasItem(MBItems.PEPPER), RecipeProvider.conditionsFromItem(MBItems.PEPPER))
                 .offerTo(exporter, "cookin_" + RecipeProvider.getItemPath(MBItems.CHILI));
 

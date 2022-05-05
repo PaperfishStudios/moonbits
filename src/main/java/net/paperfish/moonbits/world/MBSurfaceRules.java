@@ -21,6 +21,8 @@ public class MBSurfaceRules {
         MaterialRules.MaterialRule CHERT = makeStateRule(MBBlocks.CHERT);
         MaterialRules.MaterialRule TOUGH_DIRT = makeStateRule(MBBlocks.TOUGH_DIRT);
         MaterialRules.MaterialRule TOUGH_GRASS = makeStateRule(MBBlocks.TOUGH_GRASS);
+        MaterialRules.MaterialRule PERMAFROST = makeStateRule(MBBlocks.PERMAFROST);
+        MaterialRules.MaterialRule SNOW_BLOCK = makeStateRule(Blocks.SNOW_BLOCK);
 
         MaterialRules.MaterialCondition isAtOrAboveWaterLevel = MaterialRules.water(-1, 0);
         MaterialRules.MaterialRule grassSurface = MaterialRules.sequence(MaterialRules.condition(isAtOrAboveWaterLevel, GRASS_BLOCK), DIRT);
@@ -28,10 +30,10 @@ public class MBSurfaceRules {
         MaterialRules.MaterialRule sandySurface = MaterialRules.sequence(MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING, SANDSTONE), SAND);
 
         return MaterialRules.sequence(
-                MaterialRules.condition(MaterialRules.biome(MBBiomes.FLOOD_PLAINS), sandySurface),
-                MaterialRules.condition(MaterialRules.biome(MBBiomes.FLOOD_PLAINS), CHERT),
-
                 MaterialRules.condition(MaterialRules.biome(MBBiomes.PRAIRIE), MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, toughSurface)),
+
+                MaterialRules.condition(MaterialRules.biome(MBBiomes.TUNDRA), MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR,
+                        MaterialRules.sequence(MaterialRules.condition(isAtOrAboveWaterLevel, SNOW_BLOCK), PERMAFROST))),
 
                 // Default to a grass and dirt surface
                 MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, grassSurface)

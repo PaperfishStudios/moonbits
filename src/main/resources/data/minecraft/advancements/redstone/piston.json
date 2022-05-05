@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:redstone/root",
+  "display": {
+    "icon": {
+      "item": "minecraft:piston"
+    },
+    "title": {
+      "translate": "advancements.redstone.piston.title"
+    },
+    "description": {
+      "translate": "advancements.redstone.piston.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "piston": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:piston"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "piston"
+    ]
+  ]
+}

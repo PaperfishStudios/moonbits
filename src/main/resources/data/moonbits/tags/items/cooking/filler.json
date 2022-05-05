@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "#moonbits:cooking/fruit",
+    "#moonbits:cooking/veg",
+    "#moonbits:cooking/meat",
+    "#moonbits:cooking/fish",
+    "#moonbits:cooking/sweet",
+    "#moonbits:cooking/wild",
+    "#moonbits:cooking/monster",
+    "minecraft:kelp",
+    "minecraft:dried_kelp",
+    "minecraft:wheat",
+    "minecraft:potato",
+    "moonbits:peanut",
+    "moonbits:peanut_brittle",
+    "minecraft:cocoa_beans",
+    "minecraft:egg",
+    "minecraft:stick",
+    "moonbits:grass_tuft"
+  ]
+}

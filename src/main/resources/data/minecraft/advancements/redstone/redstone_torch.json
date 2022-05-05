@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:redstone/root",
+  "display": {
+    "icon": {
+      "item": "minecraft:redstone_torch"
+    },
+    "title": {
+      "translate": "advancements.redstone.redstone_torch.title"
+    },
+    "description": {
+      "translate": "advancements.redstone.redstone_torch.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "redstone_torch": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:redstone_torch"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "redstone_torch"
+    ]
+  ]
+}

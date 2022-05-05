@@ -1,0 +1,25 @@
+{
+  "type": "moonbits:cooking",
+  "ingredients": [
+    {
+      "tag": "moonbits:peanuts"
+    },
+    {
+      "tag": "moonbits:peanuts"
+    },
+    {
+      "tag": "moonbits:peanuts"
+    },
+    {
+      "tag": "moonbits:peanuts"
+    }
+  ],
+  "result": {
+    "item": "moonbits:peanut_brittle",
+    "count": 2
+  },
+  "bowl": "minecraft:air",
+  "exp": 0.0,
+  "cook_time": 0,
+  "priority": 0
+}

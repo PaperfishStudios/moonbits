@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:cookin_vegetable_stir_fry"
+    ]
+  },
+  "criteria": {
+    "has_veg": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "moonbits:cooking/veg"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:cookin_vegetable_stir_fry"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_veg",
+      "has_the_recipe"
+    ]
+  ]
+}

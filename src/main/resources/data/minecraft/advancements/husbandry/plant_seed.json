@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "display": {
+    "icon": {
+      "item": "minecraft:wheat"
+    },
+    "title": {
+      "translate": "advancements.husbandry.plant_seed.title"
+    },
+    "description": {
+      "translate": "advancements.husbandry.plant_seed.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "wheat": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:wheat"
+      }
+    },
+    "pumpkin_stem": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:pumpkin_stem"
+      }
+    },
+    "melon_stem": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:melon_stem"
+      }
+    },
+    "beetroots": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:beetroots"
+      }
+    },
+    "nether_wart": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "minecraft:nether_wart"
+      }
+    },
+    "sweet_pits": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "moonbits:sweet_berry_pits"
+      }
+    },
+    "glow_pits": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "moonbits:glow_berry_pits"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "wheat",
+      "pumpkin_stem",
+      "melon_stem",
+      "beetroots",
+      "nether_wart",
+      "sweet_pits",
+      "glow_pits"
+    ]
+  ]
+}

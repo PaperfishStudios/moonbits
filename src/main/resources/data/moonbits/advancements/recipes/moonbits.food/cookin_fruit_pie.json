@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:cookin_fruit_pie"
+    ]
+  },
+  "criteria": {
+    "has_fruit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "moonbits:cooking/fruit"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:cookin_fruit_pie"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_fruit",
+      "has_the_recipe"
+    ]
+  ]
+}

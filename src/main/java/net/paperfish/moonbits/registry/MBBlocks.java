@@ -179,8 +179,6 @@ public class MBBlocks {
 	public static final Block SMALL_TOADSTOOLS = new SmallToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block POTTED_SMALL_TOADSTOOLS = new FlowerPotBlock(SMALL_TOADSTOOLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
-	public static final Block TOADSTOOL_SHELF = new ShelfBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).strength(0.5F).sounds(BlockSoundGroup.NETHER_STEM));
-
 	public static final Block RED_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
 	public static final Block RED_MUSH_STAIRS = new MBStairsBlock(RED_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.0F).sounds(BlockSoundGroup.STONE));
 	public static final Block RED_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
@@ -408,8 +406,7 @@ public class MBBlocks {
 			.sounds(BlockSoundGroup.SMALL_AMETHYST_BUD).luminance(state -> state.get(RedstoneClusterBlock.LIT) ? 6 : 1), MEDIUM_REDSTONE_BUD);
 
 	public static final Block FLOWERING_ACACIA_LEAVES = new ParticleLeavesBlock(AbstractBlock.Settings.copy(Blocks.ACACIA_LEAVES).mapColor(MapColor.PALE_YELLOW), MBParticles.FALLING_WATTLE);
-	public static final Block HANGING_FLOWERING_ACACIA_LEAVES = new HangingAcaciaBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().mapColor(MapColor.PALE_YELLOW));
-	public static final Block TALL_FLOWERING_ACACIA_LEAVES = new TallHangingAcaciaBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().mapColor(MapColor.PALE_YELLOW));
+
 	public static final Block CRACKED_MUD = new PillarBlock(AbstractBlock.Settings.copy(Blocks.TERRACOTTA).mapColor(MapColor.PALE_YELLOW));
 
 	public static final Block RICH_MUD = new Block(AbstractBlock.Settings.copy(Blocks.DIRT).mapColor(MapColor.BROWN));
@@ -530,11 +527,6 @@ public class MBBlocks {
 
 	public static final Block PEPPER_CROP = new PepperCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
 			.nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
-
-	public static final Block LETTUCE_CROP = new LettuceCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
-			.nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
-	public static final Block LETTUCE_BLOCK = new LettuceBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().strength(0.3f)
-			.nonOpaque().sounds(BlockSoundGroup.GRASS));
 
 	public static final Block LAMPROOT = new LamprootBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).luminance((state) -> 7));
 	public static final Block CAVEBLOOM_FLOWERS = new CavebloomFlowerBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().ticksRandomly().sounds(BlockSoundGroup.GRASS));
@@ -1306,9 +1298,6 @@ public class MBBlocks {
 		createBlock("canvas", CANVAS, MBItemGroup.CONSTRUCTION);
 		createBlock("framed_canvas", FRAMED_CANVAS, MBItemGroup.CONSTRUCTION);
 
-		createBlock("lettuce_block", LETTUCE_BLOCK, MBItemGroup.MB_FOOD);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "lettuce_crop"), LETTUCE_CROP);
-
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "peanut_crop"), PEANUT_CROP);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "pepper_crop"), PEPPER_CROP);
 
@@ -1329,8 +1318,6 @@ public class MBBlocks {
 		createBlock("cedar_sapling", CEDAR_SAPLING, MBItemGroup.DECOR);
 
 		createBlock("flowering_acacia_leaves", FLOWERING_ACACIA_LEAVES, MBItemGroup.DECOR);
-		createBlock("hanging_flowering_acacia_leaves", HANGING_FLOWERING_ACACIA_LEAVES, MBItemGroup.DECOR);
-		createBlock("tall_flowering_acacia_leaves", TALL_FLOWERING_ACACIA_LEAVES, MBItemGroup.DECOR);
 
 		createBlock("aspen_sapling", ASPEN_SAPLING, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_aspen_sapling"), POTTED_ASPEN_SAPLING);
@@ -1410,7 +1397,6 @@ public class MBBlocks {
 		createBlock("small_toadstools", SMALL_TOADSTOOLS, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_small_toadstools"), POTTED_SMALL_TOADSTOOLS);
 		createBlock("toadstool", TOADSTOOL, MBItemGroup.DECOR);
-		createBlock("toadstool_shelf", TOADSTOOL_SHELF, MBItemGroup.DECOR);
 
 		createBlock("wild_carrots", WILD_CARROTS, MBItemGroup.DECOR);
 		createBlock("wild_potatoes", WILD_POTATOES, MBItemGroup.DECOR);
@@ -1506,21 +1492,6 @@ public class MBBlocks {
 		createBlock("medium_redstone_bud", MEDIUM_REDSTONE_BUD, MBItemGroup.DECOR);
 		createBlock("small_redstone_bud", SMALL_REDSTONE_BUD, MBItemGroup.DECOR);
 
-
-		// MOOBLOOM FLOWERS
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_lily"), MINI_LILY);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_oxeye"), MINI_OXEYE);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_bluet"), MINI_BLUET);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_dandelion"), MINI_DANDELION);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_poppy"), MINI_POPPY);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_orchid"), MINI_ORCHID);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_cornflower"), MINI_CORNFLOWER);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_allium"), MINI_ALLIUM);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_tulip_w"), MINI_TULIP_W);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_tulip_p"), MINI_TULIP_P);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_tulip_o"), MINI_TULIP_O);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_tulip_r"), MINI_TULIP_R);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "mini_forget_me_not"), MINI_FORGETMENOT);
 
 		// STONE
 		createBlock("stone_pillar", STONE_PILLAR, MBItemGroup.CONSTRUCTION);
