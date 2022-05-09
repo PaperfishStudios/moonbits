@@ -39,8 +39,6 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         MBBlockFamilies.DIRT_MB.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.TOUGH_DIRT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.DIRT_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
-        MBBlockFamilies.SMOOTH_DIRT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
-        MBBlockFamilies.PACKED_DIRT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.PEAT_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.GRASS_TURF.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.MYCELIUM_TURF.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
@@ -185,6 +183,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(
                 MBBlocks.LEAFBED,
                 MBBlocks.TOUGH_GRASS,
+                MBBlocks.SUBSTRATE,
                 MBBlocks.REGOLITH,
                 MBBlocks.CLAY_DEPOSIT,
                 MBBlocks.COPPER_DEPOSIT,
@@ -203,6 +202,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.FROST_PEAT,
 
                 MBBlocks.SNOW_BRICKS,
+
+                MBBlocks.SUGAR_CUBE,
 
                 MBBlocks.RICH_MUD,
                 MBBlocks.MUD_GOLD_DEPOSIT
@@ -245,6 +246,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.SUGAR_CANE_BUNDLE,
                 MBBlocks.STICK_STACK,
                 MBBlocks.CHARCOAL_LOG,
+                MBBlocks.GUNPOWDER_CRATE,
 
                 MBBlocks.LEATHER_SEAT,
                 MBBlocks.WHITE_LEATHER_SEAT,
@@ -294,6 +296,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.SUGAR_CANE_BUNDLE,
                 MBBlocks.KELP_BLOCK,
                 MBBlocks.NETHER_WART_SACK,
+                MBBlocks.CHORUS_BUNDLE,
                 MBBlocks.SPOOL,
                 MBBlocks.PAPER_BUNDLE,
                 MBBlocks.ROTTEN_FLESH_BLOCK,
@@ -344,6 +347,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.MAGNETITE_BLOCK,
 
                 MBBlocks.CRACKED_MUD,
+
+                MBBlocks.PACKED_GLOWSTONE,
 
                 Blocks.PISTON,
                 Blocks.STICKY_PISTON,
@@ -562,8 +567,6 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.TOUGH_GRASS,
                 MBBlocks.TOUGH_DIRT,
                 MBBlocks.DIRT_BRICKS,
-                MBBlocks.SMOOTH_DIRT,
-                MBBlocks.PACKED_DIRT,
                 MBBlocks.PERMAFROST,
                 MBBlocks.PEAT_MOSS,
                 MBBlocks.PEAT_BLOCK,
@@ -575,9 +578,9 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CRACKED_MUD
         );
         this.getOrCreateTagBuilder(MBBlockTags.TOUGH_DIRT).add(
-                Blocks.COARSE_DIRT,
                 MBBlocks.TOUGH_DIRT,
-                MBBlocks.REGOLITH
+                MBBlocks.REGOLITH,
+                MBBlocks.SUBSTRATE
         );
         this.getOrCreateTagBuilder(BlockTags.BASE_STONE_OVERWORLD).add(
                 MBBlocks.CHERT
@@ -608,6 +611,9 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
                 MBBlocks.MAGNETITE_BLOCK,
                 MBBlocks.TIN_BLOCK
+        );
+        this.getOrCreateTagBuilder(BlockTags.INFINIBURN_OVERWORLD).add(
+                MBBlocks.GUNPOWDER_CRATE
         );
 
         this.getOrCreateTagBuilder(MBBlockTags.VALID_SEATS).add(
@@ -645,7 +651,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.WHITE_HEATHER,
                 MBBlocks.RED_HEATHER,
                 MBBlocks.ORANGE_HEATHER,
-                MBBlocks.PURPLE_HEATHER
+                MBBlocks.PURPLE_HEATHER,
+                MBBlocks.WILDFLOWERS
         );
 
         this.getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK).add(

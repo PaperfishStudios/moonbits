@@ -14,6 +14,8 @@ import net.minecraft.util.SignType;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
+import net.paperfish.moonbits.block.cauldron.BoilingCauldronBlock;
+import net.paperfish.moonbits.block.cauldron.BoilingCauldronEntity;
 import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
 import net.paperfish.moonbits.block.cauldron.MBCauldronBehaviour;
 import net.paperfish.moonbits.block.extended.*;
@@ -32,6 +34,9 @@ public class MBBlocks {
 			.luminance(state -> 10).nonOpaque());
 	public static final Block KILN = new KilnBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.TERRACOTTA_ORANGE).strength(1.2f).sounds(BlockSoundGroup.STONE));
 	public static BlockEntityType<KilnBlockEntity> KILN_BLOCK_ENTITY;
+
+	public static final Block BOILING_CAULDRON = new BoilingCauldronBlock(AbstractBlock.Settings.copy(Blocks.WATER_CAULDRON).dropsLike(Blocks.CAULDRON), MBCauldronBehaviour.BOILING_CAULDRON_BEHAVIOR);
+	public static BlockEntityType<BoilingCauldronEntity> BOILING_CAULDRON_ENTITY;
 
 	public static final Block COOKING_POT = new CookingPotBlock(AbstractBlock.Settings.of(Material.METAL, MapColor.ORANGE).strength(1.2f).sounds(BlockSoundGroup.COPPER));
 	public static BlockEntityType<CookingPotBlockEntity> COOKING_POT_ENTITY;
@@ -487,12 +492,7 @@ public class MBBlocks {
     public static final Block DIRT_BRICKS = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
     public static final Block DIRT_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
     public static final Block DIRT_BRICK_STAIRS = new MBStairsBlock(DIRT_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
-	public static final Block SMOOTH_DIRT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block SMOOTH_DIRT_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block SMOOTH_DIRT_STAIRS = new MBStairsBlock(SMOOTH_DIRT.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block PACKED_DIRT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block PACKED_DIRT_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block PACKED_DIRT_STAIRS = new MBStairsBlock(PACKED_DIRT.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block SUBSTRATE = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
 
 	public static final Block TOUGH_GRASS = new MBSnowyBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL).ticksRandomly());
 
@@ -508,6 +508,9 @@ public class MBBlocks {
 	public static final Block CHERT_TIN_ORE = new Block(FabricBlockSettings.copy(CHERT_COAL_ORE));
 	public static final Block RAW_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.RAW_COPPER_BLOCK));
 	public static final Block TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block CUT_TIN_STAIRS = new MBStairsBlock(CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block TIN_PILLAR = new PillarBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block TIN_DOOR = new MBDoorBlock(FabricBlockSettings.copy(Blocks.IRON_DOOR).nonOpaque());
 	public static final Block TIN_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
@@ -528,10 +531,16 @@ public class MBBlocks {
 	public static final Block PEPPER_CROP = new PepperCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
 			.nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
 
+	public static final Block WILDFLOWERS = new CarpetFloraBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().nonOpaque().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block POTTED_WILDFLOWERS = new FlowerPotBlock(WILDFLOWERS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+	public static final Block CLOVER = new CarpetFloraBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().nonOpaque().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block POTTED_CLOVER = new FlowerPotBlock(CLOVER, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+
 	public static final Block LAMPROOT = new LamprootBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).luminance((state) -> 7));
 	public static final Block CAVEBLOOM_FLOWERS = new CavebloomFlowerBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().ticksRandomly().sounds(BlockSoundGroup.GRASS));
 	public static final Block CAVEBLOOM_VINE = new CavebloomVineBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().ticksRandomly().sounds(BlockSoundGroup.GRASS));
 	public static final Item CAVEBLOOMS = new BlockItem(CAVEBLOOM_FLOWERS, new Item.Settings().group(MBItemGroup.DECOR));
+
 	// - PLANTER BOXES
 	public static final Block OAK_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block BIRCH_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -960,6 +969,10 @@ public class MBBlocks {
 	
 	public static final Block NETHER_WART_SACK = new PillarBlock(FabricBlockSettings.of(Material.NETHER_SHOOTS).hardness(1.0f).sounds(BlockSoundGroup.WART_BLOCK));
 
+	public static final Block SUGAR_CUBE = new Block(FabricBlockSettings.of(Material.SOIL).strength(2.0F,3.0F).sounds(BlockSoundGroup.SAND));
+	public static final Block PACKED_GLOWSTONE = new Block(FabricBlockSettings.of(Material.GLASS).strength(2.0F,3.0F).sounds(BlockSoundGroup.GLASS).luminance((state) -> 15));
+	public static final Block GUNPOWDER_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+
 	public static final Block SPOOL = new PillarBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.8f).sounds(BlockSoundGroup.WOOL));
 	public static final Block PAPER_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.5f).sounds(BlockSoundGroup.WOOL));
 	public static final Block STICK_STACK = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(MBSounds.BUNDLE));
@@ -974,6 +987,7 @@ public class MBBlocks {
 	public static final Block BLAZE_ROD = new MBRodBlock(FabricBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));
 	public static final Block BLAZE_ROD_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));
 	public static final Block ENDER_PEARL_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).hardness(1f).sounds(BlockSoundGroup.COPPER));
+	public static final Block CHORUS_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.AGGREGATE).hardness(1f).sounds(BlockSoundGroup.NYLIUM));
 
 	public static void createBlock(String block_id, Block block, ItemGroup group) {
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, block_id), block);
@@ -981,10 +995,6 @@ public class MBBlocks {
 	}
     
     public static void registerBlocks(){
-
-
-
-
 		// - Bedroll setup, registers the block entity too :b
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "bedroll"), BEDROLL);
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "bedroll"),
@@ -1006,13 +1016,7 @@ public class MBBlocks {
         createBlock("dirt_brick_slab", DIRT_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
         createBlock("dirt_brick_stairs", DIRT_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
 
-		createBlock("smooth_dirt", SMOOTH_DIRT, MBItemGroup.CONSTRUCTION);
-		createBlock("smooth_dirt_slab", SMOOTH_DIRT_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("smooth_dirt_stairs", SMOOTH_DIRT_STAIRS, MBItemGroup.CONSTRUCTION);
-
-		createBlock("packed_dirt", PACKED_DIRT, MBItemGroup.CONSTRUCTION);
-		createBlock("packed_dirt_slab", PACKED_DIRT_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("packed_dirt_stairs", PACKED_DIRT_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("substrate", SUBSTRATE, MBItemGroup.CONSTRUCTION);
 
 		createBlock("regolith", REGOLITH, MBItemGroup.CONSTRUCTION);
 		createBlock("permafrost", PERMAFROST, MBItemGroup.CONSTRUCTION);
@@ -1128,6 +1132,9 @@ public class MBBlocks {
 		createBlock("magnetite_ore", MAGNETITE_ORE, MBItemGroup.CONSTRUCTION);
 		createBlock("raw_tin_block", RAW_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("tin_block", TIN_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("cut_tin", CUT_TIN, MBItemGroup.CONSTRUCTION);
+		createBlock("cut_tin_slab", CUT_TIN_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("cut_tin_stairs", CUT_TIN_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("tin_pillar", TIN_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("magnetite_block", MAGNETITE_BLOCK, MBItemGroup.CONSTRUCTION);
 
@@ -1398,6 +1405,12 @@ public class MBBlocks {
 		createBlock("light_blue_hyacinth", LIGHT_BLUE_HYACINTH, MBItemGroup.DECOR);
 		createBlock("red_hyacinth", RED_HYACINTH, MBItemGroup.DECOR);
 
+		createBlock("wildflowers", WILDFLOWERS, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_wildflowers"), POTTED_WILDFLOWERS);
+		createBlock("clover", CLOVER, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_clover"), POTTED_CLOVER);
+
+		// shroms
 		createBlock("puffballs", PUFFBALLS, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_puffballs"), POTTED_PUFFBALLS);
 
@@ -1470,6 +1483,10 @@ public class MBBlocks {
 		createBlock("kiln", KILN, MBItemGroup.DECOR);
 		KILN_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "kiln_block_entity"),
 				FabricBlockEntityTypeBuilder.create(KilnBlockEntity::new, KILN).build(null));
+
+		createBlock("boiling_cauldron", BOILING_CAULDRON, MBItemGroup.DECOR);
+		BOILING_CAULDRON_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "boiling_cauldron_entity"),
+				FabricBlockEntityTypeBuilder.create(BoilingCauldronEntity::new, BOILING_CAULDRON).build(null));
 
 		createBlock("cooking_pot", COOKING_POT, MBItemGroup.DECOR);
 		COOKING_POT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "cooking_pot_entity"),
@@ -1916,6 +1933,10 @@ public class MBBlocks {
 		createBlock("bamboo_bundle", BAMBOO_BUNDLE, MBItemGroup.DECOR);
 		createBlock("kelp_block", KELP_BLOCK, MBItemGroup.DECOR);
 
+		createBlock("sugar_cube", SUGAR_CUBE, MBItemGroup.DECOR);
+
+		createBlock("packed_glowstone", PACKED_GLOWSTONE, MBItemGroup.DECOR);
+
 		createBlock("nether_wart_bundle", NETHER_WART_SACK, MBItemGroup.DECOR);
 
 		createBlock("spool", SPOOL, MBItemGroup.DECOR);
@@ -1927,11 +1948,13 @@ public class MBBlocks {
 
 		createBlock("rotten_flesh_block", ROTTEN_FLESH_BLOCK, MBItemGroup.DECOR);
 		createBlock("bone_bundle", BONE_BUNDLE, MBItemGroup.DECOR);
+		createBlock("gunpowder_crate", GUNPOWDER_CRATE, MBItemGroup.DECOR);
 		createBlock("spider_eye_block", SPIDER_EYE_BLOCK, MBItemGroup.DECOR);
 		createBlock("phantom_membrane_block", PHANTOM_MEMBRANE_BLOCK, MBItemGroup.DECOR);
 
 		createBlock("blaze_rod_bundle", BLAZE_ROD_BUNDLE, MBItemGroup.DECOR);
 		createBlock("ender_pearl_block", ENDER_PEARL_BLOCK, MBItemGroup.DECOR);
+		createBlock("chorus_bundle", CHORUS_BUNDLE, MBItemGroup.DECOR);
 
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "blaze_rod"), BLAZE_ROD);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "wall_lantern"), WALL_LANTERN);

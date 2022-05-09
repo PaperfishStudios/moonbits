@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "moonbits:lettuce_wrap"
+      "minecraft:gunpowder_crate_from_gunpowder"
     ]
   },
   "criteria": {
-    "has_lettuce": {
+    "has_gunpowder_crate": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:lettuce_leaf"
+              "moonbits:gunpowder_crate"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "moonbits:lettuce_wrap"
+        "recipe": "minecraft:gunpowder_crate_from_gunpowder"
       }
     }
   },
   "requirements": [
     [
-      "has_lettuce",
+      "has_gunpowder_crate",
       "has_the_recipe"
     ]
   ]

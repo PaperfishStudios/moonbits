@@ -1,9 +1,6 @@
 package net.paperfish.moonbits.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Fertilizable;
-import net.minecraft.block.TallPlantBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -32,7 +29,7 @@ public class TallPricklyPearBlock extends TallPlantBlock implements Fertilizable
 
     public TallPricklyPearBlock(Settings settings) {
         super(settings);
-        setDefaultState(getStateManager().getDefaultState().with(CUT, false).with(AGE, 0));
+        setDefaultState(getStateManager().getDefaultState().with(CUT, false).with(AGE, 0).with(HALF, DoubleBlockHalf.LOWER));
     }
 
     @Override

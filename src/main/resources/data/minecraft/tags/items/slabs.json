@@ -3,8 +3,6 @@
   "values": [
     "moonbits:tough_dirt_slab",
     "moonbits:dirt_brick_slab",
-    "moonbits:smooth_dirt_slab",
-    "moonbits:packed_dirt_slab",
     "moonbits:mudstone_slab",
     "moonbits:smooth_mudstone_slab",
     "moonbits:mudstone_brick_slab",
@@ -19,6 +17,7 @@
     "moonbits:cracked_chert_brick_slab",
     "moonbits:chert_tile_slab",
     "moonbits:cracked_chert_tile_slab",
+    "moonbits:cut_tin_slab",
     "moonbits:peat_brick_slab",
     "moonbits:giant_toadstool_cap",
     "moonbits:honeycomb_slab",

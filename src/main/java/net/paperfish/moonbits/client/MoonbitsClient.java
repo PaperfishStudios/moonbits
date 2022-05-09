@@ -49,6 +49,11 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.FORGETMENOT,
                 MBBlocks.POTTED_FORGETMENOT,
 
+                MBBlocks.WILDFLOWERS,
+                MBBlocks.POTTED_WILDFLOWERS,
+                MBBlocks.CLOVER,
+                MBBlocks.POTTED_CLOVER,
+
                 MBBlocks.PUFFBALLS,
                 MBBlocks.POTTED_PUFFBALLS,
                 MBBlocks.SAFFRON_MUSHROOM,
@@ -68,6 +73,9 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.ORANGE_HEATHER,
                 MBBlocks.PURPLE_HEATHER,
                 MBBlocks.LUPINE,
+
+                MBBlocks.PRICKLY_PEAR_CACTUS,
+                MBBlocks.TALL_PRICKLY_PEAR_CACTUS,
 
                 MBBlocks.FROSTHORN_CROWN,
                 MBBlocks.FROSTHORN_STEM,
@@ -133,7 +141,8 @@ public class MoonbitsClient implements ClientModInitializer {
         );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),
                 MBBlocks.ICE_BRICKS,
-                MBBlocks.SYRUP_BLOCK
+                MBBlocks.SYRUP_BLOCK,
+                MBBlocks.BOILING_CAULDRON
         );
 
         registerParticleClient();
@@ -183,9 +192,9 @@ public class MoonbitsClient implements ClientModInitializer {
         );
 
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x639956, MBBlocks.CEDAR_LEAVES);
-		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x619971, MBBlocks.JUNIPER_LEAVES);
+//		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x619971, MBBlocks.JUNIPER_LEAVES);
 		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x639956, MBBlocks.CEDAR_LEAVES);
-		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x619971, MBBlocks.JUNIPER_LEAVES);
+//		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x619971, MBBlocks.JUNIPER_LEAVES);
 
 //		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
 //					ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.SPRUCE_LEAVES);

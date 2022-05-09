@@ -116,9 +116,9 @@ public class CookingPotBlockEntity extends LockableContainerBlockEntity implemen
             ingredients.add(slots.get(i));
         }
 
-        List<CookingRecipe> recipes = world.getRecipeManager().listAllOfType(MBData.COOKING_RECIPE_TYPE).stream()
-                .filter((recipe) -> recipe.matches(blockEntity, world)).sorted(Comparator.comparing(o -> o.priority)).toList();
-//        List<CookingRecipe> recipes = world.getRecipeManager().getAllMatches(MBData.COOKING_RECIPE_TYPE, blockEntity, world);
+//        List<CookingRecipe> recipes = world.getRecipeManager().listAllOfType(MBData.COOKING_RECIPE_TYPE).stream()
+//                .filter((recipe) -> recipe.matches(blockEntity, world)).sorted(Comparator.comparing(o -> o.priority)).toList();
+        List<CookingRecipe> recipes = world.getRecipeManager().getAllMatches(MBData.COOKING_RECIPE_TYPE, blockEntity, world);
         if (recipes.isEmpty()) {
             return null;
         }
@@ -132,9 +132,9 @@ public class CookingPotBlockEntity extends LockableContainerBlockEntity implemen
         }
 
         // if the recipe needs no bowl or the bowl slot has the right type of container
-        if (recipe.bowl.isEmpty() || (recipe.bowl.isItemEqual(blockEntity.inventory.get(4))) && blockEntity.inventory.get(4).getCount() > recipe.bowl.getCount()) {
-            return recipe;
-        }
+//        if (recipe.bowl.isEmpty() || (recipe.bowl.isItemEqual(blockEntity.inventory.get(4))) && blockEntity.inventory.get(4).getCount() > recipe.bowl.getCount()) {
+//            return recipe;
+//        }
         return null;
     }
 
@@ -154,10 +154,10 @@ public class CookingPotBlockEntity extends LockableContainerBlockEntity implemen
         }
         // take bowl if needed
         ItemStack bowl = slots.get(4);
-        if (!recipe.bowl.isEmpty() && bowl.isItemEqual(recipe.bowl)) {
-            bowl.decrement(recipe.bowl.getCount());
-            slots.set(4, bowl);
-        }
+//        if (!recipe.bowl.isEmpty() && bowl.isItemEqual(recipe.bowl)) {
+//            bowl.decrement(recipe.bowl.getCount());
+//            slots.set(4, bowl);
+//        }
 
         // craft output
         ItemStack output = slots.get(5);

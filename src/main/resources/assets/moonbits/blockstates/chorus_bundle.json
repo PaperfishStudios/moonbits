@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "moonbits:block/chorus_bundle",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "moonbits:block/chorus_bundle"
+    },
+    "axis=z": {
+      "model": "moonbits:block/chorus_bundle",
+      "x": 90
+    }
+  }
+}

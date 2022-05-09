@@ -15,27 +15,26 @@ public class CookingRecipe implements Recipe<Inventory> {
     public final String group;
     public final DefaultedList<Ingredient> ingredientList;
     public final ItemStack output;
-    public final ItemStack bowl;
-    public final float experience;
-    public final int cookTime;
-    public final int priority;
+    //public final ItemStack bowl;
+    //public final float experience;
+    //public final int cookTime;
+    //public final int priority;
 
-    public CookingRecipe(Identifier id, String group, DefaultedList<Ingredient> ingredientList, ItemStack output, ItemStack bowl,
-                         float experience, int cookTime, int priority) {
+    public CookingRecipe(Identifier id, String group, DefaultedList<Ingredient> ingredientList, ItemStack output) {
         this.id = id;
         this.group = group;
         this.ingredientList = ingredientList;
         this.output = output;
 
-        if (!bowl.isEmpty()) {
-            this.bowl = bowl;
-        } else {
-            this.bowl = ItemStack.EMPTY;
-        }
-
-        this.experience = experience;
-        this.cookTime = cookTime;
-        this.priority = priority;
+//        if (!bowl.isEmpty()) {
+//            this.bowl = bowl;
+//        } else {
+//            this.bowl = ItemStack.EMPTY;
+//        }
+//
+//        this.experience = experience;
+//        this.cookTime = cookTime;
+//        this.priority = priority;
     }
 
     @Override

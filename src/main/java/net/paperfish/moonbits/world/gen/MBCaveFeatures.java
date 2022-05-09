@@ -26,6 +26,7 @@ import java.util.List;
 
 public class MBCaveFeatures {
     public static final RuleTest BASE_STONE_OVERWORLD = new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD);
+    public static final RuleTest CHERT = new BlockMatchRuleTest(MBBlocks.CHERT);
     public static final RuleTest TOUGH_DIRT = new BlockMatchRuleTest(MBBlocks.TOUGH_DIRT);
     public static final RuleTest COARSE_DIRT = new BlockMatchRuleTest(Blocks.COARSE_DIRT);
     public static final RuleTest REGOLITH = new BlockMatchRuleTest(MBBlocks.REGOLITH);
@@ -69,23 +70,31 @@ public class MBCaveFeatures {
             OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.COPPER_DEPOSIT.getDefaultState()),
             OreFeatureConfig.createTarget(REGOLITH, MBBlocks.COPPER_DEPOSIT.getDefaultState()),
             OreFeatureConfig.createTarget(PERMAFROST, MBBlocks.FROST_COPPER.getDefaultState()));
+    public static final List<OreFeatureConfig.Target> TIN_GEN = List.of(
+            OreFeatureConfig.createTarget(TOUGH_DIRT, MBBlocks.TIN_DEPOSIT.getDefaultState()),
+            OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.TIN_DEPOSIT.getDefaultState()),
+            OreFeatureConfig.createTarget(REGOLITH, MBBlocks.TIN_DEPOSIT.getDefaultState()),
+            OreFeatureConfig.createTarget(PERMAFROST, MBBlocks.FROST_TIN_DEPOSIT.getDefaultState()));
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_PEAT =
             MBConfiguredFeatures.register("ore_peat", Feature.ORE, new OreFeatureConfig(PEAT_GEN, 12, 0.1f));
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_PEAT_HIGH =
             MBConfiguredFeatures.register("ore_peat_high", Feature.ORE, new OreFeatureConfig(PEAT_GEN, 14, 0.0f));
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CLAY_DEPOSIT =
-            MBConfiguredFeatures.register("ore_clay_deposit", Feature.ORE, new OreFeatureConfig(CLAY_GEN, 8, 0.2f));
+            MBConfiguredFeatures.register("ore_clay_deposit", Feature.ORE, new OreFeatureConfig(CLAY_GEN, 8, 0.1f));
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> LUSH_CLAY_DEPOSIT =
-            MBConfiguredFeatures.register("lush_clay_deposit", Feature.ORE, new OreFeatureConfig(CLAY_GEN, 10, 0.1f));
+            MBConfiguredFeatures.register("lush_clay_deposit", Feature.ORE, new OreFeatureConfig(CLAY_GEN, 10, 0.0f));
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_GOLD_DEPOSIT =
-            MBConfiguredFeatures.register("ore_gold_deposit", Feature.ORE, new OreFeatureConfig(GOLD_GEN, 5, 0.5f));
+            MBConfiguredFeatures.register("ore_gold_deposit", Feature.ORE, new OreFeatureConfig(GOLD_GEN, 5, 0.3f));
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_GOLD_HIGH =
-            MBConfiguredFeatures.register("ore_gold_dep_high", Feature.ORE, new OreFeatureConfig(GOLD_GEN, 6, 0.4f));
+            MBConfiguredFeatures.register("ore_gold_dep_high", Feature.ORE, new OreFeatureConfig(GOLD_GEN, 6, 0.2f));
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_COPPER_DEPOSIT =
-            MBConfiguredFeatures.register("ore_copper_deposit", Feature.ORE, new OreFeatureConfig(COPPER_GEN, 5, 0.5f));
+            MBConfiguredFeatures.register("ore_copper_deposit", Feature.ORE, new OreFeatureConfig(COPPER_GEN, 5, 0.3f));
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_TIN_DEPOSIT =
+            MBConfiguredFeatures.register("ore_tin_deposit", Feature.ORE, new OreFeatureConfig(TIN_GEN, 6, 0.2f));
 
     public static final RuleTest CHERT_REPLACE = new BlockMatchRuleTest(MBBlocks.CHERT);
+    public static final RuleTest DEEPSLATE = new BlockMatchRuleTest(Blocks.DEEPSLATE);
 
     public static final List<OreFeatureConfig.Target> CHERT_GOLD = List.of(
             OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_GOLD_ORE.getDefaultState()));
@@ -97,6 +106,13 @@ public class MBCaveFeatures {
             OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_COAL_ORE.getDefaultState()));
     public static final List<OreFeatureConfig.Target> CHERT_REDSTONE = List.of(
             OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_REDSTONE_ORE.getDefaultState()));
+    public static final List<OreFeatureConfig.Target> TIN_ORE_GEN = List.of(
+            OreFeatureConfig.createTarget(BASE_STONE_OVERWORLD, MBBlocks.TIN_ORE.getDefaultState()),
+            OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_TIN_ORE.getDefaultState()),
+            OreFeatureConfig.createTarget(DEEPSLATE, MBBlocks.DEEPSLATE_TIN_ORE.getDefaultState()));
+
+    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_TIN = MBConfiguredFeatures.register(
+            "ore_tin", Feature.ORE, new OreFeatureConfig(TIN_ORE_GEN, 12, 0.1f));
 
 //    public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_COAL = MBConfiguredFeatures.register(
 //            "ore_chert_coal", Feature.ORE, new OreFeatureConfig(CHERT_COAL, 17, 0.1f));
@@ -127,6 +143,16 @@ public class MBCaveFeatures {
                     )
             )
     );
+    public static final RegistryEntry<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> SUBSTRATE_VEG = MBConfiguredFeatures.register("sub_vegetation", Feature.SIMPLE_BLOCK,
+            new SimpleBlockFeatureConfig(
+                    new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
+                            .add(Blocks.AIR.getDefaultState(), 70)
+                            .add(Blocks.GRASS.getDefaultState(), 10)
+                            .add(MBBlocks.WILDFLOWERS.getDefaultState(), 4)
+                            .add(MBBlocks.CLOVER.getDefaultState(), 4)
+                    )
+            )
+    );
     public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> TOUGH_GRASS_PATCH =
             MBConfiguredFeatures.register("tg_patch", Feature.VEGETATION_PATCH,
             new VegetationPatchFeatureConfig(
@@ -141,6 +167,20 @@ public class MBCaveFeatures {
                     UniformIntProvider.create(3, 6),
                     0.1f)
     );
+    public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> SUBSTRATE_PATCH =
+            MBConfiguredFeatures.register("sub_patch", Feature.VEGETATION_PATCH,
+                    new VegetationPatchFeatureConfig(
+                            MBBlockTags.TOUGH_DIRT,
+                            BlockStateProvider.of(MBBlocks.SUBSTRATE),
+                            PlacedFeatures.createEntry(SUBSTRATE_VEG),
+                            VerticalSurfaceType.FLOOR,
+                            ConstantIntProvider.create(1),
+                            0.0f,
+                            5,
+                            0.4f,
+                            UniformIntProvider.create(3, 6),
+                            0.1f)
+            );
     public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> TOUGH_GRASS_LUSH =
             MBConfiguredFeatures.register("tg_lush", Feature.VEGETATION_PATCH,
             new VegetationPatchFeatureConfig(

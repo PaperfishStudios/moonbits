@@ -27,7 +27,6 @@ public class MBBiomeProvider extends Region {
             builder.replaceBiome(BiomeKeys.OLD_GROWTH_BIRCH_FOREST, MBBiomes.TALL_GOLDEN_FOREST);
             builder.replaceBiome(BiomeKeys.PLAINS, MBBiomes.PASTURE);
             builder.replaceBiome(BiomeKeys.SAVANNA_PLATEAU, MBBiomes.PRAIRIE);
-            builder.replaceBiome(BiomeKeys.SNOWY_PLAINS, MBBiomes.TUNDRA);
 
             List<MultiNoiseUtil.NoiseHypercube> steppe = new ParameterUtils.ParameterPointListBuilder()
                     .temperature(ParameterUtils.Temperature.HOT)

@@ -3,8 +3,6 @@
   "values": [
     "moonbits:tough_dirt_stairs",
     "moonbits:dirt_brick_stairs",
-    "moonbits:smooth_dirt_stairs",
-    "moonbits:packed_dirt_stairs",
     "moonbits:mudstone_stairs",
     "moonbits:smooth_mudstone_stairs",
     "moonbits:mudstone_brick_stairs",
@@ -19,6 +17,7 @@
     "moonbits:cracked_chert_brick_stairs",
     "moonbits:chert_tile_stairs",
     "moonbits:cracked_chert_tile_stairs",
+    "moonbits:cut_tin_stairs",
     "moonbits:peat_brick_stairs",
     "moonbits:honeycomb_stairs",
     "moonbits:honeycomb_brick_stairs",

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "moonbits:tin_block"
+    }
+  },
+  "result": {
+    "item": "moonbits:cut_tin",
+    "count": 16
+  }
+}

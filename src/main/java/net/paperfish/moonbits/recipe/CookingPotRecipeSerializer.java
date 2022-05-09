@@ -36,15 +36,15 @@ public class CookingPotRecipeSerializer implements RecipeSerializer<CookingRecip
 //        Identifier identifier2 = new Identifier(string2);
         ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(jsonObject, "result"));
 
-        String string3 = JsonHelper.getString(jsonObject, "bowl");
-        Identifier identifier3 = new Identifier(string3);
-        ItemStack bowlStack = new ItemStack(Registry.ITEM.getOrEmpty(identifier3).orElseThrow(() -> new IllegalStateException("Item: " + string3 + " does not exist")));
+//        String string3 = JsonHelper.getString(jsonObject, "bowl");
+//        Identifier identifier3 = new Identifier(string3);
+//        ItemStack bowlStack = new ItemStack(Registry.ITEM.getOrEmpty(identifier3).orElseThrow(() -> new IllegalStateException("Item: " + string3 + " does not exist")));
+//
+//        float xp = JsonHelper.getFloat(jsonObject, "exp", 0.0f);
+//        int cookTime = JsonHelper.getInt(jsonObject, "cook_time", 200);
+//        int priority = JsonHelper.getInt(jsonObject, "priority", 0);
 
-        float xp = JsonHelper.getFloat(jsonObject, "exp", 0.0f);
-        int cookTime = JsonHelper.getInt(jsonObject, "cook_time", 200);
-        int priority = JsonHelper.getInt(jsonObject, "priority", 0);
-
-        return new CookingRecipe(id, string, ingredients, output, bowlStack, xp, cookTime, priority);
+        return new CookingRecipe(id, string, ingredients, output);
     }
 
     private static DefaultedList<Ingredient> getIngredients(JsonArray json) {
@@ -66,11 +66,11 @@ public class CookingPotRecipeSerializer implements RecipeSerializer<CookingRecip
             defaultedList.set(j, Ingredient.fromPacket(packetByteBuf));
         }
         ItemStack output = packetByteBuf.readItemStack();
-        ItemStack bowlStack = packetByteBuf.readItemStack();
-        int xp = packetByteBuf.readVarInt();
-        int cookTime = packetByteBuf.readVarInt();
-        int priority = packetByteBuf.readVarInt();
-        return new CookingRecipe(id, string, defaultedList, output, bowlStack, xp, cookTime, priority);
+//        ItemStack bowlStack = packetByteBuf.readItemStack();
+//        int xp = packetByteBuf.readVarInt();
+//        int cookTime = packetByteBuf.readVarInt();
+//        int priority = packetByteBuf.readVarInt();
+        return new CookingRecipe(id, string, defaultedList, output);
     }
 
     @Override
@@ -81,9 +81,9 @@ public class CookingPotRecipeSerializer implements RecipeSerializer<CookingRecip
             ingredient.write(buffer);
         }
         buffer.writeItemStack(recipe.output);
-        buffer.writeItemStack(recipe.bowl);
-        buffer.writeFloat(recipe.experience);
-        buffer.writeVarInt(recipe.cookTime);
-        buffer.writeVarInt(recipe.priority);
+//        buffer.writeItemStack(recipe.bowl);
+//        buffer.writeFloat(recipe.experience);
+//        buffer.writeVarInt(recipe.cookTime);
+//        buffer.writeVarInt(recipe.priority);
     }
 }

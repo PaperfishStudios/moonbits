@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "moonbits:cut_tin_slab"
+    ]
+  },
+  "criteria": {
+    "has_cut_tin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:cut_tin"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "moonbits:cut_tin_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cut_tin",
+      "has_the_recipe"
+    ]
+  ]
+}

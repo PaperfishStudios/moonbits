@@ -32,9 +32,6 @@ public class MBSurfaceRules {
         return MaterialRules.sequence(
                 MaterialRules.condition(MaterialRules.biome(MBBiomes.PRAIRIE), MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, toughSurface)),
 
-                MaterialRules.condition(MaterialRules.biome(MBBiomes.TUNDRA), MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR,
-                        MaterialRules.sequence(MaterialRules.condition(isAtOrAboveWaterLevel, SNOW_BLOCK), PERMAFROST))),
-
                 // Default to a grass and dirt surface
                 MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, grassSurface)
         );

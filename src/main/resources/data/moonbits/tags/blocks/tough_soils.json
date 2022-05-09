@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "minecraft:coarse_dirt",
     "moonbits:tough_dirt",
-    "moonbits:regolith"
+    "moonbits:regolith",
+    "moonbits:substrate"
   ]
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "moonbits:block/tall_prickly_pear_cactus_bottom_2"
+  }
+}

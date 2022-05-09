@@ -16,6 +16,7 @@ import net.paperfish.moonbits.registry.MBItems;
 import java.util.Map;
 
 public class MBCauldronBehaviour {
+    public static final Map<Item, CauldronBehavior> BOILING_CAULDRON_BEHAVIOR = CauldronBehavior.createMap();
     public static final Map<Item, CauldronBehavior> HONEY_CAULDRON_BEHAVIOR = CauldronBehavior.createMap();
     public static final Map<Item, CauldronBehavior> SYRUP_CAULDRON_BEHAVIOR = CauldronBehavior.createMap();
 

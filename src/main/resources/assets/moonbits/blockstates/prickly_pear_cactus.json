@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "moonbits:block/prickly_pear_cactus_0"
+    },
+    "age=1": {
+      "model": "moonbits:block/prickly_pear_cactus_1"
+    }
+  }
+}

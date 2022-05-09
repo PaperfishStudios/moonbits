@@ -17,9 +17,5 @@
   "result": {
     "item": "minecraft:pumpkin_pie",
     "count": 3
-  },
-  "bowl": "minecraft:air",
-  "exp": 0.0,
-  "cook_time": 0,
-  "priority": 0
+  }
 }

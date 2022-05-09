@@ -24,12 +24,8 @@ public class MBBiomes {
     public static final RegistryKey<Biome> TALL_GOLDEN_FOREST = createBiomeKey("tall_golden_forest");
     public static final RegistryKey<Biome> PASTURE = createBiomeKey("pasture");
 
-    public static final RegistryKey<Biome> FLOOD_PLAINS = createBiomeKey("flood_plains");
     public static final RegistryKey<Biome> STEPPE = createBiomeKey("steppe");
     public static final RegistryKey<Biome> PRAIRIE = createBiomeKey("prairie");
-
-    public static final RegistryKey<Biome> TUNDRA = createBiomeKey("tundra");
-    public static final RegistryKey<Biome> MIRE = createBiomeKey("mire");
 
 
     public static RegistryKey<Biome> createBiomeKey(String id) {
@@ -40,11 +36,8 @@ public class MBBiomes {
         register(GOLDEN_FOREST, goldenForest(false));
         register(TALL_GOLDEN_FOREST, goldenForest(true));
         register(PASTURE, pasture());
-        register(FLOOD_PLAINS, floodPlains());
         register(STEPPE, steppe());
         register(PRAIRIE, prairie());
-        register(TUNDRA, tundra());
-        register(MIRE, mire());
     }
     private static void register(RegistryKey<Biome> key, Biome biome) {
         BuiltinRegistries.add(BuiltinRegistries.BIOME, key, biome);
@@ -153,33 +146,6 @@ public class MBBiomes {
 //                4159204, 329011, builder2, builder, 0xb1c5e6, 0xB4C63C, MusicType.GAME);
 //    }
 
-    public static Biome floodPlains() {
-        GenerationSettings.Builder builder = new GenerationSettings.Builder();
-        DefaultBiomeFeatures.addFossils(builder);
-
-        addBasicFeatures(builder);
-
-        DefaultBiomeFeatures.addDefaultOres(builder);
-        DefaultBiomeFeatures.addDefaultDisks(builder);
-        DefaultBiomeFeatures.addDefaultFlowers(builder);
-        DefaultBiomeFeatures.addDefaultGrass(builder);
-        DefaultBiomeFeatures.addDesertDeadBushes(builder);
-        DefaultBiomeFeatures.addDefaultMushrooms(builder);
-        DefaultBiomeFeatures.addDesertVegetation(builder);
-
-        addDesertOres(builder);
-//        desertMineables(builder);
-        builder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.PEBBLES);
-        builder.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.ORE_CRACKED_MUD);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PATCH_DESERT_BRUSH);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_MARIGOLD_PATCH);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_BARREL_CACTI);
-
-        SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
-        lushDesertMobs(builder2);
-        return createBiome(Biome.Precipitation.NONE, Biome.Category.DESERT, 2.0f, 0.0f,
-                4159204, 329011, builder2, builder, getSkyColor(2.0f), 0xd6db44, MusicType.GAME);
-    }
     public static Biome steppe() {
         GenerationSettings.Builder builder = new GenerationSettings.Builder();
         DefaultBiomeFeatures.addFossils(builder);
@@ -225,8 +191,8 @@ public class MBBiomes {
 
 
         builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUMPKIN_PATCH);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_MARIGOLD_PATCH);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PRAIRIE_TREES);
+//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PRAIRIE_TREES);
+//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_MARIGOLD_PATCH);
 
         SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addFarmAnimals(builder2);
@@ -235,63 +201,6 @@ public class MBBiomes {
 
         return createBiome(Biome.Precipitation.RAIN, Biome.Category.SAVANNA, 0.6f, 0.6f,
                 4159204, 329011, builder2, builder, getSkyColor(0.8f), 0xd6db44, MusicType.GAME);
-    }
-
-    public static Biome tundra() {
-        SpawnSettings.Builder builder = new SpawnSettings.Builder();
-        GenerationSettings.Builder builder2 = new GenerationSettings.Builder();
-        addBasicFeatures(builder2);
-        builder.creatureSpawnProbability(0.07f);
-        DefaultBiomeFeatures.addSnowyMobs(builder);
-
-        DefaultBiomeFeatures.addDefaultOres(builder2);
-        DefaultBiomeFeatures.addDefaultDisks(builder2);
-        DefaultBiomeFeatures.addSnowySpruceTrees(builder2);
-        DefaultBiomeFeatures.addDefaultFlowers(builder2);
-        DefaultBiomeFeatures.addDefaultGrass(builder2);
-        DefaultBiomeFeatures.addDefaultMushrooms(builder2);
-        DefaultBiomeFeatures.addDefaultVegetation(builder2);
-        builder2.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.ORE_PERMAFROST);
-        builder2.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.TILL_ROCK);
-        builder2.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.PEBBLES);
-        builder2.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PATCH_COTTONGRASS);
-        builder2.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.HEATHER);
-        builder2.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.LUPINE);
-        builder2.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.JUNIPERS);
-
-        return createBiome(Biome.Precipitation.SNOW, Biome.Category.ICY, 0.0f, 0.5f, builder, builder2, MusicType.GAME);
-    }
-    public static Biome mire() {
-        GenerationSettings.Builder builder = new GenerationSettings.Builder();
-        addBasicFeatures(builder);
-
-        DefaultBiomeFeatures.addDefaultOres(builder);
-        DefaultBiomeFeatures.addDefaultDisks(builder);
-
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
-        DefaultBiomeFeatures.addDefaultMushrooms(builder);
-        DefaultBiomeFeatures.addDefaultVegetation(builder);
-
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT);
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT_UPPER);
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_GOLD_DEPOSIT);
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_COPPER_DEPOSIT);
-//        addRYSStuff(builder);
-
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS);
-//
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PASTURE_TREES);
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUMPKIN_PATCH);
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUFFBALLS_PATCH);
-        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_CARROT_PATCH);
-
-        SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addFarmAnimals(builder2);
-        DefaultBiomeFeatures.addBatsAndMonsters(builder2);
-        builder2.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 4, 5, 8));
-
-        return createBiome(Biome.Precipitation.RAIN, Biome.Category.SWAMP, 0.0f, 0.6f,
-                4159204, 329011, builder2, builder, getSkyColor(0.0f), 0x96b85f, MusicType.GAME);
     }
 
     public static void addBasicFeatures(GenerationSettings.Builder generationSettings) {

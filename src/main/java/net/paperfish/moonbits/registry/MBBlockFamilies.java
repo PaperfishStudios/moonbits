@@ -142,10 +142,6 @@ public class MBBlockFamilies {
             .wall(MBBlocks.HONEYCOMB_WALL)
             .polished(MBBlocks.POLISHED_HONEYCOMB).child(POLISHED_HONEYCOMB).build();
 
-    public static final MBBlockFamily PACKED_DIRT = register(MBBlocks.PACKED_DIRT)
-            .slab(MBBlocks.PACKED_DIRT_SLAB).stairs(MBBlocks.PACKED_DIRT_STAIRS).build();
-    public static final MBBlockFamily SMOOTH_DIRT = register(MBBlocks.SMOOTH_DIRT)
-            .slab(MBBlocks.SMOOTH_DIRT_SLAB).stairs(MBBlocks.SMOOTH_DIRT_STAIRS).polished(MBBlocks.PACKED_DIRT).child(PACKED_DIRT).build();
     public static final MBBlockFamily DIRT_BRICKS = register(MBBlocks.DIRT_BRICKS)
             .slab(MBBlocks.DIRT_BRICK_SLAB).stairs(MBBlocks.DIRT_BRICK_STAIRS).build();
     public static final MBBlockFamily TOUGH_DIRT = register(MBBlocks.TOUGH_DIRT).child(DIRT_BRICKS)
@@ -155,6 +151,9 @@ public class MBBlockFamilies {
     public static final MBBlockFamily PEAT_BRICKS = register(MBBlocks.PEAT_BRICKS)
             .slab(MBBlocks.PEAT_BRICK_SLAB).stairs(MBBlocks.PEAT_BRICK_STAIRS)
             .wall(MBBlocks.PEAT_BRICK_WALL).build();
+
+    public static final MBBlockFamily CUT_TIN = register(MBBlocks.CUT_TIN)
+            .slab(MBBlocks.CUT_TIN_SLAB).stairs(MBBlocks.CUT_TIN_STAIRS).build();
 
     public static final MBBlockFamily FROSTY_TILL_BRICKS = register(MBBlocks.FROSTY_TILL_BRICKS)
             .slab(MBBlocks.FROSTY_TILL_BRICK_SLAB).stairs(MBBlocks.FROSTY_TILL_BRICK_STAIRS).wall(MBBlocks.FROSTY_TILL_BRICK_WALL).build();

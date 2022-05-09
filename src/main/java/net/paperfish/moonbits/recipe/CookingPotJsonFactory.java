@@ -28,10 +28,10 @@ public class CookingPotJsonFactory implements CraftingRecipeJsonBuilder {
     private final int outputCount;
     private final List<Ingredient> inputs = Lists.newArrayList();
     @Nullable
-    private Item bowl;
-    private float experience;
-    private int cookTime;
-    private int priority;
+//    private Item bowl;
+//    private float experience;
+//    private int cookTime;
+//    private int priority;
 
     private final Advancement.Builder advancementBuilder = Advancement.Builder.create();
     @Nullable
@@ -77,22 +77,22 @@ public class CookingPotJsonFactory implements CraftingRecipeJsonBuilder {
         return this;
     }
 
-    public CookingPotJsonFactory bowl(Item item) {
-        this.bowl = item;
-        return this;
-    }
-    public CookingPotJsonFactory exp(float f) {
-        this.experience = f;
-        return this;
-    }
-    public CookingPotJsonFactory cookTime(int cookTime) {
-        this.cookTime = cookTime;
-        return this;
-    }
-    public CookingPotJsonFactory priority(int priority) {
-        this.priority = priority;
-        return this;
-    }
+//    public CookingPotJsonFactory bowl(Item item) {
+//        this.bowl = item;
+//        return this;
+//    }
+//    public CookingPotJsonFactory exp(float f) {
+//        this.experience = f;
+//        return this;
+//    }
+//    public CookingPotJsonFactory cookTime(int cookTime) {
+//        this.cookTime = cookTime;
+//        return this;
+//    }
+//    public CookingPotJsonFactory priority(int priority) {
+//        this.priority = priority;
+//        return this;
+//    }
 
     @Override
     public CookingPotJsonFactory criterion(String string, CriterionConditions criterionConditions) {
@@ -117,7 +117,7 @@ public class CookingPotJsonFactory implements CraftingRecipeJsonBuilder {
         this.advancementBuilder.parent(new Identifier("recipes/root"))
                 .criterion("has_the_recipe", RecipeUnlockedCriterion.create(recipeId)).rewards(AdvancementRewards.Builder.recipe(recipeId)).criteriaMerger(CriterionMerger.OR);
         exporter.accept(new CookingRecipeJsonProvider(recipeId,
-                this.output, this.outputCount, this.group == null ? "" : this.group, this.inputs, this.bowl, this.experience, this.cookTime, this.priority, this.advancementBuilder,
+                this.output, this.outputCount, this.group == null ? "" : this.group, this.inputs, this.advancementBuilder,
                 new Identifier(recipeId.getNamespace(), "recipes/" + this.output.getGroup().getName() + "/" + recipeId.getPath())));
     }
 
@@ -134,25 +134,24 @@ public class CookingPotJsonFactory implements CraftingRecipeJsonBuilder {
         private final int count;
         private final String group;
         private final List<Ingredient> inputs;
-        private Item bowl;
-        private float experience;
-        private int cookTime;
-        private int priority;
+//        private Item bowl;
+//        private float experience;
+//        private int cookTime;
+//        private int priority;
         private final Advancement.Builder advancementBuilder;
         private final Identifier advancementId;
 
         public CookingRecipeJsonProvider(Identifier recipeId, Item output, int outputCount, String group, List<Ingredient> inputs,
-                                         Item bowl, float exp, int cookTime, int priority,
                                          Advancement.Builder advancementBuilder, Identifier advancementId) {
             this.recipeId = recipeId;
             this.output = output;
             this.count = outputCount;
             this.group = group;
             this.inputs = inputs;
-            this.bowl = bowl;
-            this.experience = exp;
-            this.cookTime = cookTime;
-            this.priority = priority;
+//            this.bowl = bowl;
+//            this.experience = exp;
+//            this.cookTime = cookTime;
+//            this.priority = priority;
             this.advancementBuilder = advancementBuilder;
             this.advancementId = advancementId;
         }
@@ -174,10 +173,10 @@ public class CookingPotJsonFactory implements CraftingRecipeJsonBuilder {
             }
             json.add("result", jsonObject);
 
-            json.addProperty("bowl", Registry.ITEM.getId(this.bowl).toString());
-            json.addProperty("exp", this.experience);
-            json.addProperty("cook_time", this.cookTime);
-            json.addProperty("priority", this.priority);
+//            json.addProperty("bowl", Registry.ITEM.getId(this.bowl).toString());
+//            json.addProperty("exp", this.experience);
+//            json.addProperty("cook_time", this.cookTime);
+//            json.addProperty("priority", this.priority);
         }
 
         @Override

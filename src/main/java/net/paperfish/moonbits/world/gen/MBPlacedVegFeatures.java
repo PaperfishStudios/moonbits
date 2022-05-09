@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.PlacedFeature;
@@ -20,10 +21,12 @@ public class MBPlacedVegFeatures {
             NoiseThresholdCountPlacementModifier.of(-0.8, 5, 10), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> PATCH_DESERT_BRUSH = MBPlacedFeatures.register("p_desert_brush", MBVegetationFeatures.PATCH_DESERT_BRUSH,
-            NoiseThresholdCountPlacementModifier.of(-0.8, 15, 4), RarityFilterPlacementModifier.of(32), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
+            NoiseThresholdCountPlacementModifier.of(-0.8, 15, 4), RarityFilterPlacementModifier.of(32), SquarePlacementModifier.of(),
+            HeightRangePlacementModifier.trapezoid(YOffset.fixed(60), YOffset.fixed(120)), BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> FLOOD_DESERT_BRUSH = MBPlacedFeatures.register("p_flood_desert_brush", MBVegetationFeatures.FLOOD_DESERT_BRUSH,
-            NoiseThresholdCountPlacementModifier.of(-0.8, 5, 10), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
+            NoiseThresholdCountPlacementModifier.of(-0.8, 5, 10), SquarePlacementModifier.of(),
+            HeightRangePlacementModifier.trapezoid(YOffset.fixed(60), YOffset.fixed(80)), BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> PATCH_COTTONGRASS = MBPlacedFeatures.register("p_cottongrass", MBVegetationFeatures.COTTONGRASS,
             NoiseThresholdCountPlacementModifier.of(-0.9, 3, 6), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
@@ -33,10 +36,18 @@ public class MBPlacedVegFeatures {
             MBVegetationFeatures.BUTTERCUP_PATCH, CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> FORGETMENOT_PATCH = MBPlacedFeatures.register("p_forgetmenot",
             MBVegetationFeatures.FORGETMENOT_PATCH, CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> WILDFLOWER_PATCH = MBPlacedFeatures.register("p_wildflower",
+            MBVegetationFeatures.WILDFLOWER_PATCH, CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+    public static final RegistryEntry<PlacedFeature> CLOVER_PATCH = MBPlacedFeatures.register("p_clover",
+            MBVegetationFeatures.CLOVER_PATCH, CountPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+
     public static final RegistryEntry<PlacedFeature> MARIGOLD_PATCH = MBPlacedFeatures.register("p_marigold",
-            MBVegetationFeatures.MARIGOLD_PATCH, CountPlacementModifier.of(2), RarityFilterPlacementModifier.of(16), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+            MBVegetationFeatures.MARIGOLD_PATCH, CountPlacementModifier.of(1), RarityFilterPlacementModifier.of(16), SquarePlacementModifier.of(),
+            HeightRangePlacementModifier.trapezoid(YOffset.fixed(60), YOffset.fixed(108)), BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> FLOOD_MARIGOLD_PATCH = MBPlacedFeatures.register("p_flood_marigold",
-            MBVegetationFeatures.FLOOD_MARIGOLD_PATCH, CountPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+            MBVegetationFeatures.FLOOD_MARIGOLD_PATCH, CountPlacementModifier.of(3), SquarePlacementModifier.of(),
+            HeightRangePlacementModifier.trapezoid(YOffset.fixed(60), YOffset.fixed(78)), BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> ROSE_BUSH = MBPlacedFeatures.register("p_rose_bushes",
             MBVegetationFeatures.ROSE_BUSH, CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
@@ -79,9 +90,11 @@ public class MBPlacedVegFeatures {
             MBVegetationFeatures.PUMPKIN_PATCH, CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> BARREL_CACTI = MBPlacedFeatures.register("p_barrel_cacti",
-            MBVegetationFeatures.BARREL_CACTI, CountPlacementModifier.of(2), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+            MBVegetationFeatures.BARREL_CACTI, CountPlacementModifier.of(1), SquarePlacementModifier.of(),
+            HeightRangePlacementModifier.trapezoid(YOffset.fixed(60), YOffset.fixed(114)), BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> FLOOD_BARREL_CACTI = MBPlacedFeatures.register("p_flood_barrel_cacti",
-            MBVegetationFeatures.FLOOD_BARREL_CACTI, CountPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+            MBVegetationFeatures.FLOOD_BARREL_CACTI, CountPlacementModifier.of(3), SquarePlacementModifier.of(),
+            HeightRangePlacementModifier.trapezoid(YOffset.fixed(67), YOffset.fixed(72)), BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> ORE_CRACKED_MUD = MBPlacedFeatures.register("p_cracked_mud",
             MBVegetationFeatures.PATCH_CRACKED_MUD, MBPlacedCaveFeatures.modifiersWithCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(128))));
@@ -118,7 +131,9 @@ public class MBPlacedVegFeatures {
             modifiers(PlacedFeatures.createCountExtraModifier(1, 0.1F, 1)));
     public static final RegistryEntry<PlacedFeature> JUNIPERS = MBPlacedFeatures.register("p_junipers",
             MBVegetationFeatures.JUNIPER_TREES,
-            modifiers(PlacedFeatures.createCountExtraModifier(1, 0.1F, 1)));
+            PlacedFeatures.createCountExtraModifier(1, 0.1F, 1), SquarePlacementModifier.of(),
+            SurfaceWaterDepthFilterPlacementModifier.of(0), RarityFilterPlacementModifier.of(16),
+            HeightRangePlacementModifier.trapezoid(YOffset.fixed(68), YOffset.fixed(78)), BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> FALLEN_OAK = MBPlacedFeatures.register("p_fallen_oak",
             MBTreeFeatures.FALLEN_OAK, CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());

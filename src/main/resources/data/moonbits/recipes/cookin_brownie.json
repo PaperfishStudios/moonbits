@@ -17,9 +17,5 @@
   "result": {
     "item": "moonbits:brownie",
     "count": 12
-  },
-  "bowl": "minecraft:air",
-  "exp": 0.0,
-  "cook_time": 0,
-  "priority": 0
+  }
 }

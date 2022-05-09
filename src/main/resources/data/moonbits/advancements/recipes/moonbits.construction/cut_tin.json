@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "minecraft:lettuce_block_from_lettuce_leaf"
+      "moonbits:cut_tin"
     ]
   },
   "criteria": {
-    "has_lettuce_leaf": {
+    "has_tin_block": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:lettuce_leaf"
+              "moonbits:tin_block"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "minecraft:lettuce_block_from_lettuce_leaf"
+        "recipe": "moonbits:cut_tin"
       }
     }
   },
   "requirements": [
     [
-      "has_lettuce_leaf",
+      "has_tin_block",
       "has_the_recipe"
     ]
   ]

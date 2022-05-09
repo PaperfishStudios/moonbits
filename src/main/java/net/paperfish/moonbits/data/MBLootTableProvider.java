@@ -15,6 +15,8 @@ import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LeafEntry;
+import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.*;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -121,6 +123,8 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.ASPEN_LEAF_CARPET, MBLootTableProvider::leafCarpet);
         addDrop(MBBlocks.ASPEN_SAPLING);
 
+        addDrop(MBBlocks.BOILING_CAULDRON, Items.CAULDRON);
+
         addDrop(MBBlocks.HONEY_CAULDRON, Items.CAULDRON);
         addDrop(MBBlocks.SYRUP_CAULDRON, Items.CAULDRON);
         addDrop(MBBlocks.TREE_TAP);
@@ -130,6 +134,7 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
 
         addDrop(MBBlocks.LEAFBED, (Block block) -> BlockLootTableGenerator.drops(block, Blocks.DIRT));
         addDrop(MBBlocks.TOUGH_GRASS, (Block block) -> BlockLootTableGenerator.drops(block, MBBlocks.TOUGH_DIRT));
+        addDrop(MBBlocks.SUBSTRATE, (Block block) -> BlockLootTableGenerator.drops(block, MBBlocks.TOUGH_DIRT));
         addDrop(MBBlocks.REGOLITH, (Block block) -> BlockLootTableGenerator.dropsWithSilkTouch(block,
                 BlockLootTableGenerator.addSurvivesExplosionCondition(block, ItemEntry.builder(block)
                         .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, 0.25f, 0.14285715f, 0.1f, 0f)).alternatively(ItemEntry.builder(MBBlocks.PEBBLES)))));
@@ -147,9 +152,9 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
 
         addDrop(MBBlocks.TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 2f, 5f));
         addDrop(MBBlocks.FROST_TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 2f, 5f));
-        addDrop(MBBlocks.TIN_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.RAW_TIN));
-        addDrop(MBBlocks.DEEPSLATE_TIN_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.RAW_TIN));
-        addDrop(MBBlocks.CHERT_TIN_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.RAW_TIN));
+        addDrop(MBBlocks.TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
+        addDrop(MBBlocks.DEEPSLATE_TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
+        addDrop(MBBlocks.CHERT_TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
         addDrop(MBBlocks.RAW_TIN_BLOCK);
         addDrop(MBBlocks.TIN_BLOCK);
         addDrop(MBBlocks.TIN_PILLAR);
@@ -235,12 +240,16 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
 
         BlockStatePropertyLootCondition.Builder peanutbuilder = BlockStatePropertyLootCondition.builder(MBBlocks.PEANUT_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(PeanutCropBlock.AGE, 7));
-        this.addDrop(MBBlocks.PEANUT_CROP, BlockLootTableGenerator.applyExplosionDecay(MBBlocks.PEANUT_CROP, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(Items.CARROT)))
+        this.addDrop(MBBlocks.PEANUT_CROP, BlockLootTableGenerator.applyExplosionDecay(MBBlocks.PEANUT_CROP, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(MBItems.PEANUT)))
                 .pool(LootPool.builder().conditionally(peanutbuilder).with(ItemEntry.builder(MBItems.PEANUT)
                         .apply(ApplyBonusLootFunction.binomialWithBonusCount(Enchantments.FORTUNE, 0.5714286f, 3))))));
 
         addDrop(MBBlocks.PEPPER_CROP, BlockLootTableGenerator.cropDrops(MBBlocks.PEPPER_CROP, MBItems.PEPPER, MBItems.PEPPER_SEEDS,
                 BlockStatePropertyLootCondition.builder(MBBlocks.PEPPER_CROP).properties(StatePredicate.Builder.create().exactMatch(PepperCropBlock.AGE, 7))));
+
+        addDrop(MBBlocks.PRICKLY_PEAR_CACTUS, dropsWithShears(MBBlocks.PRICKLY_PEAR_CACTUS));
+        addDrop(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, dropsWithShears(MBBlocks.PRICKLY_PEAR_CACTUS,
+                (ItemEntry.builder(MBBlocks.PRICKLY_PEAR_CACTUS).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 2))))));
 
         addDrop(MBBlocks.BUTTERCUP);
         addDrop(MBBlocks.FORGETMENOT);
@@ -248,6 +257,8 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.WHITE_HYACINTH, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(MBBlocks.LIGHT_BLUE_HYACINTH, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(MBBlocks.RED_HYACINTH, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
+        addDrop(MBBlocks.WILDFLOWERS);
+        addDrop(MBBlocks.CLOVER);
         addDrop(MBBlocks.PUFFBALLS);
         addDrop(MBBlocks.SAFFRON_MUSHROOM);
         addDrop(MBBlocks.TOADSTOOL);
@@ -297,6 +308,10 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBItems.SWEET_BERRY_PITS);
         addDrop(MBItems.GLOW_BERRY_PITS);
 
+        addDrop(MBBlocks.SUGAR_CUBE);
+        addDrop(MBBlocks.PACKED_GLOWSTONE);
+        addDrop(MBBlocks.GUNPOWDER_CRATE);
+
         addDrop(MBBlocks.SUGAR_CANE_BUNDLE);
         addDrop(MBBlocks.BAMBOO_BUNDLE);
         addDrop(MBBlocks.KELP_BLOCK);
@@ -312,6 +327,8 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.PHANTOM_MEMBRANE_BLOCK);
         addDrop(MBBlocks.BLAZE_ROD_BUNDLE);
         addDrop(MBBlocks.ENDER_PEARL_BLOCK);
+
+        addDrop(MBBlocks.CHORUS_BUNDLE);
 
         addDrop(MBBlocks.BLAZE_ROD, (Block block) -> BlockLootTableGenerator.drops(block, Items.BLAZE_ROD));
         addDrop(MBBlocks.GLASS_DOOR, BlockLootTableGenerator::addDoorDrop);

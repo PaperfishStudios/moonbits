@@ -48,6 +48,10 @@ public class PricklyPearBlock extends PlantBlock implements Fertilizable {
         super.randomTick(state, world, pos, random);
     }
 
+    @Override
+    public AbstractBlock.OffsetType getOffsetType() {
+        return AbstractBlock.OffsetType.XZ;
+    }
 
     @Override
     public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {

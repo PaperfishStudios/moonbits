@@ -225,6 +225,9 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
 
         omniCross(MBBlocks.MYCELIUM_ROOTS, generator, true);
 
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.BOILING_CAULDRON,
+                Models.TEMPLATE_CAULDRON_FULL.upload(MBBlocks.BOILING_CAULDRON, TextureMap.cauldron(TextureMap.getSubId(Blocks.WATER, "_still")), generator.modelCollector)));
+
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.HONEY_CAULDRON)
                 .coordinate(BlockStateVariantMap.create(HoneyCauldronBlock.LEVEL)
                         .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, T_HONEY_CAULDRON_1
@@ -261,6 +264,7 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
 
         // ground
         topSoil(MBBlocks.LEAFBED, Blocks.DIRT, generator);
+        topSoil(MBBlocks.SUBSTRATE, MBBlocks.TOUGH_DIRT, generator);
         toughGrass(generator);
         turf(generator);
 
@@ -295,6 +299,8 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerSimpleCubeAll(MBBlocks.PACKED_ICE_BRICKS);
 
         pebbles(generator);
+
+        prickly_pear(generator);
 
         generator.registerSimpleCubeAll(MBBlocks.CHERT_COAL_ORE);
         generator.registerSimpleCubeAll(MBBlocks.CHERT_GOLD_ORE);
@@ -348,6 +354,11 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         doubleBlock(MBBlocks.PINK_HYACINTH, TintType.NOT_TINTED, generator);
         doubleBlock(MBBlocks.LIGHT_BLUE_HYACINTH, TintType.NOT_TINTED, generator);
         doubleBlock(MBBlocks.RED_HYACINTH, TintType.NOT_TINTED, generator);
+
+        cappedCross(MBBlocks.WILDFLOWERS, generator);
+        cappedCross(MBBlocks.CLOVER, generator);
+        pottedBlock(MBBlocks.WILDFLOWERS, MBBlocks.POTTED_WILDFLOWERS, generator);
+        pottedBlock(MBBlocks.CLOVER, MBBlocks.POTTED_CLOVER, generator);
 
         cappedCross(MBBlocks.PUFFBALLS, TintType.NOT_TINTED, generator, true);
         pottedBlock(MBBlocks.PUFFBALLS, MBBlocks.POTTED_PUFFBALLS, generator);
@@ -406,6 +417,11 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerAxisRotated(MBBlocks.PAPER_BUNDLE, CUBE_COLUMN);
         generator.registerAxisRotated(MBBlocks.STICK_STACK, CUBE_COLUMN);
         generator.registerAxisRotated(MBBlocks.CHARCOAL_LOG, CUBE_COLUMN);
+
+        generator.registerSimpleCubeAll(MBBlocks.SUGAR_CUBE);
+        generator.registerSimpleCubeAll(MBBlocks.PACKED_GLOWSTONE);
+        generator.registerSingleton(MBBlocks.GUNPOWDER_CRATE, CUBE_BOTTOM_TOP);
+        generator.registerAxisRotated(MBBlocks.CHORUS_BUNDLE, CUBE_COLUMN);
 
         generator.registerSimpleCubeAll(MBBlocks.SCUTE_BLOCK);
 
@@ -831,6 +847,41 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         );
     }
 
+    public static void prickly_pear(BlockStateModelGenerator generator) {
+        generator.registerItemModel(MBBlocks.PRICKLY_PEAR_CACTUS, "_0");
+
+        Identifier id1 = Models.CROSS.upload(MBBlocks.PRICKLY_PEAR_CACTUS, "_0",
+                TextureMap.cross(TextureMap.getSubId(MBBlocks.PRICKLY_PEAR_CACTUS, "_0")), generator.modelCollector);
+        Identifier id2 = Models.CROSS.upload(MBBlocks.PRICKLY_PEAR_CACTUS, "_1",
+                TextureMap.cross(TextureMap.getSubId(MBBlocks.PRICKLY_PEAR_CACTUS, "_1")), generator.modelCollector);
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.PRICKLY_PEAR_CACTUS).coordinate(BlockStateVariantMap.create(Properties.AGE_1)
+                .register(0, BlockStateVariant.create().put(VariantSettings.MODEL, id1))
+                .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, id2))
+        ));
+
+        Identifier idt1 = Models.CROSS.upload(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_bottom_0",
+                TextureMap.cross(TextureMap.getSubId(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_bottom_0")), generator.modelCollector);
+        Identifier idt2 = Models.CROSS.upload(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_bottom_1",
+                TextureMap.cross(TextureMap.getSubId(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_bottom_1")), generator.modelCollector);
+        Identifier idt3 = Models.CROSS.upload(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_bottom_2",
+                TextureMap.cross(TextureMap.getSubId(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_bottom_2")), generator.modelCollector);
+        Identifier idt4 = Models.CROSS.upload(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_top_0",
+                TextureMap.cross(TextureMap.getSubId(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_top_0")), generator.modelCollector);
+        Identifier idt5 = Models.CROSS.upload(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_top_1",
+                TextureMap.cross(TextureMap.getSubId(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_top_1")), generator.modelCollector);
+        Identifier idt6 = Models.CROSS.upload(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_top_2",
+                TextureMap.cross(TextureMap.getSubId(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, "_top_2")), generator.modelCollector);
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TALL_PRICKLY_PEAR_CACTUS)
+                .coordinate(BlockStateVariantMap.create(Properties.DOUBLE_BLOCK_HALF, Properties.AGE_2)
+                .register(DoubleBlockHalf.LOWER, 0, BlockStateVariant.create().put(VariantSettings.MODEL, idt1))
+                .register(DoubleBlockHalf.LOWER, 1, BlockStateVariant.create().put(VariantSettings.MODEL, idt2))
+                .register(DoubleBlockHalf.LOWER, 2, BlockStateVariant.create().put(VariantSettings.MODEL, idt3))
+                .register(DoubleBlockHalf.UPPER, 0, BlockStateVariant.create().put(VariantSettings.MODEL, idt4))
+                .register(DoubleBlockHalf.UPPER, 1, BlockStateVariant.create().put(VariantSettings.MODEL, idt5))
+                .register(DoubleBlockHalf.UPPER, 2, BlockStateVariant.create().put(VariantSettings.MODEL, idt6))
+        ));
+    }
+
     public static void flowerPotPlant(Block plantBlock, Block flowerPotBlock, TintType tintType, BlockStateModelGenerator generator) {
         flowerPotPlant(plantBlock, flowerPotBlock, tintType, generator, true);
     }
@@ -862,19 +913,15 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
 //                .with(When.create().set(Properties.SNOWY, true), BlockStateVariant.create().put(VariantSettings.MODEL, snow))
 //        );
     }
+    public static void cappedCross(Block block, BlockStateModelGenerator generator) {
+        cappedCross(block, TintType.NOT_TINTED, generator, true);
+    }
     public static void cappedCross(Block block, TintType tintType, BlockStateModelGenerator generator, Boolean genItem) {
         if (genItem) {
             generator.registerItemModel(block);
         }
-        TexturedModel texturedModel = CAPPED_CROSS_F.get(block);
-        Identifier identifier = CAPPED_CROSS.upload(block, texturedModel.getTextures(), generator.modelCollector);
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, identifier));
-//        Identifier snow = new Identifier("block/snow_height2"); // for the snowy variant
-//
-//        generator.blockStateCollector.accept(MultipartBlockStateSupplier.create(block)
-//                .with(BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
-//                .with(When.create().set(Properties.SNOWY, true), BlockStateVariant.create().put(VariantSettings.MODEL, snow))
-//        );
+        Identifier identifier = CAPPED_CROSS_F.get(block).upload(block, generator.modelCollector);
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createBlockStateWithRandomHorizontalRotations(block, identifier));
     }
 
     public static void omniCross(Block block, BlockStateModelGenerator generator, Boolean genItem) {
@@ -1152,6 +1199,11 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         Identifier identifier = LEAF_CARPET_F.get(base).upload(carpet, generator.modelCollector);
         generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(carpet, identifier));
     }
+//    public static void carpetFlora(Block carpet, BlockStateModelGenerator generator) {
+//        generator.registerItemModel(carpet);
+//        Identifier identifier = CAPPED_CROSS_F.get(carpet).upload(carpet, generator.modelCollector);
+//        generator.blockStateCollector.accept(BlockStateModelGenerator.createBlockStateWithRandomHorizontalRotations(carpet, identifier));
+//    }
     public static void planterBox(Block planterBox, BlockStateModelGenerator generator) {
         TexturedModel texturedModel = PLANTER_BOX_F.get(planterBox);
         Identifier identifier = PLANTER_BOX.upload(planterBox, texturedModel.getTextures(), generator.modelCollector);

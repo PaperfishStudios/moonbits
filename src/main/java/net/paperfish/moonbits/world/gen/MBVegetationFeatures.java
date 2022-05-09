@@ -53,6 +53,10 @@ public class MBVegetationFeatures {
             MBConfiguredFeatures.register("patch_buttercups", Feature.RANDOM_PATCH, createPatch(32, MBBlocks.BUTTERCUP));
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> FORGETMENOT_PATCH =
             MBConfiguredFeatures.register("patch_forgetmenot", Feature.RANDOM_PATCH, createPatch(16, MBBlocks.FORGETMENOT));
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> WILDFLOWER_PATCH =
+            MBConfiguredFeatures.register("patch_wildflower", Feature.RANDOM_PATCH, createPatch(16, MBBlocks.WILDFLOWERS));
+    public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> CLOVER_PATCH =
+            MBConfiguredFeatures.register("patch_clover", Feature.RANDOM_PATCH, createPatch(16, MBBlocks.CLOVER));
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PUFFBALLS_PATCH =
             MBConfiguredFeatures.register("patch_puffballs", Feature.RANDOM_PATCH, createPatch(8, MBBlocks.PUFFBALLS));
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> TOADSTOOLS =
@@ -229,8 +233,8 @@ public class MBVegetationFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<RandomFeatureConfig, ?>> JUNIPER_TREES = MBConfiguredFeatures.register("juniper_trees", Feature.RANDOM_SELECTOR,
                     new RandomFeatureConfig(List.of(
-                            new RandomFeatureEntry(TreePlacedFeatures.SPRUCE_ON_SNOW, 0.1F),
-                            new RandomFeatureEntry(TreePlacedFeatures.PINE_ON_SNOW, 0.4F)),
+                            new RandomFeatureEntry(MBPlacedTreeFeatures.JUNIPER_BUSH, 0.1F),
+                            new RandomFeatureEntry(MBPlacedTreeFeatures.JUNIPER, 0.4F)),
                             MBPlacedTreeFeatures.JUNIPER
                     ));
     public static final RegistryEntry<ConfiguredFeature<RandomFeatureConfig, ?>> BADLANDS_TREES = MBConfiguredFeatures.register("badlands_trees", Feature.RANDOM_SELECTOR,

@@ -45,7 +45,9 @@ public class MBPlacedCaveFeatures {
     public static final RegistryEntry<PlacedFeature> ORE_GOLD_DEPOSIT_HIGH = MBPlacedFeatures.register("p_gold_high",
             MBCaveFeatures.ORE_GOLD_DEPOSIT, modifiersWithCount(28, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(128))));
     public static final RegistryEntry<PlacedFeature> ORE_COPPER_DEPOSIT = MBPlacedFeatures.register("p_copper",
-            MBCaveFeatures.ORE_COPPER_DEPOSIT, modifiersWithCount(24, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(68))));
+            MBCaveFeatures.ORE_COPPER_DEPOSIT, modifiersWithCount(24, HeightRangePlacementModifier.trapezoid(YOffset.fixed(0), YOffset.fixed(80))));
+    public static final RegistryEntry<PlacedFeature> ORE_TIN_DEPOSIT = MBPlacedFeatures.register("p_tin_dep",
+            MBCaveFeatures.ORE_TIN_DEPOSIT, modifiersWithCount(24, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(128))));
 
     // chert ores
     public static final RegistryEntry<PlacedFeature> CHERT_COAL_LOWER = MBPlacedFeatures.register(
@@ -69,6 +71,11 @@ public class MBPlacedCaveFeatures {
     public static final RegistryEntry<PlacedFeature> CHERT_COPPER_LARGE = MBPlacedFeatures.register(
             "chert_copper_large", MBCaveFeatures.ORE_CHERT_COPPER_LARGE, modifiersWithCount(16, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
 
+    public static final RegistryEntry<PlacedFeature> ORE_TIN = MBPlacedFeatures.register(
+            "ore_tin", MBCaveFeatures.ORE_TIN, modifiersWithCount(16, HeightRangePlacementModifier.trapezoid(YOffset.fixed(0), YOffset.fixed(128))));
+    public static final RegistryEntry<PlacedFeature> ORE_TIN_UPPER = MBPlacedFeatures.register(
+            "ore_tin_upper", MBCaveFeatures.ORE_TIN, modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(80), YOffset.fixed(140))));
+
 
     // regolith floor
     public static final RegistryEntry<PlacedFeature> REGOLITH_FLOOR = MBPlacedFeatures.register("p_rg_floor",
@@ -76,7 +83,7 @@ public class MBPlacedCaveFeatures {
 
     // tough grass patch
     public static final RegistryEntry<PlacedFeature> TOUGH_GRASS_PATCH = MBPlacedFeatures.register("p_tg_patch",
-            MBCaveFeatures.TOUGH_GRASS_PATCH, CountPlacementModifier.of(4), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(52), YOffset.fixed(110)));
+            MBCaveFeatures.SUBSTRATE_PATCH, CountPlacementModifier.of(4), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(52), YOffset.fixed(110)));
     public static final RegistryEntry<PlacedFeature> TOUGH_GRASS_FLOOR = MBPlacedFeatures.register("p_tg_floor",
             MBCaveFeatures.TOUGH_GRASS_PATCH, CountPlacementModifier.of(8), SquarePlacementModifier.of(), HeightRangePlacementModifier.uniform(YOffset.fixed(52), YOffset.fixed(110)));
     public static final RegistryEntry<PlacedFeature> TOUGH_GRASS_LUSH = MBPlacedFeatures.register("p_tg_lush",
@@ -90,6 +97,13 @@ public class MBPlacedCaveFeatures {
             RandomOffsetPlacementModifier.vertically(ConstantIntProvider.create(-1)));
     public static final RegistryEntry<PlacedFeature> CAVEBLOOMS = MBPlacedFeatures.register("p_caveblooms",
             MBCaveFeatures.CAVEBLOOMS, CountPlacementModifier.of(UniformIntProvider.create(32, 48)), HeightRangePlacementModifier.uniform(YOffset.fixed(45), YOffset.fixed(65)),
+            SquarePlacementModifier.of(), SurfaceThresholdFilterPlacementModifier.of(Heightmap.Type.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13), BiomePlacementModifier.of());
+
+    public static final RegistryEntry<PlacedFeature> WILDFLOWERS = MBPlacedFeatures.register("p_wildflower_d",
+            MBVegetationFeatures.WILDFLOWER_PATCH, CountPlacementModifier.of(UniformIntProvider.create(16, 32)), HeightRangePlacementModifier.uniform(YOffset.fixed(45), YOffset.fixed(65)),
+            SquarePlacementModifier.of(), SurfaceThresholdFilterPlacementModifier.of(Heightmap.Type.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13), BiomePlacementModifier.of());
+    public static final RegistryEntry<PlacedFeature> CLOVERS = MBPlacedFeatures.register("p_clover_d",
+            MBVegetationFeatures.CLOVER_PATCH, CountPlacementModifier.of(UniformIntProvider.create(16, 32)), HeightRangePlacementModifier.uniform(YOffset.fixed(45), YOffset.fixed(65)),
             SquarePlacementModifier.of(), SurfaceThresholdFilterPlacementModifier.of(Heightmap.Type.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13), BiomePlacementModifier.of());
 
     public static void init() {}

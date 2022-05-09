@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.ThreeLayersFeatureSize;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.foliage.BushFoliagePlacer;
 import net.minecraft.world.gen.foliage.DarkOakFoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
@@ -121,6 +122,9 @@ public class MBTreeFeatures {
             Registry.register(Registry.FOLIAGE_PLACER_TYPE, "juniper_foliage_placer", new FoliagePlacerType<>(JuniperFoliagePlacer.CODEC));
 
     public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  JUNIPER = MBConfiguredFeatures.register("juniper", Feature.TREE, juniper().build());
+    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> JUNIPER_BUSH = ConfiguredFeatures.register("juniper_bush", Feature.TREE,
+            new TreeFeatureConfig.Builder(BlockStateProvider.of(MBBlocks.JUNIPER_LOG), new StraightTrunkPlacer(1, 0, 0), BlockStateProvider.of(MBBlocks.JUNIPER_LEAVES),
+                    new BushFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2), new TwoLayersFeatureSize(0, 0, 0)).build());
     public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  CEDAR = MBConfiguredFeatures.register("cedar", Feature.TREE, cedar().build());
 
     public static final RegistryEntry<ConfiguredFeature<FallenLogConfig, ?>>  FALLEN_OAK =

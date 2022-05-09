@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "moonbits:tin_block"
+  },
+  "result": "moonbits:cut_tin",
+  "count": 4
+}
