@@ -522,9 +522,9 @@ public class MBRecipeProvider extends FabricRecipesProvider {
                 .criterion(RecipeProvider.hasItem(Items.LEATHER), RecipeProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(MBBlocks.TREE_TAP)
-                .input('I', Items.COPPER_INGOT).input('n', MBItems.COPPER_NUGGET)
-                .pattern("I I").pattern(" n ")
-                .criterion(RecipeProvider.hasItem(Items.COPPER_INGOT), RecipeProvider.conditionsFromItem(Items.COPPER_INGOT)).offerTo(exporter);
+                .input('I', MBItems.TIN_INGOT)
+                .pattern("I I").pattern(" I ")
+                .criterion(RecipeProvider.hasItem(MBItems.TIN_INGOT), RecipeProvider.conditionsFromItem(MBItems.TIN_INGOT)).offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(MBBlocks.SYRUP_BLOCK)
                 .input('#', MBItems.SYRUP_BOTTLE)
