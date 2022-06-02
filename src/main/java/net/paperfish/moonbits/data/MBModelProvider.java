@@ -168,41 +168,41 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerSingleton(MBBlocks.RED_OAK_LEAVES, TexturedModel.LEAVES);
         leafCarpet(MBBlocks.RED_OAK_LEAVES, MBBlocks.RED_OAK_LEAF_CARPET, generator);
 
-        flowerPotPlant(MBBlocks.ASPEN_SAPLING, MBBlocks.POTTED_ASPEN_SAPLING, TintType.NOT_TINTED, generator);
-        generator.registerSingleton(MBBlocks.ASPEN_LEAVES, TexturedModel.LEAVES);
-        leafCarpet(MBBlocks.ASPEN_LEAVES, MBBlocks.ASPEN_LEAF_CARPET, generator);
-
-        thinLog(MBBlocks.ASPEN_TRUNK, generator);
-        thinLog(MBBlocks.STRIPPED_ASPEN_TRUNK, generator);
-        palisade(MBBlocks.ASPEN_PALISADE, generator);
-        palisade(MBBlocks.STRIPPED_ASPEN_PALISADE, generator);
-        pane(MBBlocks.ASPEN_WINDOW, generator);
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.ASPEN_LANTERN)
-                .coordinate(BlockStateVariantMap.create(Properties.FACING)
-                        .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern")))
-                        .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_hanging")))
-                        .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall")))
-                        .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                        .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                        .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                ));
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.ASPEN_SOUL_LANTERN)
-                .coordinate(BlockStateVariantMap.create(Properties.FACING)
-                        .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern")))
-                        .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_hanging")))
-                        .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall")))
-                        .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                        .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                        .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
-                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                ));
-        pane(MBBlocks.ASPEN_LATTICE, generator);
-        trim(MBBlocks.ASPEN_TRIM, generator);
+//        flowerPotPlant(MBBlocks.ASPEN_SAPLING, MBBlocks.POTTED_ASPEN_SAPLING, TintType.NOT_TINTED, generator);
+//        generator.registerSingleton(MBBlocks.ASPEN_LEAVES, TexturedModel.LEAVES);
+//        leafCarpet(MBBlocks.ASPEN_LEAVES, MBBlocks.ASPEN_LEAF_CARPET, generator);
+//
+//        thinLog(MBBlocks.ASPEN_TRUNK, generator);
+//        thinLog(MBBlocks.STRIPPED_ASPEN_TRUNK, generator);
+//        palisade(MBBlocks.ASPEN_PALISADE, generator);
+//        palisade(MBBlocks.STRIPPED_ASPEN_PALISADE, generator);
+//        pane(MBBlocks.ASPEN_WINDOW, generator);
+//        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.ASPEN_LANTERN)
+//                .coordinate(BlockStateVariantMap.create(Properties.FACING)
+//                        .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern")))
+//                        .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_hanging")))
+//                        .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall")))
+//                        .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
+//                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+//                        .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
+//                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+//                        .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
+//                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+//                ));
+//        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.ASPEN_SOUL_LANTERN)
+//                .coordinate(BlockStateVariantMap.create(Properties.FACING)
+//                        .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern")))
+//                        .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_hanging")))
+//                        .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall")))
+//                        .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
+//                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
+//                        .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
+//                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
+//                        .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
+//                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
+//                ));
+//        pane(MBBlocks.ASPEN_LATTICE, generator);
+//        trim(MBBlocks.ASPEN_TRIM, generator);
 
         log(MBBlocks.JUNIPER_LOG, MBBlocks.JUNIPER_WOOD, generator);
         log(MBBlocks.STRIPPED_JUNIPER_LOG, MBBlocks.STRIPPED_JUNIPER_WOOD, generator);
@@ -249,14 +249,19 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
                         .register(4, BlockStateVariant.create().put(VariantSettings.MODEL, Models.TEMPLATE_CAULDRON_FULL
                                 .upload(MBBlocks.SYRUP_CAULDRON, "_full", TextureMap.cauldron(TextureMap.getId(MBBlocks.SYRUP_BLOCK)), generator.modelCollector)))));
 
+
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TREE_TAP,
                 BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap")))
                 .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+        generator.registerItemModel(MBBlocks.TREE_TAP.asItem());
+
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.BASIN, new Identifier(Moonbits.MODID, "block/basin")));
+        generator.registerItemModel(MBBlocks.BASIN.asItem());
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.WATER_BASIN, new Identifier(Moonbits.MODID, "block/water_basin")));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.HONEY_BASIN, new Identifier(Moonbits.MODID, "block/honey_basin")));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.SYRUP_BASIN, new Identifier(Moonbits.MODID, "block/syrup_basin")));
 
         generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.COOKING_POT, new Identifier(Moonbits.MODID, "block/cooking_pot")));
-//        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.COOKING_POT,
-//                        BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/cooking_pot")))
-//                .coordinate(BlockStateModelGenerator.createAxisRotatedVariantMap()));
         generator.registerItemModel(MBBlocks.COOKING_POT.asItem());
 
         generator.registerSimpleCubeAll(MBBlocks.SYRUP_BLOCK);
@@ -317,8 +322,8 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         cubeTopBottomSpec(MBBlocks.CRACKED_PAVED_SANDSTONE_BRICKS, MBBlocks.CRACKED_SANDSTONE_BRICKS, generator);
         cubeTopBottomSpec(MBBlocks.PAVED_RED_SANDSTONE_BRICKS, MBBlocks.RED_SANDSTONE_BRICKS, generator);
         cubeTopBottomSpec(MBBlocks.CRACKED_PAVED_RED_SANDSTONE_BRICKS, MBBlocks.CRACKED_RED_SANDSTONE_BRICKS, generator);
-        bandedIron(MBBlocks.BANDED_IRON, generator);
-        bandedIron(MBBlocks.MAGNETITE_ORE, generator);
+        generator.registerSimpleCubeAll(MBBlocks.BANDED_IRON);
+        generator.registerSimpleCubeAll(MBBlocks.MAGNETITE_ORE);
         generator.registerSimpleCubeAll(MBBlocks.MAGNETITE_BLOCK);
 
         generator.registerCrop(MBBlocks.PEANUT_CROP, Properties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
@@ -348,12 +353,9 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         generator.registerSimpleCubeAll(MBBlocks.FRAMED_CANVAS);
 
         // flowers n fungi :D
-        flowerPotPlant(MBBlocks.BUTTERCUP, MBBlocks.POTTED_BUTTERCUP, TintType.NOT_TINTED, generator);
-        flowerPotPlant(MBBlocks.FORGETMENOT, MBBlocks.POTTED_FORGETMENOT, TintType.NOT_TINTED, generator);
         doubleBlock(MBBlocks.WHITE_HYACINTH, TintType.NOT_TINTED, generator);
         doubleBlock(MBBlocks.PINK_HYACINTH, TintType.NOT_TINTED, generator);
         doubleBlock(MBBlocks.LIGHT_BLUE_HYACINTH, TintType.NOT_TINTED, generator);
-        doubleBlock(MBBlocks.RED_HYACINTH, TintType.NOT_TINTED, generator);
 
         cappedCross(MBBlocks.WILDFLOWERS, generator);
         cappedCross(MBBlocks.CLOVER, generator);
@@ -1205,79 +1207,79 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
 //        generator.blockStateCollector.accept(BlockStateModelGenerator.createBlockStateWithRandomHorizontalRotations(carpet, identifier));
 //    }
     public static void planterBox(Block planterBox, BlockStateModelGenerator generator) {
-        TexturedModel texturedModel = PLANTER_BOX_F.get(planterBox);
+        TexturedModel texturedModel = CUBE_BOTTOM_TOP.get(planterBox);
         Identifier identifier = PLANTER_BOX.upload(planterBox, texturedModel.getTextures(), generator.modelCollector);
 
-        TexturedModel texturedModel2 = PLANTER_BOX_INNER_F.get(planterBox);
-        TextureMap tex2 = new TextureMap().put(INNER, TextureMap.getSubId(planterBox, "_inner")).put(TextureKey.SIDE, TextureMap.getId(planterBox)).put(TextureKey.TOP, TextureMap.getSubId(planterBox, "_top"))
-                .put(TextureKey.BOTTOM, TextureMap.getSubId(planterBox, "_bottom"));
-        Identifier identifier2 = PLANTER_BOX_INNER.upload(planterBox, "_inner", texturedModel2.getTextures(), generator.modelCollector);
+//        TexturedModel texturedModel2 = PLANTER_BOX_INNER_F.get(planterBox);
+//        TextureMap tex2 = new TextureMap().put(INNER, TextureMap.getSubId(planterBox, "_inner")).put(TextureKey.SIDE, TextureMap.getId(planterBox)).put(TextureKey.TOP, TextureMap.getSubId(planterBox, "_top"))
+//                .put(TextureKey.BOTTOM, TextureMap.getSubId(planterBox, "_bottom"));
+//        Identifier identifier2 = PLANTER_BOX_INNER.upload(planterBox, "_inner", texturedModel2.getTextures(), generator.modelCollector);
+//
+//        TextureMap tex3 = new TextureMap().put(TextureKey.SIDE, TextureMap.getSubId(planterBox, "_edge")).put(TextureKey.TOP, TextureMap.getSubId(planterBox, "_top"))
+//                .put(TextureKey.BOTTOM, TextureMap.getSubId(planterBox, "_bottom"));
+//        Identifier identifier3 = PLANTER_BOX_OUTER.upload(planterBox, "_outer", tex3, generator.modelCollector);
+//
+//        TextureMap tex4 = new TextureMap().put(TextureKey.SIDE, TextureMap.getId(planterBox)).put(TextureKey.TOP, TextureMap.getSubId(planterBox, "_side"))
+//                .put(TextureKey.BOTTOM, TextureMap.getSubId(planterBox, "_bottom"));
+//        Identifier identifier4 = PLANTER_BOX_SIDE.upload(planterBox, "_side", tex4, generator.modelCollector);
+//
+//        TextureMap tex5 = new TextureMap().put(TextureKey.SIDE, TextureMap.getId(planterBox)).put(TextureKey.TOP, TextureMap.getSubId(planterBox, "_side_b"))
+//                .put(TextureKey.BOTTOM, TextureMap.getSubId(planterBox, "_bottom"));
+//        Identifier identifier5 = PLANTER_BOX_SIDE_B.upload(planterBox, "_side_b", tex5, generator.modelCollector);
 
-        TextureMap tex3 = new TextureMap().put(TextureKey.SIDE, TextureMap.getSubId(planterBox, "_edge")).put(TextureKey.TOP, TextureMap.getSubId(planterBox, "_top"))
-                .put(TextureKey.BOTTOM, TextureMap.getSubId(planterBox, "_bottom"));
-        Identifier identifier3 = PLANTER_BOX_OUTER.upload(planterBox, "_outer", tex3, generator.modelCollector);
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(planterBox, identifier));
 
-        TextureMap tex4 = new TextureMap().put(TextureKey.SIDE, TextureMap.getId(planterBox)).put(TextureKey.TOP, TextureMap.getSubId(planterBox, "_side"))
-                .put(TextureKey.BOTTOM, TextureMap.getSubId(planterBox, "_bottom"));
-        Identifier identifier4 = PLANTER_BOX_SIDE.upload(planterBox, "_side", tex4, generator.modelCollector);
-
-        TextureMap tex5 = new TextureMap().put(TextureKey.SIDE, TextureMap.getId(planterBox)).put(TextureKey.TOP, TextureMap.getSubId(planterBox, "_side_b"))
-                .put(TextureKey.BOTTOM, TextureMap.getSubId(planterBox, "_bottom"));
-        Identifier identifier5 = PLANTER_BOX_SIDE_B.upload(planterBox, "_side_b", tex5, generator.modelCollector);
-
-        generator.blockStateCollector.accept(createPlanterBoxState(planterBox, identifier, identifier2, identifier3, identifier4, identifier5));
-
-        TexturedModel texturedModel6 = PLANTER_BOX_INVENTORY_F.get(planterBox);
-        Identifier identifier6 = PLANTER_BOX_INVENTORY.upload(planterBox, "_inventory", texturedModel6.getTextures(), generator.modelCollector);
-        generator.registerParentedItemModel(planterBox, identifier6);
+//        TexturedModel texturedModel6 = PLANTER_BOX_INVENTORY_F.get(planterBox);
+//        Identifier identifier6 = PLANTER_BOX_INVENTORY.upload(planterBox, "_inventory", texturedModel6.getTextures(), generator.modelCollector);
+//        generator.registerParentedItemModel(planterBox, identifier6);
     }
-    public static BlockStateSupplier createPlanterBoxState(Block block, Identifier regular, Identifier inner, Identifier outer, Identifier side, Identifier sideB) {
-        return MultipartBlockStateSupplier.create(block)
-                .with(When.create().set(PlanterBoxBlock.NORTH, true).set(PlanterBoxBlock.WEST, true), BlockStateVariant.create().put(VariantSettings.MODEL, outer)
-                        .put(VariantSettings.UVLOCK, true))
-                .with(When.create().set(PlanterBoxBlock.NORTH, true).set(PlanterBoxBlock.WEST, false), BlockStateVariant.create().put(VariantSettings.MODEL, side)
-                        .put(VariantSettings.UVLOCK, true))
-                .with(When.create().set(PlanterBoxBlock.NORTH, false).set(PlanterBoxBlock.WEST, true), BlockStateVariant.create().put(VariantSettings.MODEL, sideB)
-                        .put(VariantSettings.UVLOCK, true))
-                .with(When.create().set(PlanterBoxBlock.NORTH, false).set(PlanterBoxBlock.WEST, false).set(PlanterBoxBlock.NORTHWEST, true), BlockStateVariant.create().put(VariantSettings.MODEL, inner)
-                        .put(VariantSettings.UVLOCK, true))
-                .with(When.create().set(PlanterBoxBlock.NORTH, false).set(PlanterBoxBlock.WEST, false).set(PlanterBoxBlock.NORTHWEST, false), BlockStateVariant.create().put(VariantSettings.MODEL, regular)
-                        .put(VariantSettings.UVLOCK, true))
-
-                .with(When.create().set(PlanterBoxBlock.EAST, true).set(PlanterBoxBlock.NORTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, outer)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                .with(When.create().set(PlanterBoxBlock.EAST, true).set(PlanterBoxBlock.NORTH, false), BlockStateVariant.create().put(VariantSettings.MODEL, side)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                .with(When.create().set(PlanterBoxBlock.EAST, false).set(PlanterBoxBlock.NORTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, sideB)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                .with(When.create().set(PlanterBoxBlock.EAST, false).set(PlanterBoxBlock.NORTH, false).set(PlanterBoxBlock.NORTHEAST, true), BlockStateVariant.create().put(VariantSettings.MODEL, inner)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R90))
-                .with(When.create().set(PlanterBoxBlock.EAST, false).set(PlanterBoxBlock.NORTH, false).set(PlanterBoxBlock.NORTHEAST, false), BlockStateVariant.create().put(VariantSettings.MODEL, regular)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R90))
-
-                .with(When.create().set(PlanterBoxBlock.SOUTH, true).set(PlanterBoxBlock.EAST, true), BlockStateVariant.create().put(VariantSettings.MODEL, outer)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                .with(When.create().set(PlanterBoxBlock.SOUTH, true).set(PlanterBoxBlock.EAST, false), BlockStateVariant.create().put(VariantSettings.MODEL, side)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                .with(When.create().set(PlanterBoxBlock.SOUTH, false).set(PlanterBoxBlock.EAST, true), BlockStateVariant.create().put(VariantSettings.MODEL, sideB)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                .with(When.create().set(PlanterBoxBlock.SOUTH, false).set(PlanterBoxBlock.EAST, false).set(PlanterBoxBlock.SOUTHEAST, true), BlockStateVariant.create().put(VariantSettings.MODEL, inner)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R180))
-                .with(When.create().set(PlanterBoxBlock.SOUTH, false).set(PlanterBoxBlock.EAST, false).set(PlanterBoxBlock.SOUTHEAST, false), BlockStateVariant.create().put(VariantSettings.MODEL, regular)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R180))
-
-                .with(When.create().set(PlanterBoxBlock.WEST, true).set(PlanterBoxBlock.SOUTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, outer)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                .with(When.create().set(PlanterBoxBlock.WEST, true).set(PlanterBoxBlock.SOUTH, false), BlockStateVariant.create().put(VariantSettings.MODEL, side)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                .with(When.create().set(PlanterBoxBlock.WEST, false).set(PlanterBoxBlock.SOUTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, sideB)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                .with(When.create().set(PlanterBoxBlock.WEST, false).set(PlanterBoxBlock.SOUTH, false).set(PlanterBoxBlock.SOUTHWEST, true), BlockStateVariant.create().put(VariantSettings.MODEL, inner)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                .with(When.create().set(PlanterBoxBlock.WEST, false).set(PlanterBoxBlock.SOUTH, false).set(PlanterBoxBlock.SOUTHWEST, false), BlockStateVariant.create().put(VariantSettings.MODEL, regular)
-                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R270))
-                ;
-    }
+//    public static BlockStateSupplier createPlanterBoxState(Block block, Identifier regular, Identifier inner, Identifier outer, Identifier side, Identifier sideB) {
+//        return MultipartBlockStateSupplier.create(block)
+//                .with(When.create().set(PlanterBoxBlock.NORTH, true).set(PlanterBoxBlock.WEST, true), BlockStateVariant.create().put(VariantSettings.MODEL, outer)
+//                        .put(VariantSettings.UVLOCK, true))
+//                .with(When.create().set(PlanterBoxBlock.NORTH, true).set(PlanterBoxBlock.WEST, false), BlockStateVariant.create().put(VariantSettings.MODEL, side)
+//                        .put(VariantSettings.UVLOCK, true))
+//                .with(When.create().set(PlanterBoxBlock.NORTH, false).set(PlanterBoxBlock.WEST, true), BlockStateVariant.create().put(VariantSettings.MODEL, sideB)
+//                        .put(VariantSettings.UVLOCK, true))
+//                .with(When.create().set(PlanterBoxBlock.NORTH, false).set(PlanterBoxBlock.WEST, false).set(PlanterBoxBlock.NORTHWEST, true), BlockStateVariant.create().put(VariantSettings.MODEL, inner)
+//                        .put(VariantSettings.UVLOCK, true))
+//                .with(When.create().set(PlanterBoxBlock.NORTH, false).set(PlanterBoxBlock.WEST, false).set(PlanterBoxBlock.NORTHWEST, false), BlockStateVariant.create().put(VariantSettings.MODEL, regular)
+//                        .put(VariantSettings.UVLOCK, true))
+//
+//                .with(When.create().set(PlanterBoxBlock.EAST, true).set(PlanterBoxBlock.NORTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, outer)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+//                .with(When.create().set(PlanterBoxBlock.EAST, true).set(PlanterBoxBlock.NORTH, false), BlockStateVariant.create().put(VariantSettings.MODEL, side)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+//                .with(When.create().set(PlanterBoxBlock.EAST, false).set(PlanterBoxBlock.NORTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, sideB)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+//                .with(When.create().set(PlanterBoxBlock.EAST, false).set(PlanterBoxBlock.NORTH, false).set(PlanterBoxBlock.NORTHEAST, true), BlockStateVariant.create().put(VariantSettings.MODEL, inner)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+//                .with(When.create().set(PlanterBoxBlock.EAST, false).set(PlanterBoxBlock.NORTH, false).set(PlanterBoxBlock.NORTHEAST, false), BlockStateVariant.create().put(VariantSettings.MODEL, regular)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+//
+//                .with(When.create().set(PlanterBoxBlock.SOUTH, true).set(PlanterBoxBlock.EAST, true), BlockStateVariant.create().put(VariantSettings.MODEL, outer)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+//                .with(When.create().set(PlanterBoxBlock.SOUTH, true).set(PlanterBoxBlock.EAST, false), BlockStateVariant.create().put(VariantSettings.MODEL, side)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+//                .with(When.create().set(PlanterBoxBlock.SOUTH, false).set(PlanterBoxBlock.EAST, true), BlockStateVariant.create().put(VariantSettings.MODEL, sideB)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+//                .with(When.create().set(PlanterBoxBlock.SOUTH, false).set(PlanterBoxBlock.EAST, false).set(PlanterBoxBlock.SOUTHEAST, true), BlockStateVariant.create().put(VariantSettings.MODEL, inner)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+//                .with(When.create().set(PlanterBoxBlock.SOUTH, false).set(PlanterBoxBlock.EAST, false).set(PlanterBoxBlock.SOUTHEAST, false), BlockStateVariant.create().put(VariantSettings.MODEL, regular)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R180))
+//
+//                .with(When.create().set(PlanterBoxBlock.WEST, true).set(PlanterBoxBlock.SOUTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, outer)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+//                .with(When.create().set(PlanterBoxBlock.WEST, true).set(PlanterBoxBlock.SOUTH, false), BlockStateVariant.create().put(VariantSettings.MODEL, side)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+//                .with(When.create().set(PlanterBoxBlock.WEST, false).set(PlanterBoxBlock.SOUTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, sideB)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+//                .with(When.create().set(PlanterBoxBlock.WEST, false).set(PlanterBoxBlock.SOUTH, false).set(PlanterBoxBlock.SOUTHWEST, true), BlockStateVariant.create().put(VariantSettings.MODEL, inner)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+//                .with(When.create().set(PlanterBoxBlock.WEST, false).set(PlanterBoxBlock.SOUTH, false).set(PlanterBoxBlock.SOUTHWEST, false), BlockStateVariant.create().put(VariantSettings.MODEL, regular)
+//                        .put(VariantSettings.UVLOCK, true).put(VariantSettings.Y, VariantSettings.Rotation.R270))
+//                ;
+//    }
 
     private static Model make(TextureKey ... requiredTextures) {
         return new Model(Optional.empty(), Optional.empty(), requiredTextures);

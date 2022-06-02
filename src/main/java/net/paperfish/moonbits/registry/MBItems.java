@@ -83,18 +83,17 @@ public class MBItems {
 					.statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0f)
 					.build()));
 
-	//public static final Item APPLE_SEEDS = new AliasedBlockItem(MBBlocks.APPLE_OAK_SPROUT, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Block SWEET_BERRY_PITS = new SweetBerryPitsBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH));
 	public static final Block GLOW_BERRY_PITS = new GlowBerryPitsBlock(AbstractBlock.Settings.of(Material.PLANT).ticksRandomly().noCollision().luminance(CaveVines.getLuminanceSupplier(14)).breakInstantly().sounds(BlockSoundGroup.CAVE_VINES));
 	public static final Item ROASTED_BERRIES = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8F).build()));
 
     public static final Item PEAT = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item MAGNETITE = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item COPPER_NUGGET = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item RAW_TIN = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item TIN_INGOT = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item TIN_NUGGET = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item MAGNETITE = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item FUR = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item BURLAP = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item CACTUS_LEATHER = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
@@ -187,8 +186,6 @@ public class MBItems {
 		addItem("milk_bottle", MILK_BOTTLE);
 		addItem("syrup_bottle", SYRUP_BOTTLE);
 
-		//addItem("apple_seeds", APPLE_SEEDS);
-
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "sweet_berry_pits"), SWEET_BERRY_PITS);
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "sweet_berry_pits"), new BlockItem(SWEET_BERRY_PITS, new FabricItemSettings().group(MBItemGroup.MB_FOOD)));
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "glow_berry_pits"), GLOW_BERRY_PITS);
@@ -212,10 +209,10 @@ public class MBItems {
 		addItem("baby_strider_bucket", BABY_STRIDER_BUCKET);
 
 		addItem("peat", PEAT);
-		addItem("magnetite", MAGNETITE);
 		addItem("raw_tin", RAW_TIN);
 		addItem("tin_ingot", TIN_INGOT);
 		addItem("tin_nugget", TIN_NUGGET);
+		addItem("magnetite", MAGNETITE);
 		addItem("copper_nugget", COPPER_NUGGET);
 		addItem("fur", FUR);
 		addItem("burlap", BURLAP);

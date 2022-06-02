@@ -113,9 +113,9 @@ public class MBBlockFamilies {
             .unlockCriterionName("has_planks")
             .build();
 
-    public static final MBBlockFamily ASPEN = register(MBBlocks.ASPEN_PLANKS)
-            .slab(MBBlocks.ASPEN_SLAB).stairs(MBBlocks.ASPEN_STAIRS)
-            .build();
+//    public static final MBBlockFamily ASPEN = register(MBBlocks.ASPEN_PLANKS)
+//            .slab(MBBlocks.ASPEN_SLAB).stairs(MBBlocks.ASPEN_STAIRS)
+//            .build();
 
     public static final MBBlockFamily HONEY = register(MBBlocks.HONEY_PLANKS)
             .slab(MBBlocks.HONEY_SLAB).stairs(MBBlocks.HONEY_STAIRS)

@@ -46,13 +46,12 @@ public class MBVegetationFeatures {
             .add(Blocks.OXEYE_DAISY.getDefaultState(), 4)
             .add(Blocks.DANDELION.getDefaultState(), 2)
             .add(Blocks.CORNFLOWER.getDefaultState(), 1)
-            .add(MBBlocks.FORGETMENOT.getDefaultState(), 2)
             .add(Blocks.POPPY.getDefaultState(), 1)
             .build();
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> BUTTERCUP_PATCH =
-            MBConfiguredFeatures.register("patch_buttercups", Feature.RANDOM_PATCH, createPatch(32, MBBlocks.BUTTERCUP));
+            MBConfiguredFeatures.register("patch_buttercups", Feature.RANDOM_PATCH, createPatch(32, Blocks.DANDELION));
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> FORGETMENOT_PATCH =
-            MBConfiguredFeatures.register("patch_forgetmenot", Feature.RANDOM_PATCH, createPatch(16, MBBlocks.FORGETMENOT));
+            MBConfiguredFeatures.register("patch_forgetmenot", Feature.RANDOM_PATCH, createPatch(16, Blocks.CORNFLOWER));
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> WILDFLOWER_PATCH =
             MBConfiguredFeatures.register("patch_wildflower", Feature.RANDOM_PATCH, createPatch(16, MBBlocks.WILDFLOWERS));
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> CLOVER_PATCH =
@@ -75,9 +74,7 @@ public class MBVegetationFeatures {
             PlacedFeatures.createEntry(Feature.RANDOM_PATCH, (ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, (
                     new SimpleBlockFeatureConfig(BlockStateProvider.of(MBBlocks.PINK_HYACINTH)))))),
             PlacedFeatures.createEntry(Feature.RANDOM_PATCH, (ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, (
-                    new SimpleBlockFeatureConfig(BlockStateProvider.of(MBBlocks.LIGHT_BLUE_HYACINTH)))))),
-            PlacedFeatures.createEntry(Feature.RANDOM_PATCH, (ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, (
-                    new SimpleBlockFeatureConfig(BlockStateProvider.of(MBBlocks.RED_HYACINTH))))))
+                    new SimpleBlockFeatureConfig(BlockStateProvider.of(MBBlocks.LIGHT_BLUE_HYACINTH))))))
     )));
 
     public static final Feature<CountConfig> PEBBLE_FEATURE = Registry.register(Registry.FEATURE, "pebble_feature", new PebbleFeature(CountConfig.CODEC));
@@ -273,8 +270,6 @@ public class MBVegetationFeatures {
             Blocks.DANDELION.getDefaultState(),
             Blocks.CORNFLOWER.getDefaultState(),
             Blocks.OXEYE_DAISY.getDefaultState(),
-            MBBlocks.BUTTERCUP.getDefaultState(),
-            MBBlocks.FORGETMENOT.getDefaultState(),
             Blocks.GRASS.getDefaultState()
     );
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> MB_MEADOW_FLOWERS = MBConfiguredFeatures.register("mb_meadow_flowers", Feature.FLOWER, new RandomPatchFeatureConfig(96, 6, 2,

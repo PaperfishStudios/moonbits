@@ -44,13 +44,13 @@ public class MBEvents {
             BlockState targetBlock = world.getBlockState(targetPos);
             ItemStack heldItem = player.getStackInHand(hand);
 
-            if(targetBlock.getBlock() instanceof AbstractCauldronBlock && !world.isClient) {
+            if(targetBlock.getBlock() instanceof AbstractCauldronBlock) {
                 if (player.shouldCancelInteraction()) {
                     return ActionResult.PASS;
                 }
                 else {
                     Moonbits.LOGGER.info("washing recipe triggered");
-                    return WashingHandler.washItem(heldItem, targetBlock, (ServerPlayerEntity) player, hand, (ServerWorld) world);
+                    return world.isClient() ? ActionResult.SUCCESS : WashingHandler.washItem(heldItem, targetBlock, (ServerPlayerEntity) player, hand, (ServerWorld) world);
                 }
             }
 
@@ -104,11 +104,11 @@ public class MBEvents {
 
             if (heldItem.isIn(MBItemTags.AXES)) {
                 boolean success = false;
-                if (targetBlock.isOf(MBBlocks.ASPEN_PALISADE)) {
-                    world.setBlockState(targetPos, MBBlocks.STRIPPED_ASPEN_PALISADE.getStateWithProperties(targetBlock));
-                    world.playSound(player, targetPos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    success = true;
-                }
+//                if (targetBlock.isOf(MBBlocks.ASPEN_PALISADE)) {
+//                    world.setBlockState(targetPos, MBBlocks.STRIPPED_ASPEN_PALISADE.getStateWithProperties(targetBlock));
+//                    world.playSound(player, targetPos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0f, 1.0f);
+//                    success = true;
+//                }
                 if (success) {
                     if (!player.isCreative()) heldItem.damage(1, new Random(), null);
                     return ActionResult.SUCCESS;

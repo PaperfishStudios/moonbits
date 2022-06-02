@@ -218,18 +218,18 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.GIANT_TOADSTOOL_CAP,
                 MBBlocks.MUSHROOM_STEM,
 
-                MBBlocks.ASPEN_TRUNK,
-                MBBlocks.STRIPPED_ASPEN_TRUNK,
-                MBBlocks.ASPEN_PALISADE,
-                MBBlocks.STRIPPED_ASPEN_PALISADE,
-                MBBlocks.ASPEN_PLANKS,
-                MBBlocks.ASPEN_STAIRS,
-                MBBlocks.ASPEN_SLAB,
-                MBBlocks.ASPEN_WINDOW,
-                MBBlocks.ASPEN_LANTERN,
-                MBBlocks.ASPEN_SOUL_LANTERN,
-                MBBlocks.ASPEN_TRIM,
-                MBBlocks.ASPEN_LATTICE,
+//                MBBlocks.ASPEN_TRUNK,
+//                MBBlocks.STRIPPED_ASPEN_TRUNK,
+//                MBBlocks.ASPEN_PALISADE,
+//                MBBlocks.STRIPPED_ASPEN_PALISADE,
+//                MBBlocks.ASPEN_PLANKS,
+//                MBBlocks.ASPEN_STAIRS,
+//                MBBlocks.ASPEN_SLAB,
+//                MBBlocks.ASPEN_WINDOW,
+//                MBBlocks.ASPEN_LANTERN,
+//                MBBlocks.ASPEN_SOUL_LANTERN,
+//                MBBlocks.ASPEN_TRIM,
+//                MBBlocks.ASPEN_LATTICE,
 
                 MBBlocks.FROSTHORN_CROWN,
                 MBBlocks.FROSTHORN_STEM,
@@ -283,11 +283,11 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CEDAR_LEAVES,
                 MBBlocks.GOLDEN_BIRCH_LEAVES,
                 MBBlocks.RED_OAK_LEAVES,
-                MBBlocks.ASPEN_LEAVES,
+//                MBBlocks.ASPEN_LEAVES,
                 MBBlocks.FLOWERING_ACACIA_LEAVES,
                 MBBlocks.GOLDEN_BIRCH_LEAF_CARPET,
                 MBBlocks.RED_OAK_LEAF_CARPET,
-                MBBlocks.ASPEN_LEAF_CARPET,
+//                MBBlocks.ASPEN_LEAF_CARPET,
 
                 MBBlocks.EGG_BASKET,
                 MBBlocks.COCOA_SACK,
@@ -308,6 +308,10 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.IRON_LADDER,
 
                 MBBlocks.TREE_TAP,
+                MBBlocks.BASIN,
+                MBBlocks.WATER_BASIN,
+                MBBlocks.HONEY_BASIN,
+                MBBlocks.SYRUP_BASIN,
                 MBBlocks.HONEY_CAULDRON,
                 MBBlocks.SYRUP_CAULDRON,
 
@@ -432,8 +436,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(BlockTags.CLIMBABLE).add(
                 MBBlocks.ROPE_LADDER,
-                MBBlocks.IRON_LADDER,
-                MBBlocks.ASPEN_LATTICE
+                MBBlocks.IRON_LADDER
+//                MBBlocks.ASPEN_LATTICE
         );
 
         this.getOrCreateTagBuilder(MBBlockTags.JUNIPER_LOGS).add(
@@ -448,10 +452,10 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.STRIPPED_CEDAR_LOG,
                 MBBlocks.STRIPPED_CEDAR_WOOD
         );
-        this.getOrCreateTagBuilder(MBBlockTags.ASPEN_TRUNKS).add(
-                MBBlocks.ASPEN_TRUNK,
-                MBBlocks.STRIPPED_ASPEN_TRUNK
-        );
+//        this.getOrCreateTagBuilder(MBBlockTags.ASPEN_TRUNKS).add(
+//                MBBlocks.ASPEN_TRUNK,
+//                MBBlocks.STRIPPED_ASPEN_TRUNK
+//        );
         this.getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .addTag(MBBlockTags.JUNIPER_LOGS).addTag(MBBlockTags.CEDAR_LOGS);
 
@@ -462,8 +466,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.PLANKS).add(
                 MBBlocks.JUNIPER_PLANKS,
                 MBBlocks.CEDAR_PLANKS,
-                MBBlocks.HONEY_PLANKS,
-                MBBlocks.ASPEN_PLANKS
+                MBBlocks.HONEY_PLANKS
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(
                 MBBlocks.JUNIPER_BUTTON,
@@ -488,14 +491,12 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(
                 MBBlocks.JUNIPER_STAIRS,
                 MBBlocks.CEDAR_STAIRS,
-                MBBlocks.HONEY_STAIRS,
-                MBBlocks.ASPEN_STAIRS
+                MBBlocks.HONEY_STAIRS
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).add(
                 MBBlocks.JUNIPER_SLAB,
                 MBBlocks.CEDAR_SLAB,
-                MBBlocks.HONEY_SLAB,
-                MBBlocks.ASPEN_SLAB
+                MBBlocks.HONEY_SLAB
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(
                 MBBlocks.JUNIPER_FENCE,
@@ -545,16 +546,14 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.JUNIPER_SAPLING,
                 MBBlocks.CEDAR_SAPLING,
                 MBBlocks.GOLDEN_BIRCH_SAPLING,
-                MBBlocks.RED_OAK_SAPLING,
-                MBBlocks.ASPEN_SAPLING
+                MBBlocks.RED_OAK_SAPLING
         );
         this.getOrCreateTagBuilder(BlockTags.LEAVES).add(
                 MBBlocks.GOLDEN_BIRCH_LEAVES,
                 MBBlocks.RED_OAK_LEAVES,
                 MBBlocks.JUNIPER_LEAVES,
                 MBBlocks.CEDAR_LEAVES,
-                MBBlocks.FLOWERING_ACACIA_LEAVES,
-                MBBlocks.ASPEN_LEAVES
+                MBBlocks.FLOWERING_ACACIA_LEAVES
         );
 
         this.getOrCreateTagBuilder(MBBlockTags.SOIL_NON_REPLACEABLE).add(
@@ -587,8 +586,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         );
 
         this.getOrCreateTagBuilder(MBBlockTags.BANDED_IRON).add(
-                MBBlocks.BANDED_IRON,
-                MBBlocks.MAGNETITE_ORE
+                MBBlocks.BANDED_IRON
         );
         this.getOrCreateTagBuilder(BlockTags.COAL_ORES).add(
                 MBBlocks.CHERT_COAL_ORE
@@ -641,12 +639,12 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.WHITE_HYACINTH,
                 MBBlocks.LIGHT_BLUE_HYACINTH,
                 MBBlocks.PINK_HYACINTH,
-                MBBlocks.RED_HYACINTH,
+//                MBBlocks.RED_HYACINTH,
                 MBBlocks.LUPINE
         );
         this.getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS).add(
-                MBBlocks.BUTTERCUP,
-                MBBlocks.FORGETMENOT,
+//                MBBlocks.BUTTERCUP,
+//                MBBlocks.FORGETMENOT,
                 MBBlocks.MARIGOLD,
                 MBBlocks.WHITE_HEATHER,
                 MBBlocks.RED_HEATHER,

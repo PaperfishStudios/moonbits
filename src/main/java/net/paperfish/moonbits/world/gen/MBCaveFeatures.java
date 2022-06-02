@@ -139,7 +139,7 @@ public class MBCaveFeatures {
                             .add(Blocks.AIR.getDefaultState(), 70)
                             .add(Blocks.GRASS.getDefaultState(), 20)
                             .add(Blocks.TALL_GRASS.getDefaultState(), 6)
-                            .add(MBBlocks.FORGETMENOT.getDefaultState(), 4)
+//                            .add(MBBlocks.FORGETMENOT.getDefaultState(), 4)
                     )
             )
     );

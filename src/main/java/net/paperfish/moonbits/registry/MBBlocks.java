@@ -14,10 +14,7 @@ import net.minecraft.util.SignType;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
-import net.paperfish.moonbits.block.cauldron.BoilingCauldronBlock;
-import net.paperfish.moonbits.block.cauldron.BoilingCauldronEntity;
-import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
-import net.paperfish.moonbits.block.cauldron.MBCauldronBehaviour;
+import net.paperfish.moonbits.block.cauldron.*;
 import net.paperfish.moonbits.block.extended.*;
 import net.paperfish.moonbits.mixin.SignTypeAccessor;
 import net.paperfish.moonbits.world.feature.*;
@@ -153,27 +150,6 @@ public class MBBlocks {
 	public static final Block RED_OAK_SAPLING =new MBSaplingBlock(new RedOakSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
 	public static final Block POTTED_RED_OAK_SAPLING = new FlowerPotBlock(RED_OAK_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
-	public static final Block ASPEN_TRUNK = new ThinPillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).mapColor(MapColor.OFF_WHITE));
-	public static final Block STRIPPED_ASPEN_TRUNK = new ThinPillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).mapColor(MapColor.PALE_YELLOW));
-
-	public static final Block ASPEN_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
-	public static final Block ASPEN_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
-	public static final Block ASPEN_STAIRS = new MBStairsBlock(ASPEN_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
-
-	public static final Block ASPEN_TRIM = new TrimBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
-	public static final Block ASPEN_WINDOW = new MBPaneBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
-	public static final Block ASPEN_LANTERN = new AspenLanternBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS).luminance((state) -> 15));
-	public static final Block ASPEN_SOUL_LANTERN = new AspenLanternBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS).luminance((state) -> 10));
-	public static final Block ASPEN_LATTICE = new LatticeBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
-	public static final Block ASPEN_PALISADE = new PalisadeBlock(AbstractBlock.Settings.copy(ASPEN_TRUNK));
-	public static final Block STRIPPED_ASPEN_PALISADE = new PalisadeBlock(AbstractBlock.Settings.copy(ASPEN_TRUNK).mapColor(MapColor.OFF_WHITE));
-
-	public static final Block ASPEN_LEAVES = new LeavesBlock(AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES).mapColor(MapColor.TERRACOTTA_LIME));
-	public static final Block ASPEN_LEAF_CARPET = new LeafCarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).breakInstantly().nonOpaque().noCollision());
-	// TODO: ASPEN TREE FEATURE/GENERATION
-	public static final Block ASPEN_SAPLING =new MBSaplingBlock(new GoldenBirchSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
-	public static final Block POTTED_ASPEN_SAPLING = new FlowerPotBlock(ASPEN_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
-
 	public static final Block PUFFBALLS = new PuffballsBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block POTTED_PUFFBALLS = new FlowerPotBlock(PUFFBALLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
@@ -235,6 +211,11 @@ public class MBBlocks {
 
 	public static final Block HONEY_CAULDRON = new HoneyCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON), MBCauldronBehaviour.HONEY_CAULDRON_BEHAVIOR);
 	public static final Block SYRUP_CAULDRON = new HoneyCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON), MBCauldronBehaviour.SYRUP_CAULDRON_BEHAVIOR);
+
+	public static final Block BASIN = new BasinBlock(AbstractBlock.Settings.copy(Blocks.CUT_COPPER));
+	public static final Block WATER_BASIN = new FluidBasinBlock(AbstractBlock.Settings.copy(Blocks.CUT_COPPER), Items.POTION);
+	public static final Block HONEY_BASIN = new FluidBasinBlock(AbstractBlock.Settings.copy(Blocks.CUT_COPPER), Items.HONEY_BOTTLE);
+	public static final Block SYRUP_BASIN = new FluidBasinBlock(AbstractBlock.Settings.copy(Blocks.CUT_COPPER), MBItems.SYRUP_BOTTLE);
 
 	public static final Block SYRUP_BLOCK = new SyrupBlock(AbstractBlock.Settings.copy(Blocks.HONEY_BLOCK).dynamicBounds());
 
@@ -400,9 +381,9 @@ public class MBBlocks {
 	public static final Block CHERT_COPPER_ORE = new Block(AbstractBlock.Settings.copy(Blocks.COPPER_ORE));
 	public static final Block CHERT_REDSTONE_ORE = new RedstoneOreBlock(AbstractBlock.Settings.copy(Blocks.REDSTONE_ORE));
 	public static final Block CHERT_LAPIS_ORE = new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_ORE));
-	public static final Block BANDED_IRON = new BandedIronBlock(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
-	public static final Block MAGNETITE_ORE = new BandedIronBlock(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
-	public static final Block MAGNETITE_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK));
+	public static final Block BANDED_IRON = new Block(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
+	public static final Block MAGNETITE_ORE = new Block(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
+	public static final Block MAGNETITE_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
 
 	public static final Block REDSTONE_CLUSTER = new RedstoneClusterBlock(7, 3, AbstractBlock.Settings.of(Material.STONE).mapColor(MapColor.BRIGHT_RED)
 			.nonOpaque().ticksRandomly().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(1.5f).luminance(state -> state.get(RedstoneClusterBlock.LIT) ? 10 : 5));
@@ -439,15 +420,10 @@ public class MBBlocks {
 	public static final Block CHISELED_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.TERRACOTTA).mapColor(MapColor.TERRACOTTA_BROWN));
 
 	// FLOWER FOREST
-	public static final Block BUTTERCUP = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block POTTED_BUTTERCUP = new FlowerPotBlock(BUTTERCUP, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
-	public static final Block FORGETMENOT = new FlowerBlock(StatusEffects.INSTANT_HEALTH, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block POTTED_FORGETMENOT = new FlowerPotBlock(FORGETMENOT, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
 	public static final Block WHITE_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block PINK_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block LIGHT_BLUE_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block RED_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
 	// - HONEY CONTENT LMAO
 	public static final Block HONEY_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
@@ -993,6 +969,10 @@ public class MBBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, block_id), block);
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, block_id), new BlockItem(block, new Item.Settings().group(group)));
 	}
+	public static void fluidPlaceableBlock(String block_id, Block block, ItemGroup group) {
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, block_id), block);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, block_id), new LilyPadItem(block, new Item.Settings().group(group)));
+	}
     
     public static void registerBlocks(){
 		// - Bedroll setup, registers the block entity too :b
@@ -1130,13 +1110,13 @@ public class MBBlocks {
 
 		createBlock("banded_iron", BANDED_IRON, MBItemGroup.CONSTRUCTION);
 		createBlock("magnetite_ore", MAGNETITE_ORE, MBItemGroup.CONSTRUCTION);
+		createBlock("magnetite_block", MAGNETITE_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("raw_tin_block", RAW_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("tin_block", TIN_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("cut_tin", CUT_TIN, MBItemGroup.CONSTRUCTION);
 		createBlock("cut_tin_slab", CUT_TIN_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("cut_tin_stairs", CUT_TIN_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("tin_pillar", TIN_PILLAR, MBItemGroup.CONSTRUCTION);
-		createBlock("magnetite_block", MAGNETITE_BLOCK, MBItemGroup.CONSTRUCTION);
 
 		createBlock("peat_block", PEAT_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("peat_bricks", PEAT_BRICKS, MBItemGroup.CONSTRUCTION);
@@ -1243,12 +1223,6 @@ public class MBBlocks {
 		createBlock("crimson_pillar", CRIMSON_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("warped_pillar", WARPED_PILLAR, MBItemGroup.CONSTRUCTION);
 
-		createBlock("aspen_trunk", ASPEN_TRUNK, MBItemGroup.CONSTRUCTION);
-		createBlock("stripped_aspen_trunk", STRIPPED_ASPEN_TRUNK, MBItemGroup.CONSTRUCTION);
-		createBlock("aspen_planks", ASPEN_PLANKS, MBItemGroup.CONSTRUCTION);
-		createBlock("aspen_slab", ASPEN_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("aspen_stairs", ASPEN_STAIRS, MBItemGroup.CONSTRUCTION);
-
 		createBlock("red_mushroom_cap", RED_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
 		createBlock("brown_mushroom_cap", BROWN_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
 		createBlock("saffron_mushroom_cap", SAFFRON_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
@@ -1313,7 +1287,6 @@ public class MBBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "honey_cauldron"), HONEY_CAULDRON);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "syrup_cauldron"), SYRUP_CAULDRON);
 
-
 		createBlock("canvas", CANVAS, MBItemGroup.CONSTRUCTION);
 		createBlock("framed_canvas", FRAMED_CANVAS, MBItemGroup.CONSTRUCTION);
 
@@ -1322,12 +1295,10 @@ public class MBBlocks {
 
 		// GLASS SHARDS/FULGURITE
 		createBlock("glass_door", GLASS_DOOR, ItemGroup.REDSTONE);
-		//createBlock("fulgurite", FULGURITE, MBItemGroup.MATERIALS);
-
 
 		createBlock("juniper_leaves", JUNIPER_LEAVES, MBItemGroup.DECOR);
 		createBlock("cedar_leaves", CEDAR_LEAVES, MBItemGroup.DECOR);
-		createBlock("aspen_leaves", ASPEN_LEAVES, MBItemGroup.DECOR);
+
 		createBlock("golden_birch_leaves", GOLDEN_BIRCH_LEAVES, MBItemGroup.DECOR);
 		createBlock("red_oak_leaves", RED_OAK_LEAVES, MBItemGroup.DECOR);
 		createBlock("juniper_sapling", JUNIPER_SAPLING, MBItemGroup.DECOR);
@@ -1335,24 +1306,13 @@ public class MBBlocks {
 
 		createBlock("flowering_acacia_leaves", FLOWERING_ACACIA_LEAVES, MBItemGroup.DECOR);
 
-		createBlock("aspen_sapling", ASPEN_SAPLING, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_aspen_sapling"), POTTED_ASPEN_SAPLING);
 		createBlock("golden_birch_sapling", GOLDEN_BIRCH_SAPLING, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_golden_birch_sapling"), POTTED_GOLDEN_BIRCH_SAPLING);
 		createBlock("red_oak_sapling", RED_OAK_SAPLING, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_red_oak_sapling"), POTTED_RED_OAK_SAPLING);
 
-		createBlock("aspen_leaf_carpet", ASPEN_LEAF_CARPET, MBItemGroup.DECOR);
-		createBlock("golden_birch_leaf_carpet", GOLDEN_BIRCH_LEAF_CARPET, MBItemGroup.DECOR);
-		createBlock("red_oak_leaf_carpet", RED_OAK_LEAF_CARPET, MBItemGroup.DECOR);
-
-		createBlock("aspen_trim", ASPEN_TRIM, MBItemGroup.DECOR);
-		createBlock("aspen_window", ASPEN_WINDOW, MBItemGroup.DECOR);
-		createBlock("aspen_lantern", ASPEN_LANTERN, MBItemGroup.DECOR);
-		createBlock("aspen_soul_lantern", ASPEN_SOUL_LANTERN, MBItemGroup.DECOR);
-		createBlock("aspen_lattice", ASPEN_LATTICE, MBItemGroup.DECOR);
-		createBlock("aspen_palisade", ASPEN_PALISADE, MBItemGroup.DECOR);
-		createBlock("stripped_aspen_palisade", STRIPPED_ASPEN_PALISADE, MBItemGroup.DECOR);
+		fluidPlaceableBlock("golden_birch_leaf_carpet", GOLDEN_BIRCH_LEAF_CARPET, MBItemGroup.DECOR);
+		fluidPlaceableBlock("red_oak_leaf_carpet", RED_OAK_LEAF_CARPET, MBItemGroup.DECOR);
 
 		createBlock("grass_turf", GRASS_TURF, MBItemGroup.DECOR);
 		createBlock("grass_turf_stairs", GRASS_TURF_STAIRS, MBItemGroup.DECOR);
@@ -1386,10 +1346,6 @@ public class MBBlocks {
 		createBlock("mycelium_roots", MYCELIUM_ROOTS, MBItemGroup.DECOR);
 
 		// FLOWERS
-		createBlock("buttercup", BUTTERCUP, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_buttercup"), POTTED_BUTTERCUP);
-		createBlock("forget_me_not", FORGETMENOT, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_forget_me_not"), POTTED_FORGETMENOT);
 		createBlock("marigold", MARIGOLD, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_marigold"), POTTED_MARIGOLD);
 
@@ -1403,7 +1359,6 @@ public class MBBlocks {
 		createBlock("white_hyacinth", WHITE_HYACINTH, MBItemGroup.DECOR);
 		createBlock("pink_hyacinth", PINK_HYACINTH, MBItemGroup.DECOR);
 		createBlock("light_blue_hyacinth", LIGHT_BLUE_HYACINTH, MBItemGroup.DECOR);
-		createBlock("red_hyacinth", RED_HYACINTH, MBItemGroup.DECOR);
 
 		createBlock("wildflowers", WILDFLOWERS, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_wildflowers"), POTTED_WILDFLOWERS);
@@ -1493,6 +1448,12 @@ public class MBBlocks {
 				FabricBlockEntityTypeBuilder.create(CookingPotBlockEntity::new, COOKING_POT).build(null));
 
 		createBlock("tree_tap", TREE_TAP, MBItemGroup.DECOR);
+
+		createBlock("basin", BASIN, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "water_basin"), WATER_BASIN);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "honey_basin"), HONEY_BASIN);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "syrup_basin"), SYRUP_BASIN);
+
 		createBlock("syrup_block", SYRUP_BLOCK, ItemGroup.REDSTONE);
 
 		createBlock("rope_ladder", ROPE_LADDER, MBItemGroup.DECOR);

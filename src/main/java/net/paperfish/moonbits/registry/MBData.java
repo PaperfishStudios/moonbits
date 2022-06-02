@@ -58,8 +58,6 @@ public class MBData {
 					.put(MBBlocks.CEDAR_LOG, MBBlocks.STRIPPED_CEDAR_LOG)
 					.put(MBBlocks.CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_WOOD)
 
-					.put(MBBlocks.ASPEN_TRUNK, MBBlocks.STRIPPED_ASPEN_TRUNK)
-
 					.put(MBBlocks.MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_STEM)
 					.put(MBBlocks.MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_HYPHAE)
 				.build();
@@ -141,7 +139,7 @@ public class MBData {
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.PLUCKED_GLOW_BERRY_HEDGE, 30, 60);
 
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.LAMPROOT, 60, 100);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.BUTTERCUP, 60, 100);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.BUTTERCUP, 60, 100);
 
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.PAPER_BUNDLE, 60, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STICK_STACK, 30, 60);

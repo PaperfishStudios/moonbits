@@ -22,22 +22,10 @@ import java.util.Random;
 public class TreeTapBlock extends HorizontalFacingBlock {
     public static final BooleanProperty ATTACHED = Properties.ATTACHED;
 
-    public static final VoxelShape NORTH = (VoxelShapes.union(
-            Block.createCuboidShape(9, 8, 0, 11, 10, 8),
-            Block.createCuboidShape(5, 6, 0, 11, 8, 8),
-            Block.createCuboidShape(5,8, 0, 7, 10, 8)));
-    public static final VoxelShape SOUTH = (VoxelShapes.union(
-            Block.createCuboidShape(9, 8, 8, 11, 10, 16),
-            Block.createCuboidShape(5, 6, 8, 11, 8, 16),
-            Block.createCuboidShape(5,8, 8, 7, 10, 16)));
-    public static final VoxelShape EAST = (VoxelShapes.union(
-            Block.createCuboidShape(8, 8, 9, 16, 10, 11),
-            Block.createCuboidShape(8, 6, 5, 16, 8, 11),
-            Block.createCuboidShape(8,8, 5, 16, 10, 7)));
-    public static final VoxelShape WEST = (VoxelShapes.union(
-            Block.createCuboidShape(0, 8, 9, 8, 10, 11),
-            Block.createCuboidShape(0, 6, 5, 8, 8, 11),
-            Block.createCuboidShape(0,8, 5, 8, 10, 7)));
+    public static final VoxelShape NORTH = (Block.createCuboidShape(6,6, 0, 10, 9, 4));
+    public static final VoxelShape SOUTH = (Block.createCuboidShape(6,6, 12, 10, 9, 16));
+    public static final VoxelShape EAST = (Block.createCuboidShape(12,6, 6, 16, 9, 10));
+    public static final VoxelShape WEST = (Block.createCuboidShape(0,6, 6, 4, 9, 10));
 
     public TreeTapBlock(Settings settings) {
         super(settings);
@@ -86,6 +74,9 @@ public class TreeTapBlock extends HorizontalFacingBlock {
                 }
                 if (cState.isOf(MBBlocks.SYRUP_CAULDRON) && cState.get(HoneyCauldronBlock.LEVEL) < 4) {
                     world.setBlockState(cauldron, cState.with(HoneyCauldronBlock.LEVEL, cState.get(HoneyCauldronBlock.LEVEL) + 1));
+                }
+                if (cState.isOf(MBBlocks.BASIN)) {
+                    world.setBlockState(cauldron, MBBlocks.SYRUP_BASIN.getDefaultState());
                 }
             }
         }

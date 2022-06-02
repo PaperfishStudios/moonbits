@@ -107,27 +107,31 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.RED_OAK_LEAF_CARPET, MBLootTableProvider::leafCarpet);
         addDrop(MBBlocks.RED_OAK_SAPLING);
 
-        addDrop(MBBlocks.ASPEN_TRUNK);
-        addDrop(MBBlocks.STRIPPED_ASPEN_TRUNK);
-        //addDrop(MBBlocks.ASPEN_PLANKS);
-        //addDrop(MBBlocks.ASPEN_SLAB, BlockLootTableGenerator::slabDrops);
-        //addDrop(MBBlocks.ASPEN_STAIRS);
-        addDrop(MBBlocks.ASPEN_TRIM);
-        addDrop(MBBlocks.ASPEN_LATTICE);
-        addDrop(MBBlocks.ASPEN_WINDOW);
-        addDrop(MBBlocks.ASPEN_LANTERN);
-        addDrop(MBBlocks.ASPEN_SOUL_LANTERN);
-        addDrop(MBBlocks.ASPEN_PALISADE);
-        addDrop(MBBlocks.STRIPPED_ASPEN_PALISADE);
-        addDrop(MBBlocks.ASPEN_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.ASPEN_SAPLING, SAPLING_DROP_CHANCE));
-        addDrop(MBBlocks.ASPEN_LEAF_CARPET, MBLootTableProvider::leafCarpet);
-        addDrop(MBBlocks.ASPEN_SAPLING);
+//        addDrop(MBBlocks.ASPEN_TRUNK);
+//        addDrop(MBBlocks.STRIPPED_ASPEN_TRUNK);
+//        //addDrop(MBBlocks.ASPEN_PLANKS);
+//        //addDrop(MBBlocks.ASPEN_SLAB, BlockLootTableGenerator::slabDrops);
+//        //addDrop(MBBlocks.ASPEN_STAIRS);
+//        addDrop(MBBlocks.ASPEN_TRIM);
+//        addDrop(MBBlocks.ASPEN_LATTICE);
+//        addDrop(MBBlocks.ASPEN_WINDOW);
+//        addDrop(MBBlocks.ASPEN_LANTERN);
+//        addDrop(MBBlocks.ASPEN_SOUL_LANTERN);
+//        addDrop(MBBlocks.ASPEN_PALISADE);
+//        addDrop(MBBlocks.STRIPPED_ASPEN_PALISADE);
+//        addDrop(MBBlocks.ASPEN_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.ASPEN_SAPLING, SAPLING_DROP_CHANCE));
+//        addDrop(MBBlocks.ASPEN_LEAF_CARPET, MBLootTableProvider::leafCarpet);
+//        addDrop(MBBlocks.ASPEN_SAPLING);
 
         addDrop(MBBlocks.BOILING_CAULDRON, Items.CAULDRON);
 
         addDrop(MBBlocks.HONEY_CAULDRON, Items.CAULDRON);
         addDrop(MBBlocks.SYRUP_CAULDRON, Items.CAULDRON);
         addDrop(MBBlocks.TREE_TAP);
+        addDrop(MBBlocks.BASIN);
+        addDrop(MBBlocks.WATER_BASIN, MBBlocks.BASIN);
+        addDrop(MBBlocks.HONEY_BASIN, MBBlocks.BASIN);
+        addDrop(MBBlocks.SYRUP_BASIN, MBBlocks.BASIN);
         addDrop(MBBlocks.SYRUP_BLOCK);
 
         addDrop(MBBlocks.FLOWERING_ACACIA_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, Blocks.ACACIA_SAPLING, SAPLING_DROP_CHANCE));
@@ -145,13 +149,13 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
                         .apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1, 4))))));
 
         addDrop(MBBlocks.PEAT_BLOCK);
-        addDrop(MBBlocks.PEAT_DEPOSIT, (Block block) -> oreDrops(block, MBItems.PEAT, 1f, 2f));
-        addDrop(MBBlocks.CLAY_DEPOSIT, (Block block) -> oreDrops(block, Items.CLAY_BALL, 2f, 4f));
-        addDrop(MBBlocks.GOLD_DEPOSIT, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 1f, 4f));
-        addDrop(MBBlocks.COPPER_DEPOSIT, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 2f, 5f));
+        addDrop(MBBlocks.PEAT_DEPOSIT, (Block block) -> oreDrops(block, MBItems.PEAT, 1f, 3f));
+        addDrop(MBBlocks.CLAY_DEPOSIT, (Block block) -> oreDrops(block, Items.CLAY_BALL, 2f, 5f));
+        addDrop(MBBlocks.GOLD_DEPOSIT, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 3f, 8f));
+        addDrop(MBBlocks.COPPER_DEPOSIT, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 4f, 9f));
 
-        addDrop(MBBlocks.TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 2f, 5f));
-        addDrop(MBBlocks.FROST_TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 2f, 5f));
+        addDrop(MBBlocks.TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 3f, 9f));
+        addDrop(MBBlocks.FROST_TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 3f, 9f));
         addDrop(MBBlocks.TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
         addDrop(MBBlocks.DEEPSLATE_TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
         addDrop(MBBlocks.CHERT_TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
@@ -164,8 +168,8 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.PERMAFROST);
         addDrop(MBBlocks.FROST_PEAT, (Block block) -> oreDrops(block, MBItems.PEAT, 1f, 2f));
         addDrop(MBBlocks.FROST_CLAY, (Block block) -> oreDrops(block, Items.CLAY_BALL, 2f, 4f));
-        addDrop(MBBlocks.FROST_GOLD, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 1f, 4f));
-        addDrop(MBBlocks.FROST_COPPER, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 2f, 5f));
+        addDrop(MBBlocks.FROST_GOLD, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 3f, 8f));
+        addDrop(MBBlocks.FROST_COPPER, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 4f, 9f));
 
         addDrop(Blocks.ICE, (Block block) -> oreDrops(block, MBItems.ICE_CUBES, 1f, 2f));
 
@@ -251,12 +255,12 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, dropsWithShears(MBBlocks.PRICKLY_PEAR_CACTUS,
                 (ItemEntry.builder(MBBlocks.PRICKLY_PEAR_CACTUS).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 2))))));
 
-        addDrop(MBBlocks.BUTTERCUP);
-        addDrop(MBBlocks.FORGETMENOT);
+//        addDrop(MBBlocks.BUTTERCUP);
+//        addDrop(MBBlocks.FORGETMENOT);
         addDrop(MBBlocks.PINK_HYACINTH, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(MBBlocks.WHITE_HYACINTH, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(MBBlocks.LIGHT_BLUE_HYACINTH, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
-        addDrop(MBBlocks.RED_HYACINTH, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
+//        addDrop(MBBlocks.RED_HYACINTH, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(MBBlocks.WILDFLOWERS);
         addDrop(MBBlocks.CLOVER);
         addDrop(MBBlocks.PUFFBALLS);
