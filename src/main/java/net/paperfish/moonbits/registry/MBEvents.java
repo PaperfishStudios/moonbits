@@ -104,11 +104,11 @@ public class MBEvents {
 
             if (heldItem.isIn(MBItemTags.AXES)) {
                 boolean success = false;
-                if (targetBlock.isOf(MBBlocks.ASPEN_PALISADE)) {
-                    world.setBlockState(targetPos, MBBlocks.STRIPPED_ASPEN_PALISADE.getStateWithProperties(targetBlock));
-                    world.playSound(player, targetPos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    success = true;
-                }
+//                if (targetBlock.isOf(MBBlocks.ASPEN_PALISADE)) {
+//                    world.setBlockState(targetPos, MBBlocks.STRIPPED_ASPEN_PALISADE.getStateWithProperties(targetBlock));
+//                    world.playSound(player, targetPos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0f, 1.0f);
+//                    success = true;
+//                }
                 if (success) {
                     if (!player.isCreative()) heldItem.damage(1, new Random(), null);
                     return ActionResult.SUCCESS;

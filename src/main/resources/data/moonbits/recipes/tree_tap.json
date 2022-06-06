@@ -2,14 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "I I",
-    " n "
+    " I "
   ],
   "key": {
     "I": {
-      "item": "minecraft:copper_ingot"
-    },
-    "n": {
-      "item": "moonbits:copper_nugget"
+      "item": "moonbits:tin_ingot"
     }
   },
   "result": {

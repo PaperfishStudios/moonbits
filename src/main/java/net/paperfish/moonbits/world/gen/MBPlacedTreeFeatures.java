@@ -18,10 +18,10 @@ public class MBPlacedTreeFeatures {
             MBTreeFeatures.RED_OAK_BEES_002, PlacedFeatures.wouldSurvive(MBBlocks.RED_OAK_SAPLING));
     public static final RegistryEntry<PlacedFeature> RED_OAK_BEES_005 = MBPlacedFeatures.register("p_red_oak_005",
             MBTreeFeatures.RED_OAK_BEES_005, PlacedFeatures.wouldSurvive(MBBlocks.RED_OAK_SAPLING));
-    public static final RegistryEntry<PlacedFeature> JUNIPER = MBPlacedFeatures.register("p_juniper",
-            MBTreeFeatures.JUNIPER, PlacedFeatures.wouldSurvive(MBBlocks.JUNIPER_SAPLING));
-    public static final RegistryEntry<PlacedFeature> JUNIPER_BUSH = MBPlacedFeatures.register("p_juniper_bush",
-            MBTreeFeatures.JUNIPER_BUSH, PlacedFeatures.wouldSurvive(MBBlocks.JUNIPER_SAPLING));
+//    public static final RegistryEntry<PlacedFeature> JUNIPER = MBPlacedFeatures.register("p_juniper",
+//            MBTreeFeatures.JUNIPER, PlacedFeatures.wouldSurvive(MBBlocks.JUNIPER_SAPLING));
+//    public static final RegistryEntry<PlacedFeature> JUNIPER_BUSH = MBPlacedFeatures.register("p_juniper_bush",
+//            MBTreeFeatures.JUNIPER_BUSH, PlacedFeatures.wouldSurvive(MBBlocks.JUNIPER_SAPLING));
     public static final RegistryEntry<PlacedFeature> CEDAR = MBPlacedFeatures.register("p_cedar",
             MBTreeFeatures.CEDAR, PlacedFeatures.wouldSurvive(MBBlocks.CEDAR_SAPLING));
 

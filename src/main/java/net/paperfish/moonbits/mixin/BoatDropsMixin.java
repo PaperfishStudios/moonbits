@@ -13,10 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class BoatDropsMixin {
     @Inject(method = "asItem", at = @At("HEAD"), cancellable = true)
     public void asItem(CallbackInfoReturnable<Item> ci) {
-        if (((BoatEntity)(Object)this).getBoatType() == MBBoatTypes.JUNIPER) {
-            ci.setReturnValue(MBItems.JUNIPER_BOAT);
-        }
-        else if (((BoatEntity)(Object)this).getBoatType() == MBBoatTypes.CEDAR) {
+        if (((BoatEntity)(Object)this).getBoatType() == MBBoatTypes.CEDAR) {
             ci.setReturnValue(MBItems.CEDAR_BOAT);
         }
     }

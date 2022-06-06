@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "moonbits:juniper_sign",
     "moonbits:cedar_sign",
     "moonbits:honey_sign"
   ]

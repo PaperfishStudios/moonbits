@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "moonbits:block/aspen_planks",
-    "top": "moonbits:block/aspen_planks",
-    "side": "moonbits:block/aspen_planks"
-  }
-}

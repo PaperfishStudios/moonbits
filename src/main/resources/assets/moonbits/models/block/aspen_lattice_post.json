@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/template_glass_pane_post",
-  "textures": {
-    "pane": "moonbits:block/aspen_lattice",
-    "edge": "moonbits:block/aspen_lattice_top"
-  }
-}

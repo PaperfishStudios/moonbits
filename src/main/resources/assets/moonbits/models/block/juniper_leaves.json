@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/leaves",
-  "textures": {
-    "all": "moonbits:block/juniper_leaves"
-  }
-}

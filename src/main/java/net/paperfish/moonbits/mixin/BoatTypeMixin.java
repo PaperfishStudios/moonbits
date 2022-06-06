@@ -44,9 +44,9 @@ public class BoatTypeMixin {
         var types = new ArrayList<>(Arrays.asList(field_7724));
         var last = types.get(types.size() - 1);
 
-        var juniper = newType("JUNIPER", last.ordinal() + 1, MBBlocks.JUNIPER_PLANKS, "juniper");
-        MBBoatTypes.JUNIPER = juniper;
-        types.add(juniper);
+//        var juniper = newType("JUNIPER", last.ordinal() + 1, MBBlocks.JUNIPER_PLANKS, "juniper");
+//        MBBoatTypes.JUNIPER = juniper;
+//        types.add(juniper);
         var cedar = newType("CEDAR", last.ordinal() + 2, MBBlocks.CEDAR_PLANKS, "cedar");
         MBBoatTypes.CEDAR = cedar;
         types.add(cedar);

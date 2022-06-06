@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:stripped_aspen_trunk"
-  },
-  "result": "moonbits:stripped_aspen_palisade",
-  "count": 1
-}

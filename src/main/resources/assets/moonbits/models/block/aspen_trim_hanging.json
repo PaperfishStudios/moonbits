@@ -1,7 +1,0 @@
-{
-  "parent": "moonbits:block/template_trim_hanging",
-  "textures": {
-    "top": "moonbits:block/aspen_trim",
-    "post": "moonbits:block/aspen_trim_post"
-  }
-}

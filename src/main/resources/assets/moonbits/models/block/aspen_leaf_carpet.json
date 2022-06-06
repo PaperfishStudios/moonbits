@@ -1,6 +1,0 @@
-{
-  "parent": "moonbits:block/leaf_carpet",
-  "textures": {
-    "leaf": "moonbits:block/aspen_leaves"
-  }
-}

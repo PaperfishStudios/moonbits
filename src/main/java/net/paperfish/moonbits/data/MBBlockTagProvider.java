@@ -31,7 +31,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         MBBlockFamilies.WARPED.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(block));
         MBBlockFamilies.WARPED.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.NON_FLAMMABLE_WOOD).add(block));
 
-        MBBlockFamilies.JUNIPER.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(block));
+//        MBBlockFamilies.JUNIPER.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(block));
         MBBlockFamilies.CEDAR.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(block));
         MBBlockFamilies.HONEY.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(block));
         MBBlockFamilies.HONEY.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.NON_FLAMMABLE_WOOD).add(block));
@@ -218,18 +218,18 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.GIANT_TOADSTOOL_CAP,
                 MBBlocks.MUSHROOM_STEM,
 
-                MBBlocks.ASPEN_TRUNK,
-                MBBlocks.STRIPPED_ASPEN_TRUNK,
-                MBBlocks.ASPEN_PALISADE,
-                MBBlocks.STRIPPED_ASPEN_PALISADE,
-                MBBlocks.ASPEN_PLANKS,
-                MBBlocks.ASPEN_STAIRS,
-                MBBlocks.ASPEN_SLAB,
-                MBBlocks.ASPEN_WINDOW,
-                MBBlocks.ASPEN_LANTERN,
-                MBBlocks.ASPEN_SOUL_LANTERN,
-                MBBlocks.ASPEN_TRIM,
-                MBBlocks.ASPEN_LATTICE,
+//                MBBlocks.ASPEN_TRUNK,
+//                MBBlocks.STRIPPED_ASPEN_TRUNK,
+//                MBBlocks.ASPEN_PALISADE,
+//                MBBlocks.STRIPPED_ASPEN_PALISADE,
+//                MBBlocks.ASPEN_PLANKS,
+//                MBBlocks.ASPEN_STAIRS,
+//                MBBlocks.ASPEN_SLAB,
+//                MBBlocks.ASPEN_WINDOW,
+//                MBBlocks.ASPEN_LANTERN,
+//                MBBlocks.ASPEN_SOUL_LANTERN,
+//                MBBlocks.ASPEN_TRIM,
+//                MBBlocks.ASPEN_LATTICE,
 
                 MBBlocks.FROSTHORN_CROWN,
                 MBBlocks.FROSTHORN_STEM,
@@ -279,15 +279,15 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CANVAS,
                 MBBlocks.FRAMED_CANVAS,
 
-                MBBlocks.JUNIPER_LEAVES,
+//                MBBlocks.JUNIPER_LEAVES,
                 MBBlocks.CEDAR_LEAVES,
                 MBBlocks.GOLDEN_BIRCH_LEAVES,
                 MBBlocks.RED_OAK_LEAVES,
-                MBBlocks.ASPEN_LEAVES,
+//                MBBlocks.ASPEN_LEAVES,
                 MBBlocks.FLOWERING_ACACIA_LEAVES,
                 MBBlocks.GOLDEN_BIRCH_LEAF_CARPET,
                 MBBlocks.RED_OAK_LEAF_CARPET,
-                MBBlocks.ASPEN_LEAF_CARPET,
+//                MBBlocks.ASPEN_LEAF_CARPET,
 
                 MBBlocks.EGG_BASKET,
                 MBBlocks.COCOA_SACK,
@@ -343,8 +343,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.MEDIUM_REDSTONE_BUD,
                 MBBlocks.SMALL_REDSTONE_BUD,
                 MBBlocks.BANDED_IRON,
-                MBBlocks.MAGNETITE_ORE,
-                MBBlocks.MAGNETITE_BLOCK,
+                MBBlocks.HEMATITE_ORE,
+                MBBlocks.HEMATITE_BLOCK,
 
                 MBBlocks.CRACKED_MUD,
 
@@ -404,7 +404,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CHERT_GOLD_ORE,
 
                 MBBlocks.BANDED_IRON,
-                MBBlocks.MAGNETITE_ORE
+                MBBlocks.HEMATITE_ORE
         );
         this.getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).add(
                 MBBlocks.CHERT_LAPIS_ORE,
@@ -432,73 +432,73 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(BlockTags.CLIMBABLE).add(
                 MBBlocks.ROPE_LADDER,
-                MBBlocks.IRON_LADDER,
-                MBBlocks.ASPEN_LATTICE
+                MBBlocks.IRON_LADDER
+//                MBBlocks.ASPEN_LATTICE
         );
 
-        this.getOrCreateTagBuilder(MBBlockTags.JUNIPER_LOGS).add(
-                MBBlocks.JUNIPER_LOG,
-                MBBlocks.JUNIPER_WOOD,
-                MBBlocks.STRIPPED_JUNIPER_LOG,
-                MBBlocks.STRIPPED_JUNIPER_WOOD
-        );
+//        this.getOrCreateTagBuilder(MBBlockTags.JUNIPER_LOGS).add(
+//                MBBlocks.JUNIPER_LOG,
+//                MBBlocks.JUNIPER_WOOD,
+//                MBBlocks.STRIPPED_JUNIPER_LOG,
+//                MBBlocks.STRIPPED_JUNIPER_WOOD
+//        );
         this.getOrCreateTagBuilder(MBBlockTags.CEDAR_LOGS).add(
                 MBBlocks.CEDAR_LOG,
                 MBBlocks.CEDAR_WOOD,
                 MBBlocks.STRIPPED_CEDAR_LOG,
                 MBBlocks.STRIPPED_CEDAR_WOOD
         );
-        this.getOrCreateTagBuilder(MBBlockTags.ASPEN_TRUNKS).add(
-                MBBlocks.ASPEN_TRUNK,
-                MBBlocks.STRIPPED_ASPEN_TRUNK
-        );
+//        this.getOrCreateTagBuilder(MBBlockTags.ASPEN_TRUNKS).add(
+//                MBBlocks.ASPEN_TRUNK,
+//                MBBlocks.STRIPPED_ASPEN_TRUNK
+//        );
         this.getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
-                .addTag(MBBlockTags.JUNIPER_LOGS).addTag(MBBlockTags.CEDAR_LOGS);
+                .addTag(MBBlockTags.CEDAR_LOGS);
 
         this.getOrCreateTagBuilder(BlockTags.WOOL).add(
                 MBBlocks.FUR_BLOCK
         );
 
         this.getOrCreateTagBuilder(BlockTags.PLANKS).add(
-                MBBlocks.JUNIPER_PLANKS,
+//                MBBlocks.JUNIPER_PLANKS,
                 MBBlocks.CEDAR_PLANKS,
-                MBBlocks.HONEY_PLANKS,
-                MBBlocks.ASPEN_PLANKS
+                MBBlocks.HONEY_PLANKS
+//                MBBlocks.ASPEN_PLANKS
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(
-                MBBlocks.JUNIPER_BUTTON,
+//                MBBlocks.JUNIPER_BUTTON,
                 MBBlocks.CEDAR_BUTTON,
                 MBBlocks.HONEY_BUTTON
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(
-                MBBlocks.JUNIPER_PRESSURE_PLATE,
+//                MBBlocks.JUNIPER_PRESSURE_PLATE,
                 MBBlocks.CEDAR_PRESSURE_PLATE,
                 MBBlocks.HONEY_PRESSURE_PLATE
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_DOORS).add(
-                MBBlocks.JUNIPER_DOOR,
+//                MBBlocks.JUNIPER_DOOR,
                 MBBlocks.CEDAR_DOOR,
                 MBBlocks.HONEY_DOOR
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS).add(
-                MBBlocks.JUNIPER_TRAPDOOR,
+//                MBBlocks.JUNIPER_TRAPDOOR,
                 MBBlocks.CEDAR_TRAPDOOR,
                 MBBlocks.HONEY_TRAPDOOR
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(
-                MBBlocks.JUNIPER_STAIRS,
+//                MBBlocks.JUNIPER_STAIRS,
                 MBBlocks.CEDAR_STAIRS,
-                MBBlocks.HONEY_STAIRS,
-                MBBlocks.ASPEN_STAIRS
+                MBBlocks.HONEY_STAIRS
+//                MBBlocks.ASPEN_STAIRS
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).add(
-                MBBlocks.JUNIPER_SLAB,
+//                MBBlocks.JUNIPER_SLAB,
                 MBBlocks.CEDAR_SLAB,
-                MBBlocks.HONEY_SLAB,
-                MBBlocks.ASPEN_SLAB
+                MBBlocks.HONEY_SLAB
+//                MBBlocks.ASPEN_SLAB
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(
-                MBBlocks.JUNIPER_FENCE,
+//                MBBlocks.JUNIPER_FENCE,
                 MBBlocks.CEDAR_FENCE,
                 MBBlocks.HONEY_FENCE
         );
@@ -512,7 +512,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CRIMSON_BOOKSHELF,
                 MBBlocks.WARPED_BOOKSHELF,
                 MBBlocks.HONEY_BOOKSHELF,
-                MBBlocks.JUNIPER_BOOKSHELF,
+//                MBBlocks.JUNIPER_BOOKSHELF,
                 MBBlocks.CEDAR_BOOKSHELF
         );
         this.getOrCreateTagBuilder(MBBlockTags.PLANTER_BOXES).add(
@@ -525,16 +525,16 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CRIMSON_PLANTER_BOX,
                 MBBlocks.WARPED_PLANTER_BOX,
                 MBBlocks.HONEY_PLANTER_BOX,
-                MBBlocks.JUNIPER_PLANTER_BOX,
+//                MBBlocks.JUNIPER_PLANTER_BOX,
                 MBBlocks.CEDAR_PLANTER_BOX
         );
         this.getOrCreateTagBuilder(BlockTags.STANDING_SIGNS).add(
-                MBBlocks.JUNIPER_SIGN,
+//                MBBlocks.JUNIPER_SIGN,
                 MBBlocks.CEDAR_SIGN,
                 MBBlocks.HONEY_SIGN
         );
         this.getOrCreateTagBuilder(BlockTags.WALL_SIGNS).add(
-                MBBlocks.JUNIPER_WALL_SIGN,
+//                MBBlocks.JUNIPER_WALL_SIGN,
                 MBBlocks.CEDAR_WALL_SIGN,
                 MBBlocks.HONEY_WALL_SIGN
         );
@@ -542,19 +542,19 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.GLASS_DOOR
         );
         this.getOrCreateTagBuilder(BlockTags.SAPLINGS).add(
-                MBBlocks.JUNIPER_SAPLING,
+//                MBBlocks.JUNIPER_SAPLING,
                 MBBlocks.CEDAR_SAPLING,
                 MBBlocks.GOLDEN_BIRCH_SAPLING,
-                MBBlocks.RED_OAK_SAPLING,
-                MBBlocks.ASPEN_SAPLING
+                MBBlocks.RED_OAK_SAPLING
+//                MBBlocks.ASPEN_SAPLING
         );
         this.getOrCreateTagBuilder(BlockTags.LEAVES).add(
                 MBBlocks.GOLDEN_BIRCH_LEAVES,
                 MBBlocks.RED_OAK_LEAVES,
-                MBBlocks.JUNIPER_LEAVES,
+//                MBBlocks.JUNIPER_LEAVES,
                 MBBlocks.CEDAR_LEAVES,
-                MBBlocks.FLOWERING_ACACIA_LEAVES,
-                MBBlocks.ASPEN_LEAVES
+                MBBlocks.FLOWERING_ACACIA_LEAVES
+//                MBBlocks.ASPEN_LEAVES
         );
 
         this.getOrCreateTagBuilder(MBBlockTags.SOIL_NON_REPLACEABLE).add(
@@ -588,7 +588,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(MBBlockTags.BANDED_IRON).add(
                 MBBlocks.BANDED_IRON,
-                MBBlocks.MAGNETITE_ORE
+                MBBlocks.HEMATITE_ORE
         );
         this.getOrCreateTagBuilder(BlockTags.COAL_ORES).add(
                 MBBlocks.CHERT_COAL_ORE
@@ -609,7 +609,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.BANDED_IRON
         );
         this.getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
-                MBBlocks.MAGNETITE_BLOCK,
+                MBBlocks.HEMATITE_BLOCK,
                 MBBlocks.TIN_BLOCK
         );
         this.getOrCreateTagBuilder(BlockTags.INFINIBURN_OVERWORLD).add(

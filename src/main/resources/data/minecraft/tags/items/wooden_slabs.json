@@ -1,9 +1,7 @@
 {
   "replace": false,
   "values": [
-    "moonbits:juniper_slab",
     "moonbits:cedar_slab",
-    "moonbits:honey_slab",
-    "moonbits:aspen_slab"
+    "moonbits:honey_slab"
   ]
 }

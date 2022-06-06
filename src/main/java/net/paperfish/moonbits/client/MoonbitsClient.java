@@ -109,20 +109,12 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.CAVEBLOOM_VINE,
                 MBBlocks.CAVEBLOOM_FLOWERS,
 
-                MBBlocks.JUNIPER_DOOR,
-                MBBlocks.JUNIPER_TRAPDOOR,
-                MBBlocks.JUNIPER_SAPLING,
-                MBBlocks.POTTED_JUNIPER_SAPLING,
                 MBBlocks.CEDAR_DOOR,
                 MBBlocks.CEDAR_TRAPDOOR,
                 MBBlocks.CEDAR_SAPLING,
                 MBBlocks.POTTED_CEDAR_SAPLING,
 
-                MBBlocks.ASPEN_LATTICE,
-                MBBlocks.ASPEN_WINDOW,
-                MBBlocks.ASPEN_LEAF_CARPET,
-                MBBlocks.ASPEN_SAPLING,
-                MBBlocks.POTTED_ASPEN_SAPLING,
+                MBBlocks.TREE_TAP,
 
                 MBBlocks.FLOWERING_ACACIA_LEAVES,
 

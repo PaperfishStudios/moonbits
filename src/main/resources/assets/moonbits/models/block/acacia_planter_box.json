@@ -1,6 +1,7 @@
 {
-  "parent": "moonbits:block/planter_box/planter_box",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
+    "top": "moonbits:block/acacia_planter_box_top",
     "bottom": "moonbits:block/acacia_planter_box_bottom",
     "side": "moonbits:block/acacia_planter_box"
   }

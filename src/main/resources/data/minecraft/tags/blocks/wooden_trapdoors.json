@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "moonbits:juniper_trapdoor",
     "moonbits:cedar_trapdoor",
     "moonbits:honey_trapdoor"
   ]

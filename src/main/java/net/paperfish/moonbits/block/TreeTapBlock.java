@@ -12,6 +12,8 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.registry.MBParticles;
 import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
@@ -22,22 +24,10 @@ import java.util.Random;
 public class TreeTapBlock extends HorizontalFacingBlock {
     public static final BooleanProperty ATTACHED = Properties.ATTACHED;
 
-    public static final VoxelShape NORTH = (VoxelShapes.union(
-            Block.createCuboidShape(9, 8, 0, 11, 10, 8),
-            Block.createCuboidShape(5, 6, 0, 11, 8, 8),
-            Block.createCuboidShape(5,8, 0, 7, 10, 8)));
-    public static final VoxelShape SOUTH = (VoxelShapes.union(
-            Block.createCuboidShape(9, 8, 8, 11, 10, 16),
-            Block.createCuboidShape(5, 6, 8, 11, 8, 16),
-            Block.createCuboidShape(5,8, 8, 7, 10, 16)));
-    public static final VoxelShape EAST = (VoxelShapes.union(
-            Block.createCuboidShape(8, 8, 9, 16, 10, 11),
-            Block.createCuboidShape(8, 6, 5, 16, 8, 11),
-            Block.createCuboidShape(8,8, 5, 16, 10, 7)));
-    public static final VoxelShape WEST = (VoxelShapes.union(
-            Block.createCuboidShape(0, 8, 9, 8, 10, 11),
-            Block.createCuboidShape(0, 6, 5, 8, 8, 11),
-            Block.createCuboidShape(0,8, 5, 8, 10, 7)));
+    public static final VoxelShape NORTH = Block.createCuboidShape(6, 6, 0, 10, 9, 4);
+    public static final VoxelShape SOUTH = Block.createCuboidShape(6, 6, 12, 10, 9, 16);
+    public static final VoxelShape EAST = Block.createCuboidShape(12, 6, 6, 16, 9, 10);
+    public static final VoxelShape WEST = Block.createCuboidShape(0, 6, 6, 4, 9, 10);
 
     public TreeTapBlock(Settings settings) {
         super(settings);
@@ -64,15 +54,15 @@ public class TreeTapBlock extends HorizontalFacingBlock {
         };
     }
 
-    @Override
-    public VoxelShape getRaycastShape(BlockState state, BlockView world, BlockPos pos) {
-        return switch (state.get(FACING)) {
-            case SOUTH -> Block.createCuboidShape(5, 6, 8, 11, 10, 16);
-            case EAST -> Block.createCuboidShape(8, 6, 5, 16, 10, 11);
-            case WEST -> Block.createCuboidShape(0, 6, 5, 8, 10, 11);
-            default -> Block.createCuboidShape(5, 6, 0, 11, 10, 8);
-        };
-    }
+//    @Override
+//    public VoxelShape getRaycastShape(BlockState state, BlockView world, BlockPos pos) {
+//        return switch (state.get(FACING)) {
+//            case SOUTH -> Block.createCuboidShape(5, 6, 8, 11, 10, 16);
+//            case EAST -> Block.createCuboidShape(8, 6, 5, 16, 10, 11);
+//            case WEST -> Block.createCuboidShape(0, 6, 5, 8, 10, 11);
+//            default -> Block.createCuboidShape(5, 6, 0, 11, 10, 8);
+//        };
+//    }
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
@@ -94,12 +84,18 @@ public class TreeTapBlock extends HorizontalFacingBlock {
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(ATTACHED) && random.nextInt(8) == 0) {
-            float xOffset = state.get(FACING).getAxis() == Direction.Axis.X ? 0.5f + (-state.get(FACING).getOffsetX() / 32.0f) : 0.5f;
-            float zOffset = state.get(FACING).getAxis() == Direction.Axis.Z ? 0.5f + (-state.get(FACING).getOffsetZ() / 32.0f) : 0.5f;
-            world.addParticle(MBParticles.DRIPPING_SYRUP, pos.getX() + xOffset, pos.getY() + (6/16f), pos.getZ() + zOffset, 0.0, 0.0, 0.0);
+            float xOffset = state.get(FACING).getAxis() == Direction.Axis.X ? 0.5f + (state.get(FACING).getOffsetX() / 8.0f) : 0.5f;
+            float zOffset = state.get(FACING).getAxis() == Direction.Axis.Z ? 0.5f + (state.get(FACING).getOffsetZ() / 8.0f) : 0.5f;
+            world.addParticle(MBParticles.DRIPPING_SYRUP, pos.getX() + xOffset, pos.getY() + (3.5f/16f), pos.getZ() + zOffset, 0.0, 0.0, 0.0);
         }
     }
 
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        Direction direction = state.get(FACING);
+        BlockPos blockPos = pos.offset(direction);
+        BlockState blockState = world.getBlockState(blockPos);
+        return blockState.isSideSolidFullSquare(world, blockPos, direction.getOpposite());
+    }
     @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -109,11 +105,13 @@ public class TreeTapBlock extends HorizontalFacingBlock {
         for (Direction direction : ctx.getPlacementDirections()) {
             if (!direction.getAxis().isHorizontal()) continue;
             BlockState connection = world.getBlockState(pos.offset(direction));
-            if (!ctx.shouldCancelInteraction() && connection.getBlock() instanceof TreeTapBlock && direction.getAxis() == connection.get(FACING).getAxis()) {
-                return blockState.with(FACING, connection.get(FACING).getOpposite());
+            if (blockState.canPlaceAt(world, pos)) {
+                return blockState.with(FACING, direction).with(ATTACHED, connection.isOf(Blocks.BIRCH_LOG));
             }
-            return blockState.with(FACING, direction).with(ATTACHED, connection.isOf(Blocks.BIRCH_LOG));
         }
         return null;
+    }
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        return direction == state.get(FACING) && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : state;
     }
 }

@@ -15,8 +15,6 @@ import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LeafEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.*;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -81,12 +79,12 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.CYAN_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
         addDrop(MBBlocks.BLUE_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
 
-        addDrop(MBBlocks.JUNIPER_LOG);
-        addDrop(MBBlocks.JUNIPER_WOOD);
-        addDrop(MBBlocks.STRIPPED_JUNIPER_LOG);
-        addDrop(MBBlocks.STRIPPED_JUNIPER_WOOD);
-        addDrop(MBBlocks.JUNIPER_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.JUNIPER_SAPLING, SAPLING_DROP_CHANCE));
-        addDrop(MBBlocks.JUNIPER_SAPLING);
+//        addDrop(MBBlocks.JUNIPER_LOG);
+//        addDrop(MBBlocks.JUNIPER_WOOD);
+//        addDrop(MBBlocks.STRIPPED_JUNIPER_LOG);
+//        addDrop(MBBlocks.STRIPPED_JUNIPER_WOOD);
+//        addDrop(MBBlocks.JUNIPER_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.JUNIPER_SAPLING, SAPLING_DROP_CHANCE));
+//        addDrop(MBBlocks.JUNIPER_SAPLING);
 
         addDrop(MBBlocks.CEDAR_LOG);
         addDrop(MBBlocks.CEDAR_WOOD);
@@ -107,21 +105,21 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.RED_OAK_LEAF_CARPET, MBLootTableProvider::leafCarpet);
         addDrop(MBBlocks.RED_OAK_SAPLING);
 
-        addDrop(MBBlocks.ASPEN_TRUNK);
-        addDrop(MBBlocks.STRIPPED_ASPEN_TRUNK);
-        //addDrop(MBBlocks.ASPEN_PLANKS);
-        //addDrop(MBBlocks.ASPEN_SLAB, BlockLootTableGenerator::slabDrops);
-        //addDrop(MBBlocks.ASPEN_STAIRS);
-        addDrop(MBBlocks.ASPEN_TRIM);
-        addDrop(MBBlocks.ASPEN_LATTICE);
-        addDrop(MBBlocks.ASPEN_WINDOW);
-        addDrop(MBBlocks.ASPEN_LANTERN);
-        addDrop(MBBlocks.ASPEN_SOUL_LANTERN);
-        addDrop(MBBlocks.ASPEN_PALISADE);
-        addDrop(MBBlocks.STRIPPED_ASPEN_PALISADE);
-        addDrop(MBBlocks.ASPEN_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.ASPEN_SAPLING, SAPLING_DROP_CHANCE));
-        addDrop(MBBlocks.ASPEN_LEAF_CARPET, MBLootTableProvider::leafCarpet);
-        addDrop(MBBlocks.ASPEN_SAPLING);
+//        addDrop(MBBlocks.ASPEN_TRUNK);
+//        addDrop(MBBlocks.STRIPPED_ASPEN_TRUNK);
+//        //addDrop(MBBlocks.ASPEN_PLANKS);
+//        //addDrop(MBBlocks.ASPEN_SLAB, BlockLootTableGenerator::slabDrops);
+//        //addDrop(MBBlocks.ASPEN_STAIRS);
+//        addDrop(MBBlocks.ASPEN_TRIM);
+//        addDrop(MBBlocks.ASPEN_LATTICE);
+//        addDrop(MBBlocks.ASPEN_WINDOW);
+//        addDrop(MBBlocks.ASPEN_LANTERN);
+//        addDrop(MBBlocks.ASPEN_SOUL_LANTERN);
+//        addDrop(MBBlocks.ASPEN_PALISADE);
+//        addDrop(MBBlocks.STRIPPED_ASPEN_PALISADE);
+//        addDrop(MBBlocks.ASPEN_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.ASPEN_SAPLING, SAPLING_DROP_CHANCE));
+//        addDrop(MBBlocks.ASPEN_LEAF_CARPET, MBLootTableProvider::leafCarpet);
+//        addDrop(MBBlocks.ASPEN_SAPLING);
 
         addDrop(MBBlocks.BOILING_CAULDRON, Items.CAULDRON);
 
@@ -185,8 +183,8 @@ public class MBLootTableProvider extends FabricBlockLootTablesProvider {
         addDrop(MBBlocks.SMALL_REDSTONE_BUD, (Block block) -> oreDrops(block, Items.REDSTONE, 0f, 1f));
 
         addDrop(MBBlocks.BANDED_IRON, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.RAW_IRON));
-        addDrop(MBBlocks.MAGNETITE_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.MAGNETITE));
-        addDrop(MBBlocks.MAGNETITE_BLOCK);
+        addDrop(MBBlocks.HEMATITE_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.HEMATITE));
+        addDrop(MBBlocks.HEMATITE_BLOCK);
 
         addDrop(MBBlocks.CRACKED_MUD);
         addDrop(MBBlocks.RICH_MUD);

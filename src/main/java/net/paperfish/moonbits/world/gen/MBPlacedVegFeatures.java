@@ -129,11 +129,11 @@ public class MBPlacedVegFeatures {
     public static final RegistryEntry<PlacedFeature> PRAIRIE_TREES = MBPlacedFeatures.register("p_prairie",
             MBVegetationFeatures.BADLANDS_TREES,
             modifiers(PlacedFeatures.createCountExtraModifier(1, 0.1F, 1)));
-    public static final RegistryEntry<PlacedFeature> JUNIPERS = MBPlacedFeatures.register("p_junipers",
-            MBVegetationFeatures.JUNIPER_TREES,
-            PlacedFeatures.createCountExtraModifier(1, 0.1F, 1), SquarePlacementModifier.of(),
-            SurfaceWaterDepthFilterPlacementModifier.of(0), RarityFilterPlacementModifier.of(16),
-            HeightRangePlacementModifier.trapezoid(YOffset.fixed(68), YOffset.fixed(78)), BiomePlacementModifier.of());
+//    public static final RegistryEntry<PlacedFeature> JUNIPERS = MBPlacedFeatures.register("p_junipers",
+//            MBVegetationFeatures.JUNIPER_TREES,
+//            PlacedFeatures.createCountExtraModifier(1, 0.1F, 1), SquarePlacementModifier.of(),
+//            SurfaceWaterDepthFilterPlacementModifier.of(0), RarityFilterPlacementModifier.of(16),
+//            HeightRangePlacementModifier.trapezoid(YOffset.fixed(68), YOffset.fixed(78)), BiomePlacementModifier.of());
 
     public static final RegistryEntry<PlacedFeature> FALLEN_OAK = MBPlacedFeatures.register("p_fallen_oak",
             MBTreeFeatures.FALLEN_OAK, CountPlacementModifier.of(1), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());

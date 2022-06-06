@@ -153,26 +153,26 @@ public class MBBlocks {
 	public static final Block RED_OAK_SAPLING =new MBSaplingBlock(new RedOakSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
 	public static final Block POTTED_RED_OAK_SAPLING = new FlowerPotBlock(RED_OAK_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
-	public static final Block ASPEN_TRUNK = new ThinPillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).mapColor(MapColor.OFF_WHITE));
-	public static final Block STRIPPED_ASPEN_TRUNK = new ThinPillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).mapColor(MapColor.PALE_YELLOW));
-
-	public static final Block ASPEN_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
-	public static final Block ASPEN_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
-	public static final Block ASPEN_STAIRS = new MBStairsBlock(ASPEN_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
-
-	public static final Block ASPEN_TRIM = new TrimBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
-	public static final Block ASPEN_WINDOW = new MBPaneBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
-	public static final Block ASPEN_LANTERN = new AspenLanternBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS).luminance((state) -> 15));
-	public static final Block ASPEN_SOUL_LANTERN = new AspenLanternBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS).luminance((state) -> 10));
-	public static final Block ASPEN_LATTICE = new LatticeBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
-	public static final Block ASPEN_PALISADE = new PalisadeBlock(AbstractBlock.Settings.copy(ASPEN_TRUNK));
-	public static final Block STRIPPED_ASPEN_PALISADE = new PalisadeBlock(AbstractBlock.Settings.copy(ASPEN_TRUNK).mapColor(MapColor.OFF_WHITE));
-
-	public static final Block ASPEN_LEAVES = new LeavesBlock(AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES).mapColor(MapColor.TERRACOTTA_LIME));
-	public static final Block ASPEN_LEAF_CARPET = new LeafCarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).breakInstantly().nonOpaque().noCollision());
-	// TODO: ASPEN TREE FEATURE/GENERATION
-	public static final Block ASPEN_SAPLING =new MBSaplingBlock(new GoldenBirchSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
-	public static final Block POTTED_ASPEN_SAPLING = new FlowerPotBlock(ASPEN_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+//	public static final Block ASPEN_TRUNK = new ThinPillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).mapColor(MapColor.OFF_WHITE));
+//	public static final Block STRIPPED_ASPEN_TRUNK = new ThinPillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).mapColor(MapColor.PALE_YELLOW));
+//
+//	public static final Block ASPEN_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
+//	public static final Block ASPEN_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
+//	public static final Block ASPEN_STAIRS = new MBStairsBlock(ASPEN_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
+//
+//	public static final Block ASPEN_TRIM = new TrimBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
+//	public static final Block ASPEN_WINDOW = new MBPaneBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
+//	public static final Block ASPEN_LANTERN = new AspenLanternBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS).luminance((state) -> 15));
+//	public static final Block ASPEN_SOUL_LANTERN = new AspenLanternBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS).luminance((state) -> 10));
+//	public static final Block ASPEN_LATTICE = new LatticeBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
+//	public static final Block ASPEN_PALISADE = new PalisadeBlock(AbstractBlock.Settings.copy(ASPEN_TRUNK));
+//	public static final Block STRIPPED_ASPEN_PALISADE = new PalisadeBlock(AbstractBlock.Settings.copy(ASPEN_TRUNK).mapColor(MapColor.OFF_WHITE));
+//
+//	public static final Block ASPEN_LEAVES = new LeavesBlock(AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES).mapColor(MapColor.TERRACOTTA_LIME));
+//	public static final Block ASPEN_LEAF_CARPET = new LeafCarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).breakInstantly().nonOpaque().noCollision());
+//	// TODO: ASPEN TREE FEATURE/GENERATION
+//	public static final Block ASPEN_SAPLING =new MBSaplingBlock(new GoldenBirchSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
+//	public static final Block POTTED_ASPEN_SAPLING = new FlowerPotBlock(ASPEN_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
 	public static final Block PUFFBALLS = new PuffballsBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block POTTED_PUFFBALLS = new FlowerPotBlock(PUFFBALLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
@@ -242,34 +242,34 @@ public class MBBlocks {
 
 	// SNOW DAY
 
-	public static final Block JUNIPER_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
-	public static final Block JUNIPER_STAIRS = new MBStairsBlock(JUNIPER_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
-	public static final Block JUNIPER_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB));
-	public static final Block JUNIPER_LOG = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block JUNIPER_WOOD = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block STRIPPED_JUNIPER_LOG = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block STRIPPED_JUNIPER_WOOD = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block JUNIPER_LEAVES = new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).sounds(BlockSoundGroup.GRASS));
-	public static final Block JUNIPER_SAPLING =new MBSaplingBlock(new JuniperSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
-	public static final Block POTTED_JUNIPER_SAPLING = new FlowerPotBlock(JUNIPER_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
-	public static final Block JUNIPER_FENCE = new FenceBlock(FabricBlockSettings.copy(JUNIPER_PLANKS));
-	public static final Block JUNIPER_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copy(JUNIPER_PLANKS));
-	public static final Block JUNIPER_DOOR = new MBDoorBlock(FabricBlockSettings.copy(JUNIPER_PLANKS).nonOpaque());
-	public static final Block JUNIPER_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(JUNIPER_PLANKS).nonOpaque());
-	public static final Block JUNIPER_BUTTON = new MBWoodenButtonBlock(FabricBlockSettings.copy(JUNIPER_PLANKS).noCollision());
-	public static final Block JUNIPER_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (FabricBlockSettings.copy(JUNIPER_PLANKS)).noCollision());
-	public static final Block JUNIPER_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block JUNIPER_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block JUNIPER_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block CARVED_JUNIPER = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block JUNIPER_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-	public static final Block JUNIPER_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-
-	public static final SignType JUNIPER_SIGN_TYPE = SignTypeAccessor.registerNew(SignTypeAccessor.newSignType("juniper"));
-	public static final Block JUNIPER_SIGN = new SignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_PURPLE)
-			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD), JUNIPER_SIGN_TYPE);
-	public static final Block JUNIPER_WALL_SIGN = new WallSignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_PURPLE)
-			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(JUNIPER_SIGN), JUNIPER_SIGN_TYPE);
+//	public static final Block JUNIPER_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
+//	public static final Block JUNIPER_STAIRS = new MBStairsBlock(JUNIPER_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
+//	public static final Block JUNIPER_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB));
+//	public static final Block JUNIPER_LOG = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+//	public static final Block JUNIPER_WOOD = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+//	public static final Block STRIPPED_JUNIPER_LOG = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+//	public static final Block STRIPPED_JUNIPER_WOOD = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+//	public static final Block JUNIPER_LEAVES = new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).sounds(BlockSoundGroup.GRASS));
+//	public static final Block JUNIPER_SAPLING =new MBSaplingBlock(new JuniperSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
+//	public static final Block POTTED_JUNIPER_SAPLING = new FlowerPotBlock(JUNIPER_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+//	public static final Block JUNIPER_FENCE = new FenceBlock(FabricBlockSettings.copy(JUNIPER_PLANKS));
+//	public static final Block JUNIPER_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copy(JUNIPER_PLANKS));
+//	public static final Block JUNIPER_DOOR = new MBDoorBlock(FabricBlockSettings.copy(JUNIPER_PLANKS).nonOpaque());
+//	public static final Block JUNIPER_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(JUNIPER_PLANKS).nonOpaque());
+//	public static final Block JUNIPER_BUTTON = new MBWoodenButtonBlock(FabricBlockSettings.copy(JUNIPER_PLANKS).noCollision());
+//	public static final Block JUNIPER_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (FabricBlockSettings.copy(JUNIPER_PLANKS)).noCollision());
+//	public static final Block JUNIPER_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+//	public static final Block JUNIPER_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+//	public static final Block JUNIPER_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+//	public static final Block CARVED_JUNIPER = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+//	public static final Block JUNIPER_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+//	public static final Block JUNIPER_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+//
+//	public static final SignType JUNIPER_SIGN_TYPE = SignTypeAccessor.registerNew(SignTypeAccessor.newSignType("juniper"));
+//	public static final Block JUNIPER_SIGN = new SignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_PURPLE)
+//			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD), JUNIPER_SIGN_TYPE);
+//	public static final Block JUNIPER_WALL_SIGN = new WallSignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_PURPLE)
+//			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(JUNIPER_SIGN), JUNIPER_SIGN_TYPE);
 
 	public static final Block COTTONGRASS = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block TALL_COTTONGRASS = new TallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
@@ -400,9 +400,9 @@ public class MBBlocks {
 	public static final Block CHERT_COPPER_ORE = new Block(AbstractBlock.Settings.copy(Blocks.COPPER_ORE));
 	public static final Block CHERT_REDSTONE_ORE = new RedstoneOreBlock(AbstractBlock.Settings.copy(Blocks.REDSTONE_ORE));
 	public static final Block CHERT_LAPIS_ORE = new Block(AbstractBlock.Settings.copy(Blocks.LAPIS_ORE));
-	public static final Block BANDED_IRON = new BandedIronBlock(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
-	public static final Block MAGNETITE_ORE = new BandedIronBlock(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
-	public static final Block MAGNETITE_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK));
+	public static final Block BANDED_IRON = new Block(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
+	public static final Block HEMATITE_ORE = new Block(AbstractBlock.Settings.copy(Blocks.IRON_ORE));
+	public static final Block HEMATITE_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK));
 
 	public static final Block REDSTONE_CLUSTER = new RedstoneClusterBlock(7, 3, AbstractBlock.Settings.of(Material.STONE).mapColor(MapColor.BRIGHT_RED)
 			.nonOpaque().ticksRandomly().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(1.5f).luminance(state -> state.get(RedstoneClusterBlock.LIT) ? 10 : 5));
@@ -1129,14 +1129,14 @@ public class MBBlocks {
 		createBlock("chert_tin_ore", CHERT_TIN_ORE, MBItemGroup.CONSTRUCTION);
 
 		createBlock("banded_iron", BANDED_IRON, MBItemGroup.CONSTRUCTION);
-		createBlock("magnetite_ore", MAGNETITE_ORE, MBItemGroup.CONSTRUCTION);
+		createBlock("hematite_ore", HEMATITE_ORE, MBItemGroup.CONSTRUCTION);
 		createBlock("raw_tin_block", RAW_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("tin_block", TIN_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("cut_tin", CUT_TIN, MBItemGroup.CONSTRUCTION);
 		createBlock("cut_tin_slab", CUT_TIN_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("cut_tin_stairs", CUT_TIN_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("tin_pillar", TIN_PILLAR, MBItemGroup.CONSTRUCTION);
-		createBlock("magnetite_block", MAGNETITE_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("hematite_block", HEMATITE_BLOCK, MBItemGroup.CONSTRUCTION);
 
 		createBlock("peat_block", PEAT_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("peat_bricks", PEAT_BRICKS, MBItemGroup.CONSTRUCTION);
@@ -1145,20 +1145,20 @@ public class MBBlocks {
 		createBlock("peat_brick_wall", PEAT_BRICK_WALL, MBItemGroup.CONSTRUCTION);
 
 		// - JUNIPER WOOD
-		createBlock("juniper_planks", JUNIPER_PLANKS, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_stairs", JUNIPER_STAIRS, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_slab", JUNIPER_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_log", JUNIPER_LOG, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_wood", JUNIPER_WOOD, MBItemGroup.CONSTRUCTION);
-		createBlock("stripped_juniper_log", STRIPPED_JUNIPER_LOG, MBItemGroup.CONSTRUCTION);
-		createBlock("stripped_juniper_wood", STRIPPED_JUNIPER_WOOD, MBItemGroup.CONSTRUCTION);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_juniper_sapling"), POTTED_JUNIPER_SAPLING);
-		createBlock("juniper_fence", JUNIPER_FENCE, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_fence_gate", JUNIPER_FENCE_GATE, ItemGroup.REDSTONE);
-		createBlock("juniper_door", JUNIPER_DOOR, ItemGroup.REDSTONE);
-		createBlock("juniper_trapdoor", JUNIPER_TRAPDOOR, ItemGroup.REDSTONE);
-		createBlock("juniper_button", JUNIPER_BUTTON, ItemGroup.REDSTONE);
-		createBlock("juniper_pressure_plate", JUNIPER_PRESSURE_PLATE, ItemGroup.REDSTONE);
+//		createBlock("juniper_planks", JUNIPER_PLANKS, MBItemGroup.CONSTRUCTION);
+//		createBlock("juniper_stairs", JUNIPER_STAIRS, MBItemGroup.CONSTRUCTION);
+//		createBlock("juniper_slab", JUNIPER_SLAB, MBItemGroup.CONSTRUCTION);
+//		createBlock("juniper_log", JUNIPER_LOG, MBItemGroup.CONSTRUCTION);
+//		createBlock("juniper_wood", JUNIPER_WOOD, MBItemGroup.CONSTRUCTION);
+//		createBlock("stripped_juniper_log", STRIPPED_JUNIPER_LOG, MBItemGroup.CONSTRUCTION);
+//		createBlock("stripped_juniper_wood", STRIPPED_JUNIPER_WOOD, MBItemGroup.CONSTRUCTION);
+//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_juniper_sapling"), POTTED_JUNIPER_SAPLING);
+//		createBlock("juniper_fence", JUNIPER_FENCE, MBItemGroup.CONSTRUCTION);
+//		createBlock("juniper_fence_gate", JUNIPER_FENCE_GATE, ItemGroup.REDSTONE);
+//		createBlock("juniper_door", JUNIPER_DOOR, ItemGroup.REDSTONE);
+//		createBlock("juniper_trapdoor", JUNIPER_TRAPDOOR, ItemGroup.REDSTONE);
+//		createBlock("juniper_button", JUNIPER_BUTTON, ItemGroup.REDSTONE);
+//		createBlock("juniper_pressure_plate", JUNIPER_PRESSURE_PLATE, ItemGroup.REDSTONE);
 		// - CEDAR WOOD
 		createBlock("cedar_planks", CEDAR_PLANKS, MBItemGroup.CONSTRUCTION);
 		createBlock("cedar_stairs", CEDAR_STAIRS, MBItemGroup.CONSTRUCTION);
@@ -1202,7 +1202,7 @@ public class MBBlocks {
 		createBlock("acacia_boards", ACACIA_BOARDS, MBItemGroup.CONSTRUCTION);
 		createBlock("dark_oak_boards", DARK_OAK_BOARDS, MBItemGroup.CONSTRUCTION);
 		createBlock("mangrove_boards", MANGROVE_BOARDS, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_boards", JUNIPER_BOARDS, MBItemGroup.CONSTRUCTION);
+//		createBlock("juniper_boards", JUNIPER_BOARDS, MBItemGroup.CONSTRUCTION);
 		createBlock("cedar_boards", CEDAR_BOARDS, MBItemGroup.CONSTRUCTION);
 		createBlock("crimson_boards", CRIMSON_BOARDS, MBItemGroup.CONSTRUCTION);
 		createBlock("warped_boards", WARPED_BOARDS, MBItemGroup.CONSTRUCTION);
@@ -1214,7 +1214,7 @@ public class MBBlocks {
 		createBlock("acacia_panel", ACACIA_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("dark_oak_panel", DARK_OAK_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("mangrove_panel", MANGROVE_PANEL, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_panel", JUNIPER_PANEL, MBItemGroup.CONSTRUCTION);
+//		createBlock("juniper_panel", JUNIPER_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("cedar_panel", CEDAR_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("crimson_panel", CRIMSON_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("warped_panel", WARPED_PANEL, MBItemGroup.CONSTRUCTION);
@@ -1226,7 +1226,7 @@ public class MBBlocks {
 		createBlock("carved_acacia_wood", CARVED_ACACIA, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_dark_oak_wood", CARVED_DARK_OAK, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_mangrove_wood", CARVED_MANGROVE, MBItemGroup.CONSTRUCTION);
-		createBlock("carved_juniper_wood", CARVED_JUNIPER, MBItemGroup.CONSTRUCTION);
+//		createBlock("carved_juniper_wood", CARVED_JUNIPER, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_cedar_wood", CARVED_CEDAR, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_crimson_hyphae", CARVED_CRIMSON, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_warped_hyphae", CARVED_WARPED, MBItemGroup.CONSTRUCTION);
@@ -1238,16 +1238,16 @@ public class MBBlocks {
 		createBlock("acacia_pillar", ACACIA_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("dark_oak_pillar", DARK_OAK_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("mangrove_pillar", MANGROVE_PILLAR, MBItemGroup.CONSTRUCTION);
-		createBlock("juniper_pillar", JUNIPER_PILLAR, MBItemGroup.CONSTRUCTION);
+//		createBlock("juniper_pillar", JUNIPER_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("cedar_pillar", CEDAR_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("crimson_pillar", CRIMSON_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("warped_pillar", WARPED_PILLAR, MBItemGroup.CONSTRUCTION);
 
-		createBlock("aspen_trunk", ASPEN_TRUNK, MBItemGroup.CONSTRUCTION);
-		createBlock("stripped_aspen_trunk", STRIPPED_ASPEN_TRUNK, MBItemGroup.CONSTRUCTION);
-		createBlock("aspen_planks", ASPEN_PLANKS, MBItemGroup.CONSTRUCTION);
-		createBlock("aspen_slab", ASPEN_SLAB, MBItemGroup.CONSTRUCTION);
-		createBlock("aspen_stairs", ASPEN_STAIRS, MBItemGroup.CONSTRUCTION);
+//		createBlock("aspen_trunk", ASPEN_TRUNK, MBItemGroup.CONSTRUCTION);
+//		createBlock("stripped_aspen_trunk", STRIPPED_ASPEN_TRUNK, MBItemGroup.CONSTRUCTION);
+//		createBlock("aspen_planks", ASPEN_PLANKS, MBItemGroup.CONSTRUCTION);
+//		createBlock("aspen_slab", ASPEN_SLAB, MBItemGroup.CONSTRUCTION);
+//		createBlock("aspen_stairs", ASPEN_STAIRS, MBItemGroup.CONSTRUCTION);
 
 		createBlock("red_mushroom_cap", RED_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
 		createBlock("brown_mushroom_cap", BROWN_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
@@ -1325,34 +1325,34 @@ public class MBBlocks {
 		//createBlock("fulgurite", FULGURITE, MBItemGroup.MATERIALS);
 
 
-		createBlock("juniper_leaves", JUNIPER_LEAVES, MBItemGroup.DECOR);
+//		createBlock("juniper_leaves", JUNIPER_LEAVES, MBItemGroup.DECOR);
 		createBlock("cedar_leaves", CEDAR_LEAVES, MBItemGroup.DECOR);
-		createBlock("aspen_leaves", ASPEN_LEAVES, MBItemGroup.DECOR);
+//		createBlock("aspen_leaves", ASPEN_LEAVES, MBItemGroup.DECOR);
 		createBlock("golden_birch_leaves", GOLDEN_BIRCH_LEAVES, MBItemGroup.DECOR);
 		createBlock("red_oak_leaves", RED_OAK_LEAVES, MBItemGroup.DECOR);
-		createBlock("juniper_sapling", JUNIPER_SAPLING, MBItemGroup.DECOR);
+//		createBlock("juniper_sapling", JUNIPER_SAPLING, MBItemGroup.DECOR);
 		createBlock("cedar_sapling", CEDAR_SAPLING, MBItemGroup.DECOR);
 
 		createBlock("flowering_acacia_leaves", FLOWERING_ACACIA_LEAVES, MBItemGroup.DECOR);
 
-		createBlock("aspen_sapling", ASPEN_SAPLING, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_aspen_sapling"), POTTED_ASPEN_SAPLING);
+//		createBlock("aspen_sapling", ASPEN_SAPLING, MBItemGroup.DECOR);
+//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_aspen_sapling"), POTTED_ASPEN_SAPLING);
 		createBlock("golden_birch_sapling", GOLDEN_BIRCH_SAPLING, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_golden_birch_sapling"), POTTED_GOLDEN_BIRCH_SAPLING);
 		createBlock("red_oak_sapling", RED_OAK_SAPLING, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_red_oak_sapling"), POTTED_RED_OAK_SAPLING);
 
-		createBlock("aspen_leaf_carpet", ASPEN_LEAF_CARPET, MBItemGroup.DECOR);
+//		createBlock("aspen_leaf_carpet", ASPEN_LEAF_CARPET, MBItemGroup.DECOR);
 		createBlock("golden_birch_leaf_carpet", GOLDEN_BIRCH_LEAF_CARPET, MBItemGroup.DECOR);
 		createBlock("red_oak_leaf_carpet", RED_OAK_LEAF_CARPET, MBItemGroup.DECOR);
 
-		createBlock("aspen_trim", ASPEN_TRIM, MBItemGroup.DECOR);
-		createBlock("aspen_window", ASPEN_WINDOW, MBItemGroup.DECOR);
-		createBlock("aspen_lantern", ASPEN_LANTERN, MBItemGroup.DECOR);
-		createBlock("aspen_soul_lantern", ASPEN_SOUL_LANTERN, MBItemGroup.DECOR);
-		createBlock("aspen_lattice", ASPEN_LATTICE, MBItemGroup.DECOR);
-		createBlock("aspen_palisade", ASPEN_PALISADE, MBItemGroup.DECOR);
-		createBlock("stripped_aspen_palisade", STRIPPED_ASPEN_PALISADE, MBItemGroup.DECOR);
+//		createBlock("aspen_trim", ASPEN_TRIM, MBItemGroup.DECOR);
+//		createBlock("aspen_window", ASPEN_WINDOW, MBItemGroup.DECOR);
+//		createBlock("aspen_lantern", ASPEN_LANTERN, MBItemGroup.DECOR);
+//		createBlock("aspen_soul_lantern", ASPEN_SOUL_LANTERN, MBItemGroup.DECOR);
+//		createBlock("aspen_lattice", ASPEN_LATTICE, MBItemGroup.DECOR);
+//		createBlock("aspen_palisade", ASPEN_PALISADE, MBItemGroup.DECOR);
+//		createBlock("stripped_aspen_palisade", STRIPPED_ASPEN_PALISADE, MBItemGroup.DECOR);
 
 		createBlock("grass_turf", GRASS_TURF, MBItemGroup.DECOR);
 		createBlock("grass_turf_stairs", GRASS_TURF_STAIRS, MBItemGroup.DECOR);
@@ -1377,10 +1377,10 @@ public class MBBlocks {
 		createBlock("pebbles", PEBBLES, MBItemGroup.DECOR);
 
 		createBlock("beachgrass", BEACHGRASS, MBItemGroup.DECOR);
-		createBlock("cottongrass", COTTONGRASS, MBItemGroup.DECOR);
-		createBlock("desert_brush", DESERT_BRUSH, MBItemGroup.DECOR);
 		createBlock("tall_beachgrass", TALL_BEACHGRASS, MBItemGroup.DECOR);
+		createBlock("cottongrass", COTTONGRASS, MBItemGroup.DECOR);
 		createBlock("tall_cottongrass", TALL_COTTONGRASS, MBItemGroup.DECOR);
+		createBlock("desert_brush", DESERT_BRUSH, MBItemGroup.DECOR);
 		createBlock("tall_desert_brush", TALL_DESERT_BRUSH, MBItemGroup.DECOR);
 
 		createBlock("mycelium_roots", MYCELIUM_ROOTS, MBItemGroup.DECOR);
@@ -1446,7 +1446,7 @@ public class MBBlocks {
 		createBlock("acacia_bookshelf", ACACIA_BOOKSHELF, MBItemGroup.DECOR);
 		createBlock("dark_oak_bookshelf", DARK_OAK_BOOKSHELF, MBItemGroup.DECOR);
 		createBlock("mangrove_bookshelf", MANGROVE_BOOKSHELF, MBItemGroup.DECOR);
-		createBlock("juniper_bookshelf", JUNIPER_BOOKSHELF, MBItemGroup.DECOR);
+//		createBlock("juniper_bookshelf", JUNIPER_BOOKSHELF, MBItemGroup.DECOR);
 		createBlock("cedar_bookshelf", CEDAR_BOOKSHELF, MBItemGroup.DECOR);
 		createBlock("honey_bookshelf", HONEY_BOOKSHELF, MBItemGroup.DECOR);
 		createBlock("crimson_bookshelf", CRIMSON_BOOKSHELF, MBItemGroup.DECOR);
@@ -1459,16 +1459,16 @@ public class MBBlocks {
 		createBlock("acacia_planter_box", ACACIA_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("dark_oak_planter_box", DARK_OAK_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("mangrove_planter_box", MANGROVE_PLANTER_BOX, MBItemGroup.DECOR);
-		createBlock("juniper_planter_box", JUNIPER_PLANTER_BOX, MBItemGroup.DECOR);
+//		createBlock("juniper_planter_box", JUNIPER_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("cedar_planter_box", CEDAR_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("honey_planter_box", HONEY_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("crimson_planter_box", CRIMSON_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("warped_planter_box", WARPED_PLANTER_BOX, MBItemGroup.DECOR);
 
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "juniper_sign"), JUNIPER_SIGN);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "juniper_wall_sign"), JUNIPER_WALL_SIGN);
-		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "juniper_sign"),
-				(Item)(new SignItem(new Item.Settings().group(ItemGroup.DECORATIONS), JUNIPER_SIGN, JUNIPER_WALL_SIGN)));
+//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "juniper_sign"), JUNIPER_SIGN);
+//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "juniper_wall_sign"), JUNIPER_WALL_SIGN);
+//		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "juniper_sign"),
+//				(Item)(new SignItem(new Item.Settings().group(ItemGroup.DECORATIONS), JUNIPER_SIGN, JUNIPER_WALL_SIGN)));
 
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "cedar_sign"), CEDAR_SIGN);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "cedar_wall_sign"), CEDAR_WALL_SIGN);
@@ -1937,7 +1937,7 @@ public class MBBlocks {
 
 		createBlock("packed_glowstone", PACKED_GLOWSTONE, MBItemGroup.DECOR);
 
-		createBlock("nether_wart_bundle", NETHER_WART_SACK, MBItemGroup.DECOR);
+		createBlock("nether_wart_sack", NETHER_WART_SACK, MBItemGroup.DECOR);
 
 		createBlock("spool", SPOOL, MBItemGroup.DECOR);
 		createBlock("paper_bundle", PAPER_BUNDLE, MBItemGroup.DECOR);

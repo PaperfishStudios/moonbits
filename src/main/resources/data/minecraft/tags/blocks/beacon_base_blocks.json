@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "moonbits:magnetite_block",
+    "moonbits:hematite_block",
     "moonbits:tin_block"
   ]
 }

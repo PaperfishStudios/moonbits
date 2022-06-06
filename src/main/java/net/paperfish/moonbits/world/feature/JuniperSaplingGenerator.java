@@ -10,6 +10,6 @@ import java.util.Random;
 public class JuniperSaplingGenerator extends SaplingGenerator {
     @Override
     public RegistryEntry<? extends ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return MBTreeFeatures.JUNIPER;
+        return MBTreeFeatures.CEDAR;
     }
 }

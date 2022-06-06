@@ -67,8 +67,7 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
         goalSelector.add(1, new AttackGoal());
         goalSelector.add(2, new FollowPlayerGoal(this, 1.0D, 1.25D));
         goalSelector.add(3, new AnimalMateGoal(this, 1.0D));
-        goalSelector.add(4, new GrizzlyBearTemptGoal(this, 1.25D, Ingredient.ofItems(Items.SALMON, Items.SALMON_BUCKET), false));
-        goalSelector.add(5, new GrizzlyBearTemptGoal(this, 1.25D, Ingredient.ofItems(Items.HONEY_BOTTLE, Items.HONEYCOMB, MBItems.HONEY_BUN), false));
+        goalSelector.add(5, new GrizzlyBearTemptGoal(this, 1.25D, Ingredient.fromTag(MBItemTags.BEAR_LIKES), false));
         goalSelector.add(6, new FollowParentGoal(this, 1.25D));
         goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
         //goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));

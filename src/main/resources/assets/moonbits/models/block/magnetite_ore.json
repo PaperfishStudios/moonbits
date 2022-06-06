@@ -1,6 +1,0 @@
-{
-  "parent": "moonbits:block/unique/horizontal_connected",
-  "textures": {
-    "all": "moonbits:block/magnetite_ore"
-  }
-}

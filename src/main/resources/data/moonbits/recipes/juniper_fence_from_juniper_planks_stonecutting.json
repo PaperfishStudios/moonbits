@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "moonbits:juniper_planks"
-  },
-  "result": "moonbits:juniper_fence",
-  "count": 1
-}

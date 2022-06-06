@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "tag": "moonbits:juniper_logs"
-  },
-  "result": "moonbits:juniper_stairs",
-  "count": 4
-}

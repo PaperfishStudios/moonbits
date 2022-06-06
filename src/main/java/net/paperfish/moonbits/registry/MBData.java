@@ -53,12 +53,12 @@ public class MBData {
 	static {
 			STRIPPED_BLOCKS = ImmutableMap.<Block, Block>builder()
 					.putAll(AxeItemAccessor.getStrippedBlocks())
-					.put(MBBlocks.JUNIPER_LOG, MBBlocks.STRIPPED_JUNIPER_LOG)
-					.put(MBBlocks.JUNIPER_WOOD, MBBlocks.STRIPPED_JUNIPER_WOOD)
+//					.put(MBBlocks.JUNIPER_LOG, MBBlocks.STRIPPED_JUNIPER_LOG)
+//					.put(MBBlocks.JUNIPER_WOOD, MBBlocks.STRIPPED_JUNIPER_WOOD)
 					.put(MBBlocks.CEDAR_LOG, MBBlocks.STRIPPED_CEDAR_LOG)
 					.put(MBBlocks.CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_WOOD)
 
-					.put(MBBlocks.ASPEN_TRUNK, MBBlocks.STRIPPED_ASPEN_TRUNK)
+//					.put(MBBlocks.ASPEN_TRUNK, MBBlocks.STRIPPED_ASPEN_TRUNK)
 
 					.put(MBBlocks.MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_STEM)
 					.put(MBBlocks.MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_HYPHAE)
@@ -107,18 +107,18 @@ public class MBData {
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.ACACIA_BOOKSHELF, 30, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.DARK_OAK_BOOKSHELF, 30, 20);
 
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_PLANKS, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_SLAB, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_STAIRS, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_FENCE, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_FENCE_GATE, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_LOG, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_WOOD, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_JUNIPER_LOG, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_JUNIPER_WOOD, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_BOOKSHELF, 30, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_PANEL, 5, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_LEAVES, 30, 60);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_PLANKS, 5, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_SLAB, 5, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_STAIRS, 5, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_FENCE, 5, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_FENCE_GATE, 5, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_LOG, 5, 5);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_WOOD, 5, 5);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_JUNIPER_LOG, 5, 5);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_JUNIPER_WOOD, 5, 5);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_BOOKSHELF, 30, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_PANEL, 5, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNIPER_LEAVES, 30, 60);
 
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_PLANKS, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_SLAB, 5, 20);
@@ -166,7 +166,7 @@ public class MBData {
 		FuelRegistry.INSTANCE.add(MBBlocks.JUNGLE_BOOKSHELF, 300);
 		FuelRegistry.INSTANCE.add(MBBlocks.ACACIA_BOOKSHELF, 300);
 		FuelRegistry.INSTANCE.add(MBBlocks.DARK_OAK_BOOKSHELF, 300);
-		FuelRegistry.INSTANCE.add(MBBlocks.JUNIPER_BOOKSHELF, 300);
+//		FuelRegistry.INSTANCE.add(MBBlocks.JUNIPER_BOOKSHELF, 300);
 		FuelRegistry.INSTANCE.add(MBBlocks.CEDAR_BOOKSHELF, 300);
 
 		FuelRegistry.INSTANCE.add(MBBlocks.BAMBOO_BUNDLE, 500);

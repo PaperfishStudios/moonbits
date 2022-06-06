@@ -52,8 +52,8 @@ public class MBItems {
 	public static final Item PEANUT = new AliasedBlockItem(MBBlocks.PEANUT_CROP, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Item ROASTED_PEANUTS = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
 			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.6f).build()));
-	public static final Item PEANUT_CHICKEN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
-			.food((new FoodComponent.Builder()).hunger(7).saturationModifier(1.0f).build()));
+//	public static final Item PEANUT_CHICKEN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+//			.food((new FoodComponent.Builder()).hunger(7).saturationModifier(1.0f).build()));
 	public static final Item HONEY_PEANUTS = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
 			.food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.6f).build()));
 	public static final Item PEANUT_BRITTLE = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
@@ -61,27 +61,27 @@ public class MBItems {
 	public static final Item DOG_TREAT = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD));
 
 	// misc dishes
-	public static final Item GLOW_BERRY_TART = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
-			.food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F)
-			.statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 400, 1), 1.0f).build()));
-	public static final Item HONEY_BUN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
-			.food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F).build()));
-	public static final Item BROWNIE = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
-			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.3f).build()));
-	public static final Item FRUIT_PIE = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
-			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(1.0f).build()));
-	public static final Item PORRIDGE = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
-			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.8f).build()));
-	public static final Item CHICKEN_SOUP = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
-			.food((new FoodComponent.Builder()).hunger(9).saturationModifier(0.8f).build()));
-	public static final Item HEARTY_STEW = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
-			.food((new FoodComponent.Builder()).hunger(10).saturationModifier(1.2f).build()));
-	public static final Item FORAGED_SALAD = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
-			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.6f).build()));
-	public static final Item VEG_STIRFRY = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
-			.food((new FoodComponent.Builder()).hunger(7).saturationModifier(0.8f)
-					.statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0f)
-					.build()));
+//	public static final Item GLOW_BERRY_TART = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+//			.food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F)
+//			.statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 400, 1), 1.0f).build()));
+//	public static final Item HONEY_BUN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+//			.food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F).build()));
+//	public static final Item BROWNIE = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+//			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.3f).build()));
+//	public static final Item FRUIT_PIE = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+//			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(1.0f).build()));
+//	public static final Item PORRIDGE = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
+//			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.8f).build()));
+//	public static final Item CHICKEN_SOUP = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
+//			.food((new FoodComponent.Builder()).hunger(9).saturationModifier(0.8f).build()));
+//	public static final Item HEARTY_STEW = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
+//			.food((new FoodComponent.Builder()).hunger(10).saturationModifier(1.2f).build()));
+//	public static final Item FORAGED_SALAD = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
+//			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.6f).build()));
+//	public static final Item VEG_STIRFRY = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
+//			.food((new FoodComponent.Builder()).hunger(7).saturationModifier(0.8f)
+//					.statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0f)
+//					.build()));
 
 	//public static final Item APPLE_SEEDS = new AliasedBlockItem(MBBlocks.APPLE_OAK_SPROUT, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Block SWEET_BERRY_PITS = new SweetBerryPitsBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH));
@@ -89,7 +89,7 @@ public class MBItems {
 	public static final Item ROASTED_BERRIES = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8F).build()));
 
     public static final Item PEAT = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item MAGNETITE = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item HEMATITE = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item COPPER_NUGGET = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item RAW_TIN = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
@@ -97,7 +97,7 @@ public class MBItems {
 	public static final Item TIN_NUGGET = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item FUR = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item BURLAP = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item CACTUS_LEATHER = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+//	public static final Item CACTUS_LEATHER = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item RED_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item BROWN_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
@@ -111,7 +111,7 @@ public class MBItems {
     public static final Item BABY_STRIDER_BUCKET = new EntityBucketItem(EntityType.STRIDER, Fluids.LAVA, SoundEvents.ITEM_BUCKET_EMPTY_FISH, 
 	(new Item.Settings()).maxCount(1).group(MBItemGroup.MB_MISC));
 
-	public static final Item JUNIPER_BOAT = new BoatItem(MBBoatTypes.JUNIPER, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
+//	public static final Item JUNIPER_BOAT = new BoatItem(MBBoatTypes.JUNIPER, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
 	public static final Item CEDAR_BOAT = new BoatItem(MBBoatTypes.CEDAR, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
 
 	// Glass Shards
@@ -169,20 +169,20 @@ public class MBItems {
 
 		add("peanut", PEANUT);
 		addItem("roasted_peanuts", ROASTED_PEANUTS);
-		addItem("peanut_chicken", PEANUT_CHICKEN);
+//		addItem("peanut_chicken", PEANUT_CHICKEN);
 		addItem("honey_roasted_peanuts", HONEY_PEANUTS);
 		addItem("peanut_brittle", PEANUT_BRITTLE);
 		addItem("dog_treat", DOG_TREAT);
 
-		addItem("glow_berry_tart", GLOW_BERRY_TART);
-		addItem("honey_bun", HONEY_BUN);
-		addItem("brownie", BROWNIE);
-		addItem("fruit_pie", FRUIT_PIE);
-		addItem("porridge", PORRIDGE);
-		addItem("chicken_soup", CHICKEN_SOUP);
-		addItem("hearty_stew", HEARTY_STEW);
-		addItem("foraged_salad", FORAGED_SALAD);
-		addItem("vegetable_stir_fry", VEG_STIRFRY);
+//		addItem("glow_berry_tart", GLOW_BERRY_TART);
+//		addItem("honey_bun", HONEY_BUN);
+//		addItem("brownie", BROWNIE);
+//		addItem("fruit_pie", FRUIT_PIE);
+//		addItem("porridge", PORRIDGE);
+//		addItem("chicken_soup", CHICKEN_SOUP);
+//		addItem("hearty_stew", HEARTY_STEW);
+//		addItem("foraged_salad", FORAGED_SALAD);
+//		addItem("vegetable_stir_fry", VEG_STIRFRY);
 
 		addItem("milk_bottle", MILK_BOTTLE);
 		addItem("syrup_bottle", SYRUP_BOTTLE);
@@ -203,7 +203,7 @@ public class MBItems {
 		addItem("saffron_mushblend", SAFFRON_MUSHBLEND);
 		addItem("toadstool_mushblend", TOADSTOOL_MUSHBLEND);
 
-		addItem("juniper_boat", JUNIPER_BOAT);
+//		addItem("juniper_boat", JUNIPER_BOAT);
 		addItem("cedar_boat", CEDAR_BOAT);
 
 		addTool("wrench", WRENCH);
@@ -212,14 +212,14 @@ public class MBItems {
 		addItem("baby_strider_bucket", BABY_STRIDER_BUCKET);
 
 		addItem("peat", PEAT);
-		addItem("magnetite", MAGNETITE);
 		addItem("raw_tin", RAW_TIN);
 		addItem("tin_ingot", TIN_INGOT);
 		addItem("tin_nugget", TIN_NUGGET);
+		addItem("hematite", HEMATITE);
 		addItem("copper_nugget", COPPER_NUGGET);
 		addItem("fur", FUR);
 		addItem("burlap", BURLAP);
-		addItem("cactus_leather", CACTUS_LEATHER);
+//		addItem("cactus_leather", CACTUS_LEATHER);
 
 		addItem("glass_shard", GLASS_SHARD);
 		addItem("white_glass_shard", WHITE_GLASS_SHARD);

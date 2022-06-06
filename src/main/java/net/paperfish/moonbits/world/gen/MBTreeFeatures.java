@@ -121,10 +121,10 @@ public class MBTreeFeatures {
     public static final FoliagePlacerType<JuniperFoliagePlacer> JUNIPER_FOLIAGE_PLACER =
             Registry.register(Registry.FOLIAGE_PLACER_TYPE, "juniper_foliage_placer", new FoliagePlacerType<>(JuniperFoliagePlacer.CODEC));
 
-    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  JUNIPER = MBConfiguredFeatures.register("juniper", Feature.TREE, juniper().build());
-    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> JUNIPER_BUSH = ConfiguredFeatures.register("juniper_bush", Feature.TREE,
-            new TreeFeatureConfig.Builder(BlockStateProvider.of(MBBlocks.JUNIPER_LOG), new StraightTrunkPlacer(1, 0, 0), BlockStateProvider.of(MBBlocks.JUNIPER_LEAVES),
-                    new BushFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2), new TwoLayersFeatureSize(0, 0, 0)).build());
+//    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  JUNIPER = MBConfiguredFeatures.register("juniper", Feature.TREE, juniper().build());
+//    public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>> JUNIPER_BUSH = ConfiguredFeatures.register("juniper_bush", Feature.TREE,
+//            new TreeFeatureConfig.Builder(BlockStateProvider.of(MBBlocks.JUNIPER_LOG), new StraightTrunkPlacer(1, 0, 0), BlockStateProvider.of(MBBlocks.JUNIPER_LEAVES),
+//                    new BushFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2), new TwoLayersFeatureSize(0, 0, 0)).build());
     public static final RegistryEntry<ConfiguredFeature<TreeFeatureConfig, ?>>  CEDAR = MBConfiguredFeatures.register("cedar", Feature.TREE, cedar().build());
 
     public static final RegistryEntry<ConfiguredFeature<FallenLogConfig, ?>>  FALLEN_OAK =
@@ -133,8 +133,8 @@ public class MBTreeFeatures {
             MBConfiguredFeatures.register("fallen_birch", FALLEN_LOG, new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(Blocks.BIRCH_LOG.getDefaultState())));
     public static final RegistryEntry<ConfiguredFeature<FallenLogConfig, ?>>  FALLEN_SPRUCE =
             MBConfiguredFeatures.register("fallen_spruce", FALLEN_LOG, new FallenLogConfig(UniformIntProvider.create(4, 6), BlockStateProvider.of(Blocks.SPRUCE_LOG.getDefaultState())));
-    public static final RegistryEntry<ConfiguredFeature<FallenLogConfig, ?>>  FALLEN_JUNIPER =
-            MBConfiguredFeatures.register("fallen_juniper", FALLEN_LOG, new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(MBBlocks.JUNIPER_LOG.getDefaultState())));
+//    public static final RegistryEntry<ConfiguredFeature<FallenLogConfig, ?>>  FALLEN_JUNIPER =
+//            MBConfiguredFeatures.register("fallen_juniper", FALLEN_LOG, new FallenLogConfig(UniformIntProvider.create(4, 5), BlockStateProvider.of(MBBlocks.JUNIPER_LOG.getDefaultState())));
 
     private static TreeFeatureConfig.Builder treeBuilder(Block log, Block leaves, int baseHeight, int firstRandomHeight, int secondRandomHeight, int radius) {
         return new TreeFeatureConfig.Builder(
@@ -155,15 +155,15 @@ public class MBTreeFeatures {
                 new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
         );
     }
-    private static TreeFeatureConfig.Builder juniper() {
-        return new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(MBBlocks.JUNIPER_LOG), // Trunk block provider
-                new StraightTrunkPlacer(8, 4, 0),
-                BlockStateProvider.of(MBBlocks.JUNIPER_LEAVES), // Foliage block provider
-                new JuniperFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0)),
-                new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
-        );
-    }
+//    private static TreeFeatureConfig.Builder juniper() {
+//        return new TreeFeatureConfig.Builder(
+//                BlockStateProvider.of(MBBlocks.JUNIPER_LOG), // Trunk block provider
+//                new StraightTrunkPlacer(8, 4, 0),
+//                BlockStateProvider.of(MBBlocks.JUNIPER_LEAVES), // Foliage block provider
+//                new JuniperFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0)),
+//                new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
+//        );
+//    }
 
     private static TreeFeatureConfig.Builder goldenBirch() {
         return treeBuilder(Blocks.BIRCH_LOG, MBBlocks.GOLDEN_BIRCH_LEAVES, 4, 2, 0, 2).ignoreVines();

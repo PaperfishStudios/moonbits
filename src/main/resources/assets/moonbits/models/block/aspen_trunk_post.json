@@ -1,7 +1,0 @@
-{
-  "parent": "moonbits:block/palisade/palisade_post",
-  "textures": {
-    "side": "moonbits:block/aspen_trunk",
-    "end": "moonbits:block/aspen_trunk_top"
-  }
-}
