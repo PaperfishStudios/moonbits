@@ -11,7 +11,7 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 import net.paperfish.moonbits.registry.MBBlocks;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class ToughGrassBlock extends SnowyBlock {
     protected ToughGrassBlock(Settings settings) {

@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.paperfish.moonbits.Moonbits;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class FallingParticle extends SpriteBillboardParticle {
     private final float rotationSpeed;
@@ -69,7 +69,7 @@ public class FallingParticle extends SpriteBillboardParticle {
 
         public FallingLeafFactory(SpriteProvider spriteProvider) {
             this.spriteProvider = spriteProvider;
-            this.random = new Random();
+            this.random = Random.create();
         }
 
         public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
@@ -88,7 +88,7 @@ public class FallingParticle extends SpriteBillboardParticle {
 
         public FallingSporeFactory(SpriteProvider spriteProvider) {
             this.spriteProvider = spriteProvider;
-            this.random = new Random();
+            this.random = Random.create();
         }
 
         public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {

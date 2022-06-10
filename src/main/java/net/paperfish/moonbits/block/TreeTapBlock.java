@@ -19,7 +19,7 @@ import net.paperfish.moonbits.registry.MBParticles;
 import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class TreeTapBlock extends HorizontalFacingBlock {
     public static final BooleanProperty ATTACHED = Properties.ATTACHED;

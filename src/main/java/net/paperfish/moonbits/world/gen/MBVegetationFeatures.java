@@ -303,6 +303,6 @@ public class MBVegetationFeatures {
         return new RandomPatchFeatureConfig(tries, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(block), createBlockPredicate(validGround)));
     }
     private static BlockPredicate createBlockPredicate(List<Block> validGround) {
-        return !validGround.isEmpty() ? BlockPredicate.bothOf(BlockPredicate.IS_AIR, BlockPredicate.matchingBlocks(validGround, new BlockPos(0, -1, 0))) : BlockPredicate.IS_AIR;
+        return !validGround.isEmpty() ? BlockPredicate.bothOf(BlockPredicate.IS_AIR, BlockPredicate.matchingBlocks(new BlockPos(0, -1, 0), validGround)) : BlockPredicate.IS_AIR;
     }
 }

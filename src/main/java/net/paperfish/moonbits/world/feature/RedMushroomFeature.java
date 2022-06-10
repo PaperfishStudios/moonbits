@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.HugeMushroomFeature;
 import net.minecraft.world.gen.feature.HugeMushroomFeatureConfig;
 import net.paperfish.moonbits.block.MushroomCapBlock;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class RedMushroomFeature extends HugeMushroomFeature {
     public RedMushroomFeature(Codec<HugeMushroomFeatureConfig> codec) {

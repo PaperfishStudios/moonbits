@@ -78,11 +78,11 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// geckolib??
-	modImplementation "software.bernie.geckolib:geckolib-fabric-1.18:3.0.35"
+	modImplementation "software.bernie.geckolib:geckolib-fabric-1.19:3.1.0"
 
 	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
 
-	modImplementation include("maven.modrinth:booking_it:1.0.1")
+	modImplementation include("maven.modrinth:booking_it:1.0.2")
 
 	modImplementation include("com.github.Chocohead:Fabric-ASM:v${project.mm_version}") {
 		exclude (group: "net.fabricmc.fabric-api")

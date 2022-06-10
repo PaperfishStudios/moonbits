@@ -1,6 +1,6 @@
 package net.paperfish.moonbits.mixin;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

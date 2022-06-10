@@ -9,17 +9,17 @@ import software.bernie.geckolib3.model.provider.data.EntityModelData;
 
 public class GrizzlyBearEntityModel extends AnimatedGeoModel<GrizzlyBearEntity> {
     @Override
-    public Identifier getModelLocation(GrizzlyBearEntity bear) {
+    public Identifier getModelResource(GrizzlyBearEntity bear) {
         return new Identifier(Moonbits.MODID, "geo/entity/grizzly_bear.geo.json");
     }
 
     @Override
-    public Identifier getTextureLocation(GrizzlyBearEntity bear) {
+    public Identifier getTextureResource(GrizzlyBearEntity bear) {
         return new Identifier(Moonbits.MODID, "textures/entity/bear/grizz.png");
     }
 
     @Override
-    public Identifier getAnimationFileLocation(GrizzlyBearEntity bear) {
+    public Identifier getAnimationResource(GrizzlyBearEntity bear) {
         return new Identifier(Moonbits.MODID, "animations/entity/grizzly_bear.animation.json");
     }
 

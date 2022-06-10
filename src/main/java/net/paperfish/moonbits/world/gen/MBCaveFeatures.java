@@ -1,24 +1,25 @@
 package net.paperfish.moonbits.world.gen;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.MultifaceGrowthBlock;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.VerticalSurfaceType;
-import net.minecraft.util.math.floatprovider.UniformFloatProvider;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.util.registry.RegistryEntryList;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.paperfish.moonbits.registry.MBBlockTags;
 import net.paperfish.moonbits.registry.MBBlocks;
-import net.paperfish.moonbits.world.feature.CavebloomFeature;
 import net.paperfish.moonbits.world.feature.CavebloomFeatureConfig;
 import net.paperfish.moonbits.world.feature.LamprootFeature;
 
@@ -34,8 +35,6 @@ public class MBCaveFeatures {
 
     public static final LamprootFeature LAMPROOT_FEATURE =
             Registry.register(Registry.FEATURE, "lamproot_feature", new LamprootFeature(SimpleBlockFeatureConfig.CODEC));
-    public static final CavebloomFeature CAVEBLOOM_FEATURE =
-            Registry.register(Registry.FEATURE, "cavebloom_feature", new CavebloomFeature(CavebloomFeatureConfig.CODEC));
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> T_REGOLITH =
             MBConfiguredFeatures.register("trans_regolith", Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, MBBlocks.REGOLITH.getDefaultState(), 32));
@@ -212,9 +211,13 @@ public class MBCaveFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> LAMPROOT =
             MBConfiguredFeatures.register("lamproot", LAMPROOT_FEATURE, new SimpleBlockFeatureConfig(BlockStateProvider.of(MBBlocks.LAMPROOT)));
-    public static final RegistryEntry<ConfiguredFeature<CavebloomFeatureConfig, ?>> CAVEBLOOMS =
-            MBConfiguredFeatures.register("caveblooms", CAVEBLOOM_FEATURE,
-                    new CavebloomFeatureConfig(UniformIntProvider.create(18, 26), UniformFloatProvider.create(0.6f, 0.9f), UniformIntProvider.create(1, 3)));
+    private static final MultifaceGrowthBlock CAVEBLOOM_FLOWERS = (MultifaceGrowthBlock)MBBlocks.CAVEBLOOM_FLOWERS;
+    public static final RegistryEntry<ConfiguredFeature<MultifaceGrowthFeatureConfig, ?>> CAVEBLOOMS =
+            MBConfiguredFeatures.register("caveblooms", Feature.MULTIFACE_GROWTH,
+                    new MultifaceGrowthFeatureConfig(CAVEBLOOM_FLOWERS, 20, false, true, true, 0.5f,
+                            RegistryEntryList.of(Block::getRegistryEntry,
+                                    MBBlocks.TOUGH_DIRT,
+                                    Blocks.STONE, Blocks.ANDESITE, Blocks.DIORITE, Blocks.GRANITE, Blocks.DRIPSTONE_BLOCK, Blocks.CALCITE, Blocks.TUFF, Blocks.DEEPSLATE)));
 //    public static final RegistryEntry<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> MOSS_PATCH_DC =
 //            MBConfiguredFeatures.register("moss_patch_dc", Feature.VEGETATION_PATCH,
 //                    new VegetationPatchFeatureConfig(MBBlockTags.TOUGH_DIRT, BlockStateProvider.of(Blocks.MOSS_BLOCK),

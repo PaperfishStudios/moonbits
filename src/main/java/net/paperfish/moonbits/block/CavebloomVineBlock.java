@@ -17,10 +17,11 @@ import net.minecraft.world.WorldAccess;
 import net.paperfish.moonbits.registry.MBBlocks;
 
 import java.util.List;
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 import java.util.stream.Stream;
 
-public class CavebloomVineBlock extends AbstractLichenBlock implements Fertilizable {
+public class CavebloomVineBlock extends MultifaceGrowthBlock implements Fertilizable {
+    private final LichenGrower grower = new LichenGrower(this);
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
@@ -70,20 +71,27 @@ public class CavebloomVineBlock extends AbstractLichenBlock implements Fertiliza
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
-        return true;
-    }
-
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        this.trySpreadRandomly(state, world, pos, random);
-    }
-
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
         return !context.getStack().isOf(MBBlocks.CAVEBLOOMS) || super.canReplace(state, context);
     }
 
+    @Override
+    public LichenGrower getGrower() {
+        return grower;
+    }
+
     public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
-        return Stream.of(DIRECTIONS).anyMatch((direction) -> this.canSpread(state, world, pos, direction.getOpposite()));
+        return Stream.of(DIRECTIONS).anyMatch((direction) -> this.grower.canGrow(state, world, pos, direction.getOpposite()));
+    }
+
+    @Override
+    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+        return true;
+    }
+
+    @Override
+    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+        this.grower.grow(state, world, pos, random);
     }
 
     public boolean isTranslucent(BlockState state, BlockView world, BlockPos pos) {

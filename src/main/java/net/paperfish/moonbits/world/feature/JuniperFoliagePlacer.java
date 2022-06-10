@@ -14,7 +14,7 @@ import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 import java.util.function.BiConsumer;
 
 public class JuniperFoliagePlacer extends FoliagePlacer {

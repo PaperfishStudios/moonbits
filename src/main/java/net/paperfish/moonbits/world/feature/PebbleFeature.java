@@ -13,7 +13,7 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.block.PebbleBlock;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class PebbleFeature extends Feature<CountConfig> {
     public PebbleFeature(Codec<CountConfig> codec) {

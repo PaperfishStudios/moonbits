@@ -8,7 +8,7 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.feature.HugeMushroomFeature;
 import net.minecraft.world.gen.feature.HugeMushroomFeatureConfig;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class HugeDandelionPuffFeature extends HugeMushroomFeature {
     public HugeDandelionPuffFeature(Codec<HugeMushroomFeatureConfig> codec) {

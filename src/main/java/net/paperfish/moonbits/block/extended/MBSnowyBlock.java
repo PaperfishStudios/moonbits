@@ -7,7 +7,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class MBSnowyBlock extends SnowyBlock {
     public MBSnowyBlock(Settings settings) {

@@ -14,7 +14,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class SweetBerryPitsBlock extends PlantBlock implements Fertilizable {
     public SweetBerryPitsBlock(Settings settings) {

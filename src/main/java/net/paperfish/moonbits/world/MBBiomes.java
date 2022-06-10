@@ -81,7 +81,7 @@ public class MBBiomes {
         builder2.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 4, 3, 6));
         builder2.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(MBEntities.GRIZZLY_BEAR, 4, 2, 3));
 
-        return createBiome(Biome.Precipitation.RAIN, Biome.Category.FOREST, 0.6f, 0.6f,
+        return createBiome(Biome.Precipitation.RAIN, 0.6f, 0.6f,
                 4159204, 329011, builder2, builder, 0xb1c5e6, 0xB4C63C, MusicType.GAME);
     }
     public static Biome pasture() {
@@ -109,7 +109,7 @@ public class MBBiomes {
         DefaultBiomeFeatures.addBatsAndMonsters(builder2);
         builder2.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 4, 5, 8));
 
-        return createBiome(Biome.Precipitation.RAIN, Biome.Category.PLAINS, 0.6f, 0.6f,
+        return createBiome(Biome.Precipitation.RAIN, 0.6f, 0.6f,
                 4159204, 329011, builder2, builder, 0xb1c5e6, 0xB4C63C, MusicType.GAME);
     }
 //    public static Biome temperateForest() {
@@ -172,7 +172,7 @@ public class MBBiomes {
 
         SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
         lushDesertMobs(builder2);
-        return createBiome(Biome.Precipitation.NONE, Biome.Category.PLAINS, 2.0f, 0.0f,
+        return createBiome(Biome.Precipitation.NONE, 2.0f, 0.0f,
                 0x3a6fd9, 329011, builder2, builder, getSkyColor(2.0f), MusicType.GAME);
     }
     public static Biome prairie() {
@@ -199,7 +199,7 @@ public class MBBiomes {
         DefaultBiomeFeatures.addBatsAndMonsters(builder2);
         builder2.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 4, 5, 8));
 
-        return createBiome(Biome.Precipitation.RAIN, Biome.Category.SAVANNA, 0.6f, 0.6f,
+        return createBiome(Biome.Precipitation.RAIN, 0.6f, 0.6f,
                 4159204, 329011, builder2, builder, getSkyColor(0.8f), 0xd6db44, MusicType.GAME);
     }
 
@@ -258,26 +258,26 @@ public class MBBiomes {
         builder.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.HUSK, 80, 4, 4));
     }
 
-    private static Biome createBiome(Biome.Precipitation precipitation, Biome.Category category, float temperature, float downfall, SpawnSettings.Builder spawnSettings, GenerationSettings.Builder generationSettings, @Nullable MusicSound music) {
-        return createBiome(precipitation, category, temperature, downfall, 4159204, 329011, spawnSettings, generationSettings, music);
+    private static Biome createBiome(Biome.Precipitation precipitation, float temperature, float downfall, SpawnSettings.Builder spawnSettings, GenerationSettings.Builder generationSettings, @Nullable MusicSound music) {
+        return createBiome(precipitation, temperature, downfall, 4159204, 329011, spawnSettings, generationSettings, music);
     }
 
-    private static Biome createBiome(Biome.Precipitation precipitation, Biome.Category category, float temperature, float downfall, int waterColor, int waterFogColor, SpawnSettings.Builder spawnSettings, GenerationSettings.Builder generationSettings, @Nullable MusicSound music) {
-        return new Biome.Builder().precipitation(precipitation).category(category).temperature(temperature).downfall(downfall)
+    private static Biome createBiome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor, SpawnSettings.Builder spawnSettings, GenerationSettings.Builder generationSettings, @Nullable MusicSound music) {
+        return new Biome.Builder().precipitation(precipitation).temperature(temperature).downfall(downfall)
                 .effects(new BiomeEffects.Builder()
                         .waterColor(waterColor).waterFogColor(waterFogColor).fogColor(12638463)
                         .skyColor(getSkyColor(temperature))
                         .moodSound(BiomeMoodSound.CAVE).music(music).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
-    private static Biome createBiome(Biome.Precipitation precipitation, Biome.Category category, float temperature, float downfall, int waterColor, int waterFogColor, SpawnSettings.Builder spawnSettings, GenerationSettings.Builder generationSettings, int skyColor, @Nullable MusicSound music) {
-        return new Biome.Builder().precipitation(precipitation).category(category).temperature(temperature).downfall(downfall)
+    private static Biome createBiome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor, SpawnSettings.Builder spawnSettings, GenerationSettings.Builder generationSettings, int skyColor, @Nullable MusicSound music) {
+        return new Biome.Builder().precipitation(precipitation).temperature(temperature).downfall(downfall)
                 .effects(new BiomeEffects.Builder()
                         .waterColor(waterColor).waterFogColor(waterFogColor).fogColor(12638463)
                         .skyColor(skyColor)
                         .moodSound(BiomeMoodSound.CAVE).music(music).build()).spawnSettings(spawnSettings.build()).generationSettings(generationSettings.build()).build();
     }
-    private static Biome createBiome(Biome.Precipitation precipitation, Biome.Category category, float temperature, float downfall, int waterColor, int waterFogColor, SpawnSettings.Builder spawnSettings, GenerationSettings.Builder generationSettings, int skyColor, int grassColor, @Nullable MusicSound music) {
-        return new Biome.Builder().precipitation(precipitation).category(category).temperature(temperature).downfall(downfall)
+    private static Biome createBiome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor, SpawnSettings.Builder spawnSettings, GenerationSettings.Builder generationSettings, int skyColor, int grassColor, @Nullable MusicSound music) {
+        return new Biome.Builder().precipitation(precipitation).temperature(temperature).downfall(downfall)
                 .effects(new BiomeEffects.Builder()
                         .waterColor(waterColor).waterFogColor(waterFogColor).fogColor(12638463)
                         .skyColor(skyColor).foliageColor(grassColor).grassColor(grassColor)

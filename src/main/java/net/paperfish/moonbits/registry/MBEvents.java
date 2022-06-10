@@ -3,14 +3,15 @@ package net.paperfish.moonbits.registry;
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
-import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
-import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+import net.fabricmc.fabric.api.loot.v2.FabricLootPoolBuilder;
+import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.passive.StriderEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.LootingEnchantLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
@@ -30,7 +31,7 @@ import net.paperfish.moonbits.mixin.PigSaddleAccess;
 import net.paperfish.moonbits.mixin.StriderSaddleAccess;
 import net.paperfish.moonbits.recipe.WashingHandler;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class MBEvents {
 
@@ -86,7 +87,7 @@ public class MBEvents {
             if (targetBlock.isOf(Blocks.STICKY_PISTON) && heldItem.isIn(MBItemTags.AXES)) {
                 world.setBlockState(targetPos, Blocks.PISTON.getDefaultState().with(PistonBlock.FACING, targetBlock.get(PistonBlock.FACING))); 
                 if(!player.isCreative())
-                    heldItem.damage(1, new Random(), null);
+                    heldItem.damage(1, world.getRandom(), null);
                 world.playSound(null, targetPos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 0.8F, 1.0F);
                 world.playSound(null, targetPos, SoundEvents.BLOCK_HONEY_BLOCK_BREAK, SoundCategory.BLOCKS, 0.3F, 0.3F);
                 world.syncWorldEvent(player, WorldEvents.BLOCK_SCRAPED, targetPos, 0);
@@ -110,7 +111,7 @@ public class MBEvents {
 //                    success = true;
 //                }
                 if (success) {
-                    if (!player.isCreative()) heldItem.damage(1, new Random(), null);
+                    if (!player.isCreative()) heldItem.damage(1, world.getRandom(), null);
                     return ActionResult.SUCCESS;
                 }
             }
@@ -135,7 +136,7 @@ public class MBEvents {
                 }
                 if (success) {
                     world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 0.5F, 1.0F);
-                    if (!player.isCreative()) heldItem.damage(1, new Random(), null);
+                    if (!player.isCreative()) heldItem.damage(1, world.getRandom(), null);
                     return ActionResult.SUCCESS;
                 }
             }
@@ -206,11 +207,11 @@ public class MBEvents {
         });
 
 
-        LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
+        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, table, setter) -> {
             if (EntityType.HUSK.getLootTableId().equals(id)) {
-                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .with(ItemEntry.builder(MBItems.BURLAP)).withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 1)).build())
+                        .with(ItemEntry.builder(MBItems.BURLAP)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 1)).build())
                         .apply(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0f, 1.0f)));
 
                 table.pool(poolBuilder);

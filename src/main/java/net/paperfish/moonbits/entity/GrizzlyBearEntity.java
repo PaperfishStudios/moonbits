@@ -158,7 +158,7 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
                     dataTracker.set(DEPENDENCE, dataTracker.get(DEPENDENCE) + 1);
                 }
                 //this.lovePlayer(player);
-                this.emitGameEvent(GameEvent.MOB_INTERACT, this.getCameraBlockPos());
+                this.emitGameEvent(GameEvent.ENTITY_INTERACT);
                 Moonbits.LOGGER.info("dependence after food: " + dataTracker.get(DEPENDENCE));
                 return ActionResult.SUCCESS;
             }

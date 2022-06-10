@@ -2,6 +2,7 @@ package net.paperfish.moonbits.mixin;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.vehicle.BoatEntity;
+import net.minecraft.entity.vehicle.BoatEntity.Type;
 import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.entity.MBBoatTypes;
 import org.objectweb.asm.Opcodes;

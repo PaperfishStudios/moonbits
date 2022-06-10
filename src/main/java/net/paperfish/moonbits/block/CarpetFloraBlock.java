@@ -25,8 +25,8 @@ public class CarpetFloraBlock extends CarpetBlock {
                 floor.isIn(MBBlockTags.PLANTER_BOXES) || floor.isOf(Blocks.FARMLAND);
     }
 
-    @Override
-    public AbstractBlock.OffsetType getOffsetType() {
-        return AbstractBlock.OffsetType.XZ;
-    }
+//    @Override
+//    public AbstractBlock.OffsetType getOffsetType() {
+//        return AbstractBlock.OffsetType.XZ;
+//    }
 }

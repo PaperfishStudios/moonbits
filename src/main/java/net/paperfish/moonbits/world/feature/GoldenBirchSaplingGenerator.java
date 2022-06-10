@@ -1,6 +1,6 @@
 package net.paperfish.moonbits.world.feature;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 import net.minecraft.util.registry.RegistryEntry;
 

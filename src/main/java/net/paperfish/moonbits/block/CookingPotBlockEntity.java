@@ -12,7 +12,7 @@ import net.minecraft.item.Items;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -173,7 +173,7 @@ public class CookingPotBlockEntity extends LockableContainerBlockEntity implemen
 
     @Override
     protected Text getContainerName() {
-        return new TranslatableText("block.moonbits.cooking_pot");
+        return Text.translatable("block.moonbits.cooking_pot");
     }
 
     @Override

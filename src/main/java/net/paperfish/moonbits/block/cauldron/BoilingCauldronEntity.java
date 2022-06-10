@@ -32,7 +32,7 @@ import net.paperfish.moonbits.registry.MBItems;
 import javax.annotation.Nullable;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class BoilingCauldronEntity extends BlockEntity {
     private final DefaultedList<ItemStack> itemsBeingCooked = DefaultedList.ofSize(4, ItemStack.EMPTY);

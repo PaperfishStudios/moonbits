@@ -27,7 +27,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 import java.util.Optional;
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class BoilingCauldronBlock extends AbstractCauldronBlock implements BlockEntityProvider {
     public BoilingCauldronBlock(Settings settings, Map<Item, CauldronBehavior> behaviorMap) {

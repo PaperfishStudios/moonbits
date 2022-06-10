@@ -1,7 +1,8 @@
 package net.paperfish.moonbits.data;
 
+import com.mojang.datafixers.util.Pair;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockStateDefinitionProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.BedPart;
 import net.minecraft.block.enums.DoubleBlockHalf;
@@ -22,6 +23,7 @@ import net.minecraft.data.client.VariantSettings;
 import net.minecraft.data.client.VariantsBlockStateSupplier;
 import net.minecraft.data.client.When;
 import net.minecraft.item.Item;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
@@ -38,8 +40,9 @@ import net.paperfish.moonbits.registry.MBBlockFamilies;
 import net.paperfish.moonbits.registry.MBBlockFamily;
 
 import java.util.*;
+import java.util.function.Function;
 
-public class MBModelProvider extends FabricBlockStateDefinitionProvider {
+public class MBModelProvider extends FabricModelProvider {
 
     public static final Model WALL_PLANT = blockFromVanilla("glow_lichen", TextureKey.ALL);
 
@@ -792,17 +795,18 @@ public class MBModelProvider extends FabricBlockStateDefinitionProvider {
         //Identifier identifier2 = WALL_PLANT.upload(block, texture, generator.modelCollector);
 
         MultipartBlockStateSupplier multipartBlockStateSupplier = MultipartBlockStateSupplier.create(block);
-        When.PropertyCondition propertyCondition2 = Util.make(When.create(), propertyCondition -> BlockStateModelGenerator.CONNECTION_VARIANT_FUNCTIONS.forEach((property, function) -> {
+        When.PropertyCondition propertyCondition2 = Util.make(When.create(), propertyCondition -> BlockStateModelGenerator.CONNECTION_VARIANT_FUNCTIONS.stream().map(Pair::getFirst).forEach(property -> {
             if (block.getDefaultState().contains(property)) {
                 propertyCondition.set(property, false);
             }
         }));
-        BlockStateModelGenerator.CONNECTION_VARIANT_FUNCTIONS.forEach((property, function) -> {
-            if (block.getDefaultState().contains(property)) {
-                multipartBlockStateSupplier.with(When.create().set(property, true), function.apply(identifier));
-                multipartBlockStateSupplier.with(propertyCondition2, function.apply(identifier));
-            }
-        });
+        for (Pair<BooleanProperty, Function<Identifier, BlockStateVariant>> pair : BlockStateModelGenerator.CONNECTION_VARIANT_FUNCTIONS) {
+            BooleanProperty booleanProperty = pair.getFirst();
+            Function<Identifier, BlockStateVariant> function = pair.getSecond();
+            if (!block.getDefaultState().contains(booleanProperty)) continue;
+            multipartBlockStateSupplier.with((When)When.create().set(booleanProperty, true), function.apply(identifier));
+            multipartBlockStateSupplier.with((When)propertyCondition2, function.apply(identifier));
+        }
         generator.blockStateCollector.accept(multipartBlockStateSupplier);
     }
 

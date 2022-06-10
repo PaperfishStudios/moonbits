@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.paperfish.moonbits.registry.MBBlocks;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 @SuppressWarnings({"deprecation"})
 public class SmallToadstoolBlock extends PlantBlock implements Fertilizable {

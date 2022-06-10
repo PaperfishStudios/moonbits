@@ -21,7 +21,7 @@ import net.minecraft.world.WorldView;
 import net.paperfish.moonbits.registry.MBBlockTags;
 import net.paperfish.moonbits.registry.MBItems;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class TallPricklyPearBlock extends TallPlantBlock implements Fertilizable {
     public static final BooleanProperty CUT = BooleanProperty.of("cut");

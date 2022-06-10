@@ -26,7 +26,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.*;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class BarrelCactusBlock extends Block {
     // property that determines how many buckets are in the cactus

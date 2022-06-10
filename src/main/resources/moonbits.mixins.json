@@ -22,7 +22,6 @@
     "MobEntityAccessor",
     "MushroomStewItemMixin",
     "NetherWartMixin",
-    "NoteBlockMixin",
     "PigSaddleAccess",
     "PlantBlockMixin",
     "RestackingMixin",

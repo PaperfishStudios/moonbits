@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.MiscPlacedFeatures;
 import net.minecraft.world.gen.feature.OrePlacedFeatures;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.paperfish.moonbits.Moonbits;
+import net.paperfish.moonbits.registry.MBBiomeTags;
 import net.paperfish.moonbits.world.MBBiomes;
 
 @SuppressWarnings("OptionalGetWithoutIsPresent")
@@ -22,14 +23,7 @@ public class BiomeAdditions {
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_TIN_UPPER.getKey().get());
 
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_deposits"))
-                .add(ModificationPhase.ADDITIONS, BiomeSelectors.categories(
-                        Biome.Category.PLAINS,
-                        Biome.Category.SAVANNA,
-                        Biome.Category.TAIGA,
-                        Biome.Category.JUNGLE,
-                        Biome.Category.MUSHROOM,
-                        Biome.Category.FOREST
-                ), (c) -> {
+                .add(ModificationPhase.ADDITIONS, BiomeSelectors.tag(MBBiomeTags.HAS_DIRT_CAVES), (c) -> {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_PEAT.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT_UPPER.getKey().get());
@@ -38,14 +32,7 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_TIN_DEPOSIT.getKey().get());
                 });
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_dirt_cave"))
-                .add(ModificationPhase.ADDITIONS, BiomeSelectors.categories(
-                        Biome.Category.PLAINS,
-                        Biome.Category.SAVANNA,
-                        Biome.Category.TAIGA,
-                        Biome.Category.JUNGLE,
-                        Biome.Category.MUSHROOM,
-                        Biome.Category.FOREST
-                ), (c) -> {
+                .add(ModificationPhase.ADDITIONS, BiomeSelectors.tag(MBBiomeTags.HAS_DIRT_CAVES), (c) -> {
 //                    c.getGenerationSettings().addCarver(GenerationStep.Carver.AIR, MBCaveFeatures.dirt_cave);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.RAW_GENERATION, MBPlacedCaveFeatures.T_REGOLITH.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, MBPlacedCaveFeatures.REGOLITH_FLOOR.getKey().get());
@@ -112,14 +99,14 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_COBBLECHERT.getKey().get());
                 });
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_savanna"))
-                .add(ModificationPhase.ADDITIONS, BiomeSelectors.categories(Biome.Category.SAVANNA), (c) -> {
+                .add(ModificationPhase.ADDITIONS, BiomeSelectors.tag(BiomeTags.IS_SAVANNA), (c) -> {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.ORE_CRACKED_MUD.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.ORE_RICH_MUD.getKey().get());
 
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.MARIGOLD_PATCH.getKey().get());
                 });
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_badlands"))
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.categories(Biome.Category.MESA), (c) -> {
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.tag(BiomeTags.IS_BADLANDS), (c) -> {
                     c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.TREES_BADLANDS.value());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.CEDARS.getKey().get());
                 });
@@ -144,9 +131,7 @@ public class BiomeAdditions {
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_mushroom"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.MUSHROOM_FIELDS), (c) -> c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PATCH_MYCELIUM.getKey().get()));
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_swamps"))
-                .add(ModificationPhase.ADDITIONS, BiomeSelectors.categories(
-                        Biome.Category.SWAMP
-                ), (c) -> {
+                .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.SWAMP, BiomeKeys.MANGROVE_SWAMP), (c) -> {
 //                    c.getGenerationSettings().addCarver(GenerationStep.Carver.AIR, MBCaveFeatures.dirt_cave);
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.RAW_GENERATION, MBPlacedCaveFeatures.T_REGOLITH.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, MBPlacedCaveFeatures.REGOLITH_FLOOR.getKey().get());

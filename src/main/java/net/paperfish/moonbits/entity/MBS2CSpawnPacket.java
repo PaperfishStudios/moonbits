@@ -29,10 +29,11 @@ public class MBS2CSpawnPacket extends EntitySpawnS2CPacket implements Packet<Cli
     private final int yaw;
     private final EntityType<?> entityTypeId;
     private final int entityData;
+    private final byte headYaw;
     public static final double MAX_ABSOLUTE_VELOCITY = 3.9D;
 
-    public MBS2CSpawnPacket(int id, UUID uuid, double x, double y, double z, float pitch, float yaw, EntityType<?> entityTypeId, int entityData, Vec3d velocity) {
-        super(id, uuid, x, y, z, pitch, yaw, entityTypeId, entityData, velocity);
+    public MBS2CSpawnPacket(int id, UUID uuid, double x, double y, double z, float pitch, float yaw, EntityType<?> entityTypeId, int entityData, Vec3d velocity, double headYaw) {
+        super(id, uuid, x, y, z, pitch, yaw, entityTypeId, entityData, velocity, headYaw);
         this.id = id;
         this.uuid = uuid;
         this.x = x;
@@ -40,6 +41,7 @@ public class MBS2CSpawnPacket extends EntitySpawnS2CPacket implements Packet<Cli
         this.z = z;
         this.pitch = MathHelper.floor(pitch * 256.0F / 360.0F);
         this.yaw = MathHelper.floor(yaw * 256.0F / 360.0F);
+        this.headYaw = (byte)MathHelper.floor(headYaw * 256.0 / 360.0);
         this.entityTypeId = entityTypeId;
         this.entityData = entityData;
         this.velocityX = (int)(MathHelper.clamp(velocity.x, -3.9D, 3.9D) * 8000.0D);
@@ -52,11 +54,11 @@ public class MBS2CSpawnPacket extends EntitySpawnS2CPacket implements Packet<Cli
     }
 
     public MBS2CSpawnPacket(Entity entity, int entityData) {
-        this(entity.getId(), entity.getUuid(), entity.getX(), entity.getY(), entity.getZ(), entity.getPitch(), entity.getYaw(), entity.getType(), entityData, entity.getVelocity());
+        this(entity.getId(), entity.getUuid(), entity.getX(), entity.getY(), entity.getZ(), entity.getPitch(), entity.getYaw(), entity.getType(), entityData, entity.getVelocity(), entity.getHeadYaw());
     }
 
     public MBS2CSpawnPacket(Entity entity, EntityType<?> entityType, int data, BlockPos pos) {
-        this(entity.getId(), entity.getUuid(), (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), entity.getPitch(), entity.getYaw(), entityType, data, entity.getVelocity());
+        this(entity.getId(), entity.getUuid(), (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), entity.getPitch(), entity.getYaw(), entityType, data, entity.getVelocity(), entity.getHeadYaw());
     }
 
     public MBS2CSpawnPacket(PacketByteBuf buf) {
@@ -69,6 +71,7 @@ public class MBS2CSpawnPacket extends EntitySpawnS2CPacket implements Packet<Cli
         this.z = buf.readDouble();
         this.pitch = buf.readByte();
         this.yaw = buf.readByte();
+        this.headYaw = buf.readByte();
         this.entityData = buf.readInt();
         this.velocityX = buf.readShort();
         this.velocityY = buf.readShort();
@@ -84,6 +87,7 @@ public class MBS2CSpawnPacket extends EntitySpawnS2CPacket implements Packet<Cli
         buf.writeDouble(this.z);
         buf.writeByte(this.pitch);
         buf.writeByte(this.yaw);
+        buf.writeByte(this.headYaw);
         buf.writeInt(this.entityData);
         buf.writeShort(this.velocityX);
         buf.writeShort(this.velocityY);
@@ -131,12 +135,16 @@ public class MBS2CSpawnPacket extends EntitySpawnS2CPacket implements Packet<Cli
         return (double)this.velocityZ / 8000.0D;
     }
 
-    public int getPitch() {
+    public float getPitch() {
         return this.pitch;
     }
 
-    public int getYaw() {
+    public float getYaw() {
         return this.yaw;
+    }
+
+    public float getHeadYaw() {
+        return (float)(this.headYaw * 360) / 256.0f;
     }
 
     public EntityType<?> getEntityTypeId() {

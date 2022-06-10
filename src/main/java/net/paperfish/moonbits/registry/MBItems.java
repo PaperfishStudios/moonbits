@@ -112,7 +112,8 @@ public class MBItems {
 	(new Item.Settings()).maxCount(1).group(MBItemGroup.MB_MISC));
 
 //	public static final Item JUNIPER_BOAT = new BoatItem(MBBoatTypes.JUNIPER, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
-	public static final Item CEDAR_BOAT = new BoatItem(MBBoatTypes.CEDAR, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
+	public static final Item CEDAR_BOAT = new BoatItem(false, MBBoatTypes.CEDAR, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
+	public static final Item CEDAR_CHEST_BOAT = new BoatItem(true, MBBoatTypes.CEDAR, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
 
 	// Glass Shards
 	public static final Item GLASS_SHARD = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
@@ -205,6 +206,7 @@ public class MBItems {
 
 //		addItem("juniper_boat", JUNIPER_BOAT);
 		addItem("cedar_boat", CEDAR_BOAT);
+		addItem("cedar_chest_boat", CEDAR_CHEST_BOAT);
 
 		addTool("wrench", WRENCH);
 

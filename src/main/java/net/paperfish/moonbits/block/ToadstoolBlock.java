@@ -32,7 +32,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 @SuppressWarnings({"deprecation"})
 public class ToadstoolBlock extends Block implements Fertilizable, Waterloggable {

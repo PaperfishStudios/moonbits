@@ -19,7 +19,7 @@ import net.paperfish.moonbits.registry.MBBlockTags;
 import net.paperfish.moonbits.registry.MBBlocks;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class FrosthornCrownBlock extends Block implements Fertilizable {
     public static final BooleanProperty ATTACHED = Properties.ATTACHED;

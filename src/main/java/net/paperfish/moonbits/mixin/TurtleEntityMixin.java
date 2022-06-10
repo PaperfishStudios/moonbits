@@ -84,7 +84,7 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Bucketab
 		return new ItemStack(MBItems.BABY_TURTLE_BUCKET);
 	}
     
-    public SoundEvent getBucketedSound() {
+    public SoundEvent getBucketFillSound() {
 		return SoundEvents.ITEM_BUCKET_FILL_FISH;
 	}
 
@@ -99,7 +99,7 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Bucketab
     private static <T extends LivingEntity & Bucketable> Optional<ActionResult> tryBucket(PlayerEntity player, Hand hand, T entity) {
 		ItemStack itemStack = player.getStackInHand(hand);
 		if (itemStack.getItem() == Items.WATER_BUCKET && entity.isAlive() && entity.isBaby()) {
-			entity.playSound(((Bucketable)entity).getBucketedSound(), 1.0F, 1.0F);
+			entity.playSound(((Bucketable)entity).getBucketFillSound(), 1.0F, 1.0F);
 			ItemStack itemStack2 = ((Bucketable)entity).getBucketItem();
 			((Bucketable)entity).copyDataToStack(itemStack2);
 			ItemStack itemStack3 = ItemUsage.exchangeStack(itemStack, player, itemStack2, false);

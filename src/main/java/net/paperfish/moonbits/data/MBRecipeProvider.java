@@ -1,7 +1,7 @@
 package net.paperfish.moonbits.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipesProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancement.criterion.TameAnimalCriterion;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -29,7 +29,7 @@ import java.util.Objects;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
-public class MBRecipeProvider extends FabricRecipesProvider {
+public class MBRecipeProvider extends FabricRecipeProvider {
     public MBRecipeProvider(FabricDataGenerator dataGenerator) {
         super(dataGenerator);
     }

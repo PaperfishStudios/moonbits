@@ -58,6 +58,11 @@ public class CookingScreenHandler extends ScreenHandler {
     }
 
     @Override
+    public ItemStack transferSlot(PlayerEntity player, int index) {
+        return null;
+    }
+
+    @Override
     public boolean canUse(PlayerEntity player) {
         return this.inventory.canPlayerUse(player);
     }

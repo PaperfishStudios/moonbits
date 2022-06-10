@@ -27,12 +27,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 import java.util.stream.Stream;
 
-public class CavebloomFlowerBlock extends AbstractLichenBlock implements Fertilizable, Waterloggable  {
+public class CavebloomFlowerBlock extends MultifaceGrowthBlock implements Fertilizable, Waterloggable  {
     private static final BooleanProperty WATERLOGGED;
     //private static final BooleanProperty BLOOMING;
+    private final LichenGrower grower = new LichenGrower(this);
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
@@ -55,6 +56,11 @@ public class CavebloomFlowerBlock extends AbstractLichenBlock implements Fertili
             return Arrays.stream(ctx.getPlacementDirections()).map(direction -> this.withDirection(swapBlock(state), world, blockPos, direction)).filter(Objects::nonNull).findFirst().orElse(null);
         }
         return super.getPlacementState(ctx);
+    }
+
+    @Override
+    public LichenGrower getGrower() {
+        return grower;
     }
 
     @Override
@@ -105,7 +111,7 @@ public class CavebloomFlowerBlock extends AbstractLichenBlock implements Fertili
     }
 
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        this.trySpreadRandomly(swapBlock(state), world, pos, random);
+        this.grower.grow(swapBlock(state), world, pos, random);
     }
 
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
@@ -113,7 +119,7 @@ public class CavebloomFlowerBlock extends AbstractLichenBlock implements Fertili
     }
 
     public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
-        return Stream.of(DIRECTIONS).anyMatch((direction) -> this.canSpread(state, world, pos, direction.getOpposite()));
+        return Stream.of(DIRECTIONS).anyMatch((direction) -> this.grower.canGrow(state, world, pos, direction.getOpposite()));
     }
 
     public FluidState getFluidState(BlockState state) {

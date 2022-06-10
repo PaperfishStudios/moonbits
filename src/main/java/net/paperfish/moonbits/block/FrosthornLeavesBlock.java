@@ -12,7 +12,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
 import net.paperfish.moonbits.registry.MBBlocks;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class FrosthornLeavesBlock extends PlantBlock {
     public final VoxelShape SHAPE = Block.createCuboidShape(6, 0, 6, 10, 6, 10);

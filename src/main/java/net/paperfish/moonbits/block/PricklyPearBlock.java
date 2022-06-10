@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import net.paperfish.moonbits.registry.MBBlockTags;
 import net.paperfish.moonbits.registry.MBBlocks;
 
-import java.util.Random;
+import net.minecraft.util.math.random.Random;
 
 public class PricklyPearBlock extends PlantBlock implements Fertilizable {
     public static final BooleanProperty CUT = BooleanProperty.of("cut");
@@ -48,10 +48,10 @@ public class PricklyPearBlock extends PlantBlock implements Fertilizable {
         super.randomTick(state, world, pos, random);
     }
 
-    @Override
-    public AbstractBlock.OffsetType getOffsetType() {
-        return AbstractBlock.OffsetType.XZ;
-    }
+//    @Override
+//    public AbstractBlock.OffsetType getOffsetType() {
+//        return AbstractBlock.OffsetType.XZ;
+//    }
 
     @Override
     public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
