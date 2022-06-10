@@ -84,6 +84,15 @@ public class MBBlockFamilies {
             .group("wooden")
             .unlockCriterionName("has_planks")
             .build();
+    public static final MBBlockFamily MANGROVE = register(Blocks.MANGROVE_PLANKS)
+            .bookshelf(MBBlocks.MANGROVE_BOOKSHELF)
+            .planterBox(MBBlocks.MANGROVE_PLANTER_BOX)
+            .stonecut(MBBlocks.MANGROVE_BOARDS).stonecut(MBBlocks.MANGROVE_PANEL)
+            .column(MBBlocks.MANGROVE_PILLAR, MBBlocks.CARVED_MANGROVE)
+            .stonecut(List.of(Blocks.MANGROVE_SLAB, Blocks.MANGROVE_STAIRS, Blocks.MANGROVE_FENCE, Blocks.MANGROVE_FENCE_GATE, Blocks.MANGROVE_SIGN, Blocks.MANGROVE_PRESSURE_PLATE, Blocks.MANGROVE_TRAPDOOR))
+            .group("wooden")
+            .unlockCriterionName("has_planks")
+            .build();
 
 
 //    public static final MBBlockFamily JUNIPER = register(MBBlocks.JUNIPER_PLANKS)

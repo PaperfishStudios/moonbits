@@ -62,14 +62,6 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
             }
         });
 
-        // TEMP
-        addDrop(MBBlocks.MANGROVE_BOARDS);
-        addDrop(MBBlocks.MANGROVE_PANEL);
-        addDrop(MBBlocks.CARVED_MANGROVE);
-        addDrop(MBBlocks.MANGROVE_BOOKSHELF);
-        addDrop(MBBlocks.MANGROVE_PLANTER_BOX);
-        addDrop(MBBlocks.MANGROVE_PILLAR);
-
         addDrop(MBBlocks.ROPE_LADDER);
         addDrop(MBBlocks.IRON_LADDER);
         addDrop(MBBlocks.KILN, BlockLootTableGenerator::nameableContainerDrops);

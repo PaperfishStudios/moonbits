@@ -127,14 +127,6 @@ public class MBModelProvider extends FabricModelProvider {
         MBBlockFamilies.getFamilies().filter(MBBlockFamily::shouldGenerateModels)
                 .forEach(family -> generateFamily(generator, family, this));
 
-        // TEMP
-        generator.registerSimpleCubeAll(MBBlocks.MANGROVE_BOARDS);
-        generator.registerSimpleCubeAll(MBBlocks.MANGROVE_PANEL);
-        generator.registerSimpleCubeAll(MBBlocks.CARVED_MANGROVE);
-        bookshelf(MBBlocks.MANGROVE_BOOKSHELF, Blocks.CRIMSON_PLANKS, generator);
-        generator.registerSingleton(MBBlocks.MANGROVE_PLANTER_BOX, CUBE_BOTTOM_TOP);
-        column(MBBlocks.MANGROVE_PILLAR, generator);
-
         // utility blocks :>
         generator.registerNorthDefaultHorizontalRotation(MBBlocks.ROPE_LADDER);
         generator.registerItemModel(MBBlocks.ROPE_LADDER);

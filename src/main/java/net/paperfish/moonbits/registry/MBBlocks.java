@@ -8,9 +8,11 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.SignType;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
@@ -81,16 +83,24 @@ public class MBBlocks {
 	public static final Block WARPED_NYLIUM_CARPET = new LeafCarpetBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TEAL).strength(0.1F).sounds(BlockSoundGroup.NYLIUM));
 
 	// FORAGING
-	public static final Block WILD_CARROTS = new WildCropBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block WILD_POTATOES = new WildCropBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block SEA_BEETS = new SandyPlantBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block WILD_CARROTS = new WildCropBlock(AbstractBlock.Settings.of(Material.PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+	public static final Block WILD_POTATOES = new WildCropBlock(AbstractBlock.Settings.of(Material.PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+	public static final Block SEA_BEETS = new SandyPlantBlock(AbstractBlock.Settings.of(Material.PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 
-	public static final Block BEACHGRASS = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block TALL_BEACHGRASS = new SandyTallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block BEACHGRASS = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+	public static final Block TALL_BEACHGRASS = new SandyTallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 
-	public static final Block PEBBLES = new PebbleBlock(AbstractBlock.Settings.of(Material.STONE).noCollision().breakInstantly().sounds(BlockSoundGroup.TUFF));
+	public static final Block PEBBLES = new PebbleBlock(AbstractBlock.Settings.of(Material.STONE)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.TUFF).offsetType(AbstractBlock.OffsetType.XZ));
 
-	public static final Block MYCELIUM_ROOTS = new OmniRootsBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block MYCELIUM_ROOTS = new OmniRootsBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType((a) ->
+					a.get(Properties.FACING).getAxis() == Direction.Axis.Y ? AbstractBlock.OffsetType.XZ : AbstractBlock.OffsetType.NONE));
 
 	// WOOD
 	public static final Block OAK_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -174,14 +184,17 @@ public class MBBlocks {
 //	public static final Block ASPEN_SAPLING =new MBSaplingBlock(new GoldenBirchSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
 //	public static final Block POTTED_ASPEN_SAPLING = new FlowerPotBlock(ASPEN_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
-	public static final Block PUFFBALLS = new PuffballsBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block PUFFBALLS = new PuffballsBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block POTTED_PUFFBALLS = new FlowerPotBlock(PUFFBALLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
 	public static final Block SAFFRON_MUSHROOM = new MushroomPlantBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).noCollision().ticksRandomly().breakInstantly()
-			.sounds(BlockSoundGroup.GRASS).postProcess((state, world, pos) -> true), () -> MBTreeFeatures.SAFFRON_MUSHROOM);
+			.sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ)
+			.postProcess((state, world, pos) -> true), () -> MBTreeFeatures.SAFFRON_MUSHROOM);
 	public static final Block POTTED_SAFFRON_MUSHROOM = new FlowerPotBlock(SAFFRON_MUSHROOM, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 	public static final Block TOADSTOOL = new ToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).strength(0.5F).sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
-	public static final Block SMALL_TOADSTOOLS = new SmallToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block SMALL_TOADSTOOLS = new SmallToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block POTTED_SMALL_TOADSTOOLS = new FlowerPotBlock(SMALL_TOADSTOOLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
 	public static final Block RED_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
@@ -343,13 +356,19 @@ public class MBBlocks {
 	public static final Block CEDAR_WALL_SIGN = new WallSignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_ORANGE)
 			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(CEDAR_SIGN), CEDAR_SIGN_TYPE);
 
-	public static final Block PRICKLY_PEAR_CACTUS = new PricklyPearBlock(FabricBlockSettings.of(Material.CACTUS).breakInstantly().noCollision().ticksRandomly().nonOpaque().sounds(BlockSoundGroup.GRASS));
-	public static final Block TALL_PRICKLY_PEAR_CACTUS = new TallPricklyPearBlock(FabricBlockSettings.of(Material.CACTUS).breakInstantly().noCollision().ticksRandomly().nonOpaque().sounds(BlockSoundGroup.GRASS));
+	public static final Block PRICKLY_PEAR_CACTUS = new PricklyPearBlock(FabricBlockSettings.of(Material.CACTUS)
+			.breakInstantly().noCollision().ticksRandomly().nonOpaque().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+	public static final Block TALL_PRICKLY_PEAR_CACTUS = new TallPricklyPearBlock(FabricBlockSettings.of(Material.CACTUS)
+			.breakInstantly().noCollision().ticksRandomly().nonOpaque().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 
-	public static final Block BARREL_CACTUS = new BarrelCactusBlock(FabricBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-	public static final Block DESERT_BRUSH = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block TALL_DESERT_BRUSH = new SandyTallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block MARIGOLD = new SandyFlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block BARREL_CACTUS = new BarrelCactusBlock(FabricBlockSettings.of(Material.CACTUS)
+            .strength(0.5f).sounds(BlockSoundGroup.WOOL).offsetType(AbstractBlock.OffsetType.XZ).dynamicBounds());
+	public static final Block DESERT_BRUSH = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+	public static final Block TALL_DESERT_BRUSH = new SandyTallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+	public static final Block MARIGOLD = new SandyFlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block POTTED_MARIGOLD = new FlowerPotBlock(MARIGOLD, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
 	public static final Block CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
@@ -415,39 +434,45 @@ public class MBBlocks {
 
 	public static final Block FLOWERING_ACACIA_LEAVES = new ParticleLeavesBlock(AbstractBlock.Settings.copy(Blocks.ACACIA_LEAVES).mapColor(MapColor.PALE_YELLOW), MBParticles.FALLING_WATTLE);
 
-	public static final Block CRACKED_MUD = new PillarBlock(AbstractBlock.Settings.copy(Blocks.TERRACOTTA).mapColor(MapColor.PALE_YELLOW));
+	public static final Block CRACKED_MUD = new PillarBlock(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.PALE_YELLOW));
 
-	public static final Block RICH_MUD = new Block(AbstractBlock.Settings.copy(Blocks.DIRT).mapColor(MapColor.BROWN));
-	public static final Block MUD_GOLD_DEPOSIT = new Block(AbstractBlock.Settings.copy(Blocks.DIRT).mapColor(MapColor.BROWN));
+	public static final Block RICH_MUD = new MudBlock(AbstractBlock.Settings.copy(Blocks.MUD).mapColor(MapColor.BROWN));
+	public static final Block MUD_GOLD_DEPOSIT = new MudBlock(AbstractBlock.Settings.copy(Blocks.MUD).mapColor(MapColor.BROWN));
 
-	public static final Block MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.TERRACOTTA).mapColor(MapColor.TERRACOTTA_BROWN));
+	public static final Block MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN));
 	public static final Block MUDSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(MUDSTONE));
 	public static final Block MUDSTONE_STAIRS = new MBStairsBlock(MUDSTONE.getDefaultState(), AbstractBlock.Settings.copy(MUDSTONE));
 	public static final Block MUDSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(MUDSTONE));
 
-	public static final Block SMOOTH_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.TERRACOTTA));
+	public static final Block SMOOTH_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD));
 	public static final Block SMOOTH_MUDSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(SMOOTH_MUDSTONE));
 	public static final Block SMOOTH_MUDSTONE_STAIRS = new MBStairsBlock(SMOOTH_MUDSTONE.getDefaultState(), AbstractBlock.Settings.copy(SMOOTH_MUDSTONE));
 	public static final Block SMOOTH_MUDSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(SMOOTH_MUDSTONE));
 
-	public static final Block MUDSTONE_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.TERRACOTTA).mapColor(MapColor.TERRACOTTA_BROWN));
+	public static final Block MUDSTONE_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN));
 	public static final Block MUDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(MUDSTONE_BRICKS));
 	public static final Block MUDSTONE_BRICK_STAIRS = new MBStairsBlock(MUDSTONE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(MUDSTONE_BRICKS));
 	public static final Block MUDSTONE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(MUDSTONE_BRICKS));
 
-	public static final Block CUT_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.TERRACOTTA).mapColor(MapColor.TERRACOTTA_BROWN));
-	public static final Block CHISELED_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.TERRACOTTA).mapColor(MapColor.TERRACOTTA_BROWN));
+	public static final Block CUT_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN));
+	public static final Block CHISELED_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN));
 
 	// FLOWER FOREST
-	public static final Block BUTTERCUP = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block BUTTERCUP = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block POTTED_BUTTERCUP = new FlowerPotBlock(BUTTERCUP, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
-	public static final Block FORGETMENOT = new FlowerBlock(StatusEffects.INSTANT_HEALTH, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block FORGETMENOT = new FlowerBlock(StatusEffects.INSTANT_HEALTH, 12, AbstractBlock.Settings.of(Material.PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block POTTED_FORGETMENOT = new FlowerPotBlock(FORGETMENOT, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
-	public static final Block WHITE_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block PINK_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block LIGHT_BLUE_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-	public static final Block RED_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block WHITE_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+	public static final Block PINK_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+	public static final Block LIGHT_BLUE_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+	public static final Block RED_HYACINTH = new TallFlowerBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 
 	// - HONEY CONTENT LMAO
 	public static final Block HONEY_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
@@ -531,9 +556,11 @@ public class MBBlocks {
 	public static final Block PEPPER_CROP = new PepperCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
 			.nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
 
-	public static final Block WILDFLOWERS = new CarpetFloraBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().nonOpaque().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block WILDFLOWERS = new CarpetFloraBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().nonOpaque().breakInstantly().sounds(BlockSoundGroup.GRASS)
+			.offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block POTTED_WILDFLOWERS = new FlowerPotBlock(WILDFLOWERS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
-	public static final Block CLOVER = new CarpetFloraBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().nonOpaque().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block CLOVER = new CarpetFloraBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().nonOpaque().breakInstantly().sounds(BlockSoundGroup.GRASS)
+			.offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block POTTED_CLOVER = new FlowerPotBlock(CLOVER, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
 	public static final Block LAMPROOT = new LamprootBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).luminance((state) -> 7));
@@ -963,8 +990,8 @@ public class MBBlocks {
 	public static final Block PLUCKED_SWEET_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
 	public static final Block PLUCKED_GLOW_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
 
-	public static final Block SUGAR_CANE_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(MBSounds.BUNDLE));
-	public static final Block BAMBOO_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.BAMBOO).hardness(1.0f).sounds(MBSounds.BUNDLE));
+	public static final Block SUGAR_CANE_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
+	public static final Block BAMBOO_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.BAMBOO).hardness(1.0f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
 	public static final Block KELP_BLOCK = new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC).strength(0.5F, 2.5F).sounds(BlockSoundGroup.WET_GRASS));
 	
 	public static final Block NETHER_WART_SACK = new PillarBlock(FabricBlockSettings.of(Material.NETHER_SHOOTS).hardness(1.0f).sounds(BlockSoundGroup.WART_BLOCK));
@@ -975,13 +1002,13 @@ public class MBBlocks {
 
 	public static final Block SPOOL = new PillarBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.8f).sounds(BlockSoundGroup.WOOL));
 	public static final Block PAPER_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.5f).sounds(BlockSoundGroup.WOOL));
-	public static final Block STICK_STACK = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(MBSounds.BUNDLE));
-	public static final Block CHARCOAL_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(1.2f, 0.8f).sounds(MBSounds.BUNDLE));
+	public static final Block STICK_STACK = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
+	public static final Block CHARCOAL_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(1.2f, 0.8f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
 
 	public static final Block SCUTE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.STONE));
 
 	public static final Block ROTTEN_FLESH_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.WEEPING_VINES));
-	public static final Block BONE_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.AGGREGATE).hardness(1f).sounds(MBSounds.BUNDLE));
+	public static final Block BONE_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.AGGREGATE).hardness(1f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
 	public static final Block SPIDER_EYE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.WEEPING_VINES));
 	public static final Block PHANTOM_MEMBRANE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1f).sounds(BlockSoundGroup.NYLIUM));
 	public static final Block BLAZE_ROD = new MBRodBlock(FabricBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));

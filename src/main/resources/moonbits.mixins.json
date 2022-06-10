@@ -4,6 +4,7 @@
   "package": "net.paperfish.moonbits.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AbstractBlockMixin",
     "AnimalEntityMixin",
     "BlockEntityTypeMixin",
     "BoatDropsMixin",
