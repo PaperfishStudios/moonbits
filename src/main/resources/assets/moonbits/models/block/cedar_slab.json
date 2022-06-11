@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "moonbits:block/cedar_planks",
-    "top": "moonbits:block/cedar_planks",
-    "side": "moonbits:block/cedar_planks"
+    "side": "moonbits:block/cedar_planks",
+    "top": "moonbits:block/cedar_planks"
   }
 }

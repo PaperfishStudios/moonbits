@@ -20,7 +20,6 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.paperfish.moonbits.registry.MBBlockTags;
 import net.paperfish.moonbits.registry.MBBlocks;
-import net.paperfish.moonbits.world.feature.CavebloomFeatureConfig;
 import net.paperfish.moonbits.world.feature.LamprootFeature;
 
 import java.util.List;
@@ -210,7 +209,7 @@ public class MBCaveFeatures {
     );
 
     public static final RegistryEntry<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> LAMPROOT =
-            MBConfiguredFeatures.register("lamproot", LAMPROOT_FEATURE, new SimpleBlockFeatureConfig(BlockStateProvider.of(MBBlocks.LAMPROOT)));
+            MBConfiguredFeatures.register("lamproot", LAMPROOT_FEATURE, new SimpleBlockFeatureConfig(BlockStateProvider.of(MBBlocks.LAMPROOT_BULB)));
     private static final MultifaceGrowthBlock CAVEBLOOM_FLOWERS = (MultifaceGrowthBlock)MBBlocks.CAVEBLOOM_FLOWERS;
     public static final RegistryEntry<ConfiguredFeature<MultifaceGrowthFeatureConfig, ?>> CAVEBLOOMS =
             MBConfiguredFeatures.register("caveblooms", Feature.MULTIFACE_GROWTH,

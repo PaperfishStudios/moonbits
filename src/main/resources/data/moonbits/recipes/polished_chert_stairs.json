@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#  ",
-    "## ",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:polished_chert"
     }
   },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
   "result": {
-    "item": "moonbits:polished_chert_stairs",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:polished_chert_stairs"
   }
 }

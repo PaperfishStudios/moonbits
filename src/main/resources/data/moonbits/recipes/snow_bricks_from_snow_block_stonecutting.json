@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "minecraft:snow_block"
   },
-  "result": "moonbits:snow_bricks",
-  "count": 1
+  "result": "moonbits:snow_bricks"
 }

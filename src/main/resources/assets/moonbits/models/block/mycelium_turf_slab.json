@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "moonbits:block/mycelium_turf",
-    "top": "moonbits:block/mycelium_turf",
-    "side": "moonbits:block/mycelium_turf"
+    "side": "moonbits:block/mycelium_turf",
+    "top": "moonbits:block/mycelium_turf"
   }
 }

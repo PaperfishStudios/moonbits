@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "moonbits:lamproot_slab",
     "moonbits:cedar_slab",
     "moonbits:honey_slab"
   ]

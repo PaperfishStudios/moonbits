@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab_top",
   "textures": {
     "bottom": "moonbits:block/prismarine_tiles",
-    "top": "moonbits:block/prismarine_tiles",
-    "side": "moonbits:block/prismarine_tiles"
+    "side": "moonbits:block/prismarine_tiles",
+    "top": "moonbits:block/prismarine_tiles"
   }
 }

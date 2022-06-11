@@ -23,6 +23,7 @@ public class MBBiomes {
     public static final RegistryKey<Biome> GOLDEN_FOREST = createBiomeKey("golden_forest");
     public static final RegistryKey<Biome> TALL_GOLDEN_FOREST = createBiomeKey("tall_golden_forest");
     public static final RegistryKey<Biome> PASTURE = createBiomeKey("pasture");
+    public static final RegistryKey<Biome> RED_OAK_FOREST = createBiomeKey("red_oak_forest");
 
     public static final RegistryKey<Biome> STEPPE = createBiomeKey("steppe");
     public static final RegistryKey<Biome> PRAIRIE = createBiomeKey("prairie");
@@ -36,6 +37,7 @@ public class MBBiomes {
         register(GOLDEN_FOREST, goldenForest(false));
         register(TALL_GOLDEN_FOREST, goldenForest(true));
         register(PASTURE, pasture());
+        register(RED_OAK_FOREST, redOak());
         register(STEPPE, steppe());
         register(PRAIRIE, prairie());
     }
@@ -107,44 +109,44 @@ public class MBBiomes {
         SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addFarmAnimals(builder2);
         DefaultBiomeFeatures.addBatsAndMonsters(builder2);
-        builder2.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 4, 5, 8));
+        builder2.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 6, 5, 9));
 
         return createBiome(Biome.Precipitation.RAIN, 0.6f, 0.6f,
                 4159204, 329011, builder2, builder, 0xb1c5e6, 0xB4C63C, MusicType.GAME);
     }
-//    public static Biome temperateForest() {
-//        GenerationSettings.Builder builder = new GenerationSettings.Builder();
-//        addBasicFeatures(builder);
-//
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.FOREST_FLOWERS);
-//
-//        DefaultBiomeFeatures.addDefaultOres(builder);
+    public static Biome redOak() {
+        GenerationSettings.Builder builder = new GenerationSettings.Builder();
+        addBasicFeatures(builder);
+
+        DefaultBiomeFeatures.addForestFlowers(builder);
+        DefaultBiomeFeatures.addDefaultOres(builder);
+        DefaultBiomeFeatures.addDefaultDisks(builder);
+        DefaultBiomeFeatures.addDefaultFlowers(builder);
+        DefaultBiomeFeatures.addForestGrass(builder);
+        DefaultBiomeFeatures.addDefaultMushrooms(builder);
+        DefaultBiomeFeatures.addDefaultVegetation(builder);
+
 //        addDefaultDeposits(builder);
-//        DefaultBiomeFeatures.addDefaultDisks(builder);
-//
-//        // TODO: aspen trees go here
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.GBF_TREES);
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_GRASS_FOREST);
-//
-//        builder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.LEAFBED_PATCH);
-//        builder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.PODZOL_PATCH);
-//        builder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.FALLEN_BIRCH);
-//        DefaultBiomeFeatures.addMossyRocks(builder);
-//        DefaultBiomeFeatures.addLargeFerns(builder);
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUMPKIN_PATCH);
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUFFBALLS_PATCH);
-//        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_POTATO_PATCH);
-//
-//        DefaultBiomeFeatures.addDefaultMushrooms(builder);
-//        DefaultBiomeFeatures.addDefaultVegetation(builder);
-//        SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
-//        DefaultBiomeFeatures.addFarmAnimals(builder2);
-//        DefaultBiomeFeatures.addBatsAndMonsters(builder2);
-//        builder2.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(MBEntities.GRIZZLY_BEAR, 3, 2, 3));
-//
-//        return createBiome(Biome.Precipitation.RAIN, Biome.Category.FOREST, 0.6f, 0.6f,
+
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.AUTUMN_FLOWERS);
+
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUMPKIN_PATCH);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PUFFBALLS_PATCH);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_CARROT_PATCH);
+        builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.RED_OAK_TREES);
+
+        SpawnSettings.Builder builder2 = new SpawnSettings.Builder();
+        DefaultBiomeFeatures.addFarmAnimals(builder2);
+        DefaultBiomeFeatures.addBatsAndMonsters(builder2);
+        builder2.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.RABBIT, 4, 5, 8));
+
+//        return createBiome(Biome.Precipitation.RAIN, 0.6f, 0.6f,
 //                4159204, 329011, builder2, builder, 0xb1c5e6, 0xB4C63C, MusicType.GAME);
-//    }
+        return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).temperature(0.7f).downfall(0.8f)
+                .effects(new BiomeEffects.Builder().waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(getSkyColor(0.7f))
+                        .grassColorModifier(BiomeEffects.GrassColorModifier.DARK_FOREST).moodSound(BiomeMoodSound.CAVE).music(MusicType.GAME).build())
+                .spawnSettings(builder2.build()).generationSettings(builder.build()).build();
+    }
 
     public static Biome steppe() {
         GenerationSettings.Builder builder = new GenerationSettings.Builder();

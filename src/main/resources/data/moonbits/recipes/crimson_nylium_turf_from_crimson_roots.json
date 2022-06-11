@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SS",
-    "SS"
-  ],
   "key": {
     "S": {
       "item": "minecraft:crimson_roots"
     }
   },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
   "result": {
     "item": "moonbits:crimson_nylium_turf"
   }

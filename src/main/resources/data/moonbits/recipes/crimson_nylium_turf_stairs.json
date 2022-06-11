@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#  ",
-    "## ",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:crimson_nylium_turf"
     }
   },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
   "result": {
-    "item": "moonbits:crimson_nylium_turf_stairs",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:crimson_nylium_turf_stairs"
   }
 }

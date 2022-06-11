@@ -1,9 +1,9 @@
 {
   "type": "moonbits:kiln",
+  "cookingtime": 100,
+  "experience": 0.1,
   "ingredient": {
     "item": "minecraft:orange_terracotta"
   },
-  "result": "minecraft:orange_glazed_terracotta",
-  "experience": 0.1,
-  "cookingtime": 100
+  "result": "minecraft:orange_glazed_terracotta"
 }

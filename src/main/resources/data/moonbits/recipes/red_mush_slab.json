@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:red_mush_block"
     }
   },
+  "pattern": [
+    "###"
+  ],
   "result": {
-    "item": "moonbits:red_mush_slab",
-    "count": 6
+    "count": 6,
+    "item": "moonbits:red_mush_slab"
   }
 }

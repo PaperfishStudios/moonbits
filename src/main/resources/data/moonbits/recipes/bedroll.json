@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "FFW",
-    "LLL"
-  ],
   "key": {
     "F": {
       "item": "moonbits:fur"
@@ -15,6 +11,10 @@
       "tag": "minecraft:wool"
     }
   },
+  "pattern": [
+    "FFW",
+    "LLL"
+  ],
   "result": {
     "item": "moonbits:bedroll"
   }

@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SS",
-    "SS"
-  ],
   "key": {
     "S": {
       "item": "minecraft:polished_basalt"
     }
   },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
   "result": {
-    "item": "moonbits:basalt_bricks",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:basalt_bricks"
   }
 }

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab_top",
   "textures": {
     "bottom": "moonbits:block/cracked_basalt_tiles",
-    "top": "moonbits:block/cracked_basalt_tiles",
-    "side": "moonbits:block/cracked_basalt_tiles"
+    "side": "moonbits:block/cracked_basalt_tiles",
+    "top": "moonbits:block/cracked_basalt_tiles"
   }
 }

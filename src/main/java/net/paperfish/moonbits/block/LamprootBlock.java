@@ -93,7 +93,7 @@ public class LamprootBlock extends Block {
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return switch ((Direction) state.get(FACING)) {
+        return switch (state.get(FACING)) {
             case EAST -> EAST_WALL_SHAPE;
             case WEST -> WEST_WALL_SHAPE;
             case SOUTH -> SOUTH_WALL_SHAPE;
@@ -104,11 +104,11 @@ public class LamprootBlock extends Block {
 
     static {
         FACING = Properties.FACING;
-        NORTH_WALL_SHAPE = Block.createCuboidShape(5.0D, 1.0D, 1.0D, 11.0D, 11.0D, 8.0D);
-        SOUTH_WALL_SHAPE = Block.createCuboidShape(5.0D, 1.0D, 7.0D, 11.0D, 11.0D, 15.0D);
-        EAST_WALL_SHAPE = Block.createCuboidShape(7.0D, 1.0D, 5.0D, 15.0D, 11.0D, 11.0D);
-        WEST_WALL_SHAPE = Block.createCuboidShape(1.0D, 1.0D, 5.0D, 8.0D, 11.0D, 11.0D);
+        NORTH_WALL_SHAPE = Block.createCuboidShape(5.0D, 2.0D, 1.0D, 11.0D, 10.0D, 7.0D);
+        SOUTH_WALL_SHAPE = Block.createCuboidShape(5.0D, 2.0D, 9.0D, 11.0D, 10.0D, 15.0D);
+        EAST_WALL_SHAPE = Block.createCuboidShape(9.0D, 2.0D, 5.0D, 15.0D, 10.0D, 11.0D);
+        WEST_WALL_SHAPE = Block.createCuboidShape(1.0D, 2.0D, 5.0D, 7.0D, 10.0D, 11.0D);
         //FLOOR_SHAPE = Block.createCuboidShape(5.0D, 0.0D, 4.0D, 11.0D, 6.0D, 12.0D);
-        CEILING_SHAPE = Block.createCuboidShape(5.0D, 1.0D, 5.0D, 11.0D, 9.0D, 11.0D);
+        CEILING_SHAPE = Block.createCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 8.0D, 11.0D);
     }
 }

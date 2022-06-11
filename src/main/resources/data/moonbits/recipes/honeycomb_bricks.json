@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SS",
-    "SS"
-  ],
   "key": {
     "S": {
       "item": "moonbits:polished_honeycomb"
     }
   },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
   "result": {
-    "item": "moonbits:honeycomb_bricks",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:honeycomb_bricks"
   }
 }

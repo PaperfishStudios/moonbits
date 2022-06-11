@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab_top",
   "textures": {
     "bottom": "moonbits:block/cobbled_chert",
-    "top": "moonbits:block/cobbled_chert",
-    "side": "moonbits:block/cobbled_chert"
+    "side": "moonbits:block/cobbled_chert",
+    "top": "moonbits:block/cobbled_chert"
   }
 }

@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#W#",
-    "#W#"
-  ],
   "key": {
     "#": {
       "item": "minecraft:stick"
@@ -12,6 +8,10 @@
       "item": "moonbits:honey_planks"
     }
   },
+  "pattern": [
+    "#W#",
+    "#W#"
+  ],
   "result": {
     "item": "moonbits:honey_fence_gate"
   }

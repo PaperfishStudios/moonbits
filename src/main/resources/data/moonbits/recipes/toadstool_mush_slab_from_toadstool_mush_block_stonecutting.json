@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 2,
   "ingredient": {
     "item": "moonbits:toadstool_mush_block"
   },
-  "result": "moonbits:toadstool_mush_slab",
-  "count": 2
+  "result": "moonbits:toadstool_mush_slab"
 }

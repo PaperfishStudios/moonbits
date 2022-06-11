@@ -2,7 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "moonbits:block/honey_planks",
-    "top": "moonbits:block/honey_planks",
-    "side": "moonbits:block/honey_planks"
+    "side": "moonbits:block/honey_planks",
+    "top": "moonbits:block/honey_planks"
   }
 }

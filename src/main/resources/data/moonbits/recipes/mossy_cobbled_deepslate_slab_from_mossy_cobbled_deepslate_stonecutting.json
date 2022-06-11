@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 2,
   "ingredient": {
     "item": "moonbits:mossy_cobbled_deepslate"
   },
-  "result": "moonbits:mossy_cobbled_deepslate_slab",
-  "count": 2
+  "result": "moonbits:mossy_cobbled_deepslate_slab"
 }

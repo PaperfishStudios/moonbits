@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "minecraft:acacia_planks"
   },
-  "result": "moonbits:carved_acacia_wood",
-  "count": 1
+  "result": "moonbits:carved_acacia_wood"
 }

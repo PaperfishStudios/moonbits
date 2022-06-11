@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:cut_tin"
     }
   },
+  "pattern": [
+    "###"
+  ],
   "result": {
-    "item": "moonbits:cut_tin_slab",
-    "count": 6
+    "count": 6,
+    "item": "moonbits:cut_tin_slab"
   }
 }

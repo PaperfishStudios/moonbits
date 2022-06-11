@@ -5,6 +5,7 @@ import net.minecraft.util.math.VerticalSurfaceType;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 import net.minecraft.world.gen.surfacebuilder.VanillaSurfaceRules;
+import net.paperfish.moonbits.registry.MBBiomeTags;
 import net.paperfish.moonbits.registry.MBBlocks;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,6 +18,9 @@ public class VanillaSurfaceRulesMixin {
     @Inject(method = "createOverworldSurfaceRule", at = @At("RETURN"), cancellable = true)
     private static void appendMBSurface(CallbackInfoReturnable<MaterialRules.MaterialRule> cir) {
         MaterialRules.MaterialRule rules = cir.getReturnValue();
+        MaterialRules.MaterialCondition shallow_dc = MaterialRules.biome(
+
+        );
         MaterialRules.MaterialCondition notDesert = MaterialRules.not(MaterialRules.biome(
                 BiomeKeys.DESERT, BiomeKeys.WINDSWEPT_GRAVELLY_HILLS, BiomeKeys.WINDSWEPT_SAVANNA,
                 BiomeKeys.DEEP_FROZEN_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_COLD_OCEAN,

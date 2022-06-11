@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:smooth_deepslate"
     }
   },
+  "pattern": [
+    "###"
+  ],
   "result": {
-    "item": "moonbits:smooth_deepslate_slab",
-    "count": 6
+    "count": 6,
+    "item": "moonbits:smooth_deepslate_slab"
   }
 }

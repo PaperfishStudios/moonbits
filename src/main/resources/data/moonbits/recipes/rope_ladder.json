@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "# #",
-    "SSS",
-    "# #"
-  ],
   "key": {
     "#": {
       "item": "minecraft:string"
@@ -13,8 +8,13 @@
       "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "# #",
+    "SSS",
+    "# #"
+  ],
   "result": {
-    "item": "moonbits:rope_ladder",
-    "count": 3
+    "count": 3,
+    "item": "moonbits:rope_ladder"
   }
 }

@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "moonbits:crimson_nylium_turf"
   },
-  "result": "moonbits:crimson_nylium_turf_stairs",
-  "count": 1
+  "result": "moonbits:crimson_nylium_turf_stairs"
 }

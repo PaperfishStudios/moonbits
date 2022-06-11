@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#  ",
-    "## ",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:frosty_till_bricks"
     }
   },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
   "result": {
-    "item": "moonbits:frosty_till_brick_stairs",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:frosty_till_brick_stairs"
   }
 }

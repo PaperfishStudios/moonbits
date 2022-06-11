@@ -163,27 +163,6 @@ public class MBBlocks {
 	public static final Block RED_OAK_SAPLING =new MBSaplingBlock(new RedOakSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
 	public static final Block POTTED_RED_OAK_SAPLING = new FlowerPotBlock(RED_OAK_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
-//	public static final Block ASPEN_TRUNK = new ThinPillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).mapColor(MapColor.OFF_WHITE));
-//	public static final Block STRIPPED_ASPEN_TRUNK = new ThinPillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).mapColor(MapColor.PALE_YELLOW));
-//
-//	public static final Block ASPEN_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
-//	public static final Block ASPEN_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
-//	public static final Block ASPEN_STAIRS = new MBStairsBlock(ASPEN_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).mapColor(MapColor.PALE_YELLOW));
-//
-//	public static final Block ASPEN_TRIM = new TrimBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
-//	public static final Block ASPEN_WINDOW = new MBPaneBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
-//	public static final Block ASPEN_LANTERN = new AspenLanternBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS).luminance((state) -> 15));
-//	public static final Block ASPEN_SOUL_LANTERN = new AspenLanternBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS).luminance((state) -> 10));
-//	public static final Block ASPEN_LATTICE = new LatticeBlock(AbstractBlock.Settings.copy(ASPEN_PLANKS));
-//	public static final Block ASPEN_PALISADE = new PalisadeBlock(AbstractBlock.Settings.copy(ASPEN_TRUNK));
-//	public static final Block STRIPPED_ASPEN_PALISADE = new PalisadeBlock(AbstractBlock.Settings.copy(ASPEN_TRUNK).mapColor(MapColor.OFF_WHITE));
-//
-//	public static final Block ASPEN_LEAVES = new LeavesBlock(AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES).mapColor(MapColor.TERRACOTTA_LIME));
-//	public static final Block ASPEN_LEAF_CARPET = new LeafCarpetBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).breakInstantly().nonOpaque().noCollision());
-//	// TODO: ASPEN TREE FEATURE/GENERATION
-//	public static final Block ASPEN_SAPLING =new MBSaplingBlock(new GoldenBirchSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
-//	public static final Block POTTED_ASPEN_SAPLING = new FlowerPotBlock(ASPEN_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
-
 	public static final Block PUFFBALLS = new PuffballsBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block POTTED_PUFFBALLS = new FlowerPotBlock(PUFFBALLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
@@ -254,35 +233,6 @@ public class MBBlocks {
 	public static final Block TREE_TAP = new TreeTapBlock(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK));
 
 	// SNOW DAY
-
-//	public static final Block JUNIPER_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
-//	public static final Block JUNIPER_STAIRS = new MBStairsBlock(JUNIPER_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
-//	public static final Block JUNIPER_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB));
-//	public static final Block JUNIPER_LOG = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-//	public static final Block JUNIPER_WOOD = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-//	public static final Block STRIPPED_JUNIPER_LOG = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-//	public static final Block STRIPPED_JUNIPER_WOOD = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-//	public static final Block JUNIPER_LEAVES = new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).sounds(BlockSoundGroup.GRASS));
-//	public static final Block JUNIPER_SAPLING =new MBSaplingBlock(new JuniperSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
-//	public static final Block POTTED_JUNIPER_SAPLING = new FlowerPotBlock(JUNIPER_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
-//	public static final Block JUNIPER_FENCE = new FenceBlock(FabricBlockSettings.copy(JUNIPER_PLANKS));
-//	public static final Block JUNIPER_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copy(JUNIPER_PLANKS));
-//	public static final Block JUNIPER_DOOR = new MBDoorBlock(FabricBlockSettings.copy(JUNIPER_PLANKS).nonOpaque());
-//	public static final Block JUNIPER_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(JUNIPER_PLANKS).nonOpaque());
-//	public static final Block JUNIPER_BUTTON = new MBWoodenButtonBlock(FabricBlockSettings.copy(JUNIPER_PLANKS).noCollision());
-//	public static final Block JUNIPER_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (FabricBlockSettings.copy(JUNIPER_PLANKS)).noCollision());
-//	public static final Block JUNIPER_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-//	public static final Block JUNIPER_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-//	public static final Block JUNIPER_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-//	public static final Block CARVED_JUNIPER = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-//	public static final Block JUNIPER_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-//	public static final Block JUNIPER_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
-//
-//	public static final SignType JUNIPER_SIGN_TYPE = SignTypeAccessor.registerNew(SignTypeAccessor.newSignType("juniper"));
-//	public static final Block JUNIPER_SIGN = new SignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_PURPLE)
-//			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD), JUNIPER_SIGN_TYPE);
-//	public static final Block JUNIPER_WALL_SIGN = new WallSignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_PURPLE)
-//			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(JUNIPER_SIGN), JUNIPER_SIGN_TYPE);
 
 	public static final Block COTTONGRASS = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block TALL_COTTONGRASS = new TallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
@@ -550,6 +500,36 @@ public class MBBlocks {
 	public static final Block PEAT_BRICK_STAIRS = new MBStairsBlock(PEAT_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.5f));
 	public static final Block PEAT_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.STONE));
 
+	// lamproot
+	public static final Block LAMPROOT_BULB = new LamprootBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).luminance((state) -> 7));
+	public static final Block LAMPROOT_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
+	public static final Block LAMPROOT_STAIRS = new MBStairsBlock(LAMPROOT_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
+	public static final Block LAMPROOT_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB));
+	public static final Block LAMPROOT_LOG = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block LAMPROOT_WOOD = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block STRIPPED_LAMPROOT_LOG = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block STRIPPED_LAMPROOT_WOOD = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block LAMPROOT_SAPLING =new MBSaplingBlock(new LamprootSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
+	public static final Block POTTED_LAMPROOT_SAPLING = new FlowerPotBlock(LAMPROOT_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+	public static final Block LAMPROOT_FENCE = new FenceBlock(FabricBlockSettings.copy(LAMPROOT_PLANKS));
+	public static final Block LAMPROOT_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copy(LAMPROOT_PLANKS));
+	public static final Block LAMPROOT_DOOR = new MBDoorBlock(FabricBlockSettings.copy(LAMPROOT_PLANKS).nonOpaque());
+	public static final Block LAMPROOT_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(LAMPROOT_PLANKS).nonOpaque());
+	public static final Block LAMPROOT_BUTTON = new MBWoodenButtonBlock(FabricBlockSettings.copy(LAMPROOT_PLANKS).noCollision());
+	public static final Block LAMPROOT_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (FabricBlockSettings.copy(LAMPROOT_PLANKS)).noCollision());
+	public static final Block LAMPROOT_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block LAMPROOT_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block LAMPROOT_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block CARVED_LAMPROOT = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block LAMPROOT_PILLAR = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+	public static final Block LAMPROOT_BOARDS = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
+
+	public static final SignType LAMPROOT_SIGN_TYPE = SignTypeAccessor.registerNew(SignTypeAccessor.newSignType("lamproot"));
+	public static final Block LAMPROOT_SIGN = new SignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_PURPLE)
+			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD), LAMPROOT_SIGN_TYPE);
+	public static final Block LAMPROOT_WALL_SIGN = new WallSignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_PURPLE)
+			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(LAMPROOT_SIGN), LAMPROOT_SIGN_TYPE);
+
 	public static final Block PEANUT_CROP = new PeanutCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
 			.nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
 
@@ -563,7 +543,6 @@ public class MBBlocks {
 			.offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block POTTED_CLOVER = new FlowerPotBlock(CLOVER, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
-	public static final Block LAMPROOT = new LamprootBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).luminance((state) -> 7));
 	public static final Block CAVEBLOOM_FLOWERS = new CavebloomFlowerBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().ticksRandomly().sounds(BlockSoundGroup.GRASS));
 	public static final Block CAVEBLOOM_VINE = new CavebloomVineBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().ticksRandomly().sounds(BlockSoundGroup.GRASS));
 	public static final Item CAVEBLOOMS = new BlockItem(CAVEBLOOM_FLOWERS, new Item.Settings().group(MBItemGroup.DECOR));
@@ -1171,21 +1150,21 @@ public class MBBlocks {
 		createBlock("peat_brick_stairs", PEAT_BRICK_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("peat_brick_wall", PEAT_BRICK_WALL, MBItemGroup.CONSTRUCTION);
 
-		// - JUNIPER WOOD
-//		createBlock("juniper_planks", JUNIPER_PLANKS, MBItemGroup.CONSTRUCTION);
-//		createBlock("juniper_stairs", JUNIPER_STAIRS, MBItemGroup.CONSTRUCTION);
-//		createBlock("juniper_slab", JUNIPER_SLAB, MBItemGroup.CONSTRUCTION);
-//		createBlock("juniper_log", JUNIPER_LOG, MBItemGroup.CONSTRUCTION);
-//		createBlock("juniper_wood", JUNIPER_WOOD, MBItemGroup.CONSTRUCTION);
-//		createBlock("stripped_juniper_log", STRIPPED_JUNIPER_LOG, MBItemGroup.CONSTRUCTION);
-//		createBlock("stripped_juniper_wood", STRIPPED_JUNIPER_WOOD, MBItemGroup.CONSTRUCTION);
-//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_juniper_sapling"), POTTED_JUNIPER_SAPLING);
-//		createBlock("juniper_fence", JUNIPER_FENCE, MBItemGroup.CONSTRUCTION);
-//		createBlock("juniper_fence_gate", JUNIPER_FENCE_GATE, ItemGroup.REDSTONE);
-//		createBlock("juniper_door", JUNIPER_DOOR, ItemGroup.REDSTONE);
-//		createBlock("juniper_trapdoor", JUNIPER_TRAPDOOR, ItemGroup.REDSTONE);
-//		createBlock("juniper_button", JUNIPER_BUTTON, ItemGroup.REDSTONE);
-//		createBlock("juniper_pressure_plate", JUNIPER_PRESSURE_PLATE, ItemGroup.REDSTONE);
+		// - LAMPROOT WOOD
+		createBlock("lamproot_planks", LAMPROOT_PLANKS, MBItemGroup.CONSTRUCTION);
+		createBlock("lamproot_stairs", LAMPROOT_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("lamproot_slab", LAMPROOT_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("lamproot_log", LAMPROOT_LOG, MBItemGroup.CONSTRUCTION);
+		createBlock("lamproot_wood", LAMPROOT_WOOD, MBItemGroup.CONSTRUCTION);
+		createBlock("stripped_lamproot_log", STRIPPED_LAMPROOT_LOG, MBItemGroup.CONSTRUCTION);
+		createBlock("stripped_lamproot_wood", STRIPPED_LAMPROOT_WOOD, MBItemGroup.CONSTRUCTION);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_lamproot_sapling"), POTTED_LAMPROOT_SAPLING);
+		createBlock("lamproot_fence", LAMPROOT_FENCE, MBItemGroup.CONSTRUCTION);
+		createBlock("lamproot_fence_gate", LAMPROOT_FENCE_GATE, ItemGroup.REDSTONE);
+		createBlock("lamproot_door", LAMPROOT_DOOR, ItemGroup.REDSTONE);
+		createBlock("lamproot_trapdoor", LAMPROOT_TRAPDOOR, ItemGroup.REDSTONE);
+		createBlock("lamproot_button", LAMPROOT_BUTTON, ItemGroup.REDSTONE);
+		createBlock("lamproot_pressure_plate", LAMPROOT_PRESSURE_PLATE, ItemGroup.REDSTONE);
 		// - CEDAR WOOD
 		createBlock("cedar_planks", CEDAR_PLANKS, MBItemGroup.CONSTRUCTION);
 		createBlock("cedar_stairs", CEDAR_STAIRS, MBItemGroup.CONSTRUCTION);
@@ -1229,7 +1208,7 @@ public class MBBlocks {
 		createBlock("acacia_boards", ACACIA_BOARDS, MBItemGroup.CONSTRUCTION);
 		createBlock("dark_oak_boards", DARK_OAK_BOARDS, MBItemGroup.CONSTRUCTION);
 		createBlock("mangrove_boards", MANGROVE_BOARDS, MBItemGroup.CONSTRUCTION);
-//		createBlock("juniper_boards", JUNIPER_BOARDS, MBItemGroup.CONSTRUCTION);
+		createBlock("lamproot_boards", LAMPROOT_BOARDS, MBItemGroup.CONSTRUCTION);
 		createBlock("cedar_boards", CEDAR_BOARDS, MBItemGroup.CONSTRUCTION);
 		createBlock("crimson_boards", CRIMSON_BOARDS, MBItemGroup.CONSTRUCTION);
 		createBlock("warped_boards", WARPED_BOARDS, MBItemGroup.CONSTRUCTION);
@@ -1241,7 +1220,7 @@ public class MBBlocks {
 		createBlock("acacia_panel", ACACIA_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("dark_oak_panel", DARK_OAK_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("mangrove_panel", MANGROVE_PANEL, MBItemGroup.CONSTRUCTION);
-//		createBlock("juniper_panel", JUNIPER_PANEL, MBItemGroup.CONSTRUCTION);
+		createBlock("lamproot_panel", LAMPROOT_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("cedar_panel", CEDAR_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("crimson_panel", CRIMSON_PANEL, MBItemGroup.CONSTRUCTION);
 		createBlock("warped_panel", WARPED_PANEL, MBItemGroup.CONSTRUCTION);
@@ -1253,7 +1232,7 @@ public class MBBlocks {
 		createBlock("carved_acacia_wood", CARVED_ACACIA, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_dark_oak_wood", CARVED_DARK_OAK, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_mangrove_wood", CARVED_MANGROVE, MBItemGroup.CONSTRUCTION);
-//		createBlock("carved_juniper_wood", CARVED_JUNIPER, MBItemGroup.CONSTRUCTION);
+		createBlock("carved_lamproot_wood", CARVED_LAMPROOT, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_cedar_wood", CARVED_CEDAR, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_crimson_hyphae", CARVED_CRIMSON, MBItemGroup.CONSTRUCTION);
 		createBlock("carved_warped_hyphae", CARVED_WARPED, MBItemGroup.CONSTRUCTION);
@@ -1265,7 +1244,7 @@ public class MBBlocks {
 		createBlock("acacia_pillar", ACACIA_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("dark_oak_pillar", DARK_OAK_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("mangrove_pillar", MANGROVE_PILLAR, MBItemGroup.CONSTRUCTION);
-//		createBlock("juniper_pillar", JUNIPER_PILLAR, MBItemGroup.CONSTRUCTION);
+		createBlock("lamproot_pillar", LAMPROOT_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("cedar_pillar", CEDAR_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("crimson_pillar", CRIMSON_PILLAR, MBItemGroup.CONSTRUCTION);
 		createBlock("warped_pillar", WARPED_PILLAR, MBItemGroup.CONSTRUCTION);
@@ -1352,12 +1331,12 @@ public class MBBlocks {
 		//createBlock("fulgurite", FULGURITE, MBItemGroup.MATERIALS);
 
 
-//		createBlock("juniper_leaves", JUNIPER_LEAVES, MBItemGroup.DECOR);
+//		createBlock("lamproot_leaves", LAMPROOT_LEAVES, MBItemGroup.DECOR);
 		createBlock("cedar_leaves", CEDAR_LEAVES, MBItemGroup.DECOR);
 //		createBlock("aspen_leaves", ASPEN_LEAVES, MBItemGroup.DECOR);
 		createBlock("golden_birch_leaves", GOLDEN_BIRCH_LEAVES, MBItemGroup.DECOR);
 		createBlock("red_oak_leaves", RED_OAK_LEAVES, MBItemGroup.DECOR);
-//		createBlock("juniper_sapling", JUNIPER_SAPLING, MBItemGroup.DECOR);
+		createBlock("lamproot_sapling", LAMPROOT_SAPLING, MBItemGroup.DECOR);
 		createBlock("cedar_sapling", CEDAR_SAPLING, MBItemGroup.DECOR);
 
 		createBlock("flowering_acacia_leaves", FLOWERING_ACACIA_LEAVES, MBItemGroup.DECOR);
@@ -1460,7 +1439,7 @@ public class MBBlocks {
 
 		createBlock("barrel_cactus", BARREL_CACTUS, MBItemGroup.DECOR);
 
-		createBlock("lamproot", LAMPROOT, MBItemGroup.DECOR);
+		createBlock("lamproot_bulb", LAMPROOT_BULB, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "cavebloom_flowers"), CAVEBLOOM_FLOWERS);
 		// so that the item has the right id (not important probably but dw)
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "cavebloom_vine"), CAVEBLOOM_VINE);
@@ -1473,7 +1452,7 @@ public class MBBlocks {
 		createBlock("acacia_bookshelf", ACACIA_BOOKSHELF, MBItemGroup.DECOR);
 		createBlock("dark_oak_bookshelf", DARK_OAK_BOOKSHELF, MBItemGroup.DECOR);
 		createBlock("mangrove_bookshelf", MANGROVE_BOOKSHELF, MBItemGroup.DECOR);
-//		createBlock("juniper_bookshelf", JUNIPER_BOOKSHELF, MBItemGroup.DECOR);
+		createBlock("lamproot_bookshelf", LAMPROOT_BOOKSHELF, MBItemGroup.DECOR);
 		createBlock("cedar_bookshelf", CEDAR_BOOKSHELF, MBItemGroup.DECOR);
 		createBlock("honey_bookshelf", HONEY_BOOKSHELF, MBItemGroup.DECOR);
 		createBlock("crimson_bookshelf", CRIMSON_BOOKSHELF, MBItemGroup.DECOR);
@@ -1486,16 +1465,16 @@ public class MBBlocks {
 		createBlock("acacia_planter_box", ACACIA_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("dark_oak_planter_box", DARK_OAK_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("mangrove_planter_box", MANGROVE_PLANTER_BOX, MBItemGroup.DECOR);
-//		createBlock("juniper_planter_box", JUNIPER_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("lamproot_planter_box", LAMPROOT_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("cedar_planter_box", CEDAR_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("honey_planter_box", HONEY_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("crimson_planter_box", CRIMSON_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("warped_planter_box", WARPED_PLANTER_BOX, MBItemGroup.DECOR);
 
-//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "juniper_sign"), JUNIPER_SIGN);
-//		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "juniper_wall_sign"), JUNIPER_WALL_SIGN);
-//		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "juniper_sign"),
-//				(Item)(new SignItem(new Item.Settings().group(ItemGroup.DECORATIONS), JUNIPER_SIGN, JUNIPER_WALL_SIGN)));
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "lamproot_sign"), LAMPROOT_SIGN);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "lamproot_wall_sign"), LAMPROOT_WALL_SIGN);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "lamproot_sign"),
+				(Item)(new SignItem(new Item.Settings().group(ItemGroup.DECORATIONS), LAMPROOT_SIGN, LAMPROOT_WALL_SIGN)));
 
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "cedar_sign"), CEDAR_SIGN);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "cedar_wall_sign"), CEDAR_WALL_SIGN);

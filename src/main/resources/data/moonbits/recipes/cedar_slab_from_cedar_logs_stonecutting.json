@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 8,
   "ingredient": {
     "tag": "moonbits:cedar_logs"
   },
-  "result": "moonbits:cedar_slab",
-  "count": 8
+  "result": "moonbits:cedar_slab"
 }

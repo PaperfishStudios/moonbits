@@ -2,7 +2,7 @@
   "parent": "minecraft:block/inner_stairs",
   "textures": {
     "bottom": "moonbits:block/cracked_calcite_tiles",
-    "top": "moonbits:block/cracked_calcite_tiles",
-    "side": "moonbits:block/cracked_calcite_tiles"
+    "side": "moonbits:block/cracked_calcite_tiles",
+    "top": "moonbits:block/cracked_calcite_tiles"
   }
 }

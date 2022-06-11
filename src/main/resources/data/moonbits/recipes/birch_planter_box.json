@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "planter_boxes",
-  "pattern": [
-    "# #",
-    "#P#",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "minecraft:birch_planks"
@@ -14,6 +9,11 @@
       "item": "moonbits:peat"
     }
   },
+  "pattern": [
+    "# #",
+    "#P#",
+    "###"
+  ],
   "result": {
     "item": "moonbits:birch_planter_box"
   }

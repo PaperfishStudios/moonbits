@@ -230,6 +230,12 @@ public class MBVegetationFeatures {
                     new RandomFeatureEntry(MBPlacedTreeFeatures.RED_OAK_BEES_005, 0.4F)),
                     MBPlacedTreeFeatures.GOLDEN_BIRCH_BEES_005
             ));
+    public static final RegistryEntry<ConfiguredFeature<RandomFeatureConfig, ?>> RED_OAK_TREES = MBConfiguredFeatures.register("red_oak_trees", Feature.RANDOM_SELECTOR,
+            new RandomFeatureConfig(List.of(
+                    new RandomFeatureEntry(MBPlacedTreeFeatures.RED_OAK_BEES_002, 0.1F),
+                    new RandomFeatureEntry(MBPlacedTreeFeatures.RED_OAK_BEES_005, 0.4F)),
+                    MBPlacedTreeFeatures.BIG_RED_OAK
+            ));
 
 //    public static final RegistryEntry<ConfiguredFeature<RandomFeatureConfig, ?>> JUNIPER_TREES = MBConfiguredFeatures.register("juniper_trees", Feature.RANDOM_SELECTOR,
 //                    new RandomFeatureConfig(List.of(

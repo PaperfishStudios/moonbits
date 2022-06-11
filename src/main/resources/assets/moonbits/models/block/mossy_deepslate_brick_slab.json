@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "moonbits:block/mossy_deepslate_bricks",
-    "top": "moonbits:block/mossy_deepslate_bricks",
-    "side": "moonbits:block/mossy_deepslate_bricks"
+    "side": "moonbits:block/mossy_deepslate_bricks",
+    "top": "moonbits:block/mossy_deepslate_bricks"
   }
 }

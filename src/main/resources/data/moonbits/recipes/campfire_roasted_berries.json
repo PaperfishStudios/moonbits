@@ -1,9 +1,9 @@
 {
   "type": "minecraft:campfire_cooking",
+  "cookingtime": 50,
+  "experience": 0.1,
   "ingredient": {
     "item": "minecraft:sweet_berries"
   },
-  "result": "moonbits:roasted_berries",
-  "experience": 0.1,
-  "cookingtime": 50
+  "result": "moonbits:roasted_berries"
 }

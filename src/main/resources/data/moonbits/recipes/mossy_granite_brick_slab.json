@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:mossy_granite_bricks"
     }
   },
+  "pattern": [
+    "###"
+  ],
   "result": {
-    "item": "moonbits:mossy_granite_brick_slab",
-    "count": 6
+    "count": 6,
+    "item": "moonbits:mossy_granite_brick_slab"
   }
 }

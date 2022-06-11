@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "minecraft:warped_nylium_turf_stairs_from_warped_nylium_turf_stonecutting"
-    ]
-  },
   "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:warped_nylium_turf_stairs_from_warped_nylium_turf_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
     "has_warped_nylium_turf": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -16,13 +16,8 @@
             ]
           }
         ]
-      }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "minecraft:warped_nylium_turf_stairs_from_warped_nylium_turf_stonecutting"
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -30,5 +25,10 @@
       "has_warped_nylium_turf",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:warped_nylium_turf_stairs_from_warped_nylium_turf_stonecutting"
+    ]
+  }
 }

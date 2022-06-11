@@ -1,8 +1,8 @@
 {
   "type": "moonbits:washing",
+  "cauldron": "minecraft:water_cauldron",
   "ingredient": {
     "item": "minecraft:black_concrete_powder"
   },
-  "cauldron": "minecraft:water_cauldron",
   "result": "minecraft:black_concrete"
 }

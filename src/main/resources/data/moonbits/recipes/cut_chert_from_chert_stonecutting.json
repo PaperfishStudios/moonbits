@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "moonbits:chert"
   },
-  "result": "moonbits:cut_chert",
-  "count": 1
+  "result": "moonbits:cut_chert"
 }

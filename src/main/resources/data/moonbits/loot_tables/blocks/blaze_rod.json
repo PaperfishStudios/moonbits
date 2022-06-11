@@ -2,7 +2,6 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
@@ -25,7 +24,7 @@
                   }
                 }
               ],
-              "name": "minecraft:air"
+              "name": "minecraft:blaze_rod"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +37,8 @@
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ]
 }

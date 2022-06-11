@@ -2,7 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "moonbits:block/red_mush_block",
-    "top": "moonbits:block/red_mush_block",
-    "side": "moonbits:block/red_mush_block"
+    "side": "moonbits:block/red_mush_block",
+    "top": "moonbits:block/red_mush_block"
   }
 }

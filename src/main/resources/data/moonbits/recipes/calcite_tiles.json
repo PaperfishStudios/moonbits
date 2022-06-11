@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SS",
-    "SS"
-  ],
   "key": {
     "S": {
       "item": "moonbits:calcite_bricks"
     }
   },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
   "result": {
-    "item": "moonbits:calcite_tiles",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:calcite_tiles"
   }
 }

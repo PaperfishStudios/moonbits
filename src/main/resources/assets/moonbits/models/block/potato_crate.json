@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "top": "moonbits:block/potato_crate_top",
     "bottom": "moonbits:block/potato_crate_bottom",
-    "side": "moonbits:block/potato_crate"
+    "side": "moonbits:block/potato_crate",
+    "top": "moonbits:block/potato_crate_top"
   }
 }

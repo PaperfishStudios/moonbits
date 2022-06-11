@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "minecraft:birch_planks"
   },
-  "result": "moonbits:carved_birch_wood",
-  "count": 1
+  "result": "moonbits:carved_birch_wood"
 }

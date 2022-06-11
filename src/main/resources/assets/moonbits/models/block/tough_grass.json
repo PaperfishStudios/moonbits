@@ -2,8 +2,8 @@
   "parent": "minecraft:block/grass_block",
   "textures": {
     "bottom": "moonbits:block/tough_dirt",
-    "top": "moonbits:block/tough_grass_top",
+    "overlay": "moonbits:block/tough_grass_overlay",
     "side": "moonbits:block/tough_grass",
-    "overlay": "moonbits:block/tough_grass_overlay"
+    "top": "moonbits:block/tough_grass_top"
   }
 }

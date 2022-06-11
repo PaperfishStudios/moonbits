@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "moonbits:andesite_bricks"
   },
-  "result": "moonbits:cracked_andesite_bricks",
-  "count": 1
+  "result": "moonbits:cracked_andesite_bricks"
 }

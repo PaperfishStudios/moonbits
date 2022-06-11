@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab_top",
   "textures": {
     "bottom": "moonbits:block/brown_mush_bricks",
-    "top": "moonbits:block/brown_mush_bricks",
-    "side": "moonbits:block/brown_mush_bricks"
+    "side": "moonbits:block/brown_mush_bricks",
+    "top": "moonbits:block/brown_mush_bricks"
   }
 }

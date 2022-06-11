@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "top": "moonbits:block/leafbed_top",
     "bottom": "minecraft:block/dirt",
-    "side": "moonbits:block/leafbed"
+    "side": "moonbits:block/leafbed",
+    "top": "moonbits:block/leafbed_top"
   }
 }

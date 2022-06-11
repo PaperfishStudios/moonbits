@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "textures": {
+    "bottom": "moonbits:block/lamproot_door_bottom",
+    "top": "moonbits:block/lamproot_door_top"
+  }
+}

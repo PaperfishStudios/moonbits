@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "moonbits:block/polished_dripstone",
-    "top": "moonbits:block/polished_dripstone",
-    "side": "moonbits:block/polished_dripstone"
+    "side": "moonbits:block/polished_dripstone",
+    "top": "moonbits:block/polished_dripstone"
   }
 }

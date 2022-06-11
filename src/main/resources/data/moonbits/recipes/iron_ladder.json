@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "i i",
-    "iii",
-    "i i"
-  ],
   "key": {
     "i": {
       "item": "minecraft:iron_nugget"
     }
   },
+  "pattern": [
+    "i i",
+    "iii",
+    "i i"
+  ],
   "result": {
-    "item": "moonbits:iron_ladder",
-    "count": 3
+    "count": 3,
+    "item": "moonbits:iron_ladder"
   }
 }

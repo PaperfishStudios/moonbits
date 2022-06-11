@@ -2,7 +2,7 @@
   "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "moonbits:block/cracked_chert_bricks",
-    "top": "moonbits:block/cracked_chert_bricks",
-    "side": "moonbits:block/cracked_chert_bricks"
+    "side": "moonbits:block/cracked_chert_bricks",
+    "top": "moonbits:block/cracked_chert_bricks"
   }
 }

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "moonbits:block/smooth_prismarine",
-    "top": "moonbits:block/smooth_prismarine",
-    "side": "moonbits:block/smooth_prismarine"
+    "side": "moonbits:block/smooth_prismarine",
+    "top": "moonbits:block/smooth_prismarine"
   }
 }

@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SS",
-    "SS"
-  ],
   "key": {
     "S": {
       "item": "moonbits:toadstool_mush_block"
     }
   },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
   "result": {
-    "item": "moonbits:toadstool_mush_bricks",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:toadstool_mush_bricks"
   }
 }

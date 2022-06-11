@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/lamproot_planks",
+    "side": "moonbits:block/lamproot_bookshelf"
+  }
+}

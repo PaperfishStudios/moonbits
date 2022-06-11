@@ -2,7 +2,7 @@
   "parent": "minecraft:block/inner_stairs",
   "textures": {
     "bottom": "moonbits:block/mossy_diorite_bricks",
-    "top": "moonbits:block/mossy_diorite_bricks",
-    "side": "moonbits:block/mossy_diorite_bricks"
+    "side": "moonbits:block/mossy_diorite_bricks",
+    "top": "moonbits:block/mossy_diorite_bricks"
   }
 }

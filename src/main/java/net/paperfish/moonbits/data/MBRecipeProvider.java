@@ -364,13 +364,13 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         reversibleCut(exporter, Blocks.WARPED_HYPHAE, Blocks.WARPED_STEM);
         reversibleCut(exporter, Blocks.STRIPPED_WARPED_HYPHAE, Blocks.STRIPPED_WARPED_STEM);
         // juniper logs
-//        woodStonecut(exporter, MBItemTags.JUNIPER_LOGS, MBBlocks.JUNIPER_PLANKS, 4, "juniper_logs");
-//        woodStonecut(exporter, MBItemTags.JUNIPER_LOGS, MBBlocks.JUNIPER_SLAB, 8, "juniper_logs");
-//        woodStonecut(exporter, MBItemTags.JUNIPER_LOGS, MBBlocks.JUNIPER_STAIRS, 4, "juniper_logs");
-//        offerStonecuttingRecipe(exporter, MBBlocks.STRIPPED_JUNIPER_LOG, MBBlocks.JUNIPER_LOG);
-//        offerStonecuttingRecipe(exporter, MBBlocks.STRIPPED_JUNIPER_WOOD, MBBlocks.JUNIPER_WOOD);
-//        reversibleCut(exporter, MBBlocks.JUNIPER_WOOD, MBBlocks.JUNIPER_LOG);
-//        reversibleCut(exporter, MBBlocks.STRIPPED_JUNIPER_WOOD, MBBlocks.STRIPPED_JUNIPER_LOG);
+        woodStonecut(exporter, MBItemTags.JUNIPER_LOGS, MBBlocks.LAMPROOT_PLANKS, 4, "juniper_logs");
+        woodStonecut(exporter, MBItemTags.JUNIPER_LOGS, MBBlocks.LAMPROOT_SLAB, 8, "juniper_logs");
+        woodStonecut(exporter, MBItemTags.JUNIPER_LOGS, MBBlocks.LAMPROOT_STAIRS, 4, "juniper_logs");
+        offerStonecuttingRecipe(exporter, MBBlocks.STRIPPED_LAMPROOT_LOG, MBBlocks.LAMPROOT_LOG);
+        offerStonecuttingRecipe(exporter, MBBlocks.STRIPPED_LAMPROOT_WOOD, MBBlocks.LAMPROOT_WOOD);
+        reversibleCut(exporter, MBBlocks.LAMPROOT_WOOD, MBBlocks.LAMPROOT_LOG);
+        reversibleCut(exporter, MBBlocks.STRIPPED_LAMPROOT_WOOD, MBBlocks.STRIPPED_LAMPROOT_LOG);
         // cedar logs
         woodStonecut(exporter, MBItemTags.CEDAR_LOGS, MBBlocks.CEDAR_PLANKS, 4, "cedar_logs");
         woodStonecut(exporter, MBItemTags.CEDAR_LOGS, MBBlocks.CEDAR_SLAB, 8, "cedar_logs");
@@ -422,8 +422,8 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         RecipeProvider.offerStonecuttingRecipe(exporter, MBBlocks.TIN_BLOCK, MBBlocks.TIN_PILLAR);
 
 
-//        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.JUNIPER_WOOD, MBBlocks.JUNIPER_LOG);
-//        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.STRIPPED_JUNIPER_WOOD, MBBlocks.STRIPPED_JUNIPER_LOG);
+        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.LAMPROOT_WOOD, MBBlocks.LAMPROOT_LOG);
+        RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.STRIPPED_LAMPROOT_WOOD, MBBlocks.STRIPPED_LAMPROOT_LOG);
         RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.CEDAR_WOOD, MBBlocks.CEDAR_LOG);
         RecipeProvider.offerBarkBlockRecipe(exporter, MBBlocks.STRIPPED_CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_LOG);
 
@@ -469,10 +469,10 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         firing(exporter, MBItems.BROWN_MUSHBLEND, MBBlocks.BROWN_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
         firing(exporter, MBItems.SAFFRON_MUSHBLEND, MBBlocks.TOADSTOOL_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
         firing(exporter, MBItems.TOADSTOOL_MUSHBLEND, MBBlocks.SAFFRON_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
-        insetRecipe(exporter, MBBlocks.RED_MUSH_BLOCK, MBBlocks.LAMPROOT, MBBlocks.RED_MUSH_LAMP);
-        insetRecipe(exporter, MBBlocks.BROWN_MUSH_BLOCK, MBBlocks.LAMPROOT, MBBlocks.BROWN_MUSH_LAMP);
-        insetRecipe(exporter, MBBlocks.TOADSTOOL_MUSH_BLOCK, MBBlocks.LAMPROOT, MBBlocks.TOADSTOOL_MUSH_LAMP);
-        insetRecipe(exporter, MBBlocks.SAFFRON_MUSH_BLOCK, MBBlocks.LAMPROOT, MBBlocks.SAFFRON_MUSH_LAMP);
+        insetRecipe(exporter, MBBlocks.RED_MUSH_BLOCK, MBBlocks.LAMPROOT_BULB, MBBlocks.RED_MUSH_LAMP);
+        insetRecipe(exporter, MBBlocks.BROWN_MUSH_BLOCK, MBBlocks.LAMPROOT_BULB, MBBlocks.BROWN_MUSH_LAMP);
+        insetRecipe(exporter, MBBlocks.TOADSTOOL_MUSH_BLOCK, MBBlocks.LAMPROOT_BULB, MBBlocks.TOADSTOOL_MUSH_LAMP);
+        insetRecipe(exporter, MBBlocks.SAFFRON_MUSH_BLOCK, MBBlocks.LAMPROOT_BULB, MBBlocks.SAFFRON_MUSH_LAMP);
 
         ShapedRecipeJsonBuilder.create(MBBlocks.CANVAS, 4).input('#', MBItems.BURLAP).pattern("##").pattern("##")
                 .criterion(RecipeProvider.hasItem(MBItems.BURLAP), RecipeProvider.conditionsFromItem(MBItems.BURLAP))

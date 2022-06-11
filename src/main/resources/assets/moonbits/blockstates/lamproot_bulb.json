@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "moonbits:block/lamproot"
+    },
+    "facing=east": {
+      "model": "moonbits:block/lamproot_horizontal",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "moonbits:block/lamproot_horizontal",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "moonbits:block/lamproot_horizontal"
+    },
+    "facing=up": {
+      "model": "moonbits:block/lamproot"
+    },
+    "facing=west": {
+      "model": "moonbits:block/lamproot_horizontal",
+      "y": 90
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "moonbits:block/till",
-    "top": "moonbits:block/till",
-    "side": "moonbits:block/till"
+    "side": "moonbits:block/till",
+    "top": "moonbits:block/till"
   }
 }

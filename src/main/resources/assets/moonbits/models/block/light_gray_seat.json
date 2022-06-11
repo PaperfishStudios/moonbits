@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "moonbits:block/leather_seat_bottom",
-    "top": "moonbits:block/light_gray_seat_top",
-    "side": "moonbits:block/light_gray_seat"
+    "side": "moonbits:block/light_gray_seat",
+    "top": "moonbits:block/light_gray_seat_top"
   }
 }

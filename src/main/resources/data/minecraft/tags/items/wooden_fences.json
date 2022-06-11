@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "moonbits:lamproot_fence",
     "moonbits:cedar_fence",
     "moonbits:honey_fence"
   ]

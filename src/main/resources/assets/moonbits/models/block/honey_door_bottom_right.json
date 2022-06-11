@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right",
+  "textures": {
+    "bottom": "moonbits:block/honey_door_bottom",
+    "top": "moonbits:block/honey_door_top"
+  }
+}

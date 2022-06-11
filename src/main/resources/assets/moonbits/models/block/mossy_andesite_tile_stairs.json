@@ -2,7 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "moonbits:block/mossy_andesite_tiles",
-    "top": "moonbits:block/mossy_andesite_tiles",
-    "side": "moonbits:block/mossy_andesite_tiles"
+    "side": "moonbits:block/mossy_andesite_tiles",
+    "top": "moonbits:block/mossy_andesite_tiles"
   }
 }

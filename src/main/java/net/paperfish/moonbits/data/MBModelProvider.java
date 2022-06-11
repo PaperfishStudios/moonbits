@@ -163,45 +163,9 @@ public class MBModelProvider extends FabricModelProvider {
         generator.registerSingleton(MBBlocks.RED_OAK_LEAVES, TexturedModel.LEAVES);
         leafCarpet(MBBlocks.RED_OAK_LEAVES, MBBlocks.RED_OAK_LEAF_CARPET, generator);
 
-//        flowerPotPlant(MBBlocks.ASPEN_SAPLING, MBBlocks.POTTED_ASPEN_SAPLING, TintType.NOT_TINTED, generator);
-//        generator.registerSingleton(MBBlocks.ASPEN_LEAVES, TexturedModel.LEAVES);
-//        leafCarpet(MBBlocks.ASPEN_LEAVES, MBBlocks.ASPEN_LEAF_CARPET, generator);
-//
-//        thinLog(MBBlocks.ASPEN_TRUNK, generator);
-//        thinLog(MBBlocks.STRIPPED_ASPEN_TRUNK, generator);
-//        palisade(MBBlocks.ASPEN_PALISADE, generator);
-//        palisade(MBBlocks.STRIPPED_ASPEN_PALISADE, generator);
-//        pane(MBBlocks.ASPEN_WINDOW, generator);
-//        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.ASPEN_LANTERN)
-//                .coordinate(BlockStateVariantMap.create(Properties.FACING)
-//                        .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern")))
-//                        .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_hanging")))
-//                        .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall")))
-//                        .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
-//                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
-//                        .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
-//                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
-//                        .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_lantern_wall"))
-//                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
-//                ));
-//        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.ASPEN_SOUL_LANTERN)
-//                .coordinate(BlockStateVariantMap.create(Properties.FACING)
-//                        .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern")))
-//                        .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_hanging")))
-//                        .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall")))
-//                        .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
-//                                .put(VariantSettings.Y, VariantSettings.Rotation.R180))
-//                        .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
-//                                .put(VariantSettings.Y, VariantSettings.Rotation.R90))
-//                        .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/aspen_soul_lantern_wall"))
-//                                .put(VariantSettings.Y, VariantSettings.Rotation.R270))
-//                ));
-//        pane(MBBlocks.ASPEN_LATTICE, generator);
-//        trim(MBBlocks.ASPEN_TRIM, generator);
-//
-//        log(MBBlocks.JUNIPER_LOG, MBBlocks.JUNIPER_WOOD, generator);
-//        log(MBBlocks.STRIPPED_JUNIPER_LOG, MBBlocks.STRIPPED_JUNIPER_WOOD, generator);
-//        flowerPotPlant(MBBlocks.JUNIPER_SAPLING, MBBlocks.POTTED_JUNIPER_SAPLING, TintType.NOT_TINTED, generator);
+        log(MBBlocks.LAMPROOT_LOG, MBBlocks.LAMPROOT_WOOD, generator);
+        log(MBBlocks.STRIPPED_LAMPROOT_LOG, MBBlocks.STRIPPED_LAMPROOT_WOOD, generator);
+        flowerPotPlant(MBBlocks.LAMPROOT_SAPLING, MBBlocks.POTTED_LAMPROOT_SAPLING, TintType.NOT_TINTED, generator);
 //        generator.registerSingleton(MBBlocks.JUNIPER_LEAVES, TexturedModel.LEAVES);
 
         log(MBBlocks.CEDAR_LOG, MBBlocks.CEDAR_WOOD, generator);
@@ -244,6 +208,7 @@ public class MBModelProvider extends FabricModelProvider {
                         .register(4, BlockStateVariant.create().put(VariantSettings.MODEL, Models.TEMPLATE_CAULDRON_FULL
                                 .upload(MBBlocks.SYRUP_CAULDRON, "_full", TextureMap.cauldron(TextureMap.getId(MBBlocks.SYRUP_BLOCK)), generator.modelCollector)))));
 
+        generator.registerItemModel(MBBlocks.TREE_TAP.asItem());
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TREE_TAP,
                 BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap")))
                 .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
@@ -615,8 +580,8 @@ public class MBModelProvider extends FabricModelProvider {
         ));
     }
     public static void lamproot(BlockStateModelGenerator generator) {
-        generator.registerItemModel(MBBlocks.LAMPROOT.asItem());
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.LAMPROOT).coordinate(BlockStateVariantMap.create(Properties.FACING)
+        generator.registerItemModel(MBBlocks.LAMPROOT_BULB.asItem());
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.LAMPROOT_BULB).coordinate(BlockStateVariantMap.create(Properties.FACING)
                 .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/lamproot")))
                 .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/lamproot")))
                 .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/lamproot_horizontal")).put(VariantSettings.Y, VariantSettings.Rotation.R180))

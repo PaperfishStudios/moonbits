@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "moonbits:chiseled_granite"
   },
-  "result": "moonbits:granite_pillar",
-  "count": 1
+  "result": "moonbits:granite_pillar"
 }

@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "minecraft:dark_oak_planks"
   },
-  "result": "moonbits:dark_oak_pillar",
-  "count": 1
+  "result": "moonbits:dark_oak_pillar"
 }

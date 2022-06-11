@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#",
-    "#"
-  ],
   "key": {
     "#": {
       "item": "moonbits:carved_spruce_wood"
     }
   },
+  "pattern": [
+    "#",
+    "#"
+  ],
   "result": {
-    "item": "moonbits:spruce_pillar",
-    "count": 2
+    "count": 2,
+    "item": "moonbits:spruce_pillar"
   }
 }

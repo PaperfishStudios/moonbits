@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "c:cobblestone"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
   "pattern": [
     "###",
     "# #",
     "#R#"
   ],
-  "key": {
-    "R": {
-      "item": "minecraft:redstone"
-    },
-    "#": {
-      "tag": "c:cobblestone"
-    }
-  },
   "result": {
     "item": "minecraft:dropper"
   }

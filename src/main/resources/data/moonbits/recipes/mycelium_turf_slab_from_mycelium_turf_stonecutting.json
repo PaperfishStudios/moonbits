@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 2,
   "ingredient": {
     "item": "moonbits:mycelium_turf"
   },
-  "result": "moonbits:mycelium_turf_slab",
-  "count": 2
+  "result": "moonbits:mycelium_turf_slab"
 }

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "moonbits:block/diorite_tiles",
-    "top": "moonbits:block/diorite_tiles",
-    "side": "moonbits:block/diorite_tiles"
+    "side": "moonbits:block/diorite_tiles",
+    "top": "moonbits:block/diorite_tiles"
   }
 }

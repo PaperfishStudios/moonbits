@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "moonbits:block/diorite_bricks",
-    "top": "moonbits:block/diorite_bricks",
-    "side": "moonbits:block/diorite_bricks"
+    "side": "moonbits:block/diorite_bricks",
+    "top": "moonbits:block/diorite_bricks"
   }
 }

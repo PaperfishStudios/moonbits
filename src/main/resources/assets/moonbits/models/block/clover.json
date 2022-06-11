@@ -1,7 +1,7 @@
 {
   "parent": "moonbits:block/capped_cross",
   "textures": {
-    "cross": "moonbits:block/clover_stem",
-    "cap": "moonbits:block/clover"
+    "cap": "moonbits:block/clover",
+    "cross": "moonbits:block/clover_stem"
   }
 }

@@ -3,8 +3,6 @@ package net.paperfish.moonbits.registry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
@@ -111,7 +109,8 @@ public class MBItems {
     public static final Item BABY_STRIDER_BUCKET = new EntityBucketItem(EntityType.STRIDER, Fluids.LAVA, SoundEvents.ITEM_BUCKET_EMPTY_FISH, 
 	(new Item.Settings()).maxCount(1).group(MBItemGroup.MB_MISC));
 
-//	public static final Item JUNIPER_BOAT = new BoatItem(MBBoatTypes.JUNIPER, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
+	public static final Item JUNIPER_BOAT = new BoatItem(false, MBBoatTypes.LAMPROOT, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
+	public static final Item LAMPROOT_CHEST_BOAT = new BoatItem(true, MBBoatTypes.LAMPROOT, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
 	public static final Item CEDAR_BOAT = new BoatItem(false, MBBoatTypes.CEDAR, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
 	public static final Item CEDAR_CHEST_BOAT = new BoatItem(true, MBBoatTypes.CEDAR, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
 
@@ -204,7 +203,8 @@ public class MBItems {
 		addItem("saffron_mushblend", SAFFRON_MUSHBLEND);
 		addItem("toadstool_mushblend", TOADSTOOL_MUSHBLEND);
 
-//		addItem("juniper_boat", JUNIPER_BOAT);
+		addItem("lamproot_boat", JUNIPER_BOAT);
+		addItem("lamproot_chest_boat", LAMPROOT_CHEST_BOAT);
 		addItem("cedar_boat", CEDAR_BOAT);
 		addItem("cedar_chest_boat", CEDAR_CHEST_BOAT);
 

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab_top",
   "textures": {
     "bottom": "moonbits:block/smooth_mudstone",
-    "top": "moonbits:block/smooth_mudstone",
-    "side": "moonbits:block/smooth_mudstone"
+    "side": "moonbits:block/smooth_mudstone",
+    "top": "moonbits:block/smooth_mudstone"
   }
 }

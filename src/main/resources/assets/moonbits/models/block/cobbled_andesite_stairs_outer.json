@@ -2,7 +2,7 @@
   "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "moonbits:block/cobbled_andesite",
-    "top": "moonbits:block/cobbled_andesite",
-    "side": "moonbits:block/cobbled_andesite"
+    "side": "moonbits:block/cobbled_andesite",
+    "top": "moonbits:block/cobbled_andesite"
   }
 }

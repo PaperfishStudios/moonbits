@@ -105,7 +105,13 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.MEDIUM_REDSTONE_BUD,
                 MBBlocks.SMALL_REDSTONE_BUD,
 
-                MBBlocks.LAMPROOT,
+                MBBlocks.LAMPROOT_BULB,
+
+                MBBlocks.LAMPROOT_DOOR,
+                MBBlocks.LAMPROOT_TRAPDOOR,
+                MBBlocks.LAMPROOT_SAPLING,
+                MBBlocks.POTTED_CEDAR_SAPLING,
+
                 MBBlocks.CAVEBLOOM_VINE,
                 MBBlocks.CAVEBLOOM_FLOWERS,
 

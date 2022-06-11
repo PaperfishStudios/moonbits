@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "SS",
-    "SS"
-  ],
   "key": {
     "S": {
       "item": "minecraft:prismarine"
     }
   },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
   "result": {
-    "item": "moonbits:polished_prismarine",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:polished_prismarine"
   }
 }

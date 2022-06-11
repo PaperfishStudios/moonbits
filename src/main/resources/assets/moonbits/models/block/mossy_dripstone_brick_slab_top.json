@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab_top",
   "textures": {
     "bottom": "moonbits:block/mossy_dripstone_bricks",
-    "top": "moonbits:block/mossy_dripstone_bricks",
-    "side": "moonbits:block/mossy_dripstone_bricks"
+    "side": "moonbits:block/mossy_dripstone_bricks",
+    "top": "moonbits:block/mossy_dripstone_bricks"
   }
 }

@@ -2,19 +2,20 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
+		"3": "moonbits:block/lamproot_bulb",
 		"root": "moonbits:block/lamproot_horizontal",
 		"bulb": "moonbits:block/lamproot_horizontal_bulb",
-		"particle": "#root"
+		"particle": "moonbits:block/lamproot_bulb"
 	},
 	"elements": [
 		{
-			"from": [0, 0, 11],
-			"to": [16, 16, 11],
+			"from": [6, 0, 12],
+			"to": [10, 16, 12],
 			"shade": false,
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
 			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#bulb"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#bulb"}
+				"north": {"uv": [6, 0, 10, 16], "texture": "#bulb"},
+				"south": {"uv": [6, 0, 10, 16], "texture": "#bulb"}
 			}
 		},
 		{
@@ -25,6 +26,18 @@
 			"faces": {
 				"east": {"uv": [16, 0, 0, 16], "texture": "#root"},
 				"west": {"uv": [0, 0, 16, 16], "texture": "#root"}
+			}
+		},
+		{
+			"from": [5, 2, 9],
+			"to": [11, 10, 15],
+			"faces": {
+				"north": {"uv": [0, 7, 6, 15], "texture": "#3"},
+				"east": {"uv": [0, 7, 6, 15], "texture": "#3"},
+				"south": {"uv": [0, 7, 6, 15], "texture": "#3"},
+				"west": {"uv": [0, 7, 6, 15], "texture": "#3"},
+				"up": {"uv": [0, 0, 6, 6], "texture": "#3"},
+				"down": {"uv": [0, 0, 6, 6], "texture": "#3"}
 			}
 		}
 	]

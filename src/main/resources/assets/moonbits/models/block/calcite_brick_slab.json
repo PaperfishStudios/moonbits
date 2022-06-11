@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "moonbits:block/calcite_bricks",
-    "top": "moonbits:block/calcite_bricks",
-    "side": "moonbits:block/calcite_bricks"
+    "side": "moonbits:block/calcite_bricks",
+    "top": "moonbits:block/calcite_bricks"
   }
 }

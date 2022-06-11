@@ -32,7 +32,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         MBBlockFamilies.WARPED.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.NON_FLAMMABLE_WOOD).add(block));
         MBBlockFamilies.MANGROVE.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(block));
 
-//        MBBlockFamilies.JUNIPER.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(block));
+        MBBlockFamilies.JUNIPER.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(block));
         MBBlockFamilies.CEDAR.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(block));
         MBBlockFamilies.HONEY.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(block));
         MBBlockFamilies.HONEY.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.NON_FLAMMABLE_WOOD).add(block));
@@ -437,12 +437,12 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 //                MBBlocks.ASPEN_LATTICE
         );
 
-//        this.getOrCreateTagBuilder(MBBlockTags.JUNIPER_LOGS).add(
-//                MBBlocks.JUNIPER_LOG,
-//                MBBlocks.JUNIPER_WOOD,
-//                MBBlocks.STRIPPED_JUNIPER_LOG,
-//                MBBlocks.STRIPPED_JUNIPER_WOOD
-//        );
+        this.getOrCreateTagBuilder(MBBlockTags.JUNIPER_LOGS).add(
+                MBBlocks.LAMPROOT_LOG,
+                MBBlocks.LAMPROOT_WOOD,
+                MBBlocks.STRIPPED_LAMPROOT_LOG,
+                MBBlocks.STRIPPED_LAMPROOT_WOOD
+        );
         this.getOrCreateTagBuilder(MBBlockTags.CEDAR_LOGS).add(
                 MBBlocks.CEDAR_LOG,
                 MBBlocks.CEDAR_WOOD,
@@ -461,45 +461,45 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         );
 
         this.getOrCreateTagBuilder(BlockTags.PLANKS).add(
-//                MBBlocks.JUNIPER_PLANKS,
+                MBBlocks.LAMPROOT_PLANKS,
                 MBBlocks.CEDAR_PLANKS,
                 MBBlocks.HONEY_PLANKS
 //                MBBlocks.ASPEN_PLANKS
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(
-//                MBBlocks.JUNIPER_BUTTON,
+                MBBlocks.LAMPROOT_BUTTON,
                 MBBlocks.CEDAR_BUTTON,
                 MBBlocks.HONEY_BUTTON
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(
-//                MBBlocks.JUNIPER_PRESSURE_PLATE,
+                MBBlocks.LAMPROOT_PRESSURE_PLATE,
                 MBBlocks.CEDAR_PRESSURE_PLATE,
                 MBBlocks.HONEY_PRESSURE_PLATE
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_DOORS).add(
-//                MBBlocks.JUNIPER_DOOR,
+                MBBlocks.LAMPROOT_DOOR,
                 MBBlocks.CEDAR_DOOR,
                 MBBlocks.HONEY_DOOR
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS).add(
-//                MBBlocks.JUNIPER_TRAPDOOR,
+                MBBlocks.LAMPROOT_TRAPDOOR,
                 MBBlocks.CEDAR_TRAPDOOR,
                 MBBlocks.HONEY_TRAPDOOR
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(
-//                MBBlocks.JUNIPER_STAIRS,
+                MBBlocks.LAMPROOT_STAIRS,
                 MBBlocks.CEDAR_STAIRS,
                 MBBlocks.HONEY_STAIRS
 //                MBBlocks.ASPEN_STAIRS
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).add(
-//                MBBlocks.JUNIPER_SLAB,
+                MBBlocks.LAMPROOT_SLAB,
                 MBBlocks.CEDAR_SLAB,
                 MBBlocks.HONEY_SLAB
 //                MBBlocks.ASPEN_SLAB
         );
         this.getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(
-//                MBBlocks.JUNIPER_FENCE,
+                MBBlocks.LAMPROOT_FENCE,
                 MBBlocks.CEDAR_FENCE,
                 MBBlocks.HONEY_FENCE
         );
@@ -513,7 +513,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CRIMSON_BOOKSHELF,
                 MBBlocks.WARPED_BOOKSHELF,
                 MBBlocks.HONEY_BOOKSHELF,
-//                MBBlocks.JUNIPER_BOOKSHELF,
+                MBBlocks.LAMPROOT_BOOKSHELF,
                 MBBlocks.CEDAR_BOOKSHELF
         );
         this.getOrCreateTagBuilder(MBBlockTags.PLANTER_BOXES).add(
@@ -523,19 +523,20 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.JUNGLE_PLANTER_BOX,
                 MBBlocks.ACACIA_PLANTER_BOX,
                 MBBlocks.DARK_OAK_PLANTER_BOX,
+                MBBlocks.MANGROVE_PLANTER_BOX,
                 MBBlocks.CRIMSON_PLANTER_BOX,
                 MBBlocks.WARPED_PLANTER_BOX,
                 MBBlocks.HONEY_PLANTER_BOX,
-//                MBBlocks.JUNIPER_PLANTER_BOX,
+                MBBlocks.LAMPROOT_PLANTER_BOX,
                 MBBlocks.CEDAR_PLANTER_BOX
         );
         this.getOrCreateTagBuilder(BlockTags.STANDING_SIGNS).add(
-//                MBBlocks.JUNIPER_SIGN,
+                MBBlocks.LAMPROOT_SIGN,
                 MBBlocks.CEDAR_SIGN,
                 MBBlocks.HONEY_SIGN
         );
         this.getOrCreateTagBuilder(BlockTags.WALL_SIGNS).add(
-//                MBBlocks.JUNIPER_WALL_SIGN,
+                MBBlocks.LAMPROOT_WALL_SIGN,
                 MBBlocks.CEDAR_WALL_SIGN,
                 MBBlocks.HONEY_WALL_SIGN
         );
@@ -543,7 +544,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.GLASS_DOOR
         );
         this.getOrCreateTagBuilder(BlockTags.SAPLINGS).add(
-//                MBBlocks.JUNIPER_SAPLING,
+                MBBlocks.LAMPROOT_SAPLING,
                 MBBlocks.CEDAR_SAPLING,
                 MBBlocks.GOLDEN_BIRCH_SAPLING,
                 MBBlocks.RED_OAK_SAPLING

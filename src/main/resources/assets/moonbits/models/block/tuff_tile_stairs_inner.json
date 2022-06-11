@@ -2,7 +2,7 @@
   "parent": "minecraft:block/inner_stairs",
   "textures": {
     "bottom": "moonbits:block/tuff_tiles",
-    "top": "moonbits:block/tuff_tiles",
-    "side": "moonbits:block/tuff_tiles"
+    "side": "moonbits:block/tuff_tiles",
+    "top": "moonbits:block/tuff_tiles"
   }
 }

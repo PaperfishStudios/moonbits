@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "moonbits:potted_lamproot_sapling",
     "moonbits:potted_cedar_sapling",
     "moonbits:potted_golden_birch_sapling",
     "moonbits:potted_red_oak_sapling",

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "moonbits:block/cobbled_andesite",
-    "top": "moonbits:block/cobbled_andesite",
-    "side": "moonbits:block/cobbled_andesite"
+    "side": "moonbits:block/cobbled_andesite",
+    "top": "moonbits:block/cobbled_andesite"
   }
 }

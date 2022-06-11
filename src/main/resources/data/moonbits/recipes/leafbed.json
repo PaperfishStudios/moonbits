@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "DG",
-    "GD"
-  ],
   "key": {
     "D": {
       "item": "minecraft:dirt"
@@ -12,8 +8,12 @@
       "tag": "minecraft:leaves"
     }
   },
+  "pattern": [
+    "DG",
+    "GD"
+  ],
   "result": {
-    "item": "moonbits:leafbed",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:leafbed"
   }
 }

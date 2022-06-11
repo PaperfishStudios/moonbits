@@ -2,7 +2,7 @@
   "parent": "minecraft:block/inner_stairs",
   "textures": {
     "bottom": "moonbits:block/smooth_deepslate",
-    "top": "moonbits:block/smooth_deepslate",
-    "side": "moonbits:block/smooth_deepslate"
+    "side": "moonbits:block/smooth_deepslate",
+    "top": "moonbits:block/smooth_deepslate"
   }
 }

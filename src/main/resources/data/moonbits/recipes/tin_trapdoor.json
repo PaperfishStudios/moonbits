@@ -1,13 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##"
-  ],
   "key": {
     "#": {
       "item": "moonbits:tin_ingot"
     }
   },
+  "pattern": [
+    "##"
+  ],
   "result": {
     "item": "moonbits:tin_trapdoor"
   }

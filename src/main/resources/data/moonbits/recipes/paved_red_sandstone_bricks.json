@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#",
-    "#"
-  ],
   "key": {
     "#": {
       "item": "moonbits:red_sandstone_brick_slab"
     }
   },
+  "pattern": [
+    "#",
+    "#"
+  ],
   "result": {
     "item": "moonbits:paved_red_sandstone_bricks"
   }

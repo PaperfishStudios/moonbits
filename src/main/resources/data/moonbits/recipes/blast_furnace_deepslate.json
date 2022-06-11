@@ -1,21 +1,21 @@
 {
   "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "moonbits:smooth_deepslate"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "minecraft:furnace"
+    }
+  },
   "pattern": [
     "III",
     "IXI",
     "###"
   ],
-  "key": {
-    "#": {
-      "item": "moonbits:smooth_deepslate"
-    },
-    "X": {
-      "item": "minecraft:furnace"
-    },
-    "I": {
-      "item": "minecraft:iron_ingot"
-    }
-  },
   "result": {
     "item": "minecraft:blast_furnace"
   }

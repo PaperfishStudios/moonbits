@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#",
-    "#"
-  ],
   "key": {
     "#": {
       "item": "moonbits:chiseled_prismarine"
     }
   },
+  "pattern": [
+    "#",
+    "#"
+  ],
   "result": {
-    "item": "moonbits:prismarine_pillar",
-    "count": 2
+    "count": 2,
+    "item": "moonbits:prismarine_pillar"
   }
 }

@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "moonbits:warped_nylium_turf"
   },
-  "result": "moonbits:warped_nylium_turf_stairs",
-  "count": 1
+  "result": "moonbits:warped_nylium_turf_stairs"
 }

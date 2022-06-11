@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "##"
-  ],
   "key": {
     "#": {
       "item": "moonbits:burlap"
     }
   },
+  "pattern": [
+    "##",
+    "##"
+  ],
   "result": {
-    "item": "moonbits:canvas",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:canvas"
   }
 }

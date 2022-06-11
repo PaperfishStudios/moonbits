@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " C ",
-    " SC",
-    "S  "
-  ],
   "key": {
     "C": {
       "item": "minecraft:copper_ingot"
@@ -13,6 +8,11 @@
       "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    " C ",
+    " SC",
+    "S  "
+  ],
   "result": {
     "item": "moonbits:wrench"
   }

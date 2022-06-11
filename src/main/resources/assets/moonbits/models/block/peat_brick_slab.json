@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "moonbits:block/peat_bricks",
-    "top": "moonbits:block/peat_bricks",
-    "side": "moonbits:block/peat_bricks"
+    "side": "moonbits:block/peat_bricks",
+    "top": "moonbits:block/peat_bricks"
   }
 }

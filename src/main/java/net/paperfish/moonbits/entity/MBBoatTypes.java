@@ -8,6 +8,6 @@ public class MBBoatTypes {
         BoatEntity.Type.values();
     }
 
-    public static BoatEntity.Type JUNIPER;
+    public static BoatEntity.Type LAMPROOT;
     public static BoatEntity.Type CEDAR;
 }

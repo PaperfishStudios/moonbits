@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 2,
   "ingredient": {
     "item": "moonbits:mudstone"
   },
-  "result": "moonbits:mudstone_slab",
-  "count": 2
+  "result": "moonbits:mudstone_slab"
 }

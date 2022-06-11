@@ -2,7 +2,6 @@ package net.paperfish.moonbits.mixin;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.vehicle.BoatEntity;
-import net.minecraft.entity.vehicle.BoatEntity.Type;
 import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.entity.MBBoatTypes;
 import org.objectweb.asm.Opcodes;
@@ -45,9 +44,9 @@ public class BoatTypeMixin {
         var types = new ArrayList<>(Arrays.asList(field_7724));
         var last = types.get(types.size() - 1);
 
-//        var juniper = newType("JUNIPER", last.ordinal() + 1, MBBlocks.JUNIPER_PLANKS, "juniper");
-//        MBBoatTypes.JUNIPER = juniper;
-//        types.add(juniper);
+        var lamproot = newType("LAMPROOT", last.ordinal() + 1, MBBlocks.LAMPROOT_PLANKS, "lamproot");
+        MBBoatTypes.LAMPROOT = lamproot;
+        types.add(lamproot);
         var cedar = newType("CEDAR", last.ordinal() + 2, MBBlocks.CEDAR_PLANKS, "cedar");
         MBBoatTypes.CEDAR = cedar;
         types.add(cedar);

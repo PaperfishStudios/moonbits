@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "I I",
-    " I "
-  ],
   "key": {
     "I": {
       "item": "moonbits:tin_ingot"
     }
   },
+  "pattern": [
+    "I I",
+    " I "
+  ],
   "result": {
     "item": "moonbits:tree_tap"
   }

@@ -125,7 +125,7 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(MBItemTags.COOKING_WILD).addTag(MBItemTags.EDIBLE_MUSHROOMS).add(
                 Items.SWEET_BERRIES, Items.GLOW_BERRIES,
                 Items.FERN, Items.DANDELION, Items.SUNFLOWER,
-                MBBlocks.LAMPROOT.asItem(), MBBlocks.CAVEBLOOMS, MBItems.PEANUT
+                MBBlocks.LAMPROOT_BULB.asItem(), MBBlocks.CAVEBLOOMS, MBItems.PEANUT
         );
         getOrCreateTagBuilder(MBItemTags.COOKING_MONSTER).add(
                 Items.ROTTEN_FLESH, Items.SPIDER_EYE, Items.MAGMA_CREAM

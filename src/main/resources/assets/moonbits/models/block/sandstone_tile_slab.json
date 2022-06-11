@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "moonbits:block/sandstone_tiles",
-    "top": "moonbits:block/sandstone_tiles",
-    "side": "moonbits:block/sandstone_tiles"
+    "side": "moonbits:block/sandstone_tiles",
+    "top": "moonbits:block/sandstone_tiles"
   }
 }

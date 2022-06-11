@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "moonbits:block/frosty_till_bricks",
-    "top": "moonbits:block/frosty_till_bricks",
-    "side": "moonbits:block/frosty_till_bricks"
+    "side": "moonbits:block/frosty_till_bricks",
+    "top": "moonbits:block/frosty_till_bricks"
   }
 }

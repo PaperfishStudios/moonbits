@@ -1,7 +1,7 @@
 {
   "parent": "moonbits:block/capped_cross",
   "textures": {
-    "cross": "moonbits:block/wildflowers_stem",
-    "cap": "moonbits:block/wildflowers"
+    "cap": "moonbits:block/wildflowers",
+    "cross": "moonbits:block/wildflowers_stem"
   }
 }

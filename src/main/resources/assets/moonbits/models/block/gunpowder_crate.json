@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "top": "moonbits:block/gunpowder_crate_top",
     "bottom": "moonbits:block/gunpowder_crate_bottom",
-    "side": "moonbits:block/gunpowder_crate"
+    "side": "moonbits:block/gunpowder_crate",
+    "top": "moonbits:block/gunpowder_crate_top"
   }
 }

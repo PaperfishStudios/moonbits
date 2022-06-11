@@ -2,7 +2,7 @@
   "parent": "minecraft:block/inner_stairs",
   "textures": {
     "bottom": "moonbits:block/cracked_prismarine_bricks",
-    "top": "moonbits:block/cracked_prismarine_bricks",
-    "side": "moonbits:block/cracked_prismarine_bricks"
+    "side": "moonbits:block/cracked_prismarine_bricks",
+    "top": "moonbits:block/cracked_prismarine_bricks"
   }
 }

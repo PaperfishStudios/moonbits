@@ -2,7 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "moonbits:block/sandstone_tiles",
-    "top": "moonbits:block/sandstone_tiles",
-    "side": "moonbits:block/sandstone_tiles"
+    "side": "moonbits:block/sandstone_tiles",
+    "top": "moonbits:block/sandstone_tiles"
   }
 }

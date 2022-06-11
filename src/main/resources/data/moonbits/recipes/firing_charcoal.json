@@ -1,9 +1,9 @@
 {
   "type": "moonbits:kiln",
+  "cookingtime": 100,
+  "experience": 0.15,
   "ingredient": {
     "tag": "minecraft:logs_that_burn"
   },
-  "result": "minecraft:charcoal",
-  "experience": 0.15,
-  "cookingtime": 100
+  "result": "minecraft:charcoal"
 }

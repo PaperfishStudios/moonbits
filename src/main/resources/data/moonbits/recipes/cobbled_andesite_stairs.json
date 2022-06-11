@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#  ",
-    "## ",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:cobbled_andesite"
     }
   },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
   "result": {
-    "item": "moonbits:cobbled_andesite_stairs",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:cobbled_andesite_stairs"
   }
 }

@@ -1,10 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " S ",
-    "S#S",
-    " S "
-  ],
   "key": {
     "#": {
       "item": "moonbits:canvas"
@@ -13,8 +8,13 @@
       "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    " S ",
+    "S#S",
+    " S "
+  ],
   "result": {
-    "item": "moonbits:framed_canvas",
-    "count": 2
+    "count": 2,
+    "item": "moonbits:framed_canvas"
   }
 }

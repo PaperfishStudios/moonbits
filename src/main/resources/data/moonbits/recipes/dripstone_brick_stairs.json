@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#  ",
-    "## ",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:dripstone_bricks"
     }
   },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
   "result": {
-    "item": "moonbits:dripstone_brick_stairs",
-    "count": 4
+    "count": 4,
+    "item": "moonbits:dripstone_brick_stairs"
   }
 }

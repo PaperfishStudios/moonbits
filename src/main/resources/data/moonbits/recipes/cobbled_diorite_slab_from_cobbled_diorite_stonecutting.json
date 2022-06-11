@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 2,
   "ingredient": {
     "item": "moonbits:cobbled_diorite"
   },
-  "result": "moonbits:cobbled_diorite_slab",
-  "count": 2
+  "result": "moonbits:cobbled_diorite_slab"
 }

@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "bookshelves",
-  "pattern": [
-    "###",
-    "BBB",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:honey_planks"
@@ -14,6 +9,11 @@
       "item": "minecraft:book"
     }
   },
+  "pattern": [
+    "###",
+    "BBB",
+    "###"
+  ],
   "result": {
     "item": "moonbits:honey_bookshelf"
   }

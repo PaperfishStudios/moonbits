@@ -2,7 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "moonbits:block/cracked_prismarine_tiles",
-    "top": "moonbits:block/cracked_prismarine_tiles",
-    "side": "moonbits:block/cracked_prismarine_tiles"
+    "side": "moonbits:block/cracked_prismarine_tiles",
+    "top": "moonbits:block/cracked_prismarine_tiles"
   }
 }

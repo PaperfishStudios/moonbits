@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab_top",
   "textures": {
     "bottom": "moonbits:block/smooth_deepslate",
-    "top": "moonbits:block/smooth_deepslate",
-    "side": "moonbits:block/smooth_deepslate_slab_side"
+    "side": "moonbits:block/smooth_deepslate_slab_side",
+    "top": "moonbits:block/smooth_deepslate"
   }
 }

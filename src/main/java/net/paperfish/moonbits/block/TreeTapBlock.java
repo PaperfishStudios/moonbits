@@ -24,10 +24,10 @@ import net.minecraft.util.math.random.Random;
 public class TreeTapBlock extends HorizontalFacingBlock {
     public static final BooleanProperty ATTACHED = Properties.ATTACHED;
 
-    public static final VoxelShape NORTH = Block.createCuboidShape(6, 6, 0, 10, 9, 4);
-    public static final VoxelShape SOUTH = Block.createCuboidShape(6, 6, 12, 10, 9, 16);
-    public static final VoxelShape EAST = Block.createCuboidShape(12, 6, 6, 16, 9, 10);
-    public static final VoxelShape WEST = Block.createCuboidShape(0, 6, 6, 4, 9, 10);
+    public static final VoxelShape NORTH = Block.createCuboidShape(6, 6, 12, 10, 9, 16);
+    public static final VoxelShape SOUTH = Block.createCuboidShape(6, 6, 0, 10, 9, 4);
+    public static final VoxelShape EAST = Block.createCuboidShape(0, 6, 6, 4, 9, 10);
+    public static final VoxelShape WEST = Block.createCuboidShape(12, 6, 6, 16, 9, 10);
 
     public TreeTapBlock(Settings settings) {
         super(settings);
@@ -84,17 +84,18 @@ public class TreeTapBlock extends HorizontalFacingBlock {
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(ATTACHED) && random.nextInt(8) == 0) {
-            float xOffset = state.get(FACING).getAxis() == Direction.Axis.X ? 0.5f + (state.get(FACING).getOffsetX() / 8.0f) : 0.5f;
-            float zOffset = state.get(FACING).getAxis() == Direction.Axis.Z ? 0.5f + (state.get(FACING).getOffsetZ() / 8.0f) : 0.5f;
+            float xOffset = state.get(FACING).getAxis() == Direction.Axis.X ? 0.5f - (state.get(FACING).getOffsetX() / 8.0f) : 0.5f;
+            float zOffset = state.get(FACING).getAxis() == Direction.Axis.Z ? 0.5f - (state.get(FACING).getOffsetZ() / 8.0f) : 0.5f;
             world.addParticle(MBParticles.DRIPPING_SYRUP, pos.getX() + xOffset, pos.getY() + (3.5f/16f), pos.getZ() + zOffset, 0.0, 0.0, 0.0);
         }
     }
 
+    @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         Direction direction = state.get(FACING);
-        BlockPos blockPos = pos.offset(direction);
+        BlockPos blockPos = pos.offset(direction.getOpposite());
         BlockState blockState = world.getBlockState(blockPos);
-        return blockState.isSideSolidFullSquare(world, blockPos, direction.getOpposite());
+        return blockState.isSideSolidFullSquare(world, blockPos, direction);
     }
     @Override
     @Nullable
@@ -103,15 +104,19 @@ public class TreeTapBlock extends HorizontalFacingBlock {
         World world = ctx.getWorld();
         BlockPos pos = ctx.getBlockPos();
         for (Direction direction : ctx.getPlacementDirections()) {
-            if (!direction.getAxis().isHorizontal()) continue;
+            if (!direction.getAxis().isHorizontal() || !(blockState = blockState.with(FACING, direction.getOpposite())).canPlaceAt(world, pos)) continue;
             BlockState connection = world.getBlockState(pos.offset(direction));
-            if (blockState.canPlaceAt(world, pos)) {
-                return blockState.with(FACING, direction).with(ATTACHED, connection.isOf(Blocks.BIRCH_LOG));
-            }
+            return blockState.with(ATTACHED, connection.isOf(Blocks.BIRCH_LOG));
         }
         return null;
     }
+
+    @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        return direction == state.get(FACING) && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : state;
+        if (direction.getOpposite() == state.get(FACING) && !state.canPlaceAt(world, pos)) {
+            return Blocks.AIR.getDefaultState();
+        }
+        BlockState connection = world.getBlockState(pos.offset(direction));
+        return state.with(ATTACHED, connection.isOf(Blocks.BIRCH_LOG));
     }
 }

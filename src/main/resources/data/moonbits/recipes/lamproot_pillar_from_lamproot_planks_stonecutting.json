@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moonbits:lamproot_planks"
+  },
+  "result": "moonbits:lamproot_pillar"
+}

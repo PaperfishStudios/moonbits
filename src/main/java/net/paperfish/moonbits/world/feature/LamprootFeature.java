@@ -31,12 +31,12 @@ public class LamprootFeature extends Feature<SimpleBlockFeatureConfig> {
 
         // determine what side its attached to
         if (world.getBlockState(pos.up()).isIn(MBBlockTags.TOUGH_DIRT)) {
-            blockState = MBBlocks.LAMPROOT.getDefaultState().with(Properties.FACING, Direction.UP);
+            blockState = MBBlocks.LAMPROOT_BULB.getDefaultState().with(Properties.FACING, Direction.UP);
         } else {
             List<Direction> list = List.of(Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST);
             for (Direction direction : list) {
                 if (world.getBlockState(pos.offset(direction)).isIn(MBBlockTags.TOUGH_DIRT)) {
-                    blockState = MBBlocks.LAMPROOT.getDefaultState().with(Properties.FACING, direction.getOpposite());
+                    blockState = MBBlocks.LAMPROOT_BULB.getDefaultState().with(Properties.FACING, direction.getOpposite());
                 }
             }
         }

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "moonbits:block/cracked_basalt_bricks",
-    "top": "moonbits:block/cracked_basalt_bricks",
-    "side": "moonbits:block/cracked_basalt_bricks"
+    "side": "moonbits:block/cracked_basalt_bricks",
+    "top": "moonbits:block/cracked_basalt_bricks"
   }
 }

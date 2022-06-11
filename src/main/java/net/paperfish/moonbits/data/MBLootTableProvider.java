@@ -84,12 +84,12 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.CYAN_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
         addDrop(MBBlocks.BLUE_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
 
-//        addDrop(MBBlocks.JUNIPER_LOG);
-//        addDrop(MBBlocks.JUNIPER_WOOD);
-//        addDrop(MBBlocks.STRIPPED_JUNIPER_LOG);
-//        addDrop(MBBlocks.STRIPPED_JUNIPER_WOOD);
+        addDrop(MBBlocks.LAMPROOT_LOG);
+        addDrop(MBBlocks.LAMPROOT_WOOD);
+        addDrop(MBBlocks.STRIPPED_LAMPROOT_LOG);
+        addDrop(MBBlocks.STRIPPED_LAMPROOT_WOOD);
 //        addDrop(MBBlocks.JUNIPER_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.JUNIPER_SAPLING, SAPLING_DROP_CHANCE));
-//        addDrop(MBBlocks.JUNIPER_SAPLING);
+        addDrop(MBBlocks.LAMPROOT_SAPLING);
 
         addDrop(MBBlocks.CEDAR_LOG);
         addDrop(MBBlocks.CEDAR_WOOD);
@@ -285,7 +285,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.SAFFRON_MUSH_LAMP);
         addDrop(MBBlocks.TOADSTOOL_MUSH_LAMP);
 
-        addDrop(MBBlocks.LAMPROOT);
+        addDrop(MBBlocks.LAMPROOT_BULB);
         addDrop(MBBlocks.CAVEBLOOM_FLOWERS, (Block block) -> BlockLootTableGenerator.multifaceGrowthDrops(block, WITH_SHEARS));
         addDrop(MBBlocks.CAVEBLOOM_VINE, (Block block) -> BlockLootTableGenerator.multifaceGrowthDrops(block, WITH_SHEARS));
 

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "moonbits:lamproot_stairs",
     "moonbits:cedar_stairs",
     "moonbits:honey_stairs"
   ]

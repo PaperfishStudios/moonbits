@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left_open",
+  "textures": {
+    "bottom": "moonbits:block/glass_door_bottom",
+    "top": "moonbits:block/glass_door_top"
+  }
+}

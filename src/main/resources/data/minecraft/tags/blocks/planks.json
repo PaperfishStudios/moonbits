@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "moonbits:lamproot_planks",
     "moonbits:cedar_planks",
     "moonbits:honey_planks"
   ]

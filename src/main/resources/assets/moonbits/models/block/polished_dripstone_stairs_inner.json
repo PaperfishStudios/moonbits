@@ -2,7 +2,7 @@
   "parent": "minecraft:block/inner_stairs",
   "textures": {
     "bottom": "moonbits:block/polished_dripstone",
-    "top": "moonbits:block/polished_dripstone",
-    "side": "moonbits:block/polished_dripstone"
+    "side": "moonbits:block/polished_dripstone",
+    "top": "moonbits:block/polished_dripstone"
   }
 }

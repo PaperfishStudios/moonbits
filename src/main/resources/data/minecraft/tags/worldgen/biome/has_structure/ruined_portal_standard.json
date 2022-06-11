@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "moonbits:pasture",
+    "moonbits:golden_forest",
+    "moonbits:tall_golden_forest",
+    "moonbits:red_oak_forest"
+  ]
+}

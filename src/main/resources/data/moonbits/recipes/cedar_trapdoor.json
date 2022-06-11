@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "wooden_trapdoor",
-  "pattern": [
-    "###",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:cedar_planks"
     }
   },
+  "pattern": [
+    "###",
+    "###"
+  ],
   "result": {
-    "item": "moonbits:cedar_trapdoor",
-    "count": 2
+    "count": 2,
+    "item": "moonbits:cedar_trapdoor"
   }
 }

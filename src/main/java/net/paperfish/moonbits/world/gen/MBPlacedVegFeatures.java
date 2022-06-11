@@ -122,6 +122,8 @@ public class MBPlacedVegFeatures {
             MBVegetationFeatures.GBF_TREES, modifiers(PlacedFeatures.createCountExtraModifier(6, 0.1F, 1)));
     public static final RegistryEntry<PlacedFeature> PASTURE_TREES = MBPlacedFeatures.register("p_pasture_trees",
             MBVegetationFeatures.PASTURE_TREES, modifiers(PlacedFeatures.createCountExtraModifier(1, 0.1F, 1)));
+    public static final RegistryEntry<PlacedFeature> RED_OAK_TREES = MBPlacedFeatures.register("p_red_oak_trees",
+            MBVegetationFeatures.RED_OAK_TREES, modifiers(PlacedFeatures.createCountExtraModifier(6, 0.1F, 1)));
 
     public static final RegistryEntry<PlacedFeature> CEDARS = MBPlacedFeatures.register("p_cedars",
             MBVegetationFeatures.BADLANDS_TREES,

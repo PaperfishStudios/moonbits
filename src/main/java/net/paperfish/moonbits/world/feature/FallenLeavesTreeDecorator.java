@@ -39,12 +39,12 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
         generator.getLeavesPositions().stream().filter((pos) -> generator.getWorld().testBlockState(pos.down(), AbstractBlock.AbstractBlockState::isAir)).forEach(pos -> {
             BlockPos blockPos = pos.down();
             // while the block below blockPos is still air, shift blockPos down by 1
-            while(world.testBlockState(pos.down(), AbstractBlock.AbstractBlockState::isAir) && blockPos.isWithinDistance(pos, 10)) {
+            while(world.testBlockState(blockPos.down(), AbstractBlock.AbstractBlockState::isAir) && blockPos.isWithinDistance(pos, 10)) {
                 blockPos = blockPos.down();
             }
             // once you've reached the last air block, place the fallen leaves.
             BlockState a = this.provider.getBlockState(random, pos);
-            if (a.canPlaceAt((WorldView) world, blockPos)) {
+            if (a.canPlaceAt((WorldView) world, blockPos) && random.nextInt(8) == 0) {
                 generator.replace(blockPos, a);
             }
         });

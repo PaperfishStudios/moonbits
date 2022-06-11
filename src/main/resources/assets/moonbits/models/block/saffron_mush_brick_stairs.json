@@ -2,7 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "moonbits:block/saffron_mush_bricks",
-    "top": "moonbits:block/saffron_mush_bricks",
-    "side": "moonbits:block/saffron_mush_bricks"
+    "side": "moonbits:block/saffron_mush_bricks",
+    "top": "moonbits:block/saffron_mush_bricks"
   }
 }

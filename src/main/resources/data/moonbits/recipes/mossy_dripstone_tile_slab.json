@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:mossy_dripstone_tiles"
     }
   },
+  "pattern": [
+    "###"
+  ],
   "result": {
-    "item": "moonbits:mossy_dripstone_tile_slab",
-    "count": 6
+    "count": 6,
+    "item": "moonbits:mossy_dripstone_tile_slab"
   }
 }

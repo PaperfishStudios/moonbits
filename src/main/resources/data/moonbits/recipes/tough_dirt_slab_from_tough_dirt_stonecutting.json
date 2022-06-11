@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 2,
   "ingredient": {
     "item": "moonbits:tough_dirt"
   },
-  "result": "moonbits:tough_dirt_slab",
-  "count": 2
+  "result": "moonbits:tough_dirt_slab"
 }

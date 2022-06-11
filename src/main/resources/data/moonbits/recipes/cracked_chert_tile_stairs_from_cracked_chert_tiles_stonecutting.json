@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "moonbits:cracked_chert_tiles"
   },
-  "result": "moonbits:cracked_chert_tile_stairs",
-  "count": 1
+  "result": "moonbits:cracked_chert_tile_stairs"
 }

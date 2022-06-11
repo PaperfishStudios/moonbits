@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "###",
-    "###"
-  ],
   "key": {
     "#": {
       "item": "moonbits:till"
     }
   },
+  "pattern": [
+    "###",
+    "###"
+  ],
   "result": {
-    "item": "moonbits:till_wall",
-    "count": 6
+    "count": 6,
+    "item": "moonbits:till_wall"
   }
 }

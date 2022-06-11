@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "moonbits:carved_jungle_wood"
   },
-  "result": "moonbits:jungle_pillar",
-  "count": 1
+  "result": "moonbits:jungle_pillar"
 }

@@ -2,7 +2,7 @@
   "parent": "moonbits:block/tinted/tint_stairs_inner",
   "textures": {
     "bottom": "moonbits:block/grass_turf",
-    "top": "moonbits:block/grass_turf",
-    "side": "moonbits:block/grass_turf"
+    "side": "moonbits:block/grass_turf",
+    "top": "moonbits:block/grass_turf"
   }
 }

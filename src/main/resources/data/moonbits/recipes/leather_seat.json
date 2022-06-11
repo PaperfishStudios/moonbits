@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "LLL",
-    "PPP"
-  ],
   "key": {
     "L": {
       "item": "minecraft:leather"
@@ -12,6 +8,10 @@
       "tag": "minecraft:planks"
     }
   },
+  "pattern": [
+    "LLL",
+    "PPP"
+  ],
   "result": {
     "item": "moonbits:leather_seat"
   }

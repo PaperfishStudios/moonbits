@@ -2,15 +2,14 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "functions": [
             {
-              "function": "minecraft:copy_state",
               "block": "moonbits:barrel_cactus",
+              "function": "minecraft:copy_state",
               "properties": [
                 "level"
               ]
@@ -18,7 +17,8 @@
           ],
           "name": "moonbits:barrel_cactus"
         }
-      ]
+      ],
+      "rolls": 1.0
     }
   ]
 }

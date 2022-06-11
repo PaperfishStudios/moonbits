@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "planter_boxes",
+  "key": {
+    "#": {
+      "item": "moonbits:lamproot_planks"
+    },
+    "P": {
+      "item": "moonbits:peat"
+    }
+  },
+  "pattern": [
+    "# #",
+    "#P#",
+    "###"
+  ],
+  "result": {
+    "item": "moonbits:lamproot_planter_box"
+  }
+}
