@@ -46,6 +46,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         MBBlockFamilies.CRIMSON_NYLIUM_TURF.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.WARPED_NYLIUM_TURF.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
 
+        MBBlockFamilies.PARASOL_FERN_FIBER.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(block));
+
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.RED_MUSH_BLOCK);
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.BROWN_MUSH_BLOCK);
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.TOADSTOOL_MUSH_BLOCK);
@@ -206,6 +208,11 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 MBBlocks.SUGAR_CUBE,
 
+                MBBlocks.RED_MUSHCLAY,
+                MBBlocks.BROWN_MUSHCLAY,
+                MBBlocks.SAFFRON_MUSHCLAY,
+                MBBlocks.TOADSTOOL_MUSHCLAY,
+
                 MBBlocks.RICH_MUD,
                 MBBlocks.MUD_GOLD_DEPOSIT
         );
@@ -219,18 +226,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.GIANT_TOADSTOOL_CAP,
                 MBBlocks.MUSHROOM_STEM,
 
-//                MBBlocks.ASPEN_TRUNK,
-//                MBBlocks.STRIPPED_ASPEN_TRUNK,
-//                MBBlocks.ASPEN_PALISADE,
-//                MBBlocks.STRIPPED_ASPEN_PALISADE,
-//                MBBlocks.ASPEN_PLANKS,
-//                MBBlocks.ASPEN_STAIRS,
-//                MBBlocks.ASPEN_SLAB,
-//                MBBlocks.ASPEN_WINDOW,
-//                MBBlocks.ASPEN_LANTERN,
-//                MBBlocks.ASPEN_SOUL_LANTERN,
-//                MBBlocks.ASPEN_TRIM,
-//                MBBlocks.ASPEN_LATTICE,
+                MBBlocks.PARASOL_FERN_CROWN,
+                MBBlocks.PARASOL_FERN_STEM,
 
                 MBBlocks.FROSTHORN_CROWN,
                 MBBlocks.FROSTHORN_STEM,
@@ -274,6 +271,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.SAFFRON_MUSHROOM_CAP,
                 MBBlocks.GIANT_TOADSTOOL_CAP,
                 MBBlocks.MUSHROOM_STEM,
+
+                MBBlocks.PARASOL_FERN_STEM,
 
                 MBBlocks.BARREL_CACTUS,
 

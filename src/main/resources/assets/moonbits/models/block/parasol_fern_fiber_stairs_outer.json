@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "moonbits:block/parasol_fern_fiber",
+    "side": "moonbits:block/parasol_fern_fiber",
+    "top": "moonbits:block/parasol_fern_fiber"
+  }
+}

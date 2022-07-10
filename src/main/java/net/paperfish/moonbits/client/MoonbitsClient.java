@@ -62,6 +62,9 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.TOADSTOOL,
                 MBBlocks.SMALL_TOADSTOOLS,
                 MBBlocks.POTTED_SMALL_TOADSTOOLS,
+                MBBlocks.OYSTER_MUSHROOMS,
+                MBBlocks.SHELF_OYSTER_MUSHROOMS,
+                MBBlocks.POTTED_OYSTER_MUSHROOMS,
 
                 MBBlocks.WHITE_HYACINTH,
                 MBBlocks.PINK_HYACINTH,
@@ -207,12 +210,7 @@ public class MoonbitsClient implements ClientModInitializer {
             try {
                 NbtElement nbtElement;
                 if (nbtCompound != null && (nbtElement = nbtCompound.get(BarrelCactusBlock.LEVEL.getName())) != null) {
-                    return switch (Integer.parseInt(nbtElement.asString())) {
-                        default -> 0;
-                        case 2 -> 1.0f;
-                        case 3 -> 2.0f;
-                        case 4 -> 3.0f;
-                    };
+                    return (float)Integer.parseInt(nbtElement.asString()) / 4.0f;
                 }
             }
             catch (NumberFormatException numberFormatException) {

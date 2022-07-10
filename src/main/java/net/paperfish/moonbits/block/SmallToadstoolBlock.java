@@ -28,7 +28,10 @@ public class SmallToadstoolBlock extends PlantBlock implements Fertilizable {
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.down();
         BlockState blockState = world.getBlockState(blockPos);
-        return blockState.isIn(BlockTags.DIRT);
+        if (blockState.isIn(BlockTags.MUSHROOM_GROW_BLOCK) || blockState.isIn(BlockTags.LOGS) || blockState.isIn(BlockTags.DIRT)) {
+            return true;
+        }
+        return world.getBaseLightLevel(pos, 0) < 13 && this.canPlantOnTop(blockState, world, blockPos);
     }
 
     @Override
@@ -43,6 +46,8 @@ public class SmallToadstoolBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        world.setBlockState(pos, MBBlocks.TOADSTOOL.getDefaultState());
+        if (state.isOf(MBBlocks.SMALL_TOADSTOOLS)) {
+            world.setBlockState(pos, MBBlocks.TOADSTOOL.getDefaultState());
+        }
     }
 }

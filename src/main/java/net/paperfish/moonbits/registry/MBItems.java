@@ -95,12 +95,16 @@ public class MBItems {
 	public static final Item TIN_NUGGET = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item FUR = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item BURLAP = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
-//	public static final Item CACTUS_LEATHER = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item MONSTER_HIDE = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item RED_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item RED_MUSHBRICK = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item BROWN_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item BROWN_MUSHBRICK = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item SAFFRON_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item SAFFRON_MUSHBRICK = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item TOADSTOOL_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item TOADSTOOL_MUSHBRICK = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item WRENCH = new WrenchItem(new FabricItemSettings().group(ItemGroup.TOOLS));
 	
@@ -109,7 +113,7 @@ public class MBItems {
     public static final Item BABY_STRIDER_BUCKET = new EntityBucketItem(EntityType.STRIDER, Fluids.LAVA, SoundEvents.ITEM_BUCKET_EMPTY_FISH, 
 	(new Item.Settings()).maxCount(1).group(MBItemGroup.MB_MISC));
 
-	public static final Item JUNIPER_BOAT = new BoatItem(false, MBBoatTypes.LAMPROOT, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
+	public static final Item LAMPROOT_BOAT = new BoatItem(false, MBBoatTypes.LAMPROOT, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
 	public static final Item LAMPROOT_CHEST_BOAT = new BoatItem(true, MBBoatTypes.LAMPROOT, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
 	public static final Item CEDAR_BOAT = new BoatItem(false, MBBoatTypes.CEDAR, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
 	public static final Item CEDAR_CHEST_BOAT = new BoatItem(true, MBBoatTypes.CEDAR, new Item.Settings().maxCount(1).group(ItemGroup.TRANSPORTATION));
@@ -136,6 +140,7 @@ public class MBItems {
 
 	// Spawn eggs
 	public static final Item GRIZZLY_SPAWN_EGG = new SpawnEggItem(MBEntities.GRIZZLY_BEAR, 5782045, 15707403, new Item.Settings().group(MBItemGroup.MB_MISC));
+	public static final Item GRASSHAT_SPAWN_EGG = new SpawnEggItem(MBEntities.GRASSHAT, 7686462, 1485323, new Item.Settings().group(MBItemGroup.MB_MISC));
 
 	public static void add(String id, Item item) {
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, id), item);
@@ -199,11 +204,15 @@ public class MBItems {
 		addItem("glow_item_hook", GLOW_ITEM_HOOK);
 
 		addItem("red_mushblend", RED_MUSHBLEND);
+		addItem("red_mushbrick", RED_MUSHBRICK);
 		addItem("brown_mushblend", BROWN_MUSHBLEND);
+		addItem("brown_mushbrick", BROWN_MUSHBRICK);
 		addItem("saffron_mushblend", SAFFRON_MUSHBLEND);
+		addItem("saffron_mushbrick", SAFFRON_MUSHBRICK);
 		addItem("toadstool_mushblend", TOADSTOOL_MUSHBLEND);
+		addItem("toadstool_mushbrick", TOADSTOOL_MUSHBRICK);
 
-		addItem("lamproot_boat", JUNIPER_BOAT);
+		addItem("lamproot_boat", LAMPROOT_BOAT);
 		addItem("lamproot_chest_boat", LAMPROOT_CHEST_BOAT);
 		addItem("cedar_boat", CEDAR_BOAT);
 		addItem("cedar_chest_boat", CEDAR_CHEST_BOAT);
@@ -221,7 +230,7 @@ public class MBItems {
 		addItem("copper_nugget", COPPER_NUGGET);
 		addItem("fur", FUR);
 		addItem("burlap", BURLAP);
-//		addItem("cactus_leather", CACTUS_LEATHER);
+		addItem("monster_hide", MONSTER_HIDE);
 
 		addItem("glass_shard", GLASS_SHARD);
 		addItem("white_glass_shard", WHITE_GLASS_SHARD);
@@ -242,5 +251,6 @@ public class MBItems {
 		addItem("black_glass_shard", BLACK_GLASS_SHARD);
 
 		addEgg("grizzly_bear_spawn_egg", GRIZZLY_SPAWN_EGG);
+		addEgg("grasshat_spawn_egg", GRASSHAT_SPAWN_EGG);
 	} 
 }

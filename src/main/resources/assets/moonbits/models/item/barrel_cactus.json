@@ -1,8 +1,8 @@
 {
   "parent": "moonbits:block/barrel_cactus_tiny",
   "overrides": [
-    { "predicate": { "water_level": 1 }, "model": "moonbits:item/barrel_cactus_small" },
-    { "predicate": { "water_level": 2 }, "model": "moonbits:item/barrel_cactus_med" },
-    { "predicate": { "water_level": 3 }, "model": "moonbits:item/barrel_cactus_large" }
+    { "predicate": { "water_level": 0.5 }, "model": "moonbits:item/barrel_cactus_small" },
+    { "predicate": { "water_level": 0.75 }, "model": "moonbits:item/barrel_cactus_med" },
+    { "predicate": { "water_level": 1 }, "model": "moonbits:item/barrel_cactus_large" }
   ]
 }

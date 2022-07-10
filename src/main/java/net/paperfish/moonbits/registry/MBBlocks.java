@@ -23,6 +23,7 @@ import net.paperfish.moonbits.block.cauldron.MBCauldronBehaviour;
 import net.paperfish.moonbits.block.extended.*;
 import net.paperfish.moonbits.mixin.SignTypeAccessor;
 import net.paperfish.moonbits.world.feature.*;
+import net.paperfish.moonbits.world.gen.MBPlacedVegFeatures;
 import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 
 public class MBBlocks {
@@ -167,6 +168,12 @@ public class MBBlocks {
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block POTTED_PUFFBALLS = new FlowerPotBlock(PUFFBALLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
+	public static final Block OYSTER_MUSHROOMS = new SmallToadstoolBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+	public static final Block SHELF_OYSTER_MUSHROOMS = new ShelfMushroomBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block POTTED_OYSTER_MUSHROOMS = new FlowerPotBlock(OYSTER_MUSHROOMS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+
 	public static final Block SAFFRON_MUSHROOM = new MushroomPlantBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).noCollision().ticksRandomly().breakInstantly()
 			.sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ)
 			.postProcess((state, world, pos) -> true), () -> MBTreeFeatures.SAFFRON_MUSHROOM);
@@ -176,21 +183,23 @@ public class MBBlocks {
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block POTTED_SMALL_TOADSTOOLS = new FlowerPotBlock(SMALL_TOADSTOOLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
-	public static final Block RED_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block RED_MUSH_STAIRS = new MBStairsBlock(RED_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block RED_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block RED_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block RED_MUSH_BRICK_STAIRS = new MBStairsBlock(RED_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block RED_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block RED_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE).luminance((state) -> 15));
+	public static final Block RED_MUSHCLAY = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(0.8F).sounds(BlockSoundGroup.MUD));
+	public static final Block RED_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block RED_MUSH_STAIRS = new MBStairsBlock(RED_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block RED_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block RED_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block RED_MUSH_BRICK_STAIRS = new MBStairsBlock(RED_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block RED_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block RED_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS).luminance((state) -> 15));
 
-	public static final Block BROWN_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block BROWN_MUSH_STAIRS = new MBStairsBlock(BROWN_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block BROWN_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block BROWN_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block BROWN_MUSH_BRICK_STAIRS = new MBStairsBlock(BROWN_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block BROWN_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block BROWN_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE).luminance((state) -> 15));
+	public static final Block BROWN_MUSHCLAY = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(0.8F).sounds(BlockSoundGroup.MUD));
+	public static final Block BROWN_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block BROWN_MUSH_STAIRS = new MBStairsBlock(BROWN_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block BROWN_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block BROWN_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block BROWN_MUSH_BRICK_STAIRS = new MBStairsBlock(BROWN_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block BROWN_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block BROWN_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS).luminance((state) -> 15));
 
 	public static final Block RED_MUSHROOM_CAP = new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.RED).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
 	public static final Block BROWN_MUSHROOM_CAP = new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.BROWN).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
@@ -203,21 +212,23 @@ public class MBBlocks {
 	public static final Block MUSHROOM_HYPHAE = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
 	public static final Block STRIPPED_MUSHROOM_HYPHAE = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.PALE_YELLOW).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
 
-	public static final Block SAFFRON_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block SAFFRON_MUSH_STAIRS = new MBStairsBlock(SAFFRON_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block SAFFRON_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block SAFFRON_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block SAFFRON_MUSH_BRICK_STAIRS = new MBStairsBlock(SAFFRON_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block SAFFRON_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block SAFFRON_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.STONE).luminance((state) -> 15));
+	public static final Block SAFFRON_MUSHCLAY = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(0.8F).sounds(BlockSoundGroup.MUD));
+	public static final Block SAFFRON_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block SAFFRON_MUSH_STAIRS = new MBStairsBlock(SAFFRON_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block SAFFRON_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block SAFFRON_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block SAFFRON_MUSH_BRICK_STAIRS = new MBStairsBlock(SAFFRON_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block SAFFRON_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block SAFFRON_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS).luminance((state) -> 15));
 
-	public static final Block TOADSTOOL_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block TOADSTOOL_MUSH_STAIRS = new MBStairsBlock(TOADSTOOL_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.WOOD).hardness(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block TOADSTOOL_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block TOADSTOOL_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block TOADSTOOL_MUSH_BRICK_STAIRS = new MBStairsBlock(TOADSTOOL_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).hardness(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block TOADSTOOL_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE));
-	public static final Block TOADSTOOL_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.STONE).luminance((state) -> 15));
+	public static final Block TOADSTOOL_MUSHCLAY = new Block(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(0.8F).sounds(BlockSoundGroup.MUD));
+	public static final Block TOADSTOOL_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block TOADSTOOL_MUSH_STAIRS = new MBStairsBlock(TOADSTOOL_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block TOADSTOOL_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block TOADSTOOL_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block TOADSTOOL_MUSH_BRICK_STAIRS = new MBStairsBlock(TOADSTOOL_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block TOADSTOOL_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block TOADSTOOL_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS).luminance((state) -> 15));
 
 	public static final Block LEAFBED = new MBSnowyBlock(AbstractBlock.Settings.of(Material.SOIL, MapColor.ORANGE).strength(0.5F).sounds(BlockSoundGroup.GRAVEL).ticksRandomly());
 	public static final Block BEDROLL = new BedrollBlock(DyeColor.BROWN, AbstractBlock.Settings.of(Material.WOOL, MapColor.BROWN).strength(0.2F).sounds(BlockSoundGroup.WOOL).nonOpaque());
@@ -312,7 +323,7 @@ public class MBBlocks {
 			.breakInstantly().noCollision().ticksRandomly().nonOpaque().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 
 	public static final Block BARREL_CACTUS = new BarrelCactusBlock(FabricBlockSettings.of(Material.CACTUS)
-            .strength(0.5f).sounds(BlockSoundGroup.WOOL).offsetType(AbstractBlock.OffsetType.XZ).dynamicBounds());
+            .strength(0.5f).sounds(BlockSoundGroup.WOOL).offsetType((state) -> state.get(BarrelCactusBlock.LEVEL) < 4 ? AbstractBlock.OffsetType.XZ : AbstractBlock.OffsetType.NONE).dynamicBounds());
 	public static final Block DESERT_BRUSH = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block TALL_DESERT_BRUSH = new SandyTallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
@@ -320,6 +331,12 @@ public class MBBlocks {
 	public static final Block MARIGOLD = new SandyFlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block POTTED_MARIGOLD = new FlowerPotBlock(MARIGOLD, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+
+	public static final Block PARASOL_FERN_STEM = new ParasolFernStemBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.0f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
+	public static final Block PARASOL_FERN_CROWN = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.2f).sounds(BlockSoundGroup.WOOD));
+	public static final Block PARASOL_FERN_FIBER = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.0f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
+	public static final Block PARASOL_FERN_FIBER_SLAB = new SlabBlock(AbstractBlock.Settings.copy(PARASOL_FERN_FIBER));
+	public static final Block PARASOL_FERN_FIBER_STAIRS = new MBStairsBlock(PARASOL_FERN_FIBER.getDefaultState(), AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS));
 
 	public static final Block CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
 	public static final Block FRAMED_CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
@@ -1281,6 +1298,7 @@ public class MBBlocks {
 		createBlock("honeycomb_tile_wall", HONEYCOMB_TILE_WALL, MBItemGroup.CONSTRUCTION);
 		createBlock("honeycomb_pillar", HONEYCOMB_PILLAR, MBItemGroup.CONSTRUCTION);
 
+		createBlock("red_mushclay", RED_MUSHCLAY, MBItemGroup.CONSTRUCTION);
 		createBlock("red_mush_block", RED_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("red_mush_stairs", RED_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("red_mush_slab", RED_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
@@ -1289,6 +1307,7 @@ public class MBBlocks {
 		createBlock("red_mush_brick_slab", RED_MUSH_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("red_mush_lamp", RED_MUSH_LAMP, MBItemGroup.CONSTRUCTION);
 
+		createBlock("brown_mushclay", BROWN_MUSHCLAY, MBItemGroup.CONSTRUCTION);
 		createBlock("brown_mush_block", BROWN_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("brown_mush_stairs", BROWN_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("brown_mush_slab", BROWN_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
@@ -1297,6 +1316,7 @@ public class MBBlocks {
 		createBlock("brown_mush_brick_slab", BROWN_MUSH_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("brown_mush_lamp", BROWN_MUSH_LAMP, MBItemGroup.CONSTRUCTION);
 
+		createBlock("toadstool_mushclay", TOADSTOOL_MUSHCLAY, MBItemGroup.CONSTRUCTION);
 		createBlock("toadstool_mush_block", TOADSTOOL_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("toadstool_mush_stairs", TOADSTOOL_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("toadstool_mush_slab", TOADSTOOL_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
@@ -1305,6 +1325,7 @@ public class MBBlocks {
 		createBlock("toadstool_mush_brick_slab", TOADSTOOL_MUSH_BRICK_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("toadstool_mush_lamp", TOADSTOOL_MUSH_LAMP, MBItemGroup.CONSTRUCTION);
 
+		createBlock("saffron_mushclay", SAFFRON_MUSHCLAY, MBItemGroup.CONSTRUCTION);
 		createBlock("saffron_mush_block", SAFFRON_MUSH_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("saffron_mush_stairs", SAFFRON_MUSH_STAIRS, MBItemGroup.CONSTRUCTION);
 		createBlock("saffron_mush_slab", SAFFRON_MUSH_SLAB, MBItemGroup.CONSTRUCTION);
@@ -1351,6 +1372,12 @@ public class MBBlocks {
 //		createBlock("aspen_leaf_carpet", ASPEN_LEAF_CARPET, MBItemGroup.DECOR);
 		createBlock("golden_birch_leaf_carpet", GOLDEN_BIRCH_LEAF_CARPET, MBItemGroup.DECOR);
 		createBlock("red_oak_leaf_carpet", RED_OAK_LEAF_CARPET, MBItemGroup.DECOR);
+
+		createBlock("parasol_fern_stem", PARASOL_FERN_STEM, MBItemGroup.DECOR);
+		createBlock("parasol_fern_crown", PARASOL_FERN_CROWN, MBItemGroup.DECOR);
+		createBlock("parasol_fern_fiber", PARASOL_FERN_FIBER, MBItemGroup.DECOR);
+		createBlock("parasol_fern_fiber_slab", PARASOL_FERN_FIBER_SLAB, MBItemGroup.DECOR);
+		createBlock("parasol_fern_fiber_stairs", PARASOL_FERN_FIBER_STAIRS, MBItemGroup.DECOR);
 
 //		createBlock("aspen_trim", ASPEN_TRIM, MBItemGroup.DECOR);
 //		createBlock("aspen_window", ASPEN_WINDOW, MBItemGroup.DECOR);
@@ -1419,6 +1446,12 @@ public class MBBlocks {
 		// shroms
 		createBlock("puffballs", PUFFBALLS, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_puffballs"), POTTED_PUFFBALLS);
+
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "oyster_mushroom"), OYSTER_MUSHROOMS);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "shelf_oyster_mushroom"), SHELF_OYSTER_MUSHROOMS);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "oyster_mushroom"),
+				new WallStandingBlockItem(MBBlocks.OYSTER_MUSHROOMS, MBBlocks.SHELF_OYSTER_MUSHROOMS, new Item.Settings().group(MBItemGroup.DECOR)));
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_oyster_mushroom"), POTTED_OYSTER_MUSHROOMS);
 
 		createBlock("saffron_mushroom", SAFFRON_MUSHROOM, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_saffron_mushroom"), POTTED_SAFFRON_MUSHROOM);

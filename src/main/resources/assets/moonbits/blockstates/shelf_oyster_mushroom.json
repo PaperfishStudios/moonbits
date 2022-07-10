@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "moonbits:block/shelf_oyster_mushroom",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "moonbits:block/shelf_oyster_mushroom"
+    },
+    "facing=south": {
+      "model": "moonbits:block/shelf_oyster_mushroom",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "moonbits:block/shelf_oyster_mushroom",
+      "y": 270
+    }
+  }
+}

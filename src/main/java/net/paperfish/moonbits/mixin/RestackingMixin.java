@@ -39,9 +39,10 @@ public class RestackingMixin {
 
     @Inject(method="<clinit>", at = @At("TAIL"))
     private static void adjustStackSize(CallbackInfo ci) {
-        ((ItemAccessor)Items.MUSHROOM_STEW).setMaxCount(16);
-        ((ItemAccessor)Items.RABBIT_STEW).setMaxCount(16);
-        ((ItemAccessor)Items.BEETROOT_SOUP).setMaxCount(16);
+        ((ItemAccessor)Items.MUSHROOM_STEW).setMaxCount(64);
+        ((ItemAccessor)Items.RABBIT_STEW).setMaxCount(64);
+        ((ItemAccessor)Items.BEETROOT_SOUP).setMaxCount(64);
+        ((ItemAccessor)Items.CAKE).setMaxCount(64);
 
         ((ItemAccessor)Items.SNOWBALL).setMaxCount(64);
 
@@ -53,8 +54,49 @@ public class RestackingMixin {
         ((ItemAccessor)Items.DARK_OAK_SIGN).setMaxCount(64);
         ((ItemAccessor)Items.CRIMSON_SIGN).setMaxCount(64);
         ((ItemAccessor)Items.WARPED_SIGN).setMaxCount(64);
+
+        ((ItemAccessor)Items.WHITE_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.LIGHT_GRAY_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.GRAY_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.BLACK_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.GREEN_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.LIME_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.YELLOW_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.ORANGE_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.BROWN_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.RED_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.PINK_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.MAGENTA_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.PURPLE_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.LIGHT_BLUE_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.CYAN_BANNER).setMaxCount(64);
+        ((ItemAccessor)Items.BLUE_BANNER).setMaxCount(64);
+
         ((ItemAccessor)Items.BUCKET).setMaxCount(64);
 
         ((ItemAccessor)Items.SPYGLASS).setMaxCount(64);
+
+        ((ItemAccessor)Items.MUSIC_DISC_BLOCKS).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_CAT).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_CHIRP).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_FAR).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_MALL).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_MELLOHI).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_WARD).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_WAIT).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_STAL).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_STRAD).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_11).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_13).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_5).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_PIGSTEP).setMaxCount(64);
+        ((ItemAccessor)Items.MUSIC_DISC_OTHERSIDE).setMaxCount(64);
+
+        ((ItemAccessor)Items.SADDLE).setMaxCount(64);
+
+        ((ItemAccessor)Items.LEATHER_HORSE_ARMOR).setMaxCount(64);
+        ((ItemAccessor)Items.IRON_HORSE_ARMOR).setMaxCount(64);
+        ((ItemAccessor)Items.GOLDEN_HORSE_ARMOR).setMaxCount(64);
+        ((ItemAccessor)Items.DIAMOND_HORSE_ARMOR).setMaxCount(64);
     }
 }

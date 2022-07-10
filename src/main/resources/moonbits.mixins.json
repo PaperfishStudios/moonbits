@@ -4,7 +4,6 @@
   "package": "net.paperfish.moonbits.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AbstractBlockMixin",
     "AnimalEntityMixin",
     "BlockEntityTypeMixin",
     "BoatDropsMixin",
@@ -16,7 +15,6 @@
     "CropBlockMixin",
     "EnchantingTableBlockMixin",
     "EntityAccessor",
-    "FoliagePlacerTypeAccessor",
     "ItemAccessor",
     "ItemMixin",
     "LanternMixin",
@@ -36,8 +34,7 @@
     "TexturedModelAccessor",
     "TextureKeyAccessor",
     "TreeDecoratorTypeInvoker",
-    "TurtleEntityMixin",
-    "VanillaSurfaceRulesMixin"
+    "TurtleEntityMixin"
   ],
   "client": [
     "ChickenRenderMixin",

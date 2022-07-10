@@ -122,9 +122,9 @@ public class MBBlockFamilies {
             .unlockCriterionName("has_planks")
             .build();
 
-//    public static final MBBlockFamily ASPEN = register(MBBlocks.ASPEN_PLANKS)
-//            .slab(MBBlocks.ASPEN_SLAB).stairs(MBBlocks.ASPEN_STAIRS)
-//            .build();
+    public static final MBBlockFamily PARASOL_FERN_FIBER = register(MBBlocks.PARASOL_FERN_FIBER)
+            .slab(MBBlocks.PARASOL_FERN_FIBER_SLAB).stairs(MBBlocks.PARASOL_FERN_FIBER_STAIRS)
+            .build();
 
     public static final MBBlockFamily HONEY = register(MBBlocks.HONEY_PLANKS)
             .slab(MBBlocks.HONEY_SLAB).stairs(MBBlocks.HONEY_STAIRS)

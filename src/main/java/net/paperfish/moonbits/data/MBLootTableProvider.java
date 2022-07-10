@@ -149,12 +149,12 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(MBBlocks.PEAT_BLOCK);
         addDrop(MBBlocks.PEAT_DEPOSIT, (Block block) -> oreDrops(block, MBItems.PEAT, 1f, 2f));
-        addDrop(MBBlocks.CLAY_DEPOSIT, (Block block) -> oreDrops(block, Items.CLAY_BALL, 2f, 4f));
-        addDrop(MBBlocks.GOLD_DEPOSIT, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 1f, 4f));
-        addDrop(MBBlocks.COPPER_DEPOSIT, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 2f, 5f));
+        addDrop(MBBlocks.CLAY_DEPOSIT, (Block block) -> oreDrops(block, Items.CLAY_BALL, 3f, 5f));
+        addDrop(MBBlocks.GOLD_DEPOSIT, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 6f, 10f));
+        addDrop(MBBlocks.COPPER_DEPOSIT, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 6f, 12f));
 
-        addDrop(MBBlocks.TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 2f, 5f));
-        addDrop(MBBlocks.FROST_TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 2f, 5f));
+        addDrop(MBBlocks.TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 6f, 12f));
+        addDrop(MBBlocks.FROST_TIN_DEPOSIT, (Block block) -> oreDrops(block, MBItems.TIN_NUGGET, 6f, 12f));
         addDrop(MBBlocks.TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
         addDrop(MBBlocks.DEEPSLATE_TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
         addDrop(MBBlocks.CHERT_TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
@@ -166,9 +166,9 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(MBBlocks.PERMAFROST);
         addDrop(MBBlocks.FROST_PEAT, (Block block) -> oreDrops(block, MBItems.PEAT, 1f, 2f));
-        addDrop(MBBlocks.FROST_CLAY, (Block block) -> oreDrops(block, Items.CLAY_BALL, 2f, 4f));
-        addDrop(MBBlocks.FROST_GOLD, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 1f, 4f));
-        addDrop(MBBlocks.FROST_COPPER, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 2f, 5f));
+        addDrop(MBBlocks.FROST_CLAY, (Block block) -> oreDrops(block, Items.CLAY_BALL, 3f, 5f));
+        addDrop(MBBlocks.FROST_GOLD, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 6f, 10f));
+        addDrop(MBBlocks.FROST_COPPER, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 6f, 12f));
 
         addDrop(Blocks.ICE, (Block block) -> oreDrops(block, MBItems.ICE_CUBES, 1f, 2f));
 
@@ -241,6 +241,10 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(MBBlocks.MARIGOLD);
 
+        addDrop(MBBlocks.PARASOL_FERN_STEM);
+        addDrop(MBBlocks.PARASOL_FERN_CROWN);
+//        addDrop(MBBlocks.PARASOL_FERN_FIBER);
+
         BlockStatePropertyLootCondition.Builder peanutbuilder = BlockStatePropertyLootCondition.builder(MBBlocks.PEANUT_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(PeanutCropBlock.AGE, 7));
         this.addDrop(MBBlocks.PEANUT_CROP, BlockLootTableGenerator.applyExplosionDecay(MBBlocks.PEANUT_CROP, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(MBItems.PEANUT)))
@@ -267,6 +271,9 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.TOADSTOOL);
         addDrop(MBBlocks.SMALL_TOADSTOOLS);
 
+        addDrop(MBBlocks.OYSTER_MUSHROOMS);
+        addDrop(MBBlocks.SHELF_OYSTER_MUSHROOMS);
+
         addDrop(MBBlocks.MYCELIUM_ROOTS, BlockLootTableGenerator::dropsWithShears);
         addDrop(MBBlocks.RED_MUSHROOM_CAP);
         addDrop(MBBlocks.BROWN_MUSHROOM_CAP);
@@ -278,8 +285,11 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.MUSHROOM_HYPHAE);
         addDrop(MBBlocks.STRIPPED_MUSHROOM_HYPHAE);
 
-        //addDrop(MBBlocks.RED_MUSH_BRICKS);
-        //addDrop(MBBlocks.BROWN_MUSH_BRICKS);
+        addDrop(MBBlocks.RED_MUSHCLAY, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.RED_MUSHBLEND, ConstantLootNumberProvider.create(4.0f)));
+        addDrop(MBBlocks.BROWN_MUSHCLAY, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.BROWN_MUSHBLEND, ConstantLootNumberProvider.create(4.0f)));
+        addDrop(MBBlocks.SAFFRON_MUSHCLAY, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.SAFFRON_MUSHBLEND, ConstantLootNumberProvider.create(4.0f)));
+        addDrop(MBBlocks.TOADSTOOL_MUSHCLAY, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.TOADSTOOL_MUSHBLEND, ConstantLootNumberProvider.create(4.0f)));
+
         addDrop(MBBlocks.RED_MUSH_LAMP);
         addDrop(MBBlocks.BROWN_MUSH_LAMP);
         addDrop(MBBlocks.SAFFRON_MUSH_LAMP);

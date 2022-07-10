@@ -14,7 +14,7 @@ public class BoatDropsMixin {
     @Inject(method = "asItem", at = @At("HEAD"), cancellable = true)
     public void asItem(CallbackInfoReturnable<Item> ci) {
         if (((BoatEntity)(Object)this).getBoatType() == MBBoatTypes.LAMPROOT) {
-            ci.setReturnValue(MBItems.JUNIPER_BOAT);
+            ci.setReturnValue(MBItems.LAMPROOT_BOAT);
         }
         if (((BoatEntity)(Object)this).getBoatType() == MBBoatTypes.CEDAR) {
             ci.setReturnValue(MBItems.CEDAR_BOAT);

@@ -78,7 +78,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// geckolib??
-	modImplementation "software.bernie.geckolib:geckolib-fabric-1.19:3.1.0"
+	modImplementation "software.bernie.geckolib:geckolib-fabric-1.19:3.1.5"
 
 	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
 

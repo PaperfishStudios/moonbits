@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/parasol_fern_fiber_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/parasol_fern_fiber"
+    },
+    "type=top": {
+      "model": "moonbits:block/parasol_fern_fiber_slab_top"
+    }
+  }
+}

@@ -18,6 +18,13 @@ public class MBEntities {
                     .defaultAttributes(GrizzlyBearEntity::createGrizzAttributes)
                     .dimensions(EntityDimensions.fixed(1.0F, 0.8F)).build());
 
+    public static final EntityType<GrasshatEntity> GRASSHAT = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier("moonbits", "grasshat"),
+            FabricEntityTypeBuilder.createMob().spawnGroup(SpawnGroup.CREATURE).entityFactory(GrasshatEntity::new)
+                    .defaultAttributes(GrasshatEntity::createAttributes)
+                    .dimensions(EntityDimensions.fixed(1.0F, 1.2F)).build());
+
     public static final EntityType<ItemHookEntity> ITEM_HOOK_ENTITY = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("moonbits", "item_hook"),

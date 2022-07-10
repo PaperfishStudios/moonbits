@@ -304,6 +304,10 @@ public class MBModelProvider extends FabricModelProvider {
         doubleBlock(MBBlocks.TALL_DESERT_BRUSH, TintType.NOT_TINTED, generator);
         flowerPotPlant(MBBlocks.MARIGOLD, MBBlocks.POTTED_MARIGOLD, TintType.NOT_TINTED, generator);
 
+        generator.registerRod(MBBlocks.PARASOL_FERN_STEM);
+        generator.registerSingleton(MBBlocks.PARASOL_FERN_CROWN, CUBE_BOTTOM_TOP);
+//        generator.registerSimpleCubeAll(MBBlocks.PARASOL_FERN_FIBER);
+
         generator.registerSimpleCubeAll(MBBlocks.CANVAS);
         generator.registerSimpleCubeAll(MBBlocks.FRAMED_CANVAS);
 
@@ -326,12 +330,20 @@ public class MBModelProvider extends FabricModelProvider {
         flowerPotPlant(MBBlocks.SMALL_TOADSTOOLS, MBBlocks.POTTED_SMALL_TOADSTOOLS, TintType.NOT_TINTED, generator);
         toadstool(generator);
 
+        generator.registerCoralFan(MBBlocks.OYSTER_MUSHROOMS, MBBlocks.SHELF_OYSTER_MUSHROOMS);
+        pottedBlock(MBBlocks.OYSTER_MUSHROOMS, MBBlocks.POTTED_OYSTER_MUSHROOMS, generator);
+
         redBrownMushrooms(generator);
         generator.registerMushroomBlock(MBBlocks.SAFFRON_MUSHROOM_CAP);
         gills(generator);
         giantToadstoolCap(generator);
         log(MBBlocks.MUSHROOM_STEM, MBBlocks.MUSHROOM_HYPHAE, generator);
         log(MBBlocks.STRIPPED_MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_HYPHAE, generator);
+
+        generator.registerSimpleCubeAll(MBBlocks.RED_MUSHCLAY);
+        generator.registerSimpleCubeAll(MBBlocks.BROWN_MUSHCLAY);
+        generator.registerSimpleCubeAll(MBBlocks.TOADSTOOL_MUSHCLAY);
+        generator.registerSimpleCubeAll(MBBlocks.SAFFRON_MUSHCLAY);
         generator.registerSimpleCubeAll(MBBlocks.RED_MUSH_LAMP);
         generator.registerSimpleCubeAll(MBBlocks.BROWN_MUSH_LAMP);
         generator.registerSimpleCubeAll(MBBlocks.TOADSTOOL_MUSH_LAMP);

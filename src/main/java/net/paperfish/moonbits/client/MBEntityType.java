@@ -21,6 +21,7 @@ public class MBEntityType {
         // entity renderer registering must be done client-side
 
         EntityRendererRegistry.register(MBEntities.GRIZZLY_BEAR, GrizzlyBearEntityRenderer::new);
+        EntityRendererRegistry.register(MBEntities.GRASSHAT, GrasshatEntityRenderer::new);
 
         EntityRendererRegistry.register(MBEntities.SEAT_BLOCK_ENTITY, EmptyEntityRenderer::new);
 
