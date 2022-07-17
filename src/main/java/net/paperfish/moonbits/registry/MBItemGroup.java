@@ -5,26 +5,27 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
+import net.paperfish.moonbits.Moonbits;
 
 public class MBItemGroup {
     public static final ItemGroup CONSTRUCTION = FabricItemGroupBuilder.build(
-		new Identifier("moonbits", "construction"),
+		new Identifier(Moonbits.MODID, "construction"),
 		() -> new ItemStack(MBBlocks.CHERT_BRICKS));
 	
 	public static final ItemGroup DECOR = FabricItemGroupBuilder.build(
-		new Identifier("moonbits", "decor"),
+		new Identifier(Moonbits.MODID, "decor"),
 		() -> new ItemStack(MBBlocks.BIRCH_BOOKSHELF));
 	
 	public static final ItemGroup MB_MISC = FabricItemGroupBuilder.build(
-		new Identifier("moonbits", "misc"),
+		new Identifier(Moonbits.MODID, "misc"),
 		() -> new ItemStack(MBItems.PEAT));
 	
 	public static final ItemGroup MB_FOOD = FabricItemGroupBuilder.build(
-		new Identifier("moonbits", "food"),
+		new Identifier(Moonbits.MODID, "food"),
 		() -> new ItemStack(MBItems.ROASTED_BERRIES));
 
 	public static final ItemGroup DEBUGGING = FabricItemGroupBuilder.create(
-		new Identifier("moonbits", "debug")) 
+		new Identifier(Moonbits.MODID, "debug"))
 		.icon(() -> new ItemStack(Items.COMMAND_BLOCK))
 		.appendItems(stacks -> {
 			stacks.add(new ItemStack(Items.SPAWNER));

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:waxed_pestered_cut_tin_stairs_from_waxed_pestered_cut_tin_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_waxed_pestered_cut_tin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:waxed_pestered_cut_tin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_waxed_pestered_cut_tin",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:waxed_pestered_cut_tin_stairs_from_waxed_pestered_cut_tin_stonecutting"
+    ]
+  }
+}

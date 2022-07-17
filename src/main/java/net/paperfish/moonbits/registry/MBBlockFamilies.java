@@ -163,6 +163,12 @@ public class MBBlockFamilies {
 
     public static final MBBlockFamily CUT_TIN = register(MBBlocks.CUT_TIN)
             .slab(MBBlocks.CUT_TIN_SLAB).stairs(MBBlocks.CUT_TIN_STAIRS).build();
+    public static final MBBlockFamily OXIDIZED_CUT_TIN = register(MBBlocks.OXIDIZED_CUT_TIN)
+            .slab(MBBlocks.OXIDIZED_CUT_TIN_SLAB).stairs(MBBlocks.OXIDIZED_CUT_TIN_STAIRS).build();
+    public static final MBBlockFamily BLACKENED_CUT_TIN = register(MBBlocks.BLACKENED_CUT_TIN)
+            .slab(MBBlocks.BLACKENED_CUT_TIN_SLAB).stairs(MBBlocks.BLACKENED_CUT_TIN_STAIRS).build();
+    public static final MBBlockFamily PESTERED_CUT_TIN = register(MBBlocks.PESTERED_CUT_TIN)
+            .slab(MBBlocks.PESTERED_CUT_TIN_SLAB).stairs(MBBlocks.PESTERED_CUT_TIN_STAIRS).build();
 
     public static final MBBlockFamily FROSTY_TILL_BRICKS = register(MBBlocks.FROSTY_TILL_BRICKS)
             .slab(MBBlocks.FROSTY_TILL_BRICK_SLAB).stairs(MBBlocks.FROSTY_TILL_BRICK_STAIRS).wall(MBBlocks.FROSTY_TILL_BRICK_WALL).build();

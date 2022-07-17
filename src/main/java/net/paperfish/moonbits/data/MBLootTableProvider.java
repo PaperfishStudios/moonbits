@@ -24,12 +24,9 @@ import net.minecraft.predicate.StatePredicate;
 import net.minecraft.predicate.item.EnchantmentPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.util.registry.Registry;
-import net.paperfish.moonbits.registry.MBBlocks;
-import net.paperfish.moonbits.registry.MBItems;
+import net.paperfish.moonbits.registry.*;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
-import net.paperfish.moonbits.registry.MBBlockFamilies;
-import net.paperfish.moonbits.registry.MBBlockFamily;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -159,7 +156,13 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.DEEPSLATE_TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
         addDrop(MBBlocks.CHERT_TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
         addDrop(MBBlocks.RAW_TIN_BLOCK);
+
         addDrop(MBBlocks.TIN_BLOCK);
+        addDrop(MBBlocks.OXIDIZED_TIN_BLOCK);
+        addDrop(MBBlocks.BLACKENED_TIN_BLOCK);
+        addDrop(MBBlocks.PESTERED_TIN_BLOCK);
+        MBEvents.WAX_OFF.forEach((waxed, base) -> addDrop(waxed));
+
         addDrop(MBBlocks.TIN_PILLAR);
         addDrop(MBBlocks.TIN_TRAPDOOR);
         addDrop(MBBlocks.TIN_DOOR, BlockLootTableGenerator::addDoorDrop);

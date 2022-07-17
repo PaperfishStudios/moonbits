@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/oxidized_cut_tin_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/oxidized_cut_tin"
+    },
+    "type=top": {
+      "model": "moonbits:block/oxidized_cut_tin_slab_top"
+    }
+  }
+}

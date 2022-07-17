@@ -499,10 +499,41 @@ public class MBBlocks {
 	public static final Block DEEPSLATE_TIN_ORE = new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_COAL_ORE));
 	public static final Block CHERT_TIN_ORE = new Block(FabricBlockSettings.copy(CHERT_COAL_ORE));
 	public static final Block RAW_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.RAW_COPPER_BLOCK));
-	public static final Block TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block CUT_TIN_STAIRS = new MBStairsBlock(CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+
+	public static final Block PESTERED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.TUFF));
+	public static final Block BLACKENED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block OXIDIZED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block TIN_BLOCK = new DimWeatheringBlock(OXIDIZED_TIN_BLOCK, BLACKENED_TIN_BLOCK, PESTERED_TIN_BLOCK, FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block PESTERED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.TUFF));
+	public static final Block BLACKENED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block OXIDIZED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block CUT_TIN = new DimWeatheringBlock(OXIDIZED_CUT_TIN, BLACKENED_CUT_TIN, PESTERED_CUT_TIN, FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block PESTERED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.TUFF));
+	public static final Block BLACKENED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block OXIDIZED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block CUT_TIN_SLAB = new DimWeatheringSlabBlock(OXIDIZED_CUT_TIN_SLAB, BLACKENED_CUT_TIN_SLAB, PESTERED_CUT_TIN_SLAB, FabricBlockSettings.copy(CUT_TIN));
+	public static final Block PESTERED_CUT_TIN_STAIRS = new MBStairsBlock(PESTERED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.TUFF));
+	public static final Block BLACKENED_CUT_TIN_STAIRS = new MBStairsBlock(BLACKENED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block OXIDIZED_CUT_TIN_STAIRS = new MBStairsBlock(OXIDIZED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block CUT_TIN_STAIRS = new DimWeatheringStairsBlock(OXIDIZED_CUT_TIN_STAIRS, BLACKENED_CUT_TIN_STAIRS, PESTERED_CUT_TIN_STAIRS, CUT_TIN.getDefaultState(), FabricBlockSettings.copy(CUT_TIN));
+
+	public static final Block WAXED_PESTERED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.TUFF));
+	public static final Block WAXED_BLACKENED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_OXIDIZED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_PESTERED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.TUFF));
+	public static final Block WAXED_BLACKENED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_OXIDIZED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_PESTERED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.TUFF));
+	public static final Block WAXED_BLACKENED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_OXIDIZED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_PESTERED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_PESTERED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.TUFF));
+	public static final Block WAXED_BLACKENED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_BLACKENED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_OXIDIZED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_OXIDIZED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+
 	public static final Block TIN_PILLAR = new PillarBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block TIN_DOOR = new MBDoorBlock(FabricBlockSettings.copy(Blocks.IRON_DOOR).nonOpaque());
 	public static final Block TIN_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
@@ -1154,11 +1185,44 @@ public class MBBlocks {
 		createBlock("banded_iron", BANDED_IRON, MBItemGroup.CONSTRUCTION);
 		createBlock("hematite_ore", HEMATITE_ORE, MBItemGroup.CONSTRUCTION);
 		createBlock("raw_tin_block", RAW_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
+
 		createBlock("tin_block", TIN_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("oxidized_tin_block", OXIDIZED_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("blackened_tin_block", BLACKENED_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("pestered_tin_block", PESTERED_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
 		createBlock("cut_tin", CUT_TIN, MBItemGroup.CONSTRUCTION);
+		createBlock("oxidized_cut_tin", OXIDIZED_CUT_TIN, MBItemGroup.CONSTRUCTION);
+		createBlock("blackened_cut_tin", BLACKENED_CUT_TIN, MBItemGroup.CONSTRUCTION);
+		createBlock("pestered_cut_tin", PESTERED_CUT_TIN, MBItemGroup.CONSTRUCTION);
 		createBlock("cut_tin_slab", CUT_TIN_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("oxidized_cut_tin_slab", OXIDIZED_CUT_TIN_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("blackened_cut_tin_slab", BLACKENED_CUT_TIN_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("pestered_cut_tin_slab", PESTERED_CUT_TIN_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("cut_tin_stairs", CUT_TIN_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("oxidized_cut_tin_stairs", OXIDIZED_CUT_TIN_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("blackened_cut_tin_stairs", BLACKENED_CUT_TIN_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("pestered_cut_tin_stairs", PESTERED_CUT_TIN_STAIRS, MBItemGroup.CONSTRUCTION);
+
+
+		createBlock("waxed_tin_block", WAXED_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_oxidized_tin_block", WAXED_OXIDIZED_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_blackened_tin_block", WAXED_BLACKENED_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_pestered_tin_block", WAXED_PESTERED_TIN_BLOCK, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_cut_tin", WAXED_CUT_TIN, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_oxidized_cut_tin", WAXED_OXIDIZED_CUT_TIN, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_blackened_cut_tin", WAXED_BLACKENED_CUT_TIN, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_pestered_cut_tin", WAXED_PESTERED_CUT_TIN, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_cut_tin_slab", WAXED_CUT_TIN_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_oxidized_cut_tin_slab", WAXED_OXIDIZED_CUT_TIN_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_blackened_cut_tin_slab", WAXED_BLACKENED_CUT_TIN_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_pestered_cut_tin_slab", WAXED_PESTERED_CUT_TIN_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_cut_tin_stairs", WAXED_CUT_TIN_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_oxidized_cut_tin_stairs", WAXED_OXIDIZED_CUT_TIN_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_blackened_cut_tin_stairs", WAXED_BLACKENED_CUT_TIN_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("waxed_pestered_cut_tin_stairs", WAXED_PESTERED_CUT_TIN_STAIRS, MBItemGroup.CONSTRUCTION);
+
 		createBlock("tin_pillar", TIN_PILLAR, MBItemGroup.CONSTRUCTION);
+
 		createBlock("hematite_block", HEMATITE_BLOCK, MBItemGroup.CONSTRUCTION);
 
 		createBlock("peat_block", PEAT_BLOCK, MBItemGroup.CONSTRUCTION);

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "moonbits:block/blackened_cut_tin",
+    "side": "moonbits:block/blackened_cut_tin",
+    "top": "moonbits:block/blackened_cut_tin"
+  }
+}

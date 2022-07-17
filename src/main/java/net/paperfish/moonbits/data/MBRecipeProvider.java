@@ -8,6 +8,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.data.server.RecipeProvider;
 import net.minecraft.data.server.recipe.*;
+import net.minecraft.item.HoneycombItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
@@ -229,6 +230,21 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 
         FIRING.forEach((in, out) -> firing(exporter, in, out, 0.1f, DEFAULT_FIRE_TIME));
         FIRING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
+
+        MBEvents.WAXING.forEach((input, output) -> ShapelessRecipeJsonBuilder.create(output)
+                .input(input).input(Items.HONEYCOMB)
+                .group(RecipeProvider.getItemPath(output))
+                .criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input))
+                .offerTo(exporter, RecipeProvider.convertBetween(output, Items.HONEYCOMB)));
+        slabRecipe(exporter, MBBlocks.WAXED_CUT_TIN, MBBlocks.WAXED_CUT_TIN_SLAB);
+        stairsRecipe(exporter, MBBlocks.WAXED_OXIDIZED_CUT_TIN, MBBlocks.WAXED_OXIDIZED_CUT_TIN_SLAB);
+        stairsRecipe(exporter, MBBlocks.WAXED_BLACKENED_CUT_TIN, MBBlocks.WAXED_BLACKENED_CUT_TIN_SLAB);
+        stairsRecipe(exporter, MBBlocks.WAXED_PESTERED_CUT_TIN, MBBlocks.WAXED_PESTERED_CUT_TIN_SLAB);
+        stairsRecipe(exporter, MBBlocks.WAXED_CUT_TIN, MBBlocks.WAXED_CUT_TIN_STAIRS);
+        stairsRecipe(exporter, MBBlocks.WAXED_OXIDIZED_CUT_TIN, MBBlocks.WAXED_OXIDIZED_CUT_TIN_STAIRS);
+        stairsRecipe(exporter, MBBlocks.WAXED_BLACKENED_CUT_TIN, MBBlocks.WAXED_BLACKENED_CUT_TIN_STAIRS);
+        stairsRecipe(exporter, MBBlocks.WAXED_PESTERED_CUT_TIN, MBBlocks.WAXED_PESTERED_CUT_TIN_STAIRS);
+
 
         blasting(exporter, MBBlocks.RICH_MUD, MBBlocks.CRACKED_MUD, 0.1f, DEFAULT_BLAST_TIME);
 

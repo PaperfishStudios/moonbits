@@ -71,6 +71,11 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         MBBlockFamilies.TILL_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.FROSTY_TILL_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
 
+        MBBlockFamilies.CUT_TIN.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+        MBBlockFamilies.OXIDIZED_CUT_TIN.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+        MBBlockFamilies.BLACKENED_CUT_TIN.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+        MBBlockFamilies.PESTERED_CUT_TIN.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.CHERT);
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.COBBLED_CHERT);
         MBBlockFamilies.CHERT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));

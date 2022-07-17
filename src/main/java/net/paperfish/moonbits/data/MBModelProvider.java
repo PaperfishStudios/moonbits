@@ -22,6 +22,7 @@ import net.minecraft.data.client.TexturedModel;
 import net.minecraft.data.client.VariantSettings;
 import net.minecraft.data.client.VariantsBlockStateSupplier;
 import net.minecraft.data.client.When;
+import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.item.Item;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
@@ -29,15 +30,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
-import net.paperfish.moonbits.registry.MBBlocks;
-import net.paperfish.moonbits.registry.MBItems;
+import net.paperfish.moonbits.registry.*;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
 import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
 import net.paperfish.moonbits.mixin.TextureKeyAccessor;
 import net.paperfish.moonbits.mixin.TexturedModelAccessor;
-import net.paperfish.moonbits.registry.MBBlockFamilies;
-import net.paperfish.moonbits.registry.MBBlockFamily;
 
 import java.util.*;
 import java.util.function.Function;
@@ -242,7 +240,31 @@ public class MBModelProvider extends FabricModelProvider {
         generator.registerSimpleCubeAll(MBBlocks.DEEPSLATE_TIN_ORE);
         generator.registerSimpleCubeAll(MBBlocks.CHERT_TIN_ORE);
         generator.registerSimpleCubeAll(MBBlocks.RAW_TIN_BLOCK);
+
         generator.registerSimpleCubeAll(MBBlocks.TIN_BLOCK);
+        generator.registerSimpleCubeAll(MBBlocks.OXIDIZED_TIN_BLOCK);
+        generator.registerSimpleCubeAll(MBBlocks.BLACKENED_TIN_BLOCK);
+        generator.registerSimpleCubeAll(MBBlocks.PESTERED_TIN_BLOCK);
+        generator.registerParented(MBBlocks.TIN_BLOCK, MBBlocks.WAXED_TIN_BLOCK);
+        generator.registerParented(MBBlocks.OXIDIZED_TIN_BLOCK, MBBlocks.WAXED_OXIDIZED_TIN_BLOCK);
+        generator.registerParented(MBBlocks.BLACKENED_TIN_BLOCK, MBBlocks.WAXED_BLACKENED_TIN_BLOCK);
+        generator.registerParented(MBBlocks.PESTERED_TIN_BLOCK, MBBlocks.WAXED_PESTERED_TIN_BLOCK);
+
+        generator.registerParented(MBBlocks.CUT_TIN, MBBlocks.WAXED_CUT_TIN);
+        generator.registerParented(MBBlocks.OXIDIZED_CUT_TIN, MBBlocks.WAXED_OXIDIZED_CUT_TIN);
+        generator.registerParented(MBBlocks.BLACKENED_CUT_TIN, MBBlocks.WAXED_BLACKENED_CUT_TIN);
+        generator.registerParented(MBBlocks.PESTERED_CUT_TIN, MBBlocks.WAXED_PESTERED_CUT_TIN);
+
+        stairs(MBBlocks.WAXED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN, generator);
+        stairs(MBBlocks.WAXED_OXIDIZED_CUT_TIN_STAIRS, MBBlocks.OXIDIZED_CUT_TIN, generator);
+        stairs(MBBlocks.WAXED_BLACKENED_CUT_TIN_STAIRS, MBBlocks.BLACKENED_CUT_TIN, generator);
+        stairs(MBBlocks.WAXED_PESTERED_CUT_TIN_STAIRS, MBBlocks.PESTERED_CUT_TIN, generator);
+
+        slab(MBBlocks.WAXED_CUT_TIN_SLAB, MBBlocks.CUT_TIN, generator);
+        slab(MBBlocks.WAXED_OXIDIZED_CUT_TIN_SLAB, MBBlocks.OXIDIZED_CUT_TIN, generator);
+        slab(MBBlocks.WAXED_BLACKENED_CUT_TIN_SLAB, MBBlocks.BLACKENED_CUT_TIN, generator);
+        slab(MBBlocks.WAXED_PESTERED_CUT_TIN_SLAB, MBBlocks.PESTERED_CUT_TIN, generator);
+
         generator.registerAxisRotated(MBBlocks.TIN_PILLAR, CUBE_COLUMN);
 
         generator.registerDoor(MBBlocks.TIN_DOOR);

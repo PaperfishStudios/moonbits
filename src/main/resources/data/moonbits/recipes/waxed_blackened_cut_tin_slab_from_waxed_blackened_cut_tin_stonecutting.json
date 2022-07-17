@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moonbits:waxed_blackened_cut_tin"
+  },
+  "result": "moonbits:waxed_blackened_cut_tin_slab"
+}
