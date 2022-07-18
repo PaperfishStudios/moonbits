@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "moonbits:lamproot_log",
+    "moonbits:lamproot_wood",
+    "moonbits:stripped_lamproot_log",
+    "moonbits:stripped_lamproot_wood"
+  ]
+}

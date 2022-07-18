@@ -279,7 +279,14 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 MBBlocks.PARASOL_FERN_STEM,
 
+                MBBlocks.HARDY_LEAVES,
+                MBBlocks.FLOWERING_HARDY_LEAVES,
+                MBBlocks.FRUITING_HARDY_LEAVES,
+
+                MBBlocks.TINY_BARREL_CACTUS,
+                MBBlocks.SMALL_BARREL_CACTUS,
                 MBBlocks.BARREL_CACTUS,
+                MBBlocks.LARGE_BARREL_CACTUS,
 
                 MBBlocks.CANVAS,
                 MBBlocks.FRAMED_CANVAS,
@@ -298,6 +305,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.COCOA_SACK,
                 MBBlocks.SWEET_BERRY_BASKET,
                 MBBlocks.GLOW_BERRY_BASKET,
+                MBBlocks.HARDY_BERRY_BASKET,
                 MBBlocks.SUGAR_CANE_BUNDLE,
                 MBBlocks.KELP_BLOCK,
                 MBBlocks.NETHER_WART_SACK,
@@ -441,7 +449,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 //                MBBlocks.ASPEN_LATTICE
         );
 
-        this.getOrCreateTagBuilder(MBBlockTags.JUNIPER_LOGS).add(
+        this.getOrCreateTagBuilder(MBBlockTags.LAMPROOT_LOGS).add(
                 MBBlocks.LAMPROOT_LOG,
                 MBBlocks.LAMPROOT_WOOD,
                 MBBlocks.STRIPPED_LAMPROOT_LOG,

@@ -15,5 +15,6 @@ public class MBDataGenerator implements DataGeneratorEntrypoint {
 //        dataGenerator.addProvider(new MBAdvancementsProvider(dataGenerator));
         dataGenerator.addProvider(blockTags);
         dataGenerator.addProvider(new MBItemTagProvider(dataGenerator, blockTags));
+        dataGenerator.addProvider(new MBEntityTagProvider(dataGenerator));
     }
 }

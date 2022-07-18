@@ -30,6 +30,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.paperfish.moonbits.registry.*;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
@@ -182,9 +183,6 @@ public class MBModelProvider extends FabricModelProvider {
 
         omniCross(MBBlocks.MYCELIUM_ROOTS, generator, true);
 
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.BOILING_CAULDRON,
-                Models.TEMPLATE_CAULDRON_FULL.upload(MBBlocks.BOILING_CAULDRON, TextureMap.cauldron(TextureMap.getSubId(Blocks.WATER, "_still")), generator.modelCollector)));
-
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.HONEY_CAULDRON)
                 .coordinate(BlockStateVariantMap.create(HoneyCauldronBlock.LEVEL)
                         .register(1, BlockStateVariant.create().put(VariantSettings.MODEL, T_HONEY_CAULDRON_1
@@ -211,11 +209,11 @@ public class MBModelProvider extends FabricModelProvider {
                 BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap")))
                 .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
 
-        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.COOKING_POT, new Identifier(Moonbits.MODID, "block/cooking_pot")));
-//        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.COOKING_POT,
-//                        BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/cooking_pot")))
-//                .coordinate(BlockStateModelGenerator.createAxisRotatedVariantMap()));
-        generator.registerItemModel(MBBlocks.COOKING_POT.asItem());
+//        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.COOKING_POT, new Identifier(Moonbits.MODID, "block/cooking_pot")));
+////        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.COOKING_POT,
+////                        BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/cooking_pot")))
+////                .coordinate(BlockStateModelGenerator.createAxisRotatedVariantMap()));
+//        generator.registerItemModel(MBBlocks.COOKING_POT.asItem());
 
         generator.registerSimpleCubeAll(MBBlocks.SYRUP_BLOCK);
 
@@ -329,6 +327,9 @@ public class MBModelProvider extends FabricModelProvider {
         generator.registerRod(MBBlocks.PARASOL_FERN_STEM);
         generator.registerSingleton(MBBlocks.PARASOL_FERN_CROWN, CUBE_BOTTOM_TOP);
 //        generator.registerSimpleCubeAll(MBBlocks.PARASOL_FERN_FIBER);
+        generator.registerSimpleCubeAll(MBBlocks.HARDY_LEAVES);
+        generator.registerSimpleCubeAll(MBBlocks.FLOWERING_HARDY_LEAVES);
+        generator.registerSimpleCubeAll(MBBlocks.FRUITING_HARDY_LEAVES);
 
         generator.registerSimpleCubeAll(MBBlocks.CANVAS);
         generator.registerSimpleCubeAll(MBBlocks.FRAMED_CANVAS);
@@ -392,6 +393,7 @@ public class MBModelProvider extends FabricModelProvider {
         generator.registerSingleton(MBBlocks.GLISTERING_MELON_BLOCK, CUBE_BOTTOM_TOP);
         generator.registerSingleton(MBBlocks.SWEET_BERRY_BASKET, CUBE_BOTTOM_TOP);
         generator.registerSingleton(MBBlocks.GLOW_BERRY_BASKET, CUBE_BOTTOM_TOP);
+        generator.registerSingleton(MBBlocks.HARDY_BERRY_BASKET, CUBE_BOTTOM_TOP);
 
         generator.registerSingleton(MBItems.SWEET_BERRY_PITS, TexturedModel.PARTICLE);
         generator.excludeFromSimpleItemModelGeneration(MBItems.SWEET_BERRY_PITS);
@@ -408,7 +410,21 @@ public class MBModelProvider extends FabricModelProvider {
 
         generator.registerSingleton(MBBlocks.NETHER_WART_SACK, CUBE_BOTTOM_TOP);
         generator.registerAxisRotated(MBBlocks.SPOOL, CUBE_COLUMN);
-        generator.registerAxisRotated(MBBlocks.PAPER_BUNDLE, CUBE_COLUMN);
+
+//        generator.registerAxisRotated(MBBlocks.PAPER_BUNDLE, CUBE_COLUMN);
+
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.PAPER_BUNDLE)
+                .coordinate(BlockStateVariantMap.create(PapersBlock.POWERED)
+                        .register(false, BlockStateVariant.create().put(VariantSettings.MODEL, Models.CUBE_COLUMN
+                                .upload(MBBlocks.PAPER_BUNDLE,
+                                        TextureMap.sideEnd(MBBlocks.PAPER_BUNDLE),
+                                        generator.modelCollector)))
+                        .register(true, BlockStateVariant.create().put(VariantSettings.MODEL, Models.SLAB
+                                .upload(MBBlocks.PAPER_BUNDLE, "_compressed",
+                                        TextureMap.sideTopBottom(MBBlocks.PAPER_BUNDLE).put(TextureKey.BOTTOM, TextureMap.getSubId(MBBlocks.PAPER_BUNDLE, "_top")),
+                                        generator.modelCollector)))
+                ));
+
         generator.registerAxisRotated(MBBlocks.STICK_STACK, CUBE_COLUMN);
         generator.registerAxisRotated(MBBlocks.CHARCOAL_LOG, CUBE_COLUMN);
 
@@ -553,7 +569,9 @@ public class MBModelProvider extends FabricModelProvider {
         family.cuttable.forEach(block -> {
             if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MODID) && !self.generatedBlocks.contains(block)) {
                 self.generatedBlocks.add(block);
-                generator.registerSimpleCubeAll(block);
+                if (block == MBBlocks.CHISELED_BASALT)
+                    generator.registerAxisRotated(block, TexturedModel.CUBE_COLUMN);
+                else generator.registerSimpleCubeAll(block);
             }
         });
     }
@@ -586,13 +604,14 @@ public class MBModelProvider extends FabricModelProvider {
         ));
     }
     public static void barrelCactus(BlockStateModelGenerator generator) {
-        generator.excludeFromSimpleItemModelGeneration(MBBlocks.BARREL_CACTUS);
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.BARREL_CACTUS).coordinate(BlockStateVariantMap.create(BarrelCactusBlock.LEVEL)
-                .register(1, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/barrel_cactus_tiny"))))
-                .register(2, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/barrel_cactus_small"))))
-                .register(3, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/barrel_cactus_medium"))))
-                .register(4, Arrays.asList(BlockStateModelGenerator.createModelVariantWithRandomHorizontalRotations(new Identifier(Moonbits.MODID, "block/barrel_cactus_large"))))
-        ));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.TINY_BARREL_CACTUS, new Identifier(Moonbits.MODID, "block/barrel_cactus_tiny")));
+        generator.registerParentedItemModel(MBBlocks.TINY_BARREL_CACTUS, new Identifier(Moonbits.MODID, "block/barrel_cactus_tiny"));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.SMALL_BARREL_CACTUS, new Identifier(Moonbits.MODID, "block/barrel_cactus_small")));
+        generator.registerParentedItemModel(MBBlocks.SMALL_BARREL_CACTUS, new Identifier(Moonbits.MODID, "block/barrel_cactus_small"));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.BARREL_CACTUS, new Identifier(Moonbits.MODID, "block/barrel_cactus_medium")));
+        generator.registerParentedItemModel(MBBlocks.BARREL_CACTUS, new Identifier(Moonbits.MODID, "block/barrel_cactus_medium"));
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.LARGE_BARREL_CACTUS, new Identifier(Moonbits.MODID, "block/barrel_cactus_large")));
+        generator.registerParentedItemModel(MBBlocks.LARGE_BARREL_CACTUS, new Identifier(Moonbits.MODID, "block/barrel_cactus_large"));
     }
     public static void blazeRod(BlockStateModelGenerator generator) {
         generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.BLAZE_ROD).coordinate(BlockStateVariantMap.create(Properties.FACING)

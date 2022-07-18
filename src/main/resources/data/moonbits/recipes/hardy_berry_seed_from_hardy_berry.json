@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:hardy_berry"
+    }
+  ],
+  "result": {
+    "item": "moonbits:hardy_berry_seed"
+  }
+}

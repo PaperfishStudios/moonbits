@@ -3,18 +3,14 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "block": "moonbits:barrel_cactus",
-              "function": "minecraft:copy_state",
-              "properties": [
-                "level"
-              ]
-            }
-          ],
           "name": "moonbits:barrel_cactus"
         }
       ],

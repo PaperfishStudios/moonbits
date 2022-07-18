@@ -78,9 +78,9 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
         copy(MBBlockTags.COBBLESTONE, ItemTags.STONE_CRAFTING_MATERIALS);
         copy(MBBlockTags.COBBLESTONE, ItemTags.STONE_TOOL_MATERIALS);
 
-        copy(MBBlockTags.JUNIPER_LOGS, MBItemTags.JUNIPER_LOGS);
+        copy(MBBlockTags.LAMPROOT_LOGS, MBItemTags.LAMPROOT_LOGS);
         copy(MBBlockTags.CEDAR_LOGS, MBItemTags.CEDAR_LOGS);
-        copy(MBBlockTags.ASPEN_TRUNKS, MBItemTags.ASPEN_TRUNKS);
+//        copy(MBBlockTags.ASPEN_TRUNKS, MBItemTags.ASPEN_TRUNKS);
 
         copy(MBBlockTags.EDIBLE_MUSHROOMS, MBItemTags.EDIBLE_MUSHROOMS);
         copy(MBBlockTags.MUSHROOMS, MBItemTags.MUSHROOMS);

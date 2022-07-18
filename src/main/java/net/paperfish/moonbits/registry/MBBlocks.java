@@ -16,14 +16,11 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
-import net.paperfish.moonbits.block.cauldron.BoilingCauldronBlock;
-import net.paperfish.moonbits.block.cauldron.BoilingCauldronEntity;
 import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
 import net.paperfish.moonbits.block.cauldron.MBCauldronBehaviour;
 import net.paperfish.moonbits.block.extended.*;
 import net.paperfish.moonbits.mixin.SignTypeAccessor;
 import net.paperfish.moonbits.world.feature.*;
-import net.paperfish.moonbits.world.gen.MBPlacedVegFeatures;
 import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 
 public class MBBlocks {
@@ -38,11 +35,11 @@ public class MBBlocks {
 	public static final Block KILN = new KilnBlock(AbstractBlock.Settings.of(Material.STONE, MapColor.TERRACOTTA_ORANGE).strength(1.2f).sounds(BlockSoundGroup.STONE));
 	public static BlockEntityType<KilnBlockEntity> KILN_BLOCK_ENTITY;
 
-	public static final Block BOILING_CAULDRON = new BoilingCauldronBlock(AbstractBlock.Settings.copy(Blocks.WATER_CAULDRON).dropsLike(Blocks.CAULDRON), MBCauldronBehaviour.BOILING_CAULDRON_BEHAVIOR);
-	public static BlockEntityType<BoilingCauldronEntity> BOILING_CAULDRON_ENTITY;
+//	public static final Block BOILING_CAULDRON = new BoilingCauldronBlock(AbstractBlock.Settings.copy(Blocks.WATER_CAULDRON).dropsLike(Blocks.CAULDRON), MBCauldronBehaviour.BOILING_CAULDRON_BEHAVIOR);
+//	public static BlockEntityType<BoilingCauldronEntity> BOILING_CAULDRON_ENTITY;
 
-	public static final Block COOKING_POT = new CookingPotBlock(AbstractBlock.Settings.of(Material.METAL, MapColor.ORANGE).strength(1.2f).sounds(BlockSoundGroup.COPPER));
-	public static BlockEntityType<CookingPotBlockEntity> COOKING_POT_ENTITY;
+//	public static final Block COOKING_POT = new CookingPotBlock(AbstractBlock.Settings.of(Material.METAL, MapColor.ORANGE).strength(1.2f).sounds(BlockSoundGroup.COPPER));
+//	public static BlockEntityType<CookingPotBlockEntity> COOKING_POT_ENTITY;
 
 	public static final Block LEATHER_SEAT = new SeatBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.2f).sounds(BlockSoundGroup.WOOD).nonOpaque());
 	public static final Block WHITE_LEATHER_SEAT = new SeatBlock(AbstractBlock.Settings.copy(LEATHER_SEAT).strength(1.2f).sounds(BlockSoundGroup.WOOD).nonOpaque());
@@ -322,8 +319,11 @@ public class MBBlocks {
 	public static final Block TALL_PRICKLY_PEAR_CACTUS = new TallPricklyPearBlock(FabricBlockSettings.of(Material.CACTUS)
 			.breakInstantly().noCollision().ticksRandomly().nonOpaque().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 
-	public static final Block BARREL_CACTUS = new BarrelCactusBlock(FabricBlockSettings.of(Material.CACTUS)
-            .strength(0.5f).sounds(BlockSoundGroup.WOOL).offsetType((state) -> state.get(BarrelCactusBlock.LEVEL) < 4 ? AbstractBlock.OffsetType.XZ : AbstractBlock.OffsetType.NONE).dynamicBounds());
+	public static final Block TINY_BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.TINY, FabricBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+	public static final Block SMALL_BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.SMALL, FabricBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+	public static final Block BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.MEDIUM, FabricBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+	public static final Block LARGE_BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.LARGE, FabricBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+
 	public static final Block DESERT_BRUSH = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block TALL_DESERT_BRUSH = new SandyTallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
@@ -337,6 +337,10 @@ public class MBBlocks {
 	public static final Block PARASOL_FERN_FIBER = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.0f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
 	public static final Block PARASOL_FERN_FIBER_SLAB = new SlabBlock(AbstractBlock.Settings.copy(PARASOL_FERN_FIBER));
 	public static final Block PARASOL_FERN_FIBER_STAIRS = new MBStairsBlock(PARASOL_FERN_FIBER.getDefaultState(), AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS));
+
+	public static final Block HARDY_LEAVES = new HardyLeavesBlock(HardyLeavesBlock.Progress.EMPTY, AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES));
+	public static final Block FLOWERING_HARDY_LEAVES = new HardyLeavesBlock(HardyLeavesBlock.Progress.FLOWERING, AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES));
+	public static final Block FRUITING_HARDY_LEAVES = new HardyLeavesBlock(HardyLeavesBlock.Progress.FRUITING, AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES));
 
 	public static final Block CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
 	public static final Block FRAMED_CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
@@ -401,28 +405,28 @@ public class MBBlocks {
 
 	public static final Block FLOWERING_ACACIA_LEAVES = new ParticleLeavesBlock(AbstractBlock.Settings.copy(Blocks.ACACIA_LEAVES).mapColor(MapColor.PALE_YELLOW), MBParticles.FALLING_WATTLE);
 
-	public static final Block CRACKED_MUD = new PillarBlock(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.PALE_YELLOW));
+	public static final Block CRACKED_MUD = new PillarBlock(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.PALE_YELLOW).sounds(BlockSoundGroup.TUFF));
 
 	public static final Block RICH_MUD = new MudBlock(AbstractBlock.Settings.copy(Blocks.MUD).mapColor(MapColor.BROWN));
 	public static final Block MUD_GOLD_DEPOSIT = new MudBlock(AbstractBlock.Settings.copy(Blocks.MUD).mapColor(MapColor.BROWN));
 
-	public static final Block MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN));
+	public static final Block MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN).sounds(BlockSoundGroup.STONE));
 	public static final Block MUDSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(MUDSTONE));
 	public static final Block MUDSTONE_STAIRS = new MBStairsBlock(MUDSTONE.getDefaultState(), AbstractBlock.Settings.copy(MUDSTONE));
 	public static final Block MUDSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(MUDSTONE));
 
-	public static final Block SMOOTH_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD));
+	public static final Block SMOOTH_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).sounds(BlockSoundGroup.STONE));
 	public static final Block SMOOTH_MUDSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(SMOOTH_MUDSTONE));
 	public static final Block SMOOTH_MUDSTONE_STAIRS = new MBStairsBlock(SMOOTH_MUDSTONE.getDefaultState(), AbstractBlock.Settings.copy(SMOOTH_MUDSTONE));
 	public static final Block SMOOTH_MUDSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(SMOOTH_MUDSTONE));
 
-	public static final Block MUDSTONE_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN));
+	public static final Block MUDSTONE_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN).sounds(BlockSoundGroup.STONE));
 	public static final Block MUDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(MUDSTONE_BRICKS));
 	public static final Block MUDSTONE_BRICK_STAIRS = new MBStairsBlock(MUDSTONE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(MUDSTONE_BRICKS));
 	public static final Block MUDSTONE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(MUDSTONE_BRICKS));
 
-	public static final Block CUT_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN));
-	public static final Block CHISELED_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN));
+	public static final Block CUT_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN).sounds(BlockSoundGroup.STONE));
+	public static final Block CHISELED_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN).sounds(BlockSoundGroup.STONE));
 
 	// FLOWER FOREST
 	public static final Block BUTTERCUP = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT)
@@ -1009,8 +1013,9 @@ public class MBBlocks {
 
 	public static final Block GLISTERING_MELON_BLOCK = new Block(FabricBlockSettings.of(Material.GOURD).hardness(1.0F).sounds(BlockSoundGroup.WOOD).luminance((state) -> 12));
 
-	public static final Block SWEET_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.5F).sounds(BlockSoundGroup.NYLIUM));
-	public static final Block GLOW_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.5F).sounds(BlockSoundGroup.NYLIUM).luminance((state) -> 12));
+	public static final Block SWEET_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.WOOD).strength(0.5F).sounds(BlockSoundGroup.NYLIUM));
+	public static final Block GLOW_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.WOOD).strength(0.5F).sounds(BlockSoundGroup.NYLIUM).luminance((state) -> 12));
+	public static final Block HARDY_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.WOOD).strength(0.5F).sounds(BlockSoundGroup.NYLIUM));
 
 	public static final Block SWEET_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
 	public static final Block GLOW_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES).luminance((state) -> 12));
@@ -1023,12 +1028,12 @@ public class MBBlocks {
 	
 	public static final Block NETHER_WART_SACK = new PillarBlock(FabricBlockSettings.of(Material.NETHER_SHOOTS).hardness(1.0f).sounds(BlockSoundGroup.WART_BLOCK));
 
-	public static final Block SUGAR_CUBE = new Block(FabricBlockSettings.of(Material.SOIL).strength(2.0F,3.0F).sounds(BlockSoundGroup.SAND));
+	public static final Block SUGAR_CUBE = new FallingBlock(FabricBlockSettings.of(Material.SOIL).strength(2.0F,3.0F).sounds(BlockSoundGroup.SAND));
 	public static final Block PACKED_GLOWSTONE = new Block(FabricBlockSettings.of(Material.GLASS).strength(2.0F,3.0F).sounds(BlockSoundGroup.GLASS).luminance((state) -> 15));
-	public static final Block GUNPOWDER_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+	public static final Block GUNPOWDER_CRATE = new GunpowderBarrelBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
 
 	public static final Block SPOOL = new PillarBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.8f).sounds(BlockSoundGroup.WOOL));
-	public static final Block PAPER_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.5f).sounds(BlockSoundGroup.WOOL));
+	public static final Block PAPER_BUNDLE = new PapersBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.5f).sounds(BlockSoundGroup.WOOL));
 	public static final Block STICK_STACK = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
 	public static final Block CHARCOAL_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(1.2f, 0.8f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
 
@@ -1437,6 +1442,10 @@ public class MBBlocks {
 		createBlock("golden_birch_leaf_carpet", GOLDEN_BIRCH_LEAF_CARPET, MBItemGroup.DECOR);
 		createBlock("red_oak_leaf_carpet", RED_OAK_LEAF_CARPET, MBItemGroup.DECOR);
 
+		createBlock("hardy_leaves", HARDY_LEAVES, MBItemGroup.DECOR);
+		createBlock("flowering_hardy_leaves", FLOWERING_HARDY_LEAVES, MBItemGroup.DECOR);
+		createBlock("fruiting_hardy_leaves", FRUITING_HARDY_LEAVES, MBItemGroup.DECOR);
+
 		createBlock("parasol_fern_stem", PARASOL_FERN_STEM, MBItemGroup.DECOR);
 		createBlock("parasol_fern_crown", PARASOL_FERN_CROWN, MBItemGroup.DECOR);
 		createBlock("parasol_fern_fiber", PARASOL_FERN_FIBER, MBItemGroup.DECOR);
@@ -1534,7 +1543,10 @@ public class MBBlocks {
 		createBlock("prickly_pear_cactus", PRICKLY_PEAR_CACTUS, MBItemGroup.DECOR);
 		createBlock("tall_prickly_pear_cactus", TALL_PRICKLY_PEAR_CACTUS, MBItemGroup.DECOR);
 
+		createBlock("tiny_barrel_cactus", TINY_BARREL_CACTUS, MBItemGroup.DECOR);
+		createBlock("small_barrel_cactus", SMALL_BARREL_CACTUS, MBItemGroup.DECOR);
 		createBlock("barrel_cactus", BARREL_CACTUS, MBItemGroup.DECOR);
+		createBlock("large_barrel_cactus", LARGE_BARREL_CACTUS, MBItemGroup.DECOR);
 
 		createBlock("lamproot_bulb", LAMPROOT_BULB, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "cavebloom_flowers"), CAVEBLOOM_FLOWERS);
@@ -1587,13 +1599,13 @@ public class MBBlocks {
 		KILN_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "kiln_block_entity"),
 				FabricBlockEntityTypeBuilder.create(KilnBlockEntity::new, KILN).build(null));
 
-		createBlock("boiling_cauldron", BOILING_CAULDRON, MBItemGroup.DECOR);
-		BOILING_CAULDRON_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "boiling_cauldron_entity"),
-				FabricBlockEntityTypeBuilder.create(BoilingCauldronEntity::new, BOILING_CAULDRON).build(null));
-
-		createBlock("cooking_pot", COOKING_POT, MBItemGroup.DECOR);
-		COOKING_POT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "cooking_pot_entity"),
-				FabricBlockEntityTypeBuilder.create(CookingPotBlockEntity::new, COOKING_POT).build(null));
+//		createBlock("boiling_cauldron", BOILING_CAULDRON, MBItemGroup.DECOR);
+//		BOILING_CAULDRON_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "boiling_cauldron_entity"),
+//				FabricBlockEntityTypeBuilder.create(BoilingCauldronEntity::new, BOILING_CAULDRON).build(null));
+//
+//		createBlock("cooking_pot", COOKING_POT, MBItemGroup.DECOR);
+//		COOKING_POT_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "cooking_pot_entity"),
+//				FabricBlockEntityTypeBuilder.create(CookingPotBlockEntity::new, COOKING_POT).build(null));
 
 		createBlock("tree_tap", TREE_TAP, MBItemGroup.DECOR);
 		createBlock("syrup_block", SYRUP_BLOCK, ItemGroup.REDSTONE);
@@ -2026,6 +2038,7 @@ public class MBBlocks {
 
 		createBlock("sweet_berry_basket", SWEET_BERRY_BASKET, MBItemGroup.DECOR);
 		createBlock("glow_berry_basket", GLOW_BERRY_BASKET, MBItemGroup.DECOR);
+		createBlock("hardy_berry_basket", HARDY_BERRY_BASKET, MBItemGroup.DECOR);
 
 		createBlock("sweet_berry_hedge", SWEET_BERRY_HEDGE, MBItemGroup.DECOR);
 		createBlock("glow_berry_hedge", GLOW_BERRY_HEDGE, MBItemGroup.DECOR);

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "tag": "moonbits:lamproot_logs"
+  },
+  "result": "moonbits:lamproot_planks"
+}

@@ -4,12 +4,17 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.*;
+import net.minecraft.item.Item;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.biome.BiomeKeys;
+import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.entity.*;
 
 public class MBEntities {
+
+    public static final TagKey<EntityType<?>> LIGHTWEIGHT = TagKey.of(Registry.ENTITY_TYPE_KEY, new Identifier(Moonbits.MODID, "lightweight"));
 
     public static final EntityType<GrizzlyBearEntity> GRIZZLY_BEAR = Registry.register(
             Registry.ENTITY_TYPE,

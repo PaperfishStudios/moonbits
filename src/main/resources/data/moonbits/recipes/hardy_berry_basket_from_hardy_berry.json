@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:hardy_berry_basket"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "moonbits:hardy_berry"
+  }
+}

@@ -120,16 +120,16 @@ public class MBVegetationFeatures {
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> BARREL_CACTI = MBConfiguredFeatures.register(
             "barrel_cacti", Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(6, 6, 2,
                     PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
-                            .add(MBBlocks.BARREL_CACTUS.getDefaultState(), 4)
-                            .add(MBBlocks.BARREL_CACTUS.getDefaultState().with(BarrelCactusBlock.LEVEL, 2), 6)
-                            .add(MBBlocks.BARREL_CACTUS.getDefaultState().with(BarrelCactusBlock.LEVEL, 3), 1)
+                            .add(MBBlocks.TINY_BARREL_CACTUS.getDefaultState(), 4)
+                            .add(MBBlocks.SMALL_BARREL_CACTUS.getDefaultState(), 6)
+                            .add(MBBlocks.BARREL_CACTUS.getDefaultState(), 1)
                             .build())))));
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> FLOOD_BARREL_CACTI = MBConfiguredFeatures.register(
             "flood_cacti", Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(12, 6, 2,
                     PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
-                            .add(MBBlocks.BARREL_CACTUS.getDefaultState(), 4)
-                            .add(MBBlocks.BARREL_CACTUS.getDefaultState().with(BarrelCactusBlock.LEVEL, 2), 6)
-                            .add(MBBlocks.BARREL_CACTUS.getDefaultState().with(BarrelCactusBlock.LEVEL, 3), 1)
+                            .add(MBBlocks.TINY_BARREL_CACTUS.getDefaultState(), 4)
+                            .add(MBBlocks.SMALL_BARREL_CACTUS.getDefaultState(), 6)
+                            .add(MBBlocks.BARREL_CACTUS.getDefaultState(), 1)
                             .build())))));
 
     public static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> COTTONGRASS =

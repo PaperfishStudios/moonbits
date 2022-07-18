@@ -2,6 +2,6 @@
   "parent": "minecraft:block/cube_column",
   "textures": {
     "end": "moonbits:block/paper_bundle_top",
-    "side": "moonbits:block/paper_bundle"
+    "side": "moonbits:block/paper_bundle_side"
   }
 }

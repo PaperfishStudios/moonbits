@@ -21,6 +21,11 @@ public class DimWeatheringSlabBlock extends SlabBlock implements DimensionalWeat
     }
 
     @Override
+    public boolean hasRandomTicks(BlockState state) {
+        return true;
+    }
+
+    @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         this.tickDegradation(state, world, pos, random);
     }

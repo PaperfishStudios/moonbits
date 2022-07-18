@@ -15,6 +15,8 @@ import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.*;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LeafEntry;
+import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.*;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -62,7 +64,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.ROPE_LADDER);
         addDrop(MBBlocks.IRON_LADDER);
         addDrop(MBBlocks.KILN, BlockLootTableGenerator::nameableContainerDrops);
-        addDrop(MBBlocks.COOKING_POT, BlockLootTableGenerator::nameableContainerDrops);
+//        addDrop(MBBlocks.COOKING_POT, BlockLootTableGenerator::nameableContainerDrops);
         addDrop(MBBlocks.LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
         addDrop(MBBlocks.WHITE_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
         addDrop(MBBlocks.LIGHT_GRAY_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
@@ -95,9 +97,10 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.CEDAR_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.CEDAR_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.CEDAR_SAPLING);
 
-        addDrop(MBBlocks.BARREL_CACTUS, (Block l) -> LootTable.builder().pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f))
-                .with((ItemEntry.builder(l))
-                        .apply(CopyStateFunction.builder(l).addProperty(BarrelCactusBlock.LEVEL)))));
+        addDrop(MBBlocks.TINY_BARREL_CACTUS);
+        addDrop(MBBlocks.SMALL_BARREL_CACTUS);
+        addDrop(MBBlocks.BARREL_CACTUS);
+        addDrop(MBBlocks.LARGE_BARREL_CACTUS);
 
         addDrop(MBBlocks.GOLDEN_BIRCH_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.GOLDEN_BIRCH_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.GOLDEN_BIRCH_LEAF_CARPET, MBLootTableProvider::leafCarpet);
@@ -122,8 +125,6 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 //        addDrop(MBBlocks.ASPEN_LEAVES, (Block l) -> BlockLootTableGenerator.leavesDrop(l, MBBlocks.ASPEN_SAPLING, SAPLING_DROP_CHANCE));
 //        addDrop(MBBlocks.ASPEN_LEAF_CARPET, MBLootTableProvider::leafCarpet);
 //        addDrop(MBBlocks.ASPEN_SAPLING);
-
-        addDrop(MBBlocks.BOILING_CAULDRON, Items.CAULDRON);
 
         addDrop(MBBlocks.HONEY_CAULDRON, Items.CAULDRON);
         addDrop(MBBlocks.SYRUP_CAULDRON, Items.CAULDRON);
@@ -247,6 +248,9 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.PARASOL_FERN_STEM);
         addDrop(MBBlocks.PARASOL_FERN_CROWN);
 //        addDrop(MBBlocks.PARASOL_FERN_FIBER);
+        addDrop(MBBlocks.HARDY_LEAVES, (Block l) -> hardyLeavesDrop(l, MBItems.HARDY_BERRY_SEED, SAPLING_DROP_CHANCE));
+        addDrop(MBBlocks.FLOWERING_HARDY_LEAVES, (Block l) -> hardyLeavesDrop(l, MBItems.HARDY_BERRY_SEED, SAPLING_DROP_CHANCE));
+        addDrop(MBBlocks.FRUITING_HARDY_LEAVES, (Block l) -> hardyLeavesDropBerry(l, MBItems.HARDY_BERRY_SEED, SAPLING_DROP_CHANCE));
 
         BlockStatePropertyLootCondition.Builder peanutbuilder = BlockStatePropertyLootCondition.builder(MBBlocks.PEANUT_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(PeanutCropBlock.AGE, 7));
@@ -317,6 +321,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.GLISTERING_MELON_BLOCK);
         addDrop(MBBlocks.SWEET_BERRY_BASKET);
         addDrop(MBBlocks.GLOW_BERRY_BASKET);
+        addDrop(MBBlocks.HARDY_BERRY_BASKET);
         addDrop(MBBlocks.SWEET_BERRY_HEDGE);
         addDrop(MBBlocks.GLOW_BERRY_HEDGE);
         addDrop(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE);
@@ -410,5 +415,27 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
     public static LootTable.Builder oreDrops(Block ore, ItemConvertible item, float min, float max) {
         return BlockLootTableGenerator.dropsWithSilkTouch(ore, BlockLootTableGenerator.applyExplosionDecay(ore,
                 (ItemEntry.builder(item).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(min, max)))).apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE))));
+    }
+
+    public static LootTable.Builder hardyLeavesDrop(Block leaves, Item drop, float ... chance) {
+        return BlockLootTableGenerator.dropsWithSilkTouchOrShears(leaves, (
+                BlockLootTableGenerator.addSurvivesExplosionCondition(leaves, ItemEntry.builder(drop)))
+                .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, chance)))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f)).conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+                        .with(BlockLootTableGenerator.applyExplosionDecay(leaves, ItemEntry.builder(Items.STICK)
+                                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f))))
+                                .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, LEAVES_STICK_DROP_CHANCE))));
+    }
+    public static LootTable.Builder hardyLeavesDropBerry(Block leaves, Item drop, float ... chance) {
+        return BlockLootTableGenerator.dropsWithSilkTouchOrShears(leaves, (
+                        BlockLootTableGenerator.addSurvivesExplosionCondition(leaves, ItemEntry.builder(drop)))
+                        .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, chance)))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f)).conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+                        .with(BlockLootTableGenerator.applyExplosionDecay(leaves, ItemEntry.builder(Items.STICK)
+                                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f))))
+                                .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, LEAVES_STICK_DROP_CHANCE))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f)).conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+                        .with(BlockLootTableGenerator.applyExplosionDecay(leaves, ItemEntry.builder(MBItems.HARDY_BERRY)
+                                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 3.0f))))));
     }
 }

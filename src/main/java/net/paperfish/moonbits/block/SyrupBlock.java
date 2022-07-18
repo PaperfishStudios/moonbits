@@ -44,8 +44,8 @@ public class SyrupBlock extends Block {
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         if (!(entity instanceof LivingEntity) || entity.getBlockStateAtPos().isOf(this) && entity.getVelocity().y <= 0) {
-            boolean bool = world.getBlockState(entity.getBlockPos().up()).isOf(this);
-            entity.slowMovement(state, new Vec3d(1.25f, bool ? 0 : 1, 1.25f));
+//            boolean bool = world.getBlockState(entity.getBlockPos().up()).isOf(this);
+            entity.slowMovement(state, new Vec3d(1.25f, 1, 1.25f));
         }
         //entity.setInPowderSnow(true);
         if (!world.isClient) {
@@ -72,6 +72,9 @@ public class SyrupBlock extends Block {
         if (context instanceof EntityShapeContext && (entity = ((EntityShapeContext)context).getEntity()) != null) {
             if (entity.fallDistance > 2.5f) {
                 return FALLING_SHAPE;
+            }
+            if (context.isAbove(VoxelShapes.fullCube(), pos, false) && world.getBlockState(pos.up()).isOf(this)) {
+                return VoxelShapes.fullCube();
             }
             boolean bl = entity instanceof FallingBlockEntity;
             if (bl || canWalkOnSyrup(entity) && context.isAbove(VoxelShapes.fullCube(), pos, false) && !context.isDescending()) {

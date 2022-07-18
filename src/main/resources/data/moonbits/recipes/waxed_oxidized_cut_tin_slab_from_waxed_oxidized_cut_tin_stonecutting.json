@@ -1,6 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
+  "count": 2,
   "ingredient": {
     "item": "moonbits:waxed_oxidized_cut_tin"
   },

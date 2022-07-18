@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
+    "axis=x": {
+      "model": "moonbits:block/chiseled_basalt",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
       "model": "moonbits:block/chiseled_basalt"
+    },
+    "axis=z": {
+      "model": "moonbits:block/chiseled_basalt",
+      "x": 90
     }
   }
 }

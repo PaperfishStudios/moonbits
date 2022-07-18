@@ -85,7 +85,10 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.FROSTHORN_LEAVES,
                 MBBlocks.FROSTHORN_FRUIT,
 
+                MBBlocks.TINY_BARREL_CACTUS,
+                MBBlocks.SMALL_BARREL_CACTUS,
                 MBBlocks.BARREL_CACTUS,
+                MBBlocks.LARGE_BARREL_CACTUS,
                 MBBlocks.MARIGOLD,
                 MBBlocks.POTTED_MARIGOLD,
 
@@ -142,8 +145,7 @@ public class MoonbitsClient implements ClientModInitializer {
         );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),
                 MBBlocks.ICE_BRICKS,
-                MBBlocks.SYRUP_BLOCK,
-                MBBlocks.BOILING_CAULDRON
+                MBBlocks.SYRUP_BLOCK
         );
 
         registerParticleClient();
@@ -205,19 +207,19 @@ public class MoonbitsClient implements ClientModInitializer {
 //		);
 
         // item model predicates uwu
-        ModelPredicateProviderRegistrySpecificAccessor.callRegister(MBBlocks.BARREL_CACTUS.asItem(), new Identifier("water_level"), (stack, world, entity, seed) -> {
-            NbtCompound nbtCompound = stack.getSubNbt("BlockStateTag");
-            try {
-                NbtElement nbtElement;
-                if (nbtCompound != null && (nbtElement = nbtCompound.get(BarrelCactusBlock.LEVEL.getName())) != null) {
-                    return (float)Integer.parseInt(nbtElement.asString()) / 4.0f;
-                }
-            }
-            catch (NumberFormatException numberFormatException) {
-                // empty catch block
-            }
-            return 1.0f;
-        });
+//        ModelPredicateProviderRegistrySpecificAccessor.callRegister(MBBlocks.BARREL_CACTUS.asItem(), new Identifier("water_level"), (stack, world, entity, seed) -> {
+//            NbtCompound nbtCompound = stack.getSubNbt("BlockStateTag");
+//            try {
+//                NbtElement nbtElement;
+//                if (nbtCompound != null && (nbtElement = nbtCompound.get(BarrelCactusBlock.LEVEL.getName())) != null) {
+//                    return (float)Integer.parseInt(nbtElement.asString()) / 4.0f;
+//                }
+//            }
+//            catch (NumberFormatException numberFormatException) {
+//                // empty catch block
+//            }
+//            return 1.0f;
+//        });
     }
 
 //    @Environment(EnvType.CLIENT)

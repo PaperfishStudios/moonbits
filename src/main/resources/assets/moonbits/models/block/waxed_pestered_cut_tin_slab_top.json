@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "moonbits:block/pestered_cut_tin",
+    "side": "moonbits:block/pestered_cut_tin",
+    "top": "moonbits:block/pestered_cut_tin"
+  }
+}

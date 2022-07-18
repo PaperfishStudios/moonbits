@@ -75,6 +75,16 @@ public class MBEvents {
             .put(MBBlocks.BLACKENED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN_STAIRS)
             .build();
 
+    // maps for blocks that grow into other blocks (eg hardy berry leaves and barrel cacti)
+    public static BiMap<Block, Block> GROWING = new ImmutableBiMap.Builder<Block, Block>()
+            .put(MBBlocks.HARDY_LEAVES, MBBlocks.FLOWERING_HARDY_LEAVES)
+            .put(MBBlocks.FLOWERING_HARDY_LEAVES, MBBlocks.FRUITING_HARDY_LEAVES)
+            .put(MBBlocks.TINY_BARREL_CACTUS, MBBlocks.SMALL_BARREL_CACTUS)
+            .put(MBBlocks.SMALL_BARREL_CACTUS, MBBlocks.BARREL_CACTUS)
+            .put(MBBlocks.BARREL_CACTUS, MBBlocks.LARGE_BARREL_CACTUS)
+            .build();
+    public static BiMap<Block, Block> PLUCK = GROWING.inverse();
+
     public static void initEvents() {
         // events when u use a thing on a block go here!
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {

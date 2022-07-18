@@ -6,12 +6,10 @@
     }
   },
   "pattern": [
-    "#  ",
-    "## ",
     "###"
   ],
   "result": {
-    "count": 4,
+    "count": 6,
     "item": "moonbits:waxed_pestered_cut_tin_slab"
   }
 }

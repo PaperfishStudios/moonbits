@@ -15,9 +15,9 @@ public class MBBlockTags {
     public static final TagKey<Block> COBBLESTONE = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "cobblestone"));
     public static final TagKey<Block> STONE = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "stone"));
 
-    public static final TagKey<Block> JUNIPER_LOGS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "juniper_logs"));
+    public static final TagKey<Block> LAMPROOT_LOGS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "lamproot_logs"));
     public static final TagKey<Block> CEDAR_LOGS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "cedar_logs"));
-    public static final TagKey<Block> ASPEN_TRUNKS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "aspen_trunks"));
+//    public static final TagKey<Block> ASPEN_TRUNKS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "aspen_trunks"));
 
     public static final TagKey<Block> BANDED_IRON = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "banded_iron"));
 

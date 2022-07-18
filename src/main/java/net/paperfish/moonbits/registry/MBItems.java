@@ -47,6 +47,10 @@ public class MBItems {
 	public static final Item COOKED_PRICKLY_PEAR = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
 			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.6f).build()));
 
+	public static final Item HARDY_BERRY = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.6f).build()));
+	public static final Item HARDY_BERRY_SEED = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD));
+
 	public static final Item PEANUT = new AliasedBlockItem(MBBlocks.PEANUT_CROP, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Item ROASTED_PEANUTS = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
 			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.6f).build()));
@@ -171,6 +175,9 @@ public class MBItems {
 
 		addItem("prickly_pear", PRICKLY_PEAR);
 		addItem("cooked_prickly_pear", COOKED_PRICKLY_PEAR);
+
+		addItem("hardy_berry", HARDY_BERRY);
+		addItem("hardy_berry_seed", HARDY_BERRY_SEED);
 
 		add("peanut", PEANUT);
 		addItem("roasted_peanuts", ROASTED_PEANUTS);
