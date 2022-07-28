@@ -4,13 +4,12 @@ import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.paperfish.moonbits.registry.MBBlocks;
-
-import net.minecraft.util.math.random.Random;
 
 @SuppressWarnings({"deprecation"})
 public class SmallToadstoolBlock extends PlantBlock implements Fertilizable {
@@ -40,12 +39,12 @@ public class SmallToadstoolBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+    public boolean canGrow(World world, RandomGenerator random, BlockPos pos, BlockState state) {
         return (double)random.nextFloat() < 0.4;
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    public void grow(ServerWorld world, RandomGenerator random, BlockPos pos, BlockState state) {
         if (state.isOf(MBBlocks.SMALL_TOADSTOOLS)) {
             world.setBlockState(pos, MBBlocks.TOADSTOOL.getDefaultState());
         }

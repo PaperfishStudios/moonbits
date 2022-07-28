@@ -55,6 +55,9 @@ public class OmniRootsBlock extends PlantBlock {
         Direction direction = state.get(FACING);
         BlockPos blockPos = pos.offset(direction.getOpposite());
         BlockState blockState = world.getBlockState(blockPos);
+		if (direction == Direction.UP && blockState.isIn(MBBlockTags.PLANTER_BOXES)) {
+			return true;
+		}
         return blockState.isSideSolidFullSquare(world, blockPos, direction) && canPlantOnTop(blockState, world, pos);
     }
 
@@ -64,7 +67,7 @@ public class OmniRootsBlock extends PlantBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(MBBlockTags.SOIL_NON_REPLACEABLE) || floor.isIn(BlockTags.DIRT);
+        return floor.isIn(BlockTags.DIRT);
     }
 
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {

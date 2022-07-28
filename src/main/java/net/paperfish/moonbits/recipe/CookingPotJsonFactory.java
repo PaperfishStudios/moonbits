@@ -8,7 +8,7 @@ import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.advancement.CriterionMerger;
 import net.minecraft.advancement.criterion.CriterionConditions;
 import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
-import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.CraftingRecipeJsonFactory;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class CookingPotJsonFactory implements CraftingRecipeJsonBuilder {
+public class CookingPotJsonFactory implements CraftingRecipeJsonFactory {
     private final Item output;
     private final int outputCount;
     private final List<Ingredient> inputs = Lists.newArrayList();
@@ -33,7 +33,7 @@ public class CookingPotJsonFactory implements CraftingRecipeJsonBuilder {
 //    private int cookTime;
 //    private int priority;
 
-    private final Advancement.Builder advancementBuilder = Advancement.Builder.create();
+    private final Advancement.Task advancementBuilder = Advancement.Task.create();
     @Nullable
     private String group;
     private final RecipeSerializer<CookingRecipe> serializer = MBData.COOKING_RECIPE_SERIALIZER;
@@ -52,7 +52,7 @@ public class CookingPotJsonFactory implements CraftingRecipeJsonBuilder {
     }
 
     public CookingPotJsonFactory input(TagKey<Item> tag) {
-        return this.input(Ingredient.fromTag(tag));
+        return this.input(Ingredient.ofTag(tag));
     }
 
     public CookingPotJsonFactory input(ItemConvertible itemProvider) {
@@ -138,11 +138,11 @@ public class CookingPotJsonFactory implements CraftingRecipeJsonBuilder {
 //        private float experience;
 //        private int cookTime;
 //        private int priority;
-        private final Advancement.Builder advancementBuilder;
+        private final Advancement.Task advancementBuilder;
         private final Identifier advancementId;
 
         public CookingRecipeJsonProvider(Identifier recipeId, Item output, int outputCount, String group, List<Ingredient> inputs,
-                                         Advancement.Builder advancementBuilder, Identifier advancementId) {
+                                         Advancement.Task advancementBuilder, Identifier advancementId) {
             this.recipeId = recipeId;
             this.output = output;
             this.count = outputCount;

@@ -1,7 +1,8 @@
 package net.paperfish.moonbits.block;
 
 import java.util.List;
-import net.minecraft.util.math.random.Random;
+
+import net.minecraft.util.Holder;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -11,7 +12,7 @@ import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
@@ -28,12 +29,12 @@ public class GrassTurfSlabBlock extends SlabBlock implements Fertilizable {
 	}
 
     @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+    public boolean canGrow(World world, RandomGenerator random, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    public void grow(ServerWorld world, RandomGenerator random, BlockPos pos, BlockState state) {
         BlockPos blockPos = pos.up();
 		BlockState blockState = Blocks.GRASS.getDefaultState();
 
@@ -54,19 +55,19 @@ public class GrassTurfSlabBlock extends SlabBlock implements Fertilizable {
 			}
 
 			if (j.isAir()) {
-				RegistryEntry<PlacedFeature> placedFeature;
+				Holder<PlacedFeature> placedFeature;
 				if (random.nextInt(8) == 0) {
 					List<ConfiguredFeature<?, ?>> list = world.getBiome(blockPos2).value().getGenerationSettings().getFlowerFeatures();
 					if (list.isEmpty()) {
 						continue;
 					}
 
-					placedFeature = ((RandomPatchFeatureConfig)list.get(0).config()).feature();
+					placedFeature = ((RandomPatchFeatureConfig)list.get(0).getConfig()).feature();
 				} else {
 					placedFeature = VegetationPlacedFeatures.GRASS_BONEMEAL;
 				}
 
-				placedFeature.value().generateUnregistered(world, world.getChunkManager().getChunkGenerator(), random, blockPos2);
+				placedFeature.value().generate(world, world.getChunkManager().getChunkGenerator(), random, blockPos2);
 			}
 		}
 	}

@@ -20,7 +20,7 @@ public class FrosthornStemBlock extends Block {
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockState floor = world.getBlockState(pos.down());
-        return floor.isOf(this) || floor.isIn(BlockTags.DIRT) || floor.isIn(MBBlockTags.SOIL_NON_REPLACEABLE);
+        return floor.isOf(this) || floor.isIn(BlockTags.DIRT) || floor.isIn(MBBlockTags.PLANTER_BOXES);
     }
 
     @Override

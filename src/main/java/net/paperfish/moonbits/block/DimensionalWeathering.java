@@ -9,7 +9,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.Degradable;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
+import net.minecraft.util.random.RandomGenerator;
 
 import java.util.Iterator;
 import java.util.Optional;
@@ -22,7 +22,7 @@ public interface DimensionalWeathering {
 
     float getDegradationChanceMultiplier();
 
-    default void tickDegradation(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    default void tickDegradation(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
         if (random.nextFloat() < 0.05688889f) {
             this.tryDegrade(state, world, pos, random);
         }
@@ -30,7 +30,7 @@ public interface DimensionalWeathering {
 
 //    public T getDegradationLevel();
 
-    default public void tryDegrade(BlockState state2, ServerWorld world, BlockPos pos, Random random) {
+    default public void tryDegrade(BlockState state2, ServerWorld world, BlockPos pos, RandomGenerator random) {
         BlockPos blockPos;
 //        int i = ((Enum)this.getDegradationLevel()).ordinal();
         int j = 0;

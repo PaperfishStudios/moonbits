@@ -14,12 +14,11 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.paperfish.moonbits.registry.MBBlockTags;
 import net.paperfish.moonbits.registry.MBBlocks;
-
-import net.minecraft.util.math.random.Random;
 
 public class PricklyPearBlock extends PlantBlock implements Fertilizable {
     public static final BooleanProperty CUT = BooleanProperty.of("cut");
@@ -41,7 +40,7 @@ public class PricklyPearBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
         if (!state.get(CUT)) {
             grow(world, random, pos, state);
         }
@@ -59,12 +58,12 @@ public class PricklyPearBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+    public boolean canGrow(World world, RandomGenerator random, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    public void grow(ServerWorld world, RandomGenerator random, BlockPos pos, BlockState state) {
         if (!state.get(CUT) && random.nextInt(8) == 0) {
             if (state.get(AGE) == 0) {
                 world.setBlockState(pos, state.with(AGE, 1));

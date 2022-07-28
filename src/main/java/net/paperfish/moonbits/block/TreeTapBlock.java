@@ -8,6 +8,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -18,8 +19,6 @@ import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.registry.MBParticles;
 import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
 import org.jetbrains.annotations.Nullable;
-
-import net.minecraft.util.math.random.Random;
 
 public class TreeTapBlock extends HorizontalFacingBlock {
     public static final BooleanProperty ATTACHED = Properties.ATTACHED;
@@ -65,7 +64,7 @@ public class TreeTapBlock extends HorizontalFacingBlock {
 //    }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
         if (world.random.nextInt(15) == 0) {
             BlockPos cauldron = pos;
             while ((world.getBlockState(cauldron).isAir() && (pos.getY() - cauldron.getY() < 10)) || pos == cauldron) {
@@ -82,7 +81,7 @@ public class TreeTapBlock extends HorizontalFacingBlock {
     }
 
     @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, RandomGenerator random) {
         if (state.get(ATTACHED) && random.nextInt(8) == 0) {
             float xOffset = state.get(FACING).getAxis() == Direction.Axis.X ? 0.5f - (state.get(FACING).getOffsetX() / 8.0f) : 0.5f;
             float zOffset = state.get(FACING).getAxis() == Direction.Axis.Z ? 0.5f - (state.get(FACING).getOffsetZ() / 8.0f) : 0.5f;

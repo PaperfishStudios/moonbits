@@ -10,9 +10,8 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.random.RandomGenerator;
 import net.paperfish.moonbits.Moonbits;
-
-import net.minecraft.util.math.random.Random;
 
 public class FallingParticle extends SpriteBillboardParticle {
     private final float rotationSpeed;
@@ -65,11 +64,11 @@ public class FallingParticle extends SpriteBillboardParticle {
     @Environment(EnvType.CLIENT)
     public static class FallingLeafFactory implements ParticleFactory<DefaultParticleType> {
         protected final SpriteProvider spriteProvider;
-        private final Random random;
+        private final RandomGenerator random;
 
         public FallingLeafFactory(SpriteProvider spriteProvider) {
             this.spriteProvider = spriteProvider;
-            this.random = Random.create();
+            this.random = RandomGenerator.createLegacy();
         }
 
         public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
@@ -84,11 +83,11 @@ public class FallingParticle extends SpriteBillboardParticle {
     @Environment(EnvType.CLIENT)
     public static class FallingSporeFactory implements ParticleFactory<DefaultParticleType> {
         protected final SpriteProvider spriteProvider;
-        private final Random random;
+        private final RandomGenerator random;
 
         public FallingSporeFactory(SpriteProvider spriteProvider) {
             this.spriteProvider = spriteProvider;
-            this.random = Random.create();
+            this.random = RandomGenerator.createLegacy();
         }
 
         public Particle createParticle(DefaultParticleType defaultParticleType, ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {

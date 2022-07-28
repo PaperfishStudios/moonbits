@@ -5,6 +5,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.VineBlock;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
@@ -16,7 +17,6 @@ import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 
 import java.util.List;
-import net.minecraft.util.math.random.Random;
 import java.util.function.BiConsumer;
 
 public class FallenLeavesTreeDecorator extends TreeDecorator {
@@ -33,10 +33,10 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
     }
 
     @Override
-    public void generate(Generator generator) {
-        Random random = generator.getRandom();
-        TestableWorld world = generator.getWorld();
-        generator.getLeavesPositions().stream().filter((pos) -> generator.getWorld().testBlockState(pos.down(), AbstractBlock.AbstractBlockState::isAir)).forEach(pos -> {
+    public void generate(class_7402 generator) {
+		RandomGenerator random = generator.method_43320();
+        TestableWorld world = generator.method_43316();
+        generator.method_43322().stream().filter((pos) -> generator.method_43316().testBlockState(pos.down(), AbstractBlock.AbstractBlockState::isAir)).forEach(pos -> {
             BlockPos blockPos = pos.down();
             // while the block below blockPos is still air, shift blockPos down by 1
             while(world.testBlockState(blockPos.down(), AbstractBlock.AbstractBlockState::isAir) && blockPos.isWithinDistance(pos, 10)) {
@@ -45,7 +45,7 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
             // once you've reached the last air block, place the fallen leaves.
             BlockState a = this.provider.getBlockState(random, pos);
             if (a.canPlaceAt((WorldView) world, blockPos) && random.nextInt(8) == 0) {
-                generator.replace(blockPos, a);
+                generator.method_43318(blockPos, a);
             }
         });
     }

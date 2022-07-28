@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bookshelves",
+  "key": {
+    "#": {
+      "tag": "moonbits:toadstool_stems"
+    },
+    "B": {
+      "item": "minecraft:book"
+    }
+  },
+  "pattern": [
+    "###",
+    "BBB",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "item": "moonbits:toadstool_bookshelf"
+  }
+}

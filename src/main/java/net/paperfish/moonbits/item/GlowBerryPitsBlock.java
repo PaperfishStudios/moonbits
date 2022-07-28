@@ -10,11 +10,10 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-
-import net.minecraft.util.math.random.Random;
 
 public class GlowBerryPitsBlock extends AbstractPlantStemBlock implements Fertilizable, CaveVines {
     public GlowBerryPitsBlock(Settings settings) {
@@ -38,7 +37,7 @@ public class GlowBerryPitsBlock extends AbstractPlantStemBlock implements Fertil
     }
 
     @Override
-    protected int getGrowthLength(Random random) {
+    protected int getGrowthLength(RandomGenerator random) {
         return 0;
     }
 

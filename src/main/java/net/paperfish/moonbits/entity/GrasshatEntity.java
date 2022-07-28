@@ -44,9 +44,9 @@ public class GrasshatEntity extends HostileEntity implements IAnimatable {
 //        this.goalSelector.add(6, new MoveThroughVillageGoal(this, 1.0, true, 4, this::canBreakDoors));
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0));
         this.targetSelector.add(1, new RevengeGoal(this).setGroupRevenge());
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, MerchantEntity.class, false));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, IronGolemEntity.class, true));
+        this.targetSelector.add(2, new TargetGoal<>(this, PlayerEntity.class, true));
+        this.targetSelector.add(3, new TargetGoal<>(this, MerchantEntity.class, false));
+        this.targetSelector.add(3, new TargetGoal<>(this, IronGolemEntity.class, true));
 //        this.targetSelector.add(5, new ActiveTargetGoal<TurtleEntity>(this, TurtleEntity.class, 10, true, false, TurtleEntity.BABY_TURTLE_ON_LAND_FILTER));
     }
 

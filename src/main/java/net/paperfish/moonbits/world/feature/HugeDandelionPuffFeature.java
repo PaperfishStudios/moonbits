@@ -4,11 +4,10 @@ import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.feature.HugeMushroomFeature;
 import net.minecraft.world.gen.feature.HugeMushroomFeatureConfig;
-
-import net.minecraft.util.math.random.Random;
 
 public class HugeDandelionPuffFeature extends HugeMushroomFeature {
     public HugeDandelionPuffFeature(Codec<HugeMushroomFeatureConfig> codec) {
@@ -21,7 +20,7 @@ public class HugeDandelionPuffFeature extends HugeMushroomFeature {
     }
 
     @Override
-    protected void generateCap(WorldAccess pLevel, Random pRandom, BlockPos pPos, int pTreeHeight, BlockPos.Mutable pMutablePos, HugeMushroomFeatureConfig pConfig) {
+    protected void generateCap(WorldAccess pLevel, RandomGenerator pRandom, BlockPos pPos, int pTreeHeight, BlockPos.Mutable pMutablePos, HugeMushroomFeatureConfig pConfig) {
         int yCapBottom = pTreeHeight - 4;
         for (int y = yCapBottom; y <= pTreeHeight; y++) {
             int capRadius = y < pTreeHeight && y > yCapBottom ? 2 : 1;
@@ -43,7 +42,7 @@ public class HugeDandelionPuffFeature extends HugeMushroomFeature {
     }
 
     @Override
-    protected int getHeight(Random pRandom) {
+    protected int getHeight(RandomGenerator pRandom) {
         return pRandom.nextInt(3) + 8;
     }
 }

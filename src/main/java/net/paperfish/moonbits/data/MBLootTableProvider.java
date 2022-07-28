@@ -39,10 +39,10 @@ import java.util.stream.Stream;
 public class MBLootTableProvider extends FabricBlockLootTableProvider {
     public List<Block> generatedBlocks = new ArrayList<>();
     private static final LootCondition.Builder WITH_SILK_TOUCH = MatchToolLootCondition.builder(ItemPredicate.Builder.create().enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, NumberRange.IntRange.atLeast(1))));
-    private static final LootCondition.Builder WITHOUT_SILK_TOUCH = WITH_SILK_TOUCH.invert();
+    private static final LootCondition.Builder WITHOUT_SILK_TOUCH = WITH_SILK_TOUCH.method_16780();
     private static final LootCondition.Builder WITH_SHEARS = MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(Items.SHEARS));
-    private static final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_SHEARS.or(WITH_SILK_TOUCH);
-    private static final LootCondition.Builder WITHOUT_SILK_TOUCH_NOR_SHEARS = WITH_SILK_TOUCH_OR_SHEARS.invert();
+    private static final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_SHEARS.method_893(WITH_SILK_TOUCH);
+    private static final LootCondition.Builder WITHOUT_SILK_TOUCH_NOR_SHEARS = WITH_SILK_TOUCH_OR_SHEARS.method_16780();
     private static final Set<Item> EXPLOSION_IMMUNE = Stream.of(Blocks.DRAGON_EGG, Blocks.BEACON, Blocks.CONDUIT, Blocks.SKELETON_SKULL, Blocks.WITHER_SKELETON_SKULL, Blocks.PLAYER_HEAD, Blocks.ZOMBIE_HEAD, Blocks.CREEPER_HEAD, Blocks.DRAGON_HEAD, Blocks.SHULKER_BOX, Blocks.BLACK_SHULKER_BOX, Blocks.BLUE_SHULKER_BOX, Blocks.BROWN_SHULKER_BOX, Blocks.CYAN_SHULKER_BOX, Blocks.GRAY_SHULKER_BOX, Blocks.GREEN_SHULKER_BOX, Blocks.LIGHT_BLUE_SHULKER_BOX, Blocks.LIGHT_GRAY_SHULKER_BOX, Blocks.LIME_SHULKER_BOX, Blocks.MAGENTA_SHULKER_BOX, Blocks.ORANGE_SHULKER_BOX, Blocks.PINK_SHULKER_BOX, Blocks.PURPLE_SHULKER_BOX, Blocks.RED_SHULKER_BOX, Blocks.WHITE_SHULKER_BOX, Blocks.YELLOW_SHULKER_BOX).map(ItemConvertible::asItem).collect(ImmutableSet.toImmutableSet());
     private static final float[] SAPLING_DROP_CHANCE = new float[]{0.05f, 0.0625f, 0.083333336f, 0.1f};
     private static final float[] JUNGLE_SAPLING_DROP_CHANCE = new float[]{0.025f, 0.027777778f, 0.03125f, 0.041666668f, 0.1f};
@@ -65,23 +65,24 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.IRON_LADDER);
         addDrop(MBBlocks.KILN, BlockLootTableGenerator::nameableContainerDrops);
 //        addDrop(MBBlocks.COOKING_POT, BlockLootTableGenerator::nameableContainerDrops);
-        addDrop(MBBlocks.LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.WHITE_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.LIGHT_GRAY_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.GRAY_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.BLACK_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.GREEN_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.LIME_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.YELLOW_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.ORANGE_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.BROWN_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.RED_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.PINK_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.MAGENTA_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.PURPLE_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.LIGHT_BLUE_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.CYAN_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
-        addDrop(MBBlocks.BLUE_LEATHER_SEAT, BlockLootTableGenerator::slabDrops);
+
+        addDrop(MBBlocks.LEATHER_SEAT);
+        addDrop(MBBlocks.WHITE_LEATHER_SEAT);
+        addDrop(MBBlocks.LIGHT_GRAY_LEATHER_SEAT);
+        addDrop(MBBlocks.GRAY_LEATHER_SEAT);
+        addDrop(MBBlocks.BLACK_LEATHER_SEAT);
+        addDrop(MBBlocks.GREEN_LEATHER_SEAT);
+        addDrop(MBBlocks.LIME_LEATHER_SEAT);
+        addDrop(MBBlocks.YELLOW_LEATHER_SEAT);
+        addDrop(MBBlocks.ORANGE_LEATHER_SEAT);
+        addDrop(MBBlocks.BROWN_LEATHER_SEAT);
+        addDrop(MBBlocks.RED_LEATHER_SEAT);
+        addDrop(MBBlocks.PINK_LEATHER_SEAT);
+        addDrop(MBBlocks.MAGENTA_LEATHER_SEAT);
+        addDrop(MBBlocks.PURPLE_LEATHER_SEAT);
+        addDrop(MBBlocks.LIGHT_BLUE_LEATHER_SEAT);
+        addDrop(MBBlocks.CYAN_LEATHER_SEAT);
+        addDrop(MBBlocks.BLUE_LEATHER_SEAT);
 
         addDrop(MBBlocks.LAMPROOT_LOG);
         addDrop(MBBlocks.LAMPROOT_WOOD);
@@ -248,9 +249,11 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.PARASOL_FERN_STEM);
         addDrop(MBBlocks.PARASOL_FERN_CROWN);
 //        addDrop(MBBlocks.PARASOL_FERN_FIBER);
-        addDrop(MBBlocks.HARDY_LEAVES, (Block l) -> hardyLeavesDrop(l, MBItems.HARDY_BERRY_SEED, SAPLING_DROP_CHANCE));
-        addDrop(MBBlocks.FLOWERING_HARDY_LEAVES, (Block l) -> hardyLeavesDrop(l, MBItems.HARDY_BERRY_SEED, SAPLING_DROP_CHANCE));
-        addDrop(MBBlocks.FRUITING_HARDY_LEAVES, (Block l) -> hardyLeavesDropBerry(l, MBItems.HARDY_BERRY_SEED, SAPLING_DROP_CHANCE));
+        addDrop(MBBlocks.HARDY_LEAVES, (Block l) -> hardyLeavesDrop(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));
+        addDrop(MBBlocks.FLOWERING_HARDY_LEAVES, (Block l) -> hardyLeavesDrop(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));
+        addDrop(MBBlocks.FRUITING_HARDY_LEAVES, (Block l) -> hardyLeavesDropBerry(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));
+		addDrop(MBBlocks.HARDY_BUSH, (Block l) -> hardyLeavesDropStem(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));
+		addDrop(MBBlocks.HARDY_SPROUT, MBItems.HARDY_BERRY_SEED);
 
         BlockStatePropertyLootCondition.Builder peanutbuilder = BlockStatePropertyLootCondition.builder(MBBlocks.PEANUT_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(PeanutCropBlock.AGE, 7));
@@ -274,10 +277,14 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.WILDFLOWERS);
         addDrop(MBBlocks.CLOVER);
         addDrop(MBBlocks.PUFFBALLS);
+		addDrop(MBBlocks.GIANT_PUFFBALL);
         addDrop(MBBlocks.SAFFRON_MUSHROOM);
         addDrop(MBBlocks.TOADSTOOL);
         addDrop(MBBlocks.TOADSTOOL_STEM);
         addDrop(MBBlocks.SMALL_TOADSTOOLS);
+
+		addDrop(MBBlocks.TOADSTOOL_BOOKSHELF, BlockLootTableGenerator::slabDrops);
+		addDrop(MBBlocks.TOADSTOOL_SEAT);
 
         addDrop(MBBlocks.OYSTER_MUSHROOMS);
         addDrop(MBBlocks.SHELF_OYSTER_MUSHROOMS);
@@ -305,8 +312,8 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.TOADSTOOL_MUSH_LAMP);
 
         addDrop(MBBlocks.LAMPROOT_BULB);
-        addDrop(MBBlocks.CAVEBLOOM_FLOWERS, (Block block) -> BlockLootTableGenerator.multifaceGrowthDrops(block, WITH_SHEARS));
-        addDrop(MBBlocks.CAVEBLOOM_VINE, (Block block) -> BlockLootTableGenerator.multifaceGrowthDrops(block, WITH_SHEARS));
+        addDrop(MBBlocks.CAVEBLOOM_FLOWERS, (Block block) -> BlockLootTableGenerator.method_37108(block, WITH_SHEARS));
+        addDrop(MBBlocks.CAVEBLOOM_VINE, (Block block) -> BlockLootTableGenerator.method_37108(block, WITH_SHEARS));
 
         addDrop(MBBlocks.FUR_BLOCK);
         addDrop(MBBlocks.FUR_CARPET);
@@ -440,4 +447,16 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
                         .with(BlockLootTableGenerator.applyExplosionDecay(leaves, ItemEntry.builder(MBItems.HARDY_BERRY)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 3.0f))))));
     }
+	public static LootTable.Builder hardyLeavesDropStem(Block leaves, Item drop, float ... chance) {
+		return BlockLootTableGenerator.dropsWithSilkTouchOrShears(leaves, (
+						BlockLootTableGenerator.addSurvivesExplosionCondition(leaves, ItemEntry.builder(drop)))
+						.conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, chance)))
+				.pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f)).conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+						.with(BlockLootTableGenerator.applyExplosionDecay(leaves, ItemEntry.builder(Items.STICK)
+										.apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f))))
+								.conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, LEAVES_STICK_DROP_CHANCE))))
+				.pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0f)).conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+						.with(BlockLootTableGenerator.applyExplosionDecay(leaves, ItemEntry.builder(MBItems.HARDY_STEM)
+						)));
+	}
 }

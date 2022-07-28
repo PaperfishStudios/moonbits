@@ -1,6 +1,5 @@
 package net.paperfish.moonbits.client;
 
-import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -28,14 +27,16 @@ import net.paperfish.moonbits.particle.DripParticle;
 import net.paperfish.moonbits.particle.FallingParticle;
 import net.paperfish.moonbits.screen.CookingScreen;
 import net.paperfish.moonbits.screen.KilnScreen;
+import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 
 
 @Environment(EnvType.CLIENT)
 public class MoonbitsClient implements ClientModInitializer {
     public static final CompassHud compassHud = new CompassHud(MinecraftClient.getInstance());
-    
+
     @Override
-    public void onInitializeClient() {
+    public void onInitializeClient(ModContainer container) {
         // cutout
 		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
                 MBBlocks.ROPE_LADDER, MBBlocks.IRON_LADDER,
@@ -108,7 +109,7 @@ public class MoonbitsClient implements ClientModInitializer {
         HandledScreens.register(MBData.COOKING_SCREEN_HANDLER, CookingScreen::new);
 
         HudRenderCallback.EVENT.register((((matrixStack, tickDelta) -> compassHud.renderCompass(matrixStack))));
-        
+
     }
 
     public static void dataClient() {
@@ -189,5 +190,5 @@ public class MoonbitsClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(MBParticles.LANDING_SYRUP, (a) -> new DripParticle.LandingHoneyFactory(a, 0.522f, 0.208f, 0.182f));
 
     }
-    
+
 }

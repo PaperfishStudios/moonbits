@@ -1,6 +1,6 @@
 package net.paperfish.moonbits.mixin;
 
-import net.minecraft.data.client.TextureKey;
+import net.minecraft.data.client.model.TextureKey;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;

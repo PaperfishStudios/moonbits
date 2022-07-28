@@ -52,7 +52,7 @@ public class LamprootBlock extends Block {
     }
 
     protected boolean canPlantOn(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(BlockTags.DIRT) || floor.isIn(MBBlockTags.SOIL_NON_REPLACEABLE);
+        return floor.isIn(BlockTags.DIRT);
     }
 
     @Nullable

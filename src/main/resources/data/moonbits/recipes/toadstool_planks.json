@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "moonbits:toadstool_stem"
+      "tag": "moonbits:toadstool_stems"
     }
   },
   "pattern": [

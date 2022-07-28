@@ -1,0 +1,52 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "net.paperfish",
+		"id": "moonbits",
+		"version": "${version}",
+		"metadata": {
+			"name": "Moonbits",
+			"description": "A minecraft mod designed as a fanmade branch of updates and content :D",
+			"contributors": {
+				"paperfish": "owner",
+				"SameButDifferent": "programmer"
+			},
+			"contact": {
+				"sources": "https://github.com/PaperfishStudios/Moonbits"
+			},
+			"icon": "assets/moonbits/icon.png"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": "net.paperfish.moonbits.Moonbits",
+			"client_init": "net.paperfish.moonbits.client.MoonbitsClient",
+			"fabric-datagen": "net.paperfish.moonbits.data.MBDataGenerator",
+			"booking_it:recipe_book": "net.paperfish.moonbits.recipe.MBRecipeBook",
+			"terrablender": "net.paperfish.moonbits.world.MBTerraBlender"
+		},
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": ">=0.16.0-"
+			},
+			{
+				"id": "quilted_fabric_api",
+				"versions": ">=1.0.0-"
+			},
+			{
+				"id": "minecraft",
+				"versions": ">=1.19"
+			},
+			{
+				"id": "booking_it",
+				"versions": "*"
+			},
+			{
+				"id": "terrablender",
+				"versions": ">=1.1.0.96"
+			}
+		]
+	},
+	"mixin": "moonbits.mixins.json",
+	"accessWidener" : "moonbits.accesswidener"
+}

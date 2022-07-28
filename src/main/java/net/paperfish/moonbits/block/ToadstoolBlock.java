@@ -19,26 +19,30 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Holder;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.gen.chunk.ChunkGenerator;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.entity.SeatBlockEntity;
 import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.registry.MBItems;
+import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Objects;
-import net.minecraft.util.math.random.Random;
 
 @SuppressWarnings({"deprecation"})
 public class ToadstoolBlock extends Block implements Fertilizable, Waterloggable {
@@ -88,7 +92,7 @@ public class ToadstoolBlock extends Block implements Fertilizable, Waterloggable
 //            return Blocks.AIR.getDefaultState();
 //        }
         if (state.get(WATERLOGGED)) {
-            world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
 //        if (direction == Direction.UP && neighborState.isOf(this)) {
 //            return state.with(CAP, false);
@@ -102,12 +106,12 @@ public class ToadstoolBlock extends Block implements Fertilizable, Waterloggable
     }
 
     @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+    public boolean canGrow(World world, RandomGenerator random, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    public void grow(ServerWorld world, RandomGenerator random, BlockPos pos, BlockState state) {
         BlockPos blockPos = pos.up();
         if (world.getBlockState(blockPos).isAir()) {
             world.setBlockState(blockPos, state);

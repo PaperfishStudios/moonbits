@@ -23,14 +23,13 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3i;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
-
-import net.minecraft.util.math.random.Random;
 
 public class IronLadderBlock extends Block implements Waterloggable {
    public static final DirectionProperty FACING;
@@ -100,7 +99,7 @@ public class IronLadderBlock extends Block implements Waterloggable {
       if (direction == state.get(FACING).getOpposite() || direction.getAxis() == Direction.Axis.Y) {
          int i = getDistanceFromBlock(neighborState, world, neighborPos, direction.getOpposite()) + 1;
          if (i != 1 || state.get(DISTANCE) != i) {
-            world.createAndScheduleBlockTick(pos, this, 1);
+            world.scheduleBlockTick(pos, this, 1);
          }
       }
       if (!state.canPlaceAt(world, pos)) {
@@ -108,7 +107,7 @@ public class IronLadderBlock extends Block implements Waterloggable {
       }
       else {
          if (state.get(WATERLOGGED)) {
-            world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
          }
 
          return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
@@ -134,7 +133,7 @@ public class IronLadderBlock extends Block implements Waterloggable {
       return state.with(DISTANCE, i);
    }
    @Override
-   public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+   public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
       world.setBlockState(pos, updateDistanceFromBlock(state, world, pos), Block.NOTIFY_ALL);
    }
 

@@ -67,15 +67,15 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
         goalSelector.add(1, new AttackGoal());
         goalSelector.add(2, new FollowPlayerGoal(this, 1.0D, 1.25D));
         goalSelector.add(3, new AnimalMateGoal(this, 1.0D));
-        goalSelector.add(5, new GrizzlyBearTemptGoal(this, 1.25D, Ingredient.fromTag(MBItemTags.BEAR_LIKES), false));
+        goalSelector.add(5, new GrizzlyBearTemptGoal(this, 1.25D, Ingredient.ofTag(MBItemTags.BEAR_LIKES), false));
         goalSelector.add(6, new FollowParentGoal(this, 1.25D));
         goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
         //goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         goalSelector.add(8, new LookAroundGoal(this));
         targetSelector.add(1, new GrizzlyBearRevengeGoal());
         //targetSelector.add(2, new ProtectBabiesGoal());
-        targetSelector.add(3, new ActiveTargetGoal<>(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
-        targetSelector.add(4, new ActiveTargetGoal<>(this, SalmonEntity.class, 10, true, false, null));
+        targetSelector.add(3, new TargetGoal<>(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
+        targetSelector.add(4, new TargetGoal<>(this, SalmonEntity.class, 10, true, false, null));
         targetSelector.add(5, new UniversalAngerGoal<>(this, false));
     }
 
@@ -402,7 +402,7 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
         @Override
         public void tick() {
             if (dataTracker.get(DEPENDENCE) < 5) {
-                this.mob.getLookControl().lookAt(this.closestPlayer, this.mob.getMaxHeadRotation() + 20, this.mob.getMaxLookPitchChange());
+                this.mob.getLookControl().lookAt(this.closestPlayer, this.mob.getBodyYawSpeed() + 20, this.mob.getLookPitchSpeed());
             }
             else {
                 super.tick();
@@ -432,7 +432,7 @@ public class GrizzlyBearEntity extends AnimalEntity implements Angerable, IAnima
         }
     }
 
-    class ProtectBabiesGoal extends ActiveTargetGoal<PlayerEntity> {
+    class ProtectBabiesGoal extends TargetGoal<PlayerEntity> {
         public ProtectBabiesGoal() {
             super(GrizzlyBearEntity.this, PlayerEntity.class, 20, true, true, null);
         }

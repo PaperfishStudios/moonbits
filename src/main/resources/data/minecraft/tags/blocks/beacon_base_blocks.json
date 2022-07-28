@@ -2,6 +2,21 @@
   "replace": false,
   "values": [
     "moonbits:hematite_block",
-    "moonbits:tin_block"
+    "moonbits:tin_block",
+    "moonbits:oxidized_tin_block",
+    "moonbits:blackened_tin_block",
+    "moonbits:pestered_tin_block",
+    "moonbits:waxed_tin_block",
+    "moonbits:waxed_oxidized_tin_block",
+    "moonbits:waxed_blackened_tin_block",
+    "moonbits:waxed_pestered_tin_block",
+    "minecraft:copper_block",
+    "minecraft:exposed_copper",
+    "minecraft:weathered_copper",
+    "minecraft:oxidized_copper",
+    "minecraft:waxed_copper_block",
+    "minecraft:waxed_exposed_copper",
+    "minecraft:waxed_weathered_copper",
+    "minecraft:waxed_oxidized_copper"
   ]
 }

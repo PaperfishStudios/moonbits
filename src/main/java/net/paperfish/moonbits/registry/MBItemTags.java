@@ -12,7 +12,7 @@ public class MBItemTags {
 
     public static final TagKey<Item> LAMPROOT_LOGS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "lamproot_logs"));
     public static final TagKey<Item> CEDAR_LOGS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "cedar_logs"));
-//    public static final TagKey<Item> ASPEN_TRUNKS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "aspen_trunks"));
+    public static final TagKey<Item> TOADSTOOL_STEMS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "toadstool_stems"));
 
     public static final TagKey<Item> BEAR_LIKES = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "bear_likes"));
     public static final TagKey<Item> BEAR_EDIBLE = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "bear_edible"));

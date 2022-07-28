@@ -42,7 +42,7 @@ public class MBBiomes {
         register(PRAIRIE, prairie());
     }
     private static void register(RegistryKey<Biome> key, Biome biome) {
-        BuiltinRegistries.add(BuiltinRegistries.BIOME, key, biome);
+        BuiltinRegistries.register(BuiltinRegistries.BIOME, key, biome);
     }
 
     public static Biome goldenForest(boolean tall) {
@@ -209,7 +209,7 @@ public class MBBiomes {
         DefaultBiomeFeatures.addLandCarvers(generationSettings);
         DefaultBiomeFeatures.addAmethystGeodes(generationSettings);
         DefaultBiomeFeatures.addDungeons(generationSettings);
-        DefaultBiomeFeatures.addMineables(generationSettings);
+        DefaultBiomeFeatures.addUndergroundVariety(generationSettings);
         DefaultBiomeFeatures.addSprings(generationSettings);
         DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
     }

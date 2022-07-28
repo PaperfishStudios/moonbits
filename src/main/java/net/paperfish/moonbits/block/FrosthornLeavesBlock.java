@@ -7,12 +7,11 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
 import net.paperfish.moonbits.registry.MBBlocks;
-
-import net.minecraft.util.math.random.Random;
 
 public class FrosthornLeavesBlock extends PlantBlock {
     public final VoxelShape SHAPE = Block.createCuboidShape(6, 0, 6, 10, 6, 10);
@@ -34,7 +33,7 @@ public class FrosthornLeavesBlock extends PlantBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
         if (random.nextInt(25) == 0){
             world.setBlockState(pos, MBBlocks.FROSTHORN_FRUIT.getDefaultState(), NOTIFY_LISTENERS);
         }

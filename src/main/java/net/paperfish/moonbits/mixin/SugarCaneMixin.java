@@ -1,7 +1,6 @@
 package net.paperfish.moonbits.mixin;
 
-import net.minecraft.util.math.random.Random;
-
+import net.minecraft.util.random.RandomGenerator;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -44,12 +43,12 @@ public abstract class SugarCaneMixin extends Block implements Fertilizable{
     }
 
     @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+    public boolean canGrow(World world, RandomGenerator random, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    public void grow(ServerWorld world, RandomGenerator random, BlockPos pos, BlockState state) {
         int newAge = (Integer)state.get(AGE) + MathHelper.nextInt(world.random, 4, 11);
 		if (newAge >= 15) {
 			world.setBlockState(pos.up(), this.getDefaultState());
@@ -58,7 +57,7 @@ public abstract class SugarCaneMixin extends Block implements Fertilizable{
         else {
             world.setBlockState(pos, (BlockState)state.with(AGE, newAge), Block.NO_REDRAW);
         }
-        
+
     }
-    
+
 }

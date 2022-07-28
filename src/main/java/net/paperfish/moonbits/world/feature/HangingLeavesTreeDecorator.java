@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
@@ -12,7 +13,6 @@ import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 
 import java.util.List;
-import net.minecraft.util.math.random.Random;
 import java.util.function.BiConsumer;
 
 public class HangingLeavesTreeDecorator extends TreeDecorator {
@@ -29,10 +29,10 @@ public class HangingLeavesTreeDecorator extends TreeDecorator {
     }
 
     @Override
-    public void generate(Generator generator) {
-        Random random = generator.getRandom();
-        TestableWorld world = generator.getWorld();
-        List<BlockPos> leavesPositions = generator.getLeavesPositions();
+    public void generate(class_7402 generator) {
+		RandomGenerator random = generator.method_43320();
+		TestableWorld world = generator.method_43316();
+        List<BlockPos> leavesPositions = generator.method_43322();
 
         if (!leavesPositions.isEmpty()) {
             // make a list of every leaf block with air below it, then do a for loop w/ each one
@@ -40,7 +40,7 @@ public class HangingLeavesTreeDecorator extends TreeDecorator {
                 int r = random.nextInt(4);
                 BlockPos blockPos = pos.down();
                 if (r < 2) {
-                    generator.replace(blockPos, this.provider.getBlockState(random, pos));
+                    generator.method_43318(blockPos, this.provider.getBlockState(random, pos));
                 }
             });
         }

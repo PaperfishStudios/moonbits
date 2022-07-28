@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:hardy_leaves"
+    },
+    {
+      "item": "moonbits:hardy_stem"
+    }
+  ],
+  "result": {
+    "item": "moonbits:hardy_bush"
+  }
+}

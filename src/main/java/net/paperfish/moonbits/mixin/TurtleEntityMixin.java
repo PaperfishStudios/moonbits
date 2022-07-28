@@ -55,7 +55,7 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Bucketab
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
         return(ActionResult)tryBucket(player, hand, this).orElse(super.interactMob(player, hand));
 	}
-    
+
     public boolean isFromBucket() {
 		return (Boolean)this.dataTracker.get(FROM_BUCKET);
 	}
@@ -79,11 +79,11 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Bucketab
 			setBreedingAge(-24000);
 		Bucketable.copyDataFromNbt(this, nbt);
 	}
-    
+
     public ItemStack getBucketItem() {
 		return new ItemStack(MBItems.BABY_TURTLE_BUCKET);
 	}
-    
+
     public SoundEvent getBucketFillSound() {
 		return SoundEvents.ITEM_BUCKET_FILL_FISH;
 	}
@@ -99,9 +99,9 @@ public abstract class TurtleEntityMixin extends AnimalEntity implements Bucketab
     private static <T extends LivingEntity & Bucketable> Optional<ActionResult> tryBucket(PlayerEntity player, Hand hand, T entity) {
 		ItemStack itemStack = player.getStackInHand(hand);
 		if (itemStack.getItem() == Items.WATER_BUCKET && entity.isAlive() && entity.isBaby()) {
-			entity.playSound(((Bucketable)entity).getBucketFillSound(), 1.0F, 1.0F);
-			ItemStack itemStack2 = ((Bucketable)entity).getBucketItem();
-			((Bucketable)entity).copyDataToStack(itemStack2);
+			entity.playSound(entity.getBucketedSound(), 1.0F, 1.0F);
+			ItemStack itemStack2 = entity.getBucketItem();
+			entity.copyDataToStack(itemStack2);
 			ItemStack itemStack3 = ItemUsage.exchangeStack(itemStack, player, itemStack2, false);
 			player.setStackInHand(hand, itemStack3);
 			World world = entity.world;

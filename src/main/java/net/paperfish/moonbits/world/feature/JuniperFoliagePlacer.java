@@ -7,6 +7,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.IntProvider;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
@@ -14,7 +15,6 @@ import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 
-import net.minecraft.util.math.random.Random;
 import java.util.function.BiConsumer;
 
 public class JuniperFoliagePlacer extends FoliagePlacer {
@@ -36,7 +36,7 @@ public class JuniperFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected void generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, TreeFeatureConfig config, int trunkHeight, FoliagePlacer.TreeNode treeNode, int foliageHeight, int radius, int offset) {
+    protected void method_23448(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, RandomGenerator random, TreeFeatureConfig config, int trunkHeight, FoliagePlacer.TreeNode treeNode, int foliageHeight, int radius, int offset) {
         this.generateSquare(world, replacer, random, config, treeNode.getCenter(), 2, -trunkHeight+2, treeNode.isGiantTrunk());
         this.generateSquare(world, replacer, random, config, treeNode.getCenter(), 0, offset+1, treeNode.isGiantTrunk());
         this.generateSquare(world, replacer, random, config, treeNode.getCenter(), 0, offset, treeNode.isGiantTrunk());
@@ -59,12 +59,12 @@ public class JuniperFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    public int getRandomHeight(Random random, int trunkHeight, TreeFeatureConfig config) {
+    public int getRandomHeight(RandomGenerator random, int trunkHeight, TreeFeatureConfig config) {
         return this.height;
     }
 
     @Override
-    protected boolean isInvalidForLeaves(Random random, int dx, int y, int dz, int radius, boolean giantTrunk) {
+    protected boolean isInvalidForLeaves(RandomGenerator random, int dx, int y, int dz, int radius, boolean giantTrunk) {
         if (y==1 || radius == 0) {
             return false;
         }

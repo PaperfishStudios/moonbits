@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Carver.class)
 public class CarverMixin <C extends CarverConfig> {
 
-    @Inject(method="canAlwaysCarveBlock", at=@At("HEAD"), cancellable = true)
+    @Inject(method="canReplaceBlock", at=@At("HEAD"), cancellable = true)
     public void alwaysCarveCheck(C config, BlockState state, CallbackInfoReturnable<Boolean> cir) {
         if (state.isIn(MBBlockTags.TOUGH_DIRT)) {
             cir.setReturnValue(true);

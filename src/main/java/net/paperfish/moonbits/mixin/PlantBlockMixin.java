@@ -25,8 +25,8 @@ public class PlantBlockMixin extends Block {
         if (floor.isIn(MBBlockTags.PLANTER_BOXES)) {
             cir.setReturnValue(true);
         }
-        if (floor.isIn(MBBlockTags.SOIL_NON_REPLACEABLE) && floor.isSideSolidFullSquare(world, pos, Direction.UP)) {
-            cir.setReturnValue(true);
-        }
+//        if (floor.isIn(MBBlockTags.SOIL_NON_REPLACEABLE) && floor.isSideSolidFullSquare(world, pos, Direction.UP)) {
+//            cir.setReturnValue(true);
+//        }
     }
 }

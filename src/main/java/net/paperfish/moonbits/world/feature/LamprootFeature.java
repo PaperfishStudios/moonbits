@@ -22,7 +22,7 @@ public class LamprootFeature extends Feature<SimpleBlockFeatureConfig> {
     }
 
     @Override
-    public boolean generate(FeatureContext<SimpleBlockFeatureConfig> context) {
+    public boolean place(FeatureContext<SimpleBlockFeatureConfig> context) {
         SimpleBlockFeatureConfig simpleBlockFeatureConfig = context.getConfig();
         StructureWorldAccess world = context.getWorld();
         BlockPos pos = context.getOrigin();

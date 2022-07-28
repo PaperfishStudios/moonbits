@@ -4,10 +4,9 @@ import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.BlockView;
 import net.paperfish.moonbits.registry.MBBlocks;
-
-import net.minecraft.util.math.random.Random;
 
 public class MBGrassPlantBlock extends FernBlock {
     public MBGrassPlantBlock(Settings settings) {
@@ -15,7 +14,7 @@ public class MBGrassPlantBlock extends FernBlock {
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    public void grow(ServerWorld world, RandomGenerator random, BlockPos pos, BlockState state) {
         TallPlantBlock tallPlantBlock = (TallPlantBlock) Blocks.TALL_GRASS;
         if (state.isOf(MBBlocks.BEACHGRASS)) {
             tallPlantBlock = (TallPlantBlock) MBBlocks.TALL_BEACHGRASS;

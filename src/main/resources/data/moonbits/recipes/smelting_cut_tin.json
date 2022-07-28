@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "moonbits:pestered_cut_tin"
+  },
+  "result": "moonbits:cut_tin"
+}

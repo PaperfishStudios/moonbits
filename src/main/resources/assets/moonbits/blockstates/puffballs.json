@@ -1,21 +1,7 @@
 {
   "variants": {
-    "": [
-      {
-        "model": "moonbits:block/puffballs"
-      },
-      {
-        "model": "moonbits:block/puffballs",
-        "y": 90
-      },
-      {
-        "model": "moonbits:block/puffballs",
-        "y": 180
-      },
-      {
-        "model": "moonbits:block/puffballs",
-        "y": 270
-      }
-    ]
+    "": {
+      "model": "moonbits:block/puffballs"
+    }
   }
 }

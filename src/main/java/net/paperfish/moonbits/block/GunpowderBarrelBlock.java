@@ -11,7 +11,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
@@ -37,7 +37,7 @@ public class GunpowderBarrelBlock extends Block {
     }
 
     @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, RandomGenerator random) {
         if (state.get(SIGNAL_FIRE)) {
             if (random.nextFloat() < 0.11f) {
                 for (int i = 0; i < random.nextInt(2) + 2; ++i) {

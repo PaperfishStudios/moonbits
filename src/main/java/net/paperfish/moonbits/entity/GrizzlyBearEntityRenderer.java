@@ -1,6 +1,6 @@
 package net.paperfish.moonbits.entity;
 
-import net.minecraft.client.render.VertexConsumer;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
@@ -20,8 +20,8 @@ public class GrizzlyBearEntityRenderer extends GeoEntityRenderer<GrizzlyBearEnti
 
     @Override
     public void renderEarly(GrizzlyBearEntity bear, MatrixStack stackIn, float ticks, VertexConsumerProvider renderTypeBuffer,
-                            VertexConsumer vertexBuilder, int packedLightIn, int packedOverlayIn, float red, float green, float blue,
-                            float partialTicks) {
+							VertexConsumer vertexBuilder, int packedLightIn, int packedOverlayIn, float red, float green, float blue,
+							float partialTicks) {
         super.renderEarly(bear, stackIn, ticks, renderTypeBuffer, vertexBuilder, packedLightIn, packedOverlayIn, red, green, blue, partialTicks);
         if (bear.isBaby()) {
             stackIn.scale(0.5F, 0.5F, 0.5F);

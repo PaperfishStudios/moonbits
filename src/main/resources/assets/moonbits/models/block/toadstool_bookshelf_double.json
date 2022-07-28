@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/giant_toadstool_cap_top",
+    "side": "moonbits:block/toadstool_bookshelf_side"
+  }
+}

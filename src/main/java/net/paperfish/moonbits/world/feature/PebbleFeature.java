@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.CountConfig;
@@ -13,16 +14,14 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.block.PebbleBlock;
 
-import net.minecraft.util.math.random.Random;
-
 public class PebbleFeature extends Feature<CountConfig> {
     public PebbleFeature(Codec<CountConfig> codec) {
         super(codec);
     }
 
-    public boolean generate(FeatureContext<CountConfig> context) {
+    public boolean place(FeatureContext<CountConfig> context) {
         int i = 0;
-        Random random = context.getRandom();
+		RandomGenerator random = context.getRandom();
         StructureWorldAccess structureWorldAccess = context.getWorld();
         BlockPos blockPos = context.getOrigin();
         int j = ((CountConfig)context.getConfig()).getCount().get(random);

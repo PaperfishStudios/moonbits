@@ -9,6 +9,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.paperfish.moonbits.registry.MBBlockTags;
@@ -42,7 +43,7 @@ public abstract class CropBlockMixin extends PlantBlock implements Fertilizable 
     }
 
     @Inject(method = "randomTick", at = @At(value = "HEAD"), cancellable = true)
-    private void onRandomTick(BlockState state, ServerWorld world, BlockPos pos, net.minecraft.util.math.random.Random random, CallbackInfo ci) {
+    private void onRandomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random, CallbackInfo ci) {
         int i = this.getAge(state);
         if (world.getBlockState(pos.down()).isIn(MBBlockTags.PLANTER_BOXES)) {
             if (world.getBaseLightLevel(pos, 0) >= 9 && i < this.getMaxAge() && random.nextInt(2) == 0) {

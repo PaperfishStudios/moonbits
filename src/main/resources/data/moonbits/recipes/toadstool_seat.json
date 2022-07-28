@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "moonbits:toadstool_stems"
+    },
+    "B": {
+      "item": "moonbits:toadstool_cap"
+    }
+  },
+  "pattern": [
+    "###",
+    " B "
+  ],
+  "result": {
+    "count": 3,
+    "item": "moonbits:toadstool_seat"
+  }
+}

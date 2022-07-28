@@ -45,7 +45,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Bucketa
     static {
 		FROM_BUCKET = DataTracker.registerData(StriderEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	}
-    
+
     @Inject(method="initDataTracker", at=@At("RETURN"))
     protected void onInitDataTracker(CallbackInfo ci) {
 		this.dataTracker.startTracking(FROM_BUCKET, false);
@@ -58,7 +58,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Bucketa
             cir.setReturnValue(tryBucket(player, hand, this).orElse(super.interactMob(player, hand)));
         }
 	}
-    
+
     public boolean isFromBucket() {
 		return this.dataTracker.get(FROM_BUCKET);
 	}
@@ -91,11 +91,11 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Bucketa
 	public void onReadNbt(NbtCompound nbt, CallbackInfo ci) {
 		this.setFromBucket(nbt.getBoolean("FromBucket"));
 	}
-    
+
     public ItemStack getBucketItem() {
 		return new ItemStack(MBItems.BABY_STRIDER_BUCKET);
 	}
-    
+
     public SoundEvent getBucketFillSound() {
 		return SoundEvents.ITEM_BUCKET_FILL_FISH;
 	}
@@ -111,9 +111,9 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Bucketa
     private static <T extends LivingEntity & Bucketable> Optional<ActionResult> tryBucket(PlayerEntity player, Hand hand, T entity) {
 		ItemStack itemStack = player.getStackInHand(hand);
 		if (itemStack.getItem() == Items.LAVA_BUCKET && entity.isAlive() && entity.isBaby()) {
-			entity.playSound(((Bucketable)entity).getBucketFillSound(), 1.0F, 1.0F);
-			ItemStack itemStack2 = ((Bucketable)entity).getBucketItem();
-			((Bucketable)entity).copyDataToStack(itemStack2);
+			entity.playSound(entity.getBucketedSound(), 1.0F, 1.0F);
+			ItemStack itemStack2 = entity.getBucketItem();
+			entity.copyDataToStack(itemStack2);
 			ItemStack itemStack3 = ItemUsage.exchangeStack(itemStack, player, itemStack2, false);
 			player.setStackInHand(hand, itemStack3);
 			World world = entity.world;

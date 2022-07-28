@@ -19,6 +19,7 @@ import net.minecraft.util.BlockRotation;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -26,8 +27,6 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.paperfish.moonbits.registry.MBBlocks;
 import org.jetbrains.annotations.Nullable;
-
-import net.minecraft.util.math.random.Random;
 
 public class RedstoneClusterBlock extends Block implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -91,7 +90,7 @@ public class RedstoneClusterBlock extends Block implements Waterloggable {
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
-            world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
         if (direction == state.get(FACING).getOpposite() && !state.canPlaceAt(world, pos)) {
             return Blocks.AIR.getDefaultState();
@@ -118,7 +117,7 @@ public class RedstoneClusterBlock extends Block implements Waterloggable {
             world.setBlockState(pos, state.with(LIT, true), Block.NOTIFY_LISTENERS);
         }
         else if (state.get(LIT) && !bl){
-            world.createAndScheduleBlockTick(pos, this, world.random.nextInt(20) + 1);
+            world.scheduleBlockTick(pos, this, world.random.nextInt(20) + 1);
         }
     }
     @Override
@@ -128,7 +127,7 @@ public class RedstoneClusterBlock extends Block implements Waterloggable {
             world.setBlockState(blockPos, state.with(LIT, true), Block.NOTIFY_LISTENERS);
             world.playSound(null, blockPos, SoundEvents.BLOCK_AMETHYST_BLOCK_HIT, SoundCategory.BLOCKS, 1.0f, 0.5f + world.random.nextFloat() * 1.2f);
             world.playSound(null, blockPos, SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME, SoundCategory.BLOCKS, 1.0f, 0.5f + world.random.nextFloat() * 1.2f);
-            world.createAndScheduleBlockTick(blockPos, this, world.random.nextInt(20) + 1);
+            world.scheduleBlockTick(blockPos, this, world.random.nextInt(20) + 1);
         }
     }
 
@@ -151,13 +150,13 @@ public class RedstoneClusterBlock extends Block implements Waterloggable {
     }
 
     @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, RandomGenerator random) {
         if (state.get(LIT)) {
             spawnParticles(world, pos);
         }
     }
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
         if (state.get(LIT)) {
             if (canGrow && random.nextInt(25) == 0) {
                 world.setBlockState(pos, next.getStateWithProperties(state), NOTIFY_LISTENERS);
@@ -169,7 +168,7 @@ public class RedstoneClusterBlock extends Block implements Waterloggable {
     }
 
     @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
         if (!world.isReceivingRedstonePower(pos) && !state.get(LIT)) {
             world.setBlockState(pos, state.with(LIT, false), Block.NOTIFY_ALL);
         }
@@ -177,7 +176,7 @@ public class RedstoneClusterBlock extends Block implements Waterloggable {
 
     private static void spawnParticles(World world, BlockPos pos) {
         double d = 0.5625;
-        Random random = world.random;
+		RandomGenerator random = world.random;
         for (Direction direction : Direction.values()) {
             BlockPos blockPos = pos.offset(direction);
             if (world.getBlockState(blockPos).isOpaqueFullCube(world, blockPos)) continue;

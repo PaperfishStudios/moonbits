@@ -23,20 +23,8 @@ public class MBBlockTags {
 
     // mushrooms that can go into food
     public static final TagKey<Block> EDIBLE_MUSHROOMS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "edible_mushrooms"));
-    // no-no mushrooms
-    //public static final Tag.Identified<Block> UNSAFE_MUSHROOMS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MOD_ID, "unsafe_mushrooms"));
     // all mushrooms
     public static final TagKey<Block> MUSHROOMS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "mushrooms"));
-
-	// tag containing all mb bookshelves
-    public static final TagKey<Block> BOOKSHELVES = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "bookshelves"));
-    // fabric common tag containing all bookshelves
-	public static final TagKey<Block> C_BOOKSHELVES = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "bookshelves"));
-    // blocks that increase the enchanting power of a table
-    public static final TagKey<Block> VALID_ENCHANTERS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "valid_enchanting_blocks"));
-
-    // blocks that work as portal frames
-    public static final TagKey<Block> NETHER_PORTAL_FRAME_BLOCKS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "nether_portal_frame_blocks"));
 
     // tag containing every planter variant
     public static final TagKey<Block> PLANTER_BOXES = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "planter_boxes"));
@@ -51,16 +39,5 @@ public class MBBlockTags {
 
     public static void register() {
 
-    }
-
-    public static Block[] toArray(TagKey<Block> blocks) {
-        Block[] array = new Block[0];
-        List<Block> list = new ArrayList<>();
-        Registry.BLOCK.forEach((block) -> {
-            if (block.getDefaultState().isIn(blocks)) {
-                list.add(block);
-            }
-        });
-        return list.toArray(array);
     }
 }

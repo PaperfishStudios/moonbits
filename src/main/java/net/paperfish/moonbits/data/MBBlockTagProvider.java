@@ -2,6 +2,7 @@ package net.paperfish.moonbits.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBlockTags;
 import net.minecraft.block.*;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.registry.Registry;
@@ -240,6 +241,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.FROSTHORN_CROWN,
                 MBBlocks.FROSTHORN_STEM,
 
+				MBBlocks.HARDY_BUSH,
+
                 MBBlocks.APPLE_CRATE,
                 MBBlocks.CARROT_CRATE,
                 MBBlocks.POTATO_CRATE,
@@ -286,6 +289,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.HARDY_LEAVES,
                 MBBlocks.FLOWERING_HARDY_LEAVES,
                 MBBlocks.FRUITING_HARDY_LEAVES,
+				MBBlocks.HARDY_BUSH,
 
                 MBBlocks.TINY_BARREL_CACTUS,
                 MBBlocks.SMALL_BARREL_CACTUS,
@@ -519,7 +523,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CEDAR_FENCE,
                 MBBlocks.HONEY_FENCE
         );
-        this.getOrCreateTagBuilder(MBBlockTags.BOOKSHELVES).add(
+        this.getOrCreateTagBuilder(ConventionalBlockTags.BOOKSHELVES).add(
                 Blocks.BOOKSHELF,
                 MBBlocks.SPRUCE_BOOKSHELF,
                 MBBlocks.BIRCH_BOOKSHELF,
@@ -530,10 +534,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.WARPED_BOOKSHELF,
                 MBBlocks.HONEY_BOOKSHELF,
                 MBBlocks.LAMPROOT_BOOKSHELF,
-                MBBlocks.CEDAR_BOOKSHELF
-        );
-        this.getOrCreateTagBuilder(MBBlockTags.NETHER_PORTAL_FRAME_BLOCKS).add(
-                Blocks.OBSIDIAN
+                MBBlocks.CEDAR_BOOKSHELF,
+				MBBlocks.TOADSTOOL_BOOKSHELF
         );
         this.getOrCreateTagBuilder(MBBlockTags.PLANTER_BOXES).add(
                 MBBlocks.OAK_PLANTER_BOX,
@@ -578,7 +580,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 //                MBBlocks.ASPEN_LEAVES
         );
 
-        this.getOrCreateTagBuilder(MBBlockTags.SOIL_NON_REPLACEABLE).add(
+        this.getOrCreateTagBuilder(BlockTags.DIRT).add(
                 MBBlocks.GRASS_TURF,
                 MBBlocks.GRASS_TURF_STAIRS,
                 MBBlocks.GRASS_TURF_SLAB,
@@ -631,7 +633,23 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         );
         this.getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
                 MBBlocks.HEMATITE_BLOCK,
-                MBBlocks.TIN_BLOCK
+                MBBlocks.TIN_BLOCK,
+				MBBlocks.OXIDIZED_TIN_BLOCK,
+				MBBlocks.BLACKENED_TIN_BLOCK,
+				MBBlocks.PESTERED_TIN_BLOCK,
+				MBBlocks.WAXED_TIN_BLOCK,
+				MBBlocks.WAXED_OXIDIZED_TIN_BLOCK,
+				MBBlocks.WAXED_BLACKENED_TIN_BLOCK,
+				MBBlocks.WAXED_PESTERED_TIN_BLOCK,
+
+				Blocks.COPPER_BLOCK,
+				Blocks.EXPOSED_COPPER,
+				Blocks.WEATHERED_COPPER,
+				Blocks.OXIDIZED_COPPER,
+				Blocks.WAXED_COPPER_BLOCK,
+				Blocks.WAXED_EXPOSED_COPPER,
+				Blocks.WAXED_WEATHERED_COPPER,
+				Blocks.WAXED_OXIDIZED_COPPER
         );
         this.getOrCreateTagBuilder(BlockTags.INFINIBURN_OVERWORLD).add(
                 MBBlocks.GUNPOWDER_CRATE
@@ -654,7 +672,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.PURPLE_LEATHER_SEAT,
                 MBBlocks.LIGHT_BLUE_LEATHER_SEAT,
                 MBBlocks.CYAN_LEATHER_SEAT,
-                MBBlocks.BLUE_LEATHER_SEAT
+                MBBlocks.BLUE_LEATHER_SEAT,
+				MBBlocks.TOADSTOOL_SEAT
         );
 
         this.getOrCreateTagBuilder(BlockTags.TALL_FLOWERS).add(
@@ -690,8 +709,14 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         );
         this.getOrCreateTagBuilder(MBBlockTags.MUSHROOMS).add(
                 Blocks.RED_MUSHROOM,
-                MBBlocks.SMALL_TOADSTOOLS
+                MBBlocks.SMALL_TOADSTOOLS,
+				MBBlocks.OYSTER_MUSHROOMS,
+				MBBlocks.SHELF_OYSTER_MUSHROOMS
         ).addTag(MBBlockTags.EDIBLE_MUSHROOMS);
+
+		this.getOrCreateTagBuilder(BlockTags.FROG_PREFER_JUMP_TO).add(
+				MBBlocks.TOADSTOOL
+		);
 
         Registry.BLOCK.forEach(block -> {
             if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MODID)) {

@@ -3,7 +3,7 @@ package net.paperfish.moonbits.world.feature;
 import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.feature.HugeMushroomFeature;
 import net.minecraft.world.gen.feature.HugeMushroomFeatureConfig;
@@ -20,7 +20,7 @@ public class GiantToadstoolFeature extends HugeMushroomFeature {
     }
 
     @Override
-    protected void generateCap(WorldAccess world, Random random, BlockPos start, int y, BlockPos.Mutable mutable, HugeMushroomFeatureConfig config) {
+    protected void generateCap(WorldAccess world, RandomGenerator random, BlockPos start, int y, BlockPos.Mutable mutable, HugeMushroomFeatureConfig config) {
         int radius = config.foliageRadius;
         for (int j = -radius; j <= radius; ++j) {
             for (int k = -radius; k <= radius; ++k) {

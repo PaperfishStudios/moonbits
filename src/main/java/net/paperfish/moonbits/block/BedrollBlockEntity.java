@@ -22,7 +22,7 @@ public class BedrollBlockEntity extends BlockEntity {
     }
 
     public BlockEntityUpdateS2CPacket toUpdatePacket() {
-        return BlockEntityUpdateS2CPacket.create(this);
+        return BlockEntityUpdateS2CPacket.of(this);
     }
 
     public DyeColor getColor() {

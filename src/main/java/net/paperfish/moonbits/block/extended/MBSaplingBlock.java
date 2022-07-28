@@ -23,10 +23,10 @@ public class MBSaplingBlock extends SaplingBlock {
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.down();
-//        if (state.isOf(MBBlocks.JUNIPER_SAPLING) && canPlantJuniper(world.getBlockState(blockPos), world, blockPos)) {
-//            return true;
-//        }
+        if (state.isOf(MBBlocks.HARDY_SPROUT) && canPlantJuniper(world.getBlockState(blockPos), world, blockPos)) {
+            return true;
+        }
         return super.canPlantOnTop(world.getBlockState(blockPos), world, blockPos);
     }
-    
+
 }

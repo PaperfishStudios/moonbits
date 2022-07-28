@@ -5,7 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
+import net.minecraft.util.random.RandomGenerator;
 
 import java.util.Optional;
 
@@ -26,7 +26,7 @@ public class DimWeatheringStairsBlock extends StairsBlock implements Dimensional
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
         this.tickDegradation(state, world, pos, random);
     }
 

@@ -15,7 +15,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.paperfish.moonbits.registry.MBBlocks;
@@ -32,7 +32,7 @@ public class HardyLeavesBlock extends LeavesBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
         if (!state.get(LeavesBlock.PERSISTENT) && progress != Progress.FRUITING && random.nextInt(9) == 0) {
             Block grow = MBEvents.GROWING.get(state.getBlock());
             if (grow != null) {
@@ -56,7 +56,7 @@ public class HardyLeavesBlock extends LeavesBlock {
                 world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
                 BlockState blockState = plucked.getStateWithProperties(state);
                 world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
-                world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+                world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.create(player, blockState));
                 return ActionResult.success(world.isClient());
             }
         }

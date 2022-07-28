@@ -4,12 +4,11 @@ import com.mojang.serialization.Codec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.MushroomBlock;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.gen.feature.HugeMushroomFeature;
 import net.minecraft.world.gen.feature.HugeMushroomFeatureConfig;
 import net.paperfish.moonbits.block.MushroomCapBlock;
-
-import net.minecraft.util.math.random.Random;
 
 public class BrownMushroomFeature extends HugeMushroomFeature {
     public BrownMushroomFeature(Codec<HugeMushroomFeatureConfig> codec) {
@@ -22,7 +21,7 @@ public class BrownMushroomFeature extends HugeMushroomFeature {
     }
 
     @Override
-    protected void generateCap(WorldAccess world, Random random, BlockPos start, int y, BlockPos.Mutable mutable, HugeMushroomFeatureConfig config) {
+    protected void generateCap(WorldAccess world, RandomGenerator random, BlockPos start, int y, BlockPos.Mutable mutable, HugeMushroomFeatureConfig config) {
         int radius = config.foliageRadius;
         for (int j = -radius; j <= radius; ++j) {
             for (int k = -radius; k <= radius; ++k) {

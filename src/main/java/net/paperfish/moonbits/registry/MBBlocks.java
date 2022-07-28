@@ -1,7 +1,5 @@
 package net.paperfish.moonbits.registry;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
 import net.minecraft.block.PressurePlateBlock.ActivationRule;
@@ -23,6 +21,7 @@ import net.paperfish.moonbits.block.extended.*;
 import net.paperfish.moonbits.mixin.SignTypeAccessor;
 import net.paperfish.moonbits.world.feature.*;
 import net.paperfish.moonbits.world.gen.MBTreeFeatures;
+import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
 
 public class MBBlocks {
 
@@ -62,22 +61,22 @@ public class MBBlocks {
 
 	// GRASSES
 	public static final Block GRASS_TURF = new GrassTurfBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC, MapColor.GREEN).strength(0.6f).sounds(BlockSoundGroup.GRASS));
-	public static final Block GRASS_TURF_STAIRS = new GrassTurfStairsBlock(GRASS_TURF.getDefaultState(), FabricBlockSettings.of(Material.SOLID_ORGANIC).hardness(0.6f).sounds(BlockSoundGroup.GRASS));
+	public static final Block GRASS_TURF_STAIRS = new GrassTurfStairsBlock(GRASS_TURF.getDefaultState(), QuiltBlockSettings.of(Material.SOLID_ORGANIC).hardness(0.6f).sounds(BlockSoundGroup.GRASS));
 	public static final Block GRASS_TURF_SLAB = new GrassTurfSlabBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC, MapColor.GREEN).strength(0.6f).sounds(BlockSoundGroup.GRASS));
 	public static final Block GRASS_CARPET = new LeafCarpetBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC, MapColor.GREEN).strength(0.1F).sounds(BlockSoundGroup.GRASS));
 
 	public static final Block MYCELIUM_TURF = new GrassTurfBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC, MapColor.PURPLE).strength(0.6f).sounds(BlockSoundGroup.NYLIUM));
-	public static final Block MYCELIUM_TURF_STAIRS = new GrassTurfStairsBlock(MYCELIUM_TURF.getDefaultState(), FabricBlockSettings.of(Material.SOLID_ORGANIC).hardness(0.6f).sounds(BlockSoundGroup.NYLIUM));
+	public static final Block MYCELIUM_TURF_STAIRS = new GrassTurfStairsBlock(MYCELIUM_TURF.getDefaultState(), QuiltBlockSettings.of(Material.SOLID_ORGANIC).hardness(0.6f).sounds(BlockSoundGroup.NYLIUM));
 	public static final Block MYCELIUM_TURF_SLAB = new GrassTurfSlabBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC, MapColor.PURPLE).strength(0.6f).sounds(BlockSoundGroup.NYLIUM));
 	public static final Block MYCELIUM_CARPET = new LeafCarpetBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC, MapColor.PURPLE).strength(0.1F).sounds(BlockSoundGroup.NYLIUM));
 
 	public static final Block CRIMSON_NYLIUM_TURF = new GrassTurfBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC, MapColor.DULL_RED).strength(0.6f).sounds(BlockSoundGroup.NYLIUM));
-	public static final Block CRIMSON_NYLIUM_TURF_STAIRS = new GrassTurfStairsBlock(CRIMSON_NYLIUM_TURF.getDefaultState(), FabricBlockSettings.of(Material.SOLID_ORGANIC).hardness(0.6f).sounds(BlockSoundGroup.NYLIUM));
+	public static final Block CRIMSON_NYLIUM_TURF_STAIRS = new GrassTurfStairsBlock(CRIMSON_NYLIUM_TURF.getDefaultState(), QuiltBlockSettings.of(Material.SOLID_ORGANIC).hardness(0.6f).sounds(BlockSoundGroup.NYLIUM));
 	public static final Block CRIMSON_NYLIUM_TURF_SLAB = new GrassTurfSlabBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC, MapColor.DULL_RED).strength(0.6f).sounds(BlockSoundGroup.NYLIUM));
 	public static final Block CRIMSON_NYLIUM_CARPET = new LeafCarpetBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.DULL_RED).strength(0.1F).sounds(BlockSoundGroup.NYLIUM));
 
 	public static final Block WARPED_NYLIUM_TURF = new GrassTurfBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC, MapColor.TEAL).strength(0.6f).sounds(BlockSoundGroup.NYLIUM));
-	public static final Block WARPED_NYLIUM_TURF_STAIRS = new GrassTurfStairsBlock(WARPED_NYLIUM_TURF.getDefaultState(), FabricBlockSettings.of(Material.SOLID_ORGANIC).hardness(0.6f).sounds(BlockSoundGroup.NYLIUM));
+	public static final Block WARPED_NYLIUM_TURF_STAIRS = new GrassTurfStairsBlock(WARPED_NYLIUM_TURF.getDefaultState(), QuiltBlockSettings.of(Material.SOLID_ORGANIC).hardness(0.6f).sounds(BlockSoundGroup.NYLIUM));
 	public static final Block WARPED_NYLIUM_TURF_SLAB = new GrassTurfSlabBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC, MapColor.TEAL).strength(0.6f).sounds(BlockSoundGroup.NYLIUM));
 	public static final Block WARPED_NYLIUM_CARPET = new LeafCarpetBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TEAL).strength(0.1F).sounds(BlockSoundGroup.NYLIUM));
 
@@ -177,6 +176,7 @@ public class MBBlocks {
 	public static final Block PUFFBALLS = new PuffballsBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block POTTED_PUFFBALLS = new FlowerPotBlock(PUFFBALLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+	public static final Block GIANT_PUFFBALL = new GiantPuffballBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.5F).sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
 
 	public static final Block OYSTER_MUSHROOMS = new SmallToadstoolBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
@@ -193,43 +193,45 @@ public class MBBlocks {
 	public static final Block POTTED_SMALL_TOADSTOOLS = new FlowerPotBlock(SMALL_TOADSTOOLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 	public static final Block TOADSTOOL = new ToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).strength(0.5F).sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
 	public static final Block TOADSTOOL_STEM = new ToadstoolStemBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.5F).sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
-	public static final Block TOADSTOOL_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.WOOD));
-	public static final Block TOADSTOOL_STAIRS = new MBStairsBlock(TOADSTOOL_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD));
-	public static final Block TOADSTOOL_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.WOOD));
+	public static final Block TOADSTOOL_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.WOOD).mapColor(MapColor.OFF_WHITE));
+	public static final Block TOADSTOOL_STAIRS = new MBStairsBlock(TOADSTOOL_PLANKS.getDefaultState(), QuiltBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD));
+	public static final Block TOADSTOOL_SLAB = new SlabBlock(AbstractBlock.Settings.copy(TOADSTOOL_PLANKS).sounds(BlockSoundGroup.WOOD));
+	public static final Block TOADSTOOL_BOOKSHELF = new SlabBlock(AbstractBlock.Settings.copy(TOADSTOOL_PLANKS).sounds(BlockSoundGroup.WOOD));
+	public static final Block TOADSTOOL_SEAT = new SeatBlock(AbstractBlock.Settings.copy(TOADSTOOL_PLANKS).sounds(BlockSoundGroup.WOOD));
 
 	public static final Block RED_MUSHCLAY = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(0.8F).sounds(BlockSoundGroup.MUD));
 	public static final Block RED_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
-	public static final Block RED_MUSH_STAIRS = new MBStairsBlock(RED_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block RED_MUSH_STAIRS = new MBStairsBlock(RED_MUSH_BLOCK.getDefaultState(), QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
 	public static final Block RED_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
 	public static final Block RED_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
-	public static final Block RED_MUSH_BRICK_STAIRS = new MBStairsBlock(RED_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block RED_MUSH_BRICK_STAIRS = new MBStairsBlock(RED_MUSH_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
 	public static final Block RED_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
 	public static final Block RED_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS).luminance((state) -> 15));
 
 	public static final Block BROWN_MUSHCLAY = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(0.8F).sounds(BlockSoundGroup.MUD));
 	public static final Block BROWN_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
-	public static final Block BROWN_MUSH_STAIRS = new MBStairsBlock(BROWN_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block BROWN_MUSH_STAIRS = new MBStairsBlock(BROWN_MUSH_BLOCK.getDefaultState(), QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
 	public static final Block BROWN_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
 	public static final Block BROWN_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
-	public static final Block BROWN_MUSH_BRICK_STAIRS = new MBStairsBlock(BROWN_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block BROWN_MUSH_BRICK_STAIRS = new MBStairsBlock(BROWN_MUSH_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
 	public static final Block BROWN_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
 	public static final Block BROWN_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS).luminance((state) -> 15));
 
 	public static final Block SAFFRON_MUSHCLAY = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(0.8F).sounds(BlockSoundGroup.MUD));
 	public static final Block SAFFRON_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
-	public static final Block SAFFRON_MUSH_STAIRS = new MBStairsBlock(SAFFRON_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block SAFFRON_MUSH_STAIRS = new MBStairsBlock(SAFFRON_MUSH_BLOCK.getDefaultState(), QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
 	public static final Block SAFFRON_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
 	public static final Block SAFFRON_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
-	public static final Block SAFFRON_MUSH_BRICK_STAIRS = new MBStairsBlock(SAFFRON_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block SAFFRON_MUSH_BRICK_STAIRS = new MBStairsBlock(SAFFRON_MUSH_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
 	public static final Block SAFFRON_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
 	public static final Block SAFFRON_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS).luminance((state) -> 15));
 
 	public static final Block TOADSTOOL_MUSHCLAY = new Block(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(0.8F).sounds(BlockSoundGroup.MUD));
 	public static final Block TOADSTOOL_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
-	public static final Block TOADSTOOL_MUSH_STAIRS = new MBStairsBlock(TOADSTOOL_MUSH_BLOCK.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
+	public static final Block TOADSTOOL_MUSH_STAIRS = new MBStairsBlock(TOADSTOOL_MUSH_BLOCK.getDefaultState(), QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
 	public static final Block TOADSTOOL_MUSH_SLAB = new SlabBlock(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
 	public static final Block TOADSTOOL_MUSH_BRICKS = new Block(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
-	public static final Block TOADSTOOL_MUSH_BRICK_STAIRS = new MBStairsBlock(TOADSTOOL_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
+	public static final Block TOADSTOOL_MUSH_BRICK_STAIRS = new MBStairsBlock(TOADSTOOL_MUSH_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
 	public static final Block TOADSTOOL_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
 	public static final Block TOADSTOOL_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(GIANT_TOADSTOOL_CAP).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS).luminance((state) -> 15));
 
@@ -292,7 +294,7 @@ public class MBBlocks {
 
 	// WARM RECEPTION
 	public static final Block CEDAR_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
-	public static final Block CEDAR_STAIRS = new MBStairsBlock(CEDAR_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
+	public static final Block CEDAR_STAIRS = new MBStairsBlock(CEDAR_PLANKS.getDefaultState(), QuiltBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CEDAR_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB));
 	public static final Block CEDAR_LOG = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CEDAR_WOOD = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -301,12 +303,12 @@ public class MBBlocks {
 	public static final Block CEDAR_LEAVES = new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).sounds(BlockSoundGroup.GRASS));
 	public static final Block CEDAR_SAPLING =new MBSaplingBlock(new CedarSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
 	public static final Block POTTED_CEDAR_SAPLING = new FlowerPotBlock(CEDAR_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
-	public static final Block CEDAR_FENCE = new FenceBlock(FabricBlockSettings.copy(CEDAR_PLANKS));
-	public static final Block CEDAR_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copy(CEDAR_PLANKS));
-	public static final Block CEDAR_DOOR = new MBDoorBlock(FabricBlockSettings.copy(CEDAR_PLANKS).nonOpaque());
-	public static final Block CEDAR_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(CEDAR_PLANKS).nonOpaque());
-	public static final Block CEDAR_BUTTON = new MBWoodenButtonBlock(FabricBlockSettings.copy(CEDAR_PLANKS).noCollision());
-	public static final Block CEDAR_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (FabricBlockSettings.copy(CEDAR_PLANKS)).noCollision());
+	public static final Block CEDAR_FENCE = new FenceBlock(QuiltBlockSettings.copy(CEDAR_PLANKS));
+	public static final Block CEDAR_FENCE_GATE = new FenceGateBlock(QuiltBlockSettings.copy(CEDAR_PLANKS));
+	public static final Block CEDAR_DOOR = new MBDoorBlock(QuiltBlockSettings.copy(CEDAR_PLANKS).nonOpaque());
+	public static final Block CEDAR_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(CEDAR_PLANKS).nonOpaque());
+	public static final Block CEDAR_BUTTON = new MBWoodenButtonBlock(QuiltBlockSettings.copy(CEDAR_PLANKS).noCollision());
+	public static final Block CEDAR_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (QuiltBlockSettings.copy(CEDAR_PLANKS)).noCollision());
 	public static final Block CEDAR_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CEDAR_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block CEDAR_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -320,15 +322,15 @@ public class MBBlocks {
 	public static final Block CEDAR_WALL_SIGN = new WallSignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_ORANGE)
 			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(CEDAR_SIGN), CEDAR_SIGN_TYPE);
 
-	public static final Block PRICKLY_PEAR_CACTUS = new PricklyPearBlock(FabricBlockSettings.of(Material.CACTUS)
+	public static final Block PRICKLY_PEAR_CACTUS = new PricklyPearBlock(QuiltBlockSettings.of(Material.CACTUS)
 			.breakInstantly().noCollision().ticksRandomly().nonOpaque().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
-	public static final Block TALL_PRICKLY_PEAR_CACTUS = new TallPricklyPearBlock(FabricBlockSettings.of(Material.CACTUS)
+	public static final Block TALL_PRICKLY_PEAR_CACTUS = new TallPricklyPearBlock(QuiltBlockSettings.of(Material.CACTUS)
 			.breakInstantly().noCollision().ticksRandomly().nonOpaque().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 
-	public static final Block TINY_BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.TINY, FabricBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-	public static final Block SMALL_BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.SMALL, FabricBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-	public static final Block BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.MEDIUM, FabricBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-	public static final Block LARGE_BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.LARGE, FabricBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+	public static final Block TINY_BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.TINY, QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+	public static final Block SMALL_BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.SMALL, QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+	public static final Block BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.MEDIUM, QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+	public static final Block LARGE_BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.LARGE, QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
 
 	public static final Block DESERT_BRUSH = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
@@ -347,6 +349,8 @@ public class MBBlocks {
 	public static final Block HARDY_LEAVES = new HardyLeavesBlock(HardyLeavesBlock.Progress.EMPTY, AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES));
 	public static final Block FLOWERING_HARDY_LEAVES = new HardyLeavesBlock(HardyLeavesBlock.Progress.FLOWERING, AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES));
 	public static final Block FRUITING_HARDY_LEAVES = new HardyLeavesBlock(HardyLeavesBlock.Progress.FRUITING, AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES));
+	public static final Block HARDY_BUSH = new Block(AbstractBlock.Settings.copy(Blocks.AZALEA));
+	public static final Block HARDY_SPROUT = new MBSaplingBlock(new HardySproutGenerator(), AbstractBlock.Settings.copy(Blocks.AZALEA));
 
 	public static final Block CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
 	public static final Block FRAMED_CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
@@ -453,14 +457,14 @@ public class MBBlocks {
 
 	// - HONEY CONTENT LMAO
 	public static final Block HONEY_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
-	public static final Block HONEY_STAIRS = new MBStairsBlock(HONEY_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
+	public static final Block HONEY_STAIRS = new MBStairsBlock(HONEY_PLANKS.getDefaultState(), QuiltBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
 	public static final Block HONEY_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB));
-	public static final Block HONEY_FENCE = new FenceBlock(FabricBlockSettings.copy(HONEY_PLANKS));
-	public static final Block HONEY_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copy(HONEY_PLANKS));
-	public static final Block HONEY_DOOR = new MBDoorBlock(FabricBlockSettings.copy(HONEY_PLANKS).nonOpaque());
-	public static final Block HONEY_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(HONEY_PLANKS).nonOpaque());
-	public static final Block HONEY_BUTTON = new MBWoodenButtonBlock(FabricBlockSettings.copy(HONEY_PLANKS).noCollision());
-	public static final Block HONEY_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (FabricBlockSettings.copy(HONEY_PLANKS)).noCollision());
+	public static final Block HONEY_FENCE = new FenceBlock(QuiltBlockSettings.copy(HONEY_PLANKS));
+	public static final Block HONEY_FENCE_GATE = new FenceGateBlock(QuiltBlockSettings.copy(HONEY_PLANKS));
+	public static final Block HONEY_DOOR = new MBDoorBlock(QuiltBlockSettings.copy(HONEY_PLANKS).nonOpaque());
+	public static final Block HONEY_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(HONEY_PLANKS).nonOpaque());
+	public static final Block HONEY_BUTTON = new MBWoodenButtonBlock(QuiltBlockSettings.copy(HONEY_PLANKS).noCollision());
+	public static final Block HONEY_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (QuiltBlockSettings.copy(HONEY_PLANKS)).noCollision());
 	public static final Block HONEY_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block HONEY_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block HONEY_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -488,80 +492,80 @@ public class MBBlocks {
 	public static final Block HONEYCOMB_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(Blocks.HONEYCOMB_BLOCK));
 
 	// DIRT CAVES
-	public static final Block TOUGH_DIRT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block TOUGH_DIRT_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block TOUGH_DIRT_STAIRS = new MBStairsBlock(TOUGH_DIRT.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
-    public static final Block DIRT_BRICKS = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
-    public static final Block DIRT_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
-    public static final Block DIRT_BRICK_STAIRS = new MBStairsBlock(DIRT_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
-	public static final Block SUBSTRATE = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block TOUGH_DIRT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block TOUGH_DIRT_SLAB = new SlabBlock(QuiltBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block TOUGH_DIRT_STAIRS = new MBStairsBlock(TOUGH_DIRT.getDefaultState(), QuiltBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
+    public static final Block DIRT_BRICKS = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
+    public static final Block DIRT_BRICK_SLAB = new SlabBlock(QuiltBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
+    public static final Block DIRT_BRICK_STAIRS = new MBStairsBlock(DIRT_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.TUFF));
+	public static final Block SUBSTRATE = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL));
 
-	public static final Block TOUGH_GRASS = new MBSnowyBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL).ticksRandomly());
+	public static final Block TOUGH_GRASS = new MBSnowyBlock(QuiltBlockSettings.of(Material.SOIL).hardness(1.0f).sounds(BlockSoundGroup.GRAVEL).ticksRandomly());
 
-	public static final Block PEAT_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block CLAY_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block GOLD_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block COPPER_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block PEAT_DEPOSIT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block CLAY_DEPOSIT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block GOLD_DEPOSIT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block COPPER_DEPOSIT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
 
-	public static final Block TIN_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block FROST_TIN_DEPOSIT = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
-	public static final Block TIN_ORE = new Block(FabricBlockSettings.copy(Blocks.COAL_ORE));
-	public static final Block DEEPSLATE_TIN_ORE = new Block(FabricBlockSettings.copy(Blocks.DEEPSLATE_COAL_ORE));
-	public static final Block CHERT_TIN_ORE = new Block(FabricBlockSettings.copy(CHERT_COAL_ORE));
-	public static final Block RAW_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.RAW_COPPER_BLOCK));
+	public static final Block TIN_DEPOSIT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block FROST_TIN_DEPOSIT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block TIN_ORE = new Block(QuiltBlockSettings.copy(Blocks.COAL_ORE));
+	public static final Block DEEPSLATE_TIN_ORE = new Block(QuiltBlockSettings.copy(Blocks.DEEPSLATE_COAL_ORE));
+	public static final Block CHERT_TIN_ORE = new Block(QuiltBlockSettings.copy(CHERT_COAL_ORE));
+	public static final Block RAW_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.RAW_COPPER_BLOCK));
 
-	public static final Block PESTERED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.TUFF));
-	public static final Block BLACKENED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block OXIDIZED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block TIN_BLOCK = new DimWeatheringBlock(OXIDIZED_TIN_BLOCK, BLACKENED_TIN_BLOCK, PESTERED_TIN_BLOCK, FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block PESTERED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.TUFF));
-	public static final Block BLACKENED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block OXIDIZED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block CUT_TIN = new DimWeatheringBlock(OXIDIZED_CUT_TIN, BLACKENED_CUT_TIN, PESTERED_CUT_TIN, FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block PESTERED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.TUFF));
-	public static final Block BLACKENED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block OXIDIZED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block CUT_TIN_SLAB = new DimWeatheringSlabBlock(OXIDIZED_CUT_TIN_SLAB, BLACKENED_CUT_TIN_SLAB, PESTERED_CUT_TIN_SLAB, FabricBlockSettings.copy(CUT_TIN));
-	public static final Block PESTERED_CUT_TIN_STAIRS = new MBStairsBlock(PESTERED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.TUFF));
-	public static final Block BLACKENED_CUT_TIN_STAIRS = new MBStairsBlock(BLACKENED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block OXIDIZED_CUT_TIN_STAIRS = new MBStairsBlock(OXIDIZED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block CUT_TIN_STAIRS = new DimWeatheringStairsBlock(OXIDIZED_CUT_TIN_STAIRS, BLACKENED_CUT_TIN_STAIRS, PESTERED_CUT_TIN_STAIRS, CUT_TIN.getDefaultState(), FabricBlockSettings.copy(CUT_TIN));
+	public static final Block PESTERED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.TUFF));
+	public static final Block BLACKENED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block OXIDIZED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block TIN_BLOCK = new DimWeatheringBlock(OXIDIZED_TIN_BLOCK, BLACKENED_TIN_BLOCK, PESTERED_TIN_BLOCK, QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block PESTERED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.TUFF));
+	public static final Block BLACKENED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block OXIDIZED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block CUT_TIN = new DimWeatheringBlock(OXIDIZED_CUT_TIN, BLACKENED_CUT_TIN, PESTERED_CUT_TIN, QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block PESTERED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.TUFF));
+	public static final Block BLACKENED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block OXIDIZED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block CUT_TIN_SLAB = new DimWeatheringSlabBlock(OXIDIZED_CUT_TIN_SLAB, BLACKENED_CUT_TIN_SLAB, PESTERED_CUT_TIN_SLAB, QuiltBlockSettings.copy(CUT_TIN));
+	public static final Block PESTERED_CUT_TIN_STAIRS = new MBStairsBlock(PESTERED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.TUFF));
+	public static final Block BLACKENED_CUT_TIN_STAIRS = new MBStairsBlock(BLACKENED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block OXIDIZED_CUT_TIN_STAIRS = new MBStairsBlock(OXIDIZED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block CUT_TIN_STAIRS = new DimWeatheringStairsBlock(OXIDIZED_CUT_TIN_STAIRS, BLACKENED_CUT_TIN_STAIRS, PESTERED_CUT_TIN_STAIRS, CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(CUT_TIN));
 
-	public static final Block WAXED_PESTERED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.TUFF));
-	public static final Block WAXED_BLACKENED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block WAXED_OXIDIZED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block WAXED_TIN_BLOCK = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block WAXED_PESTERED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.TUFF));
-	public static final Block WAXED_BLACKENED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block WAXED_OXIDIZED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block WAXED_CUT_TIN = new Block(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block WAXED_PESTERED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.TUFF));
-	public static final Block WAXED_BLACKENED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block WAXED_OXIDIZED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block WAXED_CUT_TIN_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block WAXED_PESTERED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_PESTERED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.TUFF));
-	public static final Block WAXED_BLACKENED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_BLACKENED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block WAXED_OXIDIZED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_OXIDIZED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block WAXED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_CUT_TIN.getDefaultState(), FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_PESTERED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.TUFF));
+	public static final Block WAXED_BLACKENED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_OXIDIZED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_PESTERED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.TUFF));
+	public static final Block WAXED_BLACKENED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_OXIDIZED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_PESTERED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.TUFF));
+	public static final Block WAXED_BLACKENED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_OXIDIZED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_PESTERED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_PESTERED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.TUFF));
+	public static final Block WAXED_BLACKENED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_BLACKENED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_OXIDIZED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_OXIDIZED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 
-	public static final Block TIN_PILLAR = new PillarBlock(FabricBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block TIN_DOOR = new MBDoorBlock(FabricBlockSettings.copy(Blocks.IRON_DOOR).nonOpaque());
-	public static final Block TIN_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
-	
-	public static final Block REGOLITH = new Block(FabricBlockSettings.of(Material.AGGREGATE).hardness(1.5f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block TIN_PILLAR = new PillarBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block TIN_DOOR = new MBDoorBlock(QuiltBlockSettings.copy(Blocks.IRON_DOOR).nonOpaque());
+	public static final Block TIN_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
 
-	public static final Block PEAT_MOSS = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block REGOLITH = new Block(QuiltBlockSettings.of(Material.AGGREGATE).hardness(1.5f).sounds(BlockSoundGroup.GRAVEL));
 
-	public static final Block PEAT_BLOCK = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.TUFF));
-	public static final Block PEAT_BRICKS = new Block(FabricBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.STONE));
-	public static final Block PEAT_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.STONE));
-	public static final Block PEAT_BRICK_STAIRS = new MBStairsBlock(PEAT_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.SOIL).hardness(1.5f));
-	public static final Block PEAT_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.STONE));
+	public static final Block PEAT_MOSS = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+
+	public static final Block PEAT_BLOCK = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.TUFF));
+	public static final Block PEAT_BRICKS = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.STONE));
+	public static final Block PEAT_BRICK_SLAB = new SlabBlock(QuiltBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.STONE));
+	public static final Block PEAT_BRICK_STAIRS = new MBStairsBlock(PEAT_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.SOIL).hardness(1.5f));
+	public static final Block PEAT_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.SOIL).hardness(1.5f).sounds(BlockSoundGroup.STONE));
 
 	// lamproot
 	public static final Block LAMPROOT_BULB = new LamprootBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).luminance((state) -> 7));
 	public static final Block LAMPROOT_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
-	public static final Block LAMPROOT_STAIRS = new MBStairsBlock(LAMPROOT_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
+	public static final Block LAMPROOT_STAIRS = new MBStairsBlock(LAMPROOT_PLANKS.getDefaultState(), QuiltBlockSettings.of(Material.WOOD).hardness(0.6f).sounds(BlockSoundGroup.WOOD));
 	public static final Block LAMPROOT_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB));
 	public static final Block LAMPROOT_LOG = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block LAMPROOT_WOOD = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -569,12 +573,12 @@ public class MBBlocks {
 	public static final Block STRIPPED_LAMPROOT_WOOD = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block LAMPROOT_SAPLING =new MBSaplingBlock(new LamprootSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
 	public static final Block POTTED_LAMPROOT_SAPLING = new FlowerPotBlock(LAMPROOT_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
-	public static final Block LAMPROOT_FENCE = new FenceBlock(FabricBlockSettings.copy(LAMPROOT_PLANKS));
-	public static final Block LAMPROOT_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.copy(LAMPROOT_PLANKS));
-	public static final Block LAMPROOT_DOOR = new MBDoorBlock(FabricBlockSettings.copy(LAMPROOT_PLANKS).nonOpaque());
-	public static final Block LAMPROOT_TRAPDOOR = new MBTrapdoorBlock(FabricBlockSettings.copy(LAMPROOT_PLANKS).nonOpaque());
-	public static final Block LAMPROOT_BUTTON = new MBWoodenButtonBlock(FabricBlockSettings.copy(LAMPROOT_PLANKS).noCollision());
-	public static final Block LAMPROOT_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (FabricBlockSettings.copy(LAMPROOT_PLANKS)).noCollision());
+	public static final Block LAMPROOT_FENCE = new FenceBlock(QuiltBlockSettings.copy(LAMPROOT_PLANKS));
+	public static final Block LAMPROOT_FENCE_GATE = new FenceGateBlock(QuiltBlockSettings.copy(LAMPROOT_PLANKS));
+	public static final Block LAMPROOT_DOOR = new MBDoorBlock(QuiltBlockSettings.copy(LAMPROOT_PLANKS).nonOpaque());
+	public static final Block LAMPROOT_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(LAMPROOT_PLANKS).nonOpaque());
+	public static final Block LAMPROOT_BUTTON = new MBWoodenButtonBlock(QuiltBlockSettings.copy(LAMPROOT_PLANKS).noCollision());
+	public static final Block LAMPROOT_PRESSURE_PLATE = new MBPressurePlateBlock((ActivationRule.EVERYTHING), (QuiltBlockSettings.copy(LAMPROOT_PLANKS)).noCollision());
 	public static final Block LAMPROOT_BOOKSHELF = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block LAMPROOT_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 	public static final Block LAMPROOT_PANEL = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
@@ -588,10 +592,10 @@ public class MBBlocks {
 	public static final Block LAMPROOT_WALL_SIGN = new WallSignBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_PURPLE)
 			.noCollision().strength(1.0F).sounds(BlockSoundGroup.WOOD).dropsLike(LAMPROOT_SIGN), LAMPROOT_SIGN_TYPE);
 
-	public static final Block PEANUT_CROP = new PeanutCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
+	public static final Block PEANUT_CROP = new PeanutCropBlock(QuiltBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
 			.nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
 
-	public static final Block PEPPER_CROP = new PepperCropBlock(FabricBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
+	public static final Block PEPPER_CROP = new PepperCropBlock(QuiltBlockSettings.of(Material.PLANT, MapColor.PALE_GREEN).ticksRandomly().breakInstantly()
 			.nonOpaque().noCollision().sounds(BlockSoundGroup.GRASS));
 
 	public static final Block WILDFLOWERS = new CarpetFloraBlock(AbstractBlock.Settings.of(Material.PLANT).noCollision().nonOpaque().breakInstantly().sounds(BlockSoundGroup.GRASS)
@@ -617,193 +621,193 @@ public class MBBlocks {
 	public static final Block WARPED_PLANTER_BOX = new PlanterBoxBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.5f).sounds(BlockSoundGroup.WOOD));
 
 	// MISC.
-	public static final Block GLASS_DOOR = new MBDoorBlock(FabricBlockSettings.copy(Blocks.GLASS));
+	public static final Block GLASS_DOOR = new MBDoorBlock(QuiltBlockSettings.copy(Blocks.GLASS));
 
 	// STONE
-    public static final Block STONE_PILLAR = new PillarBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+    public static final Block STONE_PILLAR = new PillarBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 
 	public static final Block SMOOTH_STONE_STAIRS = new MBStairsBlock(Blocks.SMOOTH_STONE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.SMOOTH_STONE));
 	public static final Block SMOOTH_STONE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.STONE));
 
-	public static final Block STONE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block CRACKED_STONE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block MOSSY_STONE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
+	public static final Block STONE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_STONE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_STONE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
 	public static final Block STONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.STONE));
 	public static final Block STONE_TILE_STAIRS = new MBStairsBlock(STONE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.STONE));
 	public static final Block STONE_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.STONE));
-	
+
 	public static final Block CRACKED_STONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.STONE));
 	public static final Block CRACKED_STONE_TILE_STAIRS = new MBStairsBlock(STONE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.STONE));
 	public static final Block CRACKED_STONE_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.STONE));
-	
+
 	public static final Block MOSSY_STONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.STONE));
 	public static final Block MOSSY_STONE_TILE_STAIRS = new MBStairsBlock(STONE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.STONE));
 	public static final Block MOSSY_STONE_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.STONE));
-	
+
 	// ANDESITE
-	public static final Block COBBLED_ANDESITE = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block COBBLED_ANDESITE = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block COBBLED_ANDESITE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE));
-	public static final Block COBBLED_ANDESITE_STAIRS = new MBStairsBlock(COBBLED_ANDESITE.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block COBBLED_ANDESITE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block ANDESITE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block COBBLED_ANDESITE_STAIRS = new MBStairsBlock(COBBLED_ANDESITE.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block COBBLED_ANDESITE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block ANDESITE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block ANDESITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE));
-	public static final Block ANDESITE_BRICK_STAIRS = new MBStairsBlock(ANDESITE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block ANDESITE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block CRACKED_ANDESITE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block ANDESITE_BRICK_STAIRS = new MBStairsBlock(ANDESITE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block ANDESITE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block CRACKED_ANDESITE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CRACKED_ANDESITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE));
-	public static final Block CRACKED_ANDESITE_BRICK_STAIRS = new MBStairsBlock(CRACKED_ANDESITE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block CRACKED_ANDESITE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block MOSSY_ANDESITE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_ANDESITE_BRICK_STAIRS = new MBStairsBlock(CRACKED_ANDESITE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_ANDESITE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block MOSSY_ANDESITE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block MOSSY_ANDESITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE));
-	public static final Block MOSSY_ANDESITE_BRICK_STAIRS = new MBStairsBlock(MOSSY_ANDESITE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block MOSSY_ANDESITE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block ANDESITE_PILLAR = new PillarBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block CHISELED_ANDESITE = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block ANDESITE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_ANDESITE_BRICK_STAIRS = new MBStairsBlock(MOSSY_ANDESITE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_ANDESITE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block ANDESITE_PILLAR = new PillarBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CHISELED_ANDESITE = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block ANDESITE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block ANDESITE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE));
-	public static final Block ANDESITE_TILE_STAIRS = new MBStairsBlock(ANDESITE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block ANDESITE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block CRACKED_ANDESITE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block ANDESITE_TILE_STAIRS = new MBStairsBlock(ANDESITE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block ANDESITE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block CRACKED_ANDESITE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CRACKED_ANDESITE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE));
-	public static final Block CRACKED_ANDESITE_TILE_STAIRS = new MBStairsBlock(CRACKED_ANDESITE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block CRACKED_ANDESITE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block MOSSY_ANDESITE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_ANDESITE_TILE_STAIRS = new MBStairsBlock(CRACKED_ANDESITE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_ANDESITE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block MOSSY_ANDESITE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block MOSSY_ANDESITE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.ANDESITE));
-	public static final Block MOSSY_ANDESITE_TILE_STAIRS = new MBStairsBlock(MOSSY_ANDESITE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block MOSSY_ANDESITE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
+	public static final Block MOSSY_ANDESITE_TILE_STAIRS = new MBStairsBlock(MOSSY_ANDESITE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_ANDESITE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
 	// DIORITE
-	public static final Block COBBLED_DIORITE = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block COBBLED_DIORITE = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block COBBLED_DIORITE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIORITE));
-	public static final Block COBBLED_DIORITE_STAIRS = new MBStairsBlock(COBBLED_DIORITE.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block COBBLED_DIORITE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block DIORITE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block COBBLED_DIORITE_STAIRS = new MBStairsBlock(COBBLED_DIORITE.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block COBBLED_DIORITE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block DIORITE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block DIORITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIORITE));
-	public static final Block DIORITE_BRICK_STAIRS = new MBStairsBlock(DIORITE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block DIORITE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block CRACKED_DIORITE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block DIORITE_BRICK_STAIRS = new MBStairsBlock(DIORITE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block DIORITE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block CRACKED_DIORITE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CRACKED_DIORITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIORITE));
-	public static final Block CRACKED_DIORITE_BRICK_STAIRS = new MBStairsBlock(CRACKED_DIORITE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block CRACKED_DIORITE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block MOSSY_DIORITE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_DIORITE_BRICK_STAIRS = new MBStairsBlock(CRACKED_DIORITE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_DIORITE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block MOSSY_DIORITE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block MOSSY_DIORITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIORITE));
-	public static final Block MOSSY_DIORITE_BRICK_STAIRS = new MBStairsBlock(MOSSY_DIORITE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block MOSSY_DIORITE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block DIORITE_PILLAR = new PillarBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block CHISELED_DIORITE = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block DIORITE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_DIORITE_BRICK_STAIRS = new MBStairsBlock(MOSSY_DIORITE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_DIORITE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block DIORITE_PILLAR = new PillarBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CHISELED_DIORITE = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block DIORITE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block DIORITE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIORITE));
-	public static final Block DIORITE_TILE_STAIRS = new MBStairsBlock(DIORITE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block DIORITE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block CRACKED_DIORITE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block DIORITE_TILE_STAIRS = new MBStairsBlock(DIORITE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block DIORITE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block CRACKED_DIORITE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CRACKED_DIORITE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIORITE));
-	public static final Block CRACKED_DIORITE_TILE_STAIRS = new MBStairsBlock(CRACKED_DIORITE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block CRACKED_DIORITE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block MOSSY_DIORITE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_DIORITE_TILE_STAIRS = new MBStairsBlock(CRACKED_DIORITE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_DIORITE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block MOSSY_DIORITE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block MOSSY_DIORITE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DIORITE));
-	public static final Block MOSSY_DIORITE_TILE_STAIRS = new MBStairsBlock(MOSSY_DIORITE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block MOSSY_DIORITE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_DIORITE_TILE_STAIRS = new MBStairsBlock(MOSSY_DIORITE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_DIORITE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 
 	// GRANITE
-	public static final Block COBBLED_GRANITE = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block COBBLED_GRANITE = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block COBBLED_GRANITE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.GRANITE));
-	public static final Block COBBLED_GRANITE_STAIRS = new MBStairsBlock(COBBLED_GRANITE.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block COBBLED_GRANITE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block GRANITE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block COBBLED_GRANITE_STAIRS = new MBStairsBlock(COBBLED_GRANITE.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block COBBLED_GRANITE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block GRANITE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block GRANITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.GRANITE));
-	public static final Block GRANITE_BRICK_STAIRS = new MBStairsBlock(GRANITE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block GRANITE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block CRACKED_GRANITE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block GRANITE_BRICK_STAIRS = new MBStairsBlock(GRANITE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block GRANITE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block CRACKED_GRANITE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CRACKED_GRANITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.GRANITE));
-	public static final Block CRACKED_GRANITE_BRICK_STAIRS = new MBStairsBlock(CRACKED_GRANITE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block CRACKED_GRANITE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block MOSSY_GRANITE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_GRANITE_BRICK_STAIRS = new MBStairsBlock(CRACKED_GRANITE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_GRANITE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block MOSSY_GRANITE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block MOSSY_GRANITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.GRANITE));
-	public static final Block MOSSY_GRANITE_BRICK_STAIRS = new MBStairsBlock(MOSSY_GRANITE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block MOSSY_GRANITE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block GRANITE_PILLAR = new PillarBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block CHISELED_GRANITE = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block GRANITE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_GRANITE_BRICK_STAIRS = new MBStairsBlock(MOSSY_GRANITE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_GRANITE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block GRANITE_PILLAR = new PillarBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CHISELED_GRANITE = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block GRANITE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block GRANITE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.GRANITE));
-	public static final Block GRANITE_TILE_STAIRS = new MBStairsBlock(GRANITE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block GRANITE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block CRACKED_GRANITE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block GRANITE_TILE_STAIRS = new MBStairsBlock(GRANITE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block GRANITE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block CRACKED_GRANITE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CRACKED_GRANITE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.GRANITE));
-	public static final Block CRACKED_GRANITE_TILE_STAIRS = new MBStairsBlock(CRACKED_GRANITE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block CRACKED_GRANITE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	
-	public static final Block MOSSY_GRANITE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_GRANITE_TILE_STAIRS = new MBStairsBlock(CRACKED_GRANITE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_GRANITE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+
+	public static final Block MOSSY_GRANITE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block MOSSY_GRANITE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.GRANITE));
-	public static final Block MOSSY_GRANITE_TILE_STAIRS = new MBStairsBlock(MOSSY_GRANITE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
-	public static final Block MOSSY_GRANITE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_GRANITE_TILE_STAIRS = new MBStairsBlock(MOSSY_GRANITE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_GRANITE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 
 	// SANDSTONE
-	public static final Block SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block SANDSTONE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block SANDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE));
-	public static final Block SANDSTONE_BRICK_STAIRS = new MBStairsBlock(SANDSTONE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block SANDSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block PAVED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	
-	public static final Block CRACKED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block CRACKED_SANDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE));
-	public static final Block CRACKED_SANDSTONE_BRICK_STAIRS = new MBStairsBlock(CRACKED_SANDSTONE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block CRACKED_SANDSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block CRACKED_PAVED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block SANDSTONE_BRICK_STAIRS = new MBStairsBlock(SANDSTONE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block SANDSTONE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block PAVED_SANDSTONE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
 
-	public static final Block SANDSTONE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_SANDSTONE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_SANDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE));
+	public static final Block CRACKED_SANDSTONE_BRICK_STAIRS = new MBStairsBlock(CRACKED_SANDSTONE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_SANDSTONE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_PAVED_SANDSTONE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+
+	public static final Block SANDSTONE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block SANDSTONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE));
-	public static final Block SANDSTONE_TILE_STAIRS = new MBStairsBlock(SANDSTONE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block SANDSTONE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	
-	public static final Block CRACKED_SANDSTONE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block SANDSTONE_TILE_STAIRS = new MBStairsBlock(SANDSTONE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block SANDSTONE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+
+	public static final Block CRACKED_SANDSTONE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block CRACKED_SANDSTONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE));
-	public static final Block CRACKED_SANDSTONE_TILE_STAIRS = new MBStairsBlock(CRACKED_SANDSTONE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block CRACKED_SANDSTONE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_SANDSTONE_TILE_STAIRS = new MBStairsBlock(CRACKED_SANDSTONE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_SANDSTONE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
 
 	public static final Block SANDSTONE_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(Blocks.SANDSTONE));
 	// RED SANDSTONE
-	public static final Block RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block RED_SANDSTONE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block RED_SANDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE));
-	public static final Block RED_SANDSTONE_BRICK_STAIRS = new MBStairsBlock(RED_SANDSTONE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block RED_SANDSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block PAVED_RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	
-	public static final Block CRACKED_RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block CRACKED_RED_SANDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE));
-	public static final Block CRACKED_RED_SANDSTONE_BRICK_STAIRS = new MBStairsBlock(CRACKED_RED_SANDSTONE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block CRACKED_RED_SANDSTONE_BRICK_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block CRACKED_PAVED_RED_SANDSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block RED_SANDSTONE_BRICK_STAIRS = new MBStairsBlock(RED_SANDSTONE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block RED_SANDSTONE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block PAVED_RED_SANDSTONE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
 
-	public static final Block RED_SANDSTONE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_RED_SANDSTONE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_RED_SANDSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE));
+	public static final Block CRACKED_RED_SANDSTONE_BRICK_STAIRS = new MBStairsBlock(CRACKED_RED_SANDSTONE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_RED_SANDSTONE_BRICK_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_PAVED_RED_SANDSTONE_BRICKS = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+
+	public static final Block RED_SANDSTONE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block RED_SANDSTONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE));
-	public static final Block RED_SANDSTONE_TILE_STAIRS = new MBStairsBlock(RED_SANDSTONE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block RED_SANDSTONE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	
-	public static final Block CRACKED_RED_SANDSTONE_TILES = new Block(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block RED_SANDSTONE_TILE_STAIRS = new MBStairsBlock(RED_SANDSTONE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block RED_SANDSTONE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+
+	public static final Block CRACKED_RED_SANDSTONE_TILES = new Block(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
 	public static final Block CRACKED_RED_SANDSTONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE));
-	public static final Block CRACKED_RED_SANDSTONE_TILE_STAIRS = new MBStairsBlock(CRACKED_RED_SANDSTONE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(0.8f));
-	public static final Block CRACKED_RED_SANDSTONE_TILE_WALL = new WallBlock(FabricBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_RED_SANDSTONE_TILE_STAIRS = new MBStairsBlock(CRACKED_RED_SANDSTONE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
+	public static final Block CRACKED_RED_SANDSTONE_TILE_WALL = new WallBlock(QuiltBlockSettings.of(Material.STONE).hardness(0.8f));
 
 	public static final Block RED_SANDSTONE_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(Blocks.RED_SANDSTONE));
 
@@ -816,111 +820,111 @@ public class MBBlocks {
 	public static final Block POLISHED_TUFF_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block POLISHED_TUFF_STAIRS = new MBStairsBlock(POLISHED_TUFF.getDefaultState(), AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block POLISHED_TUFF_WALL = new WallBlock((AbstractBlock.Settings.copy(Blocks.TUFF)));
-	
+
 	public static final Block TUFF_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block TUFF_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block TUFF_BRICK_STAIRS = new MBStairsBlock(TUFF_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block TUFF_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
-	
+
 	public static final Block CRACKED_TUFF_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block CRACKED_TUFF_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block CRACKED_TUFF_BRICK_STAIRS = new MBStairsBlock(CRACKED_TUFF_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block CRACKED_TUFF_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
-	
+
 	public static final Block MOSSY_TUFF_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block MOSSY_TUFF_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
-	public static final Block MOSSY_TUFF_BRICK_STAIRS = new MBStairsBlock(MOSSY_TUFF_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_TUFF_BRICK_STAIRS = new MBStairsBlock(MOSSY_TUFF_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block MOSSY_TUFF_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
-	
+
 	public static final Block TUFF_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block CHISELED_TUFF = new Block(AbstractBlock.Settings.copy(Blocks.TUFF));
-	
+
 	public static final Block TUFF_TILES = new Block(AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block TUFF_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
-	public static final Block TUFF_TILE_STAIRS = new MBStairsBlock(TUFF_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block TUFF_TILE_STAIRS = new MBStairsBlock(TUFF_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block TUFF_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
-	
+
 	public static final Block CRACKED_TUFF_TILES = new Block(AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block CRACKED_TUFF_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
-	public static final Block CRACKED_TUFF_TILE_STAIRS = new MBStairsBlock(CRACKED_TUFF_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_TUFF_TILE_STAIRS = new MBStairsBlock(CRACKED_TUFF_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CRACKED_TUFF_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
-	
+
 	public static final Block MOSSY_TUFF_TILES = new Block(AbstractBlock.Settings.copy(Blocks.TUFF));
 	public static final Block MOSSY_TUFF_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
-	public static final Block MOSSY_TUFF_TILE_STAIRS = new MBStairsBlock(MOSSY_TUFF_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block MOSSY_TUFF_TILE_STAIRS = new MBStairsBlock(MOSSY_TUFF_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block MOSSY_TUFF_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.TUFF));
 
 	// CALCITE
 	public static final Block CALCITE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	public static final Block CALCITE_STAIRS = new MBStairsBlock(Blocks.CALCITE.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CALCITE_STAIRS = new MBStairsBlock(Blocks.CALCITE.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CALCITE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	
+
 	public static final Block POLISHED_CALCITE = new Block(AbstractBlock.Settings.copy(Blocks.CALCITE));
 	public static final Block POLISHED_CALCITE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	public static final Block POLISHED_CALCITE_STAIRS = new MBStairsBlock(POLISHED_CALCITE.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block POLISHED_CALCITE_STAIRS = new MBStairsBlock(POLISHED_CALCITE.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block POLISHED_CALCITE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	
+
 	public static final Block CALCITE_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.CALCITE));
 	public static final Block CALCITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	public static final Block CALCITE_BRICK_STAIRS = new MBStairsBlock(CALCITE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CALCITE_BRICK_STAIRS = new MBStairsBlock(CALCITE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CALCITE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	
+
 	public static final Block CRACKED_CALCITE_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.CALCITE));
 	public static final Block CRACKED_CALCITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	public static final Block CRACKED_CALCITE_BRICK_STAIRS = new MBStairsBlock(CRACKED_CALCITE_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_CALCITE_BRICK_STAIRS = new MBStairsBlock(CRACKED_CALCITE_BRICKS.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CRACKED_CALCITE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	
+
 	public static final Block CALCITE_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
 	public static final Block CHISELED_CALCITE = new Block(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	
+
 	public static final Block CALCITE_TILES = new Block(AbstractBlock.Settings.copy(Blocks.CALCITE));
 	public static final Block CALCITE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	public static final Block CALCITE_TILE_STAIRS = new MBStairsBlock(CALCITE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CALCITE_TILE_STAIRS = new MBStairsBlock(CALCITE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CALCITE_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	
+
 	public static final Block CRACKED_CALCITE_TILES = new Block(AbstractBlock.Settings.copy(Blocks.CALCITE));
 	public static final Block CRACKED_CALCITE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
-	public static final Block CRACKED_CALCITE_TILE_STAIRS = new MBStairsBlock(CRACKED_CALCITE_TILES.getDefaultState(), FabricBlockSettings.of(Material.STONE).hardness(1.5f));
+	public static final Block CRACKED_CALCITE_TILE_STAIRS = new MBStairsBlock(CRACKED_CALCITE_TILES.getDefaultState(), QuiltBlockSettings.of(Material.STONE).hardness(1.5f));
 	public static final Block CRACKED_CALCITE_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.CALCITE));
 
 	// DRIPSTONE
 	public static final Block DRIPSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_STAIRS = new MBStairsBlock(Blocks.DRIPSTONE_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-	
+
 	public static final Block POLISHED_DRIPSTONE = new Block(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block POLISHED_DRIPSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block POLISHED_DRIPSTONE_STAIRS = new MBStairsBlock(POLISHED_DRIPSTONE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block POLISHED_DRIPSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-	
+
 	public static final Block DRIPSTONE_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_BRICK_STAIRS = new MBStairsBlock(DRIPSTONE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-	
+
 	public static final Block CRACKED_DRIPSTONE_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block CRACKED_DRIPSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block CRACKED_DRIPSTONE_BRICK_STAIRS = new MBStairsBlock(CRACKED_DRIPSTONE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block CRACKED_DRIPSTONE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-	
+
 	public static final Block MOSSY_DRIPSTONE_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block MOSSY_DRIPSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block MOSSY_DRIPSTONE_BRICK_STAIRS = new MBStairsBlock(MOSSY_DRIPSTONE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block MOSSY_DRIPSTONE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-	
+
 	public static final Block DRIPSTONE_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block CHISELED_DRIPSTONE = new Block(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-	
+
 	public static final Block DRIPSTONE_TILES = new Block(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_TILE_STAIRS = new MBStairsBlock(DRIPSTONE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block DRIPSTONE_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-	
+
 	public static final Block CRACKED_DRIPSTONE_TILES = new Block(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block CRACKED_DRIPSTONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block CRACKED_DRIPSTONE_TILE_STAIRS = new MBStairsBlock(CRACKED_DRIPSTONE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block CRACKED_DRIPSTONE_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
-	
+
 	public static final Block MOSSY_DRIPSTONE_TILES = new Block(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block MOSSY_DRIPSTONE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
 	public static final Block MOSSY_DRIPSTONE_TILE_STAIRS = new MBStairsBlock(MOSSY_DRIPSTONE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DRIPSTONE_BLOCK));
@@ -941,9 +945,9 @@ public class MBBlocks {
 	public static final Block MOSSY_DEEPSLATE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DEEPSLATE));
 	public static final Block MOSSY_DEEPSLATE_BRICK_STAIRS = new MBStairsBlock(MOSSY_DEEPSLATE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DEEPSLATE));
 	public static final Block MOSSY_DEEPSLATE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.DEEPSLATE));
-	
+
 	public static final Block DEEPSLATE_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(Blocks.DEEPSLATE));
-	
+
 	public static final Block MOSSY_DEEPSLATE_TILES = new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE));
 	public static final Block MOSSY_DEEPSLATE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.DEEPSLATE));
 	public static final Block MOSSY_DEEPSLATE_TILE_STAIRS = new MBStairsBlock(MOSSY_DEEPSLATE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.DEEPSLATE));
@@ -954,26 +958,26 @@ public class MBBlocks {
 	public static final Block SMOOTH_PRISMARINE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block SMOOTH_PRISMARINE_STAIRS = new MBStairsBlock(SMOOTH_PRISMARINE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block SMOOTH_PRISMARINE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	
+
 	public static final Block POLISHED_PRISMARINE = new Block(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block POLISHED_PRISMARINE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block POLISHED_PRISMARINE_STAIRS = new MBStairsBlock(POLISHED_PRISMARINE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block POLISHED_PRISMARINE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	
+
 	public static final Block CRACKED_PRISMARINE_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CRACKED_PRISMARINE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CRACKED_PRISMARINE_BRICK_STAIRS = new MBStairsBlock(CRACKED_PRISMARINE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CRACKED_PRISMARINE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	
+
 	public static final Block PRISMARINE_PILLAR = new PillarBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CHISELED_PRISMARINE = new Block(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CUT_PRISMARINE = new Block(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	
+
 	public static final Block PRISMARINE_TILES = new Block(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block PRISMARINE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block PRISMARINE_TILE_STAIRS = new MBStairsBlock(PRISMARINE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block PRISMARINE_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
-	
+
 	public static final Block CRACKED_PRISMARINE_TILES = new Block(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CRACKED_PRISMARINE_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.PRISMARINE));
 	public static final Block CRACKED_PRISMARINE_TILE_STAIRS = new MBStairsBlock(CRACKED_PRISMARINE_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.PRISMARINE));
@@ -984,17 +988,17 @@ public class MBBlocks {
 	public static final Block BASALT_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block BASALT_BRICK_STAIRS = new MBStairsBlock(BASALT_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block BASALT_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.BASALT));
-	
+
 	public static final Block CRACKED_BASALT_BRICKS = new Block(AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block CRACKED_BASALT_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block CRACKED_BASALT_BRICK_STAIRS = new MBStairsBlock(CRACKED_BASALT_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block CRACKED_BASALT_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.BASALT));
-	
+
 	public static final Block BASALT_TILES = new Block(AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block BASALT_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block BASALT_TILE_STAIRS = new MBStairsBlock(BASALT_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block BASALT_TILE_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.BASALT));
-	
+
 	public static final Block CRACKED_BASALT_TILES = new Block(AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block CRACKED_BASALT_TILE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.BASALT));
 	public static final Block CRACKED_BASALT_TILE_STAIRS = new MBStairsBlock(CRACKED_BASALT_TILES.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BASALT));
@@ -1007,58 +1011,58 @@ public class MBBlocks {
 	public static final Block SMOOTH_BASALT_WALL = new WallBlock(AbstractBlock.Settings.copy(Blocks.SMOOTH_BASALT));
 
 	// STORAGE BLOCKS
-	public static final Block APPLE_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
-	public static final Block CARROT_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
-	public static final Block POTATO_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
-	public static final Block BEETROOT_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+	public static final Block APPLE_CRATE = new Block(QuiltBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+	public static final Block CARROT_CRATE = new Block(QuiltBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+	public static final Block POTATO_CRATE = new Block(QuiltBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+	public static final Block BEETROOT_CRATE = new Block(QuiltBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
 
-	public static final Block PEPPER_CRATE = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
-	
-	public static final Block EGG_BASKET = new Block(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(MBSounds.SACK));
-	public static final Block COCOA_SACK = new Block(FabricBlockSettings.of(Material.WOOL).strength(2.0F,3.0F).sounds(MBSounds.SACK));
+	public static final Block PEPPER_CRATE = new Block(QuiltBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
 
-	public static final Block GLISTERING_MELON_BLOCK = new Block(FabricBlockSettings.of(Material.GOURD).hardness(1.0F).sounds(BlockSoundGroup.WOOD).luminance((state) -> 12));
+	public static final Block EGG_BASKET = new Block(QuiltBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(MBSounds.SACK));
+	public static final Block COCOA_SACK = new Block(QuiltBlockSettings.of(Material.WOOL).strength(2.0F,3.0F).sounds(MBSounds.SACK));
 
-	public static final Block SWEET_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.WOOD).strength(0.5F).sounds(BlockSoundGroup.NYLIUM));
-	public static final Block GLOW_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.WOOD).strength(0.5F).sounds(BlockSoundGroup.NYLIUM).luminance((state) -> 12));
-	public static final Block HARDY_BERRY_BASKET = new Block(FabricBlockSettings.of(Material.WOOD).strength(0.5F).sounds(BlockSoundGroup.NYLIUM));
+	public static final Block GLISTERING_MELON_BLOCK = new Block(QuiltBlockSettings.of(Material.GOURD).hardness(1.0F).sounds(BlockSoundGroup.WOOD).luminance((state) -> 12));
 
-	public static final Block SWEET_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
-	public static final Block GLOW_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES).luminance((state) -> 12));
-	public static final Block PLUCKED_SWEET_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
-	public static final Block PLUCKED_GLOW_BERRY_HEDGE = new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
+	public static final Block SWEET_BERRY_BASKET = new Block(QuiltBlockSettings.of(Material.WOOD).strength(0.5F).sounds(BlockSoundGroup.NYLIUM));
+	public static final Block GLOW_BERRY_BASKET = new Block(QuiltBlockSettings.of(Material.WOOD).strength(0.5F).sounds(BlockSoundGroup.NYLIUM).luminance((state) -> 12));
+	public static final Block HARDY_BERRY_BASKET = new Block(QuiltBlockSettings.of(Material.WOOD).strength(0.5F).sounds(BlockSoundGroup.NYLIUM));
 
-	public static final Block SUGAR_CANE_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
-	public static final Block BAMBOO_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.BAMBOO).hardness(1.0f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
-	public static final Block KELP_BLOCK = new Block(FabricBlockSettings.of(Material.SOLID_ORGANIC).strength(0.5F, 2.5F).sounds(BlockSoundGroup.WET_GRASS));
-	
-	public static final Block NETHER_WART_SACK = new PillarBlock(FabricBlockSettings.of(Material.NETHER_SHOOTS).hardness(1.0f).sounds(BlockSoundGroup.WART_BLOCK));
+	public static final Block SWEET_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
+	public static final Block GLOW_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES).luminance((state) -> 12));
+	public static final Block PLUCKED_SWEET_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
+	public static final Block PLUCKED_GLOW_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
 
-	public static final Block SUGAR_CUBE = new FallingBlock(FabricBlockSettings.of(Material.SOIL).strength(2.0F,3.0F).sounds(BlockSoundGroup.SAND));
-	public static final Block PACKED_GLOWSTONE = new Block(FabricBlockSettings.of(Material.GLASS).strength(2.0F,3.0F).sounds(BlockSoundGroup.GLASS).luminance((state) -> 15));
-	public static final Block GUNPOWDER_CRATE = new GunpowderBarrelBlock(FabricBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
+	public static final Block SUGAR_CANE_BUNDLE = new PillarBlock(QuiltBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
+	public static final Block BAMBOO_BUNDLE = new PillarBlock(QuiltBlockSettings.of(Material.BAMBOO).hardness(1.0f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
+	public static final Block KELP_BLOCK = new Block(QuiltBlockSettings.of(Material.SOLID_ORGANIC).strength(0.5F, 2.5F).sounds(BlockSoundGroup.WET_GRASS));
 
-	public static final Block SPOOL = new PillarBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.8f).sounds(BlockSoundGroup.WOOL));
-	public static final Block PAPER_BUNDLE = new PapersBlock(FabricBlockSettings.of(Material.WOOL).hardness(0.5f).sounds(BlockSoundGroup.WOOL));
-	public static final Block STICK_STACK = new PillarBlock(FabricBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
-	public static final Block CHARCOAL_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD).strength(1.2f, 0.8f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
+	public static final Block NETHER_WART_SACK = new Block(QuiltBlockSettings.of(Material.NETHER_SHOOTS).hardness(1.0f).sounds(BlockSoundGroup.WART_BLOCK));
 
-	public static final Block SCUTE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.STONE));
+	public static final Block SUGAR_CUBE = new FallingBlock(QuiltBlockSettings.of(Material.SOIL).strength(2.0F,3.0F).sounds(BlockSoundGroup.SAND));
+	public static final Block PACKED_GLOWSTONE = new Block(QuiltBlockSettings.of(Material.GLASS).strength(2.0F,3.0F).sounds(BlockSoundGroup.GLASS).luminance((state) -> 15));
+	public static final Block GUNPOWDER_CRATE = new GunpowderBarrelBlock(QuiltBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD));
 
-	public static final Block ROTTEN_FLESH_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.WEEPING_VINES));
-	public static final Block BONE_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.AGGREGATE).hardness(1f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
-	public static final Block SPIDER_EYE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.WEEPING_VINES));
-	public static final Block PHANTOM_MEMBRANE_BLOCK = new Block(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1f).sounds(BlockSoundGroup.NYLIUM));
-	public static final Block BLAZE_ROD = new MBRodBlock(FabricBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));
-	public static final Block BLAZE_ROD_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));
-	public static final Block ENDER_PEARL_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).hardness(1f).sounds(BlockSoundGroup.COPPER));
-	public static final Block CHORUS_BUNDLE = new PillarBlock(FabricBlockSettings.of(Material.AGGREGATE).hardness(1f).sounds(BlockSoundGroup.NYLIUM));
+	public static final Block SPOOL = new PillarBlock(QuiltBlockSettings.of(Material.WOOL).hardness(0.8f).sounds(BlockSoundGroup.WOOL));
+	public static final Block PAPER_BUNDLE = new PapersBlock(QuiltBlockSettings.of(Material.WOOL).hardness(0.5f).sounds(BlockSoundGroup.WOOL));
+	public static final Block STICK_STACK = new PillarBlock(QuiltBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
+	public static final Block CHARCOAL_LOG = new PillarBlock(QuiltBlockSettings.of(Material.WOOD).strength(1.2f, 0.8f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
+
+	public static final Block SCUTE_BLOCK = new Block(QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.STONE));
+
+	public static final Block ROTTEN_FLESH_BLOCK = new Block(QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.WEEPING_VINES));
+	public static final Block BONE_BUNDLE = new PillarBlock(QuiltBlockSettings.of(Material.AGGREGATE).hardness(1f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
+	public static final Block SPIDER_EYE_BLOCK = new Block(QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(0.8f).sounds(BlockSoundGroup.WEEPING_VINES));
+	public static final Block PHANTOM_MEMBRANE_BLOCK = new Block(QuiltBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1f).sounds(BlockSoundGroup.NYLIUM));
+	public static final Block BLAZE_ROD = new MBRodBlock(QuiltBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));
+	public static final Block BLAZE_ROD_BUNDLE = new PillarBlock(QuiltBlockSettings.of(Material.METAL).hardness(1f).sounds(BlockSoundGroup.COPPER).luminance((state) -> 15));
+	public static final Block ENDER_PEARL_BLOCK = new Block(QuiltBlockSettings.of(Material.STONE).hardness(1f).sounds(BlockSoundGroup.COPPER));
+	public static final Block CHORUS_BUNDLE = new PillarBlock(QuiltBlockSettings.of(Material.AGGREGATE).hardness(1f).sounds(BlockSoundGroup.NYLIUM));
 
 	public static void createBlock(String block_id, Block block, ItemGroup group) {
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, block_id), block);
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, block_id), new BlockItem(block, new Item.Settings().group(group)));
 	}
-    
+
     public static void registerBlocks(){
 		// - Bedroll setup, registers the block entity too :b
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "bedroll"), BEDROLL);
@@ -1356,6 +1360,8 @@ public class MBBlocks {
 		createBlock("toadstool_planks", TOADSTOOL_PLANKS, MBItemGroup.CONSTRUCTION);
 		createBlock("toadstool_slab", TOADSTOOL_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("toadstool_stairs", TOADSTOOL_STAIRS, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_bookshelf", TOADSTOOL_BOOKSHELF, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_seat", TOADSTOOL_SEAT, MBItemGroup.CONSTRUCTION);
 
 		createBlock("mushroom_stem", MUSHROOM_STEM, MBItemGroup.CONSTRUCTION);
 		createBlock("stripped_mushroom_stem", STRIPPED_MUSHROOM_STEM, MBItemGroup.CONSTRUCTION);
@@ -1455,6 +1461,8 @@ public class MBBlocks {
 		createBlock("hardy_leaves", HARDY_LEAVES, MBItemGroup.DECOR);
 		createBlock("flowering_hardy_leaves", FLOWERING_HARDY_LEAVES, MBItemGroup.DECOR);
 		createBlock("fruiting_hardy_leaves", FRUITING_HARDY_LEAVES, MBItemGroup.DECOR);
+		createBlock("hardy_bush", HARDY_BUSH, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "hardy_sprout"), HARDY_SPROUT);
 
 		createBlock("parasol_fern_stem", PARASOL_FERN_STEM, MBItemGroup.DECOR);
 		createBlock("parasol_fern_crown", PARASOL_FERN_CROWN, MBItemGroup.DECOR);
@@ -1529,6 +1537,7 @@ public class MBBlocks {
 		// shroms
 		createBlock("puffballs", PUFFBALLS, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_puffballs"), POTTED_PUFFBALLS);
+		createBlock("giant_puffball", GIANT_PUFFBALL, MBItemGroup.DECOR);
 
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "oyster_mushroom"), OYSTER_MUSHROOMS);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "shelf_oyster_mushroom"), SHELF_OYSTER_MUSHROOMS);
@@ -1543,7 +1552,7 @@ public class MBBlocks {
 //		createBlock("toadstool", TOADSTOOL, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "toadstool"), TOADSTOOL);
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "toadstool"),
-				new BlockItem(TOADSTOOL, new FabricItemSettings().group(MBItemGroup.DECOR).recipeRemainder(MBItems.TOADSTOOL_CAP)));
+				new BlockItem(TOADSTOOL, new Item.Settings().group(MBItemGroup.DECOR).recipeRemainder(MBItems.TOADSTOOL_CAP)));
 		createBlock("toadstool_stem", TOADSTOOL_STEM, MBItemGroup.DECOR);
 
 		createBlock("wild_carrots", WILD_CARROTS, MBItemGroup.DECOR);
@@ -2092,6 +2101,6 @@ public class MBBlocks {
 
 	}
 
-	
+
 
 }

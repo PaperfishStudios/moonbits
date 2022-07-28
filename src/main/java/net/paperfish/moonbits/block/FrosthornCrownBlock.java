@@ -9,6 +9,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -18,8 +19,6 @@ import net.minecraft.world.WorldView;
 import net.paperfish.moonbits.registry.MBBlockTags;
 import net.paperfish.moonbits.registry.MBBlocks;
 import org.jetbrains.annotations.Nullable;
-
-import net.minecraft.util.math.random.Random;
 
 public class FrosthornCrownBlock extends Block implements Fertilizable {
     public static final BooleanProperty ATTACHED = Properties.ATTACHED;
@@ -37,7 +36,7 @@ public class FrosthornCrownBlock extends Block implements Fertilizable {
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockState floor = world.getBlockState(pos.down());
-        return floor.isOf(MBBlocks.FROSTHORN_STEM) || floor.isIn(BlockTags.DIRT) || floor.isIn(MBBlockTags.SOIL_NON_REPLACEABLE);
+        return floor.isOf(MBBlocks.FROSTHORN_STEM) || floor.isIn(BlockTags.DIRT) || floor.isIn(MBBlockTags.PLANTER_BOXES);
     }
 
     @Override
@@ -46,7 +45,7 @@ public class FrosthornCrownBlock extends Block implements Fertilizable {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
         if (random.nextInt(12) == 0 && world.getBlockState(pos.up()).isAir()){
             if (world.getBlockState(pos.down()).isOf(MBBlocks.FROSTHORN_STEM)) {
                 world.setBlockState(pos.up(), MBBlocks.FROSTHORN_LEAVES.getDefaultState(), NOTIFY_LISTENERS);
@@ -89,12 +88,12 @@ public class FrosthornCrownBlock extends Block implements Fertilizable {
     }
 
     @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+    public boolean canGrow(World world, RandomGenerator random, BlockPos pos, BlockState state) {
         return false;
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    public void grow(ServerWorld world, RandomGenerator random, BlockPos pos, BlockState state) {
 
     }
 }

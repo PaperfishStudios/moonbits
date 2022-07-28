@@ -80,7 +80,7 @@ public class ItemHookEntityRenderer<T extends ItemHookEntity> extends EntityRend
                 matrixStack.translate(0.0, 0.0, -1.0);
                 if (mapState != null) {
                     int j = this.getLight(itemHookEntity, LightmapTextureManager.MAX_SKY_LIGHT_COORDINATE | 0xD2, i);
-                    this.client.gameRenderer.getMapRenderer().draw(matrixStack, vertexConsumerProvider, integer, mapState, true, j);
+                    this.client.gameRenderer.getMapRenderer().render(matrixStack, vertexConsumerProvider, integer, mapState, true, j);
                 }
             } else {
                 int modelIdentifier = this.getLight(itemHookEntity, LightmapTextureManager.MAX_LIGHT_COORDINATE, i);

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/toadstool_bookshelf"
+    },
+    "type=double": {
+      "model": "moonbits:block/toadstool_bookshelf_double"
+    },
+    "type=top": {
+      "model": "moonbits:block/toadstool_bookshelf_top"
+    }
+  }
+}

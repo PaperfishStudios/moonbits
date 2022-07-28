@@ -4,10 +4,9 @@ import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
-
-import net.minecraft.util.math.random.Random;
 
 public class MBSnowyBlock extends SnowyBlock {
     public MBSnowyBlock(Settings settings) {
@@ -31,7 +30,7 @@ public class MBSnowyBlock extends SnowyBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
         if (!canSurvive(state, world, pos)) {
             world.setBlockState(pos, Blocks.DIRT.getDefaultState());
         }

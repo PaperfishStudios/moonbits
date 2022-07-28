@@ -38,7 +38,6 @@ import net.paperfish.moonbits.mixin.PigSaddleAccess;
 import net.paperfish.moonbits.mixin.StriderSaddleAccess;
 import net.paperfish.moonbits.recipe.WashingHandler;
 
-import net.minecraft.util.math.random.Random;
 import org.spongepowered.include.com.google.common.collect.ImmutableMap;
 
 import java.util.HashMap;
@@ -90,7 +89,7 @@ public class MBEvents {
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
             if (player.isSpectator())
                 return ActionResult.PASS; // spectators cant interact
-            
+
             BlockPos targetPos = hitResult.getBlockPos();
             BlockState targetBlock = world.getBlockState(targetPos);
             ItemStack heldItem = player.getStackInHand(hand);
@@ -125,7 +124,7 @@ public class MBEvents {
 
             // applying slime to piston
             if (targetBlock.isOf(Blocks.PISTON) && heldItem.getItem() == Items.SLIME_BALL) {
-                world.setBlockState(targetPos, Blocks.STICKY_PISTON.getDefaultState().with(PistonBlock.FACING, targetBlock.get(PistonBlock.FACING))); 
+                world.setBlockState(targetPos, Blocks.STICKY_PISTON.getDefaultState().with(PistonBlock.FACING, targetBlock.get(PistonBlock.FACING)));
                 if(!player.isCreative())
                     heldItem.decrement(1);
                 world.playSound(null, targetPos, SoundEvents.BLOCK_SLIME_BLOCK_PLACE, SoundCategory.BLOCKS, 0.5F, 1.0F);
@@ -135,7 +134,7 @@ public class MBEvents {
 
             // scraping slime off piston
             if (targetBlock.isOf(Blocks.STICKY_PISTON) && heldItem.isIn(MBItemTags.AXES)) {
-                world.setBlockState(targetPos, Blocks.PISTON.getDefaultState().with(PistonBlock.FACING, targetBlock.get(PistonBlock.FACING))); 
+                world.setBlockState(targetPos, Blocks.PISTON.getDefaultState().with(PistonBlock.FACING, targetBlock.get(PistonBlock.FACING)));
                 if(!player.isCreative())
                     heldItem.damage(1, world.getRandom(), null);
                 world.playSound(null, targetPos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 0.8F, 1.0F);
@@ -146,7 +145,7 @@ public class MBEvents {
 
             // adding torch to carved pumpkin
             if (targetBlock.isOf(Blocks.CARVED_PUMPKIN) && heldItem.getItem() == Items.TORCH) {
-                world.setBlockState(targetPos, Blocks.JACK_O_LANTERN.getDefaultState().with(CarvedPumpkinBlock.FACING, targetBlock.get(CarvedPumpkinBlock.FACING))); 
+                world.setBlockState(targetPos, Blocks.JACK_O_LANTERN.getDefaultState().with(CarvedPumpkinBlock.FACING, targetBlock.get(CarvedPumpkinBlock.FACING)));
                 if(!player.isCreative())
                     heldItem.decrement(1);
                 world.playSound(null, targetPos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 0.5F, 1.0F);
@@ -163,7 +162,7 @@ public class MBEvents {
 
                     BlockState waxed = WAXING.get(targetBlock.getBlock()).getStateWithProperties(targetBlock);
                     world.setBlockState(targetPos, waxed, Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
-                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Emitter.of(player, waxed));
+                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Context.create(player, waxed));
                     world.syncWorldEvent(player, WorldEvents.BLOCK_WAXED, targetPos, 0);
                     return ActionResult.success(world.isClient);
                 }
@@ -180,7 +179,7 @@ public class MBEvents {
 
                     BlockState unwaxed = WAX_OFF.get(targetBlock.getBlock()).getStateWithProperties(targetBlock);
                     world.setBlockState(targetPos, unwaxed, Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
-                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Emitter.of(player, unwaxed));
+                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Context.create(player, unwaxed));
                     success = true;
                 }
                 if (SCRAPING.containsKey(targetBlock.getBlock())) {
@@ -193,7 +192,7 @@ public class MBEvents {
 
                     BlockState unwaxed = SCRAPING.get(targetBlock.getBlock()).getStateWithProperties(targetBlock);
                     world.setBlockState(targetPos, unwaxed, Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
-                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Emitter.of(player, unwaxed));
+                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Context.create(player, unwaxed));
                     success = true;
                 }
                 if (success) {
@@ -261,7 +260,7 @@ public class MBEvents {
         UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
             if (player.isSpectator())
                 return ActionResult.PASS; // spectators cant interact
-            
+
             if (player.isSneaking()) {
                 if (entity instanceof PigEntity pig) {
                     if (pig.isSaddled() && !pig.hasPassengers()) {
@@ -283,7 +282,7 @@ public class MBEvents {
                         return ActionResult.SUCCESS;
                     }
                 }
-            }   
+            }
             // pass if nothing happened
             return ActionResult.PASS;
         });

@@ -1,6 +1,8 @@
 package net.paperfish.moonbits.block;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.LivingEntity;
@@ -14,24 +16,39 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.entity.SeatBlockEntity;
+import net.paperfish.moonbits.registry.MBBlocks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Objects;
 
-public class SeatBlock extends SlabBlock {
-    public static final EnumProperty<SlabType> TYPE;
+public class SeatBlock extends Block {
+//    public static final EnumProperty<SlabType> TYPE;
     public static SeatBlockEntity entity;
     private static final TargetPredicate seatPredicate = TargetPredicate.createNonAttackable().setPredicate(SeatBlockEntity -> true).setBaseMaxDistance(5);
+	protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 8.0, 16.0);
+	protected static final VoxelShape TOADSTOOL = VoxelShapes.union(
+			Block.createCuboidShape(0.0, 4.0, 0.0, 16.0, 8.0, 16.0),
+			Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 4.0, 10.0)
+	);
 
-        public SeatBlock(Settings settings) {
+	public SeatBlock(Settings settings) {
         super(settings);
     }
 
-    @Override
+	@Override
+	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+		if (state.isOf(MBBlocks.TOADSTOOL_SEAT)) return TOADSTOOL;
+		return SHAPE;
+	}
+
+	@Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 //        if (isNull(entity)) {
 //            createEntity(world, pos, state);
@@ -89,15 +106,15 @@ public class SeatBlock extends SlabBlock {
     public static void createEntity(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!world.isClient()) {
             SeatBlockEntity entity;
-            if (state.get(TYPE) == SlabType.BOTTOM) {
+//            if (state.get(TYPE) == SlabType.BOTTOM) {
                 entity = new SeatBlockEntity(world, pos.getX() + .5f, pos.getY(), pos.getZ() + .5f);
                 //entity.setPosition(pos.getX() + .5f, pos.getY() + 1f, pos.getZ() + .5f);
-                Moonbits.LOGGER.info("created the seat entity on the bottom half");
-            } else {
-                entity = new SeatBlockEntity(world, pos.getX() + .5f, pos.getY() + .5f, pos.getZ() + .5f);
-                //entity.setPosition(pos.getX() + .5f, pos.getY() + .5f, pos.getZ() + .5f);
-                Moonbits.LOGGER.info("created the seat entity on the top half");
-            }
+                Moonbits.LOGGER.info("created seat entity at " + pos);
+//            } else {
+//                entity = new SeatBlockEntity(world, pos.getX() + .5f, pos.getY() + .5f, pos.getZ() + .5f);
+//                //entity.setPosition(pos.getX() + .5f, pos.getY() + .5f, pos.getZ() + .5f);
+//                Moonbits.LOGGER.info("created the seat entity on the top half");
+//            }
             world.spawnEntity(entity);
             player.startRiding(entity, true);
         }
@@ -111,8 +128,8 @@ public class SeatBlock extends SlabBlock {
 ////        }
 //    }
 
-    static {
-        TYPE = Properties.SLAB_TYPE;
-    }
+//    static {
+//        TYPE = Properties.SLAB_TYPE;
+//    }
 
 }

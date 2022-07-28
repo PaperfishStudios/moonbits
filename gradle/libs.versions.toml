@@ -1,0 +1,31 @@
+[versions]
+# The latest versions are available at https://lambdaurora.dev/tools/import_quilt.html
+minecraft = "1.19"
+quilt_mappings = "1.19+build.1"
+quilt_loader = "0.17.1-beta.1"
+
+quilted_fabric_api = "2.0.0-alpha.2+0.55.3-1.19"
+
+geckolib = "3.1.0"
+terrablender = "1.19-2.0.0.109"
+bookingit = "1.0.2"
+asm = "2.3"
+
+[libraries]
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+quilt_mappings = { module = "org.quiltmc:quilt-mappings", version.ref = "quilt_mappings" }
+quilt_loader = { module = "org.quiltmc:quilt-loader", version.ref = "quilt_loader" }
+
+quilted_fabric_api = { module = "org.quiltmc.quilted-fabric-api:quilted-fabric-api", version.ref = "quilted_fabric_api" }
+
+geckolib = { module = "software.bernie.geckolib:geckolib-quilt-1.19", version.ref = "geckolib" }
+terrablender = { module = "com.github.glitchfiend:TerraBlender-fabric", version.ref = "terrablender" }
+bookingit = { module = "maven.modrinth:booking_it", version.ref = "bookingit" }
+asm = { module = "com.github.Chocohead:Fabric-ASM", version.ref = "asm" }
+
+# If you have multiple similar dependencies, you can declare a dependency bundle and reference it on the build script with "libs.bundles.example".
+# [bundles]
+# example = ["example-a", "example-b", "example-c"]
+
+[plugins]
+quilt_loom = { id = "org.quiltmc.loom", version = "0.12.+" }

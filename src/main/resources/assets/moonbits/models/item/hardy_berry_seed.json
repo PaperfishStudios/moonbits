@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "moonbits:item/hardy_berry_seed"
+    "layer0": "moonbits:block/hardy_sprout"
   }
 }
