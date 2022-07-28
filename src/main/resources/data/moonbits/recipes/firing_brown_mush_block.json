@@ -1,9 +1,9 @@
 {
   "type": "moonbits:kiln",
   "cookingtime": 100,
-  "experience": 0.3,
+  "experience": 0.1,
   "ingredient": {
-    "item": "moonbits:brown_mushblend"
+    "item": "moonbits:brown_mushclay"
   },
   "result": "moonbits:brown_mush_block"
 }

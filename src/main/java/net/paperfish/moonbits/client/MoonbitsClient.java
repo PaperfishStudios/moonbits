@@ -38,110 +38,61 @@ public class MoonbitsClient implements ClientModInitializer {
     public void onInitializeClient() {
         // cutout
 		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
-                MBBlocks.ROPE_LADDER,
-                MBBlocks.IRON_LADDER,
+                MBBlocks.ROPE_LADDER, MBBlocks.IRON_LADDER,
                 MBBlocks.TOUGH_GRASS,
-
                 MBBlocks.MYCELIUM_ROOTS,
 
-                MBBlocks.BUTTERCUP,
-                MBBlocks.POTTED_BUTTERCUP,
-                MBBlocks.FORGETMENOT,
-                MBBlocks.POTTED_FORGETMENOT,
+                MBBlocks.BUTTERCUP, MBBlocks.POTTED_BUTTERCUP,
+                MBBlocks.FORGETMENOT, MBBlocks.POTTED_FORGETMENOT,
 
-                MBBlocks.WILDFLOWERS,
-                MBBlocks.POTTED_WILDFLOWERS,
-                MBBlocks.CLOVER,
-                MBBlocks.POTTED_CLOVER,
+                MBBlocks.WILDFLOWERS, MBBlocks.POTTED_WILDFLOWERS,
+                MBBlocks.CLOVER, MBBlocks.POTTED_CLOVER,
 
-                MBBlocks.PUFFBALLS,
-                MBBlocks.POTTED_PUFFBALLS,
-                MBBlocks.SAFFRON_MUSHROOM,
-                MBBlocks.POTTED_SAFFRON_MUSHROOM,
-                MBBlocks.SAFFRON_GILLS,
-                MBBlocks.TOADSTOOL,
-                MBBlocks.SMALL_TOADSTOOLS,
-                MBBlocks.POTTED_SMALL_TOADSTOOLS,
-                MBBlocks.OYSTER_MUSHROOMS,
-                MBBlocks.SHELF_OYSTER_MUSHROOMS,
-                MBBlocks.POTTED_OYSTER_MUSHROOMS,
+                MBBlocks.PUFFBALLS, MBBlocks.POTTED_PUFFBALLS,
+                MBBlocks.SAFFRON_MUSHROOM, MBBlocks.POTTED_SAFFRON_MUSHROOM, MBBlocks.SAFFRON_GILLS,
+                MBBlocks.TOADSTOOL, MBBlocks.TOADSTOOL_STEM, MBBlocks.SMALL_TOADSTOOLS, MBBlocks.POTTED_SMALL_TOADSTOOLS,
+                MBBlocks.OYSTER_MUSHROOMS, MBBlocks.SHELF_OYSTER_MUSHROOMS, MBBlocks.POTTED_OYSTER_MUSHROOMS,
 
-                MBBlocks.WHITE_HYACINTH,
-                MBBlocks.PINK_HYACINTH,
-                MBBlocks.LIGHT_BLUE_HYACINTH,
-                MBBlocks.RED_HYACINTH,
+                MBBlocks.WHITE_HYACINTH, MBBlocks.PINK_HYACINTH, MBBlocks.LIGHT_BLUE_HYACINTH, MBBlocks.RED_HYACINTH,
 
-                MBBlocks.WHITE_HEATHER,
-                MBBlocks.RED_HEATHER,
-                MBBlocks.ORANGE_HEATHER,
-                MBBlocks.PURPLE_HEATHER,
+                MBBlocks.WHITE_HEATHER, MBBlocks.RED_HEATHER, MBBlocks.ORANGE_HEATHER, MBBlocks.PURPLE_HEATHER,
                 MBBlocks.LUPINE,
 
-                MBBlocks.PRICKLY_PEAR_CACTUS,
-                MBBlocks.TALL_PRICKLY_PEAR_CACTUS,
+                MBBlocks.PRICKLY_PEAR_CACTUS, MBBlocks.TALL_PRICKLY_PEAR_CACTUS,
 
-                MBBlocks.FROSTHORN_CROWN,
-                MBBlocks.FROSTHORN_STEM,
-                MBBlocks.FROSTHORN_LEAVES,
-                MBBlocks.FROSTHORN_FRUIT,
+                MBBlocks.FROSTHORN_CROWN, MBBlocks.FROSTHORN_STEM, MBBlocks.FROSTHORN_LEAVES, MBBlocks.FROSTHORN_FRUIT,
 
-                MBBlocks.TINY_BARREL_CACTUS,
-                MBBlocks.SMALL_BARREL_CACTUS,
-                MBBlocks.BARREL_CACTUS,
-                MBBlocks.LARGE_BARREL_CACTUS,
-                MBBlocks.MARIGOLD,
-                MBBlocks.POTTED_MARIGOLD,
+                MBBlocks.TINY_BARREL_CACTUS, MBBlocks.SMALL_BARREL_CACTUS, MBBlocks.BARREL_CACTUS, MBBlocks.LARGE_BARREL_CACTUS,
+                MBBlocks.MARIGOLD, MBBlocks.POTTED_MARIGOLD,
 
-                MBBlocks.WILD_CARROTS,
-                MBBlocks.WILD_POTATOES,
-                MBBlocks.SEA_BEETS,
+                MBBlocks.WILD_CARROTS, MBBlocks.WILD_POTATOES, MBBlocks.SEA_BEETS,
 
-                MBBlocks.PEANUT_CROP,
-                MBBlocks.PEPPER_CROP,
+                MBBlocks.PEANUT_CROP, MBBlocks.PEPPER_CROP,
 
-                MBBlocks.BEACHGRASS,
-                MBBlocks.TALL_BEACHGRASS,
-                MBBlocks.COTTONGRASS,
-                MBBlocks.TALL_COTTONGRASS,
-                MBBlocks.DESERT_BRUSH,
-                MBBlocks.TALL_DESERT_BRUSH,
+                MBBlocks.BEACHGRASS, MBBlocks.TALL_BEACHGRASS,
+                MBBlocks.COTTONGRASS, MBBlocks.TALL_COTTONGRASS,
+                MBBlocks.DESERT_BRUSH, MBBlocks.TALL_DESERT_BRUSH,
 
-                MBBlocks.REDSTONE_CLUSTER,
-                MBBlocks.LARGE_REDSTONE_BUD,
-                MBBlocks.MEDIUM_REDSTONE_BUD,
-                MBBlocks.SMALL_REDSTONE_BUD,
+                MBBlocks.REDSTONE_CLUSTER, MBBlocks.LARGE_REDSTONE_BUD, MBBlocks.MEDIUM_REDSTONE_BUD, MBBlocks.SMALL_REDSTONE_BUD,
 
                 MBBlocks.LAMPROOT_BULB,
 
-                MBBlocks.LAMPROOT_DOOR,
-                MBBlocks.LAMPROOT_TRAPDOOR,
-                MBBlocks.LAMPROOT_SAPLING,
-                MBBlocks.POTTED_CEDAR_SAPLING,
+                MBBlocks.LAMPROOT_DOOR, MBBlocks.LAMPROOT_TRAPDOOR, MBBlocks.LAMPROOT_SAPLING, MBBlocks.POTTED_LAMPROOT_SAPLING,
 
-                MBBlocks.CAVEBLOOM_VINE,
-                MBBlocks.CAVEBLOOM_FLOWERS,
+                MBBlocks.CAVEBLOOM_VINE, MBBlocks.CAVEBLOOM_FLOWERS,
 
-                MBBlocks.CEDAR_DOOR,
-                MBBlocks.CEDAR_TRAPDOOR,
-                MBBlocks.CEDAR_SAPLING,
-                MBBlocks.POTTED_CEDAR_SAPLING,
+                MBBlocks.CEDAR_DOOR, MBBlocks.CEDAR_TRAPDOOR, MBBlocks.CEDAR_SAPLING, MBBlocks.POTTED_CEDAR_SAPLING,
 
                 MBBlocks.TREE_TAP,
 
                 MBBlocks.FLOWERING_ACACIA_LEAVES,
 
-                MBBlocks.HONEY_DOOR,
-                MBBlocks.HONEY_TRAPDOOR,
+                MBBlocks.HONEY_DOOR, MBBlocks.HONEY_TRAPDOOR,
 
-                MBBlocks.RED_OAK_LEAF_CARPET,
-                MBBlocks.RED_OAK_SAPLING,
-                MBBlocks.POTTED_RED_OAK_SAPLING,
-                MBBlocks.GOLDEN_BIRCH_LEAF_CARPET,
-                MBBlocks.GOLDEN_BIRCH_SAPLING,
-                MBBlocks.POTTED_GOLDEN_BIRCH_SAPLING,
+                MBBlocks.RED_OAK_LEAF_CARPET, MBBlocks.RED_OAK_SAPLING, MBBlocks.POTTED_RED_OAK_SAPLING,
+                MBBlocks.GOLDEN_BIRCH_LEAF_CARPET, MBBlocks.GOLDEN_BIRCH_SAPLING, MBBlocks.POTTED_GOLDEN_BIRCH_SAPLING,
                 MBBlocks.GLASS_DOOR,
-                MBBlocks.WALL_LANTERN,
-                MBBlocks.WALL_SOUL_LANTERN
+                MBBlocks.WALL_LANTERN, MBBlocks.WALL_SOUL_LANTERN
         );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),
                 MBBlocks.ICE_BRICKS,
@@ -153,14 +104,11 @@ public class MoonbitsClient implements ClientModInitializer {
 
         MBEntityType.initEntityClient();
 
+        HandledScreens.register(MBData.KILN_SCREEN_HANDLER, KilnScreen::new);
+        HandledScreens.register(MBData.COOKING_SCREEN_HANDLER, CookingScreen::new);
 
         HudRenderCallback.EVENT.register((((matrixStack, tickDelta) -> compassHud.renderCompass(matrixStack))));
         
-    }
-
-    static {
-        HandledScreens.register(MBData.KILN_SCREEN_HANDLER, KilnScreen::new);
-        HandledScreens.register(MBData.COOKING_SCREEN_HANDLER, CookingScreen::new);
     }
 
     public static void dataClient() {

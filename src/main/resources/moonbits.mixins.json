@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AnimalEntityMixin",
+    "AreaHelperMixin",
     "BlockEntityTypeMixin",
     "BoatDropsMixin",
     "BoatTypeMixin",

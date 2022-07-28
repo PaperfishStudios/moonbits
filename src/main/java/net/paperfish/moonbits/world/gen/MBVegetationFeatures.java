@@ -221,7 +221,8 @@ public class MBVegetationFeatures {
 
     public static final RegistryEntry<ConfiguredFeature<RandomFeatureConfig, ?>> GBF_TREES = MBConfiguredFeatures.register("gbf_trees", Feature.RANDOM_SELECTOR,
             new RandomFeatureConfig(List.of(
-                    new RandomFeatureEntry(TreePlacedFeatures.OAK_BEES_002, 0.1F),
+                    new RandomFeatureEntry(TreePlacedFeatures.OAK_BEES_002, 0.025f),
+                    new RandomFeatureEntry(PlacedFeatures.createEntry(MBTreeFeatures.GIANT_TOADSTOOL), 0.1F),
                     new RandomFeatureEntry(MBPlacedTreeFeatures.RED_OAK_BEES_005, 0.4F)),
                     MBPlacedTreeFeatures.GOLDEN_BIRCH_BEES_005
             ));

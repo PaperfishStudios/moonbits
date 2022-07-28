@@ -360,6 +360,7 @@ public class MBModelProvider extends FabricModelProvider {
         generator.registerMushroomBlock(MBBlocks.SAFFRON_MUSHROOM_CAP);
         gills(generator);
         giantToadstoolCap(generator);
+        generator.registerAxisRotated(MBBlocks.GIANT_TOADSTOOL_STEM, CUBE_COLUMN);
         log(MBBlocks.MUSHROOM_STEM, MBBlocks.MUSHROOM_HYPHAE, generator);
         log(MBBlocks.STRIPPED_MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_HYPHAE, generator);
 
@@ -626,10 +627,19 @@ public class MBModelProvider extends FabricModelProvider {
         ));
     }
     public static void toadstool(BlockStateModelGenerator generator) {
-        generator.registerParentedItemModel(MBBlocks.TOADSTOOL.asItem(), new Identifier(Moonbits.MODID, "block/toadstool_cap"));
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TOADSTOOL).coordinate(BlockStateVariantMap.create(ToadstoolBlock.CAP)
-                .register(true, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_cap")))
-                .register(false, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/toadstool_stem")))
+        generator.registerItemModel(MBBlocks.TOADSTOOL.asItem());
+        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.TOADSTOOL, new Identifier(Moonbits.MODID, "block/toadstool_cap")));
+        generator.registerItemModel(MBBlocks.TOADSTOOL_STEM.asItem());
+        Identifier stem = new Identifier(Moonbits.MODID, "block/toadstool_stem");
+        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TOADSTOOL_STEM).coordinate(BlockStateVariantMap.create(Properties.FACING)
+                .register(Direction.UP, BlockStateVariant.create().put(VariantSettings.MODEL, stem))
+                .register(Direction.DOWN, BlockStateVariant.create().put(VariantSettings.MODEL, stem))
+                .register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, stem).put(VariantSettings.X, VariantSettings.Rotation.R90))
+                .register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, stem).put(VariantSettings.X, VariantSettings.Rotation.R90))
+                .register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, stem)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R90).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+                .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, stem)
+                        .put(VariantSettings.X, VariantSettings.Rotation.R90).put(VariantSettings.Y, VariantSettings.Rotation.R90))
         ));
     }
     public static void lamproot(BlockStateModelGenerator generator) {

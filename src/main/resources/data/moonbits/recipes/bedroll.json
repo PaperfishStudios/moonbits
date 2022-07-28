@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "F": {
-      "item": "moonbits:fur"
+      "item": "moonbits:monster_hide"
     },
     "L": {
       "item": "minecraft:leather"

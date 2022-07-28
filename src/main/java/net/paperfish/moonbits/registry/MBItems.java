@@ -62,30 +62,6 @@ public class MBItems {
 			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.3f).build()));
 	public static final Item DOG_TREAT = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD));
 
-	// misc dishes
-//	public static final Item GLOW_BERRY_TART = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
-//			.food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F)
-//			.statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 400, 1), 1.0f).build()));
-//	public static final Item HONEY_BUN = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
-//			.food((new FoodComponent.Builder()).hunger(5).saturationModifier(0.8F).build()));
-//	public static final Item BROWNIE = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
-//			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.3f).build()));
-//	public static final Item FRUIT_PIE = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD)
-//			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(1.0f).build()));
-//	public static final Item PORRIDGE = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
-//			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.8f).build()));
-//	public static final Item CHICKEN_SOUP = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
-//			.food((new FoodComponent.Builder()).hunger(9).saturationModifier(0.8f).build()));
-//	public static final Item HEARTY_STEW = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
-//			.food((new FoodComponent.Builder()).hunger(10).saturationModifier(1.2f).build()));
-//	public static final Item FORAGED_SALAD = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
-//			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.6f).build()));
-//	public static final Item VEG_STIRFRY = new StewItem(new FabricItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
-//			.food((new FoodComponent.Builder()).hunger(7).saturationModifier(0.8f)
-//					.statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0f)
-//					.build()));
-
-	//public static final Item APPLE_SEEDS = new AliasedBlockItem(MBBlocks.APPLE_OAK_SPROUT, new FabricItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Block SWEET_BERRY_PITS = new SweetBerryPitsBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH));
 	public static final Block GLOW_BERRY_PITS = new GlowBerryPitsBlock(AbstractBlock.Settings.of(Material.PLANT).ticksRandomly().noCollision().luminance(CaveVines.getLuminanceSupplier(14)).breakInstantly().sounds(BlockSoundGroup.CAVE_VINES));
 	public static final Item ROASTED_BERRIES = new Item(new FabricItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8F).build()));
@@ -100,6 +76,8 @@ public class MBItems {
 	public static final Item FUR = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item BURLAP = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item MONSTER_HIDE = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
+
+	public static final Item TOADSTOOL_CAP = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item RED_MUSHBLEND = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item RED_MUSHBRICK = new Item(new FabricItemSettings().group(MBItemGroup.MB_MISC));
@@ -209,6 +187,8 @@ public class MBItems {
 		addItem("grass_tuft", GRASS_TUFT);
 		addItem("item_hook", ITEM_HOOK);
 		addItem("glow_item_hook", GLOW_ITEM_HOOK);
+
+		addItem("toadstool_cap", TOADSTOOL_CAP);
 
 		addItem("red_mushblend", RED_MUSHBLEND);
 		addItem("red_mushbrick", RED_MUSHBRICK);

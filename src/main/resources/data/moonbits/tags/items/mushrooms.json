@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "minecraft:red_mushroom",
-    "moonbits:toadstool",
+    "moonbits:small_toadstools",
     "#moonbits:edible_mushrooms"
   ]
 }

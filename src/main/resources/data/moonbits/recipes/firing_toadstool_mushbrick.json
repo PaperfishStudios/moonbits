@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "moonbits:toadstool_mushblend"
+  },
+  "result": "moonbits:toadstool_mushbrick"
+}

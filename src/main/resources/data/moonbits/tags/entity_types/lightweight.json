@@ -1,11 +1,21 @@
 {
+  "replace": false,
   "values": [
-    "minecraft:rabbit",
-    "minecraft:endermite",
-    "minecraft:silverfish",
-    "minecraft:fox",
     "minecraft:chicken",
+    "minecraft:bat",
+    "minecraft:parrot",
     "minecraft:bee",
-    "minecraft:bat"
+    "minecraft:rabbit",
+    "minecraft:fox",
+    "minecraft:frog",
+    "minecraft:cod",
+    "minecraft:salmon",
+    "minecraft:tropical_fish",
+    "minecraft:pufferfish",
+    "minecraft:silverfish",
+    "minecraft:endermite",
+    "minecraft:slime",
+    "minecraft:magma_cube",
+    "minecraft:allay"
   ]
 }

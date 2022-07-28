@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_red_mushblend": {
+    "has_red_mushclay": {
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:red_mushblend"
+              "moonbits:red_mushclay"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_red_mushblend",
+      "has_red_mushclay",
       "has_the_recipe"
     ]
   ],

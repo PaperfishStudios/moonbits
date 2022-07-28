@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "moonbits:giant_toadstool_cap"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_toadstool_cap": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:toadstool_cap"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_toadstool_cap",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "moonbits:giant_toadstool_cap"
+    ]
+  }
+}

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_fur": {
+    "has_monster_hide": {
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:fur"
+              "moonbits:monster_hide"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_fur",
+      "has_monster_hide",
       "has_the_recipe"
     ]
   ],

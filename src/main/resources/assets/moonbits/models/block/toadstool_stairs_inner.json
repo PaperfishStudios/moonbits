@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "moonbits:block/toadstool_planks",
+    "side": "moonbits:block/toadstool_planks",
+    "top": "moonbits:block/toadstool_planks"
+  }
+}

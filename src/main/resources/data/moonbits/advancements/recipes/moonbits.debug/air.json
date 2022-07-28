@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:air"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_toadstool_stem": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:toadstool_stem"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_toadstool_stem",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:air"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "moonbits:toadstool_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_toadstool_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:toadstool_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_toadstool_planks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "moonbits:toadstool_slab"
+    ]
+  }
+}

@@ -3,6 +3,8 @@ package net.paperfish.moonbits.world.gen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MushroomBlock;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.enums.SlabType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
@@ -20,6 +22,7 @@ import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraft.world.gen.trunk.DarkOakTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
+import net.paperfish.moonbits.block.GiantToadstoolBlock;
 import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.MushroomCapBlock;
@@ -62,6 +65,10 @@ public class MBTreeFeatures {
             MBConfiguredFeatures.register("mb_saffron_mushroom", BROWN_MUSHROOM_FEATURE, new HugeMushroomFeatureConfig(
                     BlockStateProvider.of(MBBlocks.SAFFRON_MUSHROOM_CAP.getDefaultState().with(MushroomCapBlock.UP, true).with(MushroomCapBlock.DOWN, false)),
                     BlockStateProvider.of(MBBlocks.MUSHROOM_STEM.getDefaultState()), 2));
+    public static final RegistryEntry<ConfiguredFeature<HugeMushroomFeatureConfig, ?>> GIANT_TOADSTOOL =
+            MBConfiguredFeatures.register("mb_giant_toadstool", BROWN_MUSHROOM_FEATURE, new HugeMushroomFeatureConfig(
+                    BlockStateProvider.of(MBBlocks.GIANT_TOADSTOOL_CAP.getDefaultState().with(SlabBlock.TYPE, SlabType.BOTTOM)),
+                    BlockStateProvider.of(MBBlocks.GIANT_TOADSTOOL_STEM.getDefaultState()), 2));
 
     // single tree features
 

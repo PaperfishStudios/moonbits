@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_leather": {
+    "has_monster_hide": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:leather"
+              "moonbits:monster_hide"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_leather",
+      "has_monster_hide",
       "has_the_recipe"
     ]
   ],

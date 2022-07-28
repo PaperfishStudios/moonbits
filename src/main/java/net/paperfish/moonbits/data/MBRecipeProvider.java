@@ -188,6 +188,21 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 
         BLASTING.put(MBItems.RAW_TIN, MBItems.TIN_INGOT);
 
+        BLASTING.put(MBBlocks.PESTERED_TIN_BLOCK, MBBlocks.TIN_BLOCK);
+        BLASTING.put(MBBlocks.PESTERED_CUT_TIN, MBBlocks.CUT_TIN);
+        BLASTING.put(MBBlocks.PESTERED_CUT_TIN_SLAB, MBBlocks.CUT_TIN_SLAB);
+        BLASTING.put(MBBlocks.PESTERED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN_STAIRS);
+
+        FIRING.put(MBItems.RED_MUSHBLEND, MBItems.RED_MUSHBRICK);
+        FIRING.put(MBItems.BROWN_MUSHBLEND, MBItems.BROWN_MUSHBRICK);
+        FIRING.put(MBItems.SAFFRON_MUSHBLEND, MBItems.SAFFRON_MUSHBRICK);
+        FIRING.put(MBItems.TOADSTOOL_MUSHBLEND, MBItems.TOADSTOOL_MUSHBRICK);
+
+        FIRING.put(MBBlocks.RED_MUSHCLAY, MBBlocks.RED_MUSH_BLOCK);
+        FIRING.put(MBBlocks.BROWN_MUSHCLAY, MBBlocks.BROWN_MUSH_BLOCK);
+        FIRING.put(MBBlocks.SAFFRON_MUSHCLAY, MBBlocks.SAFFRON_MUSH_BLOCK);
+        FIRING.put(MBBlocks.TOADSTOOL_MUSHCLAY, MBBlocks.TOADSTOOL_MUSH_BLOCK);
+
         FIRING.put(MBBlocks.COBBLED_ANDESITE, Blocks.ANDESITE);
         FIRING.put(MBBlocks.COBBLED_DIORITE, Blocks.DIORITE);
         FIRING.put(MBBlocks.COBBLED_GRANITE, Blocks.GRANITE);
@@ -239,6 +254,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .group(RecipeProvider.getItemPath(output))
                 .criterion(RecipeProvider.hasItem(input), RecipeProvider.conditionsFromItem(input))
                 .offerTo(exporter, RecipeProvider.convertBetween(output, Items.HONEYCOMB)));
+
         slabRecipe(exporter, MBBlocks.WAXED_CUT_TIN, MBBlocks.WAXED_CUT_TIN_SLAB);
         slabRecipe(exporter, MBBlocks.WAXED_OXIDIZED_CUT_TIN, MBBlocks.WAXED_OXIDIZED_CUT_TIN_SLAB);
         slabRecipe(exporter, MBBlocks.WAXED_BLACKENED_CUT_TIN, MBBlocks.WAXED_BLACKENED_CUT_TIN_SLAB);
@@ -491,15 +507,32 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         crossRecipe(exporter, Items.BROWN_MUSHROOM, Items.BONE_MEAL, MBItems.BROWN_MUSHBLEND, 4);
         crossRecipe(exporter, MBBlocks.SAFFRON_MUSHROOM, Items.BONE_MEAL, MBItems.SAFFRON_MUSHBLEND, 4);
         crossRecipe(exporter, MBBlocks.SMALL_TOADSTOOLS, Items.BONE_MEAL, MBItems.TOADSTOOL_MUSHBLEND, 4);
+//        crossRecipe(exporter, MBItems.TOADSTOOL_CAP, Items.BONE_MEAL, MBItems.TOADSTOOL_MUSHBLEND, 4);
+
+        ShapedRecipeJsonBuilder.create(MBItems.TOADSTOOL_MUSHBLEND, 4).input('#', MBItems.TOADSTOOL_CAP).input('B', Items.BONE_MEAL).pattern("#B").pattern("B#")
+                .criterion(RecipeProvider.hasItem(MBItems.TOADSTOOL_CAP), RecipeProvider.conditionsFromItem(MBItems.TOADSTOOL_CAP))
+                .offerTo(exporter, "toadstool_mushblend_from_caps");
         condense(exporter, MBBlocks.SMALL_TOADSTOOLS, MBBlocks.GIANT_TOADSTOOL_CAP, 2);
-        firing(exporter, MBItems.RED_MUSHBLEND, MBBlocks.RED_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
-        firing(exporter, MBItems.BROWN_MUSHBLEND, MBBlocks.BROWN_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
-        firing(exporter, MBItems.SAFFRON_MUSHBLEND, MBBlocks.TOADSTOOL_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
-        firing(exporter, MBItems.TOADSTOOL_MUSHBLEND, MBBlocks.SAFFRON_MUSH_BLOCK, 0.3f, DEFAULT_FIRE_TIME);
-        insetRecipe(exporter, MBBlocks.RED_MUSH_BLOCK, MBBlocks.LAMPROOT_BULB, MBBlocks.RED_MUSH_LAMP);
-        insetRecipe(exporter, MBBlocks.BROWN_MUSH_BLOCK, MBBlocks.LAMPROOT_BULB, MBBlocks.BROWN_MUSH_LAMP);
-        insetRecipe(exporter, MBBlocks.TOADSTOOL_MUSH_BLOCK, MBBlocks.LAMPROOT_BULB, MBBlocks.TOADSTOOL_MUSH_LAMP);
-        insetRecipe(exporter, MBBlocks.SAFFRON_MUSH_BLOCK, MBBlocks.LAMPROOT_BULB, MBBlocks.SAFFRON_MUSH_LAMP);
+//        firing(exporter, MBItems.RED_MUSHBLEND, MBItems.RED_MUSHBRICK, 0.3f, DEFAULT_FIRE_TIME);
+//        firing(exporter, MBItems.BROWN_MUSHBLEND, MBItems.BROWN_MUSHBRICK, 0.3f, DEFAULT_FIRE_TIME);
+//        firing(exporter, MBItems.SAFFRON_MUSHBLEND, MBItems.TOADSTOOL_MUSHBRICK, 0.3f, DEFAULT_FIRE_TIME);
+//        firing(exporter, MBItems.TOADSTOOL_MUSHBLEND, MBItems.SAFFRON_MUSHBRICK, 0.3f, DEFAULT_FIRE_TIME);
+        insetRecipe(exporter, MBItems.RED_MUSHBRICK, MBBlocks.LAMPROOT_BULB, MBBlocks.RED_MUSH_LAMP);
+        insetRecipe(exporter, MBItems.BROWN_MUSHBRICK, MBBlocks.LAMPROOT_BULB, MBBlocks.BROWN_MUSH_LAMP);
+        insetRecipe(exporter, MBItems.TOADSTOOL_MUSHBRICK, MBBlocks.LAMPROOT_BULB, MBBlocks.TOADSTOOL_MUSH_LAMP);
+        insetRecipe(exporter, MBItems.SAFFRON_MUSHBRICK, MBBlocks.LAMPROOT_BULB, MBBlocks.SAFFRON_MUSH_LAMP);
+
+        ShapelessRecipeJsonBuilder.create(MBBlocks.TOADSTOOL)
+                .input(MBBlocks.TOADSTOOL_STEM).input(MBItems.TOADSTOOL_CAP)
+                .criterion("has_cap", RecipeProvider.conditionsFromItem(MBItems.TOADSTOOL_CAP))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(MBBlocks.GIANT_TOADSTOOL_CAP).input('#', MBItems.TOADSTOOL_CAP).pattern("#").pattern("#")
+                .criterion(RecipeProvider.hasItem(MBItems.TOADSTOOL_CAP), RecipeProvider.conditionsFromItem(MBItems.TOADSTOOL_CAP))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(MBBlocks.TOADSTOOL_PLANKS, 4).input('#', MBBlocks.TOADSTOOL_STEM).pattern("##").pattern("##")
+                .criterion(RecipeProvider.hasItem(MBBlocks.TOADSTOOL_STEM), RecipeProvider.conditionsFromItem(MBBlocks.TOADSTOOL_STEM))
+                .offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(MBBlocks.CANVAS, 4).input('#', MBItems.BURLAP).pattern("##").pattern("##")
                 .criterion(RecipeProvider.hasItem(MBItems.BURLAP), RecipeProvider.conditionsFromItem(MBItems.BURLAP))
@@ -539,10 +572,19 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .input('i', Items.IRON_NUGGET)
                 .pattern("i i").pattern("iii").pattern("i i")
                 .criterion(RecipeProvider.hasItem(Items.IRON_INGOT), RecipeProvider.conditionsFromItem(Items.IRON_INGOT)).offerTo(exporter);
+
         ShapedRecipeJsonBuilder.create(MBBlocks.BEDROLL)
-                .input('F', MBItems.FUR).input('L', Items.LEATHER).input('W', ItemTags.WOOL)
+                .input('F', MBItems.MONSTER_HIDE).input('L', Items.LEATHER).input('W', ItemTags.WOOL)
                 .pattern("FFW").pattern("LLL")
-                .criterion(RecipeProvider.hasItem(MBItems.FUR), RecipeProvider.conditionsFromItem(MBItems.FUR)).offerTo(exporter);
+                .criterion(RecipeProvider.hasItem(MBItems.MONSTER_HIDE), RecipeProvider.conditionsFromItem(MBItems.MONSTER_HIDE)).offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(Items.LEATHER)
+                .input(MBItems.MONSTER_HIDE, 2)
+                .criterion(RecipeProvider.hasItem(MBItems.MONSTER_HIDE), RecipeProvider.conditionsFromItem(MBItems.MONSTER_HIDE))
+                .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(Items.SADDLE).input('#', MBItems.MONSTER_HIDE).input('I', Items.IRON_INGOT)
+                .pattern("###").pattern("I I")
+                .criterion(RecipeProvider.hasItem(MBItems.MONSTER_HIDE), RecipeProvider.conditionsFromItem(MBItems.MONSTER_HIDE)).offerTo(exporter);
+
         ShapedRecipeJsonBuilder.create(MBBlocks.LEATHER_SEAT)
                 .input('L', Items.LEATHER).input('P', ItemTags.PLANKS)
                 .pattern("LLL").pattern("PPP")
@@ -604,10 +646,6 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         ShapedRecipeJsonBuilder.create(MBBlocks.PERMAFROST, 4).input('D', Blocks.DIRT).input('G', Items.SNOWBALL)
                 .pattern("DG").pattern("GD")
                 .criterion("has_snow", RecipeProvider.conditionsFromItem(Items.SNOWBALL)).offerTo(exporter);
-
-        ShapedRecipeJsonBuilder.create(Items.SADDLE).input('#', Items.LEATHER).input('S', Items.STRING).input('I', Items.IRON_INGOT)
-                .pattern("###").pattern("SIS")
-                .criterion("has_leather", RecipeProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(Items.LEATHER_HORSE_ARMOR).input('#', Items.LEATHER).input('W', ItemTags.WOOL)
                 .pattern("  #").pattern("###").pattern("#W#")

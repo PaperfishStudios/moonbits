@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:toadstool_stem"
+    },
+    {
+      "item": "moonbits:toadstool_cap"
+    }
+  ],
+  "result": {
+    "item": "moonbits:toadstool"
+  }
+}

@@ -1,5 +1,6 @@
 package net.paperfish.moonbits.registry;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
@@ -161,6 +162,18 @@ public class MBBlocks {
 	public static final Block RED_OAK_SAPLING =new MBSaplingBlock(new RedOakSaplingGenerator(), AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
 	public static final Block POTTED_RED_OAK_SAPLING = new FlowerPotBlock(RED_OAK_SAPLING, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
+	public static final Block RED_MUSHROOM_CAP = new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.RED).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block BROWN_MUSHROOM_CAP = new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.BROWN).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block SAFFRON_MUSHROOM_CAP = new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block SAFFRON_GILLS = new MushroomGillBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).strength(0.6F).sounds(BlockSoundGroup.GRASS)
+			.breakInstantly().nonOpaque().noCollision());
+	public static final Block MUSHROOM_STEM = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block STRIPPED_MUSHROOM_STEM = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.PALE_YELLOW).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block MUSHROOM_HYPHAE = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block STRIPPED_MUSHROOM_HYPHAE = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.PALE_YELLOW).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block GIANT_TOADSTOOL_CAP = new GiantToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).strength(0.5F).sounds(BlockSoundGroup.NETHER_STEM));
+	public static final Block GIANT_TOADSTOOL_STEM = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
+
 	public static final Block PUFFBALLS = new PuffballsBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block POTTED_PUFFBALLS = new FlowerPotBlock(PUFFBALLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
@@ -175,10 +188,14 @@ public class MBBlocks {
 			.sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ)
 			.postProcess((state, world, pos) -> true), () -> MBTreeFeatures.SAFFRON_MUSHROOM);
 	public static final Block POTTED_SAFFRON_MUSHROOM = new FlowerPotBlock(SAFFRON_MUSHROOM, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
-	public static final Block TOADSTOOL = new ToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).strength(0.5F).sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
 	public static final Block SMALL_TOADSTOOLS = new SmallToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block POTTED_SMALL_TOADSTOOLS = new FlowerPotBlock(SMALL_TOADSTOOLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+	public static final Block TOADSTOOL = new ToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).strength(0.5F).sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
+	public static final Block TOADSTOOL_STEM = new ToadstoolStemBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.5F).sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
+	public static final Block TOADSTOOL_PLANKS = new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.WOOD));
+	public static final Block TOADSTOOL_STAIRS = new MBStairsBlock(TOADSTOOL_PLANKS.getDefaultState(), FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD));
+	public static final Block TOADSTOOL_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.WOOD));
 
 	public static final Block RED_MUSHCLAY = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(0.8F).sounds(BlockSoundGroup.MUD));
 	public static final Block RED_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(Blocks.RED_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
@@ -197,17 +214,6 @@ public class MBBlocks {
 	public static final Block BROWN_MUSH_BRICK_STAIRS = new MBStairsBlock(BROWN_MUSH_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.ORGANIC_PRODUCT).hardness(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
 	public static final Block BROWN_MUSH_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS));
 	public static final Block BROWN_MUSH_LAMP = new Block(AbstractBlock.Settings.copy(Blocks.BROWN_MUSHROOM_BLOCK).strength(1.0F).sounds(BlockSoundGroup.MUD_BRICKS).luminance((state) -> 15));
-
-	public static final Block RED_MUSHROOM_CAP = new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.RED).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block BROWN_MUSHROOM_CAP = new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.BROWN).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block SAFFRON_MUSHROOM_CAP = new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block SAFFRON_GILLS = new MushroomGillBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).strength(0.6F).sounds(BlockSoundGroup.GRASS)
-			.breakInstantly().nonOpaque().noCollision());
-	public static final Block GIANT_TOADSTOOL_CAP = new GiantToadstoolBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_RED).strength(0.5F).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block MUSHROOM_STEM = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block STRIPPED_MUSHROOM_STEM = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.PALE_YELLOW).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block MUSHROOM_HYPHAE = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
-	public static final Block STRIPPED_MUSHROOM_HYPHAE = new PillarBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.PALE_YELLOW).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM));
 
 	public static final Block SAFFRON_MUSHCLAY = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(0.8F).sounds(BlockSoundGroup.MUD));
 	public static final Block SAFFRON_MUSH_BLOCK = new Block(AbstractBlock.Settings.copy(SAFFRON_MUSHROOM_CAP).strength(1.0F).sounds(BlockSoundGroup.PACKED_MUD));
@@ -1346,6 +1352,10 @@ public class MBBlocks {
 		createBlock("saffron_mushroom_cap", SAFFRON_MUSHROOM_CAP, MBItemGroup.CONSTRUCTION);
 		createBlock("saffron_gills", SAFFRON_GILLS, MBItemGroup.CONSTRUCTION);
 		createBlock("giant_toadstool_cap", GIANT_TOADSTOOL_CAP, MBItemGroup.CONSTRUCTION);
+		createBlock("giant_toadstool_stem", GIANT_TOADSTOOL_STEM, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_planks", TOADSTOOL_PLANKS, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_slab", TOADSTOOL_SLAB, MBItemGroup.CONSTRUCTION);
+		createBlock("toadstool_stairs", TOADSTOOL_STAIRS, MBItemGroup.CONSTRUCTION);
 
 		createBlock("mushroom_stem", MUSHROOM_STEM, MBItemGroup.CONSTRUCTION);
 		createBlock("stripped_mushroom_stem", STRIPPED_MUSHROOM_STEM, MBItemGroup.CONSTRUCTION);
@@ -1530,7 +1540,11 @@ public class MBBlocks {
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_saffron_mushroom"), POTTED_SAFFRON_MUSHROOM);
 		createBlock("small_toadstools", SMALL_TOADSTOOLS, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_small_toadstools"), POTTED_SMALL_TOADSTOOLS);
-		createBlock("toadstool", TOADSTOOL, MBItemGroup.DECOR);
+//		createBlock("toadstool", TOADSTOOL, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "toadstool"), TOADSTOOL);
+		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "toadstool"),
+				new BlockItem(TOADSTOOL, new FabricItemSettings().group(MBItemGroup.DECOR).recipeRemainder(MBItems.TOADSTOOL_CAP)));
+		createBlock("toadstool_stem", TOADSTOOL_STEM, MBItemGroup.DECOR);
 
 		createBlock("wild_carrots", WILD_CARROTS, MBItemGroup.DECOR);
 		createBlock("wild_potatoes", WILD_POTATOES, MBItemGroup.DECOR);

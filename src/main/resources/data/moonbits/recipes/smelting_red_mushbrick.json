@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "moonbits:red_mushblend"
+  },
+  "result": "moonbits:red_mushbrick"
+}

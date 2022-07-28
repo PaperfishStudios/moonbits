@@ -1,3 +1,6 @@
 {
-  "parent": "moonbits:block/toadstool_cap"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moonbits:item/toadstool"
+  }
 }

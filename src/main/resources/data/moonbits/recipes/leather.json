@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:monster_hide"
+    },
+    {
+      "item": "moonbits:monster_hide"
+    }
+  ],
+  "result": {
+    "item": "minecraft:leather"
+  }
+}

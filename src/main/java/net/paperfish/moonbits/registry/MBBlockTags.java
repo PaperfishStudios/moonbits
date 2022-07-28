@@ -17,7 +17,7 @@ public class MBBlockTags {
 
     public static final TagKey<Block> LAMPROOT_LOGS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "lamproot_logs"));
     public static final TagKey<Block> CEDAR_LOGS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "cedar_logs"));
-//    public static final TagKey<Block> ASPEN_TRUNKS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "aspen_trunks"));
+    public static final TagKey<Block> TOADSTOOL_STEMS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "toadstool_stems"));
 
     public static final TagKey<Block> BANDED_IRON = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "banded_iron"));
 
@@ -34,6 +34,10 @@ public class MBBlockTags {
 	public static final TagKey<Block> C_BOOKSHELVES = TagKey.of(Registry.BLOCK_KEY, new Identifier("c", "bookshelves"));
     // blocks that increase the enchanting power of a table
     public static final TagKey<Block> VALID_ENCHANTERS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "valid_enchanting_blocks"));
+
+    // blocks that work as portal frames
+    public static final TagKey<Block> NETHER_PORTAL_FRAME_BLOCKS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "nether_portal_frame_blocks"));
+
     // tag containing every planter variant
     public static final TagKey<Block> PLANTER_BOXES = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "planter_boxes"));
     // used for tough dirt & other similar blocks that work as dirt but cannot be replaced by tree growth n such

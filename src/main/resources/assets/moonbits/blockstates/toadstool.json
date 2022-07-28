@@ -1,9 +1,6 @@
 {
   "variants": {
-    "cap=false": {
-      "model": "moonbits:block/toadstool_stem"
-    },
-    "cap=true": {
+    "": {
       "model": "moonbits:block/toadstool_cap"
     }
   }

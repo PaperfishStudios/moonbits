@@ -95,7 +95,7 @@ public class MBBlockFamilies {
             .build();
 
 
-    public static final MBBlockFamily JUNIPER = register(MBBlocks.LAMPROOT_PLANKS)
+    public static final MBBlockFamily LAMPROOT = register(MBBlocks.LAMPROOT_PLANKS)
             .slab(MBBlocks.LAMPROOT_SLAB).stairs(MBBlocks.LAMPROOT_STAIRS)
             .fence(MBBlocks.LAMPROOT_FENCE).fenceGate(MBBlocks.LAMPROOT_FENCE_GATE)
             .door(MBBlocks.LAMPROOT_DOOR).trapdoor(MBBlocks.LAMPROOT_TRAPDOOR)
@@ -120,6 +120,10 @@ public class MBBlockFamilies {
             .column(MBBlocks.CEDAR_PILLAR, MBBlocks.CARVED_CEDAR)
             .group("wooden")
             .unlockCriterionName("has_planks")
+            .build();
+
+    public static final MBBlockFamily TOADSTOOL = register(MBBlocks.TOADSTOOL_PLANKS)
+            .slab(MBBlocks.TOADSTOOL_SLAB).stairs(MBBlocks.TOADSTOOL_STAIRS)
             .build();
 
     public static final MBBlockFamily PARASOL_FERN_FIBER = register(MBBlocks.PARASOL_FERN_FIBER)

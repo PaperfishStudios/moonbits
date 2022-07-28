@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "moonbits:brown_mush_block"
+      "item": "moonbits:brown_mushbrick"
     },
     "i": {
       "item": "moonbits:lamproot_bulb"

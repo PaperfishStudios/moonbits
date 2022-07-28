@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "moonbits:red_mushblend"
+  },
+  "result": "moonbits:red_mushbrick"
+}

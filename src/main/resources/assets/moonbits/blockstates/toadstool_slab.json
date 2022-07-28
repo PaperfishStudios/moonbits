@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/toadstool_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/toadstool_planks"
+    },
+    "type=top": {
+      "model": "moonbits:block/toadstool_slab_top"
+    }
+  }
+}
