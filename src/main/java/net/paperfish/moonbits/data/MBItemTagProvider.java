@@ -22,6 +22,7 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         copy(BlockTags.WOOL, ItemTags.WOOL);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
+		getOrCreateTagBuilder(ItemTags.PLANKS).add(MBItems.HARDY_STEM);
 //        copy(BlockTags.STONE_BRICKS, ItemTags.STONE_BRICKS);
         copy(BlockTags.WOODEN_BUTTONS, ItemTags.WOODEN_BUTTONS);
 //        copy(BlockTags.BUTTONS, ItemTags.BUTTONS);

@@ -248,7 +248,8 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(MBBlocks.PARASOL_FERN_STEM);
         addDrop(MBBlocks.PARASOL_FERN_CROWN);
-//        addDrop(MBBlocks.PARASOL_FERN_FIBER);
+		addDrop(MBBlocks.PARASOL_LEAF, dropsWithShears(MBBlocks.PARASOL_LEAF));
+
         addDrop(MBBlocks.HARDY_LEAVES, (Block l) -> hardyLeavesDrop(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.FLOWERING_HARDY_LEAVES, (Block l) -> hardyLeavesDrop(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.FRUITING_HARDY_LEAVES, (Block l) -> hardyLeavesDropBerry(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));

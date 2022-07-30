@@ -177,6 +177,7 @@ public class MBBlocks {
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 	public static final Block POTTED_PUFFBALLS = new FlowerPotBlock(PUFFBALLS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 	public static final Block GIANT_PUFFBALL = new GiantPuffballBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.OFF_WHITE).strength(0.5F).sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
+	public static BlockEntityType<GiantPuffballBlockEntity> GIANT_PUFFBALL_ENTITY;
 
 	public static final Block OYSTER_MUSHROOMS = new SmallToadstoolBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
@@ -342,6 +343,7 @@ public class MBBlocks {
 
 	public static final Block PARASOL_FERN_STEM = new ParasolFernStemBlock(AbstractBlock.Settings.of(Material.WOOD).strength(1.0f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
 	public static final Block PARASOL_FERN_CROWN = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.2f).sounds(BlockSoundGroup.WOOD));
+	public static final Block PARASOL_LEAF = new ParasolLeafBlock(AbstractBlock.Settings.of(Material.LEAVES).strength(0.4f).sounds(BlockSoundGroup.AZALEA_LEAVES).breakInstantly().noCollision());
 	public static final Block PARASOL_FERN_FIBER = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.0f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
 	public static final Block PARASOL_FERN_FIBER_SLAB = new SlabBlock(AbstractBlock.Settings.copy(PARASOL_FERN_FIBER));
 	public static final Block PARASOL_FERN_FIBER_STAIRS = new MBStairsBlock(PARASOL_FERN_FIBER.getDefaultState(), AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS));
@@ -1466,6 +1468,7 @@ public class MBBlocks {
 
 		createBlock("parasol_fern_stem", PARASOL_FERN_STEM, MBItemGroup.DECOR);
 		createBlock("parasol_fern_crown", PARASOL_FERN_CROWN, MBItemGroup.DECOR);
+		createBlock("parasol_leaf", PARASOL_LEAF, MBItemGroup.DECOR);
 		createBlock("parasol_fern_fiber", PARASOL_FERN_FIBER, MBItemGroup.DECOR);
 		createBlock("parasol_fern_fiber_slab", PARASOL_FERN_FIBER_SLAB, MBItemGroup.DECOR);
 		createBlock("parasol_fern_fiber_stairs", PARASOL_FERN_FIBER_STAIRS, MBItemGroup.DECOR);
@@ -1538,6 +1541,8 @@ public class MBBlocks {
 		createBlock("puffballs", PUFFBALLS, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_puffballs"), POTTED_PUFFBALLS);
 		createBlock("giant_puffball", GIANT_PUFFBALL, MBItemGroup.DECOR);
+		GIANT_PUFFBALL_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "giant_puffball_be"),
+				FabricBlockEntityTypeBuilder.create(GiantPuffballBlockEntity::new, GIANT_PUFFBALL).build(null));
 
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "oyster_mushroom"), OYSTER_MUSHROOMS);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "shelf_oyster_mushroom"), SHELF_OYSTER_MUSHROOMS);

@@ -1,0 +1,22 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.oyster.still": {
+			"loop": true
+		},
+		"animation.oyster.bounce": {
+			"animation_length": 0.5,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.0417": [-10, 0, 0],
+						"0.0833": [5, 0, 0],
+						"0.125": [0, 0, 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

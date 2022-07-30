@@ -313,15 +313,25 @@ public class MBModelProvider extends FabricModelProvider {
 
         generator.registerRod(MBBlocks.PARASOL_FERN_STEM);
         generator.registerSingleton(MBBlocks.PARASOL_FERN_CROWN, CUBE_BOTTOM_TOP);
-//        generator.registerSimpleCubeAll(MBBlocks.PARASOL_FERN_FIBER);
+		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.PARASOL_LEAF).coordinate(BlockStateVariantMap.create(HorizontalFacingBlock.FACING)
+				.register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
+						.put(VariantSettings.X, VariantSettings.Rotation.R90))
+				.register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
+						.put(VariantSettings.X, VariantSettings.Rotation.R90))
+				.register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
+						.put(VariantSettings.X, VariantSettings.Rotation.R90).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+				.register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
+						.put(VariantSettings.X, VariantSettings.Rotation.R90).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+		));
+		generator.registerItemModel(MBBlocks.PARASOL_LEAF);
+
         generator.registerSimpleCubeAll(MBBlocks.HARDY_LEAVES);
         generator.registerSimpleCubeAll(MBBlocks.FLOWERING_HARDY_LEAVES);
         generator.registerSimpleCubeAll(MBBlocks.FRUITING_HARDY_LEAVES);
-		generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.HARDY_BUSH,
-				new Identifier(Moonbits.MODID, "block/hardy_bush")));
+		blockStateOnly(MBBlocks.HARDY_BUSH, "hardy_bush", generator);
 		generator.registerParentedItemModel(MBBlocks.HARDY_BUSH, new Identifier(Moonbits.MODID, "block/hardy_bush"));
 		tintableCross(MBBlocks.HARDY_SPROUT, TintType.NOT_TINTED, generator);
-		generator.registerItemModel(MBItems.HARDY_BERRY_SEED);
+//		generator.registerItemModel(MBItems.HARDY_BERRY_SEED);
 
         generator.registerSimpleCubeAll(MBBlocks.CANVAS);
         generator.registerSimpleCubeAll(MBBlocks.FRAMED_CANVAS);
@@ -339,8 +349,7 @@ public class MBModelProvider extends FabricModelProvider {
         pottedBlock(MBBlocks.WILDFLOWERS, MBBlocks.POTTED_WILDFLOWERS, generator);
         pottedBlock(MBBlocks.CLOVER, MBBlocks.POTTED_CLOVER, generator);
 
-		generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.PUFFBALLS,
-				new Identifier(Moonbits.MODID, "block/puffballs")));
+		blockStateOnly(MBBlocks.PUFFBALLS, "puffballs", generator);
 		generator.registerItemModel(MBBlocks.PUFFBALLS);
         pottedBlock(MBBlocks.PUFFBALLS, MBBlocks.POTTED_PUFFBALLS, generator);
 		generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.GIANT_PUFFBALL,
@@ -358,8 +367,7 @@ public class MBModelProvider extends FabricModelProvider {
         giantToadstoolCap(generator);
         generator.registerAxisRotated(MBBlocks.GIANT_TOADSTOOL_STEM, CUBE_COLUMN);
 		cutSlabTop(MBBlocks.TOADSTOOL_BOOKSHELF, MBBlocks.GIANT_TOADSTOOL_CAP, generator);
-		generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.TOADSTOOL_SEAT,
-				new Identifier(Moonbits.MODID, "block/toadstool_seat")));
+		blockStateOnly(MBBlocks.TOADSTOOL_SEAT, "toadstool_seat", generator);
         log(MBBlocks.MUSHROOM_STEM, MBBlocks.MUSHROOM_HYPHAE, generator);
         log(MBBlocks.STRIPPED_MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_HYPHAE, generator);
 
@@ -575,8 +583,12 @@ public class MBModelProvider extends FabricModelProvider {
             }
         });
     }
+	public static void blockStateOnly(Block block, String id, BlockStateModelGenerator generator) {
+		generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, new Identifier(Moonbits.MODID, "block/" + id)));
+	}
+
     // hardcoded ones
-    public static void toughGrass (BlockStateModelGenerator generator) {
+    public static void toughGrass(BlockStateModelGenerator generator) {
         Identifier identifier = Texture.getId(MBBlocks.TOUGH_DIRT);
         Identifier tough_grass = TINTED_GRASSLIKE.get(MBBlocks.TOUGH_GRASS).texture(texture ->  texture.put(TextureKey.BOTTOM, identifier)).upload(MBBlocks.TOUGH_GRASS, generator.modelCollector);
         generator.blockStateCollector.accept(BlockStateModelGenerator.createBlockStateWithRandomHorizontalRotations(MBBlocks.TOUGH_GRASS, tough_grass));

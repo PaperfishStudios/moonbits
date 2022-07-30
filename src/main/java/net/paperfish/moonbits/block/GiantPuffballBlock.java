@@ -1,29 +1,42 @@
 package net.paperfish.moonbits.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.paperfish.moonbits.registry.MBBlockTags;
+import org.jetbrains.annotations.Nullable;
 
-public class GiantPuffballBlock extends Block {
-	public static final VoxelShape SHAPE = VoxelShapes.union(
-			Block.createCuboidShape(2.0D, 3.0D, 2.0D, 14.0D, 13.0D, 14.0D),
-			Block.createCuboidShape(6.0D, 0.0D, 6.0D, 10.0D, 3.0D, 10.0D)
-	);
+public class GiantPuffballBlock extends Block implements BlockEntityProvider {
+	public static final BooleanProperty BOUNCE = BooleanProperty.of("bounce");
+	public static final VoxelShape SHAPE = Block.createCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 10.0D, 14.0D);
 
 	public GiantPuffballBlock(Settings settings) {
 		super(settings);
+		setDefaultState(getDefaultState().with(BOUNCE, false));
+	}
+
+	@Override
+	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+		builder.add(BOUNCE);
+	}
+
+	@Override
+	public BlockRenderType getRenderType(BlockState state) {
+		return BlockRenderType.ENTITYBLOCK_ANIMATED;
 	}
 
 	@Override
@@ -43,6 +56,8 @@ public class GiantPuffballBlock extends Block {
 			super.onLandedUpon(world, state, pos, entity, fallDistance);
 		} else {
 			entity.handleFallDamage(fallDistance, 0.0F, DamageSource.FALL);
+			world.setBlockState(pos, state.with(BOUNCE, true));
+			world.scheduleBlockTick(pos, this, 10);
 		}
 
 	}
@@ -61,5 +76,16 @@ public class GiantPuffballBlock extends Block {
 			entity.setVelocity(vec3d.x, 1.5, vec3d.z);
 		}
 
+	}
+
+	@Override
+	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
+		world.setBlockState(pos, state.with(BOUNCE, false));
+	}
+
+	@Nullable
+	@Override
+	public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+		return new GiantPuffballBlockEntity(pos, state);
 	}
 }

@@ -1,0 +1,22 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.puffball.still": {
+			"loop": true
+		},
+		"animation.puffball.bounce": {
+			"animation_length": 0.5,
+			"bones": {
+				"root": {
+					"scale": {
+						"0.0": [1.2, 0.8, 1.2],
+						"0.0833": [0.8, 1.2, 0.8],
+						"0.1667": [1.1, 0.9, 1.1],
+						"0.25": [1, 1, 1]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}
