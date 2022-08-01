@@ -53,6 +53,9 @@ public class MBTreeFeatures {
     public static final GiantToadstoolFeature SAFFRON_MUSHROOM_FEATURE =
             Registry.register(Registry.FEATURE, new Identifier(Moonbits.MODID, "saffron_mushroom_feature"), new GiantToadstoolFeature(HugeMushroomFeatureConfig.CODEC));
 
+	public static final ParasolFernFeature PARASOL_FERN_FEATURE =
+			Registry.register(Registry.FEATURE, new Identifier(Moonbits.MODID, "parasol_fern_feature"), new ParasolFernFeature(HugeMushroomFeatureConfig.CODEC));
+
 
     public static final Holder<ConfiguredFeature<HugeMushroomFeatureConfig, ?>> HUGE_BROWN_MUSHROOM =
             MBConfiguredFeatures.register("mb_brown_mushroom", BROWN_MUSHROOM_FEATURE, new HugeMushroomFeatureConfig(
@@ -70,6 +73,11 @@ public class MBTreeFeatures {
             MBConfiguredFeatures.register("mb_giant_toadstool", BROWN_MUSHROOM_FEATURE, new HugeMushroomFeatureConfig(
                     BlockStateProvider.of(MBBlocks.GIANT_TOADSTOOL_CAP.getDefaultState().with(SlabBlock.TYPE, SlabType.BOTTOM)),
                     BlockStateProvider.of(MBBlocks.GIANT_TOADSTOOL_STEM.getDefaultState()), 2));
+
+	public static final Holder<ConfiguredFeature<HugeMushroomFeatureConfig, ?>> PARASOL_FERN =
+			MBConfiguredFeatures.register("mb_parasol_fern", PARASOL_FERN_FEATURE, new HugeMushroomFeatureConfig(
+					BlockStateProvider.of(MBBlocks.PARASOL_FERN_CROWN.getDefaultState()),
+					BlockStateProvider.of(MBBlocks.PARASOL_FERN_STEM.getDefaultState()), 2));
 
     // single tree features
 

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:parasol_fern_stem"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "moonbits:parasol_fiber"
+  }
+}

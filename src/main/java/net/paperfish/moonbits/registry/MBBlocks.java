@@ -27,7 +27,7 @@ public class MBBlocks {
 
 	// FUNCTIONAL BLOCKS
 	public static final Block ROPE_LADDER = new RopeLadderBlock(AbstractBlock.Settings.of(Material.DECORATION).strength(0.4F).sounds(BlockSoundGroup.LADDER).nonOpaque());
-	public static final Block IRON_LADDER = new IronLadderBlock(AbstractBlock.Settings.of(Material.DECORATION).strength(1.0F).sounds(BlockSoundGroup.LADDER).nonOpaque());
+	public static final Block TIN_LADDER = new IronLadderBlock(AbstractBlock.Settings.of(Material.DECORATION).strength(1.0F).sounds(BlockSoundGroup.LADDER).nonOpaque());
 	public static final Block WALL_LANTERN = new WallLanternBlock(AbstractBlock.Settings.of(Material.METAL).requiresTool().strength(3.5f).sounds(BlockSoundGroup.LANTERN)
 			.luminance(state -> 15).nonOpaque());
 	public static final Block WALL_SOUL_LANTERN = new WallLanternBlock(AbstractBlock.Settings.of(Material.METAL).requiresTool().strength(3.5f).sounds(BlockSoundGroup.LANTERN)
@@ -347,6 +347,7 @@ public class MBBlocks {
 	public static final Block PARASOL_FERN_FIBER = new Block(AbstractBlock.Settings.of(Material.WOOD).strength(1.0f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
 	public static final Block PARASOL_FERN_FIBER_SLAB = new SlabBlock(AbstractBlock.Settings.copy(PARASOL_FERN_FIBER));
 	public static final Block PARASOL_FERN_FIBER_STAIRS = new MBStairsBlock(PARASOL_FERN_FIBER.getDefaultState(), AbstractBlock.Settings.copy(Blocks.MANGROVE_ROOTS));
+	public static final Block PARASOL_PUP = new PupBlock(() -> MBTreeFeatures.PARASOL_FERN, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
 
 	public static final Block HARDY_LEAVES = new HardyLeavesBlock(HardyLeavesBlock.Progress.EMPTY, AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES));
 	public static final Block FLOWERING_HARDY_LEAVES = new HardyLeavesBlock(HardyLeavesBlock.Progress.FLOWERING, AbstractBlock.Settings.copy(Blocks.AZALEA_LEAVES));
@@ -1472,6 +1473,7 @@ public class MBBlocks {
 		createBlock("parasol_fern_fiber", PARASOL_FERN_FIBER, MBItemGroup.DECOR);
 		createBlock("parasol_fern_fiber_slab", PARASOL_FERN_FIBER_SLAB, MBItemGroup.DECOR);
 		createBlock("parasol_fern_fiber_stairs", PARASOL_FERN_FIBER_STAIRS, MBItemGroup.DECOR);
+		createBlock("parasol_pup", PARASOL_PUP, MBItemGroup.DECOR);
 
 //		createBlock("aspen_trim", ASPEN_TRIM, MBItemGroup.DECOR);
 //		createBlock("aspen_window", ASPEN_WINDOW, MBItemGroup.DECOR);
@@ -1639,7 +1641,7 @@ public class MBBlocks {
 		createBlock("syrup_block", SYRUP_BLOCK, ItemGroup.REDSTONE);
 
 		createBlock("rope_ladder", ROPE_LADDER, MBItemGroup.DECOR);
-		createBlock("iron_ladder", IRON_LADDER, MBItemGroup.DECOR);
+		createBlock("tin_ladder", TIN_LADDER, MBItemGroup.DECOR);
 
 		createBlock("leather_seat", LEATHER_SEAT, MBItemGroup.DECOR);
 		createBlock("white_seat", WHITE_LEATHER_SEAT, MBItemGroup.DECOR);

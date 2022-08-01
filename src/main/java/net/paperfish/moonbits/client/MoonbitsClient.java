@@ -7,22 +7,18 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
-import net.fabricmc.fabric.mixin.object.builder.client.ModelPredicateProviderRegistrySpecificAccessor;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.client.color.item.ItemColorProvider;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
 import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.registry.MBData;
 import net.paperfish.moonbits.registry.MBParticles;
 import net.paperfish.moonbits.Moonbits;
-import net.paperfish.moonbits.block.BarrelCactusBlock;
 import net.paperfish.moonbits.particle.DripParticle;
 import net.paperfish.moonbits.particle.FallingParticle;
 import net.paperfish.moonbits.screen.CookingScreen;
@@ -39,7 +35,7 @@ public class MoonbitsClient implements ClientModInitializer {
     public void onInitializeClient(ModContainer container) {
         // cutout
 		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
-                MBBlocks.ROPE_LADDER, MBBlocks.IRON_LADDER,
+                MBBlocks.ROPE_LADDER, MBBlocks.TIN_LADDER,
                 MBBlocks.TOUGH_GRASS,
                 MBBlocks.MYCELIUM_ROOTS,
 
@@ -73,7 +69,7 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.BEACHGRASS, MBBlocks.TALL_BEACHGRASS,
                 MBBlocks.COTTONGRASS, MBBlocks.TALL_COTTONGRASS,
                 MBBlocks.DESERT_BRUSH, MBBlocks.TALL_DESERT_BRUSH,
-				MBBlocks.PARASOL_LEAF,
+				MBBlocks.PARASOL_LEAF, MBBlocks.PARASOL_PUP,
 
                 MBBlocks.REDSTONE_CLUSTER, MBBlocks.LARGE_REDSTONE_BUD, MBBlocks.MEDIUM_REDSTONE_BUD, MBBlocks.SMALL_REDSTONE_BUD,
 

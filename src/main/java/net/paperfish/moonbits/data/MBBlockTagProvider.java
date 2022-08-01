@@ -326,7 +326,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         );
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(
                 MBBlocks.REGOLITH,
-                MBBlocks.IRON_LADDER,
+                MBBlocks.TIN_LADDER,
 
                 MBBlocks.TREE_TAP,
                 MBBlocks.HONEY_CAULDRON,
@@ -453,7 +453,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(BlockTags.CLIMBABLE).add(
                 MBBlocks.ROPE_LADDER,
-                MBBlocks.IRON_LADDER
+                MBBlocks.TIN_LADDER
 //                MBBlocks.ASPEN_LATTICE
         );
 

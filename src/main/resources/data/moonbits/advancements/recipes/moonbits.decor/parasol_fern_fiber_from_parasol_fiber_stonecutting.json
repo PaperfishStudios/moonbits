@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moonbits:rope_ladder"
+        "recipe": "minecraft:parasol_fern_fiber_from_parasol_fiber_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "moonbits:rope_ladder"
+      "minecraft:parasol_fern_fiber_from_parasol_fiber_stonecutting"
     ]
   }
 }

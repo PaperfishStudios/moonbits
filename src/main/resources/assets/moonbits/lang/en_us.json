@@ -244,21 +244,40 @@
     "block.moonbits.tree_tap": "Tree Tap",
 	
     "block.moonbits.puffballs": "Puffballs",
-    "block.moonbits.puffstool": "Puffstool",
-    "block.moonbits.toadstool": "Toadstool",
+    "block.moonbits.giant_puffball": "Giant Puffball",
+	
+    "block.moonbits.oyster_mushroom": "Oyster Mushrooms",
+    "block.moonbits.shelf_oyster_mushroom": "Shelf Oyster Mushrooms",
+    "block.moonbits.giant_oyster_mushroom": "Giant Oyster Mushroom",
+	
+    "block.moonbits.saffron_gills": "Saffron Gills",
+    "block.moonbits.saffron_mushroom_cap": "Saffron Mushroom Cap",
+	
     "block.moonbits.small_toadstools": "Toadstool Colony",
-    "block.moonbits.giant_toadstool_cap": "Toadstool Cap",
-    "block.moonbits.toadstool_shelf": "Toadstool Shelf",
+    "block.moonbits.toadstool": "Toadstool",
+    "block.moonbits.toadstool_stem": "Toadstool Stem",
+    "item.moonbits.toadstool_cap": "Toadstool Cap",
+    "block.moonbits.giant_toadstool_cap": "Giant Toadstool Cap",
+    "block.moonbits.giant_toadstool_stem": "Giant Toadstool Stem",
+    "block.moonbits.toadstool_planks": "Toadstool Planks",
+    "block.moonbits.toadstool_stairs": "Toadstool Stairs",
+    "block.moonbits.toadstool_slab": "Toadstool Slab",
+    "block.moonbits.toadstool_ladder": "Toadstool Ladder",
+    "block.moonbits.toadstool_seat": "Toadstool Seat",
+    "block.moonbits.toadstool_fence": "Toadstool Fence",
 	
     "item.moonbits.red_mushblend": "Red Mushblend",
     "item.moonbits.brown_mushblend": "Brown Mushblend",
     "item.moonbits.toadstool_mushblend": "Toadstool Mushblend",
     "item.moonbits.saffron_mushblend": "Saffron Mushblend",
 	
+    "item.moonbits.red_mushbrick": "Red Mushbrick",
+    "item.moonbits.brown_mushbrick": "Brown Mushbrick",
+    "item.moonbits.toadstool_mushbrick": "Toadstool Mushbrick",
+    "item.moonbits.saffron_mushbrick": "Saffron Mushbrick",
+	
     "block.moonbits.red_mushroom_cap": "Red Mushroom Cap",
     "block.moonbits.brown_mushroom_cap": "Brown Mushroom Cap",
-    "block.moonbits.saffron_mushroom_cap": "Saffron Mushroom Cap",
-    "block.moonbits.saffron_gills": "Saffron Gills",
     "block.moonbits.mushroom_stem": "Mushroom Stem",
     "block.moonbits.stripped_mushroom_stem": "Stripped Mushroom Stem",
     "block.moonbits.mushroom_hyphae": "Mushroom Hyphae",
@@ -398,7 +417,26 @@
     "item.moonbits.prickly_pear": "Prickly Pear",
     "item.moonbits.cooked_prickly_pear": "Cooked Prickly Pear",
 	
+    "block.moonbits.tiny_barrel_cactus": "Tiny Barrel Cactus",
+    "block.moonbits.small_barrel_cactus": "Small Barrel Cactus",
     "block.moonbits.barrel_cactus": "Barrel Cactus",
+    "block.moonbits.large_barrel_cactus": "Large Barrel Cactus",
+	
+    "block.moonbits.parasol_fern_stem": "Parasol Fern Stem",
+    "block.moonbits.parasol_fern_crown": "Parasol Fern Crown",
+    "block.moonbits.parasol_leaf": "Parasol Fern Leaf",
+    "block.moonbits.parasol_fern_fiber": "Parasol Fern Fiber",
+    "block.moonbits.parasol_fern_fiber_slab": "Parasol Fern Fiber Slab",
+    "block.moonbits.parasol_fern_fiber_stairs": "Parasol Fern Fiber Stairs",
+	
+    "block.moonbits.hardy_leaves": "Hardy Leaves",
+    "block.moonbits.flowering_hardy_leaves": "Flowering Hardy Leaves",
+    "block.moonbits.fruiting_hardy_leaves": "Fruiting Hardy Leaves",
+    "block.moonbits.hardy_bush": "Hardy Bush",
+    "block.moonbits.hardy_sprout": "Hardy Sprout",
+    "item.moonbits.hardy_berry": "Hardy Berry",
+    "item.moonbits.hardy_berry_seed": "Hardy Berry Seed",
+    "item.moonbits.hardy_stem": "Hardy Stem",
 	
 	"block.moonbits.cedar_planks": "Cedar Planks",
     "block.moonbits.cedar_sapling": "Cedar Sapling",
@@ -485,6 +523,8 @@
 	
     "item.moonbits.hematite": "Hematite",
 	
+    "block.moonbits.wild_peppers": "Wild Peppers",
+    "block.moonbits.pepper_crop": "Pepper Crop",
     "item.moonbits.pepper_seeds": "Pepper Seeds",
     "item.moonbits.pepper": "Pepper",
     "item.moonbits.stuffed_pepper": "Stuffed Pepper",

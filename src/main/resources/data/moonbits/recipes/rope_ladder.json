@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "minecraft:string"
+      "item": "moonbits:parasol_fiber"
     },
     "S": {
       "item": "minecraft:stick"

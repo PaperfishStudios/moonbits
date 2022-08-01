@@ -15,8 +15,6 @@ import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.*;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LeafEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.*;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -62,7 +60,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         });
 
         addDrop(MBBlocks.ROPE_LADDER);
-        addDrop(MBBlocks.IRON_LADDER);
+        addDrop(MBBlocks.TIN_LADDER);
         addDrop(MBBlocks.KILN, BlockLootTableGenerator::nameableContainerDrops);
 //        addDrop(MBBlocks.COOKING_POT, BlockLootTableGenerator::nameableContainerDrops);
 
@@ -249,6 +247,14 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.PARASOL_FERN_STEM);
         addDrop(MBBlocks.PARASOL_FERN_CROWN);
 		addDrop(MBBlocks.PARASOL_LEAF, dropsWithShears(MBBlocks.PARASOL_LEAF));
+		LootCondition.Builder parasolPupMaturity = BlockStatePropertyLootCondition.builder(MBBlocks.PARASOL_PUP)
+				.properties(StatePredicate.Builder.create().exactMatch(PupBlock.AGE, 3));
+		addDrop(
+				MBBlocks.PARASOL_PUP,
+				applyExplosionDecay(
+						MBBlocks.PARASOL_PUP, LootTable.builder().pool(LootPool.builder().conditionally(parasolPupMaturity).with(ItemEntry.builder(MBBlocks.PARASOL_PUP)))
+				)
+		);
 
         addDrop(MBBlocks.HARDY_LEAVES, (Block l) -> hardyLeavesDrop(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));
         addDrop(MBBlocks.FLOWERING_HARDY_LEAVES, (Block l) -> hardyLeavesDrop(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));

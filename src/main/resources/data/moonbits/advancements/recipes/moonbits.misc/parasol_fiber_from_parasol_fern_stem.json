@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_parasol_fiber": {
+    "has_parasol_fern_stem": {
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:parasol_fiber"
+              "moonbits:parasol_fern_stem"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moonbits:rope_ladder"
+        "recipe": "minecraft:parasol_fiber_from_parasol_fern_stem"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_parasol_fiber",
+      "has_parasol_fern_stem",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "moonbits:rope_ladder"
+      "minecraft:parasol_fiber_from_parasol_fern_stem"
     ]
   }
 }

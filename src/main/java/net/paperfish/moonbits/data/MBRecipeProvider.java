@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.data.server.RecipesProvider;
-import net.minecraft.data.server.RecipesProvider;
 import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
@@ -19,7 +18,6 @@ import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.*;
-import net.paperfish.moonbits.recipe.CookingPotJsonFactory;
 import net.paperfish.moonbits.recipe.WashingRecipeJsonFactory;
 import net.paperfish.moonbits.registry.*;
 
@@ -106,6 +104,8 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         TRANSMUTE.put(List.of(MBItems.HARDY_BERRY, MBItems.HARDY_BERRY_SEED), 1);
 
         TRANSMUTE.put(List.of(MBBlocks.FRUITING_HARDY_LEAVES, MBItems.HARDY_BERRY), 3);
+		TRANSMUTE.put(List.of(MBBlocks.PARASOL_FERN_CROWN, MBItems.PARASOL_FIBER), 6);
+		TRANSMUTE.put(List.of(MBBlocks.PARASOL_FERN_STEM, MBItems.PARASOL_FIBER), 4);
 
         TRANSMUTE.put(List.of(Items.IRON_NUGGET, MBItems.ITEM_HOOK), 1);
 
@@ -142,6 +142,8 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         COMPACT.put(MBItems.BLUE_GLASS_SHARD, Blocks.BLUE_STAINED_GLASS);
 
         // 2x2 recipe with an output of 4
+		POLISH.put(MBItems.PARASOL_FIBER, MBBlocks.PARASOL_FERN_FIBER);
+
         POLISH.put(MBBlocks.PEAT_MOSS, MBBlocks.PEAT_BRICKS);
         POLISH.put(Blocks.SNOW_BLOCK, MBBlocks.SNOW_BRICKS);
         POLISH.put(Blocks.ICE, MBBlocks.ICE_BRICKS);
@@ -591,13 +593,13 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .pattern(" C ").pattern(" SC").pattern("S  ")
                 .criterion(RecipesProvider.hasItem(Items.COPPER_INGOT), RecipesProvider.conditionsFromItem(Items.COPPER_INGOT)).offerTo(exporter);
         ShapedRecipeJsonFactory.create(MBBlocks.ROPE_LADDER, 3)
-                .input('#', Items.STRING).input('S', Items.STICK)
+                .input('#', MBItems.PARASOL_FIBER).input('S', Items.STICK)
                 .pattern("# #").pattern("SSS").pattern("# #")
-                .criterion(RecipesProvider.hasItem(Items.STRING), RecipesProvider.conditionsFromItem(Items.STRING)).offerTo(exporter);
-        ShapedRecipeJsonFactory.create(MBBlocks.IRON_LADDER, 3)
-                .input('i', Items.IRON_NUGGET)
+                .criterion(RecipesProvider.hasItem(MBItems.PARASOL_FIBER), RecipesProvider.conditionsFromItem(MBItems.PARASOL_FIBER)).offerTo(exporter);
+        ShapedRecipeJsonFactory.create(MBBlocks.TIN_LADDER, 3)
+                .input('i', MBItems.TIN_NUGGET)
                 .pattern("i i").pattern("iii").pattern("i i")
-                .criterion(RecipesProvider.hasItem(Items.IRON_INGOT), RecipesProvider.conditionsFromItem(Items.IRON_INGOT)).offerTo(exporter);
+                .criterion(RecipesProvider.hasItem(MBItems.TIN_NUGGET), RecipesProvider.conditionsFromItem(MBItems.TIN_NUGGET)).offerTo(exporter);
 
         ShapedRecipeJsonFactory.create(MBBlocks.BEDROLL)
                 .input('F', MBItems.MONSTER_HIDE).input('L', Items.LEATHER).m_hadhiznl('W', ItemTags.WOOL)

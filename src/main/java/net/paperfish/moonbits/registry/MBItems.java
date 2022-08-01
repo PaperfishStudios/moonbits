@@ -74,7 +74,10 @@ public class MBItems {
 	public static final Item RAW_TIN = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item TIN_INGOT = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item TIN_NUGGET = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
+
 	public static final Item FUR = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
+
+	public static final Item PARASOL_FIBER = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item BURLAP = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item MONSTER_HIDE = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 
@@ -218,6 +221,7 @@ public class MBItems {
 		addItem("hematite", HEMATITE);
 		addItem("copper_nugget", COPPER_NUGGET);
 		addItem("fur", FUR);
+		addItem("parasol_fiber", PARASOL_FIBER);
 		addItem("burlap", BURLAP);
 		addItem("monster_hide", MONSTER_HIDE);
 

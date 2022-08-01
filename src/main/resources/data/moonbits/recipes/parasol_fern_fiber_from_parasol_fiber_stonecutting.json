@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moonbits:parasol_fiber"
+  },
+  "result": "moonbits:parasol_fern_fiber"
+}

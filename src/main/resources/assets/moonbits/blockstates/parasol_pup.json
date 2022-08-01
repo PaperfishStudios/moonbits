@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "moonbits:block/young_parasol_pup"
+    },
+    "age=1": {
+      "model": "moonbits:block/young_parasol_pup"
+    },
+    "age=2": {
+      "model": "moonbits:block/young_parasol_pup"
+    },
+    "age=3": {
+      "model": "moonbits:block/parasol_pup"
+    }
+  }
+}

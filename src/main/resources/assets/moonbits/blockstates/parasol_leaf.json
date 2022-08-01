@@ -1,7 +1,22 @@
 {
   "variants": {
-    "": {
-      "model": "moonbits:block/parasol_leaf"
+    "facing=east": {
+      "model": "moonbits:block/parasol_leaf",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "moonbits:block/parasol_leaf",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "moonbits:block/parasol_leaf",
+      "x": 90
+    },
+    "facing=west": {
+      "model": "moonbits:block/parasol_leaf",
+      "x": 90,
+      "y": 90
     }
   }
 }

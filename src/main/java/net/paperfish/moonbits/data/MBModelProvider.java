@@ -9,7 +9,6 @@ import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.block.enums.WallShape;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.model.*;
-import net.minecraft.data.family.BlockFamilies;
 import net.minecraft.item.Item;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
@@ -17,7 +16,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.paperfish.moonbits.registry.*;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
@@ -116,8 +114,8 @@ public class MBModelProvider extends FabricModelProvider {
         // utility blocks :>
         generator.registerNorthDefaultHorizontalRotation(MBBlocks.ROPE_LADDER);
         generator.registerItemModel(MBBlocks.ROPE_LADDER);
-        generator.registerNorthDefaultHorizontalRotation(MBBlocks.IRON_LADDER);
-        generator.registerItemModel(MBBlocks.IRON_LADDER);
+        generator.registerNorthDefaultHorizontalRotation(MBBlocks.TIN_LADDER);
+        generator.registerItemModel(MBBlocks.TIN_LADDER);
         generator.registerCooker(MBBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
         generator.registerParentedItemModel(MBBlocks.KILN, new Identifier(Moonbits.MODID, "block/kiln"));
 
@@ -317,13 +315,20 @@ public class MBModelProvider extends FabricModelProvider {
 				.register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
 						.put(VariantSettings.X, VariantSettings.Rotation.R90))
 				.register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
-						.put(VariantSettings.X, VariantSettings.Rotation.R90))
+						.put(VariantSettings.Y, VariantSettings.Rotation.R180))
 				.register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
-						.put(VariantSettings.X, VariantSettings.Rotation.R90).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+						.put(VariantSettings.Y, VariantSettings.Rotation.R270))
 				.register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
-						.put(VariantSettings.X, VariantSettings.Rotation.R90).put(VariantSettings.Y, VariantSettings.Rotation.R90))
+						.put(VariantSettings.Y, VariantSettings.Rotation.R90))
 		));
 		generator.registerItemModel(MBBlocks.PARASOL_LEAF);
+		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.PARASOL_PUP).coordinate(BlockStateVariantMap.create(PupBlock.AGE)
+				.register(0, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/young_parasol_pup")))
+				.register(1, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/young_parasol_pup")))
+				.register(2, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/young_parasol_pup")))
+				.register(3, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_pup")))
+		));
+		generator.registerItemModel(MBBlocks.PARASOL_PUP.asItem());
 
         generator.registerSimpleCubeAll(MBBlocks.HARDY_LEAVES);
         generator.registerSimpleCubeAll(MBBlocks.FLOWERING_HARDY_LEAVES);
