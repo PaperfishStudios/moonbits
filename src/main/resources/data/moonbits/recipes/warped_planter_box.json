@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "planter_boxes",
+  "group": "nether_planters",
   "key": {
     "#": {
       "item": "minecraft:warped_planks"
     },
-    "P": {
-      "item": "moonbits:peat"
+    "S": {
+      "tag": "minecraft:soul_fire_base_blocks"
     }
   },
   "pattern": [
     "# #",
-    "#P#",
+    "#S#",
     "###"
   ],
   "result": {

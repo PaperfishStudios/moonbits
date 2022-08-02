@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "moonbits:block/desert_planter_bottom",
+    "side": "moonbits:block/desert_planter",
+    "top": "moonbits:block/desert_planter_top"
+  }
+}

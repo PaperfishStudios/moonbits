@@ -3,7 +3,8 @@
 	"parent": "minecraft:block/block",
 	"textures": {
 		"3": "moonbits:block/parasol_leaf",
-		"4": "moonbits:block/parasol_leaf_tip"
+		"4": "moonbits:block/parasol_leaf_tip",
+		"particle": "moonbits:block/parasol_leaf"
 	},
 	"elements": [
 		{

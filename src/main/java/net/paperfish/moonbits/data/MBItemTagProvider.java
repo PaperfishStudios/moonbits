@@ -82,6 +82,7 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
         copy(MBBlockTags.LAMPROOT_LOGS, MBItemTags.LAMPROOT_LOGS);
         copy(MBBlockTags.CEDAR_LOGS, MBItemTags.CEDAR_LOGS);
 		copy(MBBlockTags.TOADSTOOL_STEMS, MBItemTags.TOADSTOOL_STEMS);
+		getOrCreateTagBuilder(ItemTags.SAND);
 		copy(MBBlockTags.SANDY_SOILS, MBItemTags.SANDY_SOILS);
 //        copy(MBBlockTags.ASPEN_TRUNKS, MBItemTags.ASPEN_TRUNKS);
 

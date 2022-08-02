@@ -1,13 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_peat": {
+    "has_soul_sand": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "moonbits:peat"
-            ]
+            "tag": "minecraft:soul_fire_base_blocks"
           }
         ]
       },
@@ -22,7 +20,7 @@
   },
   "requirements": [
     [
-      "has_peat",
+      "has_soul_sand",
       "has_the_recipe"
     ]
   ],

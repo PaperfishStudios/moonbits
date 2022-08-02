@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "waxed_pestered_tin_trapdoor",
+  "ingredients": [
+    {
+      "item": "moonbits:pestered_tin_trapdoor"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "item": "moonbits:waxed_pestered_tin_trapdoor"
+  }
+}

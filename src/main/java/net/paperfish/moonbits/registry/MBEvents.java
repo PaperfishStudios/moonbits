@@ -49,29 +49,43 @@ public class MBEvents {
             .put(MBBlocks.OXIDIZED_TIN_BLOCK, MBBlocks.WAXED_OXIDIZED_TIN_BLOCK)
             .put(MBBlocks.BLACKENED_TIN_BLOCK, MBBlocks.WAXED_BLACKENED_TIN_BLOCK)
             .put(MBBlocks.PESTERED_TIN_BLOCK, MBBlocks.WAXED_PESTERED_TIN_BLOCK)
+
             .put(MBBlocks.CUT_TIN, MBBlocks.WAXED_CUT_TIN)
             .put(MBBlocks.OXIDIZED_CUT_TIN, MBBlocks.WAXED_OXIDIZED_CUT_TIN)
             .put(MBBlocks.BLACKENED_CUT_TIN, MBBlocks.WAXED_BLACKENED_CUT_TIN)
             .put(MBBlocks.PESTERED_CUT_TIN, MBBlocks.WAXED_PESTERED_CUT_TIN)
+
             .put(MBBlocks.CUT_TIN_SLAB, MBBlocks.WAXED_CUT_TIN_SLAB)
             .put(MBBlocks.OXIDIZED_CUT_TIN_SLAB, MBBlocks.WAXED_OXIDIZED_CUT_TIN_SLAB)
             .put(MBBlocks.BLACKENED_CUT_TIN_SLAB, MBBlocks.WAXED_BLACKENED_CUT_TIN_SLAB)
             .put(MBBlocks.PESTERED_CUT_TIN_SLAB, MBBlocks.WAXED_PESTERED_CUT_TIN_SLAB)
+
             .put(MBBlocks.CUT_TIN_STAIRS, MBBlocks.WAXED_CUT_TIN_STAIRS)
             .put(MBBlocks.OXIDIZED_CUT_TIN_STAIRS, MBBlocks.WAXED_OXIDIZED_CUT_TIN_STAIRS)
             .put(MBBlocks.BLACKENED_CUT_TIN_STAIRS, MBBlocks.WAXED_BLACKENED_CUT_TIN_STAIRS)
             .put(MBBlocks.PESTERED_CUT_TIN_STAIRS, MBBlocks.WAXED_PESTERED_CUT_TIN_STAIRS)
+
+			.put(MBBlocks.TIN_TRAPDOOR, MBBlocks.WAXED_TIN_TRAPDOOR)
+			.put(MBBlocks.OXIDIZED_TIN_TRAPDOOR, MBBlocks.WAXED_OXIDIZED_TIN_TRAPDOOR)
+			.put(MBBlocks.BLACKENED_TIN_TRAPDOOR, MBBlocks.WAXED_BLACKENED_TIN_TRAPDOOR)
+			.put(MBBlocks.PESTERED_TIN_TRAPDOOR, MBBlocks.WAXED_PESTERED_TIN_TRAPDOOR)
             .build();
     public static final BiMap<Block, Block> WAX_OFF = WAXING.inverse();
     public static final Map<Block, Block> SCRAPING = new ImmutableMap.Builder<Block, Block>()
             .put(MBBlocks.OXIDIZED_TIN_BLOCK, MBBlocks.TIN_BLOCK)
             .put(MBBlocks.BLACKENED_TIN_BLOCK, MBBlocks.TIN_BLOCK)
+
             .put(MBBlocks.OXIDIZED_CUT_TIN, MBBlocks.CUT_TIN)
             .put(MBBlocks.BLACKENED_CUT_TIN, MBBlocks.CUT_TIN)
+
             .put(MBBlocks.OXIDIZED_CUT_TIN_SLAB, MBBlocks.CUT_TIN_SLAB)
             .put(MBBlocks.BLACKENED_CUT_TIN_SLAB, MBBlocks.CUT_TIN_SLAB)
+
             .put(MBBlocks.OXIDIZED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN_STAIRS)
             .put(MBBlocks.BLACKENED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN_STAIRS)
+
+			.put(MBBlocks.OXIDIZED_TIN_TRAPDOOR, MBBlocks.TIN_TRAPDOOR)
+			.put(MBBlocks.BLACKENED_TIN_TRAPDOOR, MBBlocks.TIN_TRAPDOOR)
             .build();
 
     // maps for blocks that grow into other blocks (eg hardy berry leaves and barrel cacti)

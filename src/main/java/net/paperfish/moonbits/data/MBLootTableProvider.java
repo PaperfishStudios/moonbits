@@ -164,7 +164,16 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         MBEvents.WAX_OFF.forEach((waxed, base) -> addDrop(waxed));
 
         addDrop(MBBlocks.TIN_PILLAR);
+
         addDrop(MBBlocks.TIN_TRAPDOOR);
+		addDrop(MBBlocks.OXIDIZED_TIN_TRAPDOOR);
+		addDrop(MBBlocks.BLACKENED_TIN_TRAPDOOR);
+		addDrop(MBBlocks.PESTERED_TIN_TRAPDOOR);
+		addDrop(MBBlocks.WAXED_TIN_TRAPDOOR);
+		addDrop(MBBlocks.WAXED_OXIDIZED_TIN_TRAPDOOR);
+		addDrop(MBBlocks.WAXED_BLACKENED_TIN_TRAPDOOR);
+		addDrop(MBBlocks.WAXED_PESTERED_TIN_TRAPDOOR);
+
         addDrop(MBBlocks.TIN_DOOR, BlockLootTableGenerator::addDoorDrop);
 
         addDrop(MBBlocks.PERMAFROST);
@@ -263,6 +272,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.FRUITING_HARDY_LEAVES, (Block l) -> hardyLeavesDropBerry(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));
 		addDrop(MBBlocks.HARDY_BUSH, (Block l) -> hardyLeavesDropStem(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));
 		addDrop(MBBlocks.HARDY_SPROUT, MBItems.HARDY_BERRY_SEED);
+		addDrop(MBBlocks.DESERT_PLANTER);
 
         BlockStatePropertyLootCondition.Builder peanutbuilder = BlockStatePropertyLootCondition.builder(MBBlocks.PEANUT_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(PeanutCropBlock.AGE, 7));

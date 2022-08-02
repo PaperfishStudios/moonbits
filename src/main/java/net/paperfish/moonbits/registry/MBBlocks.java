@@ -528,15 +528,18 @@ public class MBBlocks {
 	public static final Block PESTERED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.TUFF));
 	public static final Block BLACKENED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block OXIDIZED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block CUT_TIN = new DimWeatheringBlock(OXIDIZED_CUT_TIN, BLACKENED_CUT_TIN, PESTERED_CUT_TIN, QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block CUT_TIN = new DimWeatheringBlock(OXIDIZED_CUT_TIN, BLACKENED_CUT_TIN, PESTERED_CUT_TIN,
+			QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block PESTERED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.TUFF));
 	public static final Block BLACKENED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block OXIDIZED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block CUT_TIN_SLAB = new DimWeatheringSlabBlock(OXIDIZED_CUT_TIN_SLAB, BLACKENED_CUT_TIN_SLAB, PESTERED_CUT_TIN_SLAB, QuiltBlockSettings.copy(CUT_TIN));
+	public static final Block CUT_TIN_SLAB = new DimWeatheringSlabBlock(OXIDIZED_CUT_TIN_SLAB, BLACKENED_CUT_TIN_SLAB, PESTERED_CUT_TIN_SLAB,
+			QuiltBlockSettings.copy(CUT_TIN));
 	public static final Block PESTERED_CUT_TIN_STAIRS = new MBStairsBlock(PESTERED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.TUFF));
 	public static final Block BLACKENED_CUT_TIN_STAIRS = new MBStairsBlock(BLACKENED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block OXIDIZED_CUT_TIN_STAIRS = new MBStairsBlock(OXIDIZED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
-	public static final Block CUT_TIN_STAIRS = new DimWeatheringStairsBlock(OXIDIZED_CUT_TIN_STAIRS, BLACKENED_CUT_TIN_STAIRS, PESTERED_CUT_TIN_STAIRS, CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(CUT_TIN));
+	public static final Block CUT_TIN_STAIRS = new DimWeatheringStairsBlock(OXIDIZED_CUT_TIN_STAIRS, BLACKENED_CUT_TIN_STAIRS, PESTERED_CUT_TIN_STAIRS,
+			CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(CUT_TIN));
 
 	public static final Block WAXED_PESTERED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.TUFF));
 	public static final Block WAXED_BLACKENED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
@@ -555,9 +558,21 @@ public class MBBlocks {
 	public static final Block WAXED_OXIDIZED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_OXIDIZED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block WAXED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 
-	public static final Block TIN_PILLAR = new PillarBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block TIN_DOOR = new MBDoorBlock(QuiltBlockSettings.copy(Blocks.IRON_DOOR).nonOpaque());
-	public static final Block TIN_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
+
+	public static final Block PESTERED_TIN_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
+	public static final Block BLACKENED_TIN_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
+	public static final Block OXIDIZED_TIN_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
+	public static final Block TIN_TRAPDOOR = new DimWeatheringTrapdoorBlock(OXIDIZED_TIN_TRAPDOOR, BLACKENED_TIN_TRAPDOOR, PESTERED_TIN_TRAPDOOR,
+			QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
+
+	public static final Block WAXED_OXIDIZED_TIN_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
+	public static final Block WAXED_BLACKENED_TIN_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
+	public static final Block WAXED_PESTERED_TIN_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
+	public static final Block WAXED_TIN_TRAPDOOR = new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).nonOpaque());
+
+
+	public static final Block TIN_PILLAR = new PillarBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 
 	public static final Block REGOLITH = new Block(QuiltBlockSettings.of(Material.AGGREGATE).hardness(1.5f).sounds(BlockSoundGroup.GRAVEL));
 
@@ -1303,6 +1318,13 @@ public class MBBlocks {
 
 		createBlock("tin_door", TIN_DOOR, ItemGroup.REDSTONE);
 		createBlock("tin_trapdoor", TIN_TRAPDOOR, ItemGroup.REDSTONE);
+		createBlock("oxidized_tin_trapdoor", OXIDIZED_TIN_TRAPDOOR, ItemGroup.REDSTONE);
+		createBlock("blackened_tin_trapdoor", BLACKENED_TIN_TRAPDOOR, ItemGroup.REDSTONE);
+		createBlock("pestered_tin_trapdoor", PESTERED_TIN_TRAPDOOR, ItemGroup.REDSTONE);
+		createBlock("waxed_tin_trapdoor", WAXED_TIN_TRAPDOOR, ItemGroup.REDSTONE);
+		createBlock("waxed_oxidized_tin_trapdoor", WAXED_OXIDIZED_TIN_TRAPDOOR, ItemGroup.REDSTONE);
+		createBlock("waxed_blackened_tin_trapdoor", WAXED_BLACKENED_TIN_TRAPDOOR, ItemGroup.REDSTONE);
+		createBlock("waxed_pestered_tin_trapdoor", WAXED_PESTERED_TIN_TRAPDOOR, ItemGroup.REDSTONE);
 
 		// WOOD
 		// - BOARDS

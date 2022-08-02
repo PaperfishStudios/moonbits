@@ -54,6 +54,9 @@ public class PupBlock extends PlantBlock implements Fertilizable {
 		if (random.nextInt(4) == 0 && age < 3) {
 			world.setBlockState(pos, state.with(AGE, age+1));
 		}
+		else if (random.nextInt(5) == 0 && state.get(REPLANTED)) {
+			tryGrowing(world, pos, state, random);
+		}
 		super.randomTick(state, world, pos, random);
 	}
 
@@ -72,7 +75,7 @@ public class PupBlock extends PlantBlock implements Fertilizable {
 	}
 
 	public boolean canGrow(World world, RandomGenerator random, BlockPos pos, BlockState state) {
-		return (double)random.nextFloat() < 0.4D;
+		return random.nextInt(5) == 0;
 	}
 
 	public void grow(ServerWorld world, RandomGenerator random, BlockPos pos, BlockState state) {

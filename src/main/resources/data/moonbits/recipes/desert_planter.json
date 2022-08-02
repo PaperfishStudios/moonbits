@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "desertPlanter",
+  "key": {
+    "#": {
+      "item": "moonbits:hardy_stem"
+    },
+    "P": {
+      "item": "moonbits:parasol_fiber"
+    },
+    "S": {
+      "tag": "moonbits:sandy_soils"
+    }
+  },
+  "pattern": [
+    "#S#",
+    "#P#",
+    "###"
+  ],
+  "result": {
+    "item": "moonbits:desert_planter"
+  }
+}

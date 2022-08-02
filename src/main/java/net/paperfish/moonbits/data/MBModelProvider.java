@@ -252,6 +252,13 @@ public class MBModelProvider extends FabricModelProvider {
 
         generator.registerDoor(MBBlocks.TIN_DOOR);
         generator.registerOrientableTrapdoor(MBBlocks.TIN_TRAPDOOR);
+		generator.registerOrientableTrapdoor(MBBlocks.OXIDIZED_TIN_TRAPDOOR);
+		generator.registerOrientableTrapdoor(MBBlocks.BLACKENED_TIN_TRAPDOOR);
+		generator.registerOrientableTrapdoor(MBBlocks.PESTERED_TIN_TRAPDOOR);
+		waxedOrientableTrapdoor(MBBlocks.WAXED_TIN_TRAPDOOR, MBBlocks.TIN_TRAPDOOR, generator);
+		waxedOrientableTrapdoor(MBBlocks.WAXED_OXIDIZED_TIN_TRAPDOOR, MBBlocks.OXIDIZED_TIN_TRAPDOOR, generator);
+		waxedOrientableTrapdoor(MBBlocks.WAXED_BLACKENED_TIN_TRAPDOOR, MBBlocks.BLACKENED_TIN_TRAPDOOR, generator);
+		waxedOrientableTrapdoor(MBBlocks.WAXED_PESTERED_TIN_TRAPDOOR, MBBlocks.PESTERED_TIN_TRAPDOOR, generator);
 
         snowyBlock(MBBlocks.PERMAFROST, generator);
         generator.registerSimpleCubeAll(MBBlocks.FROST_PEAT);
@@ -336,7 +343,8 @@ public class MBModelProvider extends FabricModelProvider {
         generator.registerSimpleCubeAll(MBBlocks.FRUITING_HARDY_LEAVES);
 		blockStateOnly(MBBlocks.HARDY_BUSH, "hardy_bush", generator);
 		generator.registerParentedItemModel(MBBlocks.HARDY_BUSH, new Identifier(Moonbits.MODID, "block/hardy_bush"));
-		tintableCross(MBBlocks.HARDY_SPROUT, TintType.NOT_TINTED, generator);
+		generator.registerItemModel(MBItems.HARDY_BERRY_SEED);
+		tintableCross(MBBlocks.HARDY_SPROUT, TintType.NOT_TINTED, generator, false);
 		generator.registerSingleton(MBBlocks.DESERT_PLANTER, CUBE_BOTTOM_TOP);
 
         generator.registerSimpleCubeAll(MBBlocks.CANVAS);
@@ -522,6 +530,9 @@ public class MBModelProvider extends FabricModelProvider {
                 else if (variant == MBBlockFamily.Variant.PLANTER_BOX) {
                     generator.registerSingleton(block, CUBE_BOTTOM_TOP);
                 }
+				else if (variant == MBBlockFamily.Variant.NETHER_PLANTER) {
+					generator.registerSingleton(block, CUBE_BOTTOM_TOP);
+				}
                 else if (variant == MBBlockFamily.Variant.DOOR) {
                     generator.registerDoor(block);
                 }
@@ -949,12 +960,6 @@ public class MBModelProvider extends FabricModelProvider {
         Texture texture = Texture.cross(block);
         Identifier identifier = tintType.getCrossModel().upload(block, texture, generator.modelCollector);
         generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, identifier));
-//        Identifier snow = new Identifier("block/snow_height2"); // for the snowy variant
-//
-//        generator.blockStateCollector.accept(MultipartBlockStateSupplier.create(block)
-//                .with(BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
-//                .with(When.create().set(Properties.SNOWY, true), BlockStateVariant.create().put(VariantSettings.MODEL, snow))
-//        );
     }
     public static void cappedCross(Block block, BlockStateModelGenerator generator) {
         cappedCross(block, TintType.NOT_TINTED, generator, true);
@@ -966,6 +971,15 @@ public class MBModelProvider extends FabricModelProvider {
         Identifier identifier = CAPPED_CROSS_F.get(block).upload(block, generator.modelCollector);
         generator.blockStateCollector.accept(BlockStateModelGenerator.createBlockStateWithRandomHorizontalRotations(block, identifier));
     }
+
+	public void waxedOrientableTrapdoor(Block trapdoorBlock, Block sourceBlock, BlockStateModelGenerator generator) {
+		Texture texture = Texture.texture(sourceBlock);
+		Identifier identifier = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_TOP.upload(trapdoorBlock, texture, generator.modelCollector);
+		Identifier identifier2 = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_BOTTOM.upload(trapdoorBlock, texture, generator.modelCollector);
+		Identifier identifier3 = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_OPEN.upload(trapdoorBlock, texture, generator.modelCollector);
+		generator.blockStateCollector.accept(BlockStateModelGenerator.createOrientableTrapdoorBlockState(trapdoorBlock, identifier, identifier2, identifier3));
+		generator.registerParentedItemModel(trapdoorBlock, identifier2);
+	}
 
     public static void omniCross(Block block, BlockStateModelGenerator generator, Boolean genItem) {
         if (genItem) {

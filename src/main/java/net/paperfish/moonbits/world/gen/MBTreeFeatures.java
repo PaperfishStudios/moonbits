@@ -139,9 +139,9 @@ public class MBTreeFeatures {
 					new StraightTrunkPlacer(1, 0, 0),
 					new WeightedBlockStateProvider(
 							DataPool.<BlockState>builder()
-									.add(MBBlocks.HARDY_LEAVES.getDefaultState(), 3)
-									.add(MBBlocks.HARDY_LEAVES.getDefaultState().with(HardyLeavesBlock.PERSISTENT, false), 1)
-									.add(MBBlocks.FLOWERING_HARDY_LEAVES.getDefaultState().with(HardyLeavesBlock.PERSISTENT, false), 1)
+									.add(MBBlocks.HARDY_LEAVES.getDefaultState().with(HardyLeavesBlock.PERSISTENT, true), 3)
+									.add(MBBlocks.HARDY_LEAVES.getDefaultState(), 1)
+									.add(MBBlocks.FLOWERING_HARDY_LEAVES.getDefaultState(), 1)
 					),
 					new BushFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(1), 2),
 					new TwoLayersFeatureSize(0, 0, 0)

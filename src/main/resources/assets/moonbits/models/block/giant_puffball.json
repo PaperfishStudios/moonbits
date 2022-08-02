@@ -2,6 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"textures": {
+		"particle": "moonbits:block/giant_puffball_top",
 		"2": "moonbits:block/giant_puffball_top",
 		"3": "moonbits:block/giant_puffball_side"
 	},
