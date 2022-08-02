@@ -1,8 +1,8 @@
 {
     "ambientocclusion": false,
     "textures": {
-        "particle": "moonbits:block/rope_ladder",
-        "texture": "moonbits:block/rope_ladder"
+        "particle": "moonbits:block/tin_ladder",
+        "texture": "moonbits:block/tin_ladder"
     },
     "elements": [
         {   "from": [ 0, 0, 15.2 ],

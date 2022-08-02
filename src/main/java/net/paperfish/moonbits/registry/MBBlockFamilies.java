@@ -33,7 +33,7 @@ public class MBBlockFamilies {
             .build();
     public static final MBBlockFamily CRIMSON = register(Blocks.CRIMSON_PLANKS)
             .bookshelf(MBBlocks.CRIMSON_BOOKSHELF)
-            .planterBox(MBBlocks.CRIMSON_PLANTER_BOX)
+            .netherPlanter(MBBlocks.CRIMSON_PLANTER_BOX)
             .stonecut(MBBlocks.CRIMSON_BOARDS).stonecut(MBBlocks.CRIMSON_PANEL)
             .column(MBBlocks.CRIMSON_PILLAR, MBBlocks.CARVED_CRIMSON)
             .stonecut(List.of(Blocks.CRIMSON_SLAB, Blocks.CRIMSON_STAIRS, Blocks.CRIMSON_FENCE, Blocks.CRIMSON_FENCE_GATE, Blocks.CRIMSON_SIGN, Blocks.CRIMSON_PRESSURE_PLATE, Blocks.CRIMSON_TRAPDOOR))
@@ -77,7 +77,7 @@ public class MBBlockFamilies {
             .build();
     public static final MBBlockFamily WARPED = register(Blocks.WARPED_PLANKS)
             .bookshelf(MBBlocks.WARPED_BOOKSHELF)
-            .planterBox(MBBlocks.WARPED_PLANTER_BOX)
+            .netherPlanter(MBBlocks.WARPED_PLANTER_BOX)
             .stonecut(MBBlocks.WARPED_BOARDS).stonecut(MBBlocks.WARPED_PANEL)
             .column(MBBlocks.WARPED_PILLAR, MBBlocks.CARVED_WARPED)
             .stonecut(List.of(Blocks.WARPED_SLAB, Blocks.WARPED_STAIRS, Blocks.WARPED_FENCE, Blocks.WARPED_FENCE_GATE, Blocks.WARPED_SIGN, Blocks.WARPED_PRESSURE_PLATE, Blocks.WARPED_TRAPDOOR))

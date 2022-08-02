@@ -108,7 +108,8 @@ public class MBPlacedVegFeatures {
     public static final Holder<PlacedFeature> ORE_PERMAFROST = MBPlacedFeatures.register("p_frost",
             MBVegetationFeatures.TUNDRA_FROST, MBPlacedCaveFeatures.modifiersWithCount(12, HeightRangePlacementModifier.createUniform(YOffset.fixed(32), YOffset.fixed(128))));
     public static final Holder<PlacedFeature> TILL_ROCK = MBPlacedFeatures.register("p_till_rock",
-            MBVegetationFeatures.TILL_ROCK, CountPlacementModifier.create(2), InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
+            MBVegetationFeatures.TILL_ROCK, CountPlacementModifier.create(2), InSquarePlacementModifier.getInstance(),
+			PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
 
     // trees
@@ -132,6 +133,13 @@ public class MBPlacedVegFeatures {
     public static final Holder<PlacedFeature> PRAIRIE_TREES = MBPlacedFeatures.register("p_prairie",
             MBVegetationFeatures.BADLANDS_TREES,
             modifiers(PlacedFeatureUtil.createCountExtraModifier(1, 0.1F, 1)));
+	public static final Holder<PlacedFeature> DESERT_CAVES = MBPlacedFeatures.register("p_desert_caves",
+			MBVegetationFeatures.CHERT_FLORA,
+			List.of(PlacedFeatureUtil.createCountExtraModifier(1, 0.1F, 1),
+					InSquarePlacementModifier.getInstance(), SurfaceWaterDepthFilterPlacementModifier.create(0),
+					PlacedFeatureUtil.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.getInstance(),
+					HeightRangePlacementModifier.createUniform(YOffset.fixed(24), YOffset.fixed(60))
+			));
 //    public static final Holder<PlacedFeature> JUNIPERS = MBPlacedFeatures.register("p_junipers",
 //            MBVegetationFeatures.JUNIPER_TREES,
 //            PlacedFeatureUtil.createCountExtraModifier(1, 0.1F, 1), InSquarePlacementModifier.getInstance(),

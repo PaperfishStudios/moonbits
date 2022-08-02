@@ -21,6 +21,7 @@ public class ParasolFernStemBlock extends RodBlock {
 
     public ParasolFernStemBlock(Settings settings) {
         super(settings);
+		setDefaultState(getDefaultState().with(FACING, Direction.UP));
     }
 
     @Override

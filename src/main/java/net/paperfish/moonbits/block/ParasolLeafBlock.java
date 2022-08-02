@@ -26,10 +26,10 @@ public class ParasolLeafBlock extends Block implements Waterloggable {
 	public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 	private static final Map<Direction, VoxelShape> FACING_TO_SHAPE = Maps.newEnumMap(ImmutableMap.of(
-			Direction.NORTH, Block.createCuboidShape(0.0, 12.0, 14.0, 16.0, 16.0, 16.0),
-			Direction.SOUTH, Block.createCuboidShape(0.0, 12.0, 0.0, 16.0, 16.0, 2.0),
-			Direction.WEST, Block.createCuboidShape(14.0, 12.0, 0.0, 16.0, 16.0, 16.0),
-			Direction.EAST, Block.createCuboidShape(0.0, 12.0, 0.0, 2.0, 16.0, 16.0)
+			Direction.NORTH, Block.createCuboidShape(0.0, 8.0, 12.0, 16.0, 16.0, 16.0),
+			Direction.SOUTH, Block.createCuboidShape(0.0, 8.0, 0.0, 16.0, 16.0, 4.0),
+			Direction.WEST, Block.createCuboidShape(12.0, 8.0, 0.0, 16.0, 16.0, 16.0),
+			Direction.EAST, Block.createCuboidShape(0.0, 8.0, 0.0, 4.0, 16.0, 16.0)
 	));
 
 	public ParasolLeafBlock(Settings settings) {

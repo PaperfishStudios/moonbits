@@ -28,6 +28,8 @@ public class MBPlacedTreeFeatures {
             MBTreeFeatures.CEDAR, PlacedFeatureUtil.createWouldSurvivePlacementModifier(MBBlocks.CEDAR_SAPLING));
 	public static final Holder<PlacedFeature> HARDY_BUSH = MBPlacedFeatures.register("p_hardy_bush",
 			MBTreeFeatures.HARDY_BUSH, PlacedFeatureUtil.createWouldSurvivePlacementModifier(MBBlocks.HARDY_SPROUT));
+	public static final Holder<PlacedFeature> PARASOL_FERN = MBPlacedFeatures.register("p_parasol",
+			MBTreeFeatures.PARASOL_FERN, PlacedFeatureUtil.createWouldSurvivePlacementModifier(MBBlocks.PARASOL_PUP));
 
     public static void init() {}
 }

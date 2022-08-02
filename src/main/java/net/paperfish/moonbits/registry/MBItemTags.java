@@ -14,6 +14,8 @@ public class MBItemTags {
     public static final TagKey<Item> CEDAR_LOGS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "cedar_logs"));
     public static final TagKey<Item> TOADSTOOL_STEMS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "toadstool_stems"));
 
+	public static final TagKey<Item> SANDY_SOILS = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "sandy_soils"));
+
     public static final TagKey<Item> BEAR_LIKES = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "bear_likes"));
     public static final TagKey<Item> BEAR_EDIBLE = TagKey.of(Registry.ITEM_KEY, new Identifier(Moonbits.MODID, "bear_edible"));
     // used to remove 1 seed from the drop table of crops when harvested by right-click

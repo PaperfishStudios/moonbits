@@ -18,7 +18,7 @@ public class MBSaplingBlock extends SaplingBlock {
     }
 
     protected boolean canPlantJuniper(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(MBBlockTags.SANDY_SOILS);
+        return floor.isIn(MBBlockTags.SANDY_SOILS) || floor.isIn(MBBlockTags.DESERT_PLANTERS);
     }
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {

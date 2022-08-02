@@ -311,16 +311,17 @@ public class MBModelProvider extends FabricModelProvider {
 
         generator.registerRod(MBBlocks.PARASOL_FERN_STEM);
         generator.registerSingleton(MBBlocks.PARASOL_FERN_CROWN, CUBE_BOTTOM_TOP);
-		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.PARASOL_LEAF).coordinate(BlockStateVariantMap.create(HorizontalFacingBlock.FACING)
-				.register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
-						.put(VariantSettings.X, VariantSettings.Rotation.R90))
-				.register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
-						.put(VariantSettings.Y, VariantSettings.Rotation.R180))
-				.register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
-						.put(VariantSettings.Y, VariantSettings.Rotation.R270))
-				.register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
-						.put(VariantSettings.Y, VariantSettings.Rotation.R90))
-		));
+		generator.registerNorthDefaultHorizontalRotation(MBBlocks.PARASOL_LEAF);
+//		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.PARASOL_LEAF).coordinate(BlockStateVariantMap.create(HorizontalFacingBlock.FACING)
+//				.register(Direction.NORTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
+//						.put(VariantSettings.X, VariantSettings.Rotation.R90))
+//				.register(Direction.SOUTH, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
+//						.put(VariantSettings.Y, VariantSettings.Rotation.R180))
+//				.register(Direction.EAST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
+//						.put(VariantSettings.Y, VariantSettings.Rotation.R270))
+//				.register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/parasol_leaf"))
+//						.put(VariantSettings.Y, VariantSettings.Rotation.R90))
+//		));
 		generator.registerItemModel(MBBlocks.PARASOL_LEAF);
 		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.PARASOL_PUP).coordinate(BlockStateVariantMap.create(PupBlock.AGE)
 				.register(0, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/young_parasol_pup")))
@@ -336,10 +337,12 @@ public class MBModelProvider extends FabricModelProvider {
 		blockStateOnly(MBBlocks.HARDY_BUSH, "hardy_bush", generator);
 		generator.registerParentedItemModel(MBBlocks.HARDY_BUSH, new Identifier(Moonbits.MODID, "block/hardy_bush"));
 		tintableCross(MBBlocks.HARDY_SPROUT, TintType.NOT_TINTED, generator);
-//		generator.registerItemModel(MBItems.HARDY_BERRY_SEED);
+		generator.registerSingleton(MBBlocks.DESERT_PLANTER, CUBE_BOTTOM_TOP);
 
         generator.registerSimpleCubeAll(MBBlocks.CANVAS);
         generator.registerSimpleCubeAll(MBBlocks.FRAMED_CANVAS);
+
+		generator.registerSimpleCubeAll(MBBlocks.SANDY_SOIL);
 
         // flowers n fungi :D
         flowerPotPlant(MBBlocks.BUTTERCUP, MBBlocks.POTTED_BUTTERCUP, TintType.NOT_TINTED, generator);

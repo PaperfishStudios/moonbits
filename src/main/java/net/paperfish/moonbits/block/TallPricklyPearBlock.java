@@ -39,7 +39,7 @@ public class TallPricklyPearBlock extends TallPlantBlock implements Fertilizable
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(MBBlockTags.SANDY_SOILS) || super.canPlantOnTop(floor, world, pos);
+        return floor.isIn(MBBlockTags.SANDY_SOILS) || floor.isIn(MBBlockTags.DESERT_PLANTERS) || super.canPlantOnTop(floor, world, pos);
     }
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {

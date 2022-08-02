@@ -28,6 +28,8 @@ public class MBBlockTags {
 
     // tag containing every planter variant
     public static final TagKey<Block> PLANTER_BOXES = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "planter_boxes"));
+	public static final TagKey<Block> NETHER_PLANTERS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "nether_planters"));
+	public static final TagKey<Block> DESERT_PLANTERS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "desert_planters"));
     // used for tough dirt & other similar blocks that work as dirt but cannot be replaced by tree growth n such
 	public static final TagKey<Block> SOIL_NON_REPLACEABLE = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "soil_non_replaceable"));
     // used for blocks that desert & beach plants can be planted on.

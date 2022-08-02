@@ -202,6 +202,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.PEAT_MOSS,
                 MBBlocks.PEAT_BLOCK,
 
+				MBBlocks.SANDY_SOIL,
+
                 MBBlocks.TIN_DEPOSIT,
                 MBBlocks.FROST_TIN_DEPOSIT,
 
@@ -545,12 +547,17 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.ACACIA_PLANTER_BOX,
                 MBBlocks.DARK_OAK_PLANTER_BOX,
                 MBBlocks.MANGROVE_PLANTER_BOX,
-                MBBlocks.CRIMSON_PLANTER_BOX,
-                MBBlocks.WARPED_PLANTER_BOX,
                 MBBlocks.HONEY_PLANTER_BOX,
                 MBBlocks.LAMPROOT_PLANTER_BOX,
                 MBBlocks.CEDAR_PLANTER_BOX
         );
+		this.getOrCreateTagBuilder(MBBlockTags.NETHER_PLANTERS).add(
+				MBBlocks.CRIMSON_PLANTER_BOX,
+				MBBlocks.WARPED_PLANTER_BOX
+		);
+		this.getOrCreateTagBuilder(MBBlockTags.DESERT_PLANTERS).add(
+				MBBlocks.DESERT_PLANTER
+		);
         this.getOrCreateTagBuilder(BlockTags.STANDING_SIGNS).add(
                 MBBlocks.LAMPROOT_SIGN,
                 MBBlocks.CEDAR_SIGN,
@@ -591,6 +598,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.TOUGH_DIRT,
                 MBBlocks.DIRT_BRICKS,
                 MBBlocks.PERMAFROST,
+				MBBlocks.SANDY_SOIL,
                 MBBlocks.PEAT_MOSS,
                 MBBlocks.PEAT_BLOCK,
                 MBBlocks.PEAT_BRICKS
@@ -598,7 +606,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.SAND);
         this.getOrCreateTagBuilder(MBBlockTags.SANDY_SOILS).addTag(BlockTags.SAND);
         this.getOrCreateTagBuilder(MBBlockTags.SANDY_SOILS).add(
-                MBBlocks.CRACKED_MUD
+                MBBlocks.SANDY_SOIL,
+				MBBlocks.CRACKED_MUD
         );
         this.getOrCreateTagBuilder(MBBlockTags.TOUGH_DIRT).add(
                 MBBlocks.TOUGH_DIRT,

@@ -25,6 +25,9 @@ public class ParasolFernFeature extends HugeMushroomFeature {
 	@Override
 	protected void generateCap(WorldAccess pLevel, RandomGenerator pRandom, BlockPos pPos, int pTreeHeight, BlockPos.Mutable pMutablePos, HugeMushroomFeatureConfig pConfig) {
 //		int yCapBottom = pTreeHeight - 2;
+		pMutablePos.set(pMutablePos.offset(Direction.NORTH, 2));
+		pMutablePos.set(pMutablePos.offset(Direction.WEST, 2));
+		pMutablePos.set(pMutablePos.offset(Direction.DOWN));
 		this.setBlockState(pLevel, pMutablePos, MBBlocks.PARASOL_FERN_CROWN.getDefaultState());
 		for (Direction direction : Direction.Type.HORIZONTAL) {
 			BlockPos leafPos = pMutablePos.offset(direction);
@@ -62,7 +65,7 @@ public class ParasolFernFeature extends HugeMushroomFeature {
 
 	@Override
 	protected int getHeight(RandomGenerator pRandom) {
-		return pRandom.nextInt(3) + 6;
+		return pRandom.nextInt(3) + 3;
 	}
 
 	@Override

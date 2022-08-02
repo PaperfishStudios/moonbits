@@ -15,6 +15,7 @@ import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
+import net.minecraft.world.gen.decorator.BlockPredicateFilterPlacementModifier;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.util.ConfiguredFeatureUtil;
 import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
@@ -109,9 +110,9 @@ public class MBVegetationFeatures {
 
 
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PATCH_DESERT_BRUSH =
-            MBConfiguredFeatures.register("patch_desert_brush", Feature.RANDOM_PATCH, createPatch(12, BlockStateProvider.of(MBBlocks.DESERT_BRUSH)));
+            MBConfiguredFeatures.register("patch_desert_brush", Feature.RANDOM_PATCH, createPatch(12, 3, 2, BlockStateProvider.of(MBBlocks.DESERT_BRUSH)));
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> FLOOD_DESERT_BRUSH =
-            MBConfiguredFeatures.register("flood_desert_brush", Feature.RANDOM_PATCH, createPatch(24, BlockStateProvider.of(MBBlocks.DESERT_BRUSH)));
+            MBConfiguredFeatures.register("flood_desert_brush", Feature.RANDOM_PATCH, createPatch(24, 4, 2, BlockStateProvider.of(MBBlocks.DESERT_BRUSH)));
 
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> MARIGOLD_PATCH = MBConfiguredFeatures.register(
             "patch_marigold", Feature.RANDOM_PATCH, createPatch(6, MBBlocks.MARIGOLD));
@@ -124,14 +125,18 @@ public class MBVegetationFeatures {
                             .add(MBBlocks.TINY_BARREL_CACTUS.getDefaultState(), 4)
                             .add(MBBlocks.SMALL_BARREL_CACTUS.getDefaultState(), 6)
                             .add(MBBlocks.BARREL_CACTUS.getDefaultState(), 1)
-                            .build())))));
+                            .build())), BlockPredicateFilterPlacementModifier.create(
+							BlockPredicate.bothOf(BlockPredicate.IS_AIR, BlockPredicate.wouldSurvive(MBBlocks.BARREL_CACTUS.getDefaultState(), BlockPos.ORIGIN))
+					))));
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> FLOOD_BARREL_CACTI = MBConfiguredFeatures.register(
             "flood_cacti", Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(12, 6, 2,
 					PlacedFeatureUtil.placedInline(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
                             .add(MBBlocks.TINY_BARREL_CACTUS.getDefaultState(), 4)
                             .add(MBBlocks.SMALL_BARREL_CACTUS.getDefaultState(), 6)
                             .add(MBBlocks.BARREL_CACTUS.getDefaultState(), 1)
-                            .build())))));
+                            .build())), BlockPredicateFilterPlacementModifier.create(
+							BlockPredicate.bothOf(BlockPredicate.IS_AIR, BlockPredicate.wouldSurvive(MBBlocks.BARREL_CACTUS.getDefaultState(), BlockPos.ORIGIN))
+					))));
 
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> COTTONGRASS =
             MBConfiguredFeatures.register("patch_cottongrass", Feature.RANDOM_PATCH, createPatch(12, BlockStateProvider.of(MBBlocks.COTTONGRASS)));
@@ -155,8 +160,11 @@ public class MBVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> HEATHER = MBConfiguredFeatures.register(
             "heather", Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 2, 2,
 					PlacedFeatureUtil.placedInline(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(new NoiseBlockStateProvider(2345L,
-                            new DoublePerlinNoiseSampler.NoiseParameters(0, 1.0D), 0.020433334F, HEATHER_LIST))
-                    )));
+                            new DoublePerlinNoiseSampler.NoiseParameters(0, 1.0D), 0.020433334F, HEATHER_LIST)),
+							BlockPredicateFilterPlacementModifier.create(
+									BlockPredicate.bothOf(BlockPredicate.IS_AIR,
+											BlockPredicate.wouldSurvive(MBBlocks.PURPLE_HEATHER.getDefaultState(), BlockPos.ORIGIN))
+							))));
 //            new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
 //                            .add(MBBlocks.PURPLE_HEATHER.getDefaultState(), 8)
 //                            .add(MBBlocks.RED_HEATHER.getDefaultState(), 5)
@@ -262,6 +270,13 @@ public class MBVegetationFeatures {
                             new WeightedPlacedFeature(MBPlacedTreeFeatures.CEDAR, 0.4F)),
                             TreePlacedFeatures.OAK_BEES_002
                     ));
+
+	public static final Holder<ConfiguredFeature<RandomFeatureConfig, ?>> CHERT_FLORA = MBConfiguredFeatures.register("chert_flora", Feature.RANDOM_SELECTOR,
+			new RandomFeatureConfig(List.of(
+					new WeightedPlacedFeature(MBPlacedTreeFeatures.HARDY_BUSH, 0.1F),
+					new WeightedPlacedFeature(MBPlacedTreeFeatures.PARASOL_FERN, 0.4F)),
+					MBPlacedTreeFeatures.PARASOL_FERN
+			));
 
 //    public static final List<BlockState> MBFF_FLOWER_LIST = List.of(
 //            Blocks.DANDELION.getDefaultState(),

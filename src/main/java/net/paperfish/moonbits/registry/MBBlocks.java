@@ -89,12 +89,12 @@ public class MBBlocks {
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 
 	public static final Block BEACHGRASS = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
-			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XYZ));
 	public static final Block TALL_BEACHGRASS = new SandyTallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 
 	public static final Block PEBBLES = new PebbleBlock(AbstractBlock.Settings.of(Material.STONE)
-			.noCollision().breakInstantly().sounds(BlockSoundGroup.TUFF).offsetType(AbstractBlock.OffsetType.XZ));
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.TUFF));
 
 	public static final Block MYCELIUM_ROOTS = new OmniRootsBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType((a) ->
@@ -251,7 +251,7 @@ public class MBBlocks {
 
 	// SNOW DAY
 
-	public static final Block COTTONGRASS = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+	public static final Block COTTONGRASS = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XYZ));
 	public static final Block TALL_COTTONGRASS = new TallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
 	public static final Block WHITE_HEATHER = new FlowerBlock(StatusEffects.RESISTANCE, 12, AbstractBlock.Settings.of(Material.PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
@@ -334,7 +334,7 @@ public class MBBlocks {
 	public static final Block LARGE_BARREL_CACTUS = new BarrelCactusBlock(BarrelCactusBlock.Size.LARGE, QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL));
 
 	public static final Block DESERT_BRUSH = new MBGrassPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
-			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XYZ));
 	public static final Block TALL_DESERT_BRUSH = new SandyTallPlantBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block MARIGOLD = new SandyFlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT)
@@ -355,8 +355,12 @@ public class MBBlocks {
 	public static final Block HARDY_BUSH = new Block(AbstractBlock.Settings.copy(Blocks.AZALEA));
 	public static final Block HARDY_SPROUT = new MBSaplingBlock(new HardySproutGenerator(), AbstractBlock.Settings.copy(Blocks.AZALEA));
 
+	public static final Block DESERT_PLANTER = new PlanterBoxBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
+
 	public static final Block CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
 	public static final Block FRAMED_CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
+
+	public static final Block SANDY_SOIL = new Block(AbstractBlock.Settings.copy(Blocks.SAND));
 
 	// CHERT
 	public static final Block CHERT = new Block(AbstractBlock.Settings.copy(Blocks.STONE));
@@ -1100,6 +1104,8 @@ public class MBBlocks {
 		createBlock("ice_bricks", ICE_BRICKS, MBItemGroup.CONSTRUCTION);
 		createBlock("packed_ice_bricks", PACKED_ICE_BRICKS, MBItemGroup.CONSTRUCTION);
 
+		createBlock("sandy_soil", SANDY_SOIL, MBItemGroup.CONSTRUCTION);
+
 		createBlock("mudstone", MUDSTONE, MBItemGroup.CONSTRUCTION);
 		createBlock("mudstone_slab", MUDSTONE_SLAB, MBItemGroup.CONSTRUCTION);
 		createBlock("mudstone_stairs", MUDSTONE_STAIRS, MBItemGroup.CONSTRUCTION);
@@ -1466,6 +1472,8 @@ public class MBBlocks {
 		createBlock("fruiting_hardy_leaves", FRUITING_HARDY_LEAVES, MBItemGroup.DECOR);
 		createBlock("hardy_bush", HARDY_BUSH, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "hardy_sprout"), HARDY_SPROUT);
+
+		createBlock("desert_planter", DESERT_PLANTER, MBItemGroup.DECOR);
 
 		createBlock("parasol_fern_stem", PARASOL_FERN_STEM, MBItemGroup.DECOR);
 		createBlock("parasol_fern_crown", PARASOL_FERN_CROWN, MBItemGroup.DECOR);

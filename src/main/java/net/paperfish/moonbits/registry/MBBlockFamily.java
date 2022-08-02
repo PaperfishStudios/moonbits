@@ -142,7 +142,7 @@ public class MBBlockFamily {
             this.family.variants.put(Variant.WALL, block);
             return this;
         }
-        
+
         public MBBlockFamily.Builder pillar(Block block) {
             this.family.variants.put(Variant.PILLAR, block);
             return this;
@@ -152,7 +152,7 @@ public class MBBlockFamily {
             this.family.variants.put(Variant.CARVED, cap);
             return this;
         }
-        
+
         public MBBlockFamily.Builder mossy(Block block) {
             this.family.variants.put(Variant.MOSSY, block);
             return this;
@@ -167,6 +167,11 @@ public class MBBlockFamily {
             this.family.variants.put(Variant.PLANTER_BOX, block);
             return this;
         }
+
+		public MBBlockFamily.Builder netherPlanter(Block block) {
+			this.family.variants.put(Variant.NETHER_PLANTER, block);
+			return this;
+		}
 
         public MBBlockFamily.Builder carpet(Block block) {
             this.family.variants.put(Variant.CARPET, block);
@@ -251,6 +256,7 @@ public class MBBlockFamily {
         MOSSY("mossy"),
         BOOKSHELF("bookshelf"),
         PLANTER_BOX("planter_box"),
+		NETHER_PLANTER("nether_planter"),
         CARPET("carpet"),
         SC("stonecut");
 

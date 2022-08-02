@@ -16,8 +16,13 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.util.Holder;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.noise.NoiseParametersKeys;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.advancement.ItemWashedCriterion;
 import net.paperfish.moonbits.mixin.CriteriaAccessor;
@@ -49,6 +54,11 @@ public class MBData {
 	public static final RecipeSerializer<WashingRecipe> WASHING_RECIPE_SERIALIZER;
 
 	public static final ItemWashedCriterion ITEM_WASHED = CriteriaAccessor.callRegister(new ItemWashedCriterion());
+
+
+//	public static final RegistryKey<DoublePerlinNoiseSampler.NoiseParameters> DIRT_CAVE_NOISE;
+//	public static final RegistryKey<DoublePerlinNoiseSampler.NoiseParameters> PERMAFROST_NOISE;
+//	public static final RegistryKey<DoublePerlinNoiseSampler.NoiseParameters> SANDY_SOIL_NOISE;
 
 	static {
 			STRIPPED_BLOCKS = ImmutableMap.<Block, Block>builder()
@@ -85,6 +95,11 @@ public class MBData {
 			}
 		});
 		WASHING_RECIPE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, new Identifier(Moonbits.MODID, "washing"), new WashingRecipe.WashingSerializer());
+
+//		DIRT_CAVE_NOISE = createNoise("dirt_caves");
+//		registerNoise(z, NoiseParametersKeys.POWDER_SNOW, -6, 1.0, 1.0, 1.0, 1.0);
+//		PERMAFROST_NOISE = createNoise("permafrost");
+//		SANDY_SOIL_NOISE = createNoise("sandy_soil");
 	}
 
 	public static void registerData() {
@@ -150,7 +165,7 @@ public class MBData {
 		FuelRegistry.INSTANCE.add(Blocks.HANGING_ROOTS, 100);
 
 		FuelRegistry.INSTANCE.add(MBBlocks.ROPE_LADDER, 300);
-		
+
 		FuelRegistry.INSTANCE.add(MBItems.PEAT, 800);
 		FuelRegistry.INSTANCE.add(MBBlocks.PEAT_BLOCK, 8000);
 		FuelRegistry.INSTANCE.add(MBBlocks.PEAT_BRICKS, 4000);
@@ -181,4 +196,15 @@ public class MBData {
 
 
 	}
+
+//	public static RegistryKey<DoublePerlinNoiseSampler.NoiseParameters> createNoise(String id) {
+//		return RegistryKey.of(Registry.NOISE_KEY, new Identifier(Moonbits.MODID, id));
+//	}
+//	private static Holder<DoublePerlinNoiseSampler.NoiseParameters> registerNoise(
+//			Registry<DoublePerlinNoiseSampler.NoiseParameters> registry,
+//			RegistryKey<DoublePerlinNoiseSampler.NoiseParameters> key,
+//			int firstOctave, double firstAmplitude, double... amplitudes
+//	) {
+//		return BuiltinRegistries.register(Registry.NOISE_KEY, key, new DoublePerlinNoiseSampler.NoiseParameters(firstOctave, firstAmplitude, amplitudes));
+//	}
 }

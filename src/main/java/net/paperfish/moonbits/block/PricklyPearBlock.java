@@ -36,7 +36,7 @@ public class PricklyPearBlock extends PlantBlock implements Fertilizable {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isIn(MBBlockTags.SANDY_SOILS) || super.canPlantOnTop(floor, world, pos);
+        return floor.isIn(MBBlockTags.SANDY_SOILS) || floor.isIn(MBBlockTags.DESERT_PLANTERS) || super.canPlantOnTop(floor, world, pos);
     }
 
     @Override

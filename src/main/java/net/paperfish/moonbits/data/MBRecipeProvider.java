@@ -558,6 +558,11 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .criterion(RecipesProvider.hasItem(MBItems.BURLAP), RecipesProvider.conditionsFromItem(MBItems.BURLAP))
                 .offerTo(exporter);
 
+		ShapedRecipeJsonFactory.create(MBBlocks.SANDY_SOIL, 4).input('#', Blocks.DIRT).input('S', Blocks.SAND).pattern("#S").pattern("S#")
+				.criterion(RecipesProvider.hasItem(Blocks.SAND), RecipesProvider.conditionsFromItem(Blocks.SAND))
+				.offerTo(exporter);
+		desertPlanter(exporter, MBItems.HARDY_STEM, MBBlocks.DESERT_PLANTER);
+
         ShapelessRecipeJsonFactory.create(MBBlocks.FROSTY_TILL_BRICKS)
                 .input(MBBlocks.TILL_BRICKS).input(Items.SNOWBALL)
                 .criterion("has_snowball", RecipesProvider.conditionsFromItem(Items.SNOWBALL))
@@ -760,6 +765,9 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 else if (variant == MBBlockFamily.Variant.PLANTER_BOX) {
                     planterBox(exporter, inputItem, block);
                 }
+				else if (variant == MBBlockFamily.Variant.NETHER_PLANTER) {
+					netherPlanter(exporter, inputItem, block);
+				}
                 else if (variant == MBBlockFamily.Variant.CARPET) {
                     carpetRecipe(exporter, inputItem, block);
                 }
@@ -961,6 +969,17 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .criterion(RecipesProvider.hasItem(MBItems.PEAT), RecipesProvider.conditionsFromItem(MBItems.PEAT)).group("planter_boxes")
                 .offerTo(exporter);
     }
+	public static void netherPlanter(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output) {
+		ShapedRecipeJsonFactory.create(output).input('#', input).m_hadhiznl('S', ItemTags.SOUL_FIRE_BASE_BLOCKS).pattern("# #").pattern("#S#").pattern("###")
+				.criterion(RecipesProvider.hasItem(Items.SOUL_SAND), RecipesProvider.method_10420(ItemTags.SOUL_FIRE_BASE_BLOCKS)).group("nether_planters")
+				.offerTo(exporter);
+	}
+	public static void desertPlanter(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output) {
+		ShapedRecipeJsonFactory.create(output).input('#', input).input('P', MBItems.PARASOL_FIBER).m_hadhiznl('S', MBItemTags.SANDY_SOILS)
+				.pattern("#S#").pattern("#P#").pattern("###")
+				.criterion(RecipesProvider.hasItem(MBItems.PARASOL_FIBER), RecipesProvider.conditionsFromItem(MBItems.PARASOL_FIBER)).group("desertPlanter")
+				.offerTo(exporter);
+	}
 
     public static void doorRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output) {
         ShapedRecipeJsonFactory.create(output, 3).input('#', input).pattern("##").pattern("##").pattern("##")

@@ -69,6 +69,7 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.BEACHGRASS, MBBlocks.TALL_BEACHGRASS,
                 MBBlocks.COTTONGRASS, MBBlocks.TALL_COTTONGRASS,
                 MBBlocks.DESERT_BRUSH, MBBlocks.TALL_DESERT_BRUSH,
+				MBBlocks.HARDY_SPROUT, MBBlocks.HARDY_BUSH,
 				MBBlocks.PARASOL_LEAF, MBBlocks.PARASOL_PUP,
 
                 MBBlocks.REDSTONE_CLUSTER, MBBlocks.LARGE_REDSTONE_BUD, MBBlocks.MEDIUM_REDSTONE_BUD, MBBlocks.SMALL_REDSTONE_BUD,

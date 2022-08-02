@@ -89,6 +89,7 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_DESERT_BRUSH.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_MARIGOLD_PATCH.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_BARREL_CACTI.getKey().get());
+					c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.DESERT_CAVES.getKey().get());
                 })
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.DESERT, MBBiomes.STEPPE), (c) -> {
                     c.getGenerationSettings().removeBuiltInFeature(OrePlacedFeatures.ORE_ANDESITE_LOWER.value());
@@ -111,7 +112,7 @@ public class BiomeAdditions {
 
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_tundra"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS), (c) -> {
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.ORE_PERMAFROST.getKey().get());
+                    //c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.ORE_PERMAFROST.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.TILL_ROCK.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.PEBBLES.getKey().get());
 

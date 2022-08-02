@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:dirt"
+    },
+    "S": {
+      "item": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    "#S",
+    "S#"
+  ],
+  "result": {
+    "count": 4,
+    "item": "moonbits:sandy_soil"
+  }
+}

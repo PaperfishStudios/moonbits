@@ -203,6 +203,8 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.PAVED_RED_SANDSTONE_BRICKS);
         addDrop(MBBlocks.CRACKED_PAVED_RED_SANDSTONE_BRICKS);
 
+		addDrop(MBBlocks.SANDY_SOIL);
+
         addDrop(MBBlocks.CANVAS);
         addDrop(MBBlocks.FRAMED_CANVAS);
 
