@@ -1,6 +1,9 @@
 package net.paperfish.moonbits.data;
 
 import com.mojang.datafixers.util.Pair;
+import it.unimi.dsi.fastutil.ints.Int2ObjectFunction;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.*;
@@ -12,6 +15,7 @@ import net.minecraft.data.client.model.*;
 import net.minecraft.item.Item;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.state.property.Property;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.Direction;
@@ -194,6 +198,13 @@ public class MBModelProvider extends FabricModelProvider {
                 BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap")))
                 .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
 
+		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.SYRUP_TREE_TAP,
+						BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap_syrup")))
+				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.RESIN_TREE_TAP,
+						BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap_resin")))
+				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+
 //        generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(MBBlocks.COOKING_POT, new Identifier(Moonbits.MODID, "block/cooking_pot")));
 ////        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.COOKING_POT,
 ////                        BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/cooking_pot")))
@@ -293,8 +304,8 @@ public class MBModelProvider extends FabricModelProvider {
         generator.registerSimpleCubeAll(MBBlocks.HEMATITE_ORE);
         generator.registerSimpleCubeAll(MBBlocks.HEMATITE_BLOCK);
 
-        generator.registerCrop(MBBlocks.PEANUT_CROP, Properties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
-        generator.registerCrop(MBBlocks.PEPPER_CROP, Properties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
+		generator.registerCrop(MBBlocks.PEANUT_CROP, Properties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
+		generator.registerCrop(MBBlocks.PEPPER_CROP, Properties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
 
         generator.registerAxisRotated(MBBlocks.CRACKED_MUD, CUBE_COLUMN);
         generator.registerSimpleCubeAll(MBBlocks.RICH_MUD);
@@ -423,10 +434,10 @@ public class MBModelProvider extends FabricModelProvider {
         generator.excludeFromSimpleItemModelGeneration(MBItems.SWEET_BERRY_PITS);
         generator.registerSingleton(MBItems.GLOW_BERRY_PITS, TexturedModel.PARTICLE);
         generator.excludeFromSimpleItemModelGeneration(MBItems.GLOW_BERRY_PITS);
-        generator.registerSimpleCubeAll(MBBlocks.SWEET_BERRY_HEDGE);
-        generator.registerSimpleCubeAll(MBBlocks.GLOW_BERRY_HEDGE);
-        generator.registerSimpleCubeAll(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE);
-        generator.registerSimpleCubeAll(MBBlocks.PLUCKED_GLOW_BERRY_HEDGE);
+//        generator.registerSimpleCubeAll(MBBlocks.SWEET_BERRY_HEDGE);
+//        generator.registerSimpleCubeAll(MBBlocks.GLOW_BERRY_HEDGE);
+//        generator.registerSimpleCubeAll(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE);
+//        generator.registerSimpleCubeAll(MBBlocks.PLUCKED_GLOW_BERRY_HEDGE);
 
         generator.registerAxisRotated(MBBlocks.SUGAR_CANE_BUNDLE, CUBE_COLUMN);
         generator.registerAxisRotated(MBBlocks.BAMBOO_BUNDLE, CUBE_COLUMN);
@@ -1264,6 +1275,25 @@ public class MBModelProvider extends FabricModelProvider {
         Identifier identifier = LEAF_CARPET_F.get(base).upload(carpet, generator.modelCollector);
         generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(carpet, identifier));
     }
+	public final void crops(Block crop, Property<Integer> ageProperty, BlockStateModelGenerator generator, int... ageTextureIndices) {
+		if (ageProperty.getValues().size() != ageTextureIndices.length) {
+			throw new IllegalArgumentException();
+		} else {
+			Int2ObjectMap<Identifier> int2ObjectMap = new Int2ObjectOpenHashMap<>();
+			BlockStateVariantMap blockStateVariantMap = BlockStateVariantMap.create(ageProperty)
+					.register(
+							integer -> {
+								int i = ageTextureIndices[integer];
+								Identifier identifier = int2ObjectMap.computeIfAbsent(
+										i, (Int2ObjectFunction<? extends Identifier>)(j -> generator.createSubModel(crop, "_stage" + i, Models.CROP, Texture::crop))
+								);
+								return BlockStateVariant.create().put(VariantSettings.MODEL, identifier);
+							}
+					);
+//			generator.registerItemModel(crop.asItem());
+			generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(crop).coordinate(blockStateVariantMap));
+		}
+	}
 //    public static void carpetFlora(Block carpet, BlockStateModelGenerator generator) {
 //        generator.registerItemModel(carpet);
 //        Identifier identifier = CAPPED_CROSS_F.get(carpet).upload(carpet, generator.modelCollector);

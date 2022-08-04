@@ -350,10 +350,10 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.SWEET_BERRY_BASKET);
         addDrop(MBBlocks.GLOW_BERRY_BASKET);
         addDrop(MBBlocks.HARDY_BERRY_BASKET);
-        addDrop(MBBlocks.SWEET_BERRY_HEDGE);
-        addDrop(MBBlocks.GLOW_BERRY_HEDGE);
-        addDrop(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE);
-        addDrop(MBBlocks.PLUCKED_GLOW_BERRY_HEDGE);
+//        addDrop(MBBlocks.SWEET_BERRY_HEDGE);
+//        addDrop(MBBlocks.GLOW_BERRY_HEDGE);
+//        addDrop(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE);
+//        addDrop(MBBlocks.PLUCKED_GLOW_BERRY_HEDGE);
         addDrop(MBItems.SWEET_BERRY_PITS);
         addDrop(MBItems.GLOW_BERRY_PITS);
 

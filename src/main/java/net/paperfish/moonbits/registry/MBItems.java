@@ -22,8 +22,12 @@ public class MBItems {
 	public static List<Item> MB_EGGS = new ArrayList<>();
 
 	public static final Item GRASS_TUFT = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item MILK_BOTTLE = new MilkBottleItem(new QuiltItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16));
-	public static final Item SYRUP_BOTTLE = new MilkBottleItem(new QuiltItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16));
+	public static final Item MILK_BOTTLE = new MilkBottleItem(new QuiltItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE));
+
+	public static final Item SYRUP_BOTTLE = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE));
+	public static final Item RESIN_BOTTLE = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE));
+	public static final Item RESIN = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
+
 	public static final Item ITEM_HOOK = new ItemHookItem(MBEntities.ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
 	public static final Item GLOW_ITEM_HOOK = new ItemHookItem(MBEntities.GLOW_ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
 
@@ -181,6 +185,8 @@ public class MBItems {
 
 		addItem("milk_bottle", MILK_BOTTLE);
 		addItem("syrup_bottle", SYRUP_BOTTLE);
+		addItem("resin_bottle", RESIN_BOTTLE);
+		addItem("resin", RESIN);
 
 		//addItem("apple_seeds", APPLE_SEEDS);
 

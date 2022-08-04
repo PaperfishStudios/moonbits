@@ -331,8 +331,10 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.TIN_LADDER,
 
                 MBBlocks.TREE_TAP,
-                MBBlocks.HONEY_CAULDRON,
-                MBBlocks.SYRUP_CAULDRON,
+				MBBlocks.SYRUP_TREE_TAP,
+				MBBlocks.RESIN_TREE_TAP,
+//                MBBlocks.HONEY_CAULDRON,
+//                MBBlocks.SYRUP_CAULDRON,
 
                 MBBlocks.RED_MUSH_LAMP,
                 MBBlocks.BROWN_MUSH_LAMP,

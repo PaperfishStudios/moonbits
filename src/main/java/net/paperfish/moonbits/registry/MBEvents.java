@@ -14,6 +14,7 @@ import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.passive.StriderEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -98,6 +99,15 @@ public class MBEvents {
             .build();
     public static BiMap<Block, Block> PLUCK = GROWING.inverse();
 
+	public static final Map<Block, Block> TAPPABLE = new ImmutableMap.Builder<Block, Block>()
+			.put(Blocks.BIRCH_LOG, MBBlocks.SYRUP_TREE_TAP)
+			.put(MBBlocks.CEDAR_LOG, MBBlocks.RESIN_TREE_TAP)
+			.build();
+	public static final Map<Block, Item> TAP_RESULT = new ImmutableMap.Builder<Block, Item>()
+			.put(MBBlocks.SYRUP_TREE_TAP, MBItems.SYRUP_BOTTLE)
+			.put(MBBlocks.RESIN_TREE_TAP, MBItems.RESIN_BOTTLE)
+			.build();
+
     public static void initEvents() {
         // events when u use a thing on a block go here!
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
@@ -108,13 +118,13 @@ public class MBEvents {
             BlockState targetBlock = world.getBlockState(targetPos);
             ItemStack heldItem = player.getStackInHand(hand);
 
-            if(targetBlock.getBlock() instanceof AbstractCauldronBlock && !world.isClient) {
+            if(targetBlock.getBlock() instanceof AbstractCauldronBlock) {
                 if (player.shouldCancelInteraction()) {
                     return ActionResult.PASS;
                 }
                 else {
                     Moonbits.LOGGER.info("washing recipe triggered");
-                    return WashingHandler.washItem(heldItem, targetBlock, (ServerPlayerEntity) player, hand, (ServerWorld) world);
+                    return WashingHandler.washItem(heldItem, targetBlock, player, hand, (ServerWorld) world);
                 }
             }
 
@@ -226,13 +236,13 @@ public class MBEvents {
                     Block.dropStack(world, dropFromFullBlock(targetPos, world), new ItemStack(MBBlocks.MYCELIUM_ROOTS));
                     success = true;
                 }
-                else if (targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) || targetBlock.isOf(MBBlocks.GLOW_BERRY_HEDGE)) {
-                    Moonbits.LOGGER.info("sheared berry hedge");
-                    world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) ? MBBlocks.PLUCKED_SWEET_BERRY_HEDGE.getDefaultState() : MBBlocks.PLUCKED_GLOW_BERRY_HEDGE.getDefaultState());
-                    Block.dropStack(world, dropFromFullBlock(targetPos, world),
-                            new ItemStack(targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) ? Items.SWEET_BERRIES : Items.GLOW_BERRIES, world.random.nextInt(3)+1));
-                    success = true;
-                }
+//                else if (targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) || targetBlock.isOf(MBBlocks.GLOW_BERRY_HEDGE)) {
+//                    Moonbits.LOGGER.info("sheared berry hedge");
+//                    world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) ? MBBlocks.PLUCKED_SWEET_BERRY_HEDGE.getDefaultState() : MBBlocks.PLUCKED_GLOW_BERRY_HEDGE.getDefaultState());
+//                    Block.dropStack(world, dropFromFullBlock(targetPos, world),
+//                            new ItemStack(targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) ? Items.SWEET_BERRIES : Items.GLOW_BERRIES, world.random.nextInt(3)+1));
+//                    success = true;
+//                }
                 if (success) {
                     world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 0.5F, 1.0F);
                     if (!player.isCreative()) heldItem.damage(1, world.getRandom(), null);
@@ -254,12 +264,12 @@ public class MBEvents {
                         }
                     }
                 }
-                else if (targetBlock.isOf(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE) || targetBlock.isOf(MBBlocks.PLUCKED_GLOW_BERRY_HEDGE)) {
-                    Moonbits.LOGGER.info("bonemealed berry hedge");
-                    world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE) ? MBBlocks.SWEET_BERRY_HEDGE.getDefaultState() : MBBlocks.GLOW_BERRY_HEDGE.getDefaultState());
-                    world.syncWorldEvent(WorldEvents.BONE_MEAL_USED, targetPos, 0);
-                    success = true;
-                }
+//                else if (targetBlock.isOf(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE) || targetBlock.isOf(MBBlocks.PLUCKED_GLOW_BERRY_HEDGE)) {
+//                    Moonbits.LOGGER.info("bonemealed berry hedge");
+//                    world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.PLUCKED_SWEET_BERRY_HEDGE) ? MBBlocks.SWEET_BERRY_HEDGE.getDefaultState() : MBBlocks.GLOW_BERRY_HEDGE.getDefaultState());
+//                    world.syncWorldEvent(WorldEvents.BONE_MEAL_USED, targetPos, 0);
+//                    success = true;
+//                }
                 if (success) {
                     if (!player.isCreative()) heldItem.decrement(1);
                     return ActionResult.SUCCESS;
@@ -310,11 +320,19 @@ public class MBEvents {
             if (EntityType.HUSK.getLootTableId().equals(id)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
-                        .with(ItemEntry.builder(MBItems.BURLAP)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 1)).build())
+                        .with(ItemEntry.builder(MBItems.BURLAP)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 1)))
                         .apply(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0f, 1.0f)));
 
                 table.pool(poolBuilder);
             }
+			if (Blocks.BEETROOTS.getLootTableId().equals(id)) {
+				LootPool.Builder poolBuilder = LootPool.builder()
+						.rolls(ConstantLootNumberProvider.create(1))
+						.with(ItemEntry.builder(Items.BEETROOT)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 3)))
+						.apply(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0f, 1.0f)));
+
+				table.pool(poolBuilder);
+			}
         });
     }
 

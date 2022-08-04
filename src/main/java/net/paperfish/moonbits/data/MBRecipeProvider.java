@@ -636,6 +636,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .input(MBBlocks.SYRUP_BLOCK).input(Items.GLASS_BOTTLE, 4)
                 .criterion(RecipesProvider.hasItem(MBItems.SYRUP_BOTTLE), RecipesProvider.conditionsFromItem(MBItems.SYRUP_BOTTLE))
                 .offerTo(exporter);
+		campfire(exporter, MBItems.RESIN_BOTTLE, MBItems.RESIN, 0.1f,50);
 
         campfire(exporter, Items.SWEET_BERRIES, MBItems.ROASTED_BERRIES, 0.1f,50);
         condense(exporter, MBItems.PUMPKIN_SLICE, Items.PUMPKIN, 1);

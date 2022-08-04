@@ -1,6 +1,7 @@
 package net.paperfish.moonbits.recipe;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -15,17 +16,19 @@ import net.paperfish.moonbits.Moonbits;
 import java.util.Optional;
 
 public class WashingHandler {
-    public static ActionResult washItem(ItemStack input, BlockState cauldron, ServerPlayerEntity player, Hand hand, ServerWorld world) {
+    public static ActionResult washItem(ItemStack input, BlockState cauldron, PlayerEntity player, Hand hand, ServerWorld world) {
         ItemStack recipe = new ItemStack(input.getItem(), 1);
         Moonbits.LOGGER.info("washing input: " + Registry.ITEM.getId(input.getItem()));
         //Block cauldronType = cauldron.getBlock();
         ItemStack output = getResult(recipe, world, cauldron);
         if (output != null) {
+			if (world.isClient()) return ActionResult.SUCCESS;
+
             Moonbits.LOGGER.info("washing output: " + Registry.ITEM.getId(output.getItem()));
             output.setCount(input.getCount());
             player.setStackInHand(hand, output);
             //player.setStackInHand(hand, ItemUsage.exchangeStack(input, player, output));
-            MBData.ITEM_WASHED.trigger(player, player.getInventory(), output);
+            MBData.ITEM_WASHED.trigger((ServerPlayerEntity) player, player.getInventory(), output);
             return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;

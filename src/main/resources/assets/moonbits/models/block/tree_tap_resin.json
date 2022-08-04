@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/block",
 	"textures": {
-		"1": "moonbits:block/tree_tap_empty",
+		"1": "moonbits:block/tree_tap_resin",
 		"particle": "moonbits:block/tree_tap",
 		"all": "moonbits:block/tree_tap"
 	},

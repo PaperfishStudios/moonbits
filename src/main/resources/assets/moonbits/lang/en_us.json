@@ -292,6 +292,8 @@
     "block.moonbits.honey_cauldron": "Honey Cauldron",
 	
     "block.moonbits.tree_tap": "Tree Tap",
+    "block.moonbits.tree_tap_syrup": "Syrup Tree Tap",
+    "block.moonbits.tree_tap_resin": "Resin Tree Tap",
 	
     "block.moonbits.puffballs": "Puffballs",
     "block.moonbits.giant_puffball": "Giant Puffball",
@@ -520,6 +522,9 @@
 	"block.moonbits.cedar_pillar": "Carved Cedar Column", 
 	"block.moonbits.cedar_bookshelf": "Cedar Bookshelf", 
 	"block.moonbits.cedar_planter_box": "Cedar Planter Box", 
+	
+    "item.moonbits.resin_bottle": "Resin Bottle",
+    "item.moonbits.resin": "Resin",
 	
     "block.moonbits.sand_layer": "Sand Layer",
     "block.moonbits.sandflow": "Sandflow",

@@ -248,6 +248,8 @@ public class MBBlocks {
 	public static final Block SYRUP_BLOCK = new SyrupBlock(AbstractBlock.Settings.copy(Blocks.HONEY_BLOCK).dynamicBounds());
 
 	public static final Block TREE_TAP = new TreeTapBlock(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK));
+	public static final Block SYRUP_TREE_TAP = new FilledTreeTapBlock(AbstractBlock.Settings.copy(TREE_TAP).dropsLike(TREE_TAP));
+	public static final Block RESIN_TREE_TAP = new FilledTreeTapBlock(AbstractBlock.Settings.copy(TREE_TAP).dropsLike(TREE_TAP));
 
 	// SNOW DAY
 
@@ -1049,13 +1051,13 @@ public class MBBlocks {
 	public static final Block GLOW_BERRY_BASKET = new Block(QuiltBlockSettings.of(Material.WOOD).strength(0.5F).sounds(BlockSoundGroup.NYLIUM).luminance((state) -> 12));
 	public static final Block HARDY_BERRY_BASKET = new Block(QuiltBlockSettings.of(Material.WOOD).strength(0.5F).sounds(BlockSoundGroup.NYLIUM));
 
-	public static final Block SWEET_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
-	public static final Block GLOW_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES).luminance((state) -> 12));
-	public static final Block PLUCKED_SWEET_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
-	public static final Block PLUCKED_GLOW_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
+//	public static final Block SWEET_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
+//	public static final Block GLOW_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES).luminance((state) -> 12));
+//	public static final Block PLUCKED_SWEET_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
+//	public static final Block PLUCKED_GLOW_BERRY_HEDGE = new Block(QuiltBlockSettings.of(Material.LEAVES).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES));
 
 	public static final Block SUGAR_CANE_BUNDLE = new PillarBlock(QuiltBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
-	public static final Block BAMBOO_BUNDLE = new PillarBlock(QuiltBlockSettings.of(Material.BAMBOO).hardness(1.0f).sounds(BlockSoundGroup.MANGROVE_ROOTS));
+	public static final Block BAMBOO_BUNDLE = new PillarBlock(QuiltBlockSettings.of(Material.BAMBOO).hardness(1.0f).sounds(BlockSoundGroup.SCAFFOLDING));
 	public static final Block KELP_BLOCK = new Block(QuiltBlockSettings.of(Material.SOLID_ORGANIC).strength(0.5F, 2.5F).sounds(BlockSoundGroup.WET_GRASS));
 
 	public static final Block NETHER_WART_SACK = new Block(QuiltBlockSettings.of(Material.NETHER_SHOOTS).hardness(1.0f).sounds(BlockSoundGroup.WART_BLOCK));
@@ -1668,6 +1670,8 @@ public class MBBlocks {
 //				FabricBlockEntityTypeBuilder.create(CookingPotBlockEntity::new, COOKING_POT).build(null));
 
 		createBlock("tree_tap", TREE_TAP, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "tree_tap_syrup"), SYRUP_TREE_TAP);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "tree_tap_resin"), RESIN_TREE_TAP);
 		createBlock("syrup_block", SYRUP_BLOCK, ItemGroup.REDSTONE);
 
 		createBlock("rope_ladder", ROPE_LADDER, MBItemGroup.DECOR);
@@ -2100,10 +2104,10 @@ public class MBBlocks {
 		createBlock("glow_berry_basket", GLOW_BERRY_BASKET, MBItemGroup.DECOR);
 		createBlock("hardy_berry_basket", HARDY_BERRY_BASKET, MBItemGroup.DECOR);
 
-		createBlock("sweet_berry_hedge", SWEET_BERRY_HEDGE, MBItemGroup.DECOR);
-		createBlock("glow_berry_hedge", GLOW_BERRY_HEDGE, MBItemGroup.DECOR);
-		createBlock("plucked_sweet_berry_hedge", PLUCKED_SWEET_BERRY_HEDGE, MBItemGroup.DECOR);
-		createBlock("plucked_glow_berry_hedge", PLUCKED_GLOW_BERRY_HEDGE, MBItemGroup.DECOR);
+//		createBlock("sweet_berry_hedge", SWEET_BERRY_HEDGE, MBItemGroup.DECOR);
+//		createBlock("glow_berry_hedge", GLOW_BERRY_HEDGE, MBItemGroup.DECOR);
+//		createBlock("plucked_sweet_berry_hedge", PLUCKED_SWEET_BERRY_HEDGE, MBItemGroup.DECOR);
+//		createBlock("plucked_glow_berry_hedge", PLUCKED_GLOW_BERRY_HEDGE, MBItemGroup.DECOR);
 
 		createBlock("sugar_cane_bundle", SUGAR_CANE_BUNDLE, MBItemGroup.DECOR);
 		createBlock("bamboo_bundle", BAMBOO_BUNDLE, MBItemGroup.DECOR);

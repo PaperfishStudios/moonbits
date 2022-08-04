@@ -23,7 +23,7 @@ import java.util.function.Supplier;
 public class PupBlock extends PlantBlock implements Fertilizable {
 	public static final IntProperty AGE = Properties.AGE_3;
 	public static final BooleanProperty REPLANTED = Properties.PERSISTENT;
-	protected static final VoxelShape SHAPE = Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 16.0, 10.0);
+	protected static final VoxelShape SHAPE = Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 12.0, 10.0);
 
 	private final Supplier<Holder<? extends ConfiguredFeature<?, ?>>> feature;
 

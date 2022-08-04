@@ -4,6 +4,7 @@
 	"textures": {
 		"4": "moonbits:block/hardy_berry_stem",
 		"5": "moonbits:block/hardy_leaves"
+		"particle": "moonbits:block/hardy_bush_p"
 	},
 	"elements": [
 		{
