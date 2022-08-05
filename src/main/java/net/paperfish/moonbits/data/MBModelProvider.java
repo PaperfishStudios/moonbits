@@ -358,6 +358,14 @@ public class MBModelProvider extends FabricModelProvider {
 		tintableCross(MBBlocks.HARDY_SPROUT, TintType.NOT_TINTED, generator, false);
 		generator.registerSingleton(MBBlocks.DESERT_PLANTER, CUBE_BOTTOM_TOP);
 
+		generator.registerSingleton(MBBlocks.BRITTLEBUSH_LEAVES, TexturedModel.LEAVES);
+		generator.registerAmethyst(MBBlocks.BRITTLEBUSH_FLOWERS);
+		generator.registerItemModel(MBBlocks.BRITTLEBUSH_FLOWERS);
+		blockStateOnly(MBBlocks.OCOTILLO, "ocotillo", generator);
+		generator.registerItemModel(MBBlocks.OCOTILLO.asItem());
+		blockStateOnly(MBBlocks.FLOWERING_OCOTILLO, "flowering_ocotillo", generator);
+		generator.registerItemModel(MBBlocks.FLOWERING_OCOTILLO.asItem());
+
         generator.registerSimpleCubeAll(MBBlocks.CANVAS);
         generator.registerSimpleCubeAll(MBBlocks.FRAMED_CANVAS);
 

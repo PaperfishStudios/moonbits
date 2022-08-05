@@ -492,7 +492,7 @@
     "item.moonbits.hardy_berry_seed": "Hardy Berry Seed",
     "item.moonbits.hardy_stem": "Hardy Stem",
 	
-    "block.moonbits.hardy_stem": "Desert Planter",
+    "block.moonbits.desert_planter": "Desert Planter",
 	
 	"block.moonbits.cedar_planks": "Cedar Planks",
     "block.moonbits.cedar_sapling": "Cedar Sapling",
@@ -525,6 +525,14 @@
 	
     "item.moonbits.resin_bottle": "Resin Bottle",
     "item.moonbits.resin": "Resin",
+	
+	"block.moonbits.brittlebush_leaves": "Brittlebush Leaves", 
+	"block.moonbits.brittlebush_flowers": "Brittlebush Flowers", 
+	
+	"item.moonbits.brittlebush": "Brittlebush", 
+	
+	"block.moonbits.ocotillo": "Ocotillo", 
+	"block.moonbits.flowering_ocotillo": "Flowering Ocotillo", 
 	
     "block.moonbits.sand_layer": "Sand Layer",
     "block.moonbits.sandflow": "Sandflow",

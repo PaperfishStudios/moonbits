@@ -357,6 +357,12 @@ public class MBBlocks {
 	public static final Block HARDY_BUSH = new Block(AbstractBlock.Settings.copy(Blocks.AZALEA));
 	public static final Block HARDY_SPROUT = new MBSaplingBlock(new HardySproutGenerator(), AbstractBlock.Settings.copy(Blocks.AZALEA));
 
+	public static final Block BRITTLEBUSH_LEAVES = new BrittlebushLeavesBlock(AbstractBlock.Settings.copy(Blocks.AZALEA).ticksRandomly());
+	public static final Block BRITTLEBUSH_FLOWERS = new BrittlebushFlowersBlock(StatusEffects.WEAKNESS, 3, AbstractBlock.Settings.copy(Blocks.AZALEA).noCollision());
+
+	public static final Block OCOTILLO = new OcotilloBlock(OcotilloBlock.Stage.BARE, AbstractBlock.Settings.copy(Blocks.AZALEA));
+	public static final Block FLOWERING_OCOTILLO = new OcotilloBlock(OcotilloBlock.Stage.FLOWERING, AbstractBlock.Settings.copy(Blocks.AZALEA));
+
 	public static final Block DESERT_PLANTER = new PlanterBoxBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
 
 	public static final Block CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
@@ -1497,7 +1503,11 @@ public class MBBlocks {
 		createBlock("hardy_bush", HARDY_BUSH, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "hardy_sprout"), HARDY_SPROUT);
 
-		createBlock("desert_planter", DESERT_PLANTER, MBItemGroup.DECOR);
+		createBlock("brittlebush_leaves", BRITTLEBUSH_LEAVES, MBItemGroup.DECOR);
+		createBlock("brittlebush_flowers", BRITTLEBUSH_FLOWERS, MBItemGroup.DECOR);
+
+		createBlock("ocotillo", OCOTILLO, MBItemGroup.DECOR);
+		createBlock("flowering_ocotillo", FLOWERING_OCOTILLO, MBItemGroup.DECOR);
 
 		createBlock("parasol_fern_stem", PARASOL_FERN_STEM, MBItemGroup.DECOR);
 		createBlock("parasol_fern_crown", PARASOL_FERN_CROWN, MBItemGroup.DECOR);
@@ -1641,6 +1651,7 @@ public class MBBlocks {
 		createBlock("honey_planter_box", HONEY_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("crimson_planter_box", CRIMSON_PLANTER_BOX, MBItemGroup.DECOR);
 		createBlock("warped_planter_box", WARPED_PLANTER_BOX, MBItemGroup.DECOR);
+		createBlock("desert_planter", DESERT_PLANTER, MBItemGroup.DECOR);
 
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "lamproot_sign"), LAMPROOT_SIGN);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "lamproot_wall_sign"), LAMPROOT_WALL_SIGN);

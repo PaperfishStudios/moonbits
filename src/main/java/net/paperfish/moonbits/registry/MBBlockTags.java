@@ -34,6 +34,10 @@ public class MBBlockTags {
 	public static final TagKey<Block> SOIL_NON_REPLACEABLE = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "soil_non_replaceable"));
     // used for blocks that desert & beach plants can be planted on.
     public static final TagKey<Block> SANDY_SOILS = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "sandy_soils"));
+
+	// ocotillo plant blocks
+	public static final TagKey<Block> OCOTILLO = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "ocotillo"));
+
     // tag for which blocks can be replaced by deposits in worldgen (tough dirt ores)
 	public static final TagKey<Block> TOUGH_DIRT = TagKey.of(Registry.BLOCK_KEY, new Identifier(Moonbits.MODID, "tough_soils"));
     // tag for seat blocks

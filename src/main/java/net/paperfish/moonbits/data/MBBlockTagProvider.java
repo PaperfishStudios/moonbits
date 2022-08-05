@@ -574,6 +574,10 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 		this.getOrCreateTagBuilder(MBBlockTags.DESERT_PLANTERS).add(
 				MBBlocks.DESERT_PLANTER
 		);
+		this.getOrCreateTagBuilder(MBBlockTags.OCOTILLO).add(
+				MBBlocks.OCOTILLO,
+				MBBlocks.FLOWERING_OCOTILLO
+		);
         this.getOrCreateTagBuilder(BlockTags.STANDING_SIGNS).add(
                 MBBlocks.LAMPROOT_SIGN,
                 MBBlocks.CEDAR_SIGN,

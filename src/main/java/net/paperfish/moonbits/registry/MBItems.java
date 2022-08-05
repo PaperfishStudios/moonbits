@@ -46,6 +46,8 @@ public class MBItems {
 	public static final Item CHILI = new MushroomStewItem(new QuiltItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16)
 			.food((new FoodComponent.Builder()).hunger(7).saturationModifier(0.8f).build()));
 
+	public static final Item BRITTLEBUSH = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
+
 	public static final Item PRICKLY_PEAR = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD)
 			.food((new FoodComponent.Builder()).hunger(1).saturationModifier(0.3f).build()));
 	public static final Item COOKED_PRICKLY_PEAR = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD)
@@ -165,6 +167,8 @@ public class MBItems {
 		addItem("hardy_berry", HARDY_BERRY);
 		add("hardy_berry_seed", HARDY_BERRY_SEED);
 		addItem("hardy_stem", HARDY_STEM);
+
+		addItem("brittlebush", BRITTLEBUSH);
 
 		add("peanut", PEANUT);
 		addItem("roasted_peanuts", ROASTED_PEANUTS);

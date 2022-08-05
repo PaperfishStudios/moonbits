@@ -10,6 +10,7 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
@@ -75,11 +76,12 @@ public class PebbleBlock extends Block implements Waterloggable {
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+		Vec3d vec3d = state.getModelOffset(world, pos);
         return switch (state.get(PEBBLES)) {
-            case 2 -> TWO_PEBBLES_SHAPE;
-            case 3 -> THREE_PEBBLES_SHAPE;
-            case 4 -> FOUR_PEBBLES_SHAPE;
-            default -> ONE_PEBBLE_SHAPE;
+            case 2 -> TWO_PEBBLES_SHAPE.offset(vec3d.x, vec3d.y, vec3d.z);
+            case 3 -> THREE_PEBBLES_SHAPE.offset(vec3d.x, vec3d.y, vec3d.z);
+            case 4 -> FOUR_PEBBLES_SHAPE.offset(vec3d.x, vec3d.y, vec3d.z);
+            default -> ONE_PEBBLE_SHAPE.offset(vec3d.x, vec3d.y, vec3d.z);
         };
     }
 

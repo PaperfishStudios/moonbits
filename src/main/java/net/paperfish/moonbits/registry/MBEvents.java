@@ -19,11 +19,13 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.LootingEnchantLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.predicate.StatePredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -328,8 +330,10 @@ public class MBEvents {
 			if (Blocks.BEETROOTS.getLootTableId().equals(id)) {
 				LootPool.Builder poolBuilder = LootPool.builder()
 						.rolls(ConstantLootNumberProvider.create(1))
-						.with(ItemEntry.builder(Items.BEETROOT)).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 3)))
-						.apply(LootingEnchantLootFunction.builder(UniformLootNumberProvider.create(0.0f, 1.0f)));
+						.conditionally(BlockStatePropertyLootCondition.builder(Blocks.BEETROOTS)
+								.properties(StatePredicate.Builder.create().exactMatch(BeetrootsBlock.AGE, 3)))
+						.with(ItemEntry.builder(Items.BEETROOT))
+						.apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 3)));
 
 				table.pool(poolBuilder);
 			}

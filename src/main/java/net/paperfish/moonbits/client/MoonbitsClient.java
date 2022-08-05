@@ -71,6 +71,8 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.DESERT_BRUSH, MBBlocks.TALL_DESERT_BRUSH,
 				MBBlocks.HARDY_SPROUT, MBBlocks.HARDY_BUSH,
 				MBBlocks.PARASOL_LEAF, MBBlocks.PARASOL_PUP,
+				MBBlocks.BRITTLEBUSH_FLOWERS, MBBlocks.BRITTLEBUSH_LEAVES,
+				MBBlocks.OCOTILLO, MBBlocks.FLOWERING_OCOTILLO,
 
                 MBBlocks.REDSTONE_CLUSTER, MBBlocks.LARGE_REDSTONE_BUD, MBBlocks.MEDIUM_REDSTONE_BUD, MBBlocks.SMALL_REDSTONE_BUD,
 
@@ -82,7 +84,7 @@ public class MoonbitsClient implements ClientModInitializer {
 
                 MBBlocks.CEDAR_DOOR, MBBlocks.CEDAR_TRAPDOOR, MBBlocks.CEDAR_SAPLING, MBBlocks.POTTED_CEDAR_SAPLING,
 
-                MBBlocks.TREE_TAP,
+                MBBlocks.TREE_TAP, MBBlocks.SYRUP_TREE_TAP, MBBlocks.RESIN_TREE_TAP,
 
                 MBBlocks.FLOWERING_ACACIA_LEAVES,
 

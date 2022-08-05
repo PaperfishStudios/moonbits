@@ -274,6 +274,21 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 		addDrop(MBBlocks.HARDY_SPROUT, MBItems.HARDY_BERRY_SEED);
 		addDrop(MBBlocks.DESERT_PLANTER);
 
+		addDrop(MBBlocks.BRITTLEBUSH_FLOWERS, blockx -> dropsWithSilkTouch(
+				blockx,
+				applyExplosionDecay(
+						blockx,
+						ItemEntry.builder(MBItems.BRITTLEBUSH)
+								.apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)))
+								.apply(ApplyBonusLootFunction.uniformBonusCount(Enchantments.FORTUNE))
+								.apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(0, 2)))
+				)
+		));
+		addDrop(MBBlocks.BRITTLEBUSH_LEAVES, (Block l) -> hardyLeavesDrop(l, MBItems.BRITTLEBUSH, SAPLING_DROP_CHANCE));
+
+		addDrop(MBBlocks.OCOTILLO);
+		addDrop(MBBlocks.FLOWERING_OCOTILLO);
+
         BlockStatePropertyLootCondition.Builder peanutbuilder = BlockStatePropertyLootCondition.builder(MBBlocks.PEANUT_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(PeanutCropBlock.AGE, 7));
         this.addDrop(MBBlocks.PEANUT_CROP, BlockLootTableGenerator.applyExplosionDecay(MBBlocks.PEANUT_CROP, LootTable.builder().pool(LootPool.builder().with(ItemEntry.builder(MBItems.PEANUT)))
