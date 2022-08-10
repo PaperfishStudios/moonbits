@@ -121,6 +121,51 @@
     ]
   },
   
+  "block.ceramic.break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "moonbits:block/ceramic/dig1",
+      "moonbits:block/ceramic/dig2",
+      "moonbits:block/ceramic/dig3",
+      "moonbits:block/ceramic/dig4"
+    ]
+  },
+  "block.ceramic.fall": {
+    "sounds": [
+      "moonbits:block/ceramic/step1",
+      "moonbits:block/ceramic/step2",
+      "moonbits:block/ceramic/step3",
+      "moonbits:block/ceramic/step4"
+    ]
+  },
+  "block.ceramic.hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "moonbits:block/ceramic/step1",
+      "moonbits:block/ceramic/step2",
+      "moonbits:block/ceramic/step3",
+      "moonbits:block/ceramic/step4"
+    ]
+  },
+  "block.ceramic.place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "moonbits:block/ceramic/step1",
+      "moonbits:block/ceramic/step1",
+      "moonbits:block/ceramic/step1",
+      "moonbits:block/ceramic/step1"
+    ]
+  },
+  "block.ceramic.step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "moonbits:block/ceramic/step1",
+      "moonbits:block/ceramic/step2",
+      "moonbits:block/ceramic/step3",
+      "moonbits:block/ceramic/step4"
+    ]
+  },
+  
   "block.honeywood.break": {
     "subtitle": "subtitles.block.generic.break",
     "sounds": [

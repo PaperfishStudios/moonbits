@@ -220,6 +220,9 @@ public class MBModelProvider extends FabricModelProvider {
         toughGrass(generator);
         turf(generator);
 
+		blockStateOnly(MBBlocks.RABBIT_MOUND, "rabbit_mound", generator);
+		generator.registerItemModel(MBBlocks.RABBIT_MOUND.asItem());
+
         generator.registerSimpleCubeAll(MBBlocks.REGOLITH);
         generator.registerSimpleCubeAll(MBBlocks.PEAT_DEPOSIT);
         generator.registerSimpleCubeAll(MBBlocks.PEAT_MOSS);
@@ -365,6 +368,9 @@ public class MBModelProvider extends FabricModelProvider {
 		generator.registerItemModel(MBBlocks.OCOTILLO.asItem());
 		blockStateOnly(MBBlocks.FLOWERING_OCOTILLO, "flowering_ocotillo", generator);
 		generator.registerItemModel(MBBlocks.FLOWERING_OCOTILLO.asItem());
+
+		blockStateOnly(MBBlocks.DESERT_VASE, "desert_vase", generator);
+		generator.registerItemModel(MBBlocks.DESERT_VASE.asItem());
 
         generator.registerSimpleCubeAll(MBBlocks.CANVAS);
         generator.registerSimpleCubeAll(MBBlocks.FRAMED_CANVAS);

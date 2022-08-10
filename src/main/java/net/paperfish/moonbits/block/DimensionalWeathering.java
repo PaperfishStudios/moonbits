@@ -30,7 +30,7 @@ public interface DimensionalWeathering {
 
 //    public T getDegradationLevel();
 
-    default public void tryDegrade(BlockState state2, ServerWorld world, BlockPos pos, RandomGenerator random) {
+    default void tryDegrade(BlockState state2, ServerWorld world, BlockPos pos, RandomGenerator random) {
         BlockPos blockPos;
 //        int i = ((Enum)this.getDegradationLevel()).ordinal();
         int j = 0;

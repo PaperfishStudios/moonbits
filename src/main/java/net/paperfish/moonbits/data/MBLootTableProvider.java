@@ -13,12 +13,15 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.*;
+import net.minecraft.loot.entry.EmptyEntry;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.*;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.potion.Potions;
 import net.minecraft.predicate.NumberRange;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.predicate.item.EnchantmentPredicate;
@@ -36,15 +39,15 @@ import java.util.stream.Stream;
 
 public class MBLootTableProvider extends FabricBlockLootTableProvider {
     public List<Block> generatedBlocks = new ArrayList<>();
-    private static final LootCondition.Builder WITH_SILK_TOUCH = MatchToolLootCondition.builder(ItemPredicate.Builder.create().enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, NumberRange.IntRange.atLeast(1))));
-    private static final LootCondition.Builder WITHOUT_SILK_TOUCH = WITH_SILK_TOUCH.method_16780();
-    private static final LootCondition.Builder WITH_SHEARS = MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(Items.SHEARS));
-    private static final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_SHEARS.method_893(WITH_SILK_TOUCH);
-    private static final LootCondition.Builder WITHOUT_SILK_TOUCH_NOR_SHEARS = WITH_SILK_TOUCH_OR_SHEARS.method_16780();
-    private static final Set<Item> EXPLOSION_IMMUNE = Stream.of(Blocks.DRAGON_EGG, Blocks.BEACON, Blocks.CONDUIT, Blocks.SKELETON_SKULL, Blocks.WITHER_SKELETON_SKULL, Blocks.PLAYER_HEAD, Blocks.ZOMBIE_HEAD, Blocks.CREEPER_HEAD, Blocks.DRAGON_HEAD, Blocks.SHULKER_BOX, Blocks.BLACK_SHULKER_BOX, Blocks.BLUE_SHULKER_BOX, Blocks.BROWN_SHULKER_BOX, Blocks.CYAN_SHULKER_BOX, Blocks.GRAY_SHULKER_BOX, Blocks.GREEN_SHULKER_BOX, Blocks.LIGHT_BLUE_SHULKER_BOX, Blocks.LIGHT_GRAY_SHULKER_BOX, Blocks.LIME_SHULKER_BOX, Blocks.MAGENTA_SHULKER_BOX, Blocks.ORANGE_SHULKER_BOX, Blocks.PINK_SHULKER_BOX, Blocks.PURPLE_SHULKER_BOX, Blocks.RED_SHULKER_BOX, Blocks.WHITE_SHULKER_BOX, Blocks.YELLOW_SHULKER_BOX).map(ItemConvertible::asItem).collect(ImmutableSet.toImmutableSet());
-    private static final float[] SAPLING_DROP_CHANCE = new float[]{0.05f, 0.0625f, 0.083333336f, 0.1f};
-    private static final float[] JUNGLE_SAPLING_DROP_CHANCE = new float[]{0.025f, 0.027777778f, 0.03125f, 0.041666668f, 0.1f};
-    private static final float[] LEAVES_STICK_DROP_CHANCE = new float[]{0.02f, 0.022222223f, 0.025f, 0.033333335f, 0.1f};
+	public static final LootCondition.Builder WITH_SILK_TOUCH = MatchToolLootCondition.builder(ItemPredicate.Builder.create().enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, NumberRange.IntRange.atLeast(1))));
+	public static final LootCondition.Builder WITHOUT_SILK_TOUCH = WITH_SILK_TOUCH.method_16780();
+	public static final LootCondition.Builder WITH_SHEARS = MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(Items.SHEARS));
+	public static final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_SHEARS.method_893(WITH_SILK_TOUCH);
+	public static final LootCondition.Builder WITHOUT_SILK_TOUCH_NOR_SHEARS = WITH_SILK_TOUCH_OR_SHEARS.method_16780();
+	public static final Set<Item> EXPLOSION_IMMUNE = Stream.of(Blocks.DRAGON_EGG, Blocks.BEACON, Blocks.CONDUIT, Blocks.SKELETON_SKULL, Blocks.WITHER_SKELETON_SKULL, Blocks.PLAYER_HEAD, Blocks.ZOMBIE_HEAD, Blocks.CREEPER_HEAD, Blocks.DRAGON_HEAD, Blocks.SHULKER_BOX, Blocks.BLACK_SHULKER_BOX, Blocks.BLUE_SHULKER_BOX, Blocks.BROWN_SHULKER_BOX, Blocks.CYAN_SHULKER_BOX, Blocks.GRAY_SHULKER_BOX, Blocks.GREEN_SHULKER_BOX, Blocks.LIGHT_BLUE_SHULKER_BOX, Blocks.LIGHT_GRAY_SHULKER_BOX, Blocks.LIME_SHULKER_BOX, Blocks.MAGENTA_SHULKER_BOX, Blocks.ORANGE_SHULKER_BOX, Blocks.PINK_SHULKER_BOX, Blocks.PURPLE_SHULKER_BOX, Blocks.RED_SHULKER_BOX, Blocks.WHITE_SHULKER_BOX, Blocks.YELLOW_SHULKER_BOX).map(ItemConvertible::asItem).collect(ImmutableSet.toImmutableSet());
+	public static final float[] SAPLING_DROP_CHANCE = new float[]{0.05f, 0.0625f, 0.083333336f, 0.1f};
+	public static final float[] JUNGLE_SAPLING_DROP_CHANCE = new float[]{0.025f, 0.027777778f, 0.03125f, 0.041666668f, 0.1f};
+	public static final float[] LEAVES_STICK_DROP_CHANCE = new float[]{0.02f, 0.022222223f, 0.025f, 0.033333335f, 0.1f};
     protected MBLootTableProvider(FabricDataGenerator dataGenerator) {
         super(dataGenerator);
     }
@@ -273,6 +276,48 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 		addDrop(MBBlocks.HARDY_BUSH, (Block l) -> hardyLeavesDropStem(l, MBItems.HARDY_STEM, SAPLING_DROP_CHANCE));
 		addDrop(MBBlocks.HARDY_SPROUT, MBItems.HARDY_BERRY_SEED);
 		addDrop(MBBlocks.DESERT_PLANTER);
+
+		addDrop(MBBlocks.DESERT_VASE, LootTable.builder()
+				.pool(LootPool.builder()
+						.rolls(ConstantLootNumberProvider.create(1.0F))
+						// junk
+						.with(ItemEntry.builder(Items.BONE).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 4.0F))))
+						.with(ItemEntry.builder(Items.ROTTEN_FLESH).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
+						.with(ItemEntry.builder(MBItems.BURLAP).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 4.0F))))
+						.with(ItemEntry.builder(Items.STRING).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 6.0F))))
+						.with(ItemEntry.builder(Blocks.SAND).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3.0F, 8.0F))))
+						// gear
+						.with(ItemEntry.builder(Items.GUNPOWDER).weight(10).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F))))
+						.with(ItemEntry.builder(Items.TORCH).weight(10).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0F, 8.0F))))
+						.with(ItemEntry.builder(Items.HONEY_BOTTLE).weight(10).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F))))
+						.with(ItemEntry.builder(MBItems.PARASOL_FIBER).weight(10).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3.0F, 9.0F))))
+						.with(ItemEntry.builder(Items.ARROW).weight(10).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(5.0F, 14.0F))))
+						// valuables
+						.with(ItemEntry.builder(Items.EMERALD).weight(3).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 5.0F))))
+						.with(ItemEntry.builder(Items.GOLD_NUGGET).weight(3).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(4.0F, 12.0F))))
+						.with(ItemEntry.builder(Items.GOLD_NUGGET).weight(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(10.0F, 18.0F))))
+						.with(ItemEntry.builder(Items.LAPIS_LAZULI).weight(3).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 4.0F))))
+						.with(ItemEntry.builder(Items.LAPIS_LAZULI).weight(1).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 9.0F))))
+						.with(ItemEntry.builder(Items.POTION).weight(1).apply(SetPotionFunction.builder(Potions.HEALING)))
+						.with(ItemEntry.builder(Items.POTION).weight(1).apply(SetPotionFunction.builder(Potions.HARMING)))
+				)
+		);
+
+		addDrop(MBBlocks.RABBIT_MOUND, LootTable.builder()
+				.pool(LootPool.builder()
+						.rolls(ConstantLootNumberProvider.create(1.0F))
+						// common stuff
+						.with(ItemEntry.builder(Items.CARROT).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 5.0F))))
+						.with(ItemEntry.builder(Items.CARROT).weight(10).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
+						.with(ItemEntry.builder(MBBlocks.PEBBLES).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
+						.with(ItemEntry.builder(Items.WHEAT_SEEDS).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
+						.with(ItemEntry.builder(Items.CLAY_BALL).weight(10).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 4.0F))))
+						.with(EmptyEntry.builder())
+						// valuables
+						.with(ItemEntry.builder(Items.GOLDEN_CARROT).weight(1))
+						.with(ItemEntry.builder(Items.RABBIT_FOOT).weight(2))
+				)
+		);
 
 		addDrop(MBBlocks.BRITTLEBUSH_FLOWERS, blockx -> dropsWithSilkTouch(
 				blockx,

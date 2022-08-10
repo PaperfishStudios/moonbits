@@ -97,6 +97,10 @@ public class MBPlacedVegFeatures {
             MBVegetationFeatures.FLOOD_BARREL_CACTI, CountPlacementModifier.create(3), InSquarePlacementModifier.getInstance(),
             HeightRangePlacementModifier.trapezoid(YOffset.fixed(67), YOffset.fixed(72)), BiomePlacementModifier.getInstance());
 
+	public static final Holder<PlacedFeature> OCOTILLO_PATCH = MBPlacedFeatures.register("p_ocotillo",
+			MBVegetationFeatures.OCOTILLO_PATCH, CountPlacementModifier.create(4), InSquarePlacementModifier.getInstance(),
+			PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
+
     public static final Holder<PlacedFeature> ORE_CRACKED_MUD = MBPlacedFeatures.register("p_cracked_mud",
             MBVegetationFeatures.PATCH_CRACKED_MUD, MBPlacedCaveFeatures.modifiersWithCount(2, HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
 

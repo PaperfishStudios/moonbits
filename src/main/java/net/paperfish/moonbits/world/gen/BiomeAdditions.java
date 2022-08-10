@@ -108,6 +108,7 @@ public class BiomeAdditions {
                 .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.isIn(BiomeTags.IS_BADLANDS), (c) -> {
                     c.getGenerationSettings().removeBuiltInFeature(VegetationPlacedFeatures.TREES_BADLANDS.value());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.CEDARS.getKey().get());
+					c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.OCOTILLO_PATCH.getKey().get());
                 });
 
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_tundra"))
@@ -139,7 +140,6 @@ public class BiomeAdditions {
 //                    c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, MBPlacedCaveFeatures.CAVEBLOOMS.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_PEAT_HIGH.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.ORE_PEAT_MOSS.getKey().get());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.ORE_RICH_MUD.getKey().get());
                 });
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_meadow"))
                 // meadow-only cave stuff

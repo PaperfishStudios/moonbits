@@ -31,12 +31,14 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.event.GameEvent;
 import net.paperfish.moonbits.Moonbits;
+import net.paperfish.moonbits.data.MBLootTableProvider;
 import net.paperfish.moonbits.mixin.PigSaddleAccess;
 import net.paperfish.moonbits.mixin.StriderSaddleAccess;
 import net.paperfish.moonbits.recipe.WashingHandler;
@@ -107,7 +109,47 @@ public class MBEvents {
 			.build();
 	public static final Map<Block, Item> TAP_RESULT = new ImmutableMap.Builder<Block, Item>()
 			.put(MBBlocks.SYRUP_TREE_TAP, MBItems.SYRUP_BOTTLE)
-			.put(MBBlocks.RESIN_TREE_TAP, MBItems.RESIN_BOTTLE)
+			.put(MBBlocks.RESIN_TREE_TAP, MBItems.RESIN)
+			.build();
+
+	public static final Map<Identifier, Item> GLASS_SHARD_LOOT = new ImmutableMap.Builder<Identifier, Item>()
+			.put(Blocks.GLASS.getLootTableId(), MBItems.GLASS_SHARD)
+			.put(Blocks.ICE.getLootTableId(), MBItems.ICE_CUBES)
+			.put(Blocks.WHITE_STAINED_GLASS.getLootTableId(), MBItems.WHITE_GLASS_SHARD)
+			.put(Blocks.LIGHT_GRAY_STAINED_GLASS.getLootTableId(), MBItems.LIGHT_GRAY_GLASS_SHARD)
+			.put(Blocks.GRAY_STAINED_GLASS.getLootTableId(), MBItems.GRAY_GLASS_SHARD)
+			.put(Blocks.BLACK_STAINED_GLASS.getLootTableId(), MBItems.BLACK_GLASS_SHARD)
+			.put(Blocks.GREEN_STAINED_GLASS.getLootTableId(), MBItems.GREEN_GLASS_SHARD)
+			.put(Blocks.LIME_STAINED_GLASS.getLootTableId(), MBItems.LIME_GLASS_SHARD)
+			.put(Blocks.YELLOW_STAINED_GLASS.getLootTableId(), MBItems.YELLOW_GLASS_SHARD)
+			.put(Blocks.ORANGE_STAINED_GLASS.getLootTableId(), MBItems.ORANGE_GLASS_SHARD)
+			.put(Blocks.BROWN_STAINED_GLASS.getLootTableId(), MBItems.BROWN_GLASS_SHARD)
+			.put(Blocks.RED_STAINED_GLASS.getLootTableId(), MBItems.RED_GLASS_SHARD)
+			.put(Blocks.PINK_STAINED_GLASS.getLootTableId(), MBItems.PINK_GLASS_SHARD)
+			.put(Blocks.MAGENTA_STAINED_GLASS.getLootTableId(), MBItems.MAGENTA_GLASS_SHARD)
+			.put(Blocks.PURPLE_STAINED_GLASS.getLootTableId(), MBItems.PURPLE_GLASS_SHARD)
+			.put(Blocks.LIGHT_BLUE_STAINED_GLASS.getLootTableId(), MBItems.LIGHT_BLUE_GLASS_SHARD)
+			.put(Blocks.CYAN_STAINED_GLASS.getLootTableId(), MBItems.CYAN_GLASS_SHARD)
+			.put(Blocks.BLUE_STAINED_GLASS.getLootTableId(), MBItems.BLUE_GLASS_SHARD)
+			.build();
+	public static final Map<Identifier, Item> GLASS_SHARD_PANE_LOOT = new ImmutableMap.Builder<Identifier, Item>()
+			.put(Blocks.GLASS_PANE.getLootTableId(), MBItems.GLASS_SHARD)
+			.put(Blocks.WHITE_STAINED_GLASS_PANE.getLootTableId(), MBItems.WHITE_GLASS_SHARD)
+			.put(Blocks.LIGHT_GRAY_STAINED_GLASS_PANE.getLootTableId(), MBItems.LIGHT_GRAY_GLASS_SHARD)
+			.put(Blocks.GRAY_STAINED_GLASS_PANE.getLootTableId(), MBItems.GRAY_GLASS_SHARD)
+			.put(Blocks.BLACK_STAINED_GLASS_PANE.getLootTableId(), MBItems.BLACK_GLASS_SHARD)
+			.put(Blocks.GREEN_STAINED_GLASS_PANE.getLootTableId(), MBItems.GREEN_GLASS_SHARD)
+			.put(Blocks.LIME_STAINED_GLASS_PANE.getLootTableId(), MBItems.LIME_GLASS_SHARD)
+			.put(Blocks.YELLOW_STAINED_GLASS_PANE.getLootTableId(), MBItems.YELLOW_GLASS_SHARD)
+			.put(Blocks.ORANGE_STAINED_GLASS_PANE.getLootTableId(), MBItems.ORANGE_GLASS_SHARD)
+			.put(Blocks.BROWN_STAINED_GLASS_PANE.getLootTableId(), MBItems.BROWN_GLASS_SHARD)
+			.put(Blocks.RED_STAINED_GLASS_PANE.getLootTableId(), MBItems.RED_GLASS_SHARD)
+			.put(Blocks.PINK_STAINED_GLASS_PANE.getLootTableId(), MBItems.PINK_GLASS_SHARD)
+			.put(Blocks.MAGENTA_STAINED_GLASS_PANE.getLootTableId(), MBItems.MAGENTA_GLASS_SHARD)
+			.put(Blocks.PURPLE_STAINED_GLASS_PANE.getLootTableId(), MBItems.PURPLE_GLASS_SHARD)
+			.put(Blocks.LIGHT_BLUE_STAINED_GLASS_PANE.getLootTableId(), MBItems.LIGHT_BLUE_GLASS_SHARD)
+			.put(Blocks.CYAN_STAINED_GLASS_PANE.getLootTableId(), MBItems.CYAN_GLASS_SHARD)
+			.put(Blocks.BLUE_STAINED_GLASS_PANE.getLootTableId(), MBItems.BLUE_GLASS_SHARD)
 			.build();
 
     public static void initEvents() {
@@ -230,12 +272,12 @@ public class MBEvents {
                 boolean success = false;
                 if (targetBlock.isOf(Blocks.GRASS_BLOCK) || targetBlock.isOf(MBBlocks.TOUGH_GRASS)) {
                     world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.TOUGH_GRASS) ? MBBlocks.TOUGH_DIRT.getDefaultState() : Blocks.DIRT.getDefaultState());
-                    Block.dropStack(world, dropFromFullBlock(targetPos, world), new ItemStack(MBItems.GRASS_TUFT));
+                    Block.dropStack(world, new BlockPos(targetPos.getX()+0.5, targetPos.getY()+1.1, targetPos.getZ()+0.5), new ItemStack(MBItems.GRASS_TUFT));
                     success = true;
                 }
                 if (targetBlock.isOf(Blocks.MYCELIUM)) {
                     world.setBlockState(targetPos, Blocks.DIRT.getDefaultState());
-                    Block.dropStack(world, dropFromFullBlock(targetPos, world), new ItemStack(MBBlocks.MYCELIUM_ROOTS));
+                    Block.dropStack(world, new BlockPos(targetPos.getX()+0.5, targetPos.getY()+1.1, targetPos.getZ()+0.5), new ItemStack(MBBlocks.MYCELIUM_ROOTS));
                     success = true;
                 }
 //                else if (targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) || targetBlock.isOf(MBBlocks.GLOW_BERRY_HEDGE)) {
@@ -337,28 +379,25 @@ public class MBEvents {
 
 				table.pool(poolBuilder);
 			}
+			if (GLASS_SHARD_LOOT.containsKey(id)) {
+				table.pool((basicDrop(GLASS_SHARD_LOOT.get(id), 1, 3)).conditionally(MBLootTableProvider.WITHOUT_SILK_TOUCH));
+			}
+			if (GLASS_SHARD_PANE_LOOT.containsKey(id)) {
+				table.pool((basicDrop(GLASS_SHARD_PANE_LOOT.get(id), 1)).conditionally(MBLootTableProvider.WITHOUT_SILK_TOUCH));
+			}
         });
     }
 
-    public static BlockPos dropFromFullBlock(BlockPos block, World world) {
-        if (world.getBlockState(block.up()).isSideSolidFullSquare(world, block.up(), Direction.DOWN)) {
-            return block.up();
-        }
-        else if (world.getBlockState(block.north()).isSideSolidFullSquare(world, block.north(), Direction.SOUTH)) {
-            return block.north();
-        }
-        else if (world.getBlockState(block.south()).isSideSolidFullSquare(world, block.south(), Direction.NORTH)) {
-            return block.south();
-        }
-        else if (world.getBlockState(block.east()).isSideSolidFullSquare(world, block.east(), Direction.WEST)) {
-            return block.east();
-        }
-        else if (world.getBlockState(block.west()).isSideSolidFullSquare(world, block.west(), Direction.EAST)) {
-            return block.west();
-        }
-        else if (world.getBlockState(block.down()).isSideSolidFullSquare(world, block.down(), Direction.UP)) {
-            return block.down();
-        }
-        return block.up();
-    }
+	public static LootPool.Builder basicDrop(ItemConvertible item, int count) {
+		return LootPool.builder()
+				.rolls(ConstantLootNumberProvider.create(1))
+				.with(ItemEntry.builder(item))
+				.apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(count)));
+	}
+	public static LootPool.Builder basicDrop(ItemConvertible item, int min, int max) {
+		return LootPool.builder()
+				.rolls(ConstantLootNumberProvider.create(1))
+				.with(ItemEntry.builder(item))
+				.apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(min, max)));
+	}
 }

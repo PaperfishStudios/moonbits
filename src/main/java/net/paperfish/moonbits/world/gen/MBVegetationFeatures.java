@@ -10,6 +10,7 @@ import net.minecraft.util.HolderSet;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Range;
+import net.minecraft.util.math.intprovider.BiasedToBottomIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
 import net.minecraft.util.registry.Registry;
@@ -23,6 +24,7 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.DualNoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.NoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.paperfish.moonbits.block.OcotilloBlock;
 import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.block.BarrelCactusBlock;
 import net.paperfish.moonbits.block.PebbleBlock;
@@ -137,6 +139,27 @@ public class MBVegetationFeatures {
                             .build())), BlockPredicateFilterPlacementModifier.create(
 							BlockPredicate.bothOf(BlockPredicate.IS_AIR, BlockPredicate.wouldSurvive(MBBlocks.BARREL_CACTUS.getDefaultState(), BlockPos.ORIGIN))
 					))));
+	public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> OCOTILLO_PATCH = MBConfiguredFeatures.register(
+			"ocotillo_patch",
+			Feature.RANDOM_PATCH,
+			ConfiguredFeatureUtil.createRandomPatchFeatureConfig(
+					10,
+					PlacedFeatureUtil.placedInline(
+							Feature.BLOCK_COLUMN,
+							BlockColumnFeatureConfig.create(BiasedToBottomIntProvider.create(2, 5),
+									new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
+									.add(MBBlocks.OCOTILLO.getDefaultState().with(OcotilloBlock.AGE, 12), 4)
+									.add(MBBlocks.OCOTILLO.getDefaultState().with(OcotilloBlock.AGE, 15), 6)
+									.add(MBBlocks.FLOWERING_OCOTILLO.getDefaultState().with(OcotilloBlock.AGE, 12), 2)
+									.add(MBBlocks.FLOWERING_OCOTILLO.getDefaultState().with(OcotilloBlock.AGE, 15), 4)
+									.build())
+							),
+							BlockPredicateFilterPlacementModifier.create(
+									BlockPredicate.bothOf(BlockPredicate.IS_AIR, BlockPredicate.wouldSurvive(MBBlocks.OCOTILLO.getDefaultState(), BlockPos.ORIGIN))
+							)
+					)
+			)
+	);
 
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> COTTONGRASS =
             MBConfiguredFeatures.register("patch_cottongrass", Feature.RANDOM_PATCH, createPatch(12, BlockStateProvider.of(MBBlocks.COTTONGRASS)));

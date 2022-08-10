@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.SignType;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
+import net.paperfish.moonbits.DirtMoundBlock;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
 import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
@@ -248,8 +249,10 @@ public class MBBlocks {
 	public static final Block SYRUP_BLOCK = new SyrupBlock(AbstractBlock.Settings.copy(Blocks.HONEY_BLOCK).dynamicBounds());
 
 	public static final Block TREE_TAP = new TreeTapBlock(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK));
-	public static final Block SYRUP_TREE_TAP = new FilledTreeTapBlock(AbstractBlock.Settings.copy(TREE_TAP).dropsLike(TREE_TAP));
-	public static final Block RESIN_TREE_TAP = new FilledTreeTapBlock(AbstractBlock.Settings.copy(TREE_TAP).dropsLike(TREE_TAP));
+	public static final Block SYRUP_TREE_TAP = new FilledTreeTapBlock(true, AbstractBlock.Settings.copy(TREE_TAP).dropsLike(TREE_TAP));
+	public static final Block RESIN_TREE_TAP = new FilledTreeTapBlock(false, AbstractBlock.Settings.copy(TREE_TAP).dropsLike(TREE_TAP));
+
+	public static final Block RABBIT_MOUND = new DirtMoundBlock(AbstractBlock.Settings.copy(Blocks.DIRT).strength(0.3f));
 
 	// SNOW DAY
 
@@ -364,6 +367,8 @@ public class MBBlocks {
 	public static final Block FLOWERING_OCOTILLO = new OcotilloBlock(OcotilloBlock.Stage.FLOWERING, AbstractBlock.Settings.copy(Blocks.AZALEA));
 
 	public static final Block DESERT_PLANTER = new PlanterBoxBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS));
+
+	public static final Block DESERT_VASE = new VaseBlock(AbstractBlock.Settings.copy(Blocks.TERRACOTTA).sounds(MBSounds.CERAMIC));
 
 	public static final Block CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
 	public static final Block FRAMED_CANVAS = new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).mapColor(MapColor.PALE_YELLOW));
@@ -1517,6 +1522,8 @@ public class MBBlocks {
 		createBlock("parasol_fern_fiber_stairs", PARASOL_FERN_FIBER_STAIRS, MBItemGroup.DECOR);
 		createBlock("parasol_pup", PARASOL_PUP, MBItemGroup.DECOR);
 
+		createBlock("desert_vase", DESERT_VASE, MBItemGroup.DECOR);
+
 //		createBlock("aspen_trim", ASPEN_TRIM, MBItemGroup.DECOR);
 //		createBlock("aspen_window", ASPEN_WINDOW, MBItemGroup.DECOR);
 //		createBlock("aspen_lantern", ASPEN_LANTERN, MBItemGroup.DECOR);
@@ -1546,6 +1553,7 @@ public class MBBlocks {
 
 		// PLANTS
 		createBlock("pebbles", PEBBLES, MBItemGroup.DECOR);
+		createBlock("rabbit_mound", RABBIT_MOUND, MBItemGroup.DECOR);
 
 		createBlock("beachgrass", BEACHGRASS, MBItemGroup.DECOR);
 		createBlock("tall_beachgrass", TALL_BEACHGRASS, MBItemGroup.DECOR);

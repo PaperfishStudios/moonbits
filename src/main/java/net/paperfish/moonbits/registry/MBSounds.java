@@ -18,6 +18,7 @@ public class MBSounds {
     public static final SoundEvent BLOCK_BUNDLE_STEP = register("block.bundle.step");
     public static final BlockSoundGroup BUNDLE = new BlockSoundGroup(0.75f, 1.0f,
             BLOCK_BUNDLE_BREAK, BLOCK_BUNDLE_STEP, BLOCK_BUNDLE_PLACE, BLOCK_BUNDLE_HIT, BLOCK_BUNDLE_FALL);
+
     public static final SoundEvent BLOCK_SACK_BREAK = register("block.sack.break");
     public static final SoundEvent BLOCK_SACK_FALL = register("block.sack.fall");
     public static final SoundEvent BLOCK_SACK_HIT = register("block.sack.hit");
@@ -25,6 +26,14 @@ public class MBSounds {
     public static final SoundEvent BLOCK_SACK_STEP = register("block.sack.step");
     public static final BlockSoundGroup SACK = new BlockSoundGroup(1.0f, 1.0f,
             BLOCK_SACK_BREAK, BLOCK_SACK_STEP, BLOCK_SACK_PLACE, BLOCK_SACK_HIT, BLOCK_SACK_FALL);
+
+	public static final SoundEvent BLOCK_CERAMIC_BREAK = register("block.ceramic.break");
+	public static final SoundEvent BLOCK_CERAMIC_FALL = register("block.ceramic.fall");
+	public static final SoundEvent BLOCK_CERAMIC_HIT = register("block.ceramic.hit");
+	public static final SoundEvent BLOCK_CERAMIC_PLACE = register("block.ceramic.place");
+	public static final SoundEvent BLOCK_CERAMIC_STEP = register("block.ceramic.step");
+	public static final BlockSoundGroup CERAMIC = new BlockSoundGroup(0.75f, 1.0f,
+			BLOCK_CERAMIC_BREAK, BLOCK_CERAMIC_STEP, BLOCK_CERAMIC_PLACE, BLOCK_CERAMIC_HIT, BLOCK_CERAMIC_FALL);
 
 
     // item sounds

@@ -202,6 +202,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.PEAT_MOSS,
                 MBBlocks.PEAT_BLOCK,
 
+				MBBlocks.RABBIT_MOUND,
+
 				MBBlocks.SANDY_SOIL,
 
                 MBBlocks.TIN_DEPOSIT,
@@ -239,6 +241,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 MBBlocks.PARASOL_FERN_CROWN,
                 MBBlocks.PARASOL_FERN_STEM,
+
+				MBBlocks.DESERT_PLANTER,
 
                 MBBlocks.FROSTHORN_CROWN,
                 MBBlocks.FROSTHORN_STEM,
@@ -379,6 +383,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.HEMATITE_BLOCK,
 
                 MBBlocks.CRACKED_MUD,
+
+				MBBlocks.DESERT_VASE,
 
                 MBBlocks.PACKED_GLOWSTONE,
 

@@ -267,21 +267,7 @@
     "block.moonbits.red_oak_leaf_carpet": "Red Oak Leaf Carpet",
     "block.moonbits.red_oak_sapling": "Red Oak Sapling",
 	
-    "block.moonbits.aspen_leaves": "Aspen Leaves",
-    "block.moonbits.aspen_leaf_carpet": "Aspen Leaf Carpet",
-    "block.moonbits.aspen_sapling": "Aspen Shoot",
-    "block.moonbits.aspen_trunk": "Aspen Trunk",
-    "block.moonbits.stripped_aspen_trunk": "Stripped Aspen Trunk",
-    "block.moonbits.aspen_planks": "Aspen Planks",
-    "block.moonbits.aspen_slab": "Aspen Slab",
-    "block.moonbits.aspen_stairs": "Aspen Stairs",
-    "block.moonbits.aspen_trim": "Aspen Trim",
-    "block.moonbits.aspen_lattice": "Aspen Lattice",
-    "block.moonbits.aspen_lantern": "Aspen Lantern",
-    "block.moonbits.aspen_soul_lantern": "Aspen Soul Lantern",
-    "block.moonbits.aspen_window": "Aspen Window",
-    "block.moonbits.aspen_palisade": "Aspen Palisade",
-    "block.moonbits.stripped_aspen_palisade": "Stripped Aspen Palisade",
+    "block.moonbits.rabbit_mound": "Rabbit Mound",
 	
     "item.moonbits.milk_bottle": "Milk Bottle",
     "item.moonbits.syrup_bottle": "Syrup Bottle",
@@ -525,6 +511,7 @@
 	
     "item.moonbits.resin_bottle": "Resin Bottle",
     "item.moonbits.resin": "Resin",
+	"block.moonbits.resin_block": "Resin Block", 
 	
 	"block.moonbits.brittlebush_leaves": "Brittlebush Leaves", 
 	"block.moonbits.brittlebush_flowers": "Brittlebush Flowers", 
@@ -600,6 +587,8 @@
     "item.moonbits.burlap": "Burlap",
     "block.moonbits.canvas": "Canvas",
     "block.moonbits.framed_canvas": "Framed Canvas",
+	
+    "block.moonbits.desert_vase": "Desert Vase",
 	
     "block.moonbits.flowering_acacia_leaves": "Flowering Acacia Leaves",
     "block.moonbits.hanging_acacia_leaves": "Hanging Acacia Flowers",
@@ -1125,6 +1114,9 @@
 	"block.moonbits.cracked_basalt_tile_stairs": "Cracked Basalt Tile Stairs",
 	"block.moonbits.cracked_basalt_tile_wall": "Cracked Basalt Tile Wall",
 	"block.moonbits.chiseled_basalt": "Chiseled Basalt",
+	"block.moonbits.smooth_basalt_slab": "Smooth Basalt Slab",
+	"block.moonbits.smooth_basalt_stairs": "Smooth Basalt Stairs",
+	"block.moonbits.smooth_basalt_wall": "Smooth Basalt Wall",
 	
 	"block.moonbits.polished_end_stone": "Polished End Stone",
 	"block.moonbits.cracked_end_stone_bricks": "Cracked End Stone Bricks",
