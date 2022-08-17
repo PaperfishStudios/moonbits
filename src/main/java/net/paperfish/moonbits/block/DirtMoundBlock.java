@@ -1,4 +1,4 @@
-package net.paperfish.moonbits;
+package net.paperfish.moonbits.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

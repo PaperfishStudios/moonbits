@@ -2,6 +2,7 @@ package net.paperfish.moonbits.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.item.Items;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.ItemTags;
@@ -18,7 +19,7 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void generateTags() {
-        getOrCreateTagBuilder(MBItemTags.AXES).add(Items.WOODEN_AXE, Items.STONE_AXE, Items.IRON_AXE, Items.GOLDEN_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE);
+//        getOrCreateTagBuilder(MBItemTags.AXES).add(Items.WOODEN_AXE, Items.STONE_AXE, Items.IRON_AXE, Items.GOLDEN_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE);
 
         copy(BlockTags.WOOL, ItemTags.WOOL);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
@@ -96,6 +97,22 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(MBItemTags.MILK).add(Items.MILK_BUCKET, MBItems.MILK_BOTTLE);
         getOrCreateTagBuilder(MBItemTags.HONEY).add(Items.HONEY_BOTTLE, Items.HONEYCOMB);
         getOrCreateTagBuilder(MBItemTags.PEANUT).add(MBItems.PEANUT, MBItems.ROASTED_PEANUTS);
+
+		getOrCreateTagBuilder(ConventionalItemTags.SWORDS).add(
+				MBItems.FLINT_SWORD
+		);
+		getOrCreateTagBuilder(ConventionalItemTags.SHOVELS).add(
+				MBItems.FLINT_SHOVEL
+		);
+		getOrCreateTagBuilder(ConventionalItemTags.PICKAXES).add(
+				MBItems.FLINT_PICKAXE
+		);
+		getOrCreateTagBuilder(ConventionalItemTags.AXES).add(
+				MBItems.FLINT_AXE
+		);
+		getOrCreateTagBuilder(ConventionalItemTags.HOES).add(
+				MBItems.FLINT_HOE
+		);
 
         // cooking tags
         getOrCreateTagBuilder(MBItemTags.COOKING_FRUITS).add(

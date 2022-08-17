@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.SignType;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
-import net.paperfish.moonbits.DirtMoundBlock;
+import net.paperfish.moonbits.block.DirtMoundBlock;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.*;
 import net.paperfish.moonbits.block.cauldron.HoneyCauldronBlock;
@@ -275,6 +275,7 @@ public class MBBlocks {
 	public static final Block FROST_GOLD = new Block(AbstractBlock.Settings.copy(PERMAFROST));
 	public static final Block FROST_COPPER = new Block(AbstractBlock.Settings.copy(PERMAFROST));
 	public static final Block FROST_CLAY = new Block(AbstractBlock.Settings.copy(PERMAFROST));
+	public static final Block FROST_FLINT = new Block(AbstractBlock.Settings.copy(PERMAFROST));
 
 	public static final Block TILL = new MBSnowyBlock(AbstractBlock.Settings.copy(Blocks.STONE));
 	public static final Block TILL_SLAB = new SlabBlock(AbstractBlock.Settings.copy(TILL));
@@ -524,6 +525,7 @@ public class MBBlocks {
 
 	public static final Block PEAT_DEPOSIT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
 	public static final Block CLAY_DEPOSIT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
+	public static final Block FLINT_DEPOSIT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
 	public static final Block GOLD_DEPOSIT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
 	public static final Block COPPER_DEPOSIT = new Block(QuiltBlockSettings.of(Material.SOIL).hardness(1.2f).sounds(BlockSoundGroup.GRAVEL));
 
@@ -1214,6 +1216,8 @@ public class MBBlocks {
 		createBlock("frost_peat_deposit", FROST_PEAT, MBItemGroup.CONSTRUCTION);
 		createBlock("clay_deposit", CLAY_DEPOSIT, MBItemGroup.CONSTRUCTION);
 		createBlock("frost_clay_deposit", FROST_CLAY, MBItemGroup.CONSTRUCTION);
+		createBlock("flint_deposit", FLINT_DEPOSIT, MBItemGroup.CONSTRUCTION);
+		createBlock("frost_flint_deposit", FROST_FLINT, MBItemGroup.CONSTRUCTION);
 		createBlock("gold_deposit", GOLD_DEPOSIT, MBItemGroup.CONSTRUCTION);
 		createBlock("frost_gold_deposit", FROST_GOLD, MBItemGroup.CONSTRUCTION);
 		createBlock("mud_gold_deposit", MUD_GOLD_DEPOSIT, MBItemGroup.CONSTRUCTION);

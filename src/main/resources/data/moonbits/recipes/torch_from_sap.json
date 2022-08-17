@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "moonbits:sap"
+    },
+    {
+      "item": "moonbits:sap"
+    },
+    {
+      "item": "moonbits:sap"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:torch"
+  }
+}

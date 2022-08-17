@@ -40,7 +40,7 @@ public class MBSurfaceRules {
 
     public static SurfaceRules.MaterialRule makeRules() {
         SurfaceRules.MaterialCondition shallowDC = SurfaceRules.biome(
-            BiomeKeys.SAVANNA, BiomeKeys.SAVANNA_PLATEAU, BiomeKeys.WINDSWEPT_SAVANNA, BiomeKeys.BEACH
+            BiomeKeys.SAVANNA, BiomeKeys.SAVANNA_PLATEAU, BiomeKeys.WINDSWEPT_SAVANNA
         );
         SurfaceRules.MaterialCondition midDC = SurfaceRules.biome(
                 BiomeKeys.PLAINS, BiomeKeys.SUNFLOWER_PLAINS,
@@ -68,49 +68,76 @@ public class MBSurfaceRules {
         SurfaceRules.MaterialRule toughSurface = SurfaceRules.sequence(SurfaceRules.condition(isAtOrAboveWaterLevel, TOUGH_GRASS), TOUGH_DIRT);
         SurfaceRules.MaterialRule sandySurface = SurfaceRules.sequence(SurfaceRules.condition(SurfaceRules.ON_CEILING, SANDSTONE), SAND);
 
-        return SurfaceRules.sequence(
+		return SurfaceRules.sequence(
+//				SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.DESERT),
+//						SurfaceRules.sequence(
+//						SurfaceRules.condition(SurfaceRules.waterWithStoneDepth(-6, -1),
+//										SurfaceRules.sequence(
+//											SurfaceRules.condition(SurfaceRules.UNDER_FLOOR, sandySurface),
+//											SurfaceRules.condition(SurfaceRules.DEEPEST_LEVEL_UNDER_FLOOR, SANDSTONE)
+//										)
+//								),
+//								SurfaceRules.condition(SurfaceRules.abovePreliminarySurface(),
+//										SurfaceRules.condition(SurfaceRules.aboveY(YOffset.fixed(0), 0), CHERT)
+//								)
+//						)
+//				),
+//				SurfaceRules.condition(SurfaceRules.abovePreliminarySurface(),
+//					SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.DESERT),
+//						SurfaceRules.condition(SurfaceRules.aboveY(YOffset.fixed(0), 0), CHERT)
+//					)
+//				),
 				// permafrost zone
 				SurfaceRules.condition(frost,
 						SurfaceRules.condition(SurfaceRules.noiseThreshold(NoiseParametersKeys.POWDER_SNOW, -0.5, 0.2), PERMAFROST)
 				),
-                TBSurfaceRuleData.overworld(),
+
+				TBSurfaceRuleData.overworld(),
 //                SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.DESERT),
 //						SurfaceRules.condition(SurfaceRules.noiseThreshold(NoiseParametersKeys.POWDER_SNOW, -0.3, 0.1), SANDY_SOIL)
 //				),
-				SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.DESERT), CHERT),
 //                SurfaceRules.condition(SurfaceRules.biome(MBBiomes.PRAIRIE), SurfaceRules.condition(SurfaceRules.STONE_DEPTH_FLOOR, toughSurface)),
 
 //                SurfaceRules.condition(SurfaceRules.surface(), SurfaceRules.condition(SurfaceRules.STONE_DEPTH_FLOOR, grassSurface)),
 
-                // dirt cave stuff atm
-                SurfaceRules.condition(SurfaceRules.abovePreliminarySurface(),
-						SurfaceRules.condition(SurfaceRules.noiseThreshold(NoiseParametersKeys.SPAGHETTI_3D_1, -0.7, 0.8),
-                        SurfaceRules.sequence(
+				// dirt cave stuff atm
+				SurfaceRules.condition(SurfaceRules.abovePreliminarySurface(),
+						SurfaceRules.condition(SurfaceRules.noiseThreshold(NoiseParametersKeys.CALCITE, -0.7, 0.8),
+						SurfaceRules.sequence(
 //                                SurfaceRules.condition(SurfaceRules.STONE_DEPTH_FLOOR, grassSurface),
 //                                SurfaceRules.condition(SurfaceRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH_RANGE_6, DIRT),
 
-                                SurfaceRules.condition(shallowDC, // rules for shallow dirt cave biomes
-                                        SurfaceRules.sequence(
-                                                SurfaceRules.condition(SurfaceRules.stoneDepth(6, true, 3, VerticalSurfaceType.FLOOR), TOUGH_DIRT),
-                                                SurfaceRules.condition(SurfaceRules.stoneDepth(9, true, 2, VerticalSurfaceType.FLOOR), REGOLITH)
-                                        )
-                                ),
-                                SurfaceRules.condition(midDC, // rules for mid dirt cave biomes
-                                        SurfaceRules.sequence(
-                                                SurfaceRules.condition(SurfaceRules.stoneDepth(14, true, 4, VerticalSurfaceType.FLOOR), TOUGH_DIRT),
-                                                SurfaceRules.condition(SurfaceRules.stoneDepth(17, true, 2, VerticalSurfaceType.FLOOR), REGOLITH)
-                                        )
-                                ),
-                                SurfaceRules.condition(deepDC, // rules for deep dirt cave biomes
-                                        SurfaceRules.sequence(
-                                                SurfaceRules.condition(SurfaceRules.stoneDepth(28, true, 4, VerticalSurfaceType.FLOOR), TOUGH_DIRT),
-                                                SurfaceRules.condition(SurfaceRules.stoneDepth(30, true, 2, VerticalSurfaceType.FLOOR), REGOLITH)
-                                        )
-                                )
-                        )
-                )
+								SurfaceRules.condition(shallowDC, // rules for shallow dirt cave biomes
+										SurfaceRules.sequence(
+												SurfaceRules.condition(SurfaceRules.stoneDepth(6, true,
+														3, VerticalSurfaceType.FLOOR), TOUGH_DIRT),
+												SurfaceRules.condition(SurfaceRules.stoneDepth(9, true,
+														2, VerticalSurfaceType.FLOOR), REGOLITH)
+										)
+								),
+								SurfaceRules.condition(midDC, // rules for mid dirt cave biomes
+										SurfaceRules.sequence(
+												SurfaceRules.condition(SurfaceRules.stoneDepth(14, true,
+														4, VerticalSurfaceType.FLOOR), TOUGH_DIRT),
+												SurfaceRules.condition(SurfaceRules.stoneDepth(17, true,
+														2, VerticalSurfaceType.FLOOR), REGOLITH)
+										)
+								),
+								SurfaceRules.condition(deepDC, // rules for deep dirt cave biomes
+										SurfaceRules.sequence(
+												SurfaceRules.condition(SurfaceRules.stoneDepth(28, true,
+														4, VerticalSurfaceType.FLOOR), TOUGH_DIRT),
+												SurfaceRules.condition(SurfaceRules.stoneDepth(30, true,
+														2, VerticalSurfaceType.FLOOR), REGOLITH)
+										)
+								)
+						)
 				)
-        );
+				),
+				SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.DESERT),
+						SurfaceRules.condition(SurfaceRules.stoneDepth(64, true,
+						4, VerticalSurfaceType.FLOOR), CHERT))
+		);
     }
 
     private static SurfaceRules.MaterialRule makeStateRule(Block block)

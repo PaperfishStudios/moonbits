@@ -588,7 +588,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         ShapedRecipeJsonFactory.create(Items.TORCH, 2)
                 .input('P', MBItems.PEAT).input('S', Items.STICK)
                 .pattern("P").pattern("S")
-                .criterion(RecipesProvider.hasItem(MBItems.PEAT), RecipesProvider.conditionsFromItem(MBItems.PEAT)).offerTo(exporter);
+                .criterion(RecipesProvider.hasItem(MBItems.PEAT), RecipesProvider.conditionsFromItem(MBItems.PEAT)).offerTo(exporter, "torch_from_peat");
 
         ShapelessRecipeJsonFactory.create(MBItems.GLOW_ITEM_HOOK)
                 .input(MBItems.ITEM_HOOK).input(Items.GLOW_INK_SAC)
@@ -636,7 +636,11 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .input(MBBlocks.SYRUP_BLOCK).input(Items.GLASS_BOTTLE, 4)
                 .criterion(RecipesProvider.hasItem(MBItems.SYRUP_BOTTLE), RecipesProvider.conditionsFromItem(MBItems.SYRUP_BOTTLE))
                 .offerTo(exporter);
-		campfire(exporter, MBItems.RESIN_BOTTLE, MBItems.RESIN, 0.1f,50);
+
+		ShapelessRecipeJsonFactory.create(Items.TORCH, 4)
+				.input(Items.STICK).input(MBItems.SAP, 3)
+				.criterion("has_sap", RecipesProvider.conditionsFromItem(MBItems.SAP))
+				.offerTo(exporter, "torch_from_sap");
 
         campfire(exporter, Items.SWEET_BERRIES, MBItems.ROASTED_BERRIES, 0.1f,50);
         condense(exporter, MBItems.PUMPKIN_SLICE, Items.PUMPKIN, 1);
@@ -670,6 +674,24 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 
         campfire(exporter, Items.STICK, Items.TORCH, 0.1f, 600);
         campfire(exporter, Items.WET_SPONGE, Items.SPONGE, 0f, 600);
+
+
+		ShapedRecipeJsonFactory.create(MBItems.FLINT_SWORD).input('#', Items.FLINT).input('S', Items.STICK)
+				.pattern("#").pattern("#").pattern("S")
+				.criterion("has_flint", RecipesProvider.conditionsFromItem(Items.FLINT)).offerTo(exporter);
+		ShapedRecipeJsonFactory.create(MBItems.FLINT_SHOVEL).input('#', Items.FLINT).input('S', Items.STICK)
+				.pattern("#").pattern("S").pattern("S")
+				.criterion("has_flint", RecipesProvider.conditionsFromItem(Items.FLINT)).offerTo(exporter);
+		ShapedRecipeJsonFactory.create(MBItems.FLINT_PICKAXE).input('#', Items.FLINT).input('S', Items.STICK)
+				.pattern("###").pattern(" S ").pattern(" S ")
+				.criterion("has_flint", RecipesProvider.conditionsFromItem(Items.FLINT)).offerTo(exporter);
+		ShapedRecipeJsonFactory.create(MBItems.FLINT_AXE).input('#', Items.FLINT).input('S', Items.STICK)
+				.pattern("##").pattern("#S").pattern(" S")
+				.criterion("has_flint", RecipesProvider.conditionsFromItem(Items.FLINT)).offerTo(exporter);
+		ShapedRecipeJsonFactory.create(MBItems.FLINT_HOE).input('#', Items.FLINT).input('S', Items.STICK)
+				.pattern("##").pattern(" S").pattern(" S")
+				.criterion("has_flint", RecipesProvider.conditionsFromItem(Items.FLINT)).offerTo(exporter);
+
 
         ShapedRecipeJsonFactory.create(Blocks.PODZOL, 4).input('D', Blocks.DIRT).input('G', Blocks.SAND)
                 .pattern("DG").pattern("GD")

@@ -4,7 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "moonbits:block/desert_vase",
-		"particle": "moonbits:block/desert_vase"
+		"particle": "moonbits:block/desert_vase_particle"
 	},
 	"elements": [
 		{

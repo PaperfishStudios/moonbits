@@ -105,6 +105,7 @@
 	"block.moonbits.peat_moss": "Peat Moss",
 	"block.moonbits.peat_deposit": "Peat Deposit",
 	"block.moonbits.clay_deposit": "Clay Deposit",
+	"block.moonbits.flint_deposit": "Flint Deposit",
 	"block.moonbits.gold_deposit": "Gold Deposit",
 	"block.moonbits.copper_deposit": "Copper Deposit",
 	"block.moonbits.regolith": "Regolith",
@@ -115,6 +116,12 @@
 	"block.moonbits.peat_brick_slab": "Peat Brick Slab",
 	"block.moonbits.peat_brick_stairs": "Peat Brick Stairs",
 	"block.moonbits.peat_brick_wall": "Peat Brick Wall",
+	
+	"item.moonbits.flint_sword": "Flint Sword",
+	"item.moonbits.flint_shovel": "Flint Shovel",
+	"item.moonbits.flint_pickaxe": "Flint Pickaxe",
+	"item.moonbits.flint_axe": "Flint Axe",
+	"item.moonbits.flint_hoe": "Flint Hoe",
 	
 	"block.moonbits.tin_deposit": "Tin Deposit",
 	"block.moonbits.frost_tin_deposit": "Frost Tin Deposit",
@@ -191,8 +198,43 @@
 	
 	"block.moonbits.saffron_mushroom": "Saffron Mushroom",
 	
+	"block.moonbits.lamproot_planks": "Lamproot Planks",
+    "block.moonbits.lamproot_sapling": "Lamproot Sapling",
+    "block.moonbits.lamproot_door": "Lamproot Door",
+    "block.moonbits.lamproot_trapdoor": "Lamproot Trapoor",
+    "block.moonbits.lamproot_wood": "Lamproot Wood",
+    "block.moonbits.lamproot_log": "Lamproot Log",
+    "block.moonbits.stripped_lamproot_log": "Stripped Lamproot Log",
+    "block.moonbits.stripped_lamproot_wood": "Stripped Lamproot Wood",
+    "block.moonbits.lamproot_leaves": "Lamproot Leaves",
+    "block.moonbits.hanging_lamproot_leaves": "Hanging Lamproot Leaves",
+    "block.moonbits.hanging_lamproot_leaves_plant": "Hanging Lamproot Leaves",
+    "block.moonbits.lamproot_leaf_carpet": "Lamproot Leaf Carpet",
+    "block.moonbits.lamproot_slab": "Lamproot Slab",
+    "block.moonbits.lamproot_stairs": "Lamproot Stairs",
+    "block.moonbits.lamproot_sign": "Lamproot Sign",
+    "block.moonbits.lamproot_wall_sign": "Lamproot Wall Sign",
+    "block.moonbits.lamproot_pressure_plate": "Lamproot Pressure Plate",
+    "block.moonbits.lamproot_button": "Lamproot Button",
+    "block.moonbits.lamproot_fence": "Lamproot Fence",
+    "block.moonbits.lamproot_fence_gate": "Lamproot Fence Gate",
+    "block.moonbits.potted_lamproot_sapling": "Potted Lamproot Sapling",
+    "item.moonbits.lamproot_boat": "Lamproot Boat",
+	"block.moonbits.lamproot_boards": "Lamproot Boards",
+	"block.moonbits.lamproot_panel": "Lamproot Panel", 
+	"block.moonbits.carved_lamproot_wood": "Carved Lamproot Wood", 
+	"block.moonbits.lamproot_pillar": "Carved Lamproot Column", 
+	"block.moonbits.lamproot_bookshelf": "Lamproot Bookshelf", 
+	"block.moonbits.lamproot_planter_box": "Lamproot Planter Box", 
+	
 	"block.moonbits.lamproot_bulb": "Lamproot Bulb",
+	
 	"block.moonbits.cavebloom_flowers": "Caveblooms",
+	
+    "block.moonbits.rabbit_mound": "Rabbit Mound",
+    "block.moonbits.giga_carrot": "Giga Carrot",
+    "item.moonbits.music_disc_carrot": "Music Disc",
+    "item.moonbits.music_disc_carrot.desc": "paperfish - carrot",
  
  "_comment": "trees and wood",
 	"block.moonbits.stick_stack": "Stick Stack",
@@ -258,7 +300,7 @@
 	"block.moonbits.crimson_planter_box": "Crimson Nether Planter", 
 	"block.moonbits.warped_planter_box": "Warped Nether Planter", 
  
- "_comment": "birch forest",
+ "_comment": "autumn biomes",
 	
     "block.moonbits.golden_birch_leaves": "Golden Birch Leaves",
     "block.moonbits.golden_birch_leaf_carpet": "Golden Birch Leaf Carpet",
@@ -266,8 +308,6 @@
     "block.moonbits.red_oak_leaves": "Red Oak Leaves",
     "block.moonbits.red_oak_leaf_carpet": "Red Oak Leaf Carpet",
     "block.moonbits.red_oak_sapling": "Red Oak Sapling",
-	
-    "block.moonbits.rabbit_mound": "Rabbit Mound",
 	
     "item.moonbits.milk_bottle": "Milk Bottle",
     "item.moonbits.syrup_bottle": "Syrup Bottle",
@@ -278,8 +318,11 @@
     "block.moonbits.honey_cauldron": "Honey Cauldron",
 	
     "block.moonbits.tree_tap": "Tree Tap",
+    "block.moonbits.tree_tap_sap": "Sap Tree Tap",
     "block.moonbits.tree_tap_syrup": "Syrup Tree Tap",
     "block.moonbits.tree_tap_resin": "Resin Tree Tap",
+	
+    "item.moonbits.sap": "Sap",
 	
     "block.moonbits.puffballs": "Puffballs",
     "block.moonbits.giant_puffball": "Giant Puffball",
@@ -373,39 +416,11 @@
     "block.moonbits.red_heather": "Red Heather",
     "block.moonbits.purple_heather": "Purple Heather",
     "block.moonbits.lupine": "Lupine",
-	
-	"block.moonbits.lamproot_planks": "Lamproot Planks",
-    "block.moonbits.lamproot_sapling": "Lamproot Sapling",
-    "block.moonbits.lamproot_door": "Lamproot Door",
-    "block.moonbits.lamproot_trapdoor": "Lamproot Trapoor",
-    "block.moonbits.lamproot_wood": "Lamproot Wood",
-    "block.moonbits.lamproot_log": "Lamproot Log",
-    "block.moonbits.stripped_lamproot_log": "Stripped Lamproot Log",
-    "block.moonbits.stripped_lamproot_wood": "Stripped Lamproot Wood",
-    "block.moonbits.lamproot_leaves": "Lamproot Leaves",
-    "block.moonbits.hanging_lamproot_leaves": "Hanging Lamproot Leaves",
-    "block.moonbits.hanging_lamproot_leaves_plant": "Hanging Lamproot Leaves",
-    "block.moonbits.lamproot_leaf_carpet": "Lamproot Leaf Carpet",
-    "block.moonbits.lamproot_slab": "Lamproot Slab",
-    "block.moonbits.lamproot_stairs": "Lamproot Stairs",
-    "block.moonbits.lamproot_sign": "Lamproot Sign",
-    "block.moonbits.lamproot_wall_sign": "Lamproot Wall Sign",
-    "block.moonbits.lamproot_pressure_plate": "Lamproot Pressure Plate",
-    "block.moonbits.lamproot_button": "Lamproot Button",
-    "block.moonbits.lamproot_fence": "Lamproot Fence",
-    "block.moonbits.lamproot_fence_gate": "Lamproot Fence Gate",
-    "block.moonbits.potted_lamproot_sapling": "Potted Lamproot Sapling",
-    "item.moonbits.lamproot_boat": "Lamproot Boat",
-	"block.moonbits.lamproot_boards": "Lamproot Boards",
-	"block.moonbits.lamproot_panel": "Lamproot Panel", 
-	"block.moonbits.carved_lamproot_wood": "Carved Lamproot Wood", 
-	"block.moonbits.lamproot_pillar": "Carved Lamproot Column", 
-	"block.moonbits.lamproot_bookshelf": "Lamproot Bookshelf", 
-	"block.moonbits.lamproot_planter_box": "Lamproot Planter Box", 
  
     "block.moonbits.permafrost": "Permafrost",
 	"block.moonbits.frost_peat_deposit": "Permafrost Peat Deposit",
 	"block.moonbits.frost_clay_deposit": "Permafrost Clay Deposit",
+	"block.moonbits.frost_flint_deposit": "Permafrost Flint Deposit",
 	"block.moonbits.frost_gold_deposit": "Permafrost Gold Deposit",
 	"block.moonbits.frost_copper_deposit": "Permafrost Copper Deposit",
 	
@@ -452,6 +467,7 @@
     "block.moonbits.marigold": "Marigold",
  
     "block.moonbits.prickly_pear_cactus": "Prickly Pear Cactus",
+    "block.moonbits.tall_prickly_pear_cactus": "Tall Prickly Pear Cactus",
     "item.moonbits.prickly_pear": "Prickly Pear",
     "item.moonbits.cooked_prickly_pear": "Cooked Prickly Pear",
 	
@@ -517,6 +533,15 @@
 	"block.moonbits.brittlebush_flowers": "Brittlebush Flowers", 
 	
 	"item.moonbits.brittlebush": "Brittlebush", 
+	
+	"block.moonbits.plain_incense": "Plain Incense", 
+	"block.moonbits.plain_incense.desc": "No effect", 
+	"block.moonbits.gentle_incense": "Gentle Incense", 
+	"block.moonbits.gentle_incense.desc": "Prevents players from accidentally trampling or damaging blocks", 
+	"block.moonbits.full_incense": "Full Incense", 
+	"block.moonbits.full_incense.desc": "Allows players to go longer without eating", 
+	"block.moonbits.restful_incense": "Restful Incense", 
+	"block.moonbits.restful_incense.desc": "Prevents phantoms from haunting nearby players", 
 	
 	"block.moonbits.ocotillo": "Ocotillo", 
 	"block.moonbits.flowering_ocotillo": "Flowering Ocotillo", 

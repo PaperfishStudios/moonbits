@@ -3,6 +3,7 @@ package net.paperfish.moonbits.data;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBlockTags;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.block.*;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.registry.Registry;
@@ -196,6 +197,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.SUBSTRATE,
                 MBBlocks.REGOLITH,
                 MBBlocks.CLAY_DEPOSIT,
+				MBBlocks.FLINT_DEPOSIT,
                 MBBlocks.COPPER_DEPOSIT,
                 MBBlocks.GOLD_DEPOSIT,
                 MBBlocks.PEAT_DEPOSIT,
@@ -211,6 +213,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 MBBlocks.PERMAFROST,
                 MBBlocks.FROST_CLAY,
+				MBBlocks.FROST_FLINT,
                 MBBlocks.FROST_GOLD,
                 MBBlocks.FROST_COPPER,
                 MBBlocks.FROST_PEAT,
@@ -455,7 +458,6 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CHERT_LAPIS_ORE,
                 MBBlocks.CHERT_REDSTONE_ORE
         );
-
 
         this.getOrCreateTagBuilder(MBBlockTags.COBBLESTONE).add(
                 Blocks.COBBLESTONE,

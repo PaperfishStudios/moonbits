@@ -2,6 +2,7 @@ package net.paperfish.moonbits.registry;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
@@ -9,8 +10,12 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.Moonbits;
+import net.paperfish.moonbits.item.extended.MBAxeItem;
+import net.paperfish.moonbits.item.extended.MBHoeItem;
+import net.paperfish.moonbits.item.extended.MBPickaxeItem;
 import net.paperfish.moonbits.entity.MBBoatTypes;
 import net.paperfish.moonbits.item.*;
+import net.paperfish.moonbits.item.extended.MBToolMaterials;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 import java.util.ArrayList;
@@ -24,8 +29,15 @@ public class MBItems {
 	public static final Item GRASS_TUFT = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item MILK_BOTTLE = new MilkBottleItem(new QuiltItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE));
 
-	public static final Item SYRUP_BOTTLE = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE));
-	public static final Item RESIN_BOTTLE = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE));
+	public static final Item FLINT_SWORD = new SwordItem(MBToolMaterials.FLINT, 3, -2.4F, new Item.Settings().group(ItemGroup.COMBAT));
+	public static final Item FLINT_SHOVEL = new ShovelItem(MBToolMaterials.FLINT, 1.5F, -3.0F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final Item FLINT_PICKAXE = new MBPickaxeItem(MBToolMaterials.FLINT, 1, -2.8F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final Item FLINT_AXE = new MBAxeItem(MBToolMaterials.FLINT, 7.0F, -3.2F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final Item FLINT_HOE = new MBHoeItem(MBToolMaterials.FLINT, -1, -2.0F, new Item.Settings().group(ItemGroup.TOOLS));
+
+	public static final Item SAP = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item SYRUP_BOTTLE = new StatusClearingBottleItem(StatusEffects.SLOWNESS,
+			new QuiltItemSettings().food(FoodComponents.HONEY_BOTTLE).recipeRemainder(Items.GLASS_BOTTLE).maxCount(16).group(MBItemGroup.MB_FOOD));
 	public static final Item RESIN = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item ITEM_HOOK = new ItemHookItem(MBEntities.ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
@@ -56,7 +68,7 @@ public class MBItems {
 	public static final Item HARDY_BERRY = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD)
 			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.6f).build()));
 	public static final Item HARDY_BERRY_SEED = new AliasedBlockItem(MBBlocks.HARDY_SPROUT, new QuiltItemSettings().group(MBItemGroup.MB_FOOD));
-	public static final Item HARDY_STEM = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD));
+	public static final Item HARDY_STEM = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item PEANUT = new AliasedBlockItem(MBBlocks.PEANUT_CROP, new QuiltItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Item ROASTED_PEANUTS = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD)
@@ -161,6 +173,12 @@ public class MBItems {
 		addItem("stuffed_pepper", STUFFED_PEPPER);
 		addItem("chili", CHILI);
 
+		addTool("flint_sword", FLINT_SWORD);
+		addTool("flint_shovel", FLINT_SHOVEL);
+		addTool("flint_pickaxe", FLINT_PICKAXE);
+		addTool("flint_axe", FLINT_AXE);
+		addTool("flint_hoe", FLINT_HOE);
+
 		addItem("prickly_pear", PRICKLY_PEAR);
 		addItem("cooked_prickly_pear", COOKED_PRICKLY_PEAR);
 
@@ -189,7 +207,7 @@ public class MBItems {
 
 		addItem("milk_bottle", MILK_BOTTLE);
 		addItem("syrup_bottle", SYRUP_BOTTLE);
-		addItem("resin_bottle", RESIN_BOTTLE);
+		addItem("sap", SAP);
 		addItem("resin", RESIN);
 
 		//addItem("apple_seeds", APPLE_SEEDS);

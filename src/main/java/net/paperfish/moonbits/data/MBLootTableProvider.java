@@ -150,6 +150,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.PEAT_BLOCK);
         addDrop(MBBlocks.PEAT_DEPOSIT, (Block block) -> oreDrops(block, MBItems.PEAT, 1f, 2f));
         addDrop(MBBlocks.CLAY_DEPOSIT, (Block block) -> oreDrops(block, Items.CLAY_BALL, 3f, 5f));
+		addDrop(MBBlocks.FLINT_DEPOSIT, (Block block) -> oreDrops(block, Items.FLINT, 1f, 1f));
         addDrop(MBBlocks.GOLD_DEPOSIT, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 6f, 10f));
         addDrop(MBBlocks.COPPER_DEPOSIT, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 6f, 12f));
 
@@ -182,6 +183,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.PERMAFROST);
         addDrop(MBBlocks.FROST_PEAT, (Block block) -> oreDrops(block, MBItems.PEAT, 1f, 2f));
         addDrop(MBBlocks.FROST_CLAY, (Block block) -> oreDrops(block, Items.CLAY_BALL, 3f, 5f));
+		addDrop(MBBlocks.FROST_FLINT, (Block block) -> oreDrops(block, Items.FLINT, 1f, 1f));
         addDrop(MBBlocks.FROST_GOLD, (Block block) -> oreDrops(block, Items.GOLD_NUGGET, 6f, 10f));
         addDrop(MBBlocks.FROST_COPPER, (Block block) -> oreDrops(block, MBItems.COPPER_NUGGET, 6f, 12f));
 

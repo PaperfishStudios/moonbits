@@ -5,6 +5,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.sound.MusicSound;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -25,6 +26,8 @@ public class MBBiomes {
     public static final RegistryKey<Biome> PASTURE = createBiomeKey("pasture");
     public static final RegistryKey<Biome> RED_OAK_FOREST = createBiomeKey("red_oak_forest");
 
+	public static final RegistryKey<Biome> CHERT_CAVE = createBiomeKey("chert_cave");
+
     public static final RegistryKey<Biome> STEPPE = createBiomeKey("steppe");
     public static final RegistryKey<Biome> PRAIRIE = createBiomeKey("prairie");
 
@@ -38,6 +41,7 @@ public class MBBiomes {
         register(TALL_GOLDEN_FOREST, goldenForest(true));
         register(PASTURE, pasture());
         register(RED_OAK_FOREST, redOak());
+		register(CHERT_CAVE, chertCaves());
         register(STEPPE, steppe());
         register(PRAIRIE, prairie());
     }
@@ -148,6 +152,25 @@ public class MBBiomes {
                 .spawnSettings(builder2.build()).generationSettings(builder.build()).build();
     }
 
+	public static Biome chertCaves() {
+		SpawnSettings.Builder builder = new SpawnSettings.Builder();
+		builder.spawn(SpawnGroup.AXOLOTLS, new SpawnSettings.SpawnEntry(EntityType.AXOLOTL, 10, 4, 6));
+		builder.spawn(SpawnGroup.WATER_AMBIENT, new SpawnSettings.SpawnEntry(EntityType.TROPICAL_FISH, 25, 8, 8));
+		lushDesertMobs(builder);
+		GenerationSettings.Builder builder2 = new GenerationSettings.Builder();
+		addBasicFeatures(builder2);
+		DefaultBiomeFeatures.addPlainsTallGrass(builder2);
+		addDesertOres(builder2);
+		desertMineables(builder2);
+		DefaultBiomeFeatures.addClayOre(builder2);
+		DefaultBiomeFeatures.addDefaultDisks(builder2);
+		builder2.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, MBPlacedCaveFeatures.DESERT_VASES);
+		builder2.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_DESERT_BRUSH);
+		builder2.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.DESERT_CAVES);
+		MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_LUSH_CAVES);
+		return createBiome(Biome.Precipitation.NONE, 0.5F, 0.5F, builder, builder2, musicSound);
+	}
+
     public static Biome steppe() {
         GenerationSettings.Builder builder = new GenerationSettings.Builder();
         DefaultBiomeFeatures.addFossils(builder);
@@ -219,6 +242,7 @@ public class MBBiomes {
     }
     public static void addDefaultDeposits(GenerationSettings.Builder builder, boolean largePeat, boolean largeClay, boolean largeGold) {
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, largePeat ? MBPlacedCaveFeatures.ORE_PEAT_HIGH : MBPlacedCaveFeatures.ORE_PEAT);
+		builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_FLINT_DEPOSIT);
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, largeClay ? MBPlacedCaveFeatures.LUSH_CLAY_DEPOSIT : MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT);
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT_UPPER);
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, largeGold ? MBPlacedCaveFeatures.ORE_GOLD_DEPOSIT_HIGH : MBPlacedCaveFeatures.ORE_GOLD_DEPOSIT);
@@ -242,8 +266,8 @@ public class MBBiomes {
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.CHERT_COPPER);
     }
     public static void desertMineables(GenerationSettings.Builder builder) {
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_DIRT);
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GRAVEL);
+        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_SAND);
+        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedVegFeatures.ORE_SANDY_SOIL);
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GRANITE_UPPER);
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GRANITE_LOWER);
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_DIORITE_UPPER);

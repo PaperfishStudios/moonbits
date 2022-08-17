@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "moonbits:parasol_fern_fiber_stairs",
     "moonbits:parasol_fern_fiber_slab",
+    "moonbits:parasol_fern_fiber_stairs",
     "moonbits:toadstool",
     "moonbits:toadstool_stem",
     "moonbits:red_mushroom_cap",

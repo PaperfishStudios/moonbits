@@ -228,6 +228,7 @@ public class MBModelProvider extends FabricModelProvider {
         generator.registerSimpleCubeAll(MBBlocks.PEAT_MOSS);
         generator.registerSimpleCubeAll(MBBlocks.PEAT_BLOCK);
         generator.registerSimpleCubeAll(MBBlocks.CLAY_DEPOSIT);
+		generator.registerSimpleCubeAll(MBBlocks.FLINT_DEPOSIT);
         generator.registerSimpleCubeAll(MBBlocks.GOLD_DEPOSIT);
         generator.registerSimpleCubeAll(MBBlocks.COPPER_DEPOSIT);
 
@@ -277,6 +278,7 @@ public class MBModelProvider extends FabricModelProvider {
         snowyBlock(MBBlocks.PERMAFROST, generator);
         generator.registerSimpleCubeAll(MBBlocks.FROST_PEAT);
         generator.registerSimpleCubeAll(MBBlocks.FROST_CLAY);
+		generator.registerSimpleCubeAll(MBBlocks.FROST_FLINT);
         generator.registerSimpleCubeAll(MBBlocks.FROST_GOLD);
         generator.registerSimpleCubeAll(MBBlocks.FROST_COPPER);
 

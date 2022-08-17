@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.loot.v2.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
@@ -201,7 +202,7 @@ public class MBEvents {
             }
 
             // scraping slime off piston
-            if (targetBlock.isOf(Blocks.STICKY_PISTON) && heldItem.isIn(MBItemTags.AXES)) {
+            if (targetBlock.isOf(Blocks.STICKY_PISTON) && heldItem.isIn(ConventionalItemTags.AXES)) {
                 world.setBlockState(targetPos, Blocks.PISTON.getDefaultState().with(PistonBlock.FACING, targetBlock.get(PistonBlock.FACING)));
                 if(!player.isCreative())
                     heldItem.damage(1, world.getRandom(), null);
@@ -235,7 +236,7 @@ public class MBEvents {
                     return ActionResult.success(world.isClient);
                 }
             }
-            if (heldItem.isIn(MBItemTags.AXES)) {
+            if (heldItem.isIn(ConventionalItemTags.AXES)) {
                 boolean success = false;
                 if (WAX_OFF.containsKey(targetBlock.getBlock())) {
                     world.playSound(player, targetPos, SoundEvents.ITEM_AXE_WAX_OFF, SoundCategory.BLOCKS, 1.0f, 1.0f);

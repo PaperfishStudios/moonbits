@@ -1,5 +1,6 @@
 package net.paperfish.moonbits.block;
 
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -46,7 +47,7 @@ public class MushroomCapBlock extends Block {
         BlockPos blockPos = hit.getBlockPos();
         ItemStack heldItem = player.getStackInHand(hand);
         // if player is holding an axe and the side ur facing is not shaved
-        if (heldItem.isIn(MBItemTags.AXES) && state.get(FACING_PROPERTIES.get(direction))) {
+        if (heldItem.isIn(ConventionalItemTags.AXES) && state.get(FACING_PROPERTIES.get(direction))) {
             world.setBlockState(pos, state.with(FACING_PROPERTIES.get(direction), false));
             if (!world.isClient) {
                 Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)player, pos, heldItem);

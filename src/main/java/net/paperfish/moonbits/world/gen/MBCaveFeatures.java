@@ -13,6 +13,7 @@ import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.util.ConfiguredFeatureUtil;
 import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
@@ -38,6 +39,9 @@ public class MBCaveFeatures {
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_REGOLITH =
             MBConfiguredFeatures.register("ore_regolith", Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, MBBlocks.REGOLITH.getDefaultState(), 32));
 
+	public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_SAND = MBConfiguredFeatures.register(
+			"ore_sand", Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, Blocks.SAND.getDefaultState(), 33)
+	);
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_SANDSTONE = MBConfiguredFeatures.register("or_sanston",
             Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, Blocks.SANDSTONE.getDefaultState(), 48));
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_COBBLECHERT = MBConfiguredFeatures.register("or_cobblechert",
@@ -56,6 +60,11 @@ public class MBCaveFeatures {
             OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.CLAY_DEPOSIT.getDefaultState()),
             OreFeatureConfig.createTarget(REGOLITH, MBBlocks.CLAY_DEPOSIT.getDefaultState()),
             OreFeatureConfig.createTarget(PERMAFROST, MBBlocks.FROST_CLAY.getDefaultState()));
+	public static final List<OreFeatureConfig.Target> FLINT_GEN = List.of(
+			OreFeatureConfig.createTarget(TOUGH_DIRT, MBBlocks.FLINT_DEPOSIT.getDefaultState()),
+			OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.FLINT_DEPOSIT.getDefaultState()),
+			OreFeatureConfig.createTarget(REGOLITH, MBBlocks.FLINT_DEPOSIT.getDefaultState()),
+			OreFeatureConfig.createTarget(PERMAFROST, MBBlocks.FROST_FLINT.getDefaultState()));
     public static final List<OreFeatureConfig.Target> GOLD_GEN = List.of(
             OreFeatureConfig.createTarget(TOUGH_DIRT, MBBlocks.GOLD_DEPOSIT.getDefaultState()),
             OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.GOLD_DEPOSIT.getDefaultState()),
@@ -78,16 +87,18 @@ public class MBCaveFeatures {
             MBConfiguredFeatures.register("ore_peat_high", Feature.ORE, new OreFeatureConfig(PEAT_GEN, 14, 0.0f));
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CLAY_DEPOSIT =
             MBConfiguredFeatures.register("ore_clay_deposit", Feature.ORE, new OreFeatureConfig(CLAY_GEN, 8, 0.1f));
+	public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_FLINT_DEPOSIT =
+			MBConfiguredFeatures.register("ore_flint_deposit", Feature.ORE, new OreFeatureConfig(FLINT_GEN, 5, 0.0f));
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> LUSH_CLAY_DEPOSIT =
             MBConfiguredFeatures.register("lush_clay_deposit", Feature.ORE, new OreFeatureConfig(CLAY_GEN, 10, 0.0f));
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_GOLD_DEPOSIT =
-            MBConfiguredFeatures.register("ore_gold_deposit", Feature.ORE, new OreFeatureConfig(GOLD_GEN, 5, 0.3f));
+            MBConfiguredFeatures.register("ore_gold_deposit", Feature.ORE, new OreFeatureConfig(GOLD_GEN, 5, 0.2f));
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_GOLD_HIGH =
-            MBConfiguredFeatures.register("ore_gold_dep_high", Feature.ORE, new OreFeatureConfig(GOLD_GEN, 6, 0.2f));
+            MBConfiguredFeatures.register("ore_gold_dep_high", Feature.ORE, new OreFeatureConfig(GOLD_GEN, 6, 0.1f));
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_COPPER_DEPOSIT =
-            MBConfiguredFeatures.register("ore_copper_deposit", Feature.ORE, new OreFeatureConfig(COPPER_GEN, 5, 0.3f));
+            MBConfiguredFeatures.register("ore_copper_deposit", Feature.ORE, new OreFeatureConfig(COPPER_GEN, 6, 0.0f));
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_TIN_DEPOSIT =
-            MBConfiguredFeatures.register("ore_tin_deposit", Feature.ORE, new OreFeatureConfig(TIN_GEN, 6, 0.2f));
+            MBConfiguredFeatures.register("ore_tin_deposit", Feature.ORE, new OreFeatureConfig(TIN_GEN, 7, 0.1f));
 
     public static final RuleTest CHERT_REPLACE = new BlockMatchRuleTest(MBBlocks.CHERT);
     public static final RuleTest DEEPSLATE = new BlockMatchRuleTest(Blocks.DEEPSLATE);
@@ -129,7 +140,8 @@ public class MBCaveFeatures {
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_COPPER_LARGE = MBConfiguredFeatures.register(
             "ore_chert_copper_large", Feature.ORE, new OreFeatureConfig(CHERT_COPPER, 20, 0.9f));
 
-    public static final Holder<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> TG_VEGETATION = MBConfiguredFeatures.register("tg_vegetation", Feature.SIMPLE_BLOCK,
+    public static final Holder<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> TG_VEGETATION =
+			MBConfiguredFeatures.register("tg_vegetation", Feature.SIMPLE_BLOCK,
             new SimpleBlockFeatureConfig(
                     new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
                             .add(Blocks.AIR.getDefaultState(), 70)
@@ -139,7 +151,8 @@ public class MBCaveFeatures {
                     )
             )
     );
-    public static final Holder<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> SUBSTRATE_VEG = MBConfiguredFeatures.register("sub_vegetation", Feature.SIMPLE_BLOCK,
+    public static final Holder<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> SUBSTRATE_VEG =
+			MBConfiguredFeatures.register("sub_vegetation", Feature.SIMPLE_BLOCK,
             new SimpleBlockFeatureConfig(
                     new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
                             .add(Blocks.AIR.getDefaultState(), 70)
@@ -214,7 +227,9 @@ public class MBCaveFeatures {
                     new GlowLichenFeatureConfig(CAVEBLOOM_FLOWERS, 20, false, true, true, 0.5f,
 							HolderSet.createDirect(Block::getBuiltInRegistryHolder,
                                     MBBlocks.TOUGH_DIRT,
-                                    Blocks.STONE, Blocks.ANDESITE, Blocks.DIORITE, Blocks.GRANITE, Blocks.DRIPSTONE_BLOCK, Blocks.CALCITE, Blocks.TUFF, Blocks.DEEPSLATE)));
+                                    Blocks.STONE, Blocks.ANDESITE, Blocks.DIORITE, Blocks.GRANITE,
+									Blocks.DRIPSTONE_BLOCK, Blocks.CALCITE, Blocks.TUFF, Blocks.DEEPSLATE
+							)));
 //    public static final Holder<ConfiguredFeature<VegetationPatchFeatureConfig, ?>> MOSS_PATCH_DC =
 //            MBConfiguredFeatures.register("moss_patch_dc", Feature.VEGETATION_PATCH,
 //                    new VegetationPatchFeatureConfig(MBBlockTags.TOUGH_DIRT, BlockStateProvider.of(Blocks.MOSS_BLOCK),
