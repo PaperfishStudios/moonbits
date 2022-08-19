@@ -32,7 +32,7 @@ public class DimWeatheringSlabBlock extends SlabBlock implements DimensionalWeat
 
     @Override
     public Optional<BlockState> getDegradationResult(BlockState state, ServerWorld world) {
-        if (world.getDimension().piglinSafe()) {
+        if (world.getDimension().isPiglinSafe()) {
             return Optional.of(nether.getStateWithProperties(state));
         }
         else if (!world.getDimension().bedWorks()) {

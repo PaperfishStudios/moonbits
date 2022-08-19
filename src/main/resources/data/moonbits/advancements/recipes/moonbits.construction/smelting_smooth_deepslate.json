@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smelting_smooth_deepslate"
+        "recipe": "moonbits:smelting_smooth_deepslate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smelting_smooth_deepslate"
+      "moonbits:smelting_smooth_deepslate"
     ]
   }
 }

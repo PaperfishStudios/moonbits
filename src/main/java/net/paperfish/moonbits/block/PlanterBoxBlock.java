@@ -11,6 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.WorldAccess;
+import net.paperfish.moonbits.registry.MBBlocks;
 
 public class PlanterBoxBlock extends Block {
 	public static final BooleanProperty ACTIVE = BooleanProperty.of("active");
@@ -33,8 +34,8 @@ public class PlanterBoxBlock extends Block {
 	@Override
 	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
 		BlockState up = world.getBlockState(pos.up());
-		if (up.getBlock() instanceof Fertilizable) {
-			((Fertilizable) up.getBlock()).grow(world, random, pos.up(), up);
+		if (up.isOf(MBBlocks.PUFFBALLS)) {
+			world.setBlockState(pos.up(), MBBlocks.GIANT_PUFFBALL.getDefaultState());
 		}
 
 		super.randomTick(state, world, pos, random);

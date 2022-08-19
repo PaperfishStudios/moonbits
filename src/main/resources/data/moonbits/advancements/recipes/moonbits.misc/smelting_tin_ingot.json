@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smelting_tin_ingot"
+        "recipe": "moonbits:smelting_tin_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smelting_tin_ingot"
+      "moonbits:smelting_tin_ingot"
     ]
   }
 }

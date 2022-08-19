@@ -1,6 +1,7 @@
 package net.paperfish.moonbits.item;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.BlockHalf;
 import net.minecraft.block.enums.DoorHinge;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -64,7 +65,7 @@ public class WrenchItem extends Item {
         if (collection.isEmpty()) {
             return false; // if there r no blockstates that wrenches can change
         }
-        if (block instanceof StairsBlock || block instanceof TrapdoorBlock) { // if its stairs, rotate!
+        if (block instanceof TrapdoorBlock) { // rotate n flip trapdoors
             BlockState newState;
             if (player.isSneaking()) {
                 newState = state.cycle(Properties.BLOCK_HALF);
@@ -75,6 +76,21 @@ public class WrenchItem extends Item {
             world.setBlockState(pos, newState, Block.NOTIFY_ALL);
             return true;
         }
+		if (block instanceof StairsBlock) { // stairs stuff
+			BlockState newState;
+			if ((ctx.getSide() == Direction.UP && state.get(StairsBlock.HALF) == BlockHalf.TOP) ||
+					(ctx.getSide() == Direction.DOWN && state.get(StairsBlock.HALF) == BlockHalf.BOTTOM)) {
+				newState = player.isSneaking() ? state.cycle(StairsBlock.HALF) : state.cycle(StairsBlock.SHAPE);
+			}
+			else if (ctx.getSide().getAxis() == Direction.Axis.Y) {
+				newState = player.isSneaking() ? state.cycle(StairsBlock.SHAPE) : state.cycle(StairsBlock.HALF);
+			}
+			else {
+				newState = block.rotate(state, BlockRotation.CLOCKWISE_90);
+			}
+			world.setBlockState(pos, newState, Block.NOTIFY_ALL);
+			return true;
+		}
         if (block instanceof HopperBlock || block instanceof DispenserBlock || //block instanceof GlazedTerracottaBlock ||
                 block instanceof ObserverBlock || block instanceof AbstractFurnaceBlock || block instanceof BeehiveBlock) { // rotate!
             BlockState newState = block.rotate(state, BlockRotation.CLOCKWISE_90);
@@ -83,11 +99,6 @@ public class WrenchItem extends Item {
         }
         if ((block instanceof PistonBlock && !state.get(Properties.EXTENDED)) || block instanceof RodBlock) {
             BlockState newState = state.with(Properties.FACING, rotate(state.get(Properties.FACING)));
-            world.setBlockState(pos, newState, Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
-            return true;
-        }
-        if (block instanceof LatticeBlock) {
-            BlockState newState = (state.get(LatticeBlock.AXIS) == Axis.X) ? state.with(LatticeBlock.AXIS, Axis.Z) : state.with(LatticeBlock.AXIS, Axis.X);
             world.setBlockState(pos, newState, Block.NOTIFY_LISTENERS | Block.NOTIFY_NEIGHBORS);
             return true;
         }

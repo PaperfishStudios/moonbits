@@ -29,6 +29,8 @@ public class MBSurfaceRules {
     private static final SurfaceRules.MaterialRule TOUGH_DIRT = makeStateRule(MBBlocks.TOUGH_DIRT);
     private static final SurfaceRules.MaterialRule TOUGH_GRASS = makeStateRule(MBBlocks.TOUGH_GRASS);
 
+	private static final SurfaceRules.MaterialRule MUD = makeStateRule(Blocks.MUD);
+
     private static final SurfaceRules.MaterialRule PERMAFROST = makeStateRule(MBBlocks.PERMAFROST);
     private static final SurfaceRules.MaterialRule SANDY_SOIL = makeStateRule(MBBlocks.SANDY_SOIL);
 
@@ -40,7 +42,7 @@ public class MBSurfaceRules {
 
     public static SurfaceRules.MaterialRule makeRules() {
         SurfaceRules.MaterialCondition shallowDC = SurfaceRules.biome(
-            BiomeKeys.SAVANNA, BiomeKeys.SAVANNA_PLATEAU, BiomeKeys.WINDSWEPT_SAVANNA
+            BiomeKeys.SAVANNA, BiomeKeys.SAVANNA_PLATEAU
         );
         SurfaceRules.MaterialCondition midDC = SurfaceRules.biome(
                 BiomeKeys.PLAINS, BiomeKeys.SUNFLOWER_PLAINS,
@@ -59,6 +61,7 @@ public class MBSurfaceRules {
 		);
 
         SurfaceRules.MaterialCondition isAtOrAboveWaterLevel = SurfaceRules.water(-1, 0);
+		SurfaceRules.MaterialCondition atShore = SurfaceRules.water(1, 2);
 
         SurfaceRules.MaterialCondition shallowDCDepth = SurfaceRules.aboveY(YOffset.fixed(50), 0);
         SurfaceRules.MaterialCondition midDCDepth = SurfaceRules.aboveY(YOffset.fixed(42), 0);
@@ -69,30 +72,22 @@ public class MBSurfaceRules {
         SurfaceRules.MaterialRule sandySurface = SurfaceRules.sequence(SurfaceRules.condition(SurfaceRules.ON_CEILING, SANDSTONE), SAND);
 
 		return SurfaceRules.sequence(
-//				SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.DESERT),
-//						SurfaceRules.sequence(
-//						SurfaceRules.condition(SurfaceRules.waterWithStoneDepth(-6, -1),
-//										SurfaceRules.sequence(
-//											SurfaceRules.condition(SurfaceRules.UNDER_FLOOR, sandySurface),
-//											SurfaceRules.condition(SurfaceRules.DEEPEST_LEVEL_UNDER_FLOOR, SANDSTONE)
-//										)
-//								),
-//								SurfaceRules.condition(SurfaceRules.abovePreliminarySurface(),
-//										SurfaceRules.condition(SurfaceRules.aboveY(YOffset.fixed(0), 0), CHERT)
-//								)
-//						)
-//				),
-//				SurfaceRules.condition(SurfaceRules.abovePreliminarySurface(),
-//					SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.DESERT),
-//						SurfaceRules.condition(SurfaceRules.aboveY(YOffset.fixed(0), 0), CHERT)
-//					)
-//				),
 				// permafrost zone
 				SurfaceRules.condition(frost,
-						SurfaceRules.condition(SurfaceRules.noiseThreshold(NoiseParametersKeys.POWDER_SNOW, -0.5, 0.2), PERMAFROST)
+						SurfaceRules.condition(SurfaceRules.noiseThreshold(NoiseParametersKeys.POWDER_SNOW, -0.3, 0.2), PERMAFROST)
 				),
 
-				TBSurfaceRuleData.overworld(),
+				SurfaceRules.condition(SurfaceRules.abovePreliminarySurface(),
+						SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.SWAMP),
+								SurfaceRules.condition(atShore,
+										SurfaceRules.condition(SurfaceRules.not(SurfaceRules.aboveY(YOffset.fixed(65), 1)),
+												SurfaceRules.condition(SurfaceRules.stoneDepth(3, true, VerticalSurfaceType.FLOOR), MUD)
+										)
+								)
+						)
+				),
+
+				VanillaSurfaceRules.getOverworldRules(),
 //                SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.DESERT),
 //						SurfaceRules.condition(SurfaceRules.noiseThreshold(NoiseParametersKeys.POWDER_SNOW, -0.3, 0.1), SANDY_SOIL)
 //				),
@@ -102,7 +97,7 @@ public class MBSurfaceRules {
 
 				// dirt cave stuff atm
 				SurfaceRules.condition(SurfaceRules.abovePreliminarySurface(),
-						SurfaceRules.condition(SurfaceRules.noiseThreshold(NoiseParametersKeys.CALCITE, -0.7, 0.8),
+						SurfaceRules.condition(SurfaceRules.noiseThreshold(NoiseParametersKeys.CALCITE, -0.5, 0.6),
 						SurfaceRules.sequence(
 //                                SurfaceRules.condition(SurfaceRules.STONE_DEPTH_FLOOR, grassSurface),
 //                                SurfaceRules.condition(SurfaceRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH_RANGE_6, DIRT),
@@ -134,9 +129,10 @@ public class MBSurfaceRules {
 						)
 				)
 				),
-				SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.DESERT),
-						SurfaceRules.condition(SurfaceRules.stoneDepth(64, true,
-						4, VerticalSurfaceType.FLOOR), CHERT))
+//				SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.DESERT),
+//						SurfaceRules.condition(SurfaceRules.stoneDepth(64, false,
+//						16, VerticalSurfaceType.FLOOR), CHERT)),
+				SurfaceRules.condition(SurfaceRules.biome(BiomeKeys.DESERT), CHERT)
 		);
     }
 

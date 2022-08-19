@@ -3,6 +3,7 @@ package net.paperfish.moonbits.world.gen;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Holder;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
@@ -36,9 +37,9 @@ public class MBPlacedVegFeatures {
 			PlacedFeatureUtil.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
     // flower patches
-    public static final Holder<PlacedFeature> BUTTERCUP_PATCH = MBPlacedFeatures.register("p_buttercups",
-            MBVegetationFeatures.BUTTERCUP_PATCH, CountPlacementModifier.create(3), InSquarePlacementModifier.getInstance(),
-			PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
+    public static final Holder<PlacedFeature> SOURSOB_PATCH = MBPlacedFeatures.register("p_soursobs",
+            MBVegetationFeatures.SOURSOB_PATCH, CountPlacementModifier.create(32), RarityFilterPlacementModifier.create(16), InSquarePlacementModifier.getInstance(),
+			HeightRangePlacementModifier.createUniform(YOffset.fixed(32), YOffset.fixed(72)), BiomePlacementModifier.getInstance());
     public static final Holder<PlacedFeature> FORGETMENOT_PATCH = MBPlacedFeatures.register("p_forgetmenot",
             MBVegetationFeatures.FORGETMENOT_PATCH, CountPlacementModifier.create(3), InSquarePlacementModifier.getInstance(),
 			PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());

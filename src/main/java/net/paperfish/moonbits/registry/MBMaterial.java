@@ -43,7 +43,7 @@ public class MBMaterial {
             return this;
         }
 
-        protected Builder burnable() {
+		public Builder burnable() {
             this.burnable = true;
             return this;
         }
@@ -53,12 +53,12 @@ public class MBMaterial {
             return this;
         }
 
-        protected Builder destroyedByPiston() {
+		public Builder destroyedByPiston() {
             this.pistonBehavior = PistonBehavior.DESTROY;
             return this;
         }
 
-        protected Builder blocksPistons() {
+		public Builder blocksPistons() {
             this.pistonBehavior = PistonBehavior.BLOCK;
             return this;
         }

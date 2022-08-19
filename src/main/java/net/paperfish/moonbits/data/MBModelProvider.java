@@ -198,6 +198,9 @@ public class MBModelProvider extends FabricModelProvider {
                 BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap")))
                 .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
 
+		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.SAP_TREE_TAP,
+						BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap_sap")))
+				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
 		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.SYRUP_TREE_TAP,
 						BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap_syrup")))
 				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
@@ -380,7 +383,9 @@ public class MBModelProvider extends FabricModelProvider {
 		generator.registerSimpleCubeAll(MBBlocks.SANDY_SOIL);
 
         // flowers n fungi :D
-        flowerPotPlant(MBBlocks.BUTTERCUP, MBBlocks.POTTED_BUTTERCUP, TintType.NOT_TINTED, generator);
+		blockStateOnly(MBBlocks.SOURSOBS, "soursobs", generator);
+		generator.registerItemModel(MBBlocks.SOURSOBS);
+		pottedBlock(MBBlocks.SOURSOBS, MBBlocks.POTTED_SOURSOBS, generator);
         flowerPotPlant(MBBlocks.FORGETMENOT, MBBlocks.POTTED_FORGETMENOT, TintType.NOT_TINTED, generator);
         doubleBlock(MBBlocks.WHITE_HYACINTH, TintType.NOT_TINTED, generator);
         doubleBlock(MBBlocks.PINK_HYACINTH, TintType.NOT_TINTED, generator);
@@ -742,7 +747,7 @@ public class MBModelProvider extends FabricModelProvider {
         generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, identifier2));
     }
     public static void bandedIron(Block block, BlockStateModelGenerator generator) {
-        Identifier id = TexturedModel.CUBE_ALL.method_25922(block, "_inventory", generator.modelCollector);
+        Identifier id = TexturedModel.CUBE_ALL.upload(block, "_inventory", generator.modelCollector);
         generator.registerParentedItemModel(block, id);
 
         Identifier connected = new Identifier(Moonbits.MODID, "block/" + Registry.BLOCK.getId(block).getPath());
@@ -800,12 +805,12 @@ public class MBModelProvider extends FabricModelProvider {
         Identifier identifier = Models.TEMPLATE_SINGLE_FACE.upload(MBBlocks.RED_MUSHROOM_CAP, Texture.texture(Blocks.RED_MUSHROOM_BLOCK), generator.modelCollector);
         Identifier identifier2 = ModelIds.getMinecraftNamespacedBlock("mushroom_block_inside");
         shroomStates(generator, MBBlocks.RED_MUSHROOM_CAP, identifier, identifier2);
-        generator.registerParentedItemModel(MBBlocks.RED_MUSHROOM_CAP, TexturedModel.CUBE_ALL.method_25922(Blocks.RED_MUSHROOM_BLOCK, "_inventory", generator.modelCollector));
+        generator.registerParentedItemModel(MBBlocks.RED_MUSHROOM_CAP, TexturedModel.CUBE_ALL.upload(Blocks.RED_MUSHROOM_BLOCK, "_inventory", generator.modelCollector));
 
         Identifier identifier3 = Models.TEMPLATE_SINGLE_FACE.upload(MBBlocks.BROWN_MUSHROOM_CAP, Texture.texture(Blocks.BROWN_MUSHROOM_BLOCK), generator.modelCollector);
         Identifier identifier4 = ModelIds.getMinecraftNamespacedBlock("mushroom_block_inside");
         shroomStates(generator, MBBlocks.BROWN_MUSHROOM_CAP, identifier3, identifier4);
-        generator.registerParentedItemModel(MBBlocks.BROWN_MUSHROOM_CAP, TexturedModel.CUBE_ALL.method_25922(Blocks.BROWN_MUSHROOM_BLOCK, "_inventory", generator.modelCollector));
+        generator.registerParentedItemModel(MBBlocks.BROWN_MUSHROOM_CAP, TexturedModel.CUBE_ALL.upload(Blocks.BROWN_MUSHROOM_BLOCK, "_inventory", generator.modelCollector));
     }
     public static void shroomStates(BlockStateModelGenerator generator, Block block, Identifier identifier, Identifier identifier2) {
         generator.blockStateCollector.accept(MultipartBlockStateSupplier.create(block)
@@ -1172,7 +1177,7 @@ public class MBModelProvider extends FabricModelProvider {
     }
 
     private static void tintedBlock(Block block, BlockStateModelGenerator generator) {
-        Identifier id = TINTED_BLOCK.method_25923(block, generator.modelCollector);
+        Identifier id = TINTED_BLOCK.upload(block, generator.modelCollector);
         generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, id));
     }
     private static void tintedSlab(Block slab, Block base, BlockStateModelGenerator generator) {

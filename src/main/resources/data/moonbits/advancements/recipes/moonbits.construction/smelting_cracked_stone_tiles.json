@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smelting_cracked_stone_tiles"
+        "recipe": "moonbits:smelting_cracked_stone_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smelting_cracked_stone_tiles"
+      "moonbits:smelting_cracked_stone_tiles"
     ]
   }
 }

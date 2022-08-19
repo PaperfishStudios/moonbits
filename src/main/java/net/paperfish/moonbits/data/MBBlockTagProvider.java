@@ -3,7 +3,6 @@ package net.paperfish.moonbits.data;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBlockTags;
-import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.block.*;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.registry.Registry;
@@ -338,6 +337,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.TIN_LADDER,
 
                 MBBlocks.TREE_TAP,
+				MBBlocks.SAP_TREE_TAP,
 				MBBlocks.SYRUP_TREE_TAP,
 				MBBlocks.RESIN_TREE_TAP,
 //                MBBlocks.HONEY_CAULDRON,
@@ -721,7 +721,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.LUPINE
         );
         this.getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS).add(
-                MBBlocks.BUTTERCUP,
+                MBBlocks.SOURSOBS,
                 MBBlocks.FORGETMENOT,
                 MBBlocks.MARIGOLD,
                 MBBlocks.WHITE_HEATHER,

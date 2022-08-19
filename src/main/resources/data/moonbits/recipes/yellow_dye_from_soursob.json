@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "moonbits:soursob"
+    }
+  ],
+  "result": {
+    "item": "minecraft:yellow_dye"
+  }
+}

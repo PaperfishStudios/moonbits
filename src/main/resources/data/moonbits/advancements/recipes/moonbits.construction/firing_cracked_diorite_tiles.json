@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_cracked_diorite_tiles"
+        "recipe": "moonbits:firing_cracked_diorite_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_cracked_diorite_tiles"
+      "moonbits:firing_cracked_diorite_tiles"
     ]
   }
 }

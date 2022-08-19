@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blasting_cut_tin"
+        "recipe": "moonbits:blasting_cut_tin"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blasting_cut_tin"
+      "moonbits:blasting_cut_tin"
     ]
   }
 }

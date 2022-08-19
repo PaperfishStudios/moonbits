@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_charcoal"
+        "recipe": "moonbits:firing_charcoal"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_charcoal"
+      "moonbits:firing_charcoal"
     ]
   }
 }

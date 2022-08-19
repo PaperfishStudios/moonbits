@@ -29,7 +29,7 @@ public class HangingLeavesTreeDecorator extends TreeDecorator {
     }
 
     @Override
-    public void generate(class_7402 generator) {
+    public void generate(C_jvnizkzw generator) {
 		RandomGenerator random = generator.method_43320();
 		TestableWorld world = generator.method_43316();
         List<BlockPos> leavesPositions = generator.method_43322();
@@ -40,7 +40,7 @@ public class HangingLeavesTreeDecorator extends TreeDecorator {
                 int r = random.nextInt(4);
                 BlockPos blockPos = pos.down();
                 if (r < 2) {
-                    generator.method_43318(blockPos, this.provider.getBlockState(random, pos));
+                    generator.m_lgousnhs(blockPos, this.provider.getBlockState(random, pos));
                 }
             });
         }

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smelting_saffron_mushbrick"
+        "recipe": "moonbits:smelting_saffron_mushbrick"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smelting_saffron_mushbrick"
+      "moonbits:smelting_saffron_mushbrick"
     ]
   }
 }

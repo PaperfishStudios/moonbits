@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smelting_smooth_mudstone"
+        "recipe": "moonbits:smelting_smooth_mudstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smelting_smooth_mudstone"
+      "moonbits:smelting_smooth_mudstone"
     ]
   }
 }

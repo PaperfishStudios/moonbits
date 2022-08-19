@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smelting_brown_mushbrick"
+        "recipe": "moonbits:smelting_brown_mushbrick"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smelting_brown_mushbrick"
+      "moonbits:smelting_brown_mushbrick"
     ]
   }
 }

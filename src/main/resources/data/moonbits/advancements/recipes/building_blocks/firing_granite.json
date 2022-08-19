@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_granite"
+        "recipe": "moonbits:firing_granite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_granite"
+      "moonbits:firing_granite"
     ]
   }
 }

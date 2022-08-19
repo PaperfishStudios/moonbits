@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_chert"
+        "recipe": "moonbits:firing_chert"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_chert"
+      "moonbits:firing_chert"
     ]
   }
 }

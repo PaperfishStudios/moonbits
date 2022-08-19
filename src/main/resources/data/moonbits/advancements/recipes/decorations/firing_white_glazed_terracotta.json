@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_white_glazed_terracotta"
+        "recipe": "moonbits:firing_white_glazed_terracotta"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_white_glazed_terracotta"
+      "moonbits:firing_white_glazed_terracotta"
     ]
   }
 }

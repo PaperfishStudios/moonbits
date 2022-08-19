@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:washing_orange_concrete"
+        "recipe": "moonbits:washing_orange_concrete"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:washing_orange_concrete"
+      "moonbits:washing_orange_concrete"
     ]
   }
 }

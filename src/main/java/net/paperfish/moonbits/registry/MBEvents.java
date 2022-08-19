@@ -105,10 +105,18 @@ public class MBEvents {
     public static BiMap<Block, Block> PLUCK = GROWING.inverse();
 
 	public static final Map<Block, Block> TAPPABLE = new ImmutableMap.Builder<Block, Block>()
+			.put(Blocks.OAK_LOG, MBBlocks.SAP_TREE_TAP)
+			.put(Blocks.SPRUCE_LOG, MBBlocks.SAP_TREE_TAP)
 			.put(Blocks.BIRCH_LOG, MBBlocks.SYRUP_TREE_TAP)
+			.put(Blocks.JUNGLE_LOG, MBBlocks.SAP_TREE_TAP)
+			.put(Blocks.ACACIA_LOG, MBBlocks.SAP_TREE_TAP)
+			.put(Blocks.DARK_OAK_LOG, MBBlocks.SAP_TREE_TAP)
+			.put(Blocks.MANGROVE_LOG, MBBlocks.SAP_TREE_TAP)
+			.put(MBBlocks.LAMPROOT_LOG, MBBlocks.SAP_TREE_TAP)
 			.put(MBBlocks.CEDAR_LOG, MBBlocks.RESIN_TREE_TAP)
 			.build();
 	public static final Map<Block, Item> TAP_RESULT = new ImmutableMap.Builder<Block, Item>()
+			.put(MBBlocks.SAP_TREE_TAP, MBItems.SAP)
 			.put(MBBlocks.SYRUP_TREE_TAP, MBItems.SYRUP_BOTTLE)
 			.put(MBBlocks.RESIN_TREE_TAP, MBItems.RESIN)
 			.build();

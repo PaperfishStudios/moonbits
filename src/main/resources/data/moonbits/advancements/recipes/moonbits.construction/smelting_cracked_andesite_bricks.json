@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smelting_cracked_andesite_bricks"
+        "recipe": "moonbits:smelting_cracked_andesite_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smelting_cracked_andesite_bricks"
+      "moonbits:smelting_cracked_andesite_bricks"
     ]
   }
 }

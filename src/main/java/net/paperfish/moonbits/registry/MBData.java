@@ -1,14 +1,12 @@
 package net.paperfish.moonbits.registry;
 
 import com.github.aws404.booking_it.BookingIt;
-import com.google.common.collect.ImmutableMap;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FlattenableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.TillableBlockRegistry;
-import net.fabricmc.fabric.mixin.content.registry.AxeItemAccessor;
-import net.minecraft.block.Block;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.HoeItem;
 import net.minecraft.recipe.CookingRecipeSerializer;
@@ -16,13 +14,8 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.screen.ScreenHandlerType;
-import net.minecraft.util.Holder;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
-import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.gen.noise.NoiseParametersKeys;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.advancement.ItemWashedCriterion;
 import net.paperfish.moonbits.mixin.CriteriaAccessor;
@@ -33,17 +26,13 @@ import net.paperfish.moonbits.recipe.WashingRecipe;
 import net.paperfish.moonbits.screen.CookingScreenHandler;
 import net.paperfish.moonbits.screen.KilnScreenHandler;
 
-import java.util.Map;
-
 public class MBData {
     // for initializing anything that isnt big enough for its own class i guess
-
-	public static final Map<Block, Block> STRIPPED_BLOCKS;
 
 	public static final RecipeBookCategory KILN_BOOK_CATEGORY;
 
 	public static final RecipeType<KilnRecipe> KILN_RECIPE_TYPE;
-	public static final RecipeSerializer<KilnRecipe> KILN_RECIPE_SERIALIZER;
+	public static final CookingRecipeSerializer<KilnRecipe> KILN_RECIPE_SERIALIZER;
 	public static final ScreenHandlerType<KilnScreenHandler> KILN_SCREEN_HANDLER;
 
 	public static final RecipeType<CookingRecipe> COOKING_RECIPE_TYPE;
@@ -61,14 +50,6 @@ public class MBData {
 //	public static final RegistryKey<DoublePerlinNoiseSampler.NoiseParameters> SANDY_SOIL_NOISE;
 
 	static {
-			STRIPPED_BLOCKS = ImmutableMap.<Block, Block>builder()
-					.putAll(AxeItemAccessor.getStrippedBlocks())
-					.put(MBBlocks.CEDAR_LOG, MBBlocks.STRIPPED_CEDAR_LOG)
-					.put(MBBlocks.CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_WOOD)
-
-					.put(MBBlocks.MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_STEM)
-					.put(MBBlocks.MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_HYPHAE)
-				.build();
 
 		KILN_BOOK_CATEGORY = BookingIt.getCategory("FIRING");
 
@@ -153,7 +134,7 @@ public class MBData {
 //		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.PLUCKED_GLOW_BERRY_HEDGE, 30, 60);
 
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.LAMPROOT_BULB, 60, 100);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.BUTTERCUP, 60, 100);
+		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.SOURSOBS, 60, 100);
 
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.PAPER_BUNDLE, 60, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STICK_STACK, 30, 60);
@@ -187,7 +168,12 @@ public class MBData {
 		FuelRegistry.INSTANCE.add(MBBlocks.BLAZE_ROD_BUNDLE, 24000);
 
 		// register strippable blocks
-		AxeItemAccessor.setStrippedBlocks(STRIPPED_BLOCKS);
+		StrippableBlockRegistry.register(MBBlocks.CEDAR_LOG, MBBlocks.STRIPPED_CEDAR_LOG);
+		StrippableBlockRegistry.register(MBBlocks.CEDAR_WOOD, MBBlocks.STRIPPED_CEDAR_WOOD);
+		StrippableBlockRegistry.register(MBBlocks.LAMPROOT_LOG, MBBlocks.STRIPPED_LAMPROOT_LOG);
+		StrippableBlockRegistry.register(MBBlocks.LAMPROOT_WOOD, MBBlocks.STRIPPED_LAMPROOT_WOOD);
+		StrippableBlockRegistry.register(MBBlocks.MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_STEM);
+		StrippableBlockRegistry.register(MBBlocks.MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_HYPHAE);
 
 		TillableBlockRegistry.register(MBBlocks.LEAFBED, HoeItem::canTillFarmland, Blocks.FARMLAND.getDefaultState());
 		TillableBlockRegistry.register(Blocks.DIRT_PATH, (a) -> true, Blocks.DIRT.getDefaultState());

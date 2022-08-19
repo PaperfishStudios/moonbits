@@ -29,16 +29,19 @@ public class MBItems {
 	public static final Item GRASS_TUFT = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item MILK_BOTTLE = new MilkBottleItem(new QuiltItemSettings().group(MBItemGroup.MB_FOOD).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE));
 
-	public static final Item FLINT_SWORD = new SwordItem(MBToolMaterials.FLINT, 3, -2.4F, new Item.Settings().group(ItemGroup.COMBAT));
-	public static final Item FLINT_SHOVEL = new ShovelItem(MBToolMaterials.FLINT, 1.5F, -3.0F, new Item.Settings().group(ItemGroup.TOOLS));
-	public static final Item FLINT_PICKAXE = new MBPickaxeItem(MBToolMaterials.FLINT, 1, -2.8F, new Item.Settings().group(ItemGroup.TOOLS));
-	public static final Item FLINT_AXE = new MBAxeItem(MBToolMaterials.FLINT, 7.0F, -3.2F, new Item.Settings().group(ItemGroup.TOOLS));
-	public static final Item FLINT_HOE = new MBHoeItem(MBToolMaterials.FLINT, -1, -2.0F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final Item FLINT_SWORD = new SwordItem(MBToolMaterials.FLINT, 3, -2.2F, new Item.Settings().group(ItemGroup.COMBAT));
+	public static final Item FLINT_SHOVEL = new ShovelItem(MBToolMaterials.FLINT, 2.5F, -2.6F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final Item FLINT_PICKAXE = new MBPickaxeItem(MBToolMaterials.FLINT, 2, -2.8F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final Item FLINT_AXE = new MBAxeItem(MBToolMaterials.FLINT, 5.5F, -2.2F, new Item.Settings().group(ItemGroup.TOOLS));
+	public static final Item FLINT_HOE = new MBHoeItem(MBToolMaterials.FLINT, 0, -1.0F, new Item.Settings().group(ItemGroup.TOOLS));
 
 	public static final Item SAP = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item SYRUP_BOTTLE = new StatusClearingBottleItem(StatusEffects.SLOWNESS,
 			new QuiltItemSettings().food(FoodComponents.HONEY_BOTTLE).recipeRemainder(Items.GLASS_BOTTLE).maxCount(16).group(MBItemGroup.MB_FOOD));
 	public static final Item RESIN = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
+
+	public static final Item SOURSOB = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD)
+			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.3f).build()));
 
 	public static final Item ITEM_HOOK = new ItemHookItem(MBEntities.ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
 	public static final Item GLOW_ITEM_HOOK = new ItemHookItem(MBEntities.GLOW_ITEM_HOOK_ENTITY, (new Item.Settings()).group(MBItemGroup.DECOR));
@@ -209,6 +212,8 @@ public class MBItems {
 		addItem("syrup_bottle", SYRUP_BOTTLE);
 		addItem("sap", SAP);
 		addItem("resin", RESIN);
+
+		addItem("soursob", SOURSOB);
 
 		//addItem("apple_seeds", APPLE_SEEDS);
 

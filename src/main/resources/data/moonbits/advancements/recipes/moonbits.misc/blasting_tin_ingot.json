@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blasting_tin_ingot"
+        "recipe": "moonbits:blasting_tin_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blasting_tin_ingot"
+      "moonbits:blasting_tin_ingot"
     ]
   }
 }

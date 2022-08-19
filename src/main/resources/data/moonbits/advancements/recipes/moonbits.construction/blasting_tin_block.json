@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blasting_tin_block"
+        "recipe": "moonbits:blasting_tin_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blasting_tin_block"
+      "moonbits:blasting_tin_block"
     ]
   }
 }

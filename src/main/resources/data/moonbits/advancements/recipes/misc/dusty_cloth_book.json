@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:dusty_cloth_book"
+        "recipe": "moonbits:dusty_cloth_book"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:dusty_cloth_book"
+      "moonbits:dusty_cloth_book"
     ]
   }
 }

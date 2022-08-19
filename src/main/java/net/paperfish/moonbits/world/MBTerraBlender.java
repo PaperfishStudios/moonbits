@@ -10,7 +10,8 @@ public class MBTerraBlender implements TerraBlenderApi {
     @Override
     public void onTerraBlenderInitialized() {
         Regions.register(new MBAutumnRegion());
-        SurfaceRuleManager.addToDefaultSurfaceRulesAtStage(SurfaceRuleManager.RuleCategory.OVERWORLD, SurfaceRuleManager.RuleStage.AFTER_BEDROCK, 1, MBSurfaceRules.makeRules());
+        SurfaceRuleManager.addToDefaultSurfaceRulesAtStage(SurfaceRuleManager.RuleCategory.OVERWORLD, SurfaceRuleManager.RuleStage.AFTER_BEDROCK, 1,
+				MBSurfaceRules.makeRules());
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, Moonbits.MODID, MBSurfaceRules.makeRules());
     }
 }

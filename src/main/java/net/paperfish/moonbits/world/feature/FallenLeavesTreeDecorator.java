@@ -33,7 +33,7 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
     }
 
     @Override
-    public void generate(class_7402 generator) {
+    public void generate(C_jvnizkzw generator) {
 		RandomGenerator random = generator.method_43320();
         TestableWorld world = generator.method_43316();
         generator.method_43322().stream().filter((pos) -> generator.method_43316().testBlockState(pos.down(), AbstractBlock.AbstractBlockState::isAir)).forEach(pos -> {
@@ -45,7 +45,7 @@ public class FallenLeavesTreeDecorator extends TreeDecorator {
             // once you've reached the last air block, place the fallen leaves.
             BlockState a = this.provider.getBlockState(random, pos);
             if (a.canPlaceAt((WorldView) world, blockPos) && random.nextInt(8) == 0) {
-                generator.method_43318(blockPos, a);
+                generator.m_lgousnhs(blockPos, a);
             }
         });
     }

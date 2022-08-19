@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_smooth_sandstone"
+        "recipe": "moonbits:firing_smooth_sandstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_smooth_sandstone"
+      "moonbits:firing_smooth_sandstone"
     ]
   }
 }

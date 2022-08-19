@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:campfire_torch"
+        "recipe": "moonbits:campfire_torch"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:campfire_torch"
+      "moonbits:campfire_torch"
     ]
   }
 }

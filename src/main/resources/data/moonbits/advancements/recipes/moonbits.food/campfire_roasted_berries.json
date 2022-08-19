@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:campfire_roasted_berries"
+        "recipe": "moonbits:campfire_roasted_berries"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:campfire_roasted_berries"
+      "moonbits:campfire_roasted_berries"
     ]
   }
 }

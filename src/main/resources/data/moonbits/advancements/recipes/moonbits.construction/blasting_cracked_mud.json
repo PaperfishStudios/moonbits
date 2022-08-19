@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blasting_cracked_mud"
+        "recipe": "moonbits:blasting_cracked_mud"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blasting_cracked_mud"
+      "moonbits:blasting_cracked_mud"
     ]
   }
 }

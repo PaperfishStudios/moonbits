@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "C": {
-      "item": "minecraft:copper_ingot"
+      "item": "moonbits:tin_ingot"
     },
     "S": {
       "item": "minecraft:stick"

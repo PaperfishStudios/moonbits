@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:washing_white_concrete"
+        "recipe": "moonbits:washing_white_concrete"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:washing_white_concrete"
+      "moonbits:washing_white_concrete"
     ]
   }
 }

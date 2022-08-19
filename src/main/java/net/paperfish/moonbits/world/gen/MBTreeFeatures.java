@@ -123,7 +123,7 @@ public class MBTreeFeatures {
             MBConfiguredFeatures.register("big_red_oak", Feature.TREE,
                     new TreeFeatureConfig.Builder(
                     BlockStateProvider.of(Blocks.DARK_OAK_LOG),
-                    new DarkOakTrunkPlacer(6, 2, 1),
+                    new DarkOakTrunkPlacer(7, 2, 1),
                     BlockStateProvider.of(MBBlocks.RED_OAK_LEAVES),
                     new DarkOakFoliagePlacer(ConstantIntProvider.create(0),
                             ConstantIntProvider.create(0)),
@@ -199,12 +199,12 @@ public class MBTreeFeatures {
 //    }
 
     private static TreeFeatureConfig.Builder goldenBirch() {
-        return treeBuilder(Blocks.BIRCH_LOG, MBBlocks.GOLDEN_BIRCH_LEAVES, 4, 2, 0, 2).ignoreVines();
+        return treeBuilder(Blocks.BIRCH_LOG, MBBlocks.GOLDEN_BIRCH_LEAVES, 5, 2, 0, 2).ignoreVines();
     }
     private static TreeFeatureConfig.Builder superGoldenBirch() {
-        return treeBuilder(Blocks.BIRCH_LOG, MBBlocks.GOLDEN_BIRCH_LEAVES, 6, 2, 6, 2).ignoreVines();
+        return treeBuilder(Blocks.BIRCH_LOG, MBBlocks.GOLDEN_BIRCH_LEAVES, 6, 2, 5, 2).ignoreVines();
     }
     private static TreeFeatureConfig.Builder redOak() {
-        return treeBuilder(Blocks.DARK_OAK_LOG, MBBlocks.RED_OAK_LEAVES, 4, 2, 0, 2).ignoreVines();
+        return treeBuilder(Blocks.DARK_OAK_LOG, MBBlocks.RED_OAK_LEAVES, 5, 2, 0, 2).ignoreVines();
     }
 }

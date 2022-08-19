@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:smelting_cut_tin"
+        "recipe": "moonbits:smelting_cut_tin"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:smelting_cut_tin"
+      "moonbits:smelting_cut_tin"
     ]
   }
 }

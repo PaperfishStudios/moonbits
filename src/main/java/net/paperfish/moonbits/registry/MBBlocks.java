@@ -249,6 +249,7 @@ public class MBBlocks {
 	public static final Block SYRUP_BLOCK = new SyrupBlock(AbstractBlock.Settings.copy(Blocks.HONEY_BLOCK).dynamicBounds());
 
 	public static final Block TREE_TAP = new TreeTapBlock(AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK));
+	public static final Block SAP_TREE_TAP = new FilledTreeTapBlock(false, AbstractBlock.Settings.copy(TREE_TAP).dropsLike(TREE_TAP));
 	public static final Block SYRUP_TREE_TAP = new FilledTreeTapBlock(true, AbstractBlock.Settings.copy(TREE_TAP).dropsLike(TREE_TAP));
 	public static final Block RESIN_TREE_TAP = new FilledTreeTapBlock(false, AbstractBlock.Settings.copy(TREE_TAP).dropsLike(TREE_TAP));
 
@@ -460,9 +461,9 @@ public class MBBlocks {
 	public static final Block CHISELED_MUDSTONE = new Block(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).mapColor(MapColor.TERRACOTTA_BROWN).sounds(BlockSoundGroup.STONE));
 
 	// FLOWER FOREST
-	public static final Block BUTTERCUP = new FlowerBlock(StatusEffects.POISON, 12, AbstractBlock.Settings.of(Material.PLANT)
-			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
-	public static final Block POTTED_BUTTERCUP = new FlowerPotBlock(BUTTERCUP, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+	public static final Block SOURSOBS = new CarpetFloraBlock(AbstractBlock.Settings.of(Material.PLANT)
+			.noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).offsetType(AbstractBlock.OffsetType.XZ));
+	public static final Block POTTED_SOURSOBS = new FlowerPotBlock(SOURSOBS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 	public static final Block FORGETMENOT = new FlowerBlock(StatusEffects.INSTANT_HEALTH, 12, AbstractBlock.Settings.of(Material.PLANT)
 			.noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ));
 	public static final Block POTTED_FORGETMENOT = new FlowerPotBlock(FORGETMENOT, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
@@ -1569,8 +1570,8 @@ public class MBBlocks {
 		createBlock("mycelium_roots", MYCELIUM_ROOTS, MBItemGroup.DECOR);
 
 		// FLOWERS
-		createBlock("buttercup", BUTTERCUP, MBItemGroup.DECOR);
-		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_buttercup"), POTTED_BUTTERCUP);
+		createBlock("soursobs", SOURSOBS, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_soursobs"), POTTED_SOURSOBS);
 		createBlock("forget_me_not", FORGETMENOT, MBItemGroup.DECOR);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "potted_forget_me_not"), POTTED_FORGETMENOT);
 		createBlock("marigold", MARIGOLD, MBItemGroup.DECOR);
@@ -1693,6 +1694,7 @@ public class MBBlocks {
 //				FabricBlockEntityTypeBuilder.create(CookingPotBlockEntity::new, COOKING_POT).build(null));
 
 		createBlock("tree_tap", TREE_TAP, MBItemGroup.DECOR);
+		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "tree_tap_sap"), SAP_TREE_TAP);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "tree_tap_syrup"), SYRUP_TREE_TAP);
 		Registry.register(Registry.BLOCK, new Identifier(Moonbits.MODID, "tree_tap_resin"), RESIN_TREE_TAP);
 		createBlock("syrup_block", SYRUP_BLOCK, ItemGroup.REDSTONE);

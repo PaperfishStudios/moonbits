@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:torch_from_sap"
+        "recipe": "moonbits:torch_from_sap"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:torch_from_sap"
+      "moonbits:torch_from_sap"
     ]
   }
 }

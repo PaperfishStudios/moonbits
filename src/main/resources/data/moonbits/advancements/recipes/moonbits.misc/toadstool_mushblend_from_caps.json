@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:toadstool_mushblend_from_caps"
+        "recipe": "moonbits:toadstool_mushblend_from_caps"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:toadstool_mushblend_from_caps"
+      "moonbits:toadstool_mushblend_from_caps"
     ]
   }
 }

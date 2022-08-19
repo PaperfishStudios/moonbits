@@ -8,7 +8,7 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum MBToolMaterials implements ToolMaterial {
-	FLINT(1, 80, 4.0F, 1.0F, 5, () -> Ingredient.ofItems(Items.FLINT));
+	FLINT(1, 80, 8.0F, 1.0F, 5, () -> Ingredient.ofItems(Items.FLINT));
 
 	private final int miningLevel;
 	private final int itemDurability;
@@ -17,12 +17,12 @@ public enum MBToolMaterials implements ToolMaterial {
 	private final int enchantability;
 	private final Lazy<Ingredient> repairIngredient;
 
-	MBToolMaterials(int j, int k, float f, float g, int l, Supplier<Ingredient> supplier) {
-		this.miningLevel = j;
-		this.itemDurability = k;
-		this.miningSpeed = f;
-		this.attackDamage = g;
-		this.enchantability = l;
+	MBToolMaterials(int miningLevel, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> supplier) {
+		this.miningLevel = miningLevel;
+		this.itemDurability = itemDurability;
+		this.miningSpeed = miningSpeed;
+		this.attackDamage = attackDamage;
+		this.enchantability = enchantability;
 		this.repairIngredient = new Lazy<>(supplier);
 	}
 

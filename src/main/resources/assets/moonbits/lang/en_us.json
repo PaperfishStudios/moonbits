@@ -72,7 +72,8 @@
  	"block.moonbits.warped_nylium_turf_stairs": "Warped Nylium Stairs",
  	"block.moonbits.warped_nylium_turf_slab": "Warped Nylium Slab",
  	"block.moonbits.warped_nylium_carpet": "Warped Nylium Carpet",
- 	"block.moonbits.buttercup": "Buttercup",
+ 	"block.moonbits.soursobs": "Soursobs",
+ 	"item.moonbits.soursob": "Soursob",
 	"block.moonbits.wild_carrots": "Wild Carrots",
 	"block.moonbits.wild_potatoes": "Wild Potatoes",
 	"block.moonbits.sea_beets": "Sea Beets",
@@ -230,6 +231,8 @@
 	"block.moonbits.lamproot_bulb": "Lamproot Bulb",
 	
 	"block.moonbits.cavebloom_flowers": "Caveblooms",
+	
+    "item.moonbits.monster_hide": "Monster Hide",
 	
     "block.moonbits.rabbit_mound": "Rabbit Mound",
     "block.moonbits.giga_carrot": "Giga Carrot",

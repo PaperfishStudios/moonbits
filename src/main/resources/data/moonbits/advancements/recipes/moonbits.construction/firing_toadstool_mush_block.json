@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_toadstool_mush_block"
+        "recipe": "moonbits:firing_toadstool_mush_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_toadstool_mush_block"
+      "moonbits:firing_toadstool_mush_block"
     ]
   }
 }

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_popped_chorus_fruit"
+        "recipe": "moonbits:firing_popped_chorus_fruit"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_popped_chorus_fruit"
+      "moonbits:firing_popped_chorus_fruit"
     ]
   }
 }

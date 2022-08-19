@@ -11,11 +11,11 @@ import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.tag.TagKey;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.*;
 import net.paperfish.moonbits.recipe.WashingRecipeJsonFactory;
@@ -82,7 +82,8 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         TRANSMUTE.put(List.of(Items.CHARCOAL, Items.BLACK_DYE), 1);
 
         TRANSMUTE.put(List.of(MBBlocks.MARIGOLD, Items.ORANGE_DYE), 1);
-        TRANSMUTE.put(List.of(MBBlocks.BUTTERCUP, Items.YELLOW_DYE), 1);
+        TRANSMUTE.put(List.of(MBBlocks.SOURSOBS, Items.YELLOW_DYE), 1);
+		TRANSMUTE.put(List.of(MBItems.SOURSOB, Items.YELLOW_DYE), 1);
         TRANSMUTE.put(List.of(MBBlocks.FORGETMENOT, Items.LIGHT_BLUE_DYE), 1);
 
         TRANSMUTE.put(List.of(MBBlocks.WHITE_HEATHER, Items.WHITE_DYE), 1);
@@ -514,7 +515,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 
         ShapedRecipeJsonFactory.create(MBItems.TOADSTOOL_MUSHBLEND, 4).input('#', MBItems.TOADSTOOL_CAP).input('B', Items.BONE_MEAL).pattern("#B").pattern("B#")
                 .criterion(RecipesProvider.hasItem(MBItems.TOADSTOOL_CAP), RecipesProvider.conditionsFromItem(MBItems.TOADSTOOL_CAP))
-                .offerTo(exporter, "toadstool_mushblend_from_caps");
+                .offerTo(exporter, new Identifier(Moonbits.MODID, "toadstool_mushblend_from_caps"));
         condense(exporter, MBBlocks.SMALL_TOADSTOOLS, MBBlocks.GIANT_TOADSTOOL_CAP, 2);
 //        firing(exporter, MBItems.RED_MUSHBLEND, MBItems.RED_MUSHBRICK, 0.3f, DEFAULT_FIRE_TIME);
 //        firing(exporter, MBItems.BROWN_MUSHBLEND, MBItems.BROWN_MUSHBRICK, 0.3f, DEFAULT_FIRE_TIME);
@@ -588,15 +589,16 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         ShapedRecipeJsonFactory.create(Items.TORCH, 2)
                 .input('P', MBItems.PEAT).input('S', Items.STICK)
                 .pattern("P").pattern("S")
-                .criterion(RecipesProvider.hasItem(MBItems.PEAT), RecipesProvider.conditionsFromItem(MBItems.PEAT)).offerTo(exporter, "torch_from_peat");
+                .criterion(RecipesProvider.hasItem(MBItems.PEAT), RecipesProvider.conditionsFromItem(MBItems.PEAT))
+				.offerTo(exporter, new Identifier(Moonbits.MODID, "torch_from_peat"));
 
         ShapelessRecipeJsonFactory.create(MBItems.GLOW_ITEM_HOOK)
                 .input(MBItems.ITEM_HOOK).input(Items.GLOW_INK_SAC)
                 .criterion(RecipesProvider.hasItem(Items.GLOW_INK_SAC), RecipesProvider.conditionsFromItem(Items.GLOW_INK_SAC)).offerTo(exporter);
         ShapedRecipeJsonFactory.create(MBItems.WRENCH)
-                .input('C', Items.COPPER_INGOT).input('S', Items.STICK)
+                .input('C', MBItems.TIN_INGOT).input('S', Items.STICK)
                 .pattern(" C ").pattern(" SC").pattern("S  ")
-                .criterion(RecipesProvider.hasItem(Items.COPPER_INGOT), RecipesProvider.conditionsFromItem(Items.COPPER_INGOT)).offerTo(exporter);
+                .criterion(RecipesProvider.hasItem(MBItems.TIN_INGOT), RecipesProvider.conditionsFromItem(MBItems.TIN_INGOT)).offerTo(exporter);
         ShapedRecipeJsonFactory.create(MBBlocks.ROPE_LADDER, 3)
                 .input('#', MBItems.PARASOL_FIBER).input('S', Items.STICK)
                 .pattern("# #").pattern("SSS").pattern("# #")
@@ -624,8 +626,8 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .criterion(RecipesProvider.hasItem(Items.LEATHER), RecipesProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
 
         ShapedRecipeJsonFactory.create(MBBlocks.TREE_TAP)
-                .input('I', MBItems.TIN_INGOT)
-                .pattern("I I").pattern(" I ")
+                .input('I', MBItems.TIN_INGOT).input('S', Items.STICK).m_hadhiznl('P', ItemTags.PLANKS)
+                .pattern("I I").pattern("SPS")
                 .criterion(RecipesProvider.hasItem(MBItems.TIN_INGOT), RecipesProvider.conditionsFromItem(MBItems.TIN_INGOT)).offerTo(exporter);
 
         ShapedRecipeJsonFactory.create(MBBlocks.SYRUP_BLOCK)
@@ -640,7 +642,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 		ShapelessRecipeJsonFactory.create(Items.TORCH, 4)
 				.input(Items.STICK).input(MBItems.SAP, 3)
 				.criterion("has_sap", RecipesProvider.conditionsFromItem(MBItems.SAP))
-				.offerTo(exporter, "torch_from_sap");
+				.offerTo(exporter, new Identifier(Moonbits.MODID, "torch_from_sap"));
 
         campfire(exporter, Items.SWEET_BERRIES, MBItems.ROASTED_BERRIES, 0.1f,50);
         condense(exporter, MBItems.PUMPKIN_SLICE, Items.PUMPKIN, 1);
@@ -670,7 +672,8 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeJsonFactory.create(Items.BOOK)
                 .input(Items.PAPER).input(Items.PAPER).input(Items.PAPER).input(MBItems.BURLAP)
-                .criterion("has_cloth", RecipesProvider.conditionsFromItem(MBItems.BURLAP)).offerTo(exporter, "dusty_cloth_book");
+                .criterion("has_cloth", RecipesProvider.conditionsFromItem(MBItems.BURLAP))
+				.offerTo(exporter, new Identifier(Moonbits.MODID, "dusty_cloth_book"));
 
         campfire(exporter, Items.STICK, Items.TORCH, 0.1f, 600);
         campfire(exporter, Items.WET_SPONGE, Items.SPONGE, 0f, 600);
@@ -718,19 +721,26 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 
         // mixed cobble recipes
         ShapedRecipeJsonFactory.create(Blocks.DISPENSER).input('R', Items.REDSTONE).input('#', Ingredient.ofTag(MBItemTags.COBBLESTONE)).input('X', Items.BOW)
-                .pattern("###").pattern("#X#").pattern("#R#").criterion("has_bow", RecipesProvider.conditionsFromItem(Items.BOW)).offerTo(exporter, "dispenser_mixed_cobble");
+                .pattern("###").pattern("#X#").pattern("#R#").criterion("has_bow", RecipesProvider.conditionsFromItem(Items.BOW))
+				.offerTo(exporter, "dispenser_mixed_cobble");
 
         ShapedRecipeJsonFactory.create(Blocks.DISPENSER).input('#', Items.STICK).input('X', Items.STRING).input('D', Items.DROPPER)
-                .pattern(" #X").pattern("#DX").pattern(" #X").criterion("has_string", RecipesProvider.conditionsFromItem(Items.STRING)).offerTo(exporter, "alt_dispenser");
+                .pattern(" #X").pattern("#DX").pattern(" #X").criterion("has_string", RecipesProvider.conditionsFromItem(Items.STRING))
+				.offerTo(exporter, "alt_dispenser");
 
         ShapedRecipeJsonFactory.create(Blocks.DROPPER).input('R', Items.REDSTONE).input('#', Ingredient.ofTag(MBItemTags.COBBLESTONE))
-                .pattern("###").pattern("# #").pattern("#R#").criterion("has_redstone", RecipesProvider.conditionsFromItem(Items.REDSTONE)).offerTo(exporter, "dropper_mixed_cobble");
+                .pattern("###").pattern("# #").pattern("#R#").criterion("has_redstone", RecipesProvider.conditionsFromItem(Items.REDSTONE))
+				.offerTo(exporter, "dropper_mixed_cobble");
         ShapedRecipeJsonFactory.create(Blocks.LEVER).input('#', Ingredient.ofTag(MBItemTags.COBBLESTONE)).input('X', Items.STICK)
-                .pattern("X").pattern("#").criterion("has_cobblestone", RecipesProvider.method_10420(MBItemTags.COBBLESTONE)).offerTo(exporter, "lever_mixed_cobble");
+                .pattern("X").pattern("#").criterion("has_cobblestone", RecipesProvider.method_10420(MBItemTags.COBBLESTONE))
+				.offerTo(exporter, "lever_mixed_cobble");
         ShapedRecipeJsonFactory.create(Blocks.OBSERVER).input('Q', Items.QUARTZ).input('R', Items.REDSTONE).input('#', Ingredient.ofTag(MBItemTags.COBBLESTONE))
-                .pattern("###").pattern("RRQ").pattern("###").criterion("has_quartz", RecipesProvider.conditionsFromItem(Items.QUARTZ)).offerTo(exporter, "observer_mixed_cobble");
-        ShapedRecipeJsonFactory.create(Blocks.PISTON).input('R', Items.REDSTONE).input('#', Ingredient.ofTag(MBItemTags.COBBLESTONE)).input('T', Ingredient.ofTag(ItemTags.PLANKS)).input('X', Items.IRON_INGOT)
-                .pattern("TTT").pattern("#X#").pattern("#R#").criterion("has_redstone", RecipesProvider.conditionsFromItem(Items.REDSTONE)).offerTo(exporter, "piston_mixed_cobble");
+                .pattern("###").pattern("RRQ").pattern("###").criterion("has_quartz", RecipesProvider.conditionsFromItem(Items.QUARTZ))
+				.offerTo(exporter, "observer_mixed_cobble");
+        ShapedRecipeJsonFactory.create(Blocks.PISTON).input('R', Items.REDSTONE).input('#', Ingredient.ofTag(MBItemTags.COBBLESTONE))
+				.input('T', Ingredient.ofTag(ItemTags.PLANKS)).input('X', Items.IRON_INGOT)
+                .pattern("TTT").pattern("#X#").pattern("#R#").criterion("has_redstone", RecipesProvider.conditionsFromItem(Items.REDSTONE))
+				.offerTo(exporter, "piston_mixed_cobble");
 
         ShapedRecipeJsonFactory.create(Blocks.BLAST_FURNACE).input('#', MBBlocks.SMOOTH_DEEPSLATE).input('X', Blocks.FURNACE).input('I', Items.IRON_INGOT)
                 .pattern("III").pattern("IXI").pattern("###").criterion("has_smooth_deepslate", RecipesProvider.conditionsFromItem(MBBlocks.SMOOTH_DEEPSLATE))
@@ -932,37 +942,37 @@ public class MBRecipeProvider extends FabricRecipeProvider {
     public static void smelting(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {
         CookingRecipeJsonFactory.create(Ingredient.ofItems(input), output, experience, cookingTime, RecipeSerializer.SMELTING)
                 .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
-                .offerTo(exporter, "smelting_" + RecipesProvider.getItemPath(output));
+                .offerTo(exporter, new Identifier(Moonbits.MODID, "smelting_" + RecipesProvider.getItemPath(output)));
     }
     public static void blasting(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {
         CookingRecipeJsonFactory.create(Ingredient.ofItems(input), output, experience, cookingTime, RecipeSerializer.BLASTING)
                 .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
-                .offerTo(exporter, "blasting_" + RecipesProvider.getItemPath(output));
+                .offerTo(exporter, new Identifier(Moonbits.MODID, "blasting_" + RecipesProvider.getItemPath(output)));
     }
     public static void smoking(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {
         CookingRecipeJsonFactory.create(Ingredient.ofItems(input), output, experience, cookingTime, RecipeSerializer.SMOKING)
                 .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
-                .offerTo(exporter, "smoking_" + RecipesProvider.getItemPath(output));
+                .offerTo(exporter, new Identifier(Moonbits.MODID, "smoking_" + RecipesProvider.getItemPath(output)));
     }
     public static void firing(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {
-        CookingRecipeJsonFactory.create(Ingredient.ofItems(input), output, experience, cookingTime, (CookingRecipeSerializer<?>) MBData.KILN_RECIPE_SERIALIZER)
+        CookingRecipeJsonFactory.create(Ingredient.ofItems(input), output, experience, cookingTime, MBData.KILN_RECIPE_SERIALIZER)
                 .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
-                .offerTo(exporter, "firing_" + RecipesProvider.getItemPath(output));
+                .offerTo(exporter, new Identifier(Moonbits.MODID, "firing_" + RecipesProvider.getItemPath(output)));
     }
     public static void firing(Consumer<RecipeJsonProvider> exporter, TagKey<Item> input, ItemConvertible output, float experience, int cookingTime, String criterion) {
-        CookingRecipeJsonFactory.create(Ingredient.ofTag(input), output, experience, cookingTime, (CookingRecipeSerializer<?>) MBData.KILN_RECIPE_SERIALIZER)
+        CookingRecipeJsonFactory.create(Ingredient.ofTag(input), output, experience, cookingTime, MBData.KILN_RECIPE_SERIALIZER)
                 .criterion(criterion, RecipesProvider.method_10420(input))
-                .offerTo(exporter, "firing_" + RecipesProvider.getItemPath(output));
+                .offerTo(exporter, new Identifier(Moonbits.MODID, "firing_" + RecipesProvider.getItemPath(output)));
     }
     public static void campfire(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output, float experience, int cookingTime) {
         CookingRecipeJsonFactory.create(Ingredient.ofItems(input), output, experience, cookingTime, RecipeSerializer.CAMPFIRE_COOKING)
                 .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
-                .offerTo(exporter, "campfire_" + RecipesProvider.getItemPath(output));
+                .offerTo(exporter, new Identifier(Moonbits.MODID, "campfire_" + RecipesProvider.getItemPath(output)));
     }
     public static void washing(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output, Block cauldron) {
         WashingRecipeJsonFactory.create(Ingredient.ofItems(input.asItem()), output.asItem(), cauldron)
                 .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
-                .offerTo(exporter, "washing_" + RecipesProvider.getItemPath(output));
+                .offerTo(exporter, new Identifier(Moonbits.MODID, "washing_" + RecipesProvider.getItemPath(output)));
     }
 
     public static void planksRecipe(Consumer<RecipeJsonProvider> exporter, TagKey<Item> input, ItemConvertible output) {

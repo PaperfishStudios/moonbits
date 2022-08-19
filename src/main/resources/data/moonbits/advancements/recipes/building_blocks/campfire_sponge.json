@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:campfire_sponge"
+        "recipe": "moonbits:campfire_sponge"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:campfire_sponge"
+      "moonbits:campfire_sponge"
     ]
   }
 }

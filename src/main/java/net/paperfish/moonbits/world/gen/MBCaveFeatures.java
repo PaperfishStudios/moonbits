@@ -7,6 +7,7 @@ import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Holder;
 import net.minecraft.util.HolderSet;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.VerticalSurfaceType;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
@@ -17,6 +18,7 @@ import net.minecraft.world.gen.feature.util.ConfiguredFeatureUtil;
 import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.registry.MBBlockTags;
 import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.world.feature.LamprootFeature;
@@ -32,7 +34,7 @@ public class MBCaveFeatures {
     public static final RuleTest PERMAFROST = new BlockMatchRuleTest(MBBlocks.PERMAFROST);
 
     public static final LamprootFeature LAMPROOT_FEATURE =
-            Registry.register(Registry.FEATURE, "lamproot_feature", new LamprootFeature(SimpleBlockFeatureConfig.CODEC));
+            Registry.register(Registry.FEATURE, new Identifier(Moonbits.MODID, "lamproot_feature"), new LamprootFeature(SimpleBlockFeatureConfig.CODEC));
 
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> T_REGOLITH =
             MBConfiguredFeatures.register("trans_regolith", Feature.ORE, new OreFeatureConfig(BASE_STONE_OVERWORLD, MBBlocks.REGOLITH.getDefaultState(), 32));
@@ -114,8 +116,8 @@ public class MBCaveFeatures {
     public static final List<OreFeatureConfig.Target> CHERT_REDSTONE = List.of(
             OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_REDSTONE_ORE.getDefaultState()));
     public static final List<OreFeatureConfig.Target> TIN_ORE_GEN = List.of(
+			OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_TIN_ORE.getDefaultState()),
             OreFeatureConfig.createTarget(BASE_STONE_OVERWORLD, MBBlocks.TIN_ORE.getDefaultState()),
-            OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_TIN_ORE.getDefaultState()),
             OreFeatureConfig.createTarget(DEEPSLATE, MBBlocks.DEEPSLATE_TIN_ORE.getDefaultState()));
 
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_TIN = MBConfiguredFeatures.register(

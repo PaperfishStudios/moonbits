@@ -13,7 +13,6 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
-import net.minecraft.loot.LootTables;
 import net.minecraft.loot.condition.*;
 import net.minecraft.loot.entry.EmptyEntry;
 import net.minecraft.loot.entry.ItemEntry;
@@ -40,10 +39,10 @@ import java.util.stream.Stream;
 public class MBLootTableProvider extends FabricBlockLootTableProvider {
     public List<Block> generatedBlocks = new ArrayList<>();
 	public static final LootCondition.Builder WITH_SILK_TOUCH = MatchToolLootCondition.builder(ItemPredicate.Builder.create().enchantment(new EnchantmentPredicate(Enchantments.SILK_TOUCH, NumberRange.IntRange.atLeast(1))));
-	public static final LootCondition.Builder WITHOUT_SILK_TOUCH = WITH_SILK_TOUCH.method_16780();
+	public static final LootCondition.Builder WITHOUT_SILK_TOUCH = WITH_SILK_TOUCH.invert();
 	public static final LootCondition.Builder WITH_SHEARS = MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(Items.SHEARS));
-	public static final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_SHEARS.method_893(WITH_SILK_TOUCH);
-	public static final LootCondition.Builder WITHOUT_SILK_TOUCH_NOR_SHEARS = WITH_SILK_TOUCH_OR_SHEARS.method_16780();
+	public static final LootCondition.Builder WITH_SILK_TOUCH_OR_SHEARS = WITH_SHEARS.or(WITH_SILK_TOUCH);
+	public static final LootCondition.Builder WITHOUT_SILK_TOUCH_NOR_SHEARS = WITH_SILK_TOUCH_OR_SHEARS.invert();
 	public static final Set<Item> EXPLOSION_IMMUNE = Stream.of(Blocks.DRAGON_EGG, Blocks.BEACON, Blocks.CONDUIT, Blocks.SKELETON_SKULL, Blocks.WITHER_SKELETON_SKULL, Blocks.PLAYER_HEAD, Blocks.ZOMBIE_HEAD, Blocks.CREEPER_HEAD, Blocks.DRAGON_HEAD, Blocks.SHULKER_BOX, Blocks.BLACK_SHULKER_BOX, Blocks.BLUE_SHULKER_BOX, Blocks.BROWN_SHULKER_BOX, Blocks.CYAN_SHULKER_BOX, Blocks.GRAY_SHULKER_BOX, Blocks.GREEN_SHULKER_BOX, Blocks.LIGHT_BLUE_SHULKER_BOX, Blocks.LIGHT_GRAY_SHULKER_BOX, Blocks.LIME_SHULKER_BOX, Blocks.MAGENTA_SHULKER_BOX, Blocks.ORANGE_SHULKER_BOX, Blocks.PINK_SHULKER_BOX, Blocks.PURPLE_SHULKER_BOX, Blocks.RED_SHULKER_BOX, Blocks.WHITE_SHULKER_BOX, Blocks.YELLOW_SHULKER_BOX).map(ItemConvertible::asItem).collect(ImmutableSet.toImmutableSet());
 	public static final float[] SAPLING_DROP_CHANCE = new float[]{0.05f, 0.0625f, 0.083333336f, 0.1f};
 	public static final float[] JUNGLE_SAPLING_DROP_CHANCE = new float[]{0.025f, 0.027777778f, 0.03125f, 0.041666668f, 0.1f};
@@ -349,7 +348,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.TALL_PRICKLY_PEAR_CACTUS, dropsWithShears(MBBlocks.PRICKLY_PEAR_CACTUS,
                 (ItemEntry.builder(MBBlocks.PRICKLY_PEAR_CACTUS).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(0, 2))))));
 
-        addDrop(MBBlocks.BUTTERCUP);
+        addDrop(MBBlocks.SOURSOBS, MBItems.SOURSOB);
         addDrop(MBBlocks.FORGETMENOT);
         addDrop(MBBlocks.PINK_HYACINTH, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
         addDrop(MBBlocks.WHITE_HYACINTH, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
@@ -393,8 +392,8 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.TOADSTOOL_MUSH_LAMP);
 
         addDrop(MBBlocks.LAMPROOT_BULB);
-        addDrop(MBBlocks.CAVEBLOOM_FLOWERS, (Block block) -> BlockLootTableGenerator.method_37108(block, WITH_SHEARS));
-        addDrop(MBBlocks.CAVEBLOOM_VINE, (Block block) -> BlockLootTableGenerator.method_37108(block, WITH_SHEARS));
+        addDrop(MBBlocks.CAVEBLOOM_FLOWERS, (Block block) -> BlockLootTableGenerator.m_gsfzuvjv(block, WITH_SHEARS));
+        addDrop(MBBlocks.CAVEBLOOM_VINE, (Block block) -> BlockLootTableGenerator.m_gsfzuvjv(block, WITH_SHEARS));
 
         addDrop(MBBlocks.FUR_BLOCK);
         addDrop(MBBlocks.FUR_CARPET);

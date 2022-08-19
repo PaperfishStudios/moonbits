@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_smooth_quartz"
+        "recipe": "moonbits:firing_smooth_quartz"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_smooth_quartz"
+      "moonbits:firing_smooth_quartz"
     ]
   }
 }

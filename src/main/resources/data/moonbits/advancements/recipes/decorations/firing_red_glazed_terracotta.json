@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_red_glazed_terracotta"
+        "recipe": "moonbits:firing_red_glazed_terracotta"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_red_glazed_terracotta"
+      "moonbits:firing_red_glazed_terracotta"
     ]
   }
 }

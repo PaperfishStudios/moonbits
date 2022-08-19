@@ -39,7 +39,7 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.TOUGH_GRASS,
                 MBBlocks.MYCELIUM_ROOTS,
 
-                MBBlocks.BUTTERCUP, MBBlocks.POTTED_BUTTERCUP,
+                MBBlocks.SOURSOBS, MBBlocks.POTTED_SOURSOBS,
                 MBBlocks.FORGETMENOT, MBBlocks.POTTED_FORGETMENOT,
 
                 MBBlocks.WILDFLOWERS, MBBlocks.POTTED_WILDFLOWERS,
@@ -84,7 +84,7 @@ public class MoonbitsClient implements ClientModInitializer {
 
                 MBBlocks.CEDAR_DOOR, MBBlocks.CEDAR_TRAPDOOR, MBBlocks.CEDAR_SAPLING, MBBlocks.POTTED_CEDAR_SAPLING,
 
-                MBBlocks.TREE_TAP, MBBlocks.SYRUP_TREE_TAP, MBBlocks.RESIN_TREE_TAP,
+                MBBlocks.TREE_TAP, MBBlocks.SYRUP_TREE_TAP, MBBlocks.SAP_TREE_TAP, MBBlocks.RESIN_TREE_TAP,
 
                 MBBlocks.FLOWERING_ACACIA_LEAVES,
 

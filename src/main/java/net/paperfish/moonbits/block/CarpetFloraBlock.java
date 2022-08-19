@@ -14,6 +14,7 @@ import net.paperfish.moonbits.registry.MBBlocks;
 public class CarpetFloraBlock extends PlantBlock {
 	protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 1.0, 16.0);
 	protected static final VoxelShape CLOVER_SHAPE = Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 4.0, 10.0);
+	protected static final VoxelShape FLOWER_SHAPE = Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 10.0, 11.0);
     public CarpetFloraBlock(Settings settings) {
         super(settings);
     }
@@ -23,6 +24,9 @@ public class CarpetFloraBlock extends PlantBlock {
         if (state.isOf(MBBlocks.CLOVER) && floor.isOf(Blocks.CLAY)) {
             return true;
         }
+		if (state.isOf(MBBlocks.SOURSOBS) && floor.isOf(MBBlocks.REGOLITH)) {
+			return true;
+		}
         return floor.isIn(BlockTags.DIRT) || floor.isIn(MBBlockTags.TOUGH_DIRT) ||
                 floor.isIn(MBBlockTags.PLANTER_BOXES) || floor.isOf(Blocks.FARMLAND);
     }
@@ -31,6 +35,9 @@ public class CarpetFloraBlock extends PlantBlock {
 		Vec3d vec3d = state.getModelOffset(world, pos);
 		if (state.isOf(MBBlocks.CLOVER)) {
 			return CLOVER_SHAPE.offset(vec3d.x, vec3d.y, vec3d.z);
+		}
+		if (state.isOf(MBBlocks.SOURSOBS)) {
+			return FLOWER_SHAPE.offset(vec3d.x, vec3d.y, vec3d.z);
 		}
 		else {
 			return SHAPE;

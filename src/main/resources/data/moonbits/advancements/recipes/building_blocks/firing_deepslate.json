@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_deepslate"
+        "recipe": "moonbits:firing_deepslate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_deepslate"
+      "moonbits:firing_deepslate"
     ]
   }
 }

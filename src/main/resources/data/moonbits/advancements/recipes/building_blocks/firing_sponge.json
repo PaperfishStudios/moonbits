@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:firing_sponge"
+        "recipe": "moonbits:firing_sponge"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:firing_sponge"
+      "moonbits:firing_sponge"
     ]
   }
 }

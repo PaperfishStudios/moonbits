@@ -7,6 +7,7 @@ import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Holder;
 import net.minecraft.util.HolderSet;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Range;
@@ -24,21 +25,22 @@ import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.DualNoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.NoiseBlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.block.OcotilloBlock;
 import net.paperfish.moonbits.registry.MBBlocks;
-import net.paperfish.moonbits.block.BarrelCactusBlock;
 import net.paperfish.moonbits.block.PebbleBlock;
 import net.paperfish.moonbits.world.feature.PebbleFeature;
+import net.paperfish.moonbits.world.feature.SoursobPatchFeature;
 
 import java.util.List;
 
 public class MBVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> WILD_CARROT_PATCH =
-            MBConfiguredFeatures.register("patch_carrots", Feature.RANDOM_PATCH, createPatch(6, MBBlocks.WILD_CARROTS));
+            MBConfiguredFeatures.register("patch_carrots", Feature.RANDOM_PATCH, createPatch(6, 3, 2, MBBlocks.WILD_CARROTS));
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> WILD_POTATO_PATCH =
-            MBConfiguredFeatures.register("patch_potatoes", Feature.RANDOM_PATCH, createPatch(6, MBBlocks.WILD_POTATOES));
+            MBConfiguredFeatures.register("patch_potatoes", Feature.RANDOM_PATCH, createPatch(6, 3, 2, MBBlocks.WILD_POTATOES));
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> SEA_BEET_PATCH =
-            MBConfiguredFeatures.register("patch_beets", Feature.RANDOM_PATCH, createPatch(6, MBBlocks.SEA_BEETS));
+            MBConfiguredFeatures.register("patch_beets", Feature.RANDOM_PATCH, createPatch(6, 3, 2, MBBlocks.SEA_BEETS));
 
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PATCH_MYCELIUM =
             MBConfiguredFeatures.register("patch_mycelium", Feature.RANDOM_PATCH, createPatch(32, BlockStateProvider.of(MBBlocks.MYCELIUM_ROOTS)));
@@ -54,8 +56,13 @@ public class MBVegetationFeatures {
             .add(MBBlocks.FORGETMENOT.getDefaultState(), 2)
             .add(Blocks.POPPY.getDefaultState(), 1)
             .build();
-    public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> BUTTERCUP_PATCH =
-            MBConfiguredFeatures.register("patch_buttercups", Feature.RANDOM_PATCH, createPatch(32, MBBlocks.BUTTERCUP));
+
+//	public static final Feature<RandomPatchFeatureConfig> SOURSOBS = Registry.register(Registry.FEATURE,
+//			new Identifier(Moonbits.MODID, "soursob_feature"), new SoursobPatchFeature(RandomPatchFeatureConfig.CODEC));
+    public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> SOURSOB_PATCH =
+            MBConfiguredFeatures.register("patch_soursobs", Feature.RANDOM_PATCH, createPatch(96, MBBlocks.SOURSOBS,
+					List.of(MBBlocks.TOUGH_DIRT, MBBlocks.REGOLITH, Blocks.CLAY, Blocks.MOSS_BLOCK)
+			));
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> FORGETMENOT_PATCH =
             MBConfiguredFeatures.register("patch_forgetmenot", Feature.RANDOM_PATCH, createPatch(16, MBBlocks.FORGETMENOT));
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> WILDFLOWER_PATCH =
@@ -360,7 +367,7 @@ public class MBVegetationFeatures {
             Blocks.DANDELION.getDefaultState(),
             Blocks.CORNFLOWER.getDefaultState(),
             Blocks.OXEYE_DAISY.getDefaultState(),
-            MBBlocks.BUTTERCUP.getDefaultState(),
+            MBBlocks.SOURSOBS.getDefaultState(),
             MBBlocks.FORGETMENOT.getDefaultState(),
             Blocks.GRASS.getDefaultState()
     );
@@ -397,6 +404,10 @@ public class MBVegetationFeatures {
         return new RandomPatchFeatureConfig(tries, 7, 3, PlacedFeatureUtil.filtered(Feature.SIMPLE_BLOCK,
 				new SimpleBlockFeatureConfig(block), createBlockPredicate(validGround)));
     }
+	public static RandomPatchFeatureConfig createPatch(int tries, Block block, List<Block> validGround) {
+		return new RandomPatchFeatureConfig(tries, 7, 3, PlacedFeatureUtil.filtered(Feature.SIMPLE_BLOCK,
+				new SimpleBlockFeatureConfig(BlockStateProvider.of(block)), createBlockPredicate(validGround)));
+	}
     private static BlockPredicate createBlockPredicate(List<Block> validGround) {
         return !validGround.isEmpty() ? BlockPredicate.bothOf(BlockPredicate.IS_AIR,
 				BlockPredicate.method_38881(new BlockPos(0, -1, 0), validGround)) : BlockPredicate.IS_AIR;

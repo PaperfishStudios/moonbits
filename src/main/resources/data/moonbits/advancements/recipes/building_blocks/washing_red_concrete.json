@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:washing_red_concrete"
+        "recipe": "moonbits:washing_red_concrete"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:washing_red_concrete"
+      "moonbits:washing_red_concrete"
     ]
   }
 }

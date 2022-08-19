@@ -25,7 +25,7 @@ import org.spongepowered.include.com.google.common.collect.ImmutableMap;
 import java.util.Map;
 
 public class TreeTapBlock extends AbstractTreeTapBlock {
-	public static final IntProperty FILL_LEVEL = IntProperty.of("fill_level", 0, 3);
+	public static final IntProperty FILL_LEVEL = IntProperty.of("fill_level", 0, 2);
 
     public TreeTapBlock(Settings settings) {
         super(settings);
@@ -44,9 +44,9 @@ public class TreeTapBlock extends AbstractTreeTapBlock {
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
-        if (world.random.nextInt(8) == 0 && state.get(ATTACHED)) {
+        if (world.random.nextInt(6) == 0 && state.get(ATTACHED)) {
 			int level = state.get(FILL_LEVEL);
-			if (level < 3) {
+			if (level < 2) {
 				world.setBlockState(pos, state.with(FILL_LEVEL, level+1));
 			}
 			else {

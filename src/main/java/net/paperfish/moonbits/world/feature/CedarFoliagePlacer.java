@@ -37,7 +37,7 @@ public class CedarFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected void method_23448(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, RandomGenerator random, TreeFeatureConfig config, int trunkHeight, FoliagePlacer.TreeNode treeNode, int foliageHeight, int radius, int offset) {
+    protected void generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, RandomGenerator random, TreeFeatureConfig config, int trunkHeight, FoliagePlacer.TreeNode treeNode, int foliageHeight, int radius, int offset) {
         this.generateSquare(world, replacer, random, config, treeNode.getCenter(), 1, -trunkHeight+1, treeNode.isGiantTrunk());
         this.generateSquare(world, replacer, random, config, treeNode.getCenter(), 0, offset+1, treeNode.isGiantTrunk());
         this.generateSquare(world, replacer, random, config, treeNode.getCenter(), 0, offset, treeNode.isGiantTrunk());

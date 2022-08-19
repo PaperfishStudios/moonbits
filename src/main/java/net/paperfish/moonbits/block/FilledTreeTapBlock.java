@@ -60,11 +60,7 @@ public class FilledTreeTapBlock extends AbstractTreeTapBlock {
 		}
 		else if (!bottle) {
 			world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.NEUTRAL, 1.0F, 1.0F);
-			if (itemStack.isEmpty()) {
-				player.setStackInHand(hand, new ItemStack(result));
-			} else if (!player.getInventory().insertStack(new ItemStack(result))) {
-				player.dropItem(new ItemStack(result), false);
-			}
+			dropStack(world, pos, new ItemStack(result, 3));
 
 			world.setBlockState(pos, MBBlocks.TREE_TAP.getStateWithProperties(state).with(TreeTapBlock.FILL_LEVEL, 0));
 
