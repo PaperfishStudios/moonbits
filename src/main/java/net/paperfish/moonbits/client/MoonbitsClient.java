@@ -40,24 +40,14 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.MYCELIUM_ROOTS,
 
                 MBBlocks.SOURSOBS, MBBlocks.POTTED_SOURSOBS,
-                MBBlocks.FORGETMENOT, MBBlocks.POTTED_FORGETMENOT,
-
-                MBBlocks.WILDFLOWERS, MBBlocks.POTTED_WILDFLOWERS,
                 MBBlocks.CLOVER, MBBlocks.POTTED_CLOVER,
 
-                MBBlocks.PUFFBALLS, MBBlocks.POTTED_PUFFBALLS,
                 MBBlocks.SAFFRON_MUSHROOM, MBBlocks.POTTED_SAFFRON_MUSHROOM, MBBlocks.SAFFRON_GILLS,
-                MBBlocks.TOADSTOOL, MBBlocks.TOADSTOOL_STEM, MBBlocks.SMALL_TOADSTOOLS, MBBlocks.POTTED_SMALL_TOADSTOOLS,
-                MBBlocks.OYSTER_MUSHROOMS, MBBlocks.SHELF_OYSTER_MUSHROOMS, MBBlocks.POTTED_OYSTER_MUSHROOMS,
-
-                MBBlocks.WHITE_HYACINTH, MBBlocks.PINK_HYACINTH, MBBlocks.LIGHT_BLUE_HYACINTH, MBBlocks.RED_HYACINTH,
 
                 MBBlocks.WHITE_HEATHER, MBBlocks.RED_HEATHER, MBBlocks.ORANGE_HEATHER, MBBlocks.PURPLE_HEATHER,
                 MBBlocks.LUPINE,
 
                 MBBlocks.PRICKLY_PEAR_CACTUS, MBBlocks.TALL_PRICKLY_PEAR_CACTUS,
-
-                MBBlocks.FROSTHORN_CROWN, MBBlocks.FROSTHORN_STEM, MBBlocks.FROSTHORN_LEAVES, MBBlocks.FROSTHORN_FRUIT,
 
                 MBBlocks.TINY_BARREL_CACTUS, MBBlocks.SMALL_BARREL_CACTUS, MBBlocks.BARREL_CACTUS, MBBlocks.LARGE_BARREL_CACTUS,
                 MBBlocks.MARIGOLD, MBBlocks.POTTED_MARIGOLD,
@@ -86,12 +76,8 @@ public class MoonbitsClient implements ClientModInitializer {
 
                 MBBlocks.TREE_TAP, MBBlocks.SYRUP_TREE_TAP, MBBlocks.SAP_TREE_TAP, MBBlocks.RESIN_TREE_TAP,
 
-                MBBlocks.FLOWERING_ACACIA_LEAVES,
-
                 MBBlocks.HONEY_DOOR, MBBlocks.HONEY_TRAPDOOR,
 
-                MBBlocks.RED_OAK_LEAF_CARPET, MBBlocks.RED_OAK_SAPLING, MBBlocks.POTTED_RED_OAK_SAPLING,
-                MBBlocks.GOLDEN_BIRCH_LEAF_CARPET, MBBlocks.GOLDEN_BIRCH_SAPLING, MBBlocks.POTTED_GOLDEN_BIRCH_SAPLING,
                 MBBlocks.GLASS_DOOR,
                 MBBlocks.WALL_LANTERN, MBBlocks.WALL_SOUL_LANTERN
         );
@@ -130,17 +116,6 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.GRASS_TURF_STAIRS,
                 MBBlocks.GRASS_TURF_SLAB,
                 MBBlocks.GRASS_CARPET
-        );
-
-        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
-                    BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.ACACIA_LEAVES);
-                    return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
-                MBBlocks.FLOWERING_ACACIA_LEAVES
-        );
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-                    ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.ACACIA_LEAVES);
-                    return provider == null ? -1 : provider.getColor(stack, tintIndex);},
-                MBBlocks.FLOWERING_ACACIA_LEAVES
         );
 
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x639956, MBBlocks.CEDAR_LEAVES);

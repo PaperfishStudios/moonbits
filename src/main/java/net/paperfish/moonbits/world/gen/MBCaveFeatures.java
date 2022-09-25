@@ -149,7 +149,7 @@ public class MBCaveFeatures {
                             .add(Blocks.AIR.getDefaultState(), 70)
                             .add(Blocks.GRASS.getDefaultState(), 20)
                             .add(Blocks.TALL_GRASS.getDefaultState(), 6)
-                            .add(MBBlocks.FORGETMENOT.getDefaultState(), 4)
+                            .add(MBBlocks.SOURSOBS.getDefaultState(), 4)
                     )
             )
     );
@@ -159,7 +159,7 @@ public class MBCaveFeatures {
                     new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
                             .add(Blocks.AIR.getDefaultState(), 70)
                             .add(Blocks.GRASS.getDefaultState(), 10)
-                            .add(MBBlocks.WILDFLOWERS.getDefaultState(), 4)
+                            .add(MBBlocks.SOURSOBS.getDefaultState(), 4)
                             .add(MBBlocks.CLOVER.getDefaultState(), 4)
                     )
             )

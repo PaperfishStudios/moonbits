@@ -39,20 +39,15 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION, MBPlacedCaveFeatures.REGOLITH_FLOOR.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedCaveFeatures.LAMPROOT.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedCaveFeatures.CAVEBLOOMS.getKey().get());
-                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedCaveFeatures.WILDFLOWERS.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedCaveFeatures.CLOVERS.getKey().get());
 					c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.SOURSOB_PATCH.getKey().get());
                 });
 
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_forests"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.isIn(BiomeTags.IS_FOREST), (c) -> {
-//                    c.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MiscPlacedFeatures.FOREST_ROCK.value());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MBPlacedVegFeatures.PEBBLES.getKey().get());
-//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.COARSE_DIRT_PATCH.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.FALLEN_OAK.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_POTATO_PATCH.getKey().get());
-//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILDFLOWER_PATCH.getKey().get());
-//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.CLOVER_PATCH.getKey().get());
                 });
         BiomeModifications.create(new Identifier(Moonbits.MODID,"mb_lushcave"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.includeByKey(BiomeKeys.LUSH_CAVES), (c) -> {
@@ -61,9 +56,6 @@ public class BiomeAdditions {
                 });
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_taigas"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.isIn(BiomeTags.IS_TAIGA), (c) -> {
-                    //  c.getGenerationSettings().addBuiltInFeature(GenerationStep.Feature.LOCAL_MODIFICATIONS, MiscPlacedFeatures.FOREST_ROCK.value());
-//                    c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.COARSE_DIRT_PATCH.getKey().get());
-                    //c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.PODZOL_PATCH.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.FALLEN_SPRUCE.getKey().get());
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.WILD_POTATO_PATCH.getKey().get());
                 });
@@ -94,7 +86,7 @@ public class BiomeAdditions {
                     c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.FLOOD_BARREL_CACTI.getKey().get());
 					c.getGenerationSettings().addFeature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.DESERT_CAVES.getKey().get());
                 })
-                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.DESERT, MBBiomes.STEPPE), (c) -> {
+                .add(ModificationPhase.REPLACEMENTS, BiomeSelectors.includeByKey(BiomeKeys.DESERT), (c) -> {
 					c.getGenerationSettings().removeBuiltInFeature(OrePlacedFeatures.ORE_DIRT.value());
 					c.getGenerationSettings().addFeature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_SAND.getKey().get());
 					c.getGenerationSettings().removeBuiltInFeature(OrePlacedFeatures.ORE_GRAVEL.value());

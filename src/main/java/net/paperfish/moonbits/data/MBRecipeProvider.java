@@ -82,19 +82,13 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         TRANSMUTE.put(List.of(Items.CHARCOAL, Items.BLACK_DYE), 1);
 
         TRANSMUTE.put(List.of(MBBlocks.MARIGOLD, Items.ORANGE_DYE), 1);
-        TRANSMUTE.put(List.of(MBBlocks.SOURSOBS, Items.YELLOW_DYE), 1);
+        TRANSMUTE.put(List.of(MBBlocks.SOURSOBS, Items.YELLOW_DYE), 2);
 		TRANSMUTE.put(List.of(MBItems.SOURSOB, Items.YELLOW_DYE), 1);
-        TRANSMUTE.put(List.of(MBBlocks.FORGETMENOT, Items.LIGHT_BLUE_DYE), 1);
 
         TRANSMUTE.put(List.of(MBBlocks.WHITE_HEATHER, Items.WHITE_DYE), 1);
         TRANSMUTE.put(List.of(MBBlocks.RED_HEATHER, Items.RED_DYE), 1);
         TRANSMUTE.put(List.of(MBBlocks.ORANGE_HEATHER, Items.ORANGE_DYE), 1);
         TRANSMUTE.put(List.of(MBBlocks.PURPLE_HEATHER, Items.PURPLE_DYE), 1);
-
-        TRANSMUTE.put(List.of(MBBlocks.LIGHT_BLUE_HYACINTH, Items.LIGHT_BLUE_DYE), 2);
-        TRANSMUTE.put(List.of(MBBlocks.PINK_HYACINTH, Items.PINK_DYE), 2);
-        TRANSMUTE.put(List.of(MBBlocks.WHITE_HYACINTH, Items.WHITE_DYE), 2);
-        TRANSMUTE.put(List.of(MBBlocks.RED_HYACINTH, Items.RED_DYE), 2);
 
         TRANSMUTE.put(List.of(MBBlocks.LUPINE, Items.PURPLE_DYE), 2);
 
@@ -200,12 +194,10 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         FIRING.put(MBItems.RED_MUSHBLEND, MBItems.RED_MUSHBRICK);
         FIRING.put(MBItems.BROWN_MUSHBLEND, MBItems.BROWN_MUSHBRICK);
         FIRING.put(MBItems.SAFFRON_MUSHBLEND, MBItems.SAFFRON_MUSHBRICK);
-        FIRING.put(MBItems.TOADSTOOL_MUSHBLEND, MBItems.TOADSTOOL_MUSHBRICK);
 
         FIRING.put(MBBlocks.RED_MUSHCLAY, MBBlocks.RED_MUSH_BLOCK);
         FIRING.put(MBBlocks.BROWN_MUSHCLAY, MBBlocks.BROWN_MUSH_BLOCK);
         FIRING.put(MBBlocks.SAFFRON_MUSHCLAY, MBBlocks.SAFFRON_MUSH_BLOCK);
-        FIRING.put(MBBlocks.TOADSTOOL_MUSHCLAY, MBBlocks.TOADSTOOL_MUSH_BLOCK);
 
         FIRING.put(MBBlocks.COBBLED_ANDESITE, Blocks.ANDESITE);
         FIRING.put(MBBlocks.COBBLED_DIORITE, Blocks.DIORITE);
@@ -510,45 +502,14 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         crossRecipe(exporter, Items.RED_MUSHROOM, Items.BONE_MEAL, MBItems.RED_MUSHBLEND, 4);
         crossRecipe(exporter, Items.BROWN_MUSHROOM, Items.BONE_MEAL, MBItems.BROWN_MUSHBLEND, 4);
         crossRecipe(exporter, MBBlocks.SAFFRON_MUSHROOM, Items.BONE_MEAL, MBItems.SAFFRON_MUSHBLEND, 4);
-        crossRecipe(exporter, MBBlocks.SMALL_TOADSTOOLS, Items.BONE_MEAL, MBItems.TOADSTOOL_MUSHBLEND, 4);
-//        crossRecipe(exporter, MBItems.TOADSTOOL_CAP, Items.BONE_MEAL, MBItems.TOADSTOOL_MUSHBLEND, 4);
 
-        ShapedRecipeJsonFactory.create(MBItems.TOADSTOOL_MUSHBLEND, 4).input('#', MBItems.TOADSTOOL_CAP).input('B', Items.BONE_MEAL).pattern("#B").pattern("B#")
-                .criterion(RecipesProvider.hasItem(MBItems.TOADSTOOL_CAP), RecipesProvider.conditionsFromItem(MBItems.TOADSTOOL_CAP))
-                .offerTo(exporter, new Identifier(Moonbits.MODID, "toadstool_mushblend_from_caps"));
-        condense(exporter, MBBlocks.SMALL_TOADSTOOLS, MBBlocks.GIANT_TOADSTOOL_CAP, 2);
-//        firing(exporter, MBItems.RED_MUSHBLEND, MBItems.RED_MUSHBRICK, 0.3f, DEFAULT_FIRE_TIME);
-//        firing(exporter, MBItems.BROWN_MUSHBLEND, MBItems.BROWN_MUSHBRICK, 0.3f, DEFAULT_FIRE_TIME);
-//        firing(exporter, MBItems.SAFFRON_MUSHBLEND, MBItems.TOADSTOOL_MUSHBRICK, 0.3f, DEFAULT_FIRE_TIME);
-//        firing(exporter, MBItems.TOADSTOOL_MUSHBLEND, MBItems.SAFFRON_MUSHBRICK, 0.3f, DEFAULT_FIRE_TIME);
         insetRecipe(exporter, MBItems.RED_MUSHBRICK, MBBlocks.LAMPROOT_BULB, MBBlocks.RED_MUSH_LAMP);
         insetRecipe(exporter, MBItems.BROWN_MUSHBRICK, MBBlocks.LAMPROOT_BULB, MBBlocks.BROWN_MUSH_LAMP);
-        insetRecipe(exporter, MBItems.TOADSTOOL_MUSHBRICK, MBBlocks.LAMPROOT_BULB, MBBlocks.TOADSTOOL_MUSH_LAMP);
         insetRecipe(exporter, MBItems.SAFFRON_MUSHBRICK, MBBlocks.LAMPROOT_BULB, MBBlocks.SAFFRON_MUSH_LAMP);
 
 		ShapelessRecipeJsonFactory.create(MBBlocks.HARDY_BUSH)
 				.input(MBBlocks.HARDY_LEAVES).input(MBItems.HARDY_STEM)
 				.criterion("has_hardy_stem", RecipesProvider.conditionsFromItem(MBItems.HARDY_STEM))
-				.offerTo(exporter);
-
-        ShapelessRecipeJsonFactory.create(MBBlocks.TOADSTOOL)
-                .input(MBBlocks.TOADSTOOL_STEM).input(MBItems.TOADSTOOL_CAP)
-                .criterion("has_cap", RecipesProvider.conditionsFromItem(MBItems.TOADSTOOL_CAP))
-                .offerTo(exporter);
-        ShapedRecipeJsonFactory.create(MBBlocks.GIANT_TOADSTOOL_CAP).input('#', MBItems.TOADSTOOL_CAP).pattern("#").pattern("#")
-                .criterion(RecipesProvider.hasItem(MBItems.TOADSTOOL_CAP), RecipesProvider.conditionsFromItem(MBItems.TOADSTOOL_CAP))
-                .offerTo(exporter);
-
-        ShapedRecipeJsonFactory.create(MBBlocks.TOADSTOOL_PLANKS, 4).input('#', Ingredient.ofTag(MBItemTags.TOADSTOOL_STEMS)).pattern("##").pattern("##")
-                .criterion(RecipesProvider.hasItem(MBBlocks.TOADSTOOL_STEM), RecipesProvider.conditionsFromItem(MBBlocks.TOADSTOOL_STEM))
-                .offerTo(exporter);
-		ShapedRecipeJsonFactory.create(MBBlocks.TOADSTOOL_BOOKSHELF, 2).input('#', Ingredient.ofTag(MBItemTags.TOADSTOOL_STEMS))
-				.input('B', Items.BOOK).pattern("###").pattern("BBB").pattern("###")
-				.criterion(RecipesProvider.hasItem(Items.BOOK), RecipesProvider.conditionsFromItem(Items.BOOK)).group("bookshelves")
-				.offerTo(exporter);
-		ShapedRecipeJsonFactory.create(MBBlocks.TOADSTOOL_SEAT, 3).input('#', Ingredient.ofTag(MBItemTags.TOADSTOOL_STEMS))
-				.input('B', MBItems.TOADSTOOL_CAP).pattern("###").pattern(" B ")
-				.criterion(RecipesProvider.hasItem(MBItems.TOADSTOOL_CAP), RecipesProvider.conditionsFromItem(MBItems.TOADSTOOL_CAP))
 				.offerTo(exporter);
 
         ShapedRecipeJsonFactory.create(MBBlocks.CANVAS, 4).input('#', MBItems.BURLAP).pattern("##").pattern("##")
@@ -745,23 +706,6 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         ShapedRecipeJsonFactory.create(Blocks.BLAST_FURNACE).input('#', MBBlocks.SMOOTH_DEEPSLATE).input('X', Blocks.FURNACE).input('I', Items.IRON_INGOT)
                 .pattern("III").pattern("IXI").pattern("###").criterion("has_smooth_deepslate", RecipesProvider.conditionsFromItem(MBBlocks.SMOOTH_DEEPSLATE))
                 .offerTo(exporter, "blast_furnace_deepslate");
-
-        // cookin pot
-//        CookingPotJsonFactory.create(Items.MUSHROOM_STEW, 3).input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.EDIBLE_MUSHROOMS)
-////                .bowl(Items.BOWL).priority(5)
-//                .criterion("has_shrooms", RecipesProvider.method_10420(MBItemTags.EDIBLE_MUSHROOMS))
-//                .offerTo(exporter, "cookin_" + RecipesProvider.getItemPath(Items.MUSHROOM_STEW));
-//        CookingPotJsonFactory.create(Items.RABBIT_STEW, 3).input(Items.RABBIT).input(Items.CARROT).input(MBItemTags.EDIBLE_MUSHROOMS).input(MBItemTags.COOKING_VEG)
-////                .bowl(Items.BOWL)
-//                .criterion(RecipesProvider.hasItem(Items.RABBIT), RecipesProvider.conditionsFromItem(Items.RABBIT))
-//                .offerTo(exporter, "cookin_" + RecipesProvider.getItemPath(Items.RABBIT_STEW));
-//        CookingPotJsonFactory.create(Items.BEETROOT_SOUP, 6).input(Items.BEETROOT).input(Items.BEETROOT).input(Items.BEETROOT).input(Items.BEETROOT)
-////                .bowl(Items.BOWL)
-//                .criterion(RecipesProvider.hasItem(Items.BEETROOT), RecipesProvider.conditionsFromItem(Items.BEETROOT))
-//                .offerTo(exporter, "cookin_" + RecipesProvider.getItemPath(Items.BEETROOT_SOUP));
-//        CookingPotJsonFactory.create(Items.PUMPKIN_PIE, 3).input(MBItems.PUMPKIN_SLICE).input(MBItems.PUMPKIN_SLICE).input(Items.EGG).input(MBItemTags.COOKING_SWEET)
-//                .criterion(RecipesProvider.hasItem(MBItems.PUMPKIN_SLICE), RecipesProvider.conditionsFromItem(MBItems.PUMPKIN_SLICE))
-//                .offerTo(exporter, "cookin_" + RecipesProvider.getItemPath(Items.PUMPKIN_PIE));
     }
 
     public static void generateFamily(Consumer<RecipeJsonProvider> exporter, MBBlockFamily family) {

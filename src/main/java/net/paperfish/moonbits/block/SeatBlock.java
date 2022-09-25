@@ -44,7 +44,7 @@ public class SeatBlock extends Block {
 
 	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-		if (state.isOf(MBBlocks.TOADSTOOL_SEAT)) return TOADSTOOL;
+//		if (state.isOf(MBBlocks.TOADSTOOL_SEAT)) return TOADSTOOL;
 		return SHAPE;
 	}
 

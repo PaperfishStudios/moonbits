@@ -34,9 +34,9 @@ public class PlanterBoxBlock extends Block {
 	@Override
 	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
 		BlockState up = world.getBlockState(pos.up());
-		if (up.isOf(MBBlocks.PUFFBALLS)) {
-			world.setBlockState(pos.up(), MBBlocks.GIANT_PUFFBALL.getDefaultState());
-		}
+//		if (up.isOf(MBBlocks.PUFFBALLS)) {
+//			world.setBlockState(pos.up(), MBBlocks.GIANT_PUFFBALL.getDefaultState());
+//		}
 
 		super.randomTick(state, world, pos, random);
 	}

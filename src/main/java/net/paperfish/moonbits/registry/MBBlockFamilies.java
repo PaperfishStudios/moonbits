@@ -122,9 +122,6 @@ public class MBBlockFamilies {
             .unlockCriterionName("has_planks")
             .build();
 
-    public static final MBBlockFamily TOADSTOOL = register(MBBlocks.TOADSTOOL_PLANKS)
-            .slab(MBBlocks.TOADSTOOL_SLAB).stairs(MBBlocks.TOADSTOOL_STAIRS)
-            .build();
 
     public static final MBBlockFamily PARASOL_FERN_FIBER = register(MBBlocks.PARASOL_FERN_FIBER)
             .slab(MBBlocks.PARASOL_FERN_FIBER_SLAB).stairs(MBBlocks.PARASOL_FERN_FIBER_STAIRS)
@@ -194,11 +191,6 @@ public class MBBlockFamilies {
             .slab(MBBlocks.BROWN_MUSH_BRICK_SLAB).stairs(MBBlocks.BROWN_MUSH_BRICK_STAIRS).build();
     public static final MBBlockFamily BROWN_MUSH_BLOCK = register(MBBlocks.BROWN_MUSH_BLOCK).child(BROWN_MUSH_BRICKS)
             .slab(MBBlocks.BROWN_MUSH_SLAB).stairs(MBBlocks.BROWN_MUSH_STAIRS).polished(MBBlocks.BROWN_MUSH_BRICKS).build();
-
-    public static final MBBlockFamily TOADSTOOL_MUSH_BRICKS = register(MBBlocks.TOADSTOOL_MUSH_BRICKS)
-            .slab(MBBlocks.TOADSTOOL_MUSH_BRICK_SLAB).stairs(MBBlocks.TOADSTOOL_MUSH_BRICK_STAIRS).build();
-    public static final MBBlockFamily TOADSTOOL_MUSH_BLOCK = register(MBBlocks.TOADSTOOL_MUSH_BLOCK).child(TOADSTOOL_MUSH_BRICKS)
-            .slab(MBBlocks.TOADSTOOL_MUSH_SLAB).stairs(MBBlocks.TOADSTOOL_MUSH_STAIRS).polished(MBBlocks.TOADSTOOL_MUSH_BRICKS).build();
 
     public static final MBBlockFamily SAFFRON_MUSH_BRICKS = register(MBBlocks.SAFFRON_MUSH_BRICKS)
             .slab(MBBlocks.SAFFRON_MUSH_BRICK_SLAB).stairs(MBBlocks.SAFFRON_MUSH_BRICK_STAIRS).build();

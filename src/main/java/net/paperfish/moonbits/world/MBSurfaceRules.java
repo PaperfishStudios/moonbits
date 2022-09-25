@@ -47,14 +47,12 @@ public class MBSurfaceRules {
         SurfaceRules.MaterialCondition midDC = SurfaceRules.biome(
                 BiomeKeys.PLAINS, BiomeKeys.SUNFLOWER_PLAINS,
                 BiomeKeys.WINDSWEPT_HILLS, BiomeKeys.WINDSWEPT_GRAVELLY_HILLS,
-                BiomeKeys.MUSHROOM_FIELDS,
-                MBBiomes.PASTURE
+                BiomeKeys.MUSHROOM_FIELDS
         );
         SurfaceRules.MaterialCondition deepDC = SurfaceRules.biome(
                 BiomeKeys.JUNGLE, BiomeKeys.BAMBOO_JUNGLE, BiomeKeys.SPARSE_JUNGLE,
                 BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.WINDSWEPT_FOREST,
-                BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST, BiomeKeys.DARK_FOREST,
-                MBBiomes.GOLDEN_FOREST, MBBiomes.TALL_GOLDEN_FOREST, MBBiomes.RED_OAK_FOREST
+                BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST, BiomeKeys.DARK_FOREST
         );
 		SurfaceRules.MaterialCondition frost = SurfaceRules.biome(
 				BiomeKeys.SNOWY_PLAINS, BiomeKeys.SNOWY_TAIGA

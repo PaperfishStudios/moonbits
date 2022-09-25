@@ -23,10 +23,10 @@ public class MBAutumnRegion extends Region {
     @Override
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> mapper) {
         this.addModifiedVanillaOverworldBiomes(mapper, builder -> {
-            builder.replaceBiome(BiomeKeys.BIRCH_FOREST, MBBiomes.GOLDEN_FOREST);
-            builder.replaceBiome(BiomeKeys.OLD_GROWTH_BIRCH_FOREST, MBBiomes.TALL_GOLDEN_FOREST);
-            builder.replaceBiome(BiomeKeys.DARK_FOREST, MBBiomes.RED_OAK_FOREST);
-            builder.replaceBiome(BiomeKeys.PLAINS, MBBiomes.PASTURE);
+//            builder.replaceBiome(BiomeKeys.BIRCH_FOREST, MBBiomes.GOLDEN_FOREST);
+//            builder.replaceBiome(BiomeKeys.OLD_GROWTH_BIRCH_FOREST, MBBiomes.TALL_GOLDEN_FOREST);
+//            builder.replaceBiome(BiomeKeys.DARK_FOREST, MBBiomes.RED_OAK_FOREST);
+//            builder.replaceBiome(BiomeKeys.PLAINS, MBBiomes.PASTURE);
 //            builder.replaceBiome(BiomeKeys.SAVANNA_PLATEAU, MBBiomes.PRAIRIE);
 //
 //            List<MultiNoiseUtil.NoiseHypercube> steppe = new ParameterUtils.ParameterPointListBuilder()

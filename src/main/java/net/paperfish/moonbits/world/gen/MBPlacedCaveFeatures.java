@@ -115,12 +115,6 @@ public class MBPlacedCaveFeatures {
 			SurfaceRelativeThresholdFilterPlacementModifier.create(Heightmap.Type.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13),
 			BiomePlacementModifier.getInstance());
 
-    public static final Holder<PlacedFeature> WILDFLOWERS = MBPlacedFeatures.register("p_wildflower_d",
-            MBVegetationFeatures.WILDFLOWER_PATCH, CountPlacementModifier.create(UniformIntProvider.create(16, 32)),
-			HeightRangePlacementModifier.createUniform(YOffset.fixed(45), YOffset.fixed(65)),
-            InSquarePlacementModifier.getInstance(),
-			SurfaceRelativeThresholdFilterPlacementModifier.create(Heightmap.Type.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13),
-			BiomePlacementModifier.getInstance());
     public static final Holder<PlacedFeature> CLOVERS = MBPlacedFeatures.register("p_clover_d",
             MBVegetationFeatures.CLOVER_PATCH, CountPlacementModifier.create(UniformIntProvider.create(16, 32)),
 			HeightRangePlacementModifier.createUniform(YOffset.fixed(45), YOffset.fixed(65)),

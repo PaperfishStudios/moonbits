@@ -102,7 +102,7 @@ public class MBItems {
 	public static final Item BURLAP = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item MONSTER_HIDE = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 
-	public static final Item TOADSTOOL_CAP = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
+//	public static final Item TOADSTOOL_CAP = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item RED_MUSHBLEND = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item RED_MUSHBRICK = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
@@ -110,8 +110,6 @@ public class MBItems {
 	public static final Item BROWN_MUSHBRICK = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item SAFFRON_MUSHBLEND = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item SAFFRON_MUSHBRICK = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item TOADSTOOL_MUSHBLEND = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item TOADSTOOL_MUSHBRICK = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item WRENCH = new WrenchItem(new QuiltItemSettings().group(ItemGroup.TOOLS));
 
@@ -226,16 +224,12 @@ public class MBItems {
 		addItem("item_hook", ITEM_HOOK);
 		addItem("glow_item_hook", GLOW_ITEM_HOOK);
 
-		addItem("toadstool_cap", TOADSTOOL_CAP);
-
 		addItem("red_mushblend", RED_MUSHBLEND);
 		addItem("red_mushbrick", RED_MUSHBRICK);
 		addItem("brown_mushblend", BROWN_MUSHBLEND);
 		addItem("brown_mushbrick", BROWN_MUSHBRICK);
 		addItem("saffron_mushblend", SAFFRON_MUSHBLEND);
 		addItem("saffron_mushbrick", SAFFRON_MUSHBRICK);
-		addItem("toadstool_mushblend", TOADSTOOL_MUSHBLEND);
-		addItem("toadstool_mushbrick", TOADSTOOL_MUSHBRICK);
 
 		addItem("lamproot_boat", LAMPROOT_BOAT);
 		addItem("lamproot_chest_boat", LAMPROOT_CHEST_BOAT);
