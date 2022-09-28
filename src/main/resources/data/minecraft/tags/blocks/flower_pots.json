@@ -3,16 +3,9 @@
   "values": [
     "moonbits:potted_lamproot_sapling",
     "moonbits:potted_cedar_sapling",
-    "moonbits:potted_golden_birch_sapling",
-    "moonbits:potted_red_oak_sapling",
     "moonbits:potted_soursobs",
-    "moonbits:potted_forget_me_not",
     "moonbits:potted_marigold",
-    "moonbits:potted_wildflowers",
     "moonbits:potted_clover",
-    "moonbits:potted_puffballs",
-    "moonbits:potted_oyster_mushroom",
-    "moonbits:potted_saffron_mushroom",
-    "moonbits:potted_small_toadstools"
+    "moonbits:potted_saffron_mushroom"
   ]
 }

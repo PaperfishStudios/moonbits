@@ -3,8 +3,8 @@
   "values": [
     "moonbits:tough_dirt",
     "moonbits:tough_dirt_slab",
-    "moonbits:tough_dirt_stairs",
     "moonbits:dirt_bricks",
+    "moonbits:tough_dirt_stairs",
     "moonbits:dirt_brick_slab",
     "moonbits:dirt_brick_stairs",
     "moonbits:peat_brick_slab",
@@ -45,10 +45,6 @@
     "moonbits:frost_peat_deposit",
     "moonbits:snow_bricks",
     "moonbits:sugar_cube",
-    "moonbits:red_mushclay",
-    "moonbits:brown_mushclay",
-    "moonbits:saffron_mushclay",
-    "moonbits:toadstool_mushclay",
     "moonbits:rich_mud",
     "moonbits:mud_gold_deposit"
   ]

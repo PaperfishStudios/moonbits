@@ -91,6 +91,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         TRANSMUTE.put(List.of(MBBlocks.PURPLE_HEATHER, Items.PURPLE_DYE), 1);
 
         TRANSMUTE.put(List.of(MBBlocks.LUPINE, Items.PURPLE_DYE), 2);
+		TRANSMUTE.put(List.of(MBBlocks.YUCCA, Items.WHITE_DYE), 2);
 
         TRANSMUTE.put(List.of(MBBlocks.SAFFRON_MUSHROOM, Items.ORANGE_DYE), 1);
 
@@ -190,14 +191,6 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         BLASTING.put(MBBlocks.PESTERED_CUT_TIN, MBBlocks.CUT_TIN);
         BLASTING.put(MBBlocks.PESTERED_CUT_TIN_SLAB, MBBlocks.CUT_TIN_SLAB);
         BLASTING.put(MBBlocks.PESTERED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN_STAIRS);
-
-        FIRING.put(MBItems.RED_MUSHBLEND, MBItems.RED_MUSHBRICK);
-        FIRING.put(MBItems.BROWN_MUSHBLEND, MBItems.BROWN_MUSHBRICK);
-        FIRING.put(MBItems.SAFFRON_MUSHBLEND, MBItems.SAFFRON_MUSHBRICK);
-
-        FIRING.put(MBBlocks.RED_MUSHCLAY, MBBlocks.RED_MUSH_BLOCK);
-        FIRING.put(MBBlocks.BROWN_MUSHCLAY, MBBlocks.BROWN_MUSH_BLOCK);
-        FIRING.put(MBBlocks.SAFFRON_MUSHCLAY, MBBlocks.SAFFRON_MUSH_BLOCK);
 
         FIRING.put(MBBlocks.COBBLED_ANDESITE, Blocks.ANDESITE);
         FIRING.put(MBBlocks.COBBLED_DIORITE, Blocks.DIORITE);
@@ -499,14 +492,6 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .pattern("#").pattern("#")
                 .criterion(RecipesProvider.hasItem(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS), RecipesProvider.conditionsFromItem(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS)).offerTo(exporter);
 
-        crossRecipe(exporter, Items.RED_MUSHROOM, Items.BONE_MEAL, MBItems.RED_MUSHBLEND, 4);
-        crossRecipe(exporter, Items.BROWN_MUSHROOM, Items.BONE_MEAL, MBItems.BROWN_MUSHBLEND, 4);
-        crossRecipe(exporter, MBBlocks.SAFFRON_MUSHROOM, Items.BONE_MEAL, MBItems.SAFFRON_MUSHBLEND, 4);
-
-        insetRecipe(exporter, MBItems.RED_MUSHBRICK, MBBlocks.LAMPROOT_BULB, MBBlocks.RED_MUSH_LAMP);
-        insetRecipe(exporter, MBItems.BROWN_MUSHBRICK, MBBlocks.LAMPROOT_BULB, MBBlocks.BROWN_MUSH_LAMP);
-        insetRecipe(exporter, MBItems.SAFFRON_MUSHBRICK, MBBlocks.LAMPROOT_BULB, MBBlocks.SAFFRON_MUSH_LAMP);
-
 		ShapelessRecipeJsonFactory.create(MBBlocks.HARDY_BUSH)
 				.input(MBBlocks.HARDY_LEAVES).input(MBItems.HARDY_STEM)
 				.criterion("has_hardy_stem", RecipesProvider.conditionsFromItem(MBItems.HARDY_STEM))
@@ -546,6 +531,8 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 				.criterion(RecipesProvider.hasItem(MBBlocks.PESTERED_TIN_BLOCK), RecipesProvider.conditionsFromItem(MBBlocks.PESTERED_TIN_BLOCK))
 				.offerTo(exporter);
 		RecipesProvider.offerStonecuttingRecipe(exporter, MBBlocks.PESTERED_CUT_TIN, MBBlocks.PESTERED_TIN_BLOCK, 4);
+
+		RecipesProvider.offerStonecuttingRecipe(exporter, MBBlocks.CHISELED_PACKED_MUD, Blocks.PACKED_MUD);
 
         ShapedRecipeJsonFactory.create(Items.TORCH, 2)
                 .input('P', MBItems.PEAT).input('S', Items.STICK)

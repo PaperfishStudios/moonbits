@@ -176,8 +176,8 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.SMALL_REDSTONE_BUD, (Block block) -> oreDrops(block, Items.REDSTONE, 0f, 1f));
 
         addDrop(MBBlocks.BANDED_IRON, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.RAW_IRON));
-        addDrop(MBBlocks.HEMATITE_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.HEMATITE));
-        addDrop(MBBlocks.HEMATITE_BLOCK);
+        addDrop(MBBlocks.MAGNETITE_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.MAGNETITE));
+        addDrop(MBBlocks.MAGNETITE_BLOCK);
 
         addDrop(MBBlocks.CRACKED_MUD);
         addDrop(MBBlocks.RICH_MUD);
@@ -220,6 +220,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.ORANGE_HEATHER);
         addDrop(MBBlocks.PURPLE_HEATHER);
         addDrop(MBBlocks.LUPINE, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
+		addDrop(MBBlocks.YUCCA, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
 
         addDrop(MBBlocks.DESERT_BRUSH, (Block block) -> grassDrops(block, MBItems.PEPPER_SEEDS, 1f, 1f));
         addDrop(MBBlocks.TALL_DESERT_BRUSH, (Block block) -> BlockLootTableGenerator.tallGrassDrops(block, MBBlocks.DESERT_BRUSH));
@@ -270,6 +271,24 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 						.with(ItemEntry.builder(Items.POTION).weight(1).apply(SetPotionFunction.builder(Potions.HARMING)))
 				)
 		);
+		addDrop(MBBlocks.DESERT_VASE_REPLICA);
+		addDrop(MBBlocks.MUD_VESSEL, LootTable.builder()
+				.pool(LootPool.builder()
+						.rolls(ConstantLootNumberProvider.create(1.0F))
+						// junk
+						.with(ItemEntry.builder(Items.WHEAT).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 4.0F))))
+						.with(ItemEntry.builder(Items.CLAY_BALL).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
+						.with(ItemEntry.builder(MBItems.SAP).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 6.0F))))
+						.with(ItemEntry.builder(MBItems.SOURSOB).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 4.0F))))
+						.with(ItemEntry.builder(Items.STRING).weight(6).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 6.0F))))
+						// gear
+						.with(ItemEntry.builder(Items.GUNPOWDER).weight(10).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 3.0F))))
+						.with(ItemEntry.builder(Items.ARROW).weight(10).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(5.0F, 14.0F))))
+						// valuables
+						.with(ItemEntry.builder(Items.EMERALD).weight(3).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 5.0F))))
+				)
+		);
+		addDrop(MBBlocks.MUD_VESSEL_REPLICA);
 
 		addDrop(MBBlocks.RABBIT_MOUND, LootTable.builder()
 				.pool(LootPool.builder()
@@ -329,21 +348,23 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.MUSHROOM_HYPHAE);
         addDrop(MBBlocks.STRIPPED_MUSHROOM_HYPHAE);
 
-        addDrop(MBBlocks.RED_MUSHCLAY, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.RED_MUSHBLEND, ConstantLootNumberProvider.create(4.0f)));
-        addDrop(MBBlocks.BROWN_MUSHCLAY, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.BROWN_MUSHBLEND, ConstantLootNumberProvider.create(4.0f)));
-        addDrop(MBBlocks.SAFFRON_MUSHCLAY, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.SAFFRON_MUSHBLEND, ConstantLootNumberProvider.create(4.0f)));
-
-        addDrop(MBBlocks.RED_MUSH_LAMP);
-        addDrop(MBBlocks.BROWN_MUSH_LAMP);
-        addDrop(MBBlocks.SAFFRON_MUSH_LAMP);
+//        addDrop(MBBlocks.RED_MUSHCLAY, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.RED_MUSHBLEND, ConstantLootNumberProvider.create(4.0f)));
+//        addDrop(MBBlocks.BROWN_MUSHCLAY, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.BROWN_MUSHBLEND, ConstantLootNumberProvider.create(4.0f)));
+//        addDrop(MBBlocks.SAFFRON_MUSHCLAY, (Block block) -> BlockLootTableGenerator.drops(block, MBItems.SAFFRON_MUSHBLEND, ConstantLootNumberProvider.create(4.0f)));
+//
+//        addDrop(MBBlocks.RED_MUSH_LAMP);
+//        addDrop(MBBlocks.BROWN_MUSH_LAMP);
+//        addDrop(MBBlocks.SAFFRON_MUSH_LAMP);
 
         addDrop(MBBlocks.LAMPROOT_BULB);
         addDrop(MBBlocks.CAVEBLOOM_FLOWERS, (Block block) -> BlockLootTableGenerator.m_gsfzuvjv(block, WITH_SHEARS));
         addDrop(MBBlocks.CAVEBLOOM_VINE, (Block block) -> BlockLootTableGenerator.m_gsfzuvjv(block, WITH_SHEARS));
 
-        addDrop(MBBlocks.FUR_BLOCK);
-        addDrop(MBBlocks.FUR_CARPET);
+//        addDrop(MBBlocks.FUR_BLOCK);
+//        addDrop(MBBlocks.FUR_CARPET);
         addDrop(MBBlocks.BEDROLL, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, BedBlock.PART, BedPart.HEAD));
+
+		addDrop(MBBlocks.CHISELED_PACKED_MUD);
 
         addDrop(MBBlocks.APPLE_CRATE);
         addDrop(MBBlocks.CARROT_CRATE);

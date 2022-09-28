@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "moonbits:block/yucca_bottom"
+    },
+    "half=upper": {
+      "model": "moonbits:block/yucca_top"
+    }
+  }
+}

@@ -89,7 +89,7 @@ public class MBItems {
 	public static final Item ROASTED_BERRIES = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD).food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.8F).build()));
 
     public static final Item PEAT = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item HEMATITE = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
+	public static final Item MAGNETITE = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item COPPER_NUGGET = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item RAW_TIN = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
@@ -101,15 +101,6 @@ public class MBItems {
 	public static final Item PARASOL_FIBER = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item BURLAP = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 	public static final Item MONSTER_HIDE = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
-
-//	public static final Item TOADSTOOL_CAP = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
-
-	public static final Item RED_MUSHBLEND = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item RED_MUSHBRICK = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item BROWN_MUSHBLEND = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item BROWN_MUSHBRICK = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item SAFFRON_MUSHBLEND = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
-	public static final Item SAFFRON_MUSHBRICK = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 
 	public static final Item WRENCH = new WrenchItem(new QuiltItemSettings().group(ItemGroup.TOOLS));
 
@@ -224,13 +215,6 @@ public class MBItems {
 		addItem("item_hook", ITEM_HOOK);
 		addItem("glow_item_hook", GLOW_ITEM_HOOK);
 
-		addItem("red_mushblend", RED_MUSHBLEND);
-		addItem("red_mushbrick", RED_MUSHBRICK);
-		addItem("brown_mushblend", BROWN_MUSHBLEND);
-		addItem("brown_mushbrick", BROWN_MUSHBRICK);
-		addItem("saffron_mushblend", SAFFRON_MUSHBLEND);
-		addItem("saffron_mushbrick", SAFFRON_MUSHBRICK);
-
 		addItem("lamproot_boat", LAMPROOT_BOAT);
 		addItem("lamproot_chest_boat", LAMPROOT_CHEST_BOAT);
 		addItem("cedar_boat", CEDAR_BOAT);
@@ -245,7 +229,7 @@ public class MBItems {
 		addItem("raw_tin", RAW_TIN);
 		addItem("tin_ingot", TIN_INGOT);
 		addItem("tin_nugget", TIN_NUGGET);
-		addItem("hematite", HEMATITE);
+		addItem("magnetite", MAGNETITE);
 		addItem("copper_nugget", COPPER_NUGGET);
 		addItem("fur", FUR);
 		addItem("parasol_fiber", PARASOL_FIBER);

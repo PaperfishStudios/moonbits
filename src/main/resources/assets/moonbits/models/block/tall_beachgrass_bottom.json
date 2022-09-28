@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "moonbits:block/thick_cross",
   "textures": {
     "cross": "moonbits:block/tall_beachgrass_bottom"
   }

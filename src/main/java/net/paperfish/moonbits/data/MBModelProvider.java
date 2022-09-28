@@ -90,18 +90,8 @@ public class MBModelProvider extends FabricModelProvider {
 
     public static final TextureKey INNER = TextureKeyAccessor.createTextureKey("inner", TextureKey.END);
     public static final Model PLANTER_BOX = block("planter_box/planter_box", TextureKey.BOTTOM, TextureKey.SIDE);
-    public static final TexturedModel.Factory PLANTER_BOX_F = TexturedModelAccessor.callMakeFactory(MBModelProvider::sideBottom, PLANTER_BOX);
-    public static final Model PLANTER_BOX_INNER = block("planter_box/planter_box_inner", TextureKey.TOP, INNER, TextureKey.BOTTOM, TextureKey.SIDE);
-    public static final TexturedModel.Factory PLANTER_BOX_INNER_F = TexturedModelAccessor.callMakeFactory(MBModelProvider::pbInner, PLANTER_BOX);
-    public static final Model PLANTER_BOX_OUTER = block("planter_box/planter_box_outer", TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE);
-    public static final TexturedModel.Factory PLANTER_BOX_OUTER_F = TexturedModelAccessor.callMakeFactory(MBModelProvider::edgeTopBottom, PLANTER_BOX);
-    public static final Model PLANTER_BOX_SIDE = block("planter_box/planter_box_side", TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE);
-    public static final TexturedModel.Factory PLANTER_BOX_SIDE_F = TexturedModelAccessor.callMakeFactory(MBModelProvider::sideTopBottom, PLANTER_BOX);
-    public static final Model PLANTER_BOX_SIDE_B = block("planter_box/planter_box_side_b", TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE);
-    public static final TexturedModel.Factory PLANTER_BOX_SIDE_B_F = TexturedModelAccessor.callMakeFactory(MBModelProvider::sideTopBottom, PLANTER_BOX);
-    public static final Model PLANTER_BOX_INVENTORY = block("planter_box/planter_box_inventory", TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE);
-    public static final TexturedModel.Factory PLANTER_BOX_INVENTORY_F = TexturedModelAccessor.callMakeFactory(MBModelProvider::edgeTopBottom, PLANTER_BOX);
-    public static final Model SPAWN_EGG = new Model(Optional.of(new Identifier("minecraft", "item/template_spawn_egg")), Optional.empty());
+
+	public static final Model THICK_CROSS = block("thick_cross", TextureKey.CROSS);
 
     public List<Block> generatedBlocks = new ArrayList<>();
 
@@ -292,8 +282,8 @@ public class MBModelProvider extends FabricModelProvider {
         cubeTopBottomSpec(MBBlocks.PAVED_RED_SANDSTONE_BRICKS, MBBlocks.RED_SANDSTONE_BRICKS, generator);
         cubeTopBottomSpec(MBBlocks.CRACKED_PAVED_RED_SANDSTONE_BRICKS, MBBlocks.CRACKED_RED_SANDSTONE_BRICKS, generator);
         generator.registerSimpleCubeAll(MBBlocks.BANDED_IRON);
-        generator.registerSimpleCubeAll(MBBlocks.HEMATITE_ORE);
-        generator.registerSimpleCubeAll(MBBlocks.HEMATITE_BLOCK);
+        generator.registerSimpleCubeAll(MBBlocks.MAGNETITE_ORE);
+        generator.registerSimpleCubeAll(MBBlocks.MAGNETITE_BLOCK);
 
 		generator.registerCrop(MBBlocks.PEANUT_CROP, Properties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
 		generator.registerCrop(MBBlocks.PEPPER_CROP, Properties.AGE_7, 0, 0, 1, 1, 2, 2, 2, 3);
@@ -302,16 +292,22 @@ public class MBModelProvider extends FabricModelProvider {
         generator.registerSimpleCubeAll(MBBlocks.RICH_MUD);
         generator.registerSimpleCubeAll(MBBlocks.MUD_GOLD_DEPOSIT);
 
-        tintableCross(MBBlocks.BEACHGRASS, TintType.NOT_TINTED, generator);
-        doubleBlock(MBBlocks.TALL_BEACHGRASS, TintType.NOT_TINTED, generator);
+		thickCross(MBBlocks.BEACHGRASS, generator);
+		thickDoubleBlock(MBBlocks.TALL_BEACHGRASS, generator);
 
         tintableCross(MBBlocks.COTTONGRASS, TintType.NOT_TINTED, generator);
         doubleBlock(MBBlocks.TALL_COTTONGRASS, TintType.NOT_TINTED, generator);
+
         tintableCross(MBBlocks.WHITE_HEATHER, TintType.NOT_TINTED, generator);
         tintableCross(MBBlocks.RED_HEATHER, TintType.NOT_TINTED, generator);
         tintableCross(MBBlocks.ORANGE_HEATHER, TintType.NOT_TINTED, generator);
         tintableCross(MBBlocks.PURPLE_HEATHER, TintType.NOT_TINTED, generator);
         doubleBlock(MBBlocks.LUPINE, TintType.NOT_TINTED, generator);
+		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.YUCCA).coordinate(BlockStateVariantMap.create(TallFlowerBlock.HALF)
+				.register(DoubleBlockHalf.LOWER, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/yucca_bottom")))
+				.register(DoubleBlockHalf.UPPER, BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/yucca_top")))
+		));
+		generator.registerItemModel(MBBlocks.YUCCA, "_top");
 
         tintableCross(MBBlocks.DESERT_BRUSH, TintType.NOT_TINTED, generator);
         doubleBlock(MBBlocks.TALL_DESERT_BRUSH, TintType.NOT_TINTED, generator);
@@ -358,6 +354,13 @@ public class MBModelProvider extends FabricModelProvider {
 
 		blockStateOnly(MBBlocks.DESERT_VASE, "desert_vase", generator);
 		generator.registerItemModel(MBBlocks.DESERT_VASE.asItem());
+		blockStateOnly(MBBlocks.DESERT_VASE_REPLICA, "desert_vase", generator);
+		generator.registerItemModel(MBBlocks.DESERT_VASE_REPLICA.asItem());
+
+		blockStateOnly(MBBlocks.MUD_VESSEL, "mud_vessel", generator);
+		generator.registerItemModel(MBBlocks.MUD_VESSEL.asItem());
+		blockStateOnly(MBBlocks.MUD_VESSEL_REPLICA, "mud_vessel", generator);
+		generator.registerItemModel(MBBlocks.MUD_VESSEL_REPLICA.asItem());
 
         generator.registerSimpleCubeAll(MBBlocks.CANVAS);
         generator.registerSimpleCubeAll(MBBlocks.FRAMED_CANVAS);
@@ -373,17 +376,18 @@ public class MBModelProvider extends FabricModelProvider {
         pottedBlock(MBBlocks.CLOVER, MBBlocks.POTTED_CLOVER, generator);
 
         redBrownMushrooms(generator);
+		flowerPotPlant(MBBlocks.SAFFRON_MUSHROOM, MBBlocks.POTTED_SAFFRON_MUSHROOM, TintType.NOT_TINTED, generator);
         generator.registerMushroomBlock(MBBlocks.SAFFRON_MUSHROOM_CAP);
         gills(generator);
         log(MBBlocks.MUSHROOM_STEM, MBBlocks.MUSHROOM_HYPHAE, generator);
         log(MBBlocks.STRIPPED_MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_HYPHAE, generator);
 
-        generator.registerSimpleCubeAll(MBBlocks.RED_MUSHCLAY);
-        generator.registerSimpleCubeAll(MBBlocks.BROWN_MUSHCLAY);
-        generator.registerSimpleCubeAll(MBBlocks.SAFFRON_MUSHCLAY);
-        generator.registerSimpleCubeAll(MBBlocks.RED_MUSH_LAMP);
-        generator.registerSimpleCubeAll(MBBlocks.BROWN_MUSH_LAMP);
-        generator.registerSimpleCubeAll(MBBlocks.SAFFRON_MUSH_LAMP);
+//        generator.registerSimpleCubeAll(MBBlocks.RED_MUSHCLAY);
+//        generator.registerSimpleCubeAll(MBBlocks.BROWN_MUSHCLAY);
+//        generator.registerSimpleCubeAll(MBBlocks.SAFFRON_MUSHCLAY);
+//        generator.registerSimpleCubeAll(MBBlocks.RED_MUSH_LAMP);
+//        generator.registerSimpleCubeAll(MBBlocks.BROWN_MUSH_LAMP);
+//        generator.registerSimpleCubeAll(MBBlocks.SAFFRON_MUSH_LAMP);
 
         lamproot(generator);
         wallPlant(MBBlocks.CAVEBLOOM_FLOWERS, generator);
@@ -391,7 +395,10 @@ public class MBModelProvider extends FabricModelProvider {
 
         // mob-related blocks n stuff
         bedroll(generator);
-        generator.registerCarpet(MBBlocks.FUR_BLOCK, MBBlocks.FUR_CARPET);
+//        generator.registerCarpet(MBBlocks.FUR_BLOCK, MBBlocks.FUR_CARPET);
+
+		// misc blocks
+		generator.registerSingleton(MBBlocks.CHISELED_PACKED_MUD, CUBE_BOTTOM_TOP);
 
         // storage blocks
         generator.registerSingleton(MBBlocks.APPLE_CRATE, CUBE_BOTTOM_TOP);
@@ -916,6 +923,17 @@ public class MBModelProvider extends FabricModelProvider {
         Identifier identifier = tintType.getCrossModel().upload(block, texture, generator.modelCollector);
         generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, identifier));
     }
+	public static void thickCross(Block block, BlockStateModelGenerator generator) {
+		thickCross(block, generator, true);
+	}
+	public static void thickCross(Block block, BlockStateModelGenerator generator, Boolean genItem) {
+		if (genItem) {
+			generator.registerItemModel(block);
+		}
+		Texture texture = Texture.cross(block);
+		Identifier identifier = THICK_CROSS.upload(block, texture, generator.modelCollector);
+		generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, identifier));
+	}
     public static void cappedCross(Block block, BlockStateModelGenerator generator) {
         cappedCross(block, TintType.NOT_TINTED, generator, true);
     }
@@ -1026,6 +1044,12 @@ public class MBModelProvider extends FabricModelProvider {
         Identifier identifier2 = generator.createSubModel(doubleBlock, "_bottom", tintType.getCrossModel(), Texture::cross);
         generator.registerDoubleBlock(doubleBlock, identifier, identifier2);
     }
+	public static void thickDoubleBlock(Block doubleBlock, BlockStateModelGenerator generator) {
+		generator.registerItemModel(doubleBlock, "_top");
+		Identifier identifier = generator.createSubModel(doubleBlock, "_top", THICK_CROSS, Texture::cross);
+		Identifier identifier2 = generator.createSubModel(doubleBlock, "_bottom", THICK_CROSS, Texture::cross);
+		generator.registerDoubleBlock(doubleBlock, identifier, identifier2);
+	}
 
     private static void column(Block block, BlockStateModelGenerator generator) {
         Texture texture = Texture.sideEnd(Texture.getId(block), Texture.getSubId(block, "_top"));

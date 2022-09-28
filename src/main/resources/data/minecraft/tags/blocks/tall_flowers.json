@@ -1,10 +1,7 @@
 {
   "replace": false,
   "values": [
-    "moonbits:white_hyacinth",
-    "moonbits:light_blue_hyacinth",
-    "moonbits:pink_hyacinth",
-    "moonbits:red_hyacinth",
-    "moonbits:lupine"
+    "moonbits:lupine",
+    "moonbits:yucca"
   ]
 }

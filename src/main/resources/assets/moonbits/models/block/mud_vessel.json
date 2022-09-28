@@ -1,0 +1,34 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "moonbits:block/mud_vessel",
+		"particle": "moonbits:block/mud_vessel_particle"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 10, 14],
+			"faces": {
+				"north": {"uv": [1, 11, 7, 16], "texture": "#0"},
+				"east": {"uv": [1, 11, 7, 16], "texture": "#0"},
+				"south": {"uv": [1, 11, 7, 16], "texture": "#0"},
+				"west": {"uv": [1, 11, 7, 16], "texture": "#0"},
+				"up": {"uv": [9, 1, 15, 7], "texture": "#0"},
+				"down": {"uv": [9, 9, 15, 15], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 10, 4],
+			"to": [12, 13, 12],
+			"faces": {
+				"north": {"uv": [2, 9.5, 6, 11], "texture": "#0"},
+				"east": {"uv": [2, 9.5, 6, 11], "texture": "#0"},
+				"south": {"uv": [2, 9.5, 6, 11], "texture": "#0"},
+				"west": {"uv": [2, 9.5, 6, 11], "texture": "#0"},
+				"up": {"uv": [2, 2, 6, 6], "texture": "#0"}
+			}
+		}
+	]
+}

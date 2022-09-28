@@ -468,6 +468,7 @@
     "block.moonbits.desert_brush": "Desert Brush",
     "block.moonbits.tall_desert_brush": "Tall Desert Brush",
     "block.moonbits.marigold": "Marigold",
+    "block.moonbits.yucca": "Yucca",
  
     "block.moonbits.prickly_pear_cactus": "Prickly Pear Cactus",
     "block.moonbits.tall_prickly_pear_cactus": "Tall Prickly Pear Cactus",
@@ -596,13 +597,14 @@
     "block.moonbits.redstone_cluster": "Redstone Cluster",
     "block.moonbits.chert_lapis_ore": "Chert Lapis Ore",
     "block.moonbits.banded_iron": "Banded Iron Formation",
-    "block.moonbits.hematite_ore": "Hematite Ore",
+    "block.moonbits.magnetite_ore": "Magnetite Ore",
 	
-    "block.moonbits.hematite_block": "Block of Hematite",
+    "block.moonbits.magnetite_block": "Block of Magnetite",
     "block.moonbits.magnet": "Magnet",
     "block.moonbits.repulsor": "Repulsor",
     "block.moonbits.redstone_sustainer": "Redstone Sustainer",
 	
+    "item.moonbits.magnetite": "Magnetite",
     "item.moonbits.hematite": "Hematite",
 	
     "block.moonbits.wild_peppers": "Wild Peppers",
@@ -617,6 +619,9 @@
     "block.moonbits.framed_canvas": "Framed Canvas",
 	
     "block.moonbits.desert_vase": "Desert Vase",
+    "block.moonbits.desert_vase_replica": "Desert Vase Replica",
+    "block.moonbits.mud_vessel": "Mud Vessel",
+    "block.moonbits.mud_vessel_replica": "Mud Vessel Replica",
 	
     "block.moonbits.flowering_acacia_leaves": "Flowering Acacia Leaves",
     "block.moonbits.hanging_acacia_leaves": "Hanging Acacia Flowers",

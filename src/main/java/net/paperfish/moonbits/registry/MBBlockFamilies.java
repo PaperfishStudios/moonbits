@@ -182,21 +182,6 @@ public class MBBlockFamilies {
             .slab(MBBlocks.TILL_SLAB).stairs(MBBlocks.TILL_STAIRS).wall(MBBlocks.TILL_WALL)
             .polished(MBBlocks.POLISHED_TILL).chiseled(MBBlocks.CHISELED_TILL).child(POLISHED_TILL).build();
 
-    public static final MBBlockFamily RED_MUSH_BRICKS = register(MBBlocks.RED_MUSH_BRICKS)
-            .slab(MBBlocks.RED_MUSH_BRICK_SLAB).stairs(MBBlocks.RED_MUSH_BRICK_STAIRS).build();
-    public static final MBBlockFamily RED_MUSH_BLOCK = register(MBBlocks.RED_MUSH_BLOCK).child(RED_MUSH_BRICKS)
-            .slab(MBBlocks.RED_MUSH_SLAB).stairs(MBBlocks.RED_MUSH_STAIRS).polished(MBBlocks.RED_MUSH_BRICKS).build();
-
-    public static final MBBlockFamily BROWN_MUSH_BRICKS = register(MBBlocks.BROWN_MUSH_BRICKS)
-            .slab(MBBlocks.BROWN_MUSH_BRICK_SLAB).stairs(MBBlocks.BROWN_MUSH_BRICK_STAIRS).build();
-    public static final MBBlockFamily BROWN_MUSH_BLOCK = register(MBBlocks.BROWN_MUSH_BLOCK).child(BROWN_MUSH_BRICKS)
-            .slab(MBBlocks.BROWN_MUSH_SLAB).stairs(MBBlocks.BROWN_MUSH_STAIRS).polished(MBBlocks.BROWN_MUSH_BRICKS).build();
-
-    public static final MBBlockFamily SAFFRON_MUSH_BRICKS = register(MBBlocks.SAFFRON_MUSH_BRICKS)
-            .slab(MBBlocks.SAFFRON_MUSH_BRICK_SLAB).stairs(MBBlocks.SAFFRON_MUSH_BRICK_STAIRS).build();
-    public static final MBBlockFamily SAFFRON_MUSH_BLOCK = register(MBBlocks.SAFFRON_MUSH_BLOCK).child(SAFFRON_MUSH_BRICKS)
-            .slab(MBBlocks.SAFFRON_MUSH_SLAB).stairs(MBBlocks.SAFFRON_MUSH_STAIRS).polished(MBBlocks.SAFFRON_MUSH_BRICKS).build();
-
 
     public static final MBBlockFamily GRASS_TURF = register(MBBlocks.GRASS_TURF)
             .slab(MBBlocks.GRASS_TURF_SLAB).stairs(MBBlocks.GRASS_TURF_STAIRS)

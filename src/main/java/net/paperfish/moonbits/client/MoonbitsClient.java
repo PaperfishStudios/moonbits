@@ -45,7 +45,7 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.SAFFRON_MUSHROOM, MBBlocks.POTTED_SAFFRON_MUSHROOM, MBBlocks.SAFFRON_GILLS,
 
                 MBBlocks.WHITE_HEATHER, MBBlocks.RED_HEATHER, MBBlocks.ORANGE_HEATHER, MBBlocks.PURPLE_HEATHER,
-                MBBlocks.LUPINE,
+                MBBlocks.LUPINE, MBBlocks.YUCCA,
 
                 MBBlocks.PRICKLY_PEAR_CACTUS, MBBlocks.TALL_PRICKLY_PEAR_CACTUS,
 

@@ -49,15 +49,15 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         MBBlockFamilies.PARASOL_FERN_FIBER.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(block));
 
-        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.RED_MUSH_BLOCK);
-        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.BROWN_MUSH_BLOCK);
-        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.SAFFRON_MUSH_BLOCK);
-        MBBlockFamilies.RED_MUSH_BLOCK.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
-        MBBlockFamilies.RED_MUSH_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
-        MBBlockFamilies.BROWN_MUSH_BLOCK.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
-        MBBlockFamilies.BROWN_MUSH_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
-        MBBlockFamilies.SAFFRON_MUSH_BLOCK.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
-        MBBlockFamilies.SAFFRON_MUSH_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+//        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.RED_MUSH_BLOCK);
+//        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.BROWN_MUSH_BLOCK);
+//        this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.SAFFRON_MUSH_BLOCK);
+//        MBBlockFamilies.RED_MUSH_BLOCK.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+//        MBBlockFamilies.RED_MUSH_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+//        MBBlockFamilies.BROWN_MUSH_BLOCK.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+//        MBBlockFamilies.BROWN_MUSH_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+//        MBBlockFamilies.SAFFRON_MUSH_BLOCK.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
+//        MBBlockFamilies.SAFFRON_MUSH_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
 
         MBBlockFamilies.HONEYCOMB.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
         MBBlockFamilies.HONEYCOMB_BRICKS.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
@@ -217,9 +217,9 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 MBBlocks.SUGAR_CUBE,
 
-                MBBlocks.RED_MUSHCLAY,
-                MBBlocks.BROWN_MUSHCLAY,
-                MBBlocks.SAFFRON_MUSHCLAY,
+//                MBBlocks.RED_MUSHCLAY,
+//                MBBlocks.BROWN_MUSHCLAY,
+//                MBBlocks.SAFFRON_MUSHCLAY,
 
                 MBBlocks.RICH_MUD,
                 MBBlocks.MUD_GOLD_DEPOSIT
@@ -318,9 +318,9 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 				MBBlocks.SYRUP_TREE_TAP,
 				MBBlocks.RESIN_TREE_TAP,
 
-                MBBlocks.RED_MUSH_LAMP,
-                MBBlocks.BROWN_MUSH_LAMP,
-                MBBlocks.SAFFRON_MUSH_LAMP,
+//                MBBlocks.RED_MUSH_LAMP,
+//                MBBlocks.BROWN_MUSH_LAMP,
+//                MBBlocks.SAFFRON_MUSH_LAMP,
 
                 MBBlocks.PAVED_SANDSTONE_BRICKS,
                 MBBlocks.CRACKED_PAVED_SANDSTONE_BRICKS,
@@ -356,12 +356,15 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.MEDIUM_REDSTONE_BUD,
                 MBBlocks.SMALL_REDSTONE_BUD,
                 MBBlocks.BANDED_IRON,
-                MBBlocks.HEMATITE_ORE,
-                MBBlocks.HEMATITE_BLOCK,
+                MBBlocks.MAGNETITE_ORE,
+                MBBlocks.MAGNETITE_BLOCK,
 
                 MBBlocks.CRACKED_MUD,
 
 				MBBlocks.DESERT_VASE,
+				MBBlocks.DESERT_VASE_REPLICA,
+				MBBlocks.MUD_VESSEL,
+				MBBlocks.MUD_VESSEL_REPLICA,
 
                 MBBlocks.PACKED_GLOWSTONE,
 
@@ -426,7 +429,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CHERT_GOLD_ORE,
 
                 MBBlocks.BANDED_IRON,
-                MBBlocks.HEMATITE_ORE
+                MBBlocks.MAGNETITE_ORE
         );
         this.getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL).add(
                 MBBlocks.CHERT_LAPIS_ORE,
@@ -471,9 +474,9 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         this.getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .addTag(MBBlockTags.CEDAR_LOGS);
 
-        this.getOrCreateTagBuilder(BlockTags.WOOL).add(
-                MBBlocks.FUR_BLOCK
-        );
+//        this.getOrCreateTagBuilder(BlockTags.WOOL).add(
+//                MBBlocks.FUR_BLOCK
+//        );
 
         this.getOrCreateTagBuilder(BlockTags.PLANKS).add(
                 MBBlocks.LAMPROOT_PLANKS,
@@ -605,7 +608,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(MBBlockTags.BANDED_IRON).add(
                 MBBlocks.BANDED_IRON,
-                MBBlocks.HEMATITE_ORE
+                MBBlocks.MAGNETITE_ORE
         );
         this.getOrCreateTagBuilder(BlockTags.COAL_ORES).add(
                 MBBlocks.CHERT_COAL_ORE
@@ -626,7 +629,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.BANDED_IRON
         );
         this.getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
-                MBBlocks.HEMATITE_BLOCK,
+                MBBlocks.MAGNETITE_BLOCK,
                 MBBlocks.TIN_BLOCK,
 				MBBlocks.OXIDIZED_TIN_BLOCK,
 				MBBlocks.BLACKENED_TIN_BLOCK,
@@ -670,7 +673,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         );
 
         this.getOrCreateTagBuilder(BlockTags.TALL_FLOWERS).add(
-                MBBlocks.LUPINE
+                MBBlocks.LUPINE,
+				MBBlocks.YUCCA
         );
         this.getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS).add(
                 MBBlocks.SOURSOBS,

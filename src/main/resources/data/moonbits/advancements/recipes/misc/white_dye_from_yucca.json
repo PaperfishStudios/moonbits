@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:white_dye_from_yucca"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yucca": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:yucca"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_yucca",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:white_dye_from_yucca"
+    ]
+  }
+}
