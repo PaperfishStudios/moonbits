@@ -290,6 +290,7 @@ public class MBBlocks {
 
 	public static final Block DESERT_VASE = new VaseBlock(AbstractBlock.Settings.copy(Blocks.TERRACOTTA).sounds(MBSounds.CERAMIC));
 	public static final Block DESERT_VASE_REPLICA = new VaseBlock(AbstractBlock.Settings.copy(Blocks.TERRACOTTA).sounds(MBSounds.CERAMIC));
+	public static final Block UNFIRED_DESERT_VASE = new UnfiredVaseBlock(DESERT_VASE_REPLICA, AbstractBlock.Settings.copy(Blocks.CLAY));
 	public static final Block MUD_VESSEL = new VaseBlock(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).sounds(MBSounds.CERAMIC));
 	public static final Block MUD_VESSEL_REPLICA = new VaseBlock(AbstractBlock.Settings.copy(Blocks.PACKED_MUD).sounds(MBSounds.CERAMIC));
 
@@ -445,39 +446,39 @@ public class MBBlocks {
 	public static final Block RAW_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.RAW_COPPER_BLOCK));
 
 	public static final Block PESTERED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.TUFF));
-	public static final Block BLACKENED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block BLACKENED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE));
 	public static final Block OXIDIZED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block TIN_BLOCK = new DimWeatheringBlock(OXIDIZED_TIN_BLOCK, BLACKENED_TIN_BLOCK, PESTERED_TIN_BLOCK, QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block PESTERED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.TUFF));
-	public static final Block BLACKENED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block BLACKENED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE));
 	public static final Block OXIDIZED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block CUT_TIN = new DimWeatheringBlock(OXIDIZED_CUT_TIN, BLACKENED_CUT_TIN, PESTERED_CUT_TIN,
 			QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block PESTERED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.TUFF));
-	public static final Block BLACKENED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block BLACKENED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE));
 	public static final Block OXIDIZED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block CUT_TIN_SLAB = new DimWeatheringSlabBlock(OXIDIZED_CUT_TIN_SLAB, BLACKENED_CUT_TIN_SLAB, PESTERED_CUT_TIN_SLAB,
 			QuiltBlockSettings.copy(CUT_TIN));
 	public static final Block PESTERED_CUT_TIN_STAIRS = new MBStairsBlock(PESTERED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.TUFF));
-	public static final Block BLACKENED_CUT_TIN_STAIRS = new MBStairsBlock(BLACKENED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block BLACKENED_CUT_TIN_STAIRS = new MBStairsBlock(BLACKENED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE));
 	public static final Block OXIDIZED_CUT_TIN_STAIRS = new MBStairsBlock(OXIDIZED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block CUT_TIN_STAIRS = new DimWeatheringStairsBlock(OXIDIZED_CUT_TIN_STAIRS, BLACKENED_CUT_TIN_STAIRS, PESTERED_CUT_TIN_STAIRS,
 			CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(CUT_TIN));
 
 	public static final Block WAXED_PESTERED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.TUFF));
-	public static final Block WAXED_BLACKENED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_BLACKENED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE));
 	public static final Block WAXED_OXIDIZED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block WAXED_TIN_BLOCK = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block WAXED_PESTERED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.TUFF));
-	public static final Block WAXED_BLACKENED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_BLACKENED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE));
 	public static final Block WAXED_OXIDIZED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block WAXED_CUT_TIN = new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block WAXED_PESTERED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.TUFF));
-	public static final Block WAXED_BLACKENED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_BLACKENED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE));
 	public static final Block WAXED_OXIDIZED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block WAXED_CUT_TIN_SLAB = new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block WAXED_PESTERED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_PESTERED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.TUFF));
-	public static final Block WAXED_BLACKENED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_BLACKENED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
+	public static final Block WAXED_BLACKENED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_BLACKENED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE));
 	public static final Block WAXED_OXIDIZED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_OXIDIZED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 	public static final Block WAXED_CUT_TIN_STAIRS = new MBStairsBlock(WAXED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK));
 
@@ -1361,10 +1362,11 @@ public class MBBlocks {
 		createBlock("parasol_fern_fiber_stairs", PARASOL_FERN_FIBER_STAIRS, MBItemGroup.DECOR);
 		createBlock("parasol_pup", PARASOL_PUP, MBItemGroup.DECOR);
 
-		createBlock("desert_vase", DESERT_VASE, MBItemGroup.DECOR);
+		createBlock("unfired_desert_vase", UNFIRED_DESERT_VASE, MBItemGroup.DECOR);
 		createBlock("desert_vase_replica", DESERT_VASE_REPLICA, MBItemGroup.DECOR);
-		createBlock("mud_vessel", MUD_VESSEL, MBItemGroup.DECOR);
+		createBlock("desert_vase", DESERT_VASE, MBItemGroup.DECOR);
 		createBlock("mud_vessel_replica", MUD_VESSEL_REPLICA, MBItemGroup.DECOR);
+		createBlock("mud_vessel", MUD_VESSEL, MBItemGroup.DECOR);
 
 		createBlock("grass_turf", GRASS_TURF, MBItemGroup.DECOR);
 		createBlock("grass_turf_stairs", GRASS_TURF_STAIRS, MBItemGroup.DECOR);

@@ -200,6 +200,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.PEAT_BLOCK,
 
 				MBBlocks.RABBIT_MOUND,
+				MBBlocks.UNFIRED_DESERT_VASE,
 
 				MBBlocks.SANDY_SOIL,
 

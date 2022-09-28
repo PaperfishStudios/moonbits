@@ -620,6 +620,7 @@
 	
     "block.moonbits.desert_vase": "Desert Vase",
     "block.moonbits.desert_vase_replica": "Desert Vase Replica",
+    "block.moonbits.unfired_desert_vase": "Unfired Desert Vase",
     "block.moonbits.mud_vessel": "Mud Vessel",
     "block.moonbits.mud_vessel_replica": "Mud Vessel Replica",
 	
@@ -784,6 +785,8 @@
  	"item.moonbits.baby_strider_bucket": "Baby Strider Bucket",
 	
  "_comment": "stone variants",
+ 
+	"block.moonbits.chiseled_packed_mud": "Chiseled Packed Mud",
 	
 	"block.moonbits.smooth_stone_stairs": "Smooth Stone Stairs",
 	"block.moonbits.smooth_stone_wall": "Smooth Stone Wall",

@@ -356,6 +356,8 @@ public class MBModelProvider extends FabricModelProvider {
 		generator.registerItemModel(MBBlocks.DESERT_VASE.asItem());
 		blockStateOnly(MBBlocks.DESERT_VASE_REPLICA, "desert_vase", generator);
 		generator.registerItemModel(MBBlocks.DESERT_VASE_REPLICA.asItem());
+		blockStateOnly(MBBlocks.UNFIRED_DESERT_VASE, "unfired_desert_vase", generator);
+		generator.registerItemModel(MBBlocks.UNFIRED_DESERT_VASE.asItem());
 
 		blockStateOnly(MBBlocks.MUD_VESSEL, "mud_vessel", generator);
 		generator.registerItemModel(MBBlocks.MUD_VESSEL.asItem());

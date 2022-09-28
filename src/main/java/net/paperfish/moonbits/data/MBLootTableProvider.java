@@ -272,6 +272,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 				)
 		);
 		addDrop(MBBlocks.DESERT_VASE_REPLICA);
+		addDrop(MBBlocks.UNFIRED_DESERT_VASE);
 		addDrop(MBBlocks.MUD_VESSEL, LootTable.builder()
 				.pool(LootPool.builder()
 						.rolls(ConstantLootNumberProvider.create(1.0F))
