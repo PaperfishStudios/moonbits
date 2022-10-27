@@ -32,7 +32,7 @@ public class SeatBlock extends Block {
 //    public static final EnumProperty<SlabType> TYPE;
     public static SeatBlockEntity entity;
     private static final TargetPredicate seatPredicate = TargetPredicate.createNonAttackable().setPredicate(SeatBlockEntity -> true).setBaseMaxDistance(5);
-	protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 8.0, 16.0);
+	protected static final VoxelShape SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 9.0, 16.0);
 	protected static final VoxelShape TOADSTOOL = VoxelShapes.union(
 			Block.createCuboidShape(0.0, 4.0, 0.0, 16.0, 8.0, 16.0),
 			Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 4.0, 10.0)

@@ -33,6 +33,7 @@ public class Moonbits implements ModInitializer {
 		MBCauldronBehaviour.register();
 		MBBlocks.registerBlocks();
 		MBItems.registerItems();
+		MBBlockEntities.init();
 		MBEntities.registerEntities();
 
 		MBData.registerData();

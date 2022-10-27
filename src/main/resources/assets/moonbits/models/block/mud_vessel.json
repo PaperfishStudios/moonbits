@@ -4,7 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "moonbits:block/mud_vessel",
-		"particle": "moonbits:block/mud_vessel_particle"
+		"particle": "#0"
 	},
 	"elements": [
 		{

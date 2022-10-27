@@ -22,6 +22,7 @@ import net.paperfish.moonbits.block.extended.*;
 import net.paperfish.moonbits.mixin.SignTypeAccessor;
 import net.paperfish.moonbits.world.feature.*;
 import net.paperfish.moonbits.world.gen.MBTreeFeatures;
+import org.quiltmc.qsl.block.entity.api.QuiltBlockEntityTypeBuilder;
 import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
 
 public class MBBlocks {
@@ -1014,7 +1015,7 @@ public class MBBlocks {
 		Registry.register(Registry.ITEM, new Identifier(Moonbits.MODID, "bedroll"),
 				(BlockItem)(new BedItem(BEDROLL, (new Item.Settings()).maxCount(1).group(MBItemGroup.MB_MISC))));
 		BEDROLL_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Moonbits.MODID, "bedroll_block_entity"),
-				FabricBlockEntityTypeBuilder.create(BedrollBlockEntity::new, BEDROLL).build(null));
+				QuiltBlockEntityTypeBuilder.create(BedrollBlockEntity::new, BEDROLL).build(null));
 
 
 		// DIRT CAVES
