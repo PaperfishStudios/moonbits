@@ -102,7 +102,7 @@ public class CavebloomFlowerBlock extends AbstractLichenBlock implements Fertili
 
 	public void dropFlowers(BlockState state, World world, BlockPos pos) {
 		world.setBlockState(pos, swapBlock(state), 0);
-		dropStack(world, pos, new ItemStack(MBBlocks.CAVEBLOOMS));
+		dropStack(world, pos, new ItemStack(MBBlocks.CAVEBLOOM_FLOWERS));
 		world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 0.5F, 0.8F + world.random.nextFloat() * 0.4F);
 	}
 
@@ -115,7 +115,7 @@ public class CavebloomFlowerBlock extends AbstractLichenBlock implements Fertili
 	}
 
 	public boolean canReplace(BlockState state, ItemPlacementContext context) {
-		return !context.getStack().isOf(MBBlocks.CAVEBLOOMS) || super.canReplace(state, context);
+		return !context.getStack().isOf(MBBlocks.CAVEBLOOM_FLOWERS.asItem()) || super.canReplace(state, context);
 	}
 
 	public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {

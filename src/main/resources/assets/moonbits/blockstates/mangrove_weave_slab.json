@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/mangrove_weave_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/mangrove_weave"
+    },
+    "type=top": {
+      "model": "moonbits:block/mangrove_weave_slab_top"
+    }
+  }
+}

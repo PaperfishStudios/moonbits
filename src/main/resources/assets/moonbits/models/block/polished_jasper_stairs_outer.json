@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "moonbits:block/polished_jasper",
+    "side": "moonbits:block/polished_jasper",
+    "top": "moonbits:block/polished_jasper"
+  }
+}

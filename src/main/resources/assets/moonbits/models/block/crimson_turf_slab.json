@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moonbits:block/crimson_turf",
+    "side": "moonbits:block/crimson_turf",
+    "top": "moonbits:block/crimson_turf"
+  }
+}

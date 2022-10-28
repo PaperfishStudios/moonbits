@@ -1,8 +1,8 @@
 {
   "type": "minecraft:stonecutting",
+  "count": 1,
   "ingredient": {
     "item": "moonbits:packed_dirt"
   },
-  "result": "moonbits:packed_dirt_stairs",
-  "count": 1
+  "result": "moonbits:packed_dirt_stairs"
 }

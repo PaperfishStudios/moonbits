@@ -27,7 +27,7 @@ public class VaseBlock extends FallingBlock {
 
 	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-		if (state.isOf(MBBlocks.MUD_VESSEL) || state.isOf(MBBlocks.MUD_VESSEL_REPLICA)) return MUD_SHAPE;
+		if (state.isOf(MBBlocks.MUD_VESSEL)) return MUD_SHAPE;
 		return SHAPE;
 	}
 

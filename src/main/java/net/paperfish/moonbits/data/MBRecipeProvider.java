@@ -85,10 +85,9 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         TRANSMUTE.put(List.of(MBBlocks.SOURSOBS, Items.YELLOW_DYE), 2);
 		TRANSMUTE.put(List.of(MBItems.SOURSOB, Items.YELLOW_DYE), 1);
 
-        TRANSMUTE.put(List.of(MBBlocks.WHITE_HEATHER, Items.WHITE_DYE), 1);
-        TRANSMUTE.put(List.of(MBBlocks.RED_HEATHER, Items.RED_DYE), 1);
-        TRANSMUTE.put(List.of(MBBlocks.ORANGE_HEATHER, Items.ORANGE_DYE), 1);
-        TRANSMUTE.put(List.of(MBBlocks.PURPLE_HEATHER, Items.PURPLE_DYE), 1);
+        TRANSMUTE.put(List.of(MBBlocks.FROSTY_HEATHER, Items.WHITE_DYE), 1);
+        TRANSMUTE.put(List.of(MBBlocks.SUNSET_HEATHER, Items.ORANGE_DYE), 1);
+        TRANSMUTE.put(List.of(MBBlocks.TWILIGHT_HEATHER, Items.PURPLE_DYE), 1);
 
         TRANSMUTE.put(List.of(MBBlocks.LUPINE, Items.PURPLE_DYE), 2);
 		TRANSMUTE.put(List.of(MBBlocks.YUCCA, Items.WHITE_DYE), 2);
@@ -97,11 +96,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 
         TRANSMUTE.put(List.of(Items.SWEET_BERRIES, MBItems.SWEET_BERRY_PITS), 1);
         TRANSMUTE.put(List.of(Items.GLOW_BERRIES, MBItems.GLOW_BERRY_PITS), 1);
-        TRANSMUTE.put(List.of(MBItems.HARDY_BERRY, MBItems.HARDY_BERRY_SEED), 1);
-
-        TRANSMUTE.put(List.of(MBBlocks.FRUITING_HARDY_LEAVES, MBItems.HARDY_BERRY), 3);
-		TRANSMUTE.put(List.of(MBBlocks.PARASOL_FERN_CROWN, MBItems.PARASOL_FIBER), 6);
-		TRANSMUTE.put(List.of(MBBlocks.PARASOL_FERN_STEM, MBItems.PARASOL_FIBER), 4);
+//        TRANSMUTE.put(List.of(MBItems.HARDY_BERRY, MBItems.HARDY_BERRY_SEED), 1);
 
         TRANSMUTE.put(List.of(Items.IRON_NUGGET, MBItems.ITEM_HOOK), 1);
 
@@ -111,7 +106,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         COMPACT.put(MBItems.ICE_CUBES, Blocks.ICE);
 
         COMPACT.put(MBItems.GRASS_TUFT, MBBlocks.GRASS_TURF);
-        COMPACT.put(MBBlocks.MYCELIUM_ROOTS, MBBlocks.MYCELIUM_TURF);
+//        COMPACT.put(MBBlocks.MYCELIUM_ROOTS, MBBlocks.MYCELIUM_TURF);
         COMPACT.put(Items.CRIMSON_ROOTS, MBBlocks.CRIMSON_NYLIUM_TURF);
         COMPACT.put(Items.WARPED_ROOTS, MBBlocks.WARPED_NYLIUM_TURF);
 
@@ -138,12 +133,10 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         COMPACT.put(MBItems.BLUE_GLASS_SHARD, Blocks.BLUE_STAINED_GLASS);
 
         // 2x2 recipe with an output of 4
-		POLISH.put(MBItems.PARASOL_FIBER, MBBlocks.PARASOL_FERN_FIBER);
 
         POLISH.put(MBBlocks.PEAT_MOSS, MBBlocks.PEAT_BRICKS);
         POLISH.put(Blocks.SNOW_BLOCK, MBBlocks.SNOW_BRICKS);
-        POLISH.put(Blocks.ICE, MBBlocks.ICE_BRICKS);
-        POLISH.put(Blocks.PACKED_ICE, MBBlocks.PACKED_ICE_BRICKS);
+//        POLISH.put(Blocks.PACKED_ICE, MBBlocks.PACKED_ICE_BRICKS);
 
         // 3x3 unpackable recipe
         STORAGE.put(Items.APPLE, MBBlocks.APPLE_CRATE);
@@ -151,15 +144,14 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         STORAGE.put(Items.POTATO, MBBlocks.POTATO_CRATE);
         STORAGE.put(Items.BEETROOT, MBBlocks.BEETROOT_CRATE);
 
-        STORAGE.put(MBItems.PEPPER, MBBlocks.PEPPER_CRATE);
-
         STORAGE.put(Items.EGG, MBBlocks.EGG_BASKET);
         STORAGE.put(Items.COCOA_BEANS, MBBlocks.COCOA_SACK);
         STORAGE.put(Items.SWEET_BERRIES, MBBlocks.SWEET_BERRY_BASKET);
         STORAGE.put(Items.GLOW_BERRIES, MBBlocks.GLOW_BERRY_BASKET);
-        STORAGE.put(MBItems.HARDY_BERRY, MBBlocks.HARDY_BERRY_BASKET);
+
         STORAGE.put(Items.SUGAR_CANE, MBBlocks.SUGAR_CANE_BUNDLE);
         STORAGE.put(Items.BAMBOO, MBBlocks.BAMBOO_BUNDLE);
+
         STORAGE.put(Items.KELP, MBBlocks.KELP_BLOCK);
         STORAGE.put(Items.GLISTERING_MELON_SLICE, MBBlocks.GLISTERING_MELON_BLOCK);
         STORAGE.put(Items.NETHER_WART, MBBlocks.NETHER_WART_SACK);
@@ -198,9 +190,6 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         FIRING.put(Blocks.DEEPSLATE, MBBlocks.SMOOTH_DEEPSLATE);
 
         FIRING.put(MBBlocks.COBBLED_CHERT, MBBlocks.CHERT);
-
-        FIRING.put(MBBlocks.RICH_MUD, MBBlocks.MUDSTONE);
-        FIRING.put(MBBlocks.MUDSTONE, MBBlocks.SMOOTH_MUDSTONE);
 
         FIRING.put(MBBlocks.STONE_TILES, MBBlocks.CRACKED_STONE_TILES);
         FIRING.put(MBBlocks.ANDESITE_BRICKS, MBBlocks.CRACKED_ANDESITE_BRICKS);
@@ -253,8 +242,6 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         stairsRecipe(exporter, MBBlocks.WAXED_BLACKENED_CUT_TIN, MBBlocks.WAXED_BLACKENED_CUT_TIN_STAIRS);
         stairsRecipe(exporter, MBBlocks.WAXED_PESTERED_CUT_TIN, MBBlocks.WAXED_PESTERED_CUT_TIN_STAIRS);
 
-
-        blasting(exporter, MBBlocks.RICH_MUD, MBBlocks.CRACKED_MUD, 0.1f, DEFAULT_BLAST_TIME);
 
         firing(exporter, Items.CLAY_BALL, Items.BRICK, 0.3f, DEFAULT_FIRE_TIME);
         firing(exporter, ItemTags.LOGS_THAT_BURN, Items.CHARCOAL, 0.15f, DEFAULT_FIRE_TIME, "has_log");
@@ -417,41 +404,10 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         woodStonecut(exporter, ItemTags.PLANKS, Items.BOWL, 4, "planks");
 
 
-//        ShapedRecipeJsonFactory.create(MBBlocks.ASPEN_PLANKS, 4).input('S', Ingredient.fromTag(MBItemTags.ASPEN_TRUNKS)).pattern("SS").pattern("SS")
-//                .criterion("has_aspen_trunk", RecipesProvider.conditionsFromTag(MBItemTags.ASPEN_TRUNKS))
-//                .offerTo(exporter);
-//        RecipesProvider.offerStonecuttingRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_TRUNK);
-//        RecipesProvider.offerStonecuttingRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.STRIPPED_ASPEN_TRUNK);
-//        ShapedRecipeJsonFactory.create(MBBlocks.ASPEN_TRIM, 2)
-//                .input('#', MBBlocks.ASPEN_PLANKS)
-//                .pattern("###").pattern(" # ")
-//                .criterion(RecipesProvider.hasItem(MBBlocks.ASPEN_PLANKS), RecipesProvider.conditionsFromItem(MBBlocks.ASPEN_PLANKS)).offerTo(exporter);
-//        RecipesProvider.offerStonecuttingRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_TRIM);
-//        wallRecipe(exporter, MBBlocks.ASPEN_TRUNK, MBBlocks.ASPEN_PALISADE);
-//        wallRecipe(exporter, MBBlocks.STRIPPED_ASPEN_TRUNK, MBBlocks.STRIPPED_ASPEN_PALISADE);
-//        paneRecipe(exporter, MBBlocks.ASPEN_PLANKS, MBBlocks.ASPEN_LATTICE);
-//        ShapedRecipeJsonFactory.create(MBBlocks.ASPEN_LANTERN)
-//                .input('#', MBBlocks.ASPEN_SLAB).input('l', Items.PAPER).input('O', Items.TORCH)
-//                .pattern("###").pattern("lOl").pattern("###")
-//                .criterion(RecipesProvider.hasItem(MBBlocks.ASPEN_PLANKS), RecipesProvider.conditionsFromItem(MBBlocks.ASPEN_PLANKS)).offerTo(exporter);
-//        ShapedRecipeJsonFactory.create(MBBlocks.ASPEN_SOUL_LANTERN)
-//                .input('#', MBBlocks.ASPEN_SLAB).input('l', Items.PAPER).input('O', Items.SOUL_TORCH)
-//                .pattern("###").pattern("lOl").pattern("###")
-//                .criterion(RecipesProvider.hasItem(MBBlocks.ASPEN_PLANKS), RecipesProvider.conditionsFromItem(MBBlocks.ASPEN_PLANKS)).offerTo(exporter);
-//        ShapedRecipeJsonFactory.create(MBBlocks.ASPEN_WINDOW, 8)
-//                .input('#', MBBlocks.ASPEN_PLANKS).input('l', Items.STICK).input('O', Items.GLASS)
-//                .pattern("###").pattern("lOl").pattern("###")
-//                .criterion(RecipesProvider.hasItem(MBBlocks.ASPEN_PLANKS), RecipesProvider.conditionsFromItem(MBBlocks.ASPEN_PLANKS)).offerTo(exporter);
-
-        ShapedRecipeJsonFactory.create(MBBlocks.TIN_DOOR, 3)
-                .input('#', MBItems.TIN_INGOT)
-                .pattern("##").pattern("##").pattern("##")
-                .criterion(RecipesProvider.hasItem(MBItems.TIN_INGOT), RecipesProvider.conditionsFromItem(MBItems.TIN_INGOT)).offerTo(exporter);
         ShapedRecipeJsonFactory.create(MBBlocks.TIN_TRAPDOOR, 1)
                 .input('#', MBItems.TIN_INGOT)
                 .pattern("##")
                 .criterion(RecipesProvider.hasItem(MBItems.TIN_INGOT), RecipesProvider.conditionsFromItem(MBItems.TIN_INGOT)).offerTo(exporter);
-        RecipesProvider.offerStonecuttingRecipe(exporter, MBBlocks.TIN_BLOCK, MBBlocks.TIN_PILLAR);
 
 
         RecipesProvider.offerBarkBlockRecipe(exporter, MBBlocks.LAMPROOT_WOOD, MBBlocks.LAMPROOT_LOG);
@@ -491,29 +447,6 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .input('#', MBBlocks.CRACKED_RED_SANDSTONE_BRICK_SLAB)
                 .pattern("#").pattern("#")
                 .criterion(RecipesProvider.hasItem(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS), RecipesProvider.conditionsFromItem(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS)).offerTo(exporter);
-
-		ShapelessRecipeJsonFactory.create(MBBlocks.HARDY_BUSH)
-				.input(MBBlocks.HARDY_LEAVES).input(MBItems.HARDY_STEM)
-				.criterion("has_hardy_stem", RecipesProvider.conditionsFromItem(MBItems.HARDY_STEM))
-				.offerTo(exporter);
-
-        ShapedRecipeJsonFactory.create(MBBlocks.CANVAS, 4).input('#', MBItems.BURLAP).pattern("##").pattern("##")
-                .criterion(RecipesProvider.hasItem(MBItems.BURLAP), RecipesProvider.conditionsFromItem(MBItems.BURLAP))
-                .offerTo(exporter);
-        ShapedRecipeJsonFactory.create(MBBlocks.FRAMED_CANVAS, 2).input('#', MBBlocks.CANVAS).input('S', Items.STICK)
-                .pattern(" S ").pattern("S#S").pattern(" S ")
-                .criterion(RecipesProvider.hasItem(MBItems.BURLAP), RecipesProvider.conditionsFromItem(MBItems.BURLAP))
-                .offerTo(exporter);
-
-		ShapedRecipeJsonFactory.create(MBBlocks.SANDY_SOIL, 4).input('#', Blocks.DIRT).input('S', Blocks.SAND).pattern("#S").pattern("S#")
-				.criterion(RecipesProvider.hasItem(Blocks.SAND), RecipesProvider.conditionsFromItem(Blocks.SAND))
-				.offerTo(exporter);
-		desertPlanter(exporter, MBItems.HARDY_STEM, MBBlocks.DESERT_PLANTER);
-
-        ShapelessRecipeJsonFactory.create(MBBlocks.FROSTY_TILL_BRICKS)
-                .input(MBBlocks.TILL_BRICKS).input(Items.SNOWBALL)
-                .criterion("has_snowball", RecipesProvider.conditionsFromItem(Items.SNOWBALL))
-                .offerTo(exporter);
 
         ShapedRecipeJsonFactory.create(MBBlocks.CUT_TIN, 16).input('S', MBBlocks.TIN_BLOCK).pattern("SS").pattern("SS")
                 .criterion(RecipesProvider.hasItem(MBBlocks.TIN_BLOCK), RecipesProvider.conditionsFromItem(MBBlocks.TIN_BLOCK))
@@ -568,10 +501,10 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .pattern("###").pattern("I I")
                 .criterion(RecipesProvider.hasItem(MBItems.MONSTER_HIDE), RecipesProvider.conditionsFromItem(MBItems.MONSTER_HIDE)).offerTo(exporter);
 
-        ShapedRecipeJsonFactory.create(MBBlocks.LEATHER_SEAT)
-                .input('L', Items.LEATHER).m_hadhiznl('P', ItemTags.PLANKS)
-                .pattern("LLL").pattern("PPP")
-                .criterion(RecipesProvider.hasItem(Items.LEATHER), RecipesProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
+//        ShapedRecipeJsonFactory.create(MBBlocks.LEATHER_SEAT)
+//                .input('L', Items.LEATHER).m_hadhiznl('P', ItemTags.PLANKS)
+//                .pattern("LLL").pattern("PPP")
+//                .criterion(RecipesProvider.hasItem(Items.LEATHER), RecipesProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
 
         ShapedRecipeJsonFactory.create(MBBlocks.TREE_TAP)
                 .input('I', MBItems.TIN_INGOT).input('S', Items.STICK).m_hadhiznl('P', ItemTags.PLANKS)
@@ -647,9 +580,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         ShapedRecipeJsonFactory.create(Blocks.PODZOL, 4).input('D', Blocks.DIRT).input('G', Blocks.SAND)
                 .pattern("DG").pattern("GD")
                 .criterion("has_sand", RecipesProvider.conditionsFromItem(Blocks.SAND)).offerTo(exporter);
-        ShapedRecipeJsonFactory.create(MBBlocks.LEAFBED, 4).input('D', Blocks.DIRT).input('G', Ingredient.ofTag(ItemTags.LEAVES))
-                .pattern("DG").pattern("GD")
-                .criterion("has_leaves", RecipesProvider.conditionsFromItem(Items.SHEARS)).offerTo(exporter);
+
         ShapedRecipeJsonFactory.create(MBBlocks.PERMAFROST, 4).input('D', Blocks.DIRT).input('G', Items.SNOWBALL)
                 .pattern("DG").pattern("GD")
                 .criterion("has_snow", RecipesProvider.conditionsFromItem(Items.SNOWBALL)).offerTo(exporter);
@@ -697,6 +628,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 
     public static void generateFamily(Consumer<RecipeJsonProvider> exporter, MBBlockFamily family) {
         family.getVariants().forEach((variant, block) -> {
+			Moonbits.LOGGER.info("generating recipe for: " + block);
             BiFunction<ItemConvertible, ItemConvertible, CraftingRecipeJsonFactory> biFunction = VARIANT_FACTORIES.get(variant);
             Block inputItem = getVariantRecipeInput(family, variant);
             if (Objects.equals(Registry.BLOCK.getId(block).getNamespace(), Moonbits.MODID) || Objects.equals(Registry.BLOCK.getId(inputItem).getNamespace(), Moonbits.MODID)) { // should hopefully only make the recipe if its a new block..?

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "moonbits:block/polished_till",
-    "side": "moonbits:block/polished_till",
-    "top": "moonbits:block/polished_till"
-  }
-}

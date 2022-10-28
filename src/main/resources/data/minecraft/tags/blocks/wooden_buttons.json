@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "moonbits:lamproot_button",
-    "moonbits:cedar_button",
-    "moonbits:honey_button"
+    "moonbits:cedar_button"
   ]
 }

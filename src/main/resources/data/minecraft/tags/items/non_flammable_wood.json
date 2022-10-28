@@ -1,26 +1,15 @@
 {
   "replace": false,
   "values": [
-    "moonbits:crimson_bookshelf",
+    "moonbits:crimson_mosaic",
     "moonbits:crimson_planter_box",
-    "moonbits:carved_crimson_hyphae",
     "moonbits:crimson_pillar",
-    "moonbits:warped_bookshelf",
+    "moonbits:carved_crimson_wood",
+    "minecraft:crimson_slab",
+    "moonbits:warped_mosaic",
     "moonbits:warped_planter_box",
-    "moonbits:carved_warped_hyphae",
     "moonbits:warped_pillar",
-    "moonbits:honey_trapdoor",
-    "moonbits:honey_button",
-    "moonbits:honey_door",
-    "moonbits:honey_stairs",
-    "moonbits:carved_honey_wood",
-    "moonbits:honey_planter_box",
-    "moonbits:honey_slab",
-    "moonbits:honey_fence_gate",
-    "moonbits:honey_pressure_plate",
-    "moonbits:honey_bookshelf",
-    "moonbits:honey_fence",
-    "moonbits:honey_pillar",
-    "moonbits:honey_sign"
+    "moonbits:carved_warped_wood",
+    "minecraft:warped_slab"
   ]
 }

@@ -42,19 +42,19 @@ public class MBVegetationFeatures {
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> SEA_BEET_PATCH =
             MBConfiguredFeatures.register("patch_beets", Feature.RANDOM_PATCH, createPatch(64, 7, 2, MBBlocks.SEA_BEETS));
 
-    public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PATCH_MYCELIUM =
-            MBConfiguredFeatures.register("patch_mycelium", Feature.RANDOM_PATCH, createPatch(32, BlockStateProvider.of(MBBlocks.MYCELIUM_ROOTS)));
+//    public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PATCH_MYCELIUM =
+//            MBConfiguredFeatures.register("patch_mycelium", Feature.RANDOM_PATCH, createPatch(32, BlockStateProvider.of(MBBlocks.MYCELIUM_ROOTS)));
 
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> SOURSOB_PATCH =
             MBConfiguredFeatures.register("patch_soursobs", Feature.RANDOM_PATCH, createPatch(96, MBBlocks.SOURSOBS,
-					List.of(MBBlocks.TOUGH_DIRT, MBBlocks.REGOLITH, Blocks.CLAY, Blocks.MOSS_BLOCK)
+					List.of(MBBlocks.PACKED_DIRT, MBBlocks.REGOLITH, Blocks.CLAY, Blocks.MOSS_BLOCK)
 			));
-    public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> CLOVER_PATCH =
-            MBConfiguredFeatures.register("patch_clover", Feature.RANDOM_PATCH, createPatch(16, MBBlocks.CLOVER));
+//    public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> CLOVER_PATCH =
+//            MBConfiguredFeatures.register("patch_clover", Feature.RANDOM_PATCH, createPatch(16, MBBlocks.CLOVER));
 
 	public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> DESERT_VASE_PATCH =
 			MBConfiguredFeatures.register("patch_desert_vase", Feature.RANDOM_PATCH,
-					createPatch(16, BlockStateProvider.of(MBBlocks.DESERT_VASE), List.of(MBBlocks.CHERT, Blocks.SANDSTONE, MBBlocks.SANDY_SOIL, Blocks.DEEPSLATE)));
+					createPatch(16, BlockStateProvider.of(MBBlocks.DESERT_VASE), List.of(MBBlocks.CHERT, Blocks.SANDSTONE, Blocks.DEEPSLATE)));
 
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PEBBLES = MBConfiguredFeatures.register("mb_pebbles",
             Feature.RANDOM_PATCH, createPatch(1, 12, 2, new WeightedBlockStateProvider(new DataPool.Builder<BlockState>()
@@ -124,18 +124,9 @@ public class MBVegetationFeatures {
             "patch_lupine", Feature.RANDOM_PATCH, createPatch(6, MBBlocks.LUPINE));
 
     public static final List<BlockState> HEATHER_LIST = List.of(
-            MBBlocks.PURPLE_HEATHER.getDefaultState(),
-            MBBlocks.PURPLE_HEATHER.getDefaultState(),
-            MBBlocks.PURPLE_HEATHER.getDefaultState(),
-            MBBlocks.PURPLE_HEATHER.getDefaultState(),
-            MBBlocks.RED_HEATHER.getDefaultState(),
-            MBBlocks.RED_HEATHER.getDefaultState(),
-            MBBlocks.RED_HEATHER.getDefaultState(),
-            MBBlocks.RED_HEATHER.getDefaultState(),
-            MBBlocks.ORANGE_HEATHER.getDefaultState(),
-            MBBlocks.ORANGE_HEATHER.getDefaultState(),
-            MBBlocks.ORANGE_HEATHER.getDefaultState(),
-            MBBlocks.WHITE_HEATHER.getDefaultState()
+            MBBlocks.TWILIGHT_HEATHER.getDefaultState(),
+            MBBlocks.SUNSET_HEATHER.getDefaultState(),
+            MBBlocks.FROSTY_HEATHER.getDefaultState()
             );
     public static final Holder<ConfiguredFeature<RandomPatchFeatureConfig, ?>> HEATHER = MBConfiguredFeatures.register(
             "heather", Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 2, 2,
@@ -143,7 +134,7 @@ public class MBVegetationFeatures {
                             new DoublePerlinNoiseSampler.NoiseParameters(0, 1.0D), 0.020433334F, HEATHER_LIST)),
 							BlockPredicateFilterPlacementModifier.create(
 									BlockPredicate.bothOf(BlockPredicate.IS_AIR,
-											BlockPredicate.wouldSurvive(MBBlocks.PURPLE_HEATHER.getDefaultState(), BlockPos.ORIGIN))
+											BlockPredicate.wouldSurvive(MBBlocks.TWILIGHT_HEATHER.getDefaultState(), BlockPos.ORIGIN))
 							))));
 
     public static final List<OreFeatureConfig.Target> PERMAFROST = List.of(
@@ -153,38 +144,10 @@ public class MBVegetationFeatures {
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> TUNDRA_FROST = MBConfiguredFeatures.register(
             "tundra_frost", Feature.ORE, new OreFeatureConfig(PERMAFROST, 48));
 
-    public static final Holder<ConfiguredFeature<SingleStateFeatureConfig, ?>> TILL_ROCK = MBConfiguredFeatures.register(
-            "till_rock", Feature.FOREST_ROCK, new SingleStateFeatureConfig(MBBlocks.TILL.getDefaultState()));
-
-    public static final List<OreFeatureConfig.Target> CRACKED_MUD = List.of(
-            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.GRASS_BLOCK), MBBlocks.CRACKED_MUD.getDefaultState()),
-            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.DIRT), MBBlocks.CRACKED_MUD.getDefaultState()),
-            OreFeatureConfig.createTarget(new BlockMatchRuleTest(MBBlocks.TOUGH_DIRT), MBBlocks.CRACKED_MUD.getDefaultState()),
-            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.SAND), MBBlocks.CRACKED_MUD.getDefaultState())
-    );
-    public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> PATCH_CRACKED_MUD = MBConfiguredFeatures.register(
-            "patch_cracked_mud", Feature.ORE, new OreFeatureConfig(CRACKED_MUD, 32));
-	public static final List<OreFeatureConfig.Target> SANDY_SOIL = List.of(
-			OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.SANDSTONE), MBBlocks.SANDY_SOIL.getDefaultState()),
-			OreFeatureConfig.createTarget(new BlockMatchRuleTest(MBBlocks.CHERT), MBBlocks.SANDY_SOIL.getDefaultState()),
-			OreFeatureConfig.createTarget(new BlockMatchRuleTest(MBBlocks.COBBLED_CHERT), MBBlocks.SANDY_SOIL.getDefaultState())
-	);
-	public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> PATCH_SANDY_SOIL = MBConfiguredFeatures.register(
-			"patch_sandy_soil", Feature.ORE, new OreFeatureConfig(SANDY_SOIL, 64));
-
-    public static final List<OreFeatureConfig.Target> RICH_MUD = List.of(
-            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.GRASS_BLOCK), MBBlocks.RICH_MUD.getDefaultState()),
-            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.DIRT), MBBlocks.RICH_MUD.getDefaultState()),
-            OreFeatureConfig.createTarget(new BlockMatchRuleTest(MBBlocks.TOUGH_DIRT), MBBlocks.RICH_MUD.getDefaultState()),
-            OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.SAND), MBBlocks.RICH_MUD.getDefaultState())
-    );
-    public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> PATCH_RICH_MUD = MBConfiguredFeatures.register(
-            "patch_rich_mud", Feature.ORE, new OreFeatureConfig(RICH_MUD, 32));
-
     public static final List<OreFeatureConfig.Target> PEAT_MOSS = List.of(
             OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.GRASS_BLOCK), MBBlocks.PEAT_MOSS.getDefaultState()),
             OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.DIRT), MBBlocks.PEAT_MOSS.getDefaultState()),
-            OreFeatureConfig.createTarget(new BlockMatchRuleTest(MBBlocks.TOUGH_DIRT), MBBlocks.PEAT_MOSS.getDefaultState()),
+            OreFeatureConfig.createTarget(new BlockMatchRuleTest(MBBlocks.PACKED_DIRT), MBBlocks.PEAT_MOSS.getDefaultState()),
             OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.SAND), MBBlocks.PEAT_MOSS.getDefaultState())
     );
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> PATCH_PEAT_MOSS = MBConfiguredFeatures.register(
@@ -198,20 +161,6 @@ public class MBVegetationFeatures {
                             TreePlacedFeatures.OAK_BEES_002
                     ));
 
-	public static final Holder<ConfiguredFeature<RandomFeatureConfig, ?>> CHERT_FLORA =
-			MBConfiguredFeatures.register("chert_flora", Feature.RANDOM_SELECTOR,
-			new RandomFeatureConfig(List.of(
-					new WeightedPlacedFeature(MBPlacedTreeFeatures.HARDY_BUSH, 0.1F),
-					new WeightedPlacedFeature(MBPlacedTreeFeatures.PARASOL_FERN, 0.4F)),
-					MBPlacedTreeFeatures.PARASOL_FERN
-			));
-	public static final Holder<ConfiguredFeature<RandomFeatureConfig, ?>> HARDY_BUSH =
-			MBConfiguredFeatures.register("hardy_badlands", Feature.RANDOM_SELECTOR,
-			new RandomFeatureConfig(List.of(
-					new WeightedPlacedFeature(MBPlacedTreeFeatures.HARDY_BUSH, 0.1F),
-					new WeightedPlacedFeature(MBPlacedTreeFeatures.CEDAR, 0.4F)),
-					MBPlacedTreeFeatures.HARDY_BUSH
-			));
 
     private static RandomPatchFeatureConfig createPatch(Block block) {
         return ConfiguredFeatureUtil.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,

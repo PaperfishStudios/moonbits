@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:purple_dye_from_twilight_heather"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_twilight_heather": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:twilight_heather"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_twilight_heather",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:purple_dye_from_twilight_heather"
+    ]
+  }
+}

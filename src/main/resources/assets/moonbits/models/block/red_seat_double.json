@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "moonbits:block/leather_seat_bottom",
-    "side": "moonbits:block/red_seat_double",
-    "top": "moonbits:block/red_seat_top"
-  }
-}

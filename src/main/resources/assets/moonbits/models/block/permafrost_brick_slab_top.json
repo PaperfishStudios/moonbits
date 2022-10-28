@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "moonbits:block/permafrost_bricks",
+    "side": "moonbits:block/permafrost_bricks",
+    "top": "moonbits:block/permafrost_bricks"
+  }
+}

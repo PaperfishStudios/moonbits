@@ -1,11 +1,12 @@
 {
   "replace": false,
   "values": [
-    "moonbits:potted_lamproot_sapling",
     "moonbits:potted_cedar_sapling",
     "moonbits:potted_soursobs",
     "moonbits:potted_marigold",
-    "moonbits:potted_clover",
+    "moonbits:potted_frosty_heather",
+    "moonbits:potted_sunset_heather",
+    "moonbits:potted_twilight_heather",
     "moonbits:potted_saffron_mushroom"
   ]
 }

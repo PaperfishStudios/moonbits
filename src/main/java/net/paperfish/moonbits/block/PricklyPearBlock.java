@@ -64,16 +64,16 @@ public class PricklyPearBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public void grow(ServerWorld world, RandomGenerator random, BlockPos pos, BlockState state) {
-        if (!state.get(CUT) && random.nextInt(8) == 0) {
-            if (state.get(AGE) == 0) {
-                world.setBlockState(pos, state.with(AGE, 1));
-            } else {
-                TallPricklyPearBlock tallPlantBlock = (TallPricklyPearBlock) MBBlocks.TALL_PRICKLY_PEAR_CACTUS;
-                if (tallPlantBlock.getDefaultState().canPlaceAt(world, pos) && world.isAir(pos.up())) {
-                    TallPricklyPearBlock.placeAt(world, tallPlantBlock.getDefaultState(), pos, 2);
-                }
-            }
-        }
+//        if (!state.get(CUT) && random.nextInt(8) == 0) {
+//            if (state.get(AGE) == 0) {
+//                world.setBlockState(pos, state.with(AGE, 1));
+//            } else {
+//                TallPricklyPearBlock tallPlantBlock = (TallPricklyPearBlock) MBBlocks.TALL_PRICKLY_PEAR_CACTUS;
+//                if (tallPlantBlock.getDefaultState().canPlaceAt(world, pos) && world.isAir(pos.up())) {
+//                    TallPricklyPearBlock.placeAt(world, tallPlantBlock.getDefaultState(), pos, 2);
+//                }
+//            }
+//        }
     }
 
     @Override

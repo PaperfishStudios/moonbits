@@ -2,20 +2,13 @@ package net.paperfish.moonbits.world;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.VerticalSurfaceType;
-import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.noise.NoiseParametersKeys;
 import net.minecraft.world.gen.surfacebuilder.SurfaceRules;
 import net.minecraft.world.gen.surfacebuilder.VanillaSurfaceRules;
-import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.registry.MBBlocks;
-import net.paperfish.moonbits.registry.MBData;
-import terrablender.worldgen.TBSurfaceRuleData;
 
 public class MBSurfaceRules {
     private static final SurfaceRules.MaterialRule DIRT = makeStateRule(Blocks.DIRT);
@@ -26,13 +19,11 @@ public class MBSurfaceRules {
 
     private static final SurfaceRules.MaterialRule CHERT = makeStateRule(MBBlocks.CHERT);
     private static final SurfaceRules.MaterialRule REGOLITH = makeStateRule(MBBlocks.REGOLITH);
-    private static final SurfaceRules.MaterialRule TOUGH_DIRT = makeStateRule(MBBlocks.TOUGH_DIRT);
-    private static final SurfaceRules.MaterialRule TOUGH_GRASS = makeStateRule(MBBlocks.TOUGH_GRASS);
+    private static final SurfaceRules.MaterialRule PACKED_DIRT = makeStateRule(MBBlocks.PACKED_DIRT);
 
 	private static final SurfaceRules.MaterialRule MUD = makeStateRule(Blocks.MUD);
 
     private static final SurfaceRules.MaterialRule PERMAFROST = makeStateRule(MBBlocks.PERMAFROST);
-    private static final SurfaceRules.MaterialRule SANDY_SOIL = makeStateRule(MBBlocks.SANDY_SOIL);
 
 //    public static final SurfaceRules.MaterialRule OVERWORLD_RULES = makeRules();
 
@@ -66,7 +57,7 @@ public class MBSurfaceRules {
         SurfaceRules.MaterialCondition deepDCDepth = SurfaceRules.aboveY(YOffset.fixed(35), 0);
 
         SurfaceRules.MaterialRule grassSurface = SurfaceRules.sequence(SurfaceRules.condition(isAtOrAboveWaterLevel, GRASS_BLOCK), DIRT);
-        SurfaceRules.MaterialRule toughSurface = SurfaceRules.sequence(SurfaceRules.condition(isAtOrAboveWaterLevel, TOUGH_GRASS), TOUGH_DIRT);
+        SurfaceRules.MaterialRule toughSurface = SurfaceRules.sequence(SurfaceRules.condition(isAtOrAboveWaterLevel, GRASS_BLOCK), PACKED_DIRT);
         SurfaceRules.MaterialRule sandySurface = SurfaceRules.sequence(SurfaceRules.condition(SurfaceRules.ON_CEILING, SANDSTONE), SAND);
 
 		return SurfaceRules.sequence(
@@ -103,7 +94,7 @@ public class MBSurfaceRules {
 								SurfaceRules.condition(shallowDC, // rules for shallow dirt cave biomes
 										SurfaceRules.sequence(
 												SurfaceRules.condition(SurfaceRules.stoneDepth(6, true,
-														3, VerticalSurfaceType.FLOOR), TOUGH_DIRT),
+														3, VerticalSurfaceType.FLOOR), PACKED_DIRT),
 												SurfaceRules.condition(SurfaceRules.stoneDepth(9, true,
 														2, VerticalSurfaceType.FLOOR), REGOLITH)
 										)
@@ -111,7 +102,7 @@ public class MBSurfaceRules {
 								SurfaceRules.condition(midDC, // rules for mid dirt cave biomes
 										SurfaceRules.sequence(
 												SurfaceRules.condition(SurfaceRules.stoneDepth(14, true,
-														4, VerticalSurfaceType.FLOOR), TOUGH_DIRT),
+														4, VerticalSurfaceType.FLOOR), PACKED_DIRT),
 												SurfaceRules.condition(SurfaceRules.stoneDepth(17, true,
 														2, VerticalSurfaceType.FLOOR), REGOLITH)
 										)
@@ -119,7 +110,7 @@ public class MBSurfaceRules {
 								SurfaceRules.condition(deepDC, // rules for deep dirt cave biomes
 										SurfaceRules.sequence(
 												SurfaceRules.condition(SurfaceRules.stoneDepth(28, true,
-														4, VerticalSurfaceType.FLOOR), TOUGH_DIRT),
+														4, VerticalSurfaceType.FLOOR), PACKED_DIRT),
 												SurfaceRules.condition(SurfaceRules.stoneDepth(30, true,
 														2, VerticalSurfaceType.FLOOR), REGOLITH)
 										)

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "moonbits:block/mangrove_weave",
+    "side": "moonbits:block/mangrove_weave",
+    "top": "moonbits:block/mangrove_weave"
+  }
+}

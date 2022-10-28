@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "moonbits:block/fiber_thatch"
+    }
+  }
+}

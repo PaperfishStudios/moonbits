@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/heliodor_rod_top",
+    "side": "moonbits:block/heliodor_rod"
+  }
+}

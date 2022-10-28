@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/lamproot_mosaic_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/lamproot_mosaic"
+    },
+    "type=top": {
+      "model": "moonbits:block/lamproot_mosaic_slab_top"
+    }
+  }
+}

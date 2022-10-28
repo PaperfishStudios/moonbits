@@ -2,10 +2,6 @@
   "replace": false,
   "values": [
     "moonbits:soursobs",
-    "moonbits:marigold",
-    "moonbits:white_heather",
-    "moonbits:red_heather",
-    "moonbits:orange_heather",
-    "moonbits:purple_heather"
+    "moonbits:marigold"
   ]
 }

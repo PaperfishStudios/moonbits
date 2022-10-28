@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/permafrost_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/permafrost"
+    },
+    "type=top": {
+      "model": "moonbits:block/permafrost_slab_top"
+    }
+  }
+}

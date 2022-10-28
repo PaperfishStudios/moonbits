@@ -1,9 +1,0 @@
-{
-    "replace": false,
-    "values": [
-        "moonbits:regolith",
-        "moonbits:clay_deposit",
-        "moonbits:gold_deposit",
-        "moonbits:copper_deposit"
-    ]
-}

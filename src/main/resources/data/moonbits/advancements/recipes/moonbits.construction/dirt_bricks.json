@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "moonbits:dirt_bricks"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_tough_dirt": {
+    "has_packed_dirt": {
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:tough_dirt"
+              "moonbits:packed_dirt"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "moonbits:dirt_bricks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_tough_dirt",
+      "has_packed_dirt",
       "has_the_recipe"
     ]
   ],

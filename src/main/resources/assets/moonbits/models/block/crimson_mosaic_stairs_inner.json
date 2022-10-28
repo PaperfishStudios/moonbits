@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "moonbits:block/crimson_mosaic",
+    "side": "moonbits:block/crimson_mosaic",
+    "top": "moonbits:block/crimson_mosaic"
+  }
+}

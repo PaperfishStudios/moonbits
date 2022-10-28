@@ -96,8 +96,6 @@ public class MBEvents {
 
     // maps for blocks that grow into other blocks (eg hardy berry leaves and barrel cacti)
     public static BiMap<Block, Block> GROWING = new ImmutableBiMap.Builder<Block, Block>()
-            .put(MBBlocks.HARDY_LEAVES, MBBlocks.FLOWERING_HARDY_LEAVES)
-            .put(MBBlocks.FLOWERING_HARDY_LEAVES, MBBlocks.FRUITING_HARDY_LEAVES)
             .put(MBBlocks.TINY_BARREL_CACTUS, MBBlocks.SMALL_BARREL_CACTUS)
             .put(MBBlocks.SMALL_BARREL_CACTUS, MBBlocks.BARREL_CACTUS)
             .put(MBBlocks.BARREL_CACTUS, MBBlocks.LARGE_BARREL_CACTUS)
@@ -191,13 +189,13 @@ public class MBEvents {
                 return ActionResult.SUCCESS;
             }
 
-            if (targetBlock.isOf(Blocks.DIRT) && heldItem.getItem() == MBBlocks.MYCELIUM_ROOTS.asItem()) {
-                world.setBlockState(targetPos, Blocks.MYCELIUM.getDefaultState());
-                if(!player.isCreative())
-                    heldItem.decrement(1);
-                world.playSound(null, targetPos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 0.5F, 1.0F);
-                return ActionResult.SUCCESS;
-            }
+//            if (targetBlock.isOf(Blocks.DIRT) && heldItem.getItem() == MBBlocks.MYCELIUM_ROOTS.asItem()) {
+//                world.setBlockState(targetPos, Blocks.MYCELIUM.getDefaultState());
+//                if(!player.isCreative())
+//                    heldItem.decrement(1);
+//                world.playSound(null, targetPos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 0.5F, 1.0F);
+//                return ActionResult.SUCCESS;
+//            }
 
             // applying slime to piston
             if (targetBlock.isOf(Blocks.PISTON) && heldItem.getItem() == Items.SLIME_BALL) {
@@ -279,16 +277,16 @@ public class MBEvents {
             }
             if (heldItem.isOf(Items.SHEARS)) {
                 boolean success = false;
-                if (targetBlock.isOf(Blocks.GRASS_BLOCK) || targetBlock.isOf(MBBlocks.TOUGH_GRASS)) {
-                    world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.TOUGH_GRASS) ? MBBlocks.TOUGH_DIRT.getDefaultState() : Blocks.DIRT.getDefaultState());
+                if (targetBlock.isOf(Blocks.GRASS_BLOCK)) {
+                    world.setBlockState(targetPos, Blocks.DIRT.getDefaultState());
                     Block.dropStack(world, new BlockPos(targetPos.getX()+0.5, targetPos.getY()+1.1, targetPos.getZ()+0.5), new ItemStack(MBItems.GRASS_TUFT));
                     success = true;
                 }
-                if (targetBlock.isOf(Blocks.MYCELIUM)) {
-                    world.setBlockState(targetPos, Blocks.DIRT.getDefaultState());
-                    Block.dropStack(world, new BlockPos(targetPos.getX()+0.5, targetPos.getY()+1.1, targetPos.getZ()+0.5), new ItemStack(MBBlocks.MYCELIUM_ROOTS));
-                    success = true;
-                }
+//                if (targetBlock.isOf(Blocks.MYCELIUM)) {
+//                    world.setBlockState(targetPos, Blocks.DIRT.getDefaultState());
+//                    Block.dropStack(world, new BlockPos(targetPos.getX()+0.5, targetPos.getY()+1.1, targetPos.getZ()+0.5), new ItemStack(MBBlocks.MYCELIUM_ROOTS));
+//                    success = true;
+//                }
 //                else if (targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) || targetBlock.isOf(MBBlocks.GLOW_BERRY_HEDGE)) {
 //                    Moonbits.LOGGER.info("sheared berry hedge");
 //                    world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.SWEET_BERRY_HEDGE) ? MBBlocks.PLUCKED_SWEET_BERRY_HEDGE.getDefaultState() : MBBlocks.PLUCKED_GLOW_BERRY_HEDGE.getDefaultState());
@@ -304,13 +302,13 @@ public class MBEvents {
             }
             if (heldItem.isOf(Items.BONE_MEAL)) {
                 boolean success = false;
-                if (targetBlock.isOf(Blocks.DIRT) || targetBlock.isOf(MBBlocks.TOUGH_DIRT)) {
+                if (targetBlock.isOf(Blocks.DIRT)) {
                     if (!world.getBlockState(targetPos.up()).isSideSolidFullSquare(world, targetPos.up(), Direction.DOWN)) {
                         for (BlockPos blockPos : BlockPos.iterate(targetPos.add(-1, -1, -1), targetPos.add(1, 1, 1))) {
                             BlockState blockState = world.getBlockState(blockPos);
-                            if (blockState.isOf(Blocks.GRASS_BLOCK) || blockState.isOf(MBBlocks.TOUGH_GRASS)) {
+                            if (blockState.isOf(Blocks.GRASS_BLOCK)) {
                                 success = true;
-                                world.setBlockState(targetPos, targetBlock.isOf(MBBlocks.TOUGH_DIRT) ? MBBlocks.TOUGH_GRASS.getDefaultState() : Blocks.GRASS_BLOCK.getDefaultState());
+                                world.setBlockState(targetPos, Blocks.GRASS_BLOCK.getDefaultState());
                                 world.syncWorldEvent(WorldEvents.BONE_MEAL_USED, targetPos.up(), 0);
                                 break;
                             }

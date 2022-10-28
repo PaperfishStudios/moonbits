@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/claystone_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/claystone"
+    },
+    "type=top": {
+      "model": "moonbits:block/claystone_slab_top"
+    }
+  }
+}

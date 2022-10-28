@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/dark_oak_mosaic_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/dark_oak_mosaic"
+    },
+    "type=top": {
+      "model": "moonbits:block/dark_oak_mosaic_slab_top"
+    }
+  }
+}

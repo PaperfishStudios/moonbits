@@ -21,9 +21,9 @@ public class CarpetFloraBlock extends PlantBlock {
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockState floor = world.getBlockState(pos.down());
-        if (state.isOf(MBBlocks.CLOVER) && floor.isOf(Blocks.CLAY)) {
-            return true;
-        }
+//        if (state.isOf(MBBlocks.CLOVER) && floor.isOf(Blocks.CLAY)) {
+//            return true;
+//        }
 		if (state.isOf(MBBlocks.SOURSOBS) && floor.isOf(MBBlocks.REGOLITH)) {
 			return true;
 		}
@@ -33,9 +33,9 @@ public class CarpetFloraBlock extends PlantBlock {
 	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 		Vec3d vec3d = state.getModelOffset(world, pos);
-		if (state.isOf(MBBlocks.CLOVER)) {
-			return CLOVER_SHAPE.offset(vec3d.x, vec3d.y, vec3d.z);
-		}
+//		if (state.isOf(MBBlocks.CLOVER)) {
+//			return CLOVER_SHAPE.offset(vec3d.x, vec3d.y, vec3d.z);
+//		}
 		if (state.isOf(MBBlocks.SOURSOBS)) {
 			return FLOWER_SHAPE.offset(vec3d.x, vec3d.y, vec3d.z);
 		}

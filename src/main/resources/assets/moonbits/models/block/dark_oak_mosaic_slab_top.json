@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "moonbits:block/dark_oak_mosaic",
+    "side": "moonbits:block/dark_oak_mosaic",
+    "top": "moonbits:block/dark_oak_mosaic"
+  }
+}

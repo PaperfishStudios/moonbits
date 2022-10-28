@@ -10,6 +10,7 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.paperfish.moonbits.registry.MBBlockEntities;
 import net.paperfish.moonbits.registry.MBBlocks;
 import org.jetbrains.annotations.Nullable;
 
@@ -20,7 +21,7 @@ public class KilnBlock extends AbstractFurnaceBlock {
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState blockState, BlockEntityType<T> blockEntityType) {
-        return checkType(world, blockEntityType, MBBlocks.KILN_BLOCK_ENTITY);
+        return checkType(world, blockEntityType, MBBlockEntities.KILN_BLOCK_ENTITY);
     }
 
     @Nullable

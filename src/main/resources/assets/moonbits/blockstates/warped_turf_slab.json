@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/warped_turf_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/warped_turf"
+    },
+    "type=top": {
+      "model": "moonbits:block/warped_turf_slab_top"
+    }
+  }
+}

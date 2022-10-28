@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_carved_warped_hyphae": {
+    "has_carved_warped_wood": {
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:carved_warped_hyphae"
+              "moonbits:carved_warped_wood"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_carved_warped_hyphae",
+      "has_carved_warped_wood",
       "has_the_recipe"
     ]
   ],

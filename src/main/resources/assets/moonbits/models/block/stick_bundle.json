@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/stick_bundle_top",
+    "side": "moonbits:block/stick_bundle"
+  }
+}

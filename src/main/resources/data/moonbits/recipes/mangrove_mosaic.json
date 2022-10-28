@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_chiseled",
+  "key": {
+    "#": {
+      "item": "minecraft:mangrove_slab"
+    }
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "item": "moonbits:mangrove_mosaic"
+  }
+}

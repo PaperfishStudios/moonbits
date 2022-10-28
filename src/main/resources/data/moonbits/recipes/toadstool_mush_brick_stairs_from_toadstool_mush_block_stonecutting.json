@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "moonbits:toadstool_mush_block"
-  },
-  "result": "moonbits:toadstool_mush_brick_stairs"
-}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "moonbits:block/spruce_mosaic",
+    "side": "moonbits:block/spruce_mosaic",
+    "top": "moonbits:block/spruce_mosaic"
+  }
+}

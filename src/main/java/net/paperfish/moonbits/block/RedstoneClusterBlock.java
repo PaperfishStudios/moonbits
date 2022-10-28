@@ -39,7 +39,7 @@ public class RedstoneClusterBlock extends Block implements Waterloggable {
     protected final VoxelShape upShape;
     protected final VoxelShape downShape;
     public static boolean canGrow = false;
-    public static Block next = MBBlocks.REDSTONE_CLUSTER;
+//    public static Block next = MBBlocks.REDSTONE_CLUSTER;
 
     public RedstoneClusterBlock(int height, int xzOffset, Settings settings) {
         super(settings);
@@ -54,7 +54,7 @@ public class RedstoneClusterBlock extends Block implements Waterloggable {
     public RedstoneClusterBlock(int height, int xzOffset, Settings settings, Block nextStage) {
         this(height, xzOffset, settings);
         canGrow = true;
-        next = nextStage;
+//        next = nextStage;
     }
 
     @Override
@@ -157,14 +157,14 @@ public class RedstoneClusterBlock extends Block implements Waterloggable {
     }
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
-        if (state.get(LIT)) {
-            if (canGrow && random.nextInt(25) == 0) {
-                world.setBlockState(pos, next.getStateWithProperties(state), NOTIFY_LISTENERS);
-            }
-            else if (!world.isReceivingRedstonePower(pos)) {
-                world.setBlockState(pos, state.with(LIT, false), Block.NOTIFY_ALL);
-            }
-        }
+//        if (state.get(LIT)) {
+//            if (canGrow && random.nextInt(25) == 0) {
+//                world.setBlockState(pos, next.getStateWithProperties(state), NOTIFY_LISTENERS);
+//            }
+//            else if (!world.isReceivingRedstonePower(pos)) {
+//                world.setBlockState(pos, state.with(LIT, false), Block.NOTIFY_ALL);
+//            }
+//        }
     }
 
     @Override

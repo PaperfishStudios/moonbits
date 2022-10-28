@@ -5,7 +5,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.sound.MusicSound;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -14,7 +13,6 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.*;
-import net.paperfish.moonbits.registry.MBEntities;
 import net.paperfish.moonbits.Moonbits;
 import net.paperfish.moonbits.world.gen.MBPlacedCaveFeatures;
 import net.paperfish.moonbits.world.gen.MBPlacedVegFeatures;
@@ -48,7 +46,7 @@ public class MBBiomes {
 
 //        addDefaultDeposits(builder);
 
-		builder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.TILL_ROCK);
+//		builder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, MBPlacedVegFeatures.TILL_ROCK);
 
 
 		builder.feature(GenerationStep.Feature.VEGETAL_DECORATION, MBPlacedVegFeatures.PATCH_COTTONGRASS);
@@ -78,10 +76,10 @@ public class MBBiomes {
     public static void addDefaultDeposits(GenerationSettings.Builder builder, boolean largePeat, boolean largeClay, boolean largeGold) {
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, largePeat ? MBPlacedCaveFeatures.ORE_PEAT_HIGH : MBPlacedCaveFeatures.ORE_PEAT);
 		builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_FLINT_DEPOSIT);
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, largeClay ? MBPlacedCaveFeatures.LUSH_CLAY_DEPOSIT : MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT);
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_CLAY_DEPOSIT_UPPER);
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, largeGold ? MBPlacedCaveFeatures.ORE_GOLD_DEPOSIT_HIGH : MBPlacedCaveFeatures.ORE_GOLD_DEPOSIT);
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_COPPER_DEPOSIT);
+        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, largeClay ? MBPlacedCaveFeatures.LUSH_ROOTED_SOIL : MBPlacedCaveFeatures.ORE_ROOTED_SOIL);
+        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_ROOTED_UPPER);
+        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, largeGold ? MBPlacedCaveFeatures.ORE_FUZZ_HIGH : MBPlacedCaveFeatures.ORE_FUZZ);
+//        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_COPPER_DEPOSIT);
     }
     public static void addRYSStuff(GenerationSettings.Builder builder) {
         builder.feature(GenerationStep.Feature.RAW_GENERATION, MBPlacedCaveFeatures.T_REGOLITH);
@@ -101,7 +99,7 @@ public class MBBiomes {
     }
     public static void desertMineables(GenerationSettings.Builder builder) {
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_SAND);
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedVegFeatures.ORE_SANDY_SOIL);
+//        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedVegFeatures.ORE_SANDY_SOIL);
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GRANITE_UPPER);
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GRANITE_LOWER);
         builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_DIORITE_UPPER);

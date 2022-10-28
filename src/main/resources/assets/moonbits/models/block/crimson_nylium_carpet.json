@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/carpet",
   "textures": {
-    "wool": "moonbits:block/crimson_nylium_turf"
+    "wool": "moonbits:block/crimson_turf"
   }
 }

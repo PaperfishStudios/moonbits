@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "moonbits:block/leather_seat_bottom",
-    "side": "moonbits:block/cyan_seat",
-    "top": "moonbits:block/cyan_seat_top"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "moonbits:block/giant_toadstool_cap_bottom",
-    "side": "moonbits:block/giant_toadstool_cap",
-    "top": "moonbits:block/giant_toadstool_cap_top"
-  }
-}

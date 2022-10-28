@@ -1,10 +1,9 @@
 {
   "replace": false,
   "values": [
-    "moonbits:leafbed",
     "moonbits:peat_moss",
     "moonbits:mycelium_turf",
-    "moonbits:crimson_nylium_turf",
-    "moonbits:warped_nylium_turf"
+    "moonbits:crimson_turf",
+    "moonbits:warped_turf"
   ]
 }

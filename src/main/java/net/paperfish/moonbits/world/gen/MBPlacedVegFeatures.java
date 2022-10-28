@@ -19,9 +19,9 @@ public class MBPlacedVegFeatures {
             MBVegetationFeatures.PEBBLES, CountPlacementModifier.create(1), InSquarePlacementModifier.getInstance(),
 			PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
-    public static final Holder<PlacedFeature> PATCH_MYCELIUM = MBPlacedFeatures.register("p_mycelium", MBVegetationFeatures.PATCH_MYCELIUM,
-            NoiseThresholdCountPlacementModifier.create(-0.8, 5, 10), InSquarePlacementModifier.getInstance(),
-			PlacedFeatureUtil.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.getInstance());
+//    public static final Holder<PlacedFeature> PATCH_MYCELIUM = MBPlacedFeatures.register("p_mycelium", MBVegetationFeatures.PATCH_MYCELIUM,
+//            NoiseThresholdCountPlacementModifier.create(-0.8, 5, 10), InSquarePlacementModifier.getInstance(),
+//			PlacedFeatureUtil.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
     public static final Holder<PlacedFeature> PATCH_DESERT_BRUSH = MBPlacedFeatures.register("p_desert_brush", MBVegetationFeatures.PATCH_DESERT_BRUSH,
             NoiseThresholdCountPlacementModifier.create(-0.8, 15, 4), RarityFilterPlacementModifier.create(32),
@@ -40,10 +40,6 @@ public class MBPlacedVegFeatures {
     public static final Holder<PlacedFeature> SOURSOB_PATCH = MBPlacedFeatures.register("p_soursobs",
             MBVegetationFeatures.SOURSOB_PATCH, CountPlacementModifier.create(32), RarityFilterPlacementModifier.create(16), InSquarePlacementModifier.getInstance(),
 			HeightRangePlacementModifier.createUniform(YOffset.fixed(32), YOffset.fixed(72)), BiomePlacementModifier.getInstance());
-
-    public static final Holder<PlacedFeature> CLOVER_PATCH = MBPlacedFeatures.register("p_clover",
-            MBVegetationFeatures.CLOVER_PATCH, CountPlacementModifier.create(3), InSquarePlacementModifier.getInstance(),
-			PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
     public static final Holder<PlacedFeature> MARIGOLD_PATCH = MBPlacedFeatures.register("p_marigold",
             MBVegetationFeatures.MARIGOLD_PATCH, CountPlacementModifier.create(1), RarityFilterPlacementModifier.create(16),
@@ -86,16 +82,6 @@ public class MBPlacedVegFeatures {
 			MBVegetationFeatures.OCOTILLO_PATCH, CountPlacementModifier.create(4), InSquarePlacementModifier.getInstance(),
 			PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
-    public static final Holder<PlacedFeature> ORE_CRACKED_MUD = MBPlacedFeatures.register("p_cracked_mud",
-            MBVegetationFeatures.PATCH_CRACKED_MUD, MBPlacedCaveFeatures.commonOrePlacementModifiers(2,
-					HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
-	public static final Holder<PlacedFeature> ORE_SANDY_SOIL = MBPlacedFeatures.register("p_sandy_soil",
-			MBVegetationFeatures.PATCH_SANDY_SOIL, MBPlacedCaveFeatures.commonOrePlacementModifiers(5,
-					HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
-
-    public static final Holder<PlacedFeature> ORE_RICH_MUD = MBPlacedFeatures.register("p_rich_mud",
-            MBVegetationFeatures.PATCH_RICH_MUD, MBPlacedCaveFeatures.commonOrePlacementModifiers(2,
-					HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
     public static final Holder<PlacedFeature> ORE_PEAT_MOSS = MBPlacedFeatures.register("p_peat_moss",
             MBVegetationFeatures.PATCH_PEAT_MOSS, MBPlacedCaveFeatures.commonOrePlacementModifiers(2,
 					HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
@@ -103,9 +89,6 @@ public class MBPlacedVegFeatures {
     public static final Holder<PlacedFeature> ORE_PERMAFROST = MBPlacedFeatures.register("p_frost",
             MBVegetationFeatures.TUNDRA_FROST, MBPlacedCaveFeatures.commonOrePlacementModifiers(12,
 					HeightRangePlacementModifier.createUniform(YOffset.fixed(32), YOffset.fixed(128))));
-    public static final Holder<PlacedFeature> TILL_ROCK = MBPlacedFeatures.register("p_till_rock",
-            MBVegetationFeatures.TILL_ROCK, CountPlacementModifier.create(2), InSquarePlacementModifier.getInstance(),
-			PlacedFeatureUtil.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.getInstance());
 
 
     // trees
@@ -115,20 +98,20 @@ public class MBPlacedVegFeatures {
     public static final Holder<PlacedFeature> PRAIRIE_TREES = MBPlacedFeatures.register("p_prairie",
             MBVegetationFeatures.BADLANDS_TREES,
             modifiers(PlacedFeatureUtil.createCountExtraModifier(1, 0.1F, 1)));
-	public static final Holder<PlacedFeature> DESERT_CAVES = MBPlacedFeatures.register("p_desert_caves",
-			MBVegetationFeatures.CHERT_FLORA,
-			List.of(PlacedFeatureUtil.createCountExtraModifier(4, 0.1F, 1),
-					InSquarePlacementModifier.getInstance(), SurfaceWaterDepthFilterPlacementModifier.create(0),
-					PlacedFeatureUtil.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.getInstance(),
-					HeightRangePlacementModifier.createUniform(YOffset.fixed(24), YOffset.fixed(60))
-			));
-	public static final Holder<PlacedFeature> BADLANDS_HARDY = MBPlacedFeatures.register("p_badlands_hardy",
-			MBVegetationFeatures.HARDY_BUSH,
-			List.of(PlacedFeatureUtil.createCountExtraModifier(3, 0.1F, 1),
-					InSquarePlacementModifier.getInstance(), SurfaceWaterDepthFilterPlacementModifier.create(0),
-					PlacedFeatureUtil.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.getInstance(),
-					HeightRangePlacementModifier.createUniform(YOffset.fixed(24), YOffset.fixed(80))
-			));
+//	public static final Holder<PlacedFeature> DESERT_CAVES = MBPlacedFeatures.register("p_desert_caves",
+//			MBVegetationFeatures.CHERT_FLORA,
+//			List.of(PlacedFeatureUtil.createCountExtraModifier(4, 0.1F, 1),
+//					InSquarePlacementModifier.getInstance(), SurfaceWaterDepthFilterPlacementModifier.create(0),
+//					PlacedFeatureUtil.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.getInstance(),
+//					HeightRangePlacementModifier.createUniform(YOffset.fixed(24), YOffset.fixed(60))
+//			));
+//	public static final Holder<PlacedFeature> BADLANDS_HARDY = MBPlacedFeatures.register("p_badlands_hardy",
+//			MBVegetationFeatures.HARDY_BUSH,
+//			List.of(PlacedFeatureUtil.createCountExtraModifier(3, 0.1F, 1),
+//					InSquarePlacementModifier.getInstance(), SurfaceWaterDepthFilterPlacementModifier.create(0),
+//					PlacedFeatureUtil.OCEAN_FLOOR_HEIGHTMAP, BiomePlacementModifier.getInstance(),
+//					HeightRangePlacementModifier.createUniform(YOffset.fixed(24), YOffset.fixed(80))
+//			));
 
     public static final Holder<PlacedFeature> FALLEN_OAK = MBPlacedFeatures.register("p_fallen_oak",
             MBTreeFeatures.FALLEN_OAK, CountPlacementModifier.create(1), InSquarePlacementModifier.getInstance(),

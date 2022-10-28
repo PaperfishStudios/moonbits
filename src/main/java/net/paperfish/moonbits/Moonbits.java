@@ -1,6 +1,5 @@
 package net.paperfish.moonbits;
 
-import net.paperfish.moonbits.block.cauldron.MBCauldronBehaviour;
 import net.paperfish.moonbits.registry.*;
 import net.paperfish.moonbits.world.MBBiomes;
 import net.paperfish.moonbits.world.gen.*;
@@ -24,16 +23,15 @@ public class Moonbits implements ModInitializer {
 		MBPlacedVegFeatures.init();
 		MBPlacedCaveFeatures.init();
 		MBPlacedTreeFeatures.init();
-		MBItemGroup.initialize(); // workaround for a bug where they dont initialize properly in datagen
 
 		MBEvents.initEvents();
 		MBParticles.registerParticles();
 
 		MBSounds.initSounds();
-		MBCauldronBehaviour.register();
-		MBBlocks.registerBlocks();
+		MBBlocks.init();
 		MBItems.registerItems();
 		MBBlockEntities.init();
+		MBItemGroup.initialize(); // workaround for a bug where they dont initialize properly in datagen
 		MBEntities.registerEntities();
 
 		MBData.registerData();

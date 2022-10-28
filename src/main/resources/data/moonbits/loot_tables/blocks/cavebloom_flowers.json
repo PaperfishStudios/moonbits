@@ -110,7 +110,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "moonbits:caveblooms"
+          "name": "moonbits:cavebloom_flowers"
         }
       ],
       "rolls": 1.0

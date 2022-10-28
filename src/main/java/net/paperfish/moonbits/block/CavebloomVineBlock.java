@@ -72,7 +72,7 @@ public class CavebloomVineBlock extends AbstractLichenBlock implements Fertiliza
 	}
 
 	public boolean canReplace(BlockState state, ItemPlacementContext context) {
-		return !context.getStack().isOf(MBBlocks.CAVEBLOOMS) || super.canReplace(state, context);
+		return !context.getStack().isOf(MBBlocks.CAVEBLOOM_FLOWERS.asItem()) || super.canReplace(state, context);
 	}
 
 	@Override

@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "moonbits:lamproot_wall_sign",
-    "moonbits:cedar_wall_sign",
-    "moonbits:honey_wall_sign"
+    "moonbits:cedar_wall_sign"
   ]
 }

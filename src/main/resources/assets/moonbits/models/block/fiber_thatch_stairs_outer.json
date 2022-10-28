@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "moonbits:block/fiber_thatch",
+    "side": "moonbits:block/fiber_thatch",
+    "top": "moonbits:block/fiber_thatch"
+  }
+}

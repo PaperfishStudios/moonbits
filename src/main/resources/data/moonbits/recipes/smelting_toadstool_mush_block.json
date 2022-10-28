@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "cookingtime": 200,
-  "experience": 0.1,
-  "ingredient": {
-    "item": "moonbits:toadstool_mushclay"
-  },
-  "result": "moonbits:toadstool_mush_block"
-}

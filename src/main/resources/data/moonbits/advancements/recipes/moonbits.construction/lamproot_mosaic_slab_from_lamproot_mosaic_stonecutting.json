@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lamproot_mosaic": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:lamproot_mosaic"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:lamproot_mosaic_slab_from_lamproot_mosaic_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_lamproot_mosaic",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:lamproot_mosaic_slab_from_lamproot_mosaic_stonecutting"
+    ]
+  }
+}

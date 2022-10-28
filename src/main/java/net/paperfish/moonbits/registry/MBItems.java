@@ -20,6 +20,7 @@ import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class MBItems {
 	public static List<Item> MB_ITEMS = new ArrayList<>();
@@ -53,7 +54,7 @@ public class MBItems {
 
 	public static final Item FROSTHORN_SEED = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 
-	public static final Item PEPPER_SEEDS = new AliasedBlockItem(MBBlocks.PEPPER_CROP, new QuiltItemSettings().group(MBItemGroup.MB_FOOD));
+//	public static final Item PEPPER_SEEDS = new AliasedBlockItem(MBBlocks.PEPPER_CROP, new QuiltItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Item PEPPER = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD)
 			.food((new FoodComponent.Builder()).hunger(2).saturationModifier(0.3f).build()));
 	public static final Item STUFFED_PEPPER = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD)
@@ -70,10 +71,9 @@ public class MBItems {
 
 	public static final Item HARDY_BERRY = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD)
 			.food((new FoodComponent.Builder()).hunger(3).saturationModifier(0.6f).build()));
-	public static final Item HARDY_BERRY_SEED = new AliasedBlockItem(MBBlocks.HARDY_SPROUT, new QuiltItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Item HARDY_STEM = new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC));
 
-	public static final Item PEANUT = new AliasedBlockItem(MBBlocks.PEANUT_CROP, new QuiltItemSettings().group(MBItemGroup.MB_FOOD));
+//	public static final Item PEANUT = new AliasedBlockItem(MBBlocks.PEANUT_CROP, new QuiltItemSettings().group(MBItemGroup.MB_FOOD));
 	public static final Item ROASTED_PEANUTS = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD)
 			.food((new FoodComponent.Builder()).hunger(4).saturationModifier(0.6f).build()));
 //	public static final Item PEANUT_CHICKEN = new Item(new QuiltItemSettings().group(MBItemGroup.MB_FOOD)
@@ -156,11 +156,14 @@ public class MBItems {
 	}
 
 	public static void registerItems(){
+		for (Map.Entry<String, Block> pair : MBBlocks.BLOCK_ITEMS.entrySet()) {
+			add(pair.getKey(), new BlockItem(pair.getValue(), new Item.Settings().group(MBItemGroup.CONSTRUCTION)));
+		}
+
 		addItem("roasted_berries", ROASTED_BERRIES);
 		addItem("pumpkin_slice", PUMPKIN_SLICE);
 		addItem("ice_cubes", ICE_CUBES);
 		addItem("frosthorn_seed", FROSTHORN_SEED);
-		add("pepper_seeds", PEPPER_SEEDS);
 		addItem("pepper", PEPPER);
 		addItem("stuffed_pepper", STUFFED_PEPPER);
 		addItem("chili", CHILI);
@@ -175,12 +178,11 @@ public class MBItems {
 		addItem("cooked_prickly_pear", COOKED_PRICKLY_PEAR);
 
 		addItem("hardy_berry", HARDY_BERRY);
-		add("hardy_berry_seed", HARDY_BERRY_SEED);
 		addItem("hardy_stem", HARDY_STEM);
 
 		addItem("brittlebush", BRITTLEBUSH);
 
-		add("peanut", PEANUT);
+//		add("peanut", PEANUT);
 		addItem("roasted_peanuts", ROASTED_PEANUTS);
 //		addItem("peanut_chicken", PEANUT_CHICKEN);
 		addItem("honey_roasted_peanuts", HONEY_PEANUTS);

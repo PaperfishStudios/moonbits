@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_carved_crimson_hyphae": {
+    "has_carved_crimson_wood": {
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:carved_crimson_hyphae"
+              "moonbits:carved_crimson_wood"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_carved_crimson_hyphae",
+      "has_carved_crimson_wood",
       "has_the_recipe"
     ]
   ],

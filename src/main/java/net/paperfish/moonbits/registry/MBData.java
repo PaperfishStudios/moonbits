@@ -94,11 +94,11 @@ public class MBData {
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.ACACIA_PANEL, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.DARK_OAK_PANEL, 5, 20);
 
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.BIRCH_BOOKSHELF, 30, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.SPRUCE_BOOKSHELF, 30, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNGLE_BOOKSHELF, 30, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.ACACIA_BOOKSHELF, 30, 20);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.DARK_OAK_BOOKSHELF, 30, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.BIRCH_BOOKSHELF, 30, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.SPRUCE_BOOKSHELF, 30, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.JUNGLE_BOOKSHELF, 30, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.ACACIA_BOOKSHELF, 30, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.DARK_OAK_BOOKSHELF, 30, 20);
 
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.LAMPROOT_PLANKS, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.LAMPROOT_SLAB, 5, 20);
@@ -109,7 +109,7 @@ public class MBData {
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.LAMPROOT_WOOD, 5, 5);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_LAMPROOT_LOG, 5, 5);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_LAMPROOT_WOOD, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.LAMPROOT_BOOKSHELF, 30, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.LAMPROOT_BOOKSHELF, 30, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.LAMPROOT_PANEL, 5, 20);
 //		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.LAMPROOT_LEAVES, 30, 60);
 
@@ -122,7 +122,7 @@ public class MBData {
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_WOOD, 5, 5);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_CEDAR_LOG, 5, 5);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.STRIPPED_CEDAR_WOOD, 5, 5);
-		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_BOOKSHELF, 30, 20);
+//		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_BOOKSHELF, 30, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_PANEL, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.CEDAR_LEAVES, 30, 60);
 
@@ -152,13 +152,13 @@ public class MBData {
 		FuelRegistry.INSTANCE.add(MBBlocks.PEAT_BRICK_STAIRS, 4000);
 		FuelRegistry.INSTANCE.add(MBBlocks.PEAT_BRICK_WALL, 4000);
 
-		FuelRegistry.INSTANCE.add(MBBlocks.BIRCH_BOOKSHELF, 300);
-		FuelRegistry.INSTANCE.add(MBBlocks.SPRUCE_BOOKSHELF, 300);
-		FuelRegistry.INSTANCE.add(MBBlocks.JUNGLE_BOOKSHELF, 300);
-		FuelRegistry.INSTANCE.add(MBBlocks.ACACIA_BOOKSHELF, 300);
-		FuelRegistry.INSTANCE.add(MBBlocks.DARK_OAK_BOOKSHELF, 300);
-		FuelRegistry.INSTANCE.add(MBBlocks.LAMPROOT_BOOKSHELF, 300);
-		FuelRegistry.INSTANCE.add(MBBlocks.CEDAR_BOOKSHELF, 300);
+//		FuelRegistry.INSTANCE.add(MBBlocks.BIRCH_BOOKSHELF, 300);
+//		FuelRegistry.INSTANCE.add(MBBlocks.SPRUCE_BOOKSHELF, 300);
+//		FuelRegistry.INSTANCE.add(MBBlocks.JUNGLE_BOOKSHELF, 300);
+//		FuelRegistry.INSTANCE.add(MBBlocks.ACACIA_BOOKSHELF, 300);
+//		FuelRegistry.INSTANCE.add(MBBlocks.DARK_OAK_BOOKSHELF, 300);
+//		FuelRegistry.INSTANCE.add(MBBlocks.LAMPROOT_BOOKSHELF, 300);
+//		FuelRegistry.INSTANCE.add(MBBlocks.CEDAR_BOOKSHELF, 300);
 
 		FuelRegistry.INSTANCE.add(MBBlocks.BAMBOO_BUNDLE, 500);
 		FuelRegistry.INSTANCE.add(MBBlocks.STICK_STACK, 1000);
@@ -173,7 +173,7 @@ public class MBData {
 		StrippableBlockRegistry.register(MBBlocks.MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_STEM);
 		StrippableBlockRegistry.register(MBBlocks.MUSHROOM_HYPHAE, MBBlocks.STRIPPED_MUSHROOM_HYPHAE);
 
-		TillableBlockRegistry.register(MBBlocks.LEAFBED, HoeItem::canTillFarmland, Blocks.FARMLAND.getDefaultState());
+//		TillableBlockRegistry.register(MBBlocks.LEAFBED, HoeItem::canTillFarmland, Blocks.FARMLAND.getDefaultState());
 		TillableBlockRegistry.register(Blocks.DIRT_PATH, (a) -> true, Blocks.DIRT.getDefaultState());
 
 		FlattenableBlockRegistry.register(Blocks.FARMLAND, Blocks.DIRT.getDefaultState());

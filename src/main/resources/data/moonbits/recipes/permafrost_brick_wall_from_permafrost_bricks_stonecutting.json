@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moonbits:permafrost_bricks"
+  },
+  "result": "moonbits:permafrost_brick_wall"
+}

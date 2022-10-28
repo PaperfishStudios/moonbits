@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "moonbits:block/till",
-    "side": "moonbits:block/till",
-    "top": "moonbits:block/till"
-  }
-}

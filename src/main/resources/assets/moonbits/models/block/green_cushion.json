@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moonbits:block/white_cushion_bottom",
+    "side": "moonbits:block/green_cushion",
+    "top": "moonbits:block/green_cushion_top"
+  }
+}

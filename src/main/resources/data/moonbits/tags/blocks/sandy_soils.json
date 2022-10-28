@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#minecraft:sand",
-    "moonbits:sandy_soil",
-    "moonbits:cracked_mud"
+    "#minecraft:sand"
   ]
 }

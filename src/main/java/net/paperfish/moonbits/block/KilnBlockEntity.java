@@ -7,13 +7,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
+import net.paperfish.moonbits.registry.MBBlockEntities;
 import net.paperfish.moonbits.registry.MBBlocks;
 import net.paperfish.moonbits.registry.MBData;
 import net.paperfish.moonbits.screen.KilnScreenHandler;
 
 public class KilnBlockEntity extends AbstractFurnaceBlockEntity {
     public KilnBlockEntity(BlockPos pos, BlockState state) {
-        super(MBBlocks.KILN_BLOCK_ENTITY, pos, state, MBData.KILN_RECIPE_TYPE);
+        super(MBBlockEntities.KILN_BLOCK_ENTITY, pos, state, MBData.KILN_RECIPE_TYPE);
     }
 
     @Override

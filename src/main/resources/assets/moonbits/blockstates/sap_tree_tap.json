@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "moonbits:block/tree_tap_sap",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "moonbits:block/tree_tap_sap"
+    },
+    "facing=south": {
+      "model": "moonbits:block/tree_tap_sap",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "moonbits:block/tree_tap_sap",
+      "y": 270
+    }
+  }
+}

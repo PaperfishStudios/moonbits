@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moonbits:block/mangrove_mosaic",
+    "side": "moonbits:block/mangrove_mosaic",
+    "top": "moonbits:block/mangrove_mosaic"
+  }
+}

@@ -36,39 +36,29 @@ public class MoonbitsClient implements ClientModInitializer {
         // cutout
 		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
                 MBBlocks.ROPE_LADDER, MBBlocks.TIN_LADDER,
-                MBBlocks.TOUGH_GRASS,
-                MBBlocks.MYCELIUM_ROOTS,
 
                 MBBlocks.SOURSOBS, MBBlocks.POTTED_SOURSOBS,
-                MBBlocks.CLOVER, MBBlocks.POTTED_CLOVER,
 
                 MBBlocks.SAFFRON_MUSHROOM, MBBlocks.POTTED_SAFFRON_MUSHROOM, MBBlocks.SAFFRON_GILLS,
 
-                MBBlocks.WHITE_HEATHER, MBBlocks.RED_HEATHER, MBBlocks.ORANGE_HEATHER, MBBlocks.PURPLE_HEATHER,
+                MBBlocks.FROSTY_HEATHER, MBBlocks.SUNSET_HEATHER, MBBlocks.TWILIGHT_HEATHER,
+				MBBlocks.POTTED_FROSTY_HEATHER, MBBlocks.POTTED_SUNSET_HEATHER, MBBlocks.POTTED_TWILIGHT_HEATHER,
                 MBBlocks.LUPINE, MBBlocks.YUCCA,
-
-                MBBlocks.PRICKLY_PEAR_CACTUS, MBBlocks.TALL_PRICKLY_PEAR_CACTUS,
 
                 MBBlocks.TINY_BARREL_CACTUS, MBBlocks.SMALL_BARREL_CACTUS, MBBlocks.BARREL_CACTUS, MBBlocks.LARGE_BARREL_CACTUS,
                 MBBlocks.MARIGOLD, MBBlocks.POTTED_MARIGOLD,
 
                 MBBlocks.WILD_CARROTS, MBBlocks.WILD_POTATOES, MBBlocks.SEA_BEETS,
 
-                MBBlocks.PEANUT_CROP, MBBlocks.PEPPER_CROP,
-
                 MBBlocks.BEACHGRASS, MBBlocks.TALL_BEACHGRASS,
                 MBBlocks.COTTONGRASS, MBBlocks.TALL_COTTONGRASS,
                 MBBlocks.DESERT_BRUSH, MBBlocks.TALL_DESERT_BRUSH,
-				MBBlocks.HARDY_SPROUT, MBBlocks.HARDY_BUSH,
-				MBBlocks.PARASOL_LEAF, MBBlocks.PARASOL_PUP,
 				MBBlocks.BRITTLEBUSH_FLOWERS, MBBlocks.BRITTLEBUSH_LEAVES,
 				MBBlocks.OCOTILLO, MBBlocks.FLOWERING_OCOTILLO,
 
-                MBBlocks.REDSTONE_CLUSTER, MBBlocks.LARGE_REDSTONE_BUD, MBBlocks.MEDIUM_REDSTONE_BUD, MBBlocks.SMALL_REDSTONE_BUD,
-
                 MBBlocks.LAMPROOT_BULB,
 
-                MBBlocks.LAMPROOT_DOOR, MBBlocks.LAMPROOT_TRAPDOOR, MBBlocks.LAMPROOT_SAPLING, MBBlocks.POTTED_LAMPROOT_SAPLING,
+                MBBlocks.LAMPROOT_DOOR, MBBlocks.LAMPROOT_TRAPDOOR,
 
                 MBBlocks.CAVEBLOOM_VINE, MBBlocks.CAVEBLOOM_FLOWERS,
 
@@ -76,14 +66,11 @@ public class MoonbitsClient implements ClientModInitializer {
 
                 MBBlocks.TREE_TAP, MBBlocks.SYRUP_TREE_TAP, MBBlocks.SAP_TREE_TAP, MBBlocks.RESIN_TREE_TAP,
 
-                MBBlocks.HONEY_DOOR, MBBlocks.HONEY_TRAPDOOR,
-
-                MBBlocks.GLASS_DOOR,
                 MBBlocks.WALL_LANTERN, MBBlocks.WALL_SOUL_LANTERN
         );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),
-                MBBlocks.ICE_BRICKS,
-                MBBlocks.SYRUP_BLOCK
+                MBBlocks.SYRUP_BLOCK,
+				MBBlocks.HELIODOR_ROD, MBBlocks.LARIMAR_ROD
         );
 
         registerParticleClient();
@@ -102,7 +89,6 @@ public class MoonbitsClient implements ClientModInitializer {
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> {
                     BlockColorProvider provider = ColorProviderRegistry.BLOCK.get(Blocks.GRASS);
                     return provider == null ? -1 : provider.getColor(state, view, pos, tintIndex);},
-                MBBlocks.TOUGH_GRASS,
                 MBBlocks.GRASS_TURF,
                 MBBlocks.GRASS_TURF_STAIRS,
                 MBBlocks.GRASS_TURF_SLAB,
@@ -111,7 +97,6 @@ public class MoonbitsClient implements ClientModInitializer {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
                     ItemColorProvider provider = ColorProviderRegistry.ITEM.get(Blocks.GRASS);
                     return provider == null ? -1 : provider.getColor(stack, tintIndex);},
-                MBBlocks.TOUGH_GRASS,
                 MBBlocks.GRASS_TURF,
                 MBBlocks.GRASS_TURF_STAIRS,
                 MBBlocks.GRASS_TURF_SLAB,

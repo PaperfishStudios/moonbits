@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "moonbits:warped_mosaic_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_mosaic": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:warped_mosaic"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_warped_mosaic",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "moonbits:warped_mosaic_stairs"
+    ]
+  }
+}

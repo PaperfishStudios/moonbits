@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moonbits:block/smooth_flint",
+    "side": "moonbits:block/smooth_flint",
+    "top": "moonbits:block/smooth_flint"
+  }
+}

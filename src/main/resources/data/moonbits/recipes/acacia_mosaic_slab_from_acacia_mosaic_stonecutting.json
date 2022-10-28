@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "moonbits:acacia_mosaic"
+  },
+  "result": "moonbits:acacia_mosaic_slab"
+}

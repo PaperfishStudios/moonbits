@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "moonbits:claystone"
+  },
+  "result": "moonbits:claystone_brick_slab"
+}

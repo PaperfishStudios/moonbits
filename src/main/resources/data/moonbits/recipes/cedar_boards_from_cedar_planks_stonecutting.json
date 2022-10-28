@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "moonbits:cedar_planks"
-  },
-  "result": "moonbits:cedar_boards"
-}

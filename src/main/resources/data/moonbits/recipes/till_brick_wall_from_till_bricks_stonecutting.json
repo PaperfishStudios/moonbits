@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "moonbits:till_bricks"
-  },
-  "result": "moonbits:till_brick_wall"
-}

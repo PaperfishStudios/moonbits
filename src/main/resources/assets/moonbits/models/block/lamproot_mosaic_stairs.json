@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "moonbits:block/lamproot_mosaic",
+    "side": "moonbits:block/lamproot_mosaic",
+    "top": "moonbits:block/lamproot_mosaic"
+  }
+}

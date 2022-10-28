@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "moonbits:warped_nylium_carpet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_turf": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:warped_turf"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_warped_turf",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "moonbits:warped_nylium_carpet"
+    ]
+  }
+}

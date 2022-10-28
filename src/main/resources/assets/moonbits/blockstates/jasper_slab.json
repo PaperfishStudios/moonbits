@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/jasper_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/jasper"
+    },
+    "type=top": {
+      "model": "moonbits:block/jasper_slab_top"
+    }
+  }
+}

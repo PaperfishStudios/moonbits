@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/fiber_thatch_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/fiber_thatch"
+    },
+    "type=top": {
+      "model": "moonbits:block/fiber_thatch_slab_top"
+    }
+  }
+}

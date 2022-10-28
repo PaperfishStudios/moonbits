@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "moonbits:block/warped_turf",
+    "side": "moonbits:block/warped_turf",
+    "top": "moonbits:block/warped_turf"
+  }
+}

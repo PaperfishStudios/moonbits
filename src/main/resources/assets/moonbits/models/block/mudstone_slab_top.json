@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "moonbits:block/mudstone",
-    "side": "moonbits:block/mudstone",
-    "top": "moonbits:block/mudstone"
-  }
-}

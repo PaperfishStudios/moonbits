@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moonbits:carved_warped_wood"
+  },
+  "result": "moonbits:warped_pillar"
+}

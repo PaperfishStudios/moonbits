@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/smooth_flint_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/smooth_flint"
+    },
+    "type=top": {
+      "model": "moonbits:block/smooth_flint_slab_top"
+    }
+  }
+}

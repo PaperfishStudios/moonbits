@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moonbits:azurite"
+  },
+  "result": "moonbits:polished_azurite_wall"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moonbits:mangrove_mosaic"
+  },
+  "result": "moonbits:mangrove_mosaic_stairs"
+}

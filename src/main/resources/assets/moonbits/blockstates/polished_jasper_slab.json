@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/polished_jasper_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/polished_jasper"
+    },
+    "type=top": {
+      "model": "moonbits:block/polished_jasper_slab_top"
+    }
+  }
+}

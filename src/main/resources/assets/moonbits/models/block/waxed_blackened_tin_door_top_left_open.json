@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "moonbits:block/waxed_blackened_tin_door_bottom",
+    "top": "moonbits:block/waxed_blackened_tin_door_top"
+  }
+}

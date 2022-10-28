@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "moonbits:block/till",
-    "side": "moonbits:block/till_snowy",
-    "top": "minecraft:block/snow_block"
-  }
-}

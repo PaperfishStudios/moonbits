@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "moonbits:lamproot_sapling",
     "moonbits:cedar_sapling"
   ]
 }

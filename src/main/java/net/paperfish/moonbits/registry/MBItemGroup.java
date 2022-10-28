@@ -1,30 +1,30 @@
 package net.paperfish.moonbits.registry;
 
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.paperfish.moonbits.Moonbits;
+import org.quiltmc.qsl.item.group.api.QuiltItemGroup;
 
 public class MBItemGroup {
-    public static final ItemGroup CONSTRUCTION = FabricItemGroupBuilder.build(
+    public static final ItemGroup CONSTRUCTION = QuiltItemGroup.createWithIcon(
 		new Identifier(Moonbits.MODID, "construction"),
 		() -> new ItemStack(MBBlocks.CHERT_BRICKS));
-	
-	public static final ItemGroup DECOR = FabricItemGroupBuilder.build(
+
+	public static final ItemGroup DECOR = QuiltItemGroup.createWithIcon(
 		new Identifier(Moonbits.MODID, "decor"),
-		() -> new ItemStack(MBBlocks.BIRCH_BOOKSHELF));
-	
-	public static final ItemGroup MB_MISC = FabricItemGroupBuilder.build(
+		() -> new ItemStack(MBBlocks.LAMPROOT_BULB));
+
+	public static final ItemGroup MB_MISC = QuiltItemGroup.createWithIcon(
 		new Identifier(Moonbits.MODID, "misc"),
 		() -> new ItemStack(MBItems.PEAT));
-	
-	public static final ItemGroup MB_FOOD = FabricItemGroupBuilder.build(
+
+	public static final ItemGroup MB_FOOD = QuiltItemGroup.createWithIcon(
 		new Identifier(Moonbits.MODID, "food"),
 		() -> new ItemStack(MBItems.ROASTED_BERRIES));
 
-	public static final ItemGroup DEBUGGING = FabricItemGroupBuilder.create(
+	public static final ItemGroup DEBUGGING = QuiltItemGroup.builder(
 		new Identifier(Moonbits.MODID, "debug"))
 		.icon(() -> new ItemStack(Items.COMMAND_BLOCK))
 		.appendItems(stacks -> {

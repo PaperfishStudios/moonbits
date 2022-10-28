@@ -13,154 +13,205 @@ import java.util.stream.Stream;
 public class MBBlockFamilies {
     private static final Map<Block, MBBlockFamily> BASE_BLOCKS_TO_FAMILIES = Maps.newHashMap();
 
-    public static final MBBlockFamily ACACIA = register(Blocks.ACACIA_PLANKS)
-            .bookshelf(MBBlocks.ACACIA_BOOKSHELF)
-            .planterBox(MBBlocks.ACACIA_PLANTER_BOX)
-            .stonecut(MBBlocks.ACACIA_BOARDS).stonecut(MBBlocks.ACACIA_PANEL)
-            .column(MBBlocks.ACACIA_PILLAR, MBBlocks.CARVED_ACACIA)
-            .stonecut(List.of(Blocks.ACACIA_SLAB, Blocks.ACACIA_STAIRS, Blocks.ACACIA_FENCE, Blocks.ACACIA_FENCE_GATE, Blocks.ACACIA_SIGN, Blocks.ACACIA_PRESSURE_PLATE, Blocks.ACACIA_TRAPDOOR))
-            .group("wooden")
-            .unlockCriterionName("has_planks")
-            .build();
-    public static final MBBlockFamily BIRCH = register(Blocks.BIRCH_PLANKS)
-            .bookshelf(MBBlocks.BIRCH_BOOKSHELF)
-            .planterBox(MBBlocks.BIRCH_PLANTER_BOX)
-            .stonecut(MBBlocks.BIRCH_BOARDS).stonecut(MBBlocks.BIRCH_PANEL)
-            .column(MBBlocks.BIRCH_PILLAR, MBBlocks.CARVED_BIRCH)
-            .stonecut(List.of(Blocks.BIRCH_SLAB, Blocks.BIRCH_STAIRS, Blocks.BIRCH_FENCE, Blocks.BIRCH_FENCE_GATE, Blocks.BIRCH_SIGN, Blocks.BIRCH_PRESSURE_PLATE, Blocks.BIRCH_TRAPDOOR))
-            .group("wooden")
-            .unlockCriterionName("has_planks")
-            .build();
-    public static final MBBlockFamily CRIMSON = register(Blocks.CRIMSON_PLANKS)
-            .bookshelf(MBBlocks.CRIMSON_BOOKSHELF)
-            .netherPlanter(MBBlocks.CRIMSON_PLANTER_BOX)
-            .stonecut(MBBlocks.CRIMSON_BOARDS).stonecut(MBBlocks.CRIMSON_PANEL)
-            .column(MBBlocks.CRIMSON_PILLAR, MBBlocks.CARVED_CRIMSON)
-            .stonecut(List.of(Blocks.CRIMSON_SLAB, Blocks.CRIMSON_STAIRS, Blocks.CRIMSON_FENCE, Blocks.CRIMSON_FENCE_GATE, Blocks.CRIMSON_SIGN, Blocks.CRIMSON_PRESSURE_PLATE, Blocks.CRIMSON_TRAPDOOR))
-            .group("wooden")
-            .unlockCriterionName("has_planks")
-            .build();
-    public static final MBBlockFamily JUNGLE = register(Blocks.JUNGLE_PLANKS)
-            .bookshelf(MBBlocks.JUNGLE_BOOKSHELF)
-            .planterBox(MBBlocks.JUNGLE_PLANTER_BOX)
-            .stonecut(MBBlocks.JUNGLE_BOARDS).stonecut(MBBlocks.JUNGLE_PANEL)
-            .column(MBBlocks.JUNGLE_PILLAR, MBBlocks.CARVED_JUNGLE)
-            .stonecut(List.of(Blocks.JUNGLE_SLAB, Blocks.JUNGLE_STAIRS, Blocks.JUNGLE_FENCE, Blocks.JUNGLE_FENCE_GATE, Blocks.JUNGLE_SIGN, Blocks.JUNGLE_PRESSURE_PLATE, Blocks.JUNGLE_TRAPDOOR))
-            .group("wooden")
-            .unlockCriterionName("has_planks")
-            .build();
-    public static final MBBlockFamily OAK = register(Blocks.OAK_PLANKS)
+	public static final MBBlockFamily OAK_BOARDS = register(MBBlocks.OAK_BOARDS)
+			.slab(MBBlocks.OAK_MOSAIC_SLAB).stairs(MBBlocks.OAK_MOSAIC_STAIRS)
+			.build();
+    public static final MBBlockFamily OAK = register(Blocks.OAK_PLANKS).slab(Blocks.OAK_SLAB)
             .planterBox(MBBlocks.OAK_PLANTER_BOX)
-            .stonecut(MBBlocks.OAK_BOARDS).stonecut(MBBlocks.OAK_PANEL)
+            .chiseled(MBBlocks.OAK_BOARDS).stonecut(MBBlocks.OAK_PANEL)
             .column(MBBlocks.OAK_PILLAR, MBBlocks.CARVED_OAK)
-            .stonecut(List.of(Blocks.OAK_SLAB, Blocks.OAK_STAIRS, Blocks.OAK_FENCE, Blocks.OAK_FENCE_GATE, Blocks.OAK_SIGN, Blocks.OAK_PRESSURE_PLATE, Blocks.OAK_TRAPDOOR))
+            .stonecut(List.of(Blocks.OAK_SLAB, Blocks.OAK_STAIRS, Blocks.OAK_FENCE, Blocks.OAK_FENCE_GATE,
+					Blocks.OAK_SIGN, Blocks.OAK_PRESSURE_PLATE, Blocks.OAK_TRAPDOOR))
+			.child(OAK_BOARDS)
             .group("wooden")
             .unlockCriterionName("has_planks")
             .build();
-    public static final MBBlockFamily DARK_OAK = register(Blocks.DARK_OAK_PLANKS)
-            .bookshelf(MBBlocks.DARK_OAK_BOOKSHELF)
-            .planterBox(MBBlocks.DARK_OAK_PLANTER_BOX)
-            .stonecut(MBBlocks.DARK_OAK_BOARDS).stonecut(MBBlocks.DARK_OAK_PANEL)
-            .column(MBBlocks.DARK_OAK_PILLAR, MBBlocks.CARVED_DARK_OAK)
-            .stonecut(List.of(Blocks.DARK_OAK_SLAB, Blocks.DARK_OAK_STAIRS, Blocks.DARK_OAK_FENCE, Blocks.DARK_OAK_FENCE_GATE, Blocks.DARK_OAK_SIGN, Blocks.DARK_OAK_PRESSURE_PLATE, Blocks.DARK_OAK_TRAPDOOR))
-            .group("wooden")
-            .unlockCriterionName("has_planks")
-            .build();
-    public static final MBBlockFamily SPRUCE = register(Blocks.SPRUCE_PLANKS)
-            .bookshelf(MBBlocks.SPRUCE_BOOKSHELF)
+	public static final MBBlockFamily SPRUCE_BOARDS = register(MBBlocks.SPRUCE_BOARDS)
+			.slab(MBBlocks.SPRUCE_MOSAIC_SLAB).stairs(MBBlocks.SPRUCE_MOSAIC_STAIRS)
+			.build();
+    public static final MBBlockFamily SPRUCE = register(Blocks.SPRUCE_PLANKS).slab(Blocks.SPRUCE_SLAB)
+//            .bookshelf(MBBlocks.SPRUCE_BOOKSHELF)
             .planterBox(MBBlocks.SPRUCE_PLANTER_BOX)
-            .stonecut(MBBlocks.SPRUCE_BOARDS).stonecut(MBBlocks.SPRUCE_PANEL)
+            .chiseled(MBBlocks.SPRUCE_BOARDS).stonecut(MBBlocks.SPRUCE_PANEL)
             .column(MBBlocks.SPRUCE_PILLAR, MBBlocks.CARVED_SPRUCE)
-            .stonecut(List.of(Blocks.SPRUCE_SLAB, Blocks.SPRUCE_STAIRS, Blocks.SPRUCE_FENCE, Blocks.SPRUCE_FENCE_GATE, Blocks.SPRUCE_SIGN, Blocks.SPRUCE_PRESSURE_PLATE, Blocks.SPRUCE_TRAPDOOR))
+            .stonecut(List.of(Blocks.SPRUCE_SLAB, Blocks.SPRUCE_STAIRS, Blocks.SPRUCE_FENCE, Blocks.SPRUCE_FENCE_GATE,
+					Blocks.SPRUCE_SIGN, Blocks.SPRUCE_PRESSURE_PLATE, Blocks.SPRUCE_TRAPDOOR))
+			.child(SPRUCE_BOARDS)
             .group("wooden")
             .unlockCriterionName("has_planks")
             .build();
-    public static final MBBlockFamily WARPED = register(Blocks.WARPED_PLANKS)
-            .bookshelf(MBBlocks.WARPED_BOOKSHELF)
-            .netherPlanter(MBBlocks.WARPED_PLANTER_BOX)
-            .stonecut(MBBlocks.WARPED_BOARDS).stonecut(MBBlocks.WARPED_PANEL)
-            .column(MBBlocks.WARPED_PILLAR, MBBlocks.CARVED_WARPED)
-            .stonecut(List.of(Blocks.WARPED_SLAB, Blocks.WARPED_STAIRS, Blocks.WARPED_FENCE, Blocks.WARPED_FENCE_GATE, Blocks.WARPED_SIGN, Blocks.WARPED_PRESSURE_PLATE, Blocks.WARPED_TRAPDOOR))
-            .group("wooden")
-            .unlockCriterionName("has_planks")
-            .build();
-    public static final MBBlockFamily MANGROVE = register(Blocks.MANGROVE_PLANKS)
-            .bookshelf(MBBlocks.MANGROVE_BOOKSHELF)
+	public static final MBBlockFamily BIRCH_BOARDS = register(MBBlocks.BIRCH_BOARDS)
+			.slab(MBBlocks.BIRCH_MOSAIC_SLAB).stairs(MBBlocks.BIRCH_MOSAIC_STAIRS)
+			.build();
+	public static final MBBlockFamily BIRCH = register(Blocks.BIRCH_PLANKS).slab(Blocks.BIRCH_SLAB)
+//            .bookshelf(MBBlocks.BIRCH_BOOKSHELF)
+			.planterBox(MBBlocks.BIRCH_PLANTER_BOX)
+			.chiseled(MBBlocks.BIRCH_BOARDS).stonecut(MBBlocks.BIRCH_PANEL)
+			.column(MBBlocks.BIRCH_PILLAR, MBBlocks.CARVED_BIRCH)
+			.stonecut(List.of(Blocks.BIRCH_SLAB, Blocks.BIRCH_STAIRS, Blocks.BIRCH_FENCE, Blocks.BIRCH_FENCE_GATE,
+					Blocks.BIRCH_SIGN, Blocks.BIRCH_PRESSURE_PLATE, Blocks.BIRCH_TRAPDOOR))
+			.child(BIRCH_BOARDS)
+			.group("wooden")
+			.unlockCriterionName("has_planks")
+			.build();
+	public static final MBBlockFamily JUNGLE_BOARDS = register(MBBlocks.JUNGLE_BOARDS)
+			.slab(MBBlocks.JUNGLE_MOSAIC_SLAB).stairs(MBBlocks.JUNGLE_MOSAIC_STAIRS)
+			.build();
+	public static final MBBlockFamily JUNGLE = register(Blocks.JUNGLE_PLANKS).slab(Blocks.JUNGLE_SLAB)
+//            .bookshelf(MBBlocks.JUNGLE_BOOKSHELF)
+			.planterBox(MBBlocks.JUNGLE_PLANTER_BOX)
+			.chiseled(MBBlocks.JUNGLE_BOARDS).stonecut(MBBlocks.JUNGLE_PANEL)
+			.column(MBBlocks.JUNGLE_PILLAR, MBBlocks.CARVED_JUNGLE)
+			.stonecut(List.of(Blocks.JUNGLE_SLAB, Blocks.JUNGLE_STAIRS, Blocks.JUNGLE_FENCE, Blocks.JUNGLE_FENCE_GATE,
+					Blocks.JUNGLE_SIGN, Blocks.JUNGLE_PRESSURE_PLATE, Blocks.JUNGLE_TRAPDOOR))
+			.child(JUNGLE_BOARDS)
+			.group("wooden")
+			.unlockCriterionName("has_planks")
+			.build();
+	public static final MBBlockFamily ACACIA_BOARDS = register(MBBlocks.ACACIA_BOARDS)
+			.slab(MBBlocks.ACACIA_MOSAIC_SLAB).stairs(MBBlocks.ACACIA_MOSAIC_STAIRS)
+			.build();
+	public static final MBBlockFamily ACACIA = register(Blocks.ACACIA_PLANKS).slab(Blocks.ACACIA_SLAB)
+//            .bookshelf(MBBlocks.ACACIA_BOOKSHELF)
+			.planterBox(MBBlocks.ACACIA_PLANTER_BOX)
+			.chiseled(MBBlocks.ACACIA_BOARDS).stonecut(MBBlocks.ACACIA_PANEL)
+			.column(MBBlocks.ACACIA_PILLAR, MBBlocks.CARVED_ACACIA)
+			.stonecut(List.of(Blocks.ACACIA_SLAB, Blocks.ACACIA_STAIRS, Blocks.ACACIA_FENCE, Blocks.ACACIA_FENCE_GATE,
+					Blocks.ACACIA_SIGN, Blocks.ACACIA_PRESSURE_PLATE, Blocks.ACACIA_TRAPDOOR))
+			.child(ACACIA_BOARDS)
+			.group("wooden")
+			.unlockCriterionName("has_planks")
+			.build();
+	public static final MBBlockFamily DARK_OAK_BOARDS = register(MBBlocks.DARK_OAK_BOARDS)
+			.slab(MBBlocks.DARK_OAK_MOSAIC_SLAB).stairs(MBBlocks.DARK_OAK_MOSAIC_STAIRS)
+			.build();
+	public static final MBBlockFamily DARK_OAK = register(Blocks.DARK_OAK_PLANKS).slab(Blocks.DARK_OAK_SLAB)
+//            .bookshelf(MBBlocks.DARK_OAK_BOOKSHELF)
+			.planterBox(MBBlocks.DARK_OAK_PLANTER_BOX)
+			.chiseled(MBBlocks.DARK_OAK_BOARDS).stonecut(MBBlocks.DARK_OAK_PANEL)
+			.column(MBBlocks.DARK_OAK_PILLAR, MBBlocks.CARVED_DARK_OAK)
+			.stonecut(List.of(Blocks.DARK_OAK_SLAB, Blocks.DARK_OAK_STAIRS, Blocks.DARK_OAK_FENCE, Blocks.DARK_OAK_FENCE_GATE,
+					Blocks.DARK_OAK_SIGN, Blocks.DARK_OAK_PRESSURE_PLATE, Blocks.DARK_OAK_TRAPDOOR))
+			.child(DARK_OAK_BOARDS)
+			.group("wooden")
+			.unlockCriterionName("has_planks")
+			.build();
+	public static final MBBlockFamily MANGROVE_BOARDS = register(MBBlocks.MANGROVE_BOARDS)
+			.slab(MBBlocks.MANGROVE_MOSAIC_SLAB).stairs(MBBlocks.MANGROVE_MOSAIC_STAIRS)
+			.build();
+    public static final MBBlockFamily MANGROVE = register(Blocks.MANGROVE_PLANKS).slab(Blocks.MANGROVE_SLAB)
+//            .bookshelf(MBBlocks.MANGROVE_BOOKSHELF)
             .planterBox(MBBlocks.MANGROVE_PLANTER_BOX)
-            .stonecut(MBBlocks.MANGROVE_BOARDS).stonecut(MBBlocks.MANGROVE_PANEL)
+            .chiseled(MBBlocks.MANGROVE_BOARDS).stonecut(MBBlocks.MANGROVE_PANEL)
             .column(MBBlocks.MANGROVE_PILLAR, MBBlocks.CARVED_MANGROVE)
-            .stonecut(List.of(Blocks.MANGROVE_SLAB, Blocks.MANGROVE_STAIRS, Blocks.MANGROVE_FENCE, Blocks.MANGROVE_FENCE_GATE, Blocks.MANGROVE_SIGN, Blocks.MANGROVE_PRESSURE_PLATE, Blocks.MANGROVE_TRAPDOOR))
+            .stonecut(List.of(Blocks.MANGROVE_SLAB, Blocks.MANGROVE_STAIRS, Blocks.MANGROVE_FENCE, Blocks.MANGROVE_FENCE_GATE,
+					Blocks.MANGROVE_SIGN, Blocks.MANGROVE_PRESSURE_PLATE, Blocks.MANGROVE_TRAPDOOR))
+			.child(MANGROVE_BOARDS)
             .group("wooden")
             .unlockCriterionName("has_planks")
             .build();
+	public static final MBBlockFamily MANGROVE_WEAVE = register(MBBlocks.MANGROVE_WEAVE)
+			.slab(MBBlocks.MANGROVE_WEAVE_SLAB).stairs(MBBlocks.MANGROVE_WEAVE_STAIRS).build();
+
+	public static final MBBlockFamily CRIMSON_BOARDS = register(MBBlocks.CRIMSON_BOARDS)
+			.slab(MBBlocks.CRIMSON_MOSAIC_SLAB).stairs(MBBlocks.CRIMSON_MOSAIC_STAIRS)
+			.build();
+	public static final MBBlockFamily CRIMSON = register(Blocks.CRIMSON_PLANKS).slab(Blocks.CRIMSON_SLAB)
+//            .bookshelf(MBBlocks.CRIMSON_BOOKSHELF)
+			.netherPlanter(MBBlocks.CRIMSON_PLANTER_BOX)
+			.chiseled(MBBlocks.CRIMSON_BOARDS).stonecut(MBBlocks.CRIMSON_PANEL)
+			.column(MBBlocks.CRIMSON_PILLAR, MBBlocks.CARVED_CRIMSON)
+			.stonecut(List.of(Blocks.CRIMSON_SLAB, Blocks.CRIMSON_STAIRS, Blocks.CRIMSON_FENCE, Blocks.CRIMSON_FENCE_GATE,
+					Blocks.CRIMSON_SIGN, Blocks.CRIMSON_PRESSURE_PLATE, Blocks.CRIMSON_TRAPDOOR))
+			.child(CRIMSON_BOARDS)
+			.group("wooden")
+			.unlockCriterionName("has_planks")
+			.build();
+	public static final MBBlockFamily WARPED_BOARDS = register(MBBlocks.WARPED_BOARDS)
+			.slab(MBBlocks.WARPED_MOSAIC_SLAB).stairs(MBBlocks.WARPED_MOSAIC_STAIRS)
+			.build();
+	public static final MBBlockFamily WARPED = register(Blocks.WARPED_PLANKS).slab(Blocks.WARPED_SLAB)
+//            .bookshelf(MBBlocks.WARPED_BOOKSHELF)
+			.netherPlanter(MBBlocks.WARPED_PLANTER_BOX)
+			.chiseled(MBBlocks.WARPED_BOARDS).stonecut(MBBlocks.WARPED_PANEL)
+			.column(MBBlocks.WARPED_PILLAR, MBBlocks.CARVED_WARPED)
+			.stonecut(List.of(Blocks.WARPED_SLAB, Blocks.WARPED_STAIRS, Blocks.WARPED_FENCE, Blocks.WARPED_FENCE_GATE,
+					Blocks.WARPED_SIGN, Blocks.WARPED_PRESSURE_PLATE, Blocks.WARPED_TRAPDOOR))
+			.child(WARPED_BOARDS)
+			.group("wooden")
+			.unlockCriterionName("has_planks")
+			.build();
 
 
+	public static final MBBlockFamily LAMPROOT_BOARDS = register(MBBlocks.LAMPROOT_BOARDS)
+			.slab(MBBlocks.LAMPROOT_MOSAIC_SLAB).stairs(MBBlocks.LAMPROOT_MOSAIC_STAIRS)
+			.build();
     public static final MBBlockFamily LAMPROOT = register(MBBlocks.LAMPROOT_PLANKS)
             .slab(MBBlocks.LAMPROOT_SLAB).stairs(MBBlocks.LAMPROOT_STAIRS)
             .fence(MBBlocks.LAMPROOT_FENCE).fenceGate(MBBlocks.LAMPROOT_FENCE_GATE)
             .door(MBBlocks.LAMPROOT_DOOR).trapdoor(MBBlocks.LAMPROOT_TRAPDOOR)
             .sign(MBBlocks.LAMPROOT_SIGN, MBBlocks.LAMPROOT_WALL_SIGN)
             .pressurePlate(MBBlocks.LAMPROOT_PRESSURE_PLATE).button(MBBlocks.LAMPROOT_BUTTON)
-            .bookshelf(MBBlocks.LAMPROOT_BOOKSHELF)
+//            .bookshelf(MBBlocks.LAMPROOT_BOOKSHELF)
             .planterBox(MBBlocks.LAMPROOT_PLANTER_BOX)
-            .stonecut(MBBlocks.LAMPROOT_BOARDS).stonecut(MBBlocks.LAMPROOT_PANEL)
+            .chiseled(MBBlocks.LAMPROOT_BOARDS).stonecut(MBBlocks.LAMPROOT_PANEL)
+			.child(LAMPROOT_BOARDS)
             .column(MBBlocks.LAMPROOT_PILLAR, MBBlocks.CARVED_LAMPROOT)
             .group("wooden")
             .unlockCriterionName("has_planks")
             .build();
+	public static final MBBlockFamily CEDAR_BOARDS = register(MBBlocks.CEDAR_BOARDS)
+			.slab(MBBlocks.CEDAR_MOSAIC_SLAB).stairs(MBBlocks.CEDAR_MOSAIC_STAIRS)
+			.build();
     public static final MBBlockFamily CEDAR = register(MBBlocks.CEDAR_PLANKS)
             .slab(MBBlocks.CEDAR_SLAB).stairs(MBBlocks.CEDAR_STAIRS)
             .fence(MBBlocks.CEDAR_FENCE).fenceGate(MBBlocks.CEDAR_FENCE_GATE)
             .door(MBBlocks.CEDAR_DOOR).trapdoor(MBBlocks.CEDAR_TRAPDOOR)
             .sign(MBBlocks.CEDAR_SIGN, MBBlocks.CEDAR_WALL_SIGN)
             .pressurePlate(MBBlocks.CEDAR_PRESSURE_PLATE).button(MBBlocks.CEDAR_BUTTON)
-            .bookshelf(MBBlocks.CEDAR_BOOKSHELF)
+//            .bookshelf(MBBlocks.CEDAR_BOOKSHELF)
             .planterBox(MBBlocks.CEDAR_PLANTER_BOX)
-            .stonecut(MBBlocks.CEDAR_BOARDS).stonecut(MBBlocks.CEDAR_PANEL)
+            .chiseled(MBBlocks.CEDAR_BOARDS).stonecut(MBBlocks.CEDAR_PANEL)
+			.child(CEDAR_BOARDS)
             .column(MBBlocks.CEDAR_PILLAR, MBBlocks.CARVED_CEDAR)
             .group("wooden")
             .unlockCriterionName("has_planks")
             .build();
 
-
-    public static final MBBlockFamily PARASOL_FERN_FIBER = register(MBBlocks.PARASOL_FERN_FIBER)
-            .slab(MBBlocks.PARASOL_FERN_FIBER_SLAB).stairs(MBBlocks.PARASOL_FERN_FIBER_STAIRS)
-            .build();
-
-    public static final MBBlockFamily HONEY = register(MBBlocks.HONEY_PLANKS)
-            .slab(MBBlocks.HONEY_SLAB).stairs(MBBlocks.HONEY_STAIRS)
-            .fence(MBBlocks.HONEY_FENCE).fenceGate(MBBlocks.HONEY_FENCE_GATE)
-            .pressurePlate(MBBlocks.HONEY_PRESSURE_PLATE).button(MBBlocks.HONEY_BUTTON)
-            .door(MBBlocks.HONEY_DOOR).trapdoor(MBBlocks.HONEY_TRAPDOOR)
-            .sign(MBBlocks.HONEY_SIGN, MBBlocks.HONEY_WALL_SIGN)
-            .bookshelf(MBBlocks.HONEY_BOOKSHELF)
-            .planterBox(MBBlocks.HONEY_PLANTER_BOX)
-            .stonecut(MBBlocks.HONEY_BOARDS).stonecut(MBBlocks.HONEY_PANEL)
-            .column(MBBlocks.HONEY_PILLAR, MBBlocks.CARVED_HONEY)
-            .build();
-
-    public static final MBBlockFamily HONEYCOMB_TILES = register(MBBlocks.HONEYCOMB_TILES)
-            .slab(MBBlocks.HONEYCOMB_TILE_SLAB).stairs(MBBlocks.HONEYCOMB_TILE_STAIRS)
-            .wall(MBBlocks.HONEYCOMB_TILE_WALL).build();
-    public static final MBBlockFamily HONEYCOMB_BRICKS = register(MBBlocks.HONEYCOMB_BRICKS).child(HONEYCOMB_TILES)
-            .slab(MBBlocks.HONEYCOMB_BRICK_SLAB).stairs(MBBlocks.HONEYCOMB_BRICK_STAIRS)
-            .wall(MBBlocks.HONEYCOMB_BRICK_WALL).chiseled(MBBlocks.CHISELED_HONEYCOMB_BRICKS).pillar(MBBlocks.HONEYCOMB_PILLAR)
-            .polished(MBBlocks.HONEYCOMB_TILES).build();
-    public static final MBBlockFamily POLISHED_HONEYCOMB = register(MBBlocks.POLISHED_HONEYCOMB).polished(MBBlocks.HONEYCOMB_BRICKS).child(HONEYCOMB_BRICKS).build();
-    public static final MBBlockFamily HONEYCOMB = register(Blocks.HONEYCOMB_BLOCK)
-            .slab(MBBlocks.HONEYCOMB_SLAB).stairs(MBBlocks.HONEYCOMB_STAIRS)
-            .wall(MBBlocks.HONEYCOMB_WALL)
-            .polished(MBBlocks.POLISHED_HONEYCOMB).child(POLISHED_HONEYCOMB).build();
-
     public static final MBBlockFamily DIRT_BRICKS = register(MBBlocks.DIRT_BRICKS)
-            .slab(MBBlocks.DIRT_BRICK_SLAB).stairs(MBBlocks.DIRT_BRICK_STAIRS).build();
-    public static final MBBlockFamily TOUGH_DIRT = register(MBBlocks.TOUGH_DIRT).child(DIRT_BRICKS)
-            .slab(MBBlocks.TOUGH_DIRT_SLAB).stairs(MBBlocks.TOUGH_DIRT_STAIRS).polished(MBBlocks.DIRT_BRICKS).build();
-    public static final MBBlockFamily DIRT_MB = register(Blocks.DIRT).polished(MBBlocks.TOUGH_DIRT).build();
+            .slab(MBBlocks.DIRT_BRICK_SLAB).stairs(MBBlocks.DIRT_BRICK_STAIRS).wall(MBBlocks.DIRT_BRICK_WALL).build();
+    public static final MBBlockFamily PACKED_DIRT = register(MBBlocks.PACKED_DIRT).child(DIRT_BRICKS)
+            .slab(MBBlocks.PACKED_DIRT_SLAB).stairs(MBBlocks.PACKED_DIRT_STAIRS).wall(MBBlocks.PACKED_DIRT_WALL)
+			.polished(MBBlocks.DIRT_BRICKS).build();
+    public static final MBBlockFamily DIRT_MB = register(Blocks.DIRT).polished(MBBlocks.PACKED_DIRT).build();
 
     public static final MBBlockFamily PEAT_BRICKS = register(MBBlocks.PEAT_BRICKS)
             .slab(MBBlocks.PEAT_BRICK_SLAB).stairs(MBBlocks.PEAT_BRICK_STAIRS)
             .wall(MBBlocks.PEAT_BRICK_WALL).build();
+	public static final MBBlockFamily FUZZ_BRICKS = register(MBBlocks.FUZZ_BRICKS)
+			.slab(MBBlocks.FUZZ_BRICK_SLAB).stairs(MBBlocks.FUZZ_BRICK_STAIRS)
+			.wall(MBBlocks.FUZZ_BRICK_WALL).build();
+	public static final MBBlockFamily SMOOTH_FLINT = register(MBBlocks.SMOOTH_FLINT)
+			.slab(MBBlocks.SMOOTH_FLINT_SLAB).stairs(MBBlocks.SMOOTH_FLINT_STAIRS)
+			.stonecut(MBBlocks.FLINT_PILLAR).build();
+
+	public static final MBBlockFamily PERMAFROST_BRICKS = register(MBBlocks.PERMAFROST_BRICKS)
+			.slab(MBBlocks.PERMAFROST_BRICK_SLAB).stairs(MBBlocks.PERMAFROST_BRICK_STAIRS)
+			.wall(MBBlocks.PERMAFROST_BRICK_WALL).build();
+	public static final MBBlockFamily PERMAFROST = register(MBBlocks.PERMAFROST)
+			.slab(MBBlocks.PERMAFROST_SLAB).stairs(MBBlocks.PERMAFROST_STAIRS)
+			.wall(MBBlocks.PERMAFROST_WALL).polished(MBBlocks.PERMAFROST_BRICKS).child(PERMAFROST_BRICKS).build();
+
+	public static final MBBlockFamily SNOW_BRICKS = register(MBBlocks.SNOW_BRICKS)
+			.slab(MBBlocks.SNOW_BRICK_SLAB).stairs(MBBlocks.SNOW_BRICK_STAIRS)
+			.wall(MBBlocks.SNOW_BRICK_WALL).build();
+
+	public static final MBBlockFamily BLUE_ICE = register(Blocks.BLUE_ICE)
+			.polished(MBBlocks.BLUE_ICE_BRICKS).build();
+	public static final MBBlockFamily PACKED_ICE = register(Blocks.PACKED_ICE)
+			.polished(MBBlocks.PACKED_ICE_BRICKS).build();
+	public static final MBBlockFamily ICE = register(Blocks.ICE)
+			.polished(Blocks.PACKED_ICE).build();
 
     public static final MBBlockFamily CUT_TIN = register(MBBlocks.CUT_TIN)
             .slab(MBBlocks.CUT_TIN_SLAB).stairs(MBBlocks.CUT_TIN_STAIRS).build();
@@ -170,17 +221,6 @@ public class MBBlockFamilies {
             .slab(MBBlocks.BLACKENED_CUT_TIN_SLAB).stairs(MBBlocks.BLACKENED_CUT_TIN_STAIRS).build();
     public static final MBBlockFamily PESTERED_CUT_TIN = register(MBBlocks.PESTERED_CUT_TIN)
             .slab(MBBlocks.PESTERED_CUT_TIN_SLAB).stairs(MBBlocks.PESTERED_CUT_TIN_STAIRS).build();
-
-    public static final MBBlockFamily FROSTY_TILL_BRICKS = register(MBBlocks.FROSTY_TILL_BRICKS)
-            .slab(MBBlocks.FROSTY_TILL_BRICK_SLAB).stairs(MBBlocks.FROSTY_TILL_BRICK_STAIRS).wall(MBBlocks.FROSTY_TILL_BRICK_WALL).build();
-    public static final MBBlockFamily TILL_BRICKS = register(MBBlocks.TILL_BRICKS)
-            .slab(MBBlocks.TILL_BRICK_SLAB).stairs(MBBlocks.TILL_BRICK_STAIRS).wall(MBBlocks.TILL_BRICK_WALL).build();
-    public static final MBBlockFamily POLISHED_TILL = register(MBBlocks.POLISHED_TILL)
-            .slab(MBBlocks.POLISHED_TILL_SLAB).stairs(MBBlocks.POLISHED_TILL_STAIRS).wall(MBBlocks.POLISHED_TILL_WALL)
-            .polished(MBBlocks.TILL_BRICKS).child(TILL_BRICKS).build();
-    public static final MBBlockFamily TILL = register(MBBlocks.TILL)
-            .slab(MBBlocks.TILL_SLAB).stairs(MBBlocks.TILL_STAIRS).wall(MBBlocks.TILL_WALL)
-            .polished(MBBlocks.POLISHED_TILL).chiseled(MBBlocks.CHISELED_TILL).child(POLISHED_TILL).build();
 
 
     public static final MBBlockFamily GRASS_TURF = register(MBBlocks.GRASS_TURF)
@@ -196,6 +236,9 @@ public class MBBlockFamilies {
     public static final MBBlockFamily WARPED_NYLIUM_TURF = register(MBBlocks.WARPED_NYLIUM_TURF)
             .slab(MBBlocks.WARPED_NYLIUM_TURF_SLAB).stairs(MBBlocks.WARPED_NYLIUM_TURF_STAIRS)
             .carpet(MBBlocks.WARPED_NYLIUM_CARPET).build();
+
+	public static final MBBlockFamily FIBER_THATCH = register(MBBlocks.FIBER_THATCH)
+			.slab(MBBlocks.FIBER_THATCH_SLAB).stairs(MBBlocks.FIBER_THATCH_STAIRS).build();
 
     public static final MBBlockFamily CRACKED_CHERT_TILES = register(MBBlocks.CRACKED_CHERT_TILES)
             .slab(MBBlocks.CRACKED_CHERT_TILE_SLAB).stairs(MBBlocks.CRACKED_CHERT_TILE_STAIRS).wall(MBBlocks.CRACKED_CHERT_TILE_WALL).build();
@@ -218,13 +261,26 @@ public class MBBlockFamilies {
             .slab(MBBlocks.CHERT_SLAB).stairs(MBBlocks.CHERT_STAIRS).wall(MBBlocks.CHERT_WALL).child(COBBLED_CHERT)
             .polished(MBBlocks.POLISHED_CHERT).cut(MBBlocks.CUT_CHERT).chiseled(MBBlocks.CHISELED_CHERT).pillar(MBBlocks.CHERT_PILLAR).child(POLISHED_CHERT).build();
 
-    public static final MBBlockFamily MUDSTONE_BRICKS = register(MBBlocks.MUDSTONE_BRICKS)
-            .slab(MBBlocks.MUDSTONE_BRICK_SLAB).stairs(MBBlocks.MUDSTONE_BRICK_STAIRS).wall(MBBlocks.MUDSTONE_BRICK_WALL).build();
-    public static final MBBlockFamily SMOOTH_MUDSTONE = register(MBBlocks.SMOOTH_MUDSTONE)
-            .slab(MBBlocks.SMOOTH_MUDSTONE_SLAB).stairs(MBBlocks.SMOOTH_MUDSTONE_STAIRS).wall(MBBlocks.SMOOTH_MUDSTONE_WALL).build();
-    public static final MBBlockFamily MUDSTONE = register(MBBlocks.MUDSTONE)
-            .slab(MBBlocks.MUDSTONE_SLAB).stairs(MBBlocks.MUDSTONE_STAIRS).wall(MBBlocks.MUDSTONE_WALL)
-            .cut(MBBlocks.CUT_MUDSTONE).chiseled(MBBlocks.CHISELED_MUDSTONE).child(MUDSTONE_BRICKS).build();
+	public static final MBBlockFamily CLAYSTONE_BRICKS = register(MBBlocks.CLAYSTONE_BRICKS)
+			.slab(MBBlocks.CLAYSTONE_BRICK_SLAB).stairs(MBBlocks.CLAYSTONE_BRICK_STAIRS).wall(MBBlocks.CLAYSTONE_BRICK_WALL)
+			.build();
+	public static final MBBlockFamily CLAYSTONE = register(MBBlocks.CLAYSTONE)
+			.slab(MBBlocks.CLAYSTONE_SLAB).stairs(MBBlocks.CLAYSTONE_STAIRS).wall(MBBlocks.CLAYSTONE_WALL)
+			.polished(MBBlocks.CLAYSTONE_BRICKS).child(CLAYSTONE_BRICKS).build();
+
+	public static final MBBlockFamily POLISHED_JASPER = register(MBBlocks.POLISHED_JASPER)
+			.slab(MBBlocks.POLISHED_JASPER_SLAB).stairs(MBBlocks.POLISHED_JASPER_STAIRS).wall(MBBlocks.POLISHED_JASPER_WALL)
+			.build();
+	public static final MBBlockFamily JASPER = register(MBBlocks.JASPER)
+			.slab(MBBlocks.JASPER_SLAB).stairs(MBBlocks.JASPER_STAIRS).wall(MBBlocks.JASPER_WALL)
+			.polished(MBBlocks.POLISHED_JASPER).child(POLISHED_JASPER).build();
+
+	public static final MBBlockFamily POLISHED_AZURITE = register(MBBlocks.POLISHED_AZURITE)
+			.slab(MBBlocks.POLISHED_AZURITE_SLAB).stairs(MBBlocks.POLISHED_AZURITE_STAIRS).wall(MBBlocks.POLISHED_AZURITE_WALL)
+			.build();
+	public static final MBBlockFamily AZURITE = register(MBBlocks.AZURITE)
+			.slab(MBBlocks.AZURITE_SLAB).stairs(MBBlocks.AZURITE_STAIRS).wall(MBBlocks.AZURITE_WALL)
+			.polished(MBBlocks.POLISHED_AZURITE).child(POLISHED_AZURITE).build();
 
 
     public static final MBBlockFamily CRACKED_STONE_TILES = register(MBBlocks.CRACKED_STONE_TILES)
@@ -436,6 +492,14 @@ public class MBBlockFamilies {
     public static final MBBlockFamily SMOOTH_DEEPSLATE = register(MBBlocks.SMOOTH_DEEPSLATE).slab(MBBlocks.SMOOTH_DEEPSLATE_SLAB)
             .stairs(MBBlocks.SMOOTH_DEEPSLATE_STAIRS).wall(MBBlocks.SMOOTH_DEEPSLATE_WALL).build();
     public static final MBBlockFamily DEEPSLATE_MB = register(Blocks.DEEPSLATE).child(C_DEEPSLATE_MB).child(BlockFamilies.COBBLED_DEEPSLATE).build();
+
+	public static final MBBlockFamily GILDED_BLACKSTONE_BRICKS = register(MBBlocks.GILDED_BLACKSTONE_BRICKS)
+			.slab(MBBlocks.GILDED_BLACKSTONE_BRICK_SLAB).stairs(MBBlocks.GILDED_BLACKSTONE_BRICK_STAIRS).wall(MBBlocks.GILDED_BLACKSTONE_BRICK_WALL).build();
+	public static final MBBlockFamily SMOOTH_BLACKSTONE = register(MBBlocks.SMOOTH_BLACKSTONE).slab(MBBlocks.SMOOTH_BLACKSTONE_SLAB)
+			.stairs(MBBlocks.SMOOTH_BLACKSTONE_STAIRS).wall(MBBlocks.SMOOTH_BLACKSTONE_WALL).build();
+	public static final MBBlockFamily POLISHED_BLACKSTONE_MB = register(Blocks.POLISHED_BLACKSTONE)
+			.slab(Blocks.POLISHED_BLACKSTONE_SLAB).chiseled(Blocks.CHISELED_POLISHED_BLACKSTONE)
+			.pillar(MBBlocks.BLACKSTONE_PILLAR).build();
 
     public static final MBBlockFamily CRACKED_PRISMARINE_TILES = register(MBBlocks.CRACKED_PRISMARINE_TILES)
             .slab(MBBlocks.CRACKED_PRISMARINE_TILE_SLAB).stairs(MBBlocks.CRACKED_PRISMARINE_TILE_STAIRS).wall(MBBlocks.CRACKED_PRISMARINE_TILE_WALL).build();

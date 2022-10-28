@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "moonbits:warped_mosaic"
+  },
+  "result": "moonbits:warped_mosaic_slab"
+}

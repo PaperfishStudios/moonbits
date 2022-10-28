@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moonbits:block/larimar_rod_top",
+    "side": "moonbits:block/larimar_rod"
+  }
+}

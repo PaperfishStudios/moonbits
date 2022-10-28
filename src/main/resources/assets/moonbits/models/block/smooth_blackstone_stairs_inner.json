@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "moonbits:block/smooth_blackstone",
+    "side": "moonbits:block/smooth_blackstone",
+    "top": "moonbits:block/smooth_blackstone"
+  }
+}

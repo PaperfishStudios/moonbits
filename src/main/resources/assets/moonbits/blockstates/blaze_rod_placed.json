@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "moonbits:block/blaze_rod"
+    },
+    "facing=east": {
+      "model": "moonbits:block/blaze_rod",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "moonbits:block/blaze_rod",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "moonbits:block/blaze_rod",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "moonbits:block/blaze_rod"
+    },
+    "facing=west": {
+      "model": "moonbits:block/blaze_rod",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

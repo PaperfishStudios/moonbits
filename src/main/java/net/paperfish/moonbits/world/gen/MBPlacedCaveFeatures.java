@@ -6,7 +6,6 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.*;
-import net.minecraft.world.gen.feature.OreConfiguredFeatures;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacementModifier;
 import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
@@ -32,9 +31,6 @@ public class MBPlacedCaveFeatures {
     public static final Holder<PlacedFeature> ORE_COBBLECHERT = MBPlacedFeatures.register("p_cobblechert",
             MBCaveFeatures.ORE_COBBLECHERT, commonOrePlacementModifiers(2, HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(60))));
 
-    public static final Holder<PlacedFeature> ORE_TILL = MBPlacedFeatures.register("p_till",
-            MBCaveFeatures.ORE_TILL, commonOrePlacementModifiers(2, HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
-
     // deposits
     public static final Holder<PlacedFeature> ORE_PEAT = MBPlacedFeatures.register("p_peat",
             MBCaveFeatures.ORE_PEAT, commonOrePlacementModifiers(32, HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
@@ -42,20 +38,16 @@ public class MBPlacedCaveFeatures {
             MBCaveFeatures.ORE_PEAT_HIGH, commonOrePlacementModifiers(36, HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
 	public static final Holder<PlacedFeature> ORE_FLINT_DEPOSIT = MBPlacedFeatures.register("p_flint",
 			MBCaveFeatures.ORE_FLINT_DEPOSIT, commonOrePlacementModifiers(48, HeightRangePlacementModifier.createUniform(YOffset.fixed(50), YOffset.fixed(128))));
-    public static final Holder<PlacedFeature> ORE_CLAY_DEPOSIT = MBPlacedFeatures.register("p_clay",
-            MBCaveFeatures.ORE_CLAY_DEPOSIT, commonOrePlacementModifiers(32, HeightRangePlacementModifier.createUniform(YOffset.fixed(55), YOffset.fixed(70))));
-    public static final Holder<PlacedFeature> ORE_CLAY_DEPOSIT_UPPER = MBPlacedFeatures.register("p_clay_upper",
-            MBCaveFeatures.ORE_CLAY_DEPOSIT, commonOrePlacementModifiers(26, HeightRangePlacementModifier.createUniform(YOffset.fixed(70), YOffset.fixed(128))));
-    public static final Holder<PlacedFeature> LUSH_CLAY_DEPOSIT = MBPlacedFeatures.register("p_lush_clay",
-            MBCaveFeatures.LUSH_CLAY_DEPOSIT, commonOrePlacementModifiers(34, HeightRangePlacementModifier.createUniform(YOffset.fixed(53), YOffset.fixed(78))));
-    public static final Holder<PlacedFeature> ORE_GOLD_DEPOSIT = MBPlacedFeatures.register("p_gold",
-            MBCaveFeatures.ORE_GOLD_DEPOSIT, commonOrePlacementModifiers(32, HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
-    public static final Holder<PlacedFeature> ORE_GOLD_DEPOSIT_HIGH = MBPlacedFeatures.register("p_gold_high",
-            MBCaveFeatures.ORE_GOLD_DEPOSIT, commonOrePlacementModifiers(34, HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
-    public static final Holder<PlacedFeature> ORE_COPPER_DEPOSIT = MBPlacedFeatures.register("p_copper",
-            MBCaveFeatures.ORE_COPPER_DEPOSIT, commonOrePlacementModifiers(32, HeightRangePlacementModifier.trapezoid(YOffset.fixed(0), YOffset.fixed(80))));
-    public static final Holder<PlacedFeature> ORE_TIN_DEPOSIT = MBPlacedFeatures.register("p_tin_dep",
-            MBCaveFeatures.ORE_TIN_DEPOSIT, commonOrePlacementModifiers(32, HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
+    public static final Holder<PlacedFeature> ORE_ROOTED_SOIL = MBPlacedFeatures.register("p_rooted",
+            MBCaveFeatures.ORE_ROOTED_SOIL, commonOrePlacementModifiers(32, HeightRangePlacementModifier.createUniform(YOffset.fixed(55), YOffset.fixed(70))));
+    public static final Holder<PlacedFeature> ORE_ROOTED_UPPER = MBPlacedFeatures.register("p_rooted_upper",
+            MBCaveFeatures.ORE_ROOTED_SOIL, commonOrePlacementModifiers(26, HeightRangePlacementModifier.createUniform(YOffset.fixed(70), YOffset.fixed(128))));
+    public static final Holder<PlacedFeature> LUSH_ROOTED_SOIL = MBPlacedFeatures.register("p_lush_rooted",
+            MBCaveFeatures.LUSH_ROOTED_SOIL, commonOrePlacementModifiers(34, HeightRangePlacementModifier.createUniform(YOffset.fixed(53), YOffset.fixed(78))));
+    public static final Holder<PlacedFeature> ORE_FUZZ = MBPlacedFeatures.register("p_fuzz",
+            MBCaveFeatures.ORE_MYCELIAL_DIRT, commonOrePlacementModifiers(32, HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
+    public static final Holder<PlacedFeature> ORE_FUZZ_HIGH = MBPlacedFeatures.register("p_fuzz_high",
+            MBCaveFeatures.ORE_MYCELIAL_DIRT, commonOrePlacementModifiers(34, HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(128))));
 
     // chert ores
     public static final Holder<PlacedFeature> CHERT_COAL_LOWER = MBPlacedFeatures.register(
@@ -110,13 +102,6 @@ public class MBPlacedCaveFeatures {
             RandomOffsetPlacementModifier.vertical(ConstantIntProvider.create(-1)));
     public static final Holder<PlacedFeature> CAVEBLOOMS = MBPlacedFeatures.register("p_caveblooms",
             MBCaveFeatures.CAVEBLOOMS, CountPlacementModifier.create(UniformIntProvider.create(32, 48)),
-			HeightRangePlacementModifier.createUniform(YOffset.fixed(45), YOffset.fixed(65)),
-            InSquarePlacementModifier.getInstance(),
-			SurfaceRelativeThresholdFilterPlacementModifier.create(Heightmap.Type.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13),
-			BiomePlacementModifier.getInstance());
-
-    public static final Holder<PlacedFeature> CLOVERS = MBPlacedFeatures.register("p_clover_d",
-            MBVegetationFeatures.CLOVER_PATCH, CountPlacementModifier.create(UniformIntProvider.create(16, 32)),
 			HeightRangePlacementModifier.createUniform(YOffset.fixed(45), YOffset.fixed(65)),
             InSquarePlacementModifier.getInstance(),
 			SurfaceRelativeThresholdFilterPlacementModifier.create(Heightmap.Type.OCEAN_FLOOR_WG, Integer.MIN_VALUE, -13),

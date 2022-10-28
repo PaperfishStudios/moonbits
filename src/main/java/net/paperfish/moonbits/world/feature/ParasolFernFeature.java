@@ -28,11 +28,11 @@ public class ParasolFernFeature extends HugeMushroomFeature {
 		pMutablePos.set(pMutablePos.offset(Direction.NORTH, 2));
 		pMutablePos.set(pMutablePos.offset(Direction.WEST, 2));
 		pMutablePos.set(pMutablePos.offset(Direction.DOWN));
-		this.setBlockState(pLevel, pMutablePos, MBBlocks.PARASOL_FERN_CROWN.getDefaultState());
+		this.setBlockState(pLevel, pMutablePos, pConfig.stemProvider.getBlockState(pRandom, pPos)); // crown block
 		for (Direction direction : Direction.Type.HORIZONTAL) {
 			BlockPos leafPos = pMutablePos.offset(direction);
 			if (!pLevel.getBlockState(leafPos).isOpaqueFullCube(pLevel, leafPos)) {
-				BlockState blockstate = MBBlocks.PARASOL_LEAF.getDefaultState().with(ParasolLeafBlock.FACING, direction);
+				BlockState blockstate = pConfig.capProvider.getBlockState(pRandom, pPos); // leaf block
 				this.setBlockState(pLevel, leafPos, blockstate);
 			}
 		}
