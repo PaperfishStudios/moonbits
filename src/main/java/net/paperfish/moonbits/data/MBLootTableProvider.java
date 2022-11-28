@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.BedPart;
 import net.minecraft.block.enums.DoubleBlockHalf;
+import net.minecraft.block.enums.SlabType;
 import net.minecraft.data.server.BlockLootTableGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
@@ -148,6 +149,11 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.BANDED_IRON, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.RAW_IRON));
         addDrop(MBBlocks.MAGNETITE_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.MAGNETITE));
         addDrop(MBBlocks.MAGNETITE_BLOCK);
+
+		addDrop(MBBlocks.COPPER_OXIDE_LANTERN);
+		addDrop(MBBlocks.COPPER_OXIDE_CAMPFIRE, block -> dropsWithSilkTouch(
+						block, addSurvivesExplosionCondition(block, ItemEntry.builder(MBItems.COPPER_OXIDE).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F))))
+				));
 
         addDrop(MBBlocks.PAVED_SANDSTONE_BRICKS);
         addDrop(MBBlocks.CRACKED_PAVED_SANDSTONE_BRICKS);
@@ -295,6 +301,8 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 //        addDrop(MBBlocks.FUR_CARPET);
         addDrop(MBBlocks.BEDROLL, (Block block) -> BlockLootTableGenerator.dropsWithProperty(block, BedBlock.PART, BedPart.HEAD));
 
+		addDrop(MBBlocks.BEAM, MBLootTableProvider::beamDrops);
+
 		addDrop(MBBlocks.CHISELED_PACKED_MUD);
 
         addDrop(MBBlocks.APPLE_CRATE);
@@ -408,4 +416,44 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
                                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f))))
                                 .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, LEAVES_STICK_DROP_CHANCE))));
     }
+
+	public static LootTable.Builder beamDrops(Block drop) {
+		return LootTable.builder()
+			.pool(
+				LootPool.builder()
+					.rolls(ConstantLootNumberProvider.create(1.0F))
+						.with(
+							ItemEntry.builder(drop)
+								.apply(
+									SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0F))
+										.conditionally(BlockStatePropertyLootCondition.builder(drop)
+										.properties(StatePredicate.Builder.create().exactMatch(BeamBlock.BOTTOM_STATE, BeamStates.X)))
+								)
+						)
+						.with(
+							ItemEntry.builder(drop)
+								.apply(
+									SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0F))
+										.conditionally(BlockStatePropertyLootCondition.builder(drop)
+										.properties(StatePredicate.Builder.create().exactMatch(BeamBlock.BOTTOM_STATE, BeamStates.Z)))
+								)
+						)
+						.with(
+							ItemEntry.builder(drop)
+								.apply(
+									SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0F))
+										.conditionally(BlockStatePropertyLootCondition.builder(drop)
+										.properties(StatePredicate.Builder.create().exactMatch(BeamBlock.TOP_STATE, BeamStates.X)))
+								)
+						)
+						.with(
+							ItemEntry.builder(drop)
+								.apply(
+									SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0F))
+										.conditionally(BlockStatePropertyLootCondition.builder(drop)
+										.properties(StatePredicate.Builder.create().exactMatch(BeamBlock.TOP_STATE, BeamStates.Z)))
+								)
+						)
+			);
+	}
 }

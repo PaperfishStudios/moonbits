@@ -187,6 +187,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.MUSHROOM_STEM, MBBlocks.MUSHROOM_HYPHAE,
 				MBBlocks.STRIPPED_MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_HYPHAE,
 
+				MBBlocks.BEAM,
+
                 MBBlocks.APPLE_CRATE,
                 MBBlocks.CARROT_CRATE,
                 MBBlocks.POTATO_CRATE,
@@ -243,6 +245,8 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 MBBlocks.TREE_TAP,
 				MBBlocks.SAP_TREE_TAP, MBBlocks.SYRUP_TREE_TAP, MBBlocks.RESIN_TREE_TAP,
+
+				MBBlocks.COPPER_OXIDE_LANTERN, MBBlocks.COPPER_OXIDE_CAMPFIRE,
 
                 MBBlocks.PAVED_SANDSTONE_BRICKS, MBBlocks.CRACKED_PAVED_SANDSTONE_BRICKS,
                 MBBlocks.PAVED_RED_SANDSTONE_BRICKS, MBBlocks.CRACKED_PAVED_RED_SANDSTONE_BRICKS,

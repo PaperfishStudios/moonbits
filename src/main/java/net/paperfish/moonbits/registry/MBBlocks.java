@@ -757,7 +757,8 @@ public class MBBlocks {
 
 	// METAL
 	// Todo: Copper Blocks (Door, Trapdoor, maybe do bars and that other tiled one?)
-
+	public static final Block COPPER_OXIDE_LANTERN = createWithItem("copper_oxide_lantern", new LanternBlock(AbstractBlock.Settings.copy(Blocks.LANTERN)));
+	public static final Block COPPER_OXIDE_CAMPFIRE = createWithItem("copper_oxide_campfire", new CampfireBlock(true, 1, AbstractBlock.Settings.copy(Blocks.CAMPFIRE)));
 
 	// SOIL
 	public static final Block PACKED_DIRT = createWithItem("packed_dirt", new Block(AbstractBlock.Settings.copy(Blocks.DIRT)));
@@ -972,6 +973,9 @@ public class MBBlocks {
 
 	// OTHER LAND STUFF
 	public static final Block PEBBLES = createWithItem("pebbles", new PebbleBlock(AbstractBlock.Settings.of(Material.STONE).noCollision().breakInstantly().sounds(BlockSoundGroup.TUFF)));
+
+	// MANUFACTURED?
+	public static final Block BEAM = createWithItem("beam", new BeamBlock(QuiltBlockSettings.of(Material.WOOD).strength(0.6f).sounds(BlockSoundGroup.WOOD)));
 
 	// STORAGE BLOCKS
 	public static final Block APPLE_CRATE = createWithItem("apple_crate", new Block(QuiltBlockSettings.of(Material.WOOD).strength(2.0F,3.0F).sounds(BlockSoundGroup.WOOD)));

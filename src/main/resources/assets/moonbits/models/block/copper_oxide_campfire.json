@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_campfire",
+  "textures": {
+    "fire": "moonbits:block/copper_oxide_campfire_fire",
+    "lit_log": "moonbits:block/copper_oxide_campfire_log_lit"
+  }
+}

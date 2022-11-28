@@ -1,0 +1,38 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "moonbits:block/beam_lower"
+      },
+      "when": {
+        "bottom": "x"
+      }
+    },
+    {
+      "apply": {
+        "model": "moonbits:block/beam_lower",
+        "y": 90
+      },
+      "when": {
+        "bottom": "z"
+      }
+    },
+    {
+      "apply": {
+        "model": "moonbits:block/beam_upper"
+      },
+      "when": {
+        "top": "x"
+      }
+    },
+    {
+      "apply": {
+        "model": "moonbits:block/beam_upper",
+        "y": 90
+      },
+      "when": {
+        "top": "z"
+      }
+    }
+  ]
+}

@@ -181,7 +181,22 @@ public class MBModelProvider extends FabricModelProvider {
 
 		generator.registerCarpet(MBBlocks.BEARD_MOSS_BLOCK, MBBlocks.BEARD_MOSS_CARPET);
 
+		generator.registerLantern(MBBlocks.COPPER_OXIDE_LANTERN);
+		generator.registerCampfire(MBBlocks.COPPER_OXIDE_CAMPFIRE);
 
+		generator.registerItemModel(MBBlocks.BEAM);
+		generator.blockStateCollector.accept(MultipartBlockStateSupplier.create(MBBlocks.BEAM)
+				.with(When.create().set(BeamBlock.BOTTOM_STATE, BeamStates.X), BlockStateVariant.create().put(
+						VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/beam_lower")))
+				.with(When.create().set(BeamBlock.BOTTOM_STATE, BeamStates.Z), BlockStateVariant.create().put(
+						VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/beam_lower"))
+						.put(VariantSettings.Y, VariantSettings.Rotation.R90))
+
+				.with(When.create().set(BeamBlock.TOP_STATE, BeamStates.X), BlockStateVariant.create().put(
+						VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/beam_upper")))
+				.with(When.create().set(BeamBlock.TOP_STATE, BeamStates.Z), BlockStateVariant.create().put(
+								VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/beam_upper"))
+						.put(VariantSettings.Y, VariantSettings.Rotation.R90)));
 
         pebbles(generator);
 

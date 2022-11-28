@@ -66,6 +66,8 @@ public class MoonbitsClient implements ClientModInitializer {
 
                 MBBlocks.TREE_TAP, MBBlocks.SYRUP_TREE_TAP, MBBlocks.SAP_TREE_TAP, MBBlocks.RESIN_TREE_TAP,
 
+				MBBlocks.COPPER_OXIDE_LANTERN, MBBlocks.COPPER_OXIDE_CAMPFIRE,
+
                 MBBlocks.WALL_LANTERN, MBBlocks.WALL_SOUL_LANTERN
         );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),

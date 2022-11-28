@@ -22,20 +22,20 @@ public class AbstractTreeTapBlock extends HorizontalFacingBlock {
 	public static final BooleanProperty ATTACHED = Properties.ATTACHED;
 
 	public static final VoxelShape NORTH = VoxelShapes.union(
-			Block.createCuboidShape(6, 10, 12, 10, 13, 16),
-			Block.createCuboidShape(5, 0, 7, 11, 8, 13)
+			Block.createCuboidShape(6, 10, 11, 10, 13, 16),
+			Block.createCuboidShape(5, 0, 5, 11, 8, 11)
 	);
 	public static final VoxelShape SOUTH = VoxelShapes.union(
-			Block.createCuboidShape(6, 10, 0, 10, 13, 4),
-			Block.createCuboidShape(5, 0, 3, 11, 8, 9)
+			Block.createCuboidShape(6, 10, 0, 10, 13, 5),
+			Block.createCuboidShape(5, 0, 5, 11, 8, 11)
 	);
 	public static final VoxelShape EAST = VoxelShapes.union(
-			Block.createCuboidShape(0, 10, 6, 4, 13, 10),
-			Block.createCuboidShape(3, 0, 5, 9, 8, 11)
+			Block.createCuboidShape(0, 10, 6, 5, 13, 10),
+			Block.createCuboidShape(5, 0, 5, 11, 8, 11)
 	);
 	public static final VoxelShape WEST = VoxelShapes.union(
-			Block.createCuboidShape(12, 10, 6, 16, 13, 10),
-			Block.createCuboidShape(7, 0, 5, 13, 8, 11)
+			Block.createCuboidShape(11, 10, 6, 16, 13, 10),
+			Block.createCuboidShape(5, 0, 5, 11, 8, 11)
 	);
 
 	protected AbstractTreeTapBlock(Settings settings) {

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "moonbits:block/copper_oxide_lantern"
+    },
+    "hanging=true": {
+      "model": "moonbits:block/copper_oxide_lantern_hanging"
+    }
+  }
+}

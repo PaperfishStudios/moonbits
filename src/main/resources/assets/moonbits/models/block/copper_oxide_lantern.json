@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_lantern",
+  "textures": {
+    "lantern": "moonbits:block/copper_oxide_lantern"
+  }
+}

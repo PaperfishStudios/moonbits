@@ -127,6 +127,7 @@ public class MBItems {
 	public static final Item LARIMAR = addItem("larimar", new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
 
 	public static final Item COPPER_NUGGET = addItem("copper_nugget", new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
+	public static final Item COPPER_OXIDE = addItem("copper_oxide", new CopperOxideItem(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
 
 	// Tools and Weapons
 	public static final Item FLINT_SWORD = addTool("flint_sword", new SwordItem(MBToolMaterials.FLINT, 3, -2.2F, new Item.Settings().group(ItemGroup.COMBAT)));

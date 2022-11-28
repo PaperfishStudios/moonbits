@@ -40,7 +40,7 @@ public class WallLanternBlock extends Block implements Waterloggable {
     );
     public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
             Block.createCuboidShape(8.0, 1.0, 5.0, 14.00, 8.0, 11.0),
-            Block.createCuboidShape(9.0, 8.0, 6.0, 13.0, 9.0, 10.0),
+            Block.createCuboidShape(9.0, 8.0, 6.0, 13.0, 10.0, 10.0),
             Block.createCuboidShape(0.0, 13.0, 7.0, 16.0, 15.0, 9.0)
     );
     public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
