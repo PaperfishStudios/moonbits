@@ -71,11 +71,6 @@ public class MBPlacedCaveFeatures {
     public static final Holder<PlacedFeature> CHERT_COPPER_LARGE = MBPlacedFeatures.register(
             "chert_copper_large", MBCaveFeatures.ORE_CHERT_COPPER_LARGE, commonOrePlacementModifiers(16, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-16), YOffset.fixed(112))));
 
-    public static final Holder<PlacedFeature> ORE_TIN = MBPlacedFeatures.register(
-            "ore_tin", MBCaveFeatures.ORE_TIN, commonOrePlacementModifiers(16, HeightRangePlacementModifier.trapezoid(YOffset.fixed(0), YOffset.fixed(128))));
-    public static final Holder<PlacedFeature> ORE_TIN_UPPER = MBPlacedFeatures.register(
-            "ore_tin_upper", MBCaveFeatures.ORE_TIN, commonOrePlacementModifiers(16, HeightRangePlacementModifier.createUniform(YOffset.fixed(80), YOffset.fixed(140))));
-
 
     // regolith floor
     public static final Holder<PlacedFeature> REGOLITH_FLOOR = MBPlacedFeatures.register("p_rg_floor",

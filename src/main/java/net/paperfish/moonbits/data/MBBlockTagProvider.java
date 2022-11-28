@@ -47,11 +47,6 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         MBBlockFamilies.CRIMSON_NYLIUM_TURF.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
         MBBlockFamilies.WARPED_NYLIUM_TURF.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE).add(block));
 
-        MBBlockFamilies.CUT_TIN.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
-        MBBlockFamilies.OXIDIZED_CUT_TIN.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
-        MBBlockFamilies.BLACKENED_CUT_TIN.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
-        MBBlockFamilies.PESTERED_CUT_TIN.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
-
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.CHERT);
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(MBBlocks.COBBLED_CHERT);
         MBBlockFamilies.CHERT.getVariants().forEach((variant, block) -> this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(block));
@@ -245,7 +240,6 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         );
         this.getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(
                 MBBlocks.REGOLITH,
-                MBBlocks.TIN_LADDER,
 
                 MBBlocks.TREE_TAP,
 				MBBlocks.SAP_TREE_TAP, MBBlocks.SYRUP_TREE_TAP, MBBlocks.RESIN_TREE_TAP,
@@ -254,20 +248,6 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.PAVED_RED_SANDSTONE_BRICKS, MBBlocks.CRACKED_PAVED_RED_SANDSTONE_BRICKS,
 
                 MBBlocks.PACKED_ICE_BRICKS, MBBlocks.BLUE_ICE_BRICKS,
-
-                MBBlocks.TIN_ORE,
-                MBBlocks.DEEPSLATE_TIN_ORE,
-                MBBlocks.CHERT_TIN_ORE,
-                MBBlocks.TIN_BLOCK,
-                MBBlocks.RAW_TIN_BLOCK,
-                MBBlocks.TIN_TRAPDOOR,
-				MBBlocks.OXIDIZED_TIN_TRAPDOOR,
-				MBBlocks.BLACKENED_TIN_TRAPDOOR,
-				MBBlocks.PESTERED_TIN_TRAPDOOR,
-				MBBlocks.WAXED_TIN_TRAPDOOR,
-				MBBlocks.WAXED_OXIDIZED_TIN_TRAPDOOR,
-				MBBlocks.WAXED_BLACKENED_TIN_TRAPDOOR,
-				MBBlocks.WAXED_PESTERED_TIN_TRAPDOOR,
 
                 MBBlocks.CHERT_COAL_ORE,
                 MBBlocks.CHERT_COPPER_ORE,
@@ -324,20 +304,6 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         );
 
         this.getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(
-                MBBlocks.TIN_ORE,
-                MBBlocks.DEEPSLATE_TIN_ORE,
-                MBBlocks.CHERT_TIN_ORE,
-                MBBlocks.TIN_BLOCK,
-                MBBlocks.RAW_TIN_BLOCK,
-                MBBlocks.TIN_TRAPDOOR,
-				MBBlocks.OXIDIZED_TIN_TRAPDOOR,
-				MBBlocks.BLACKENED_TIN_TRAPDOOR,
-				MBBlocks.PESTERED_TIN_TRAPDOOR,
-				MBBlocks.WAXED_TIN_TRAPDOOR,
-				MBBlocks.WAXED_OXIDIZED_TIN_TRAPDOOR,
-				MBBlocks.WAXED_BLACKENED_TIN_TRAPDOOR,
-				MBBlocks.WAXED_PESTERED_TIN_TRAPDOOR,
-
                 MBBlocks.CHERT_COAL_ORE,
                 MBBlocks.CHERT_COPPER_ORE,
                 MBBlocks.CHERT_GOLD_ORE,
@@ -369,8 +335,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         );
 
         this.getOrCreateTagBuilder(BlockTags.CLIMBABLE).add(
-                MBBlocks.ROPE_LADDER,
-                MBBlocks.TIN_LADDER
+                MBBlocks.ROPE_LADDER
         );
 
         this.getOrCreateTagBuilder(MBBlockTags.LAMPROOT_LOGS).add(
@@ -537,14 +502,6 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         );
         this.getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(
                 MBBlocks.MAGNETITE_BLOCK,
-                MBBlocks.TIN_BLOCK,
-				MBBlocks.OXIDIZED_TIN_BLOCK,
-				MBBlocks.BLACKENED_TIN_BLOCK,
-				MBBlocks.PESTERED_TIN_BLOCK,
-				MBBlocks.WAXED_TIN_BLOCK,
-				MBBlocks.WAXED_OXIDIZED_TIN_BLOCK,
-				MBBlocks.WAXED_BLACKENED_TIN_BLOCK,
-				MBBlocks.WAXED_PESTERED_TIN_BLOCK,
 
 				Blocks.COPPER_BLOCK,
 				Blocks.EXPOSED_COPPER,

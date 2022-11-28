@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "moonbits:block/oxidized_cut_tin",
-    "side": "moonbits:block/oxidized_cut_tin",
-    "top": "moonbits:block/oxidized_cut_tin"
-  }
-}

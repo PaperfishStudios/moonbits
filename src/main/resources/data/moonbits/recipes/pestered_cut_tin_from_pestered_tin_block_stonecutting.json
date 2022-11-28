@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 4,
-  "ingredient": {
-    "item": "moonbits:pestered_tin_block"
-  },
-  "result": "moonbits:pestered_cut_tin"
-}

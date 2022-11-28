@@ -213,15 +213,6 @@ public class MBBlockFamilies {
 	public static final MBBlockFamily ICE = register(Blocks.ICE)
 			.polished(Blocks.PACKED_ICE).build();
 
-    public static final MBBlockFamily CUT_TIN = register(MBBlocks.CUT_TIN)
-            .slab(MBBlocks.CUT_TIN_SLAB).stairs(MBBlocks.CUT_TIN_STAIRS).build();
-    public static final MBBlockFamily OXIDIZED_CUT_TIN = register(MBBlocks.OXIDIZED_CUT_TIN)
-            .slab(MBBlocks.OXIDIZED_CUT_TIN_SLAB).stairs(MBBlocks.OXIDIZED_CUT_TIN_STAIRS).build();
-    public static final MBBlockFamily BLACKENED_CUT_TIN = register(MBBlocks.BLACKENED_CUT_TIN)
-            .slab(MBBlocks.BLACKENED_CUT_TIN_SLAB).stairs(MBBlocks.BLACKENED_CUT_TIN_STAIRS).build();
-    public static final MBBlockFamily PESTERED_CUT_TIN = register(MBBlocks.PESTERED_CUT_TIN)
-            .slab(MBBlocks.PESTERED_CUT_TIN_SLAB).stairs(MBBlocks.PESTERED_CUT_TIN_STAIRS).build();
-
 
     public static final MBBlockFamily GRASS_TURF = register(MBBlocks.GRASS_TURF)
             .slab(MBBlocks.GRASS_TURF_SLAB).stairs(MBBlocks.GRASS_TURF_STAIRS)

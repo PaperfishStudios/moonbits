@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 4,
-  "ingredient": {
-    "item": "moonbits:oxidized_tin_block"
-  },
-  "result": "moonbits:oxidized_cut_tin"
-}

@@ -90,8 +90,9 @@ public class MBItemTagProvider extends FabricTagProvider.ItemTagProvider {
         copy(MBBlockTags.EDIBLE_MUSHROOMS, MBItemTags.EDIBLE_MUSHROOMS);
         copy(MBBlockTags.MUSHROOMS, MBItemTags.MUSHROOMS);
 
-        getOrCreateTagBuilder(MBItemTags.BEAR_LIKES).add(Items.SALMON, Items.SALMON_BUCKET, Items.HONEY_BOTTLE, Items.HONEYCOMB);
-        getOrCreateTagBuilder(MBItemTags.BEAR_EDIBLE).addTag(MBItemTags.BEAR_LIKES).add(Items.COOKED_SALMON, Items.COD, Items.COOKED_COD, Items.BEEF, Items.COOKED_BEEF);
+		getOrCreateTagBuilder(MBItemTags.BLOCK_PLACEMENT).add(
+				Items.SWEET_BERRIES, Items.GLOW_BERRIES
+		);
 
         // misc item stuffs
         getOrCreateTagBuilder(MBItemTags.MILK).add(Items.MILK_BUCKET, MBItems.MILK_BOTTLE);

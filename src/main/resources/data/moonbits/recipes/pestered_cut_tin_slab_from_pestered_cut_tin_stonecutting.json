@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "moonbits:pestered_cut_tin"
-  },
-  "result": "moonbits:pestered_cut_tin_slab"
-}

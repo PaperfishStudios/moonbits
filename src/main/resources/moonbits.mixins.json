@@ -6,6 +6,7 @@
   "mixins": [
     "AnimalEntityMixin",
     "BlockEntityTypeMixin",
+    "BlockItemMixin",
     "BoatDropsMixin",
     "BoatTypeMixin",
     "CarverMixin",

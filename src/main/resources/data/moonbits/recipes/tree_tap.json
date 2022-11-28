@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "I": {
-      "item": "moonbits:tin_ingot"
+      "item": "minecraft:copper_ingot"
     },
     "P": {
       "tag": "minecraft:planks"

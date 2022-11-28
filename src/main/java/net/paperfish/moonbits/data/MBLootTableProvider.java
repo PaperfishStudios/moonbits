@@ -62,7 +62,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         });
 
         addDrop(MBBlocks.ROPE_LADDER);
-        addDrop(MBBlocks.TIN_LADDER);
+
         addDrop(MBBlocks.KILN, BlockLootTableGenerator::nameableContainerDrops);
 
         addDrop(MBBlocks.WHITE_CUSHION);
@@ -122,30 +122,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 
 		addDrop(MBBlocks.FLINT_BLOCK);
 
-        addDrop(MBBlocks.TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
-        addDrop(MBBlocks.DEEPSLATE_TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
-        addDrop(MBBlocks.CHERT_TIN_ORE, (Block block) -> oreDrops(block, MBItems.RAW_TIN, 2, 4));
-        addDrop(MBBlocks.RAW_TIN_BLOCK);
-
-        addDrop(MBBlocks.TIN_BLOCK);
-        addDrop(MBBlocks.OXIDIZED_TIN_BLOCK);
-        addDrop(MBBlocks.BLACKENED_TIN_BLOCK);
-        addDrop(MBBlocks.PESTERED_TIN_BLOCK);
-        MBEvents.WAX_OFF.forEach((waxed, base) -> addDrop(waxed));
-
-		addDrop(MBBlocks.WAXED_TIN_DOOR, BlockLootTableGenerator::addDoorDrop);
-		addDrop(MBBlocks.WAXED_OXIDIZED_TIN_DOOR, BlockLootTableGenerator::addDoorDrop);
-		addDrop(MBBlocks.WAXED_BLACKENED_TIN_DOOR, BlockLootTableGenerator::addDoorDrop);
-		addDrop(MBBlocks.WAXED_PESTERED_TIN_DOOR, BlockLootTableGenerator::addDoorDrop);
-
-        addDrop(MBBlocks.TIN_TRAPDOOR);
-		addDrop(MBBlocks.OXIDIZED_TIN_TRAPDOOR);
-		addDrop(MBBlocks.BLACKENED_TIN_TRAPDOOR);
-		addDrop(MBBlocks.PESTERED_TIN_TRAPDOOR);
-		addDrop(MBBlocks.WAXED_TIN_TRAPDOOR);
-		addDrop(MBBlocks.WAXED_OXIDIZED_TIN_TRAPDOOR);
-		addDrop(MBBlocks.WAXED_BLACKENED_TIN_TRAPDOOR);
-		addDrop(MBBlocks.WAXED_PESTERED_TIN_TRAPDOOR);
+//        MBEvents.WAX_OFF.forEach((waxed, base) -> addDrop(waxed));
 
         addDrop(MBBlocks.PERMAFROST);
 

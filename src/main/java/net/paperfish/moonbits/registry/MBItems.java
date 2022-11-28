@@ -127,9 +127,6 @@ public class MBItems {
 	public static final Item LARIMAR = addItem("larimar", new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
 
 	public static final Item COPPER_NUGGET = addItem("copper_nugget", new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
-	public static final Item RAW_TIN = addItem("raw_tin", new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
-	public static final Item TIN_INGOT = addItem("tin_ingot", new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
-	public static final Item TIN_NUGGET = addItem("tin_nugget", new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
 
 	// Tools and Weapons
 	public static final Item FLINT_SWORD = addTool("flint_sword", new SwordItem(MBToolMaterials.FLINT, 3, -2.2F, new Item.Settings().group(ItemGroup.COMBAT)));

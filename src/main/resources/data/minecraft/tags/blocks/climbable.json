@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "moonbits:rope_ladder",
-    "moonbits:tin_ladder"
+    "moonbits:rope_ladder"
   ]
 }

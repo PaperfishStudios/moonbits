@@ -91,13 +91,7 @@ public class MBCaveFeatures {
             OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_COAL_ORE.getDefaultState()));
     public static final List<OreFeatureConfig.Target> CHERT_REDSTONE = List.of(
             OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_REDSTONE_ORE.getDefaultState()));
-    public static final List<OreFeatureConfig.Target> TIN_ORE_GEN = List.of(
-			OreFeatureConfig.createTarget(CHERT_REPLACE, MBBlocks.CHERT_TIN_ORE.getDefaultState()),
-            OreFeatureConfig.createTarget(BASE_STONE_OVERWORLD, MBBlocks.TIN_ORE.getDefaultState()),
-            OreFeatureConfig.createTarget(DEEPSLATE, MBBlocks.DEEPSLATE_TIN_ORE.getDefaultState()));
 
-    public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_TIN = MBConfiguredFeatures.register(
-            "ore_tin", Feature.ORE, new OreFeatureConfig(TIN_ORE_GEN, 12, 0.1f));
 
 //    public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_CHERT_COAL = MBConfiguredFeatures.register(
 //            "ore_chert_coal", Feature.ORE, new OreFeatureConfig(CHERT_COAL, 17, 0.1f));

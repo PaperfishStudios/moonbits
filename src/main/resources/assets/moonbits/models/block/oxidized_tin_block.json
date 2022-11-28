@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "moonbits:block/oxidized_tin_block"
-  }
-}

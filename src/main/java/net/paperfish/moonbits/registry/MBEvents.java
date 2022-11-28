@@ -3,6 +3,7 @@ package net.paperfish.moonbits.registry;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
@@ -12,10 +13,7 @@ import net.minecraft.block.*;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.passive.StriderEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
@@ -45,49 +43,49 @@ import org.spongepowered.include.com.google.common.collect.ImmutableMap;
 import java.util.Map;
 
 public class MBEvents {
-    public static final BiMap<Block, Block> WAXING = new ImmutableBiMap.Builder<Block, Block>()
-            .put(MBBlocks.TIN_BLOCK, MBBlocks.WAXED_TIN_BLOCK)
-            .put(MBBlocks.OXIDIZED_TIN_BLOCK, MBBlocks.WAXED_OXIDIZED_TIN_BLOCK)
-            .put(MBBlocks.BLACKENED_TIN_BLOCK, MBBlocks.WAXED_BLACKENED_TIN_BLOCK)
-            .put(MBBlocks.PESTERED_TIN_BLOCK, MBBlocks.WAXED_PESTERED_TIN_BLOCK)
-
-            .put(MBBlocks.CUT_TIN, MBBlocks.WAXED_CUT_TIN)
-            .put(MBBlocks.OXIDIZED_CUT_TIN, MBBlocks.WAXED_OXIDIZED_CUT_TIN)
-            .put(MBBlocks.BLACKENED_CUT_TIN, MBBlocks.WAXED_BLACKENED_CUT_TIN)
-            .put(MBBlocks.PESTERED_CUT_TIN, MBBlocks.WAXED_PESTERED_CUT_TIN)
-
-            .put(MBBlocks.CUT_TIN_SLAB, MBBlocks.WAXED_CUT_TIN_SLAB)
-            .put(MBBlocks.OXIDIZED_CUT_TIN_SLAB, MBBlocks.WAXED_OXIDIZED_CUT_TIN_SLAB)
-            .put(MBBlocks.BLACKENED_CUT_TIN_SLAB, MBBlocks.WAXED_BLACKENED_CUT_TIN_SLAB)
-            .put(MBBlocks.PESTERED_CUT_TIN_SLAB, MBBlocks.WAXED_PESTERED_CUT_TIN_SLAB)
-
-            .put(MBBlocks.CUT_TIN_STAIRS, MBBlocks.WAXED_CUT_TIN_STAIRS)
-            .put(MBBlocks.OXIDIZED_CUT_TIN_STAIRS, MBBlocks.WAXED_OXIDIZED_CUT_TIN_STAIRS)
-            .put(MBBlocks.BLACKENED_CUT_TIN_STAIRS, MBBlocks.WAXED_BLACKENED_CUT_TIN_STAIRS)
-            .put(MBBlocks.PESTERED_CUT_TIN_STAIRS, MBBlocks.WAXED_PESTERED_CUT_TIN_STAIRS)
-
-			.put(MBBlocks.TIN_TRAPDOOR, MBBlocks.WAXED_TIN_TRAPDOOR)
-			.put(MBBlocks.OXIDIZED_TIN_TRAPDOOR, MBBlocks.WAXED_OXIDIZED_TIN_TRAPDOOR)
-			.put(MBBlocks.BLACKENED_TIN_TRAPDOOR, MBBlocks.WAXED_BLACKENED_TIN_TRAPDOOR)
-			.put(MBBlocks.PESTERED_TIN_TRAPDOOR, MBBlocks.WAXED_PESTERED_TIN_TRAPDOOR)
-            .build();
-    public static final BiMap<Block, Block> WAX_OFF = WAXING.inverse();
-    public static final Map<Block, Block> SCRAPING = new ImmutableMap.Builder<Block, Block>()
-            .put(MBBlocks.OXIDIZED_TIN_BLOCK, MBBlocks.TIN_BLOCK)
-            .put(MBBlocks.BLACKENED_TIN_BLOCK, MBBlocks.TIN_BLOCK)
-
-            .put(MBBlocks.OXIDIZED_CUT_TIN, MBBlocks.CUT_TIN)
-            .put(MBBlocks.BLACKENED_CUT_TIN, MBBlocks.CUT_TIN)
-
-            .put(MBBlocks.OXIDIZED_CUT_TIN_SLAB, MBBlocks.CUT_TIN_SLAB)
-            .put(MBBlocks.BLACKENED_CUT_TIN_SLAB, MBBlocks.CUT_TIN_SLAB)
-
-            .put(MBBlocks.OXIDIZED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN_STAIRS)
-            .put(MBBlocks.BLACKENED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN_STAIRS)
-
-			.put(MBBlocks.OXIDIZED_TIN_TRAPDOOR, MBBlocks.TIN_TRAPDOOR)
-			.put(MBBlocks.BLACKENED_TIN_TRAPDOOR, MBBlocks.TIN_TRAPDOOR)
-            .build();
+//    public static final BiMap<Block, Block> WAXING = new ImmutableBiMap.Builder<Block, Block>()
+//            .put(MBBlocks.TIN_BLOCK, MBBlocks.WAXED_TIN_BLOCK)
+//            .put(MBBlocks.OXIDIZED_TIN_BLOCK, MBBlocks.WAXED_OXIDIZED_TIN_BLOCK)
+//            .put(MBBlocks.BLACKENED_TIN_BLOCK, MBBlocks.WAXED_BLACKENED_TIN_BLOCK)
+//            .put(MBBlocks.PESTERED_TIN_BLOCK, MBBlocks.WAXED_PESTERED_TIN_BLOCK)
+//
+//            .put(MBBlocks.CUT_TIN, MBBlocks.WAXED_CUT_TIN)
+//            .put(MBBlocks.OXIDIZED_CUT_TIN, MBBlocks.WAXED_OXIDIZED_CUT_TIN)
+//            .put(MBBlocks.BLACKENED_CUT_TIN, MBBlocks.WAXED_BLACKENED_CUT_TIN)
+//            .put(MBBlocks.PESTERED_CUT_TIN, MBBlocks.WAXED_PESTERED_CUT_TIN)
+//
+//            .put(MBBlocks.CUT_TIN_SLAB, MBBlocks.WAXED_CUT_TIN_SLAB)
+//            .put(MBBlocks.OXIDIZED_CUT_TIN_SLAB, MBBlocks.WAXED_OXIDIZED_CUT_TIN_SLAB)
+//            .put(MBBlocks.BLACKENED_CUT_TIN_SLAB, MBBlocks.WAXED_BLACKENED_CUT_TIN_SLAB)
+//            .put(MBBlocks.PESTERED_CUT_TIN_SLAB, MBBlocks.WAXED_PESTERED_CUT_TIN_SLAB)
+//
+//            .put(MBBlocks.CUT_TIN_STAIRS, MBBlocks.WAXED_CUT_TIN_STAIRS)
+//            .put(MBBlocks.OXIDIZED_CUT_TIN_STAIRS, MBBlocks.WAXED_OXIDIZED_CUT_TIN_STAIRS)
+//            .put(MBBlocks.BLACKENED_CUT_TIN_STAIRS, MBBlocks.WAXED_BLACKENED_CUT_TIN_STAIRS)
+//            .put(MBBlocks.PESTERED_CUT_TIN_STAIRS, MBBlocks.WAXED_PESTERED_CUT_TIN_STAIRS)
+//
+//			.put(MBBlocks.TIN_TRAPDOOR, MBBlocks.WAXED_TIN_TRAPDOOR)
+//			.put(MBBlocks.OXIDIZED_TIN_TRAPDOOR, MBBlocks.WAXED_OXIDIZED_TIN_TRAPDOOR)
+//			.put(MBBlocks.BLACKENED_TIN_TRAPDOOR, MBBlocks.WAXED_BLACKENED_TIN_TRAPDOOR)
+//			.put(MBBlocks.PESTERED_TIN_TRAPDOOR, MBBlocks.WAXED_PESTERED_TIN_TRAPDOOR)
+//            .build();
+//    public static final BiMap<Block, Block> WAX_OFF = WAXING.inverse();
+//    public static final Map<Block, Block> SCRAPING = new ImmutableMap.Builder<Block, Block>()
+//            .put(MBBlocks.OXIDIZED_TIN_BLOCK, MBBlocks.TIN_BLOCK)
+//            .put(MBBlocks.BLACKENED_TIN_BLOCK, MBBlocks.TIN_BLOCK)
+//
+//            .put(MBBlocks.OXIDIZED_CUT_TIN, MBBlocks.CUT_TIN)
+//            .put(MBBlocks.BLACKENED_CUT_TIN, MBBlocks.CUT_TIN)
+//
+//            .put(MBBlocks.OXIDIZED_CUT_TIN_SLAB, MBBlocks.CUT_TIN_SLAB)
+//            .put(MBBlocks.BLACKENED_CUT_TIN_SLAB, MBBlocks.CUT_TIN_SLAB)
+//
+//            .put(MBBlocks.OXIDIZED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN_STAIRS)
+//            .put(MBBlocks.BLACKENED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN_STAIRS)
+//
+//			.put(MBBlocks.OXIDIZED_TIN_TRAPDOOR, MBBlocks.TIN_TRAPDOOR)
+//			.put(MBBlocks.BLACKENED_TIN_TRAPDOOR, MBBlocks.TIN_TRAPDOOR)
+//            .build();
 
     // maps for blocks that grow into other blocks (eg hardy berry leaves and barrel cacti)
     public static BiMap<Block, Block> GROWING = new ImmutableBiMap.Builder<Block, Block>()
@@ -222,54 +220,56 @@ public class MBEvents {
                 return ActionResult.SUCCESS;
             }
 
-            if (heldItem.isOf(Items.HONEYCOMB)) {
-                if (WAXING.containsKey(targetBlock.getBlock())) {
+			// TODO: waxing code is here!!
 
-                    if (player instanceof ServerPlayerEntity) {
-                        Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)player, targetPos, heldItem);
-                    }
-                    if (!player.isCreative()) heldItem.decrement(1);
-
-                    BlockState waxed = WAXING.get(targetBlock.getBlock()).getStateWithProperties(targetBlock);
-                    world.setBlockState(targetPos, waxed, Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
-                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Context.create(player, waxed));
-                    world.syncWorldEvent(player, WorldEvents.BLOCK_WAXED, targetPos, 0);
-                    return ActionResult.success(world.isClient);
-                }
-            }
-            if (heldItem.isIn(ConventionalItemTags.AXES)) {
-                boolean success = false;
-                if (WAX_OFF.containsKey(targetBlock.getBlock())) {
-                    world.playSound(player, targetPos, SoundEvents.ITEM_AXE_WAX_OFF, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    world.syncWorldEvent(player, WorldEvents.WAX_REMOVED, targetPos, 0);
-
-                    if (player instanceof ServerPlayerEntity) {
-                        Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)player, targetPos, heldItem);
-                    }
-
-                    BlockState unwaxed = WAX_OFF.get(targetBlock.getBlock()).getStateWithProperties(targetBlock);
-                    world.setBlockState(targetPos, unwaxed, Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
-                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Context.create(player, unwaxed));
-                    success = true;
-                }
-                if (SCRAPING.containsKey(targetBlock.getBlock())) {
-                    world.playSound(player, targetPos, SoundEvents.ITEM_AXE_SCRAPE, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    world.syncWorldEvent(player, WorldEvents.BLOCK_SCRAPED, targetPos, 0);
-
-                    if (player instanceof ServerPlayerEntity) {
-                        Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)player, targetPos, heldItem);
-                    }
-
-                    BlockState unwaxed = SCRAPING.get(targetBlock.getBlock()).getStateWithProperties(targetBlock);
-                    world.setBlockState(targetPos, unwaxed, Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
-                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Context.create(player, unwaxed));
-                    success = true;
-                }
-                if (success) {
-                    if (!player.isCreative()) heldItem.damage(1, player, p -> p.sendToolBreakStatus(hand));
-                    return ActionResult.success(world.isClient);
-                }
-            }
+//            if (heldItem.isOf(Items.HONEYCOMB)) {
+//                if (WAXING.containsKey(targetBlock.getBlock())) {
+//
+//                    if (player instanceof ServerPlayerEntity) {
+//                        Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)player, targetPos, heldItem);
+//                    }
+//                    if (!player.isCreative()) heldItem.decrement(1);
+//
+//                    BlockState waxed = WAXING.get(targetBlock.getBlock()).getStateWithProperties(targetBlock);
+//                    world.setBlockState(targetPos, waxed, Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
+//                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Context.create(player, waxed));
+//                    world.syncWorldEvent(player, WorldEvents.BLOCK_WAXED, targetPos, 0);
+//                    return ActionResult.success(world.isClient);
+//                }
+//            }
+//            if (heldItem.isIn(ConventionalItemTags.AXES)) {
+//                boolean success = false;
+//                if (WAX_OFF.containsKey(targetBlock.getBlock())) {
+//                    world.playSound(player, targetPos, SoundEvents.ITEM_AXE_WAX_OFF, SoundCategory.BLOCKS, 1.0f, 1.0f);
+//                    world.syncWorldEvent(player, WorldEvents.WAX_REMOVED, targetPos, 0);
+//
+//                    if (player instanceof ServerPlayerEntity) {
+//                        Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)player, targetPos, heldItem);
+//                    }
+//
+//                    BlockState unwaxed = WAX_OFF.get(targetBlock.getBlock()).getStateWithProperties(targetBlock);
+//                    world.setBlockState(targetPos, unwaxed, Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
+//                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Context.create(player, unwaxed));
+//                    success = true;
+//                }
+//                if (SCRAPING.containsKey(targetBlock.getBlock())) {
+//                    world.playSound(player, targetPos, SoundEvents.ITEM_AXE_SCRAPE, SoundCategory.BLOCKS, 1.0f, 1.0f);
+//                    world.syncWorldEvent(player, WorldEvents.BLOCK_SCRAPED, targetPos, 0);
+//
+//                    if (player instanceof ServerPlayerEntity) {
+//                        Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)player, targetPos, heldItem);
+//                    }
+//
+//                    BlockState unwaxed = SCRAPING.get(targetBlock.getBlock()).getStateWithProperties(targetBlock);
+//                    world.setBlockState(targetPos, unwaxed, Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
+//                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, targetPos, GameEvent.Context.create(player, unwaxed));
+//                    success = true;
+//                }
+//                if (success) {
+//                    if (!player.isCreative()) heldItem.damage(1, player, p -> p.sendToolBreakStatus(hand));
+//                    return ActionResult.success(world.isClient);
+//                }
+//            }
             if (heldItem.isOf(Items.SHEARS)) {
                 boolean success = false;
                 if (targetBlock.isOf(Blocks.GRASS_BLOCK)) {
@@ -322,9 +322,22 @@ public class MBEvents {
                 }
             }
 
+			if (heldItem.isOf(MBItems.SWEET_BERRY_PITS)) {
+				return ((BlockItem)Items.SWEET_BERRIES).place(new ItemPlacementContext(new ItemUsageContext(player, hand, hitResult)));
+			}
+			if (heldItem.isOf(MBItems.GLOW_BERRY_PITS)) {
+				return ((BlockItem)Items.GLOW_BERRIES).place(new ItemPlacementContext(new ItemUsageContext(player, hand, hitResult)));
+			}
+
             // pass if nothing happened
             return ActionResult.PASS;
         });
+
+		PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, entity) -> {
+			if (state.getBlock() instanceof CropBlock && player.getMainHandStack().isIn(ConventionalItemTags.HOES)) {
+				world.setBlockState(pos, ((CropBlock) state.getBlock()).withAge(0));
+			}
+		});
 
         // events where u right click an entity go here!!
         UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {

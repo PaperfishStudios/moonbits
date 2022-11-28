@@ -701,7 +701,6 @@ public class MBBlocks {
 
 	public static final Block CHERT_COAL_ORE = createWithItem("chert_coal_ore", new ExperienceDroppingBlock(AbstractBlock.Settings.copy(Blocks.COAL_ORE), UniformIntProvider.create(0, 2)));
 	public static final Block CHERT_COPPER_ORE = createWithItem("chert_copper_ore", new ExperienceDroppingBlock(AbstractBlock.Settings.copy(Blocks.COPPER_ORE)));
-	public static final Block CHERT_TIN_ORE = createWithItem("chert_tin_ore", new ExperienceDroppingBlock(AbstractBlock.Settings.copy(Blocks.COPPER_ORE)));
 	public static final Block CHERT_GOLD_ORE = createWithItem("chert_gold_ore", new ExperienceDroppingBlock(AbstractBlock.Settings.copy(Blocks.GOLD_ORE)));
 	public static final Block CHERT_DIAMOND_ORE = createWithItem("chert_diamond_ore", new ExperienceDroppingBlock(AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE), UniformIntProvider.create(3, 7)));
 	public static final Block CHERT_REDSTONE_ORE = createWithItem("chert_redstone_ore", new RedstoneOreBlock(AbstractBlock.Settings.copy(Blocks.REDSTONE_ORE)));
@@ -758,88 +757,6 @@ public class MBBlocks {
 
 	// METAL
 	// Todo: Copper Blocks (Door, Trapdoor, maybe do bars and that other tiled one?)
-	// TIN
-	public static final Block TIN_ORE = createWithItem("tin_ore", new ExperienceDroppingBlock(QuiltBlockSettings.copy(Blocks.COPPER_ORE)));
-	public static final Block DEEPSLATE_TIN_ORE = createWithItem("deepslate_tin_ore", new ExperienceDroppingBlock(QuiltBlockSettings.copy(Blocks.DEEPSLATE_COPPER_ORE)));
-
-	public static final Block RAW_TIN_BLOCK = createWithItem("raw_tin_block", new Block(QuiltBlockSettings.copy(Blocks.RAW_COPPER_BLOCK)));
-
-	public static final Block PESTERED_TIN_BLOCK = createWithItem("pestered_tin_block", new Block(QuiltBlockSettings.copy(Blocks.TUFF)));
-	public static final Block PESTERED_CUT_TIN = createWithItem("pestered_cut_tin", new Block(QuiltBlockSettings.copy(Blocks.TUFF)));
-	public static final Block PESTERED_CUT_TIN_STAIRS = createWithItem("pestered_cut_tin_stairs",
-			new MBStairsBlock(PESTERED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.TUFF)));
-	public static final Block PESTERED_CUT_TIN_SLAB = createWithItem("pestered_cut_tin_slab", new SlabBlock(QuiltBlockSettings.copy(Blocks.TUFF)));
-
-	public static final Block PESTERED_TIN_TRAPDOOR = createWithItem("pestered_tin_trapdoor",
-			new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).sounds(BlockSoundGroup.TUFF).nonOpaque()));
-
-	public static final Block BLACKENED_TIN_BLOCK = createWithItem("blackened_tin_block", new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE)));
-	public static final Block BLACKENED_CUT_TIN = createWithItem("blackened_cut_tin", new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE)));
-	public static final Block BLACKENED_CUT_TIN_STAIRS = createWithItem("blackened_cut_tin_stairs",
-			new MBStairsBlock(BLACKENED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE)));
-	public static final Block BLACKENED_CUT_TIN_SLAB = createWithItem("blackened_cut_tin_slab",
-			new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE)));
-	public static final Block BLACKENED_TIN_TRAPDOOR = createWithItem("blackened_tin_trapdoor",
-			new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
-
-
-	public static final Block OXIDIZED_TIN_BLOCK = createWithItem("oxidized_tin_block", new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block OXIDIZED_CUT_TIN = createWithItem("oxidized_cut_tin", new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block OXIDIZED_CUT_TIN_STAIRS = createWithItem("oxidized_cut_tin_stairs",
-			new MBStairsBlock(OXIDIZED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block OXIDIZED_CUT_TIN_SLAB = createWithItem("oxidized_cut_tin_slab", new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-
-	public static final Block OXIDIZED_TIN_TRAPDOOR = createWithItem("oxidized_tin_trapdoor",
-			new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).sounds(BlockSoundGroup.COPPER).nonOpaque()));
-
-	public static final Block TIN_BLOCK = createWithItem("tin_block", new DimWeatheringBlock(OXIDIZED_TIN_BLOCK, BLACKENED_TIN_BLOCK, PESTERED_TIN_BLOCK, QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block CUT_TIN = createWithItem("cut_tin", new DimWeatheringBlock(OXIDIZED_CUT_TIN, BLACKENED_CUT_TIN, PESTERED_CUT_TIN,
-			QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block CUT_TIN_STAIRS = createWithItem("cut_tin_stairs", new DimWeatheringStairsBlock(OXIDIZED_CUT_TIN_STAIRS, BLACKENED_CUT_TIN_STAIRS, PESTERED_CUT_TIN_STAIRS,
-			CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(CUT_TIN)));
-	public static final Block CUT_TIN_SLAB = createWithItem("cut_tin_slab", new DimWeatheringSlabBlock(OXIDIZED_CUT_TIN_SLAB, BLACKENED_CUT_TIN_SLAB, PESTERED_CUT_TIN_SLAB,
-			QuiltBlockSettings.copy(CUT_TIN)));
-	// TODO: Tin Doors
-	public static final Block TIN_TRAPDOOR = createWithItem("tin_trapdoor", new DimWeatheringTrapdoorBlock(OXIDIZED_TIN_TRAPDOOR, BLACKENED_TIN_TRAPDOOR, PESTERED_TIN_TRAPDOOR,
-			QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).sounds(BlockSoundGroup.COPPER).nonOpaque()));
-
-	// WAXED TIN
-	public static final Block WAXED_PESTERED_TIN_BLOCK = createWithItem("waxed_pestered_tin_block", new Block(QuiltBlockSettings.copy(Blocks.TUFF)));
-	public static final Block WAXED_PESTERED_CUT_TIN = createWithItem("waxed_pestered_cut_tin", new Block(QuiltBlockSettings.copy(Blocks.TUFF)));
-	public static final Block WAXED_PESTERED_CUT_TIN_STAIRS = createWithItem("waxed_pestered_cut_tin_stairs",
-			new MBStairsBlock(WAXED_PESTERED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.TUFF)));
-	public static final Block WAXED_PESTERED_CUT_TIN_SLAB = createWithItem("waxed_pestered_cut_tin_slab", new SlabBlock(QuiltBlockSettings.copy(Blocks.TUFF)));
-	public static final Block WAXED_PESTERED_TIN_DOOR = createWithItem("waxed_pestered_tin_door", new MBDoorBlock(QuiltBlockSettings.copy(Blocks.IRON_DOOR).sounds(BlockSoundGroup.TUFF).nonOpaque()));
-	public static final Block WAXED_PESTERED_TIN_TRAPDOOR = createWithItem("waxed_pestered_tin_trapdoor",
-			new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).sounds(BlockSoundGroup.TUFF).nonOpaque()));
-
-	public static final Block WAXED_BLACKENED_TIN_BLOCK = createWithItem("waxed_blackened_tin_block", new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE)));
-	public static final Block WAXED_BLACKENED_CUT_TIN = createWithItem("waxed_blackened_cut_tin", new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE)));
-	public static final Block WAXED_BLACKENED_CUT_TIN_STAIRS = createWithItem("waxed_blackened_cut_tin_stairs",
-			new MBStairsBlock(WAXED_BLACKENED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE)));
-	public static final Block WAXED_BLACKENED_CUT_TIN_SLAB = createWithItem("waxed_blackened_cut_tin_slab",
-			new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.NETHERITE)));
-	public static final Block WAXED_BLACKENED_TIN_DOOR = createWithItem("waxed_blackened_tin_door",
-			new MBDoorBlock(QuiltBlockSettings.copy(Blocks.IRON_DOOR).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
-	public static final Block WAXED_BLACKENED_TIN_TRAPDOOR = createWithItem("waxed_blackened_tin_trapdoor",
-			new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
-
-	public static final Block WAXED_OXIDIZED_TIN_BLOCK = createWithItem("waxed_oxidized_tin_block", new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block WAXED_OXIDIZED_CUT_TIN = createWithItem("waxed_oxidized_cut_tin", new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block WAXED_OXIDIZED_CUT_TIN_STAIRS = createWithItem("waxed_oxidized_cut_tin_stairs",
-			new MBStairsBlock(WAXED_OXIDIZED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block WAXED_OXIDIZED_CUT_TIN_SLAB = createWithItem("waxed_oxidized_cut_tin_slab", new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block WAXED_OXIDIZED_TIN_DOOR = createWithItem("waxed_oxidized_tin_door", new MBDoorBlock(QuiltBlockSettings.copy(Blocks.IRON_DOOR).sounds(BlockSoundGroup.COPPER).nonOpaque()));
-	public static final Block WAXED_OXIDIZED_TIN_TRAPDOOR = createWithItem("waxed_oxidized_tin_trapdoor",
-			new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).sounds(BlockSoundGroup.COPPER).nonOpaque()));
-
-	public static final Block WAXED_TIN_BLOCK = createWithItem("waxed_tin_block", new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block WAXED_CUT_TIN = createWithItem("waxed_cut_tin", new Block(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block WAXED_CUT_TIN_STAIRS = createWithItem("waxed_cut_tin_stairs", new MBStairsBlock(WAXED_CUT_TIN.getDefaultState(), QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block WAXED_CUT_TIN_SLAB = createWithItem("waxed_cut_tin_slab", new SlabBlock(QuiltBlockSettings.copy(Blocks.COPPER_BLOCK)));
-	public static final Block WAXED_TIN_DOOR = createWithItem("waxed_tin_door", new MBDoorBlock(QuiltBlockSettings.copy(Blocks.IRON_DOOR).sounds(BlockSoundGroup.COPPER).nonOpaque()));
-	public static final Block WAXED_TIN_TRAPDOOR = createWithItem("waxed_tin_trapdoor",
-			new MBTrapdoorBlock(QuiltBlockSettings.copy(Blocks.IRON_TRAPDOOR).sounds(BlockSoundGroup.COPPER).nonOpaque()));
 
 
 	// SOIL
@@ -1114,8 +1031,6 @@ public class MBBlocks {
 	// FUNCTIONAL BLOCKS
 	public static final Block ROPE_LADDER = createWithItem("rope_ladder",
 			new RopeLadderBlock(AbstractBlock.Settings.of(Material.DECORATION).strength(0.4F).sounds(BlockSoundGroup.LADDER).nonOpaque()));
-	public static final Block TIN_LADDER = createWithItem("tin_ladder",
-			new IronLadderBlock(AbstractBlock.Settings.of(Material.DECORATION).strength(1.0F).sounds(BlockSoundGroup.LADDER).nonOpaque()));
 
 	public static final Block WALL_LANTERN = registerBlock("wall_lantern",
 			new WallLanternBlock(AbstractBlock.Settings.of(Material.METAL).requiresTool().strength(3.5f).sounds(BlockSoundGroup.LANTERN)

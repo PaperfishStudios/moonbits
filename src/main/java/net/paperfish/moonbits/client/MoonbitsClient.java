@@ -35,7 +35,7 @@ public class MoonbitsClient implements ClientModInitializer {
     public void onInitializeClient(ModContainer container) {
         // cutout
 		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
-                MBBlocks.ROPE_LADDER, MBBlocks.TIN_LADDER,
+                MBBlocks.ROPE_LADDER,
 
                 MBBlocks.SOURSOBS, MBBlocks.POTTED_SOURSOBS,
 

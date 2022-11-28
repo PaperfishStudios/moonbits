@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_top_rh",
-  "textures": {
-    "top": "moonbits:block/tin_door_top",
-    "bottom": "moonbits:block/tin_door_bottom"
-  }
-}

@@ -16,8 +16,6 @@ import net.paperfish.moonbits.registry.MBBiomeTags;
 public class BiomeAdditions {
     public static void registerFeatures() {
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_REGOLITH.getKey().get());
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_TIN.getKey().get());
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, MBPlacedCaveFeatures.ORE_TIN_UPPER.getKey().get());
 
         BiomeModifications.create(new Identifier(Moonbits.MODID,"moonbits_deposits"))
                 .add(ModificationPhase.ADDITIONS, BiomeSelectors.isIn(MBBiomeTags.HAS_DIRT_CAVES), (c) -> {

@@ -107,8 +107,7 @@ public class MBModelProvider extends FabricModelProvider {
         // utility blocks :>
         generator.registerNorthDefaultHorizontalRotation(MBBlocks.ROPE_LADDER);
         generator.registerItemModel(MBBlocks.ROPE_LADDER);
-        generator.registerNorthDefaultHorizontalRotation(MBBlocks.TIN_LADDER);
-        generator.registerItemModel(MBBlocks.TIN_LADDER);
+
         generator.registerCooker(MBBlocks.KILN, TexturedModel.ORIENTABLE_WITH_BOTTOM);
         generator.registerParentedItemModel(MBBlocks.KILN, new Identifier(Moonbits.MODID, "block/kiln"));
 
@@ -182,52 +181,7 @@ public class MBModelProvider extends FabricModelProvider {
 
 		generator.registerCarpet(MBBlocks.BEARD_MOSS_BLOCK, MBBlocks.BEARD_MOSS_CARPET);
 
-        generator.registerSimpleCubeAll(MBBlocks.TIN_ORE);
-        generator.registerSimpleCubeAll(MBBlocks.DEEPSLATE_TIN_ORE);
-        generator.registerSimpleCubeAll(MBBlocks.CHERT_TIN_ORE);
-        generator.registerSimpleCubeAll(MBBlocks.RAW_TIN_BLOCK);
 
-        generator.registerSimpleCubeAll(MBBlocks.TIN_BLOCK);
-        generator.registerSimpleCubeAll(MBBlocks.OXIDIZED_TIN_BLOCK);
-        generator.registerSimpleCubeAll(MBBlocks.BLACKENED_TIN_BLOCK);
-        generator.registerSimpleCubeAll(MBBlocks.PESTERED_TIN_BLOCK);
-        generator.registerInfested(MBBlocks.TIN_BLOCK, MBBlocks.WAXED_TIN_BLOCK);
-        generator.registerInfested(MBBlocks.OXIDIZED_TIN_BLOCK, MBBlocks.WAXED_OXIDIZED_TIN_BLOCK);
-        generator.registerInfested(MBBlocks.BLACKENED_TIN_BLOCK, MBBlocks.WAXED_BLACKENED_TIN_BLOCK);
-        generator.registerInfested(MBBlocks.PESTERED_TIN_BLOCK, MBBlocks.WAXED_PESTERED_TIN_BLOCK);
-
-        generator.registerInfested(MBBlocks.CUT_TIN, MBBlocks.WAXED_CUT_TIN);
-        generator.registerInfested(MBBlocks.OXIDIZED_CUT_TIN, MBBlocks.WAXED_OXIDIZED_CUT_TIN);
-        generator.registerInfested(MBBlocks.BLACKENED_CUT_TIN, MBBlocks.WAXED_BLACKENED_CUT_TIN);
-        generator.registerInfested(MBBlocks.PESTERED_CUT_TIN, MBBlocks.WAXED_PESTERED_CUT_TIN);
-
-        stairs(MBBlocks.WAXED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN, generator);
-        stairs(MBBlocks.WAXED_OXIDIZED_CUT_TIN_STAIRS, MBBlocks.OXIDIZED_CUT_TIN, generator);
-        stairs(MBBlocks.WAXED_BLACKENED_CUT_TIN_STAIRS, MBBlocks.BLACKENED_CUT_TIN, generator);
-        stairs(MBBlocks.WAXED_PESTERED_CUT_TIN_STAIRS, MBBlocks.PESTERED_CUT_TIN, generator);
-
-        slab(MBBlocks.WAXED_CUT_TIN_SLAB, MBBlocks.CUT_TIN, generator);
-        slab(MBBlocks.WAXED_OXIDIZED_CUT_TIN_SLAB, MBBlocks.OXIDIZED_CUT_TIN, generator);
-        slab(MBBlocks.WAXED_BLACKENED_CUT_TIN_SLAB, MBBlocks.BLACKENED_CUT_TIN, generator);
-        slab(MBBlocks.WAXED_PESTERED_CUT_TIN_SLAB, MBBlocks.PESTERED_CUT_TIN, generator);
-
-		generator.registerDoor(MBBlocks.WAXED_TIN_DOOR);
-		generator.registerDoor(MBBlocks.WAXED_OXIDIZED_TIN_DOOR);
-		generator.registerDoor(MBBlocks.WAXED_BLACKENED_TIN_DOOR);
-		generator.registerDoor(MBBlocks.WAXED_PESTERED_TIN_DOOR);
-
-        generator.registerOrientableTrapdoor(MBBlocks.TIN_TRAPDOOR);
-		generator.registerOrientableTrapdoor(MBBlocks.OXIDIZED_TIN_TRAPDOOR);
-		generator.registerOrientableTrapdoor(MBBlocks.BLACKENED_TIN_TRAPDOOR);
-		generator.registerOrientableTrapdoor(MBBlocks.PESTERED_TIN_TRAPDOOR);
-		waxedOrientableTrapdoor(MBBlocks.WAXED_TIN_TRAPDOOR, MBBlocks.TIN_TRAPDOOR, generator);
-		waxedOrientableTrapdoor(MBBlocks.WAXED_OXIDIZED_TIN_TRAPDOOR, MBBlocks.OXIDIZED_TIN_TRAPDOOR, generator);
-		waxedOrientableTrapdoor(MBBlocks.WAXED_BLACKENED_TIN_TRAPDOOR, MBBlocks.BLACKENED_TIN_TRAPDOOR, generator);
-		waxedOrientableTrapdoor(MBBlocks.WAXED_PESTERED_TIN_TRAPDOOR, MBBlocks.PESTERED_TIN_TRAPDOOR, generator);
-
-
-//        generator.registerSimpleCubeAll(MBBlocks.SNOW_BRICKS);
-//        generator.registerSimpleCubeAll(MBBlocks.PACKED_ICE_BRICKS);
 
         pebbles(generator);
 

@@ -173,17 +173,6 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         STORAGE.put(MBItems.PEAT, MBBlocks.PEAT_BLOCK);
         STORAGE.put(MBItems.COPPER_NUGGET, Items.COPPER_INGOT);
 
-        STORAGE.put(MBItems.RAW_TIN, MBBlocks.RAW_TIN_BLOCK);
-        STORAGE.put(MBItems.TIN_NUGGET, MBItems.TIN_INGOT);
-        STORAGE.put(MBItems.TIN_INGOT, MBBlocks.TIN_BLOCK);
-
-        BLASTING.put(MBItems.RAW_TIN, MBItems.TIN_INGOT);
-
-        BLASTING.put(MBBlocks.PESTERED_TIN_BLOCK, MBBlocks.TIN_BLOCK);
-        BLASTING.put(MBBlocks.PESTERED_CUT_TIN, MBBlocks.CUT_TIN);
-        BLASTING.put(MBBlocks.PESTERED_CUT_TIN_SLAB, MBBlocks.CUT_TIN_SLAB);
-        BLASTING.put(MBBlocks.PESTERED_CUT_TIN_STAIRS, MBBlocks.CUT_TIN_STAIRS);
-
         FIRING.put(MBBlocks.COBBLED_ANDESITE, Blocks.ANDESITE);
         FIRING.put(MBBlocks.COBBLED_DIORITE, Blocks.DIORITE);
         FIRING.put(MBBlocks.COBBLED_GRANITE, Blocks.GRANITE);
@@ -227,20 +216,12 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         FIRING.forEach((in, out) -> firing(exporter, in, out, 0.1f, DEFAULT_FIRE_TIME));
         FIRING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
 
-        MBEvents.WAXING.forEach((input, output) -> ShapelessRecipeJsonFactory.create(output)
-                .input(input).input(Items.HONEYCOMB)
-                .group(RecipesProvider.getItemPath(output))
-                .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
-                .offerTo(exporter, RecipesProvider.convertBetween(output, Items.HONEYCOMB)));
-
-        slabRecipe(exporter, MBBlocks.WAXED_CUT_TIN, MBBlocks.WAXED_CUT_TIN_SLAB);
-        slabRecipe(exporter, MBBlocks.WAXED_OXIDIZED_CUT_TIN, MBBlocks.WAXED_OXIDIZED_CUT_TIN_SLAB);
-        slabRecipe(exporter, MBBlocks.WAXED_BLACKENED_CUT_TIN, MBBlocks.WAXED_BLACKENED_CUT_TIN_SLAB);
-        slabRecipe(exporter, MBBlocks.WAXED_PESTERED_CUT_TIN, MBBlocks.WAXED_PESTERED_CUT_TIN_SLAB);
-        stairsRecipe(exporter, MBBlocks.WAXED_CUT_TIN, MBBlocks.WAXED_CUT_TIN_STAIRS);
-        stairsRecipe(exporter, MBBlocks.WAXED_OXIDIZED_CUT_TIN, MBBlocks.WAXED_OXIDIZED_CUT_TIN_STAIRS);
-        stairsRecipe(exporter, MBBlocks.WAXED_BLACKENED_CUT_TIN, MBBlocks.WAXED_BLACKENED_CUT_TIN_STAIRS);
-        stairsRecipe(exporter, MBBlocks.WAXED_PESTERED_CUT_TIN, MBBlocks.WAXED_PESTERED_CUT_TIN_STAIRS);
+		// TODO: Waxing recipes r here!
+//        MBEvents.WAXING.forEach((input, output) -> ShapelessRecipeJsonFactory.create(output)
+//                .input(input).input(Items.HONEYCOMB)
+//                .group(RecipesProvider.getItemPath(output))
+//                .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
+//                .offerTo(exporter, RecipesProvider.convertBetween(output, Items.HONEYCOMB)));
 
 
         firing(exporter, Items.CLAY_BALL, Items.BRICK, 0.3f, DEFAULT_FIRE_TIME);
@@ -404,12 +385,6 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         woodStonecut(exporter, ItemTags.PLANKS, Items.BOWL, 4, "planks");
 
 
-        ShapedRecipeJsonFactory.create(MBBlocks.TIN_TRAPDOOR, 1)
-                .input('#', MBItems.TIN_INGOT)
-                .pattern("##")
-                .criterion(RecipesProvider.hasItem(MBItems.TIN_INGOT), RecipesProvider.conditionsFromItem(MBItems.TIN_INGOT)).offerTo(exporter);
-
-
         RecipesProvider.offerBarkBlockRecipe(exporter, MBBlocks.LAMPROOT_WOOD, MBBlocks.LAMPROOT_LOG);
         RecipesProvider.offerBarkBlockRecipe(exporter, MBBlocks.STRIPPED_LAMPROOT_WOOD, MBBlocks.STRIPPED_LAMPROOT_LOG);
         RecipesProvider.offerBarkBlockRecipe(exporter, MBBlocks.CEDAR_WOOD, MBBlocks.CEDAR_LOG);
@@ -448,23 +423,6 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .pattern("#").pattern("#")
                 .criterion(RecipesProvider.hasItem(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS), RecipesProvider.conditionsFromItem(MBBlocks.CRACKED_RED_SANDSTONE_BRICKS)).offerTo(exporter);
 
-        ShapedRecipeJsonFactory.create(MBBlocks.CUT_TIN, 16).input('S', MBBlocks.TIN_BLOCK).pattern("SS").pattern("SS")
-                .criterion(RecipesProvider.hasItem(MBBlocks.TIN_BLOCK), RecipesProvider.conditionsFromItem(MBBlocks.TIN_BLOCK))
-                .offerTo(exporter);
-        RecipesProvider.offerStonecuttingRecipe(exporter, MBBlocks.CUT_TIN, MBBlocks.TIN_BLOCK, 4);
-		ShapedRecipeJsonFactory.create(MBBlocks.OXIDIZED_CUT_TIN, 16).input('S', MBBlocks.OXIDIZED_TIN_BLOCK).pattern("SS").pattern("SS")
-				.criterion(RecipesProvider.hasItem(MBBlocks.OXIDIZED_TIN_BLOCK), RecipesProvider.conditionsFromItem(MBBlocks.OXIDIZED_TIN_BLOCK))
-				.offerTo(exporter);
-		RecipesProvider.offerStonecuttingRecipe(exporter, MBBlocks.OXIDIZED_CUT_TIN, MBBlocks.OXIDIZED_TIN_BLOCK, 4);
-		ShapedRecipeJsonFactory.create(MBBlocks.BLACKENED_CUT_TIN, 16).input('S', MBBlocks.BLACKENED_TIN_BLOCK).pattern("SS").pattern("SS")
-				.criterion(RecipesProvider.hasItem(MBBlocks.BLACKENED_TIN_BLOCK), RecipesProvider.conditionsFromItem(MBBlocks.BLACKENED_TIN_BLOCK))
-				.offerTo(exporter);
-		RecipesProvider.offerStonecuttingRecipe(exporter, MBBlocks.BLACKENED_CUT_TIN, MBBlocks.BLACKENED_TIN_BLOCK, 4);
-		ShapedRecipeJsonFactory.create(MBBlocks.PESTERED_CUT_TIN, 16).input('S', MBBlocks.PESTERED_TIN_BLOCK).pattern("SS").pattern("SS")
-				.criterion(RecipesProvider.hasItem(MBBlocks.PESTERED_TIN_BLOCK), RecipesProvider.conditionsFromItem(MBBlocks.PESTERED_TIN_BLOCK))
-				.offerTo(exporter);
-		RecipesProvider.offerStonecuttingRecipe(exporter, MBBlocks.PESTERED_CUT_TIN, MBBlocks.PESTERED_TIN_BLOCK, 4);
-
 		RecipesProvider.offerStonecuttingRecipe(exporter, MBBlocks.CHISELED_PACKED_MUD, Blocks.PACKED_MUD);
 
         ShapedRecipeJsonFactory.create(Items.TORCH, 2)
@@ -477,17 +435,13 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .input(MBItems.ITEM_HOOK).input(Items.GLOW_INK_SAC)
                 .criterion(RecipesProvider.hasItem(Items.GLOW_INK_SAC), RecipesProvider.conditionsFromItem(Items.GLOW_INK_SAC)).offerTo(exporter);
         ShapedRecipeJsonFactory.create(MBItems.WRENCH)
-                .input('C', MBItems.TIN_INGOT).input('S', Items.STICK)
+                .input('C', Items.COPPER_INGOT).input('S', Items.STICK)
                 .pattern(" C ").pattern(" SC").pattern("S  ")
-                .criterion(RecipesProvider.hasItem(MBItems.TIN_INGOT), RecipesProvider.conditionsFromItem(MBItems.TIN_INGOT)).offerTo(exporter);
+                .criterion(RecipesProvider.hasItem(Items.COPPER_INGOT), RecipesProvider.conditionsFromItem(Items.COPPER_INGOT)).offerTo(exporter);
         ShapedRecipeJsonFactory.create(MBBlocks.ROPE_LADDER, 3)
                 .input('#', MBItems.FIBER).input('S', Items.STICK)
                 .pattern("# #").pattern("SSS").pattern("# #")
                 .criterion(RecipesProvider.hasItem(MBItems.FIBER), RecipesProvider.conditionsFromItem(MBItems.FIBER)).offerTo(exporter);
-        ShapedRecipeJsonFactory.create(MBBlocks.TIN_LADDER, 3)
-                .input('i', MBItems.TIN_NUGGET)
-                .pattern("i i").pattern("iii").pattern("i i")
-                .criterion(RecipesProvider.hasItem(MBItems.TIN_NUGGET), RecipesProvider.conditionsFromItem(MBItems.TIN_NUGGET)).offerTo(exporter);
 
         ShapedRecipeJsonFactory.create(MBBlocks.BEDROLL)
                 .input('F', MBItems.MONSTER_HIDE).input('L', Items.LEATHER).m_hadhiznl('W', ItemTags.WOOL)
@@ -507,9 +461,9 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 //                .criterion(RecipesProvider.hasItem(Items.LEATHER), RecipesProvider.conditionsFromItem(Items.LEATHER)).offerTo(exporter);
 
         ShapedRecipeJsonFactory.create(MBBlocks.TREE_TAP)
-                .input('I', MBItems.TIN_INGOT).input('S', Items.STICK).m_hadhiznl('P', ItemTags.PLANKS)
+                .input('I', Items.COPPER_INGOT).input('S', Items.STICK).m_hadhiznl('P', ItemTags.PLANKS)
                 .pattern("I I").pattern("SPS")
-                .criterion(RecipesProvider.hasItem(MBItems.TIN_INGOT), RecipesProvider.conditionsFromItem(MBItems.TIN_INGOT)).offerTo(exporter);
+                .criterion(RecipesProvider.hasItem(Items.COPPER_INGOT), RecipesProvider.conditionsFromItem(Items.COPPER_INGOT)).offerTo(exporter);
 
         ShapedRecipeJsonFactory.create(MBBlocks.SYRUP_BLOCK)
                 .input('#', MBItems.SYRUP_BOTTLE)
