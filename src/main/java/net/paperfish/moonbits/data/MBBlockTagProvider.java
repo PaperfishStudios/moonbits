@@ -478,8 +478,18 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.MYCELIUM_TURF,
                 MBBlocks.MYCELIUM_TURF_STAIRS,
                 MBBlocks.MYCELIUM_TURF_SLAB,
+				MBBlocks.PACKED_DIRT,
+				MBBlocks.PACKED_DIRT_STAIRS,
+				MBBlocks.PACKED_DIRT_SLAB,
                 MBBlocks.DIRT_BRICKS,
+				MBBlocks.DIRT_BRICK_STAIRS,
+				MBBlocks.DIRT_BRICK_SLAB,
                 MBBlocks.PERMAFROST,
+				MBBlocks.PERMAFROST_STAIRS,
+				MBBlocks.PERMAFROST_SLAB,
+				MBBlocks.PERMAFROST_BRICKS,
+				MBBlocks.PERMAFROST_BRICK_STAIRS,
+				MBBlocks.PERMAFROST_BRICK_SLAB,
                 MBBlocks.PEAT_MOSS,
                 MBBlocks.PEAT_BLOCK,
                 MBBlocks.PEAT_BRICKS
@@ -491,6 +501,9 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 //				MBBlocks.CRACKED_MUD
 //        );
         this.getOrCreateTagBuilder(MBBlockTags.TOUGH_DIRT).add(
+				MBBlocks.PACKED_DIRT,
+				MBBlocks.PACKED_DIRT_STAIRS,
+				MBBlocks.PACKED_DIRT_SLAB,
                 MBBlocks.REGOLITH
         );
         this.getOrCreateTagBuilder(BlockTags.BASE_STONE_OVERWORLD).add(

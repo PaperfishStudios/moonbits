@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_fiber": {
+    "has_ice_chunk": {
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:fiber"
+              "moonbits:ice_chunk"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moonbits:rope_ladder"
+        "recipe": "minecraft:ice_from_ice_chunk"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_fiber",
+      "has_ice_chunk",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "moonbits:rope_ladder"
+      "minecraft:ice_from_ice_chunk"
     ]
   }
 }

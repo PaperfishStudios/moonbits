@@ -317,10 +317,10 @@ public class MBModelProvider extends FabricModelProvider {
         generator.registerSingleton(MBBlocks.SWEET_BERRY_BASKET, CUBE_BOTTOM_TOP);
         generator.registerSingleton(MBBlocks.GLOW_BERRY_BASKET, CUBE_BOTTOM_TOP);
 
-        generator.registerSingleton(MBItems.SWEET_BERRY_PITS, TexturedModel.PARTICLE);
-        generator.excludeFromSimpleItemModelGeneration(MBItems.SWEET_BERRY_PITS);
-        generator.registerSingleton(MBItems.GLOW_BERRY_PITS, TexturedModel.PARTICLE);
-        generator.excludeFromSimpleItemModelGeneration(MBItems.GLOW_BERRY_PITS);
+//        generator.registerSingleton(MBItems.SWEET_BERRY_PITS, TexturedModel.PARTICLE);
+//        generator.excludeFromSimpleItemModelGeneration(MBItems.SWEET_BERRY_PITS);
+//        generator.registerSingleton(MBItems.GLOW_BERRY_PITS, TexturedModel.PARTICLE);
+//        generator.excludeFromSimpleItemModelGeneration(MBItems.GLOW_BERRY_PITS);
 
         generator.registerAxisRotated(MBBlocks.SUGAR_CANE_BUNDLE, CUBE_COLUMN);
         generator.registerAxisRotated(MBBlocks.BAMBOO_BUNDLE, CUBE_COLUMN);
@@ -372,9 +372,6 @@ public class MBModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator generator) {
-        generator.register(MBItems.SWEET_BERRY_PITS.asItem(), Models.GENERATED);
-        generator.register(MBItems.GLOW_BERRY_PITS.asItem(), Models.GENERATED);
-
         for (Item mbItem : MBItems.MB_ITEMS) {
             generator.register(mbItem, Models.GENERATED);
         }

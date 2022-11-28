@@ -103,7 +103,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         // 2x2 recipes w/ output of one
         COMPACT.put(MBBlocks.PEBBLES, Blocks.COBBLESTONE);
         COMPACT.put(MBItems.PEAT, MBBlocks.PEAT_MOSS);
-        COMPACT.put(MBItems.ICE_CUBES, Blocks.ICE);
+        COMPACT.put(MBItems.ICE_CHUNK, Blocks.ICE);
 
         COMPACT.put(MBItems.GRASS_TUFT, MBBlocks.GRASS_TURF);
 //        COMPACT.put(MBBlocks.MYCELIUM_ROOTS, MBBlocks.MYCELIUM_TURF);
@@ -481,9 +481,9 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .pattern(" C ").pattern(" SC").pattern("S  ")
                 .criterion(RecipesProvider.hasItem(MBItems.TIN_INGOT), RecipesProvider.conditionsFromItem(MBItems.TIN_INGOT)).offerTo(exporter);
         ShapedRecipeJsonFactory.create(MBBlocks.ROPE_LADDER, 3)
-                .input('#', MBItems.PARASOL_FIBER).input('S', Items.STICK)
+                .input('#', MBItems.FIBER).input('S', Items.STICK)
                 .pattern("# #").pattern("SSS").pattern("# #")
-                .criterion(RecipesProvider.hasItem(MBItems.PARASOL_FIBER), RecipesProvider.conditionsFromItem(MBItems.PARASOL_FIBER)).offerTo(exporter);
+                .criterion(RecipesProvider.hasItem(MBItems.FIBER), RecipesProvider.conditionsFromItem(MBItems.FIBER)).offerTo(exporter);
         ShapedRecipeJsonFactory.create(MBBlocks.TIN_LADDER, 3)
                 .input('i', MBItems.TIN_NUGGET)
                 .pattern("i i").pattern("iii").pattern("i i")
@@ -871,9 +871,9 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 				.offerTo(exporter);
 	}
 	public static void desertPlanter(Consumer<RecipeJsonProvider> exporter, ItemConvertible input, ItemConvertible output) {
-		ShapedRecipeJsonFactory.create(output).input('#', input).input('P', MBItems.PARASOL_FIBER).m_hadhiznl('S', MBItemTags.SANDY_SOILS)
+		ShapedRecipeJsonFactory.create(output).input('#', input).input('P', MBItems.FIBER).m_hadhiznl('S', MBItemTags.SANDY_SOILS)
 				.pattern("#S#").pattern("#P#").pattern("###")
-				.criterion(RecipesProvider.hasItem(MBItems.PARASOL_FIBER), RecipesProvider.conditionsFromItem(MBItems.PARASOL_FIBER)).group("desertPlanter")
+				.criterion(RecipesProvider.hasItem(MBItems.FIBER), RecipesProvider.conditionsFromItem(MBItems.FIBER)).group("desertPlanter")
 				.offerTo(exporter);
 	}
 

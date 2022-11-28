@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_fiber": {
+    "has_sweet_berries": {
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:fiber"
+              "minecraft:sweet_berries"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moonbits:rope_ladder"
+        "recipe": "minecraft:sweet_berry_pits_from_sweet_berries"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_fiber",
+      "has_sweet_berries",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "moonbits:rope_ladder"
+      "minecraft:sweet_berry_pits_from_sweet_berries"
     ]
   }
 }

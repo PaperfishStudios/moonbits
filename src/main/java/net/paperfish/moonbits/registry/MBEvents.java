@@ -1,13 +1,10 @@
 package net.paperfish.moonbits.registry;
 
-import com.google.common.base.Supplier;
-import com.google.common.base.Suppliers;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
-import net.fabricmc.fabric.api.loot.v2.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.advancement.criterion.Criteria;
@@ -35,7 +32,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.event.GameEvent;
 import net.paperfish.moonbits.Moonbits;
@@ -46,7 +42,6 @@ import net.paperfish.moonbits.recipe.WashingHandler;
 
 import org.spongepowered.include.com.google.common.collect.ImmutableMap;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class MBEvents {
@@ -121,7 +116,7 @@ public class MBEvents {
 
 	public static final Map<Identifier, Item> GLASS_SHARD_LOOT = new ImmutableMap.Builder<Identifier, Item>()
 			.put(Blocks.GLASS.getLootTableId(), MBItems.GLASS_SHARD)
-			.put(Blocks.ICE.getLootTableId(), MBItems.ICE_CUBES)
+			.put(Blocks.ICE.getLootTableId(), MBItems.ICE_CHUNK)
 			.put(Blocks.WHITE_STAINED_GLASS.getLootTableId(), MBItems.WHITE_GLASS_SHARD)
 			.put(Blocks.LIGHT_GRAY_STAINED_GLASS.getLootTableId(), MBItems.LIGHT_GRAY_GLASS_SHARD)
 			.put(Blocks.GRAY_STAINED_GLASS.getLootTableId(), MBItems.GRAY_GLASS_SHARD)

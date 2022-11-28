@@ -52,7 +52,7 @@ public class HardyLeavesBlock extends LeavesBlock {
         else if (!state.get(PERSISTENT) && progress == Progress.FRUITING) {
             Block plucked = revertToBase(state);
             if (plucked != null) {
-                HardyLeavesBlock.dropStack(world, pos, new ItemStack(MBItems.HARDY_BERRY, world.random.nextInt(3)+1));
+//                HardyLeavesBlock.dropStack(world, pos, new ItemStack(MBItems.HARDY_BERRY, world.random.nextInt(3)+1));
                 world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
                 BlockState blockState = plucked.getStateWithProperties(state);
                 world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);

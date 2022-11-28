@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_fiber": {
+    "has_glow_berries": {
       "conditions": {
         "items": [
           {
             "items": [
-              "moonbits:fiber"
+              "minecraft:glow_berries"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moonbits:rope_ladder"
+        "recipe": "minecraft:glow_berry_pits_from_glow_berries"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_fiber",
+      "has_glow_berries",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "moonbits:rope_ladder"
+      "minecraft:glow_berry_pits_from_glow_berries"
     ]
   }
 }

@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
+    "moonbits:packed_dirt",
+    "moonbits:packed_dirt_stairs",
+    "moonbits:packed_dirt_slab",
     "moonbits:regolith"
   ]
 }

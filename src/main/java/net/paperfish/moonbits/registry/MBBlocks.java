@@ -723,7 +723,8 @@ public class MBBlocks {
 	public static final Block POLISHED_JASPER_SLAB = createWithItem("polished_jasper_slab", new SlabBlock(AbstractBlock.Settings.copy(JASPER)));
 	public static final Block POLISHED_JASPER_WALL = createWithItem("polished_jasper_wall", new WallBlock(AbstractBlock.Settings.copy(JASPER)));
 
-	public static final Block HELIODOR_ROD = createWithItem("heliodor_rod", new PillarBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.YELLOW)));
+	public static final Block HELIODOR_ROD = createWithItem("heliodor_rod",
+			new PillarBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.YELLOW).nonOpaque()));
 
 	// CLAYSTONE
 	public static final Block CLAYSTONE = createWithItem("claystone", new Block(AbstractBlock.Settings.copy(Blocks.CALCITE)));
@@ -750,7 +751,8 @@ public class MBBlocks {
 	public static final Block POLISHED_AZURITE_SLAB = createWithItem("polished_azurite_slab", new SlabBlock(AbstractBlock.Settings.copy(POLISHED_AZURITE)));
 	public static final Block POLISHED_AZURITE_WALL = createWithItem("polished_azurite_wall", new WallBlock(AbstractBlock.Settings.copy(POLISHED_AZURITE)));
 
-	public static final Block LARIMAR_ROD = createWithItem("larimar_rod", new PillarBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.DIAMOND_BLUE)));
+	public static final Block LARIMAR_ROD = createWithItem("larimar_rod",
+			new PillarBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.DIAMOND_BLUE).nonOpaque()));
 
 	// TODO: Boost ore, whatever that's called
 
@@ -936,7 +938,7 @@ public class MBBlocks {
 	public static final Block SMOOTH_FLINT = createWithItem("smooth_flint", new Block(AbstractBlock.Settings.copy(FLINT_BLOCK)));
 	public static final Block SMOOTH_FLINT_STAIRS = createWithItem("smooth_flint_stairs", new MBStairsBlock(SMOOTH_FLINT.getDefaultState(), AbstractBlock.Settings.copy(SMOOTH_FLINT)));
 	public static final Block SMOOTH_FLINT_SLAB = createWithItem("smooth_flint_slab", new SlabBlock(AbstractBlock.Settings.copy(SMOOTH_FLINT)));
-	public static final Block FLINT_PILLAR = createWithItem("flint_pillar", new Block(AbstractBlock.Settings.copy(SMOOTH_FLINT)));
+	public static final Block FLINT_PILLAR = createWithItem("flint_pillar", new PillarBlock(AbstractBlock.Settings.copy(SMOOTH_FLINT)));
 
 	public static final Block PEAT_BLOCK = createWithItem("peat_block", new Block(AbstractBlock.Settings.copy(Blocks.DIRT)));
 	public static final Block PEAT_BRICKS = createWithItem("peat_bricks", new Block(AbstractBlock.Settings.copy(PEAT_BLOCK)));
@@ -1124,7 +1126,7 @@ public class MBBlocks {
 
 	public static final Block BEDROLL = createWithItem("bedroll", new BedrollBlock(DyeColor.BROWN,
 			AbstractBlock.Settings.of(Material.WOOL, MapColor.BROWN).strength(0.2F).sounds(BlockSoundGroup.WOOL).nonOpaque()));
-	// TODO: Bedroll item in MBItems
+	// TODO: Bedroll item in MBItems..?
 
 	// SEATS
 	public static final Block WHITE_CUSHION = createWithItem("white_cushion", new SeatBlock(AbstractBlock.Settings.copy(Blocks.WHITE_BED).strength(1.2f).mapColor(MapColor.WHITE).nonOpaque()));

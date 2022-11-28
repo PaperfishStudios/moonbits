@@ -145,7 +145,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "moonbits:parasol_fiber",
+          "name": "moonbits:fiber",
           "weight": 10
         },
         {

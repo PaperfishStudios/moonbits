@@ -2,11 +2,11 @@
   "variants": {
     "facing=east,part=foot": {
       "model": "moonbits:block/bedroll_foot",
-      "y": 270
+      "y": 90
     },
     "facing=east,part=head": {
       "model": "moonbits:block/bedroll_head",
-      "y": 270
+      "y": 90
     },
     "facing=north,part=foot": {
       "model": "moonbits:block/bedroll_foot"
@@ -24,11 +24,11 @@
     },
     "facing=west,part=foot": {
       "model": "moonbits:block/bedroll_foot",
-      "y": 90
+      "y": 270
     },
     "facing=west,part=head": {
       "model": "moonbits:block/bedroll_head",
-      "y": 90
+      "y": 270
     }
   }
 }
