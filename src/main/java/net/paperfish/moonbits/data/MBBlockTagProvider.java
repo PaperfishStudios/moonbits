@@ -253,14 +253,10 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 MBBlocks.PACKED_ICE_BRICKS, MBBlocks.BLUE_ICE_BRICKS,
 
-                MBBlocks.CHERT_COAL_ORE,
-                MBBlocks.CHERT_COPPER_ORE,
-                MBBlocks.CHERT_GOLD_ORE,
-                MBBlocks.CHERT_LAPIS_ORE,
-                MBBlocks.CHERT_REDSTONE_ORE,
+                MBBlocks.CHERT_COAL_ORE, MBBlocks.CHERT_COPPER_ORE, MBBlocks.CHERT_GOLD_ORE,
+                MBBlocks.CHERT_LAPIS_ORE, MBBlocks.CHERT_REDSTONE_ORE,
 				MBBlocks.CHERT_DIAMOND_ORE,
-                MBBlocks.BANDED_IRON,
-                MBBlocks.MAGNETITE_ORE,
+                MBBlocks.BANDED_IRON, MBBlocks.MAGNETITE_ORE,
                 MBBlocks.MAGNETITE_BLOCK,
 
 				MBBlocks.DESERT_VASE,
@@ -268,10 +264,12 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 MBBlocks.PACKED_GLOWSTONE,
 
-                Blocks.PISTON,
-                Blocks.STICKY_PISTON,
+				MBBlocks.WALL_LANTERN, MBBlocks.WALL_SOUL_LANTERN, MBBlocks.WALL_COPPER_OXIDE_LANTERN,
+
+                Blocks.PISTON, Blocks.STICKY_PISTON,
                 Blocks.GLOWSTONE,
-                Blocks.GLASS,
+
+				Blocks.GLASS,
                 Blocks.WHITE_STAINED_GLASS,
                 Blocks.LIGHT_GRAY_STAINED_GLASS,
                 Blocks.GRAY_STAINED_GLASS,
@@ -288,6 +286,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 Blocks.LIGHT_BLUE_STAINED_GLASS,
                 Blocks.CYAN_STAINED_GLASS,
                 Blocks.BLUE_STAINED_GLASS,
+
                 Blocks.GLASS_PANE,
                 Blocks.WHITE_STAINED_GLASS_PANE,
                 Blocks.LIGHT_GRAY_STAINED_GLASS_PANE,

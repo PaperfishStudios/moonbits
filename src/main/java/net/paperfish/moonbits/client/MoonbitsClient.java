@@ -68,7 +68,7 @@ public class MoonbitsClient implements ClientModInitializer {
 
 				MBBlocks.COPPER_OXIDE_LANTERN, MBBlocks.COPPER_OXIDE_CAMPFIRE,
 
-                MBBlocks.WALL_LANTERN, MBBlocks.WALL_SOUL_LANTERN
+                MBBlocks.WALL_LANTERN, MBBlocks.WALL_SOUL_LANTERN, MBBlocks.WALL_COPPER_OXIDE_LANTERN
         );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),
                 MBBlocks.SYRUP_BLOCK,

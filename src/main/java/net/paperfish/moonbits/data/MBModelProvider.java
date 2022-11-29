@@ -30,26 +30,9 @@ import java.util.*;
 import java.util.function.Function;
 
 public class MBModelProvider extends FabricModelProvider {
-
-    public static final Model WALL_PLANT = blockFromVanilla("glow_lichen", TextureKey.ALL);
-
     public static final Model PALISADE_POST = block("palisade/palisade_post", "_post", TextureKey.SIDE, TextureKey.END);
     public static final Model PALISADE_SIDE = block("palisade/palisade_side", "_side", TextureKey.SIDE, TextureKey.END);
     public static final Model PALISADE_INVENTORY = block("palisade/palisade_inventory", "_inventory", TextureKey.SIDE, TextureKey.END);
-
-    public static final Model BARS_CAP = block("bars/bars_cap", "_cap", TextureKey.SIDE, TextureKey.END);
-    public static final Model BARS_CAP_ALT = block("bars/bars_cap_alt", "_cap_alt", TextureKey.SIDE, TextureKey.END);
-    public static final Model BARS_POST = block("bars/bars_post", "_post", TextureKey.SIDE, TextureKey.END);
-    public static final Model BARS_POST_ENDS = block("bars/bars_post_ends", "_post_ends", TextureKey.SIDE, TextureKey.END);
-    public static final Model BARS_SIDE = block("bars/bars_side", "_side", TextureKey.SIDE, TextureKey.END);
-    public static final Model BARS_SIDE_ALT = block("bars/bars_side_alt", "_side_alt", TextureKey.SIDE, TextureKey.END);
-
-    public static final Model T_HONEY_CAULDRON_1 = block("cauldron/t_honey_cauldron_level1",
-            TextureKey.CONTENT, TextureKey.INSIDE, TextureKey.PARTICLE, TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE);
-    public static final Model T_HONEY_CAULDRON_2 = block("cauldron/t_honey_cauldron_level2",
-            TextureKey.CONTENT, TextureKey.INSIDE, TextureKey.PARTICLE, TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE);
-    public static final Model T_HONEY_CAULDRON_3 = block("cauldron/t_honey_cauldron_level3",
-            TextureKey.CONTENT, TextureKey.INSIDE, TextureKey.PARTICLE, TextureKey.TOP, TextureKey.BOTTOM, TextureKey.SIDE);
 
     public static final TextureKey POST = TextureKeyAccessor.createTextureKey("post", TextureKey.SIDE);
     public static final Model TRIM = block("template_trim", TextureKey.TOP, POST);
@@ -62,20 +45,15 @@ public class MBModelProvider extends FabricModelProvider {
     public static final TexturedModel.Factory TINTED_GRASSLIKE = TexturedModelAccessor.callMakeFactory(MBModelProvider::grasslike, GRASS_BLOCK);
 
     public static final Model WALL_LANTERN = block("template_wall_lantern", TextureKey.LANTERN);
-    public static final TexturedModel.Factory WALL_LANTERN_F = TexturedModelAccessor.callMakeFactory(Texture::lantern, WALL_LANTERN);
+	public static final Model TREE_TAP = block("template_tree_tap", TextureKey.TEXTURE);
 
     public static final Model TINTED_CUBE = block("tinted/tinted_cube", TextureKey.ALL);
     public static final TexturedModel.Factory TINTED_BLOCK = TexturedModelAccessor.callMakeFactory(Texture::all, TINTED_CUBE);
     public static final Model TINTED_SLAB = block("tinted/tint_slab", TextureKey.BOTTOM, TextureKey.TOP, TextureKey.SIDE);
     public static final Model TINTED_SLAB_TOP = block("tinted/tint_slab_top", "_top", TextureKey.BOTTOM, TextureKey.TOP, TextureKey.SIDE);
-    public static final TexturedModel.Factory TINTED_SLAB_F = TexturedModelAccessor.callMakeFactory(Texture::all, TINTED_SLAB);
-    public static final TexturedModel.Factory TINTED_SLAB_TOP_F = TexturedModelAccessor.callMakeFactory(MBModelProvider::grasslike, TINTED_SLAB_TOP);
     public static final Model TINTED_STAIRS = block("tinted/tint_stairs", TextureKey.BOTTOM, TextureKey.TOP, TextureKey.SIDE);
     public static final Model TINTED_INNER_STAIRS = block("tinted/tint_stairs_inner", "_inner", TextureKey.BOTTOM, TextureKey.TOP, TextureKey.SIDE);
     public static final Model TINTED_OUTER_STAIRS = block("tinted/tint_stairs_outer", "_outer", TextureKey.BOTTOM, TextureKey.TOP, TextureKey.SIDE);
-    public static final TexturedModel.Factory TINTED_STAIRS_F = TexturedModelAccessor.callMakeFactory(Texture::all, TINTED_STAIRS);
-    public static final TexturedModel.Factory TINTED_STAIRS_INNER_F = TexturedModelAccessor.callMakeFactory(MBModelProvider::grasslike, TINTED_INNER_STAIRS);
-    public static final TexturedModel.Factory TINTED_STAIRS_OUTER_F = TexturedModelAccessor.callMakeFactory(MBModelProvider::grasslike, TINTED_OUTER_STAIRS);
     public static final Model TINTED_CARPET = block("tinted/tint_carpet", TextureKey.WOOL);
     public static final TexturedModel.Factory TINTED_CARPET_F = TexturedModelAccessor.callMakeFactory(Texture::wool, TINTED_CARPET);
 
@@ -88,7 +66,6 @@ public class MBModelProvider extends FabricModelProvider {
     public static final TexturedModel.Factory CAPPED_CROSS_F = TexturedModelAccessor.callMakeFactory(MBModelProvider::capCross, CAPPED_CROSS);
 
     public static final TextureKey INNER = TextureKeyAccessor.createTextureKey("inner", TextureKey.END);
-    public static final Model PLANTER_BOX = block("planter_box/planter_box", TextureKey.BOTTOM, TextureKey.SIDE);
 
 	public static final Model THICK_CROSS = block("thick_cross", TextureKey.CROSS);
 
@@ -144,19 +121,23 @@ public class MBModelProvider extends FabricModelProvider {
         tintableCross(MBBlocks.SEA_BEETS, TintType.NOT_TINTED, generator);
 
         generator.registerItemModel(MBBlocks.TREE_TAP.asItem());
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TREE_TAP,
-                BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap")))
-                .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+		treeTap(MBBlocks.TREE_TAP, generator);
+		treeTap(MBBlocks.SAP_TREE_TAP, generator);
+		treeTap(MBBlocks.SYRUP_TREE_TAP, generator);
+		treeTap(MBBlocks.RESIN_TREE_TAP, generator);
+//        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.TREE_TAP,
+//                BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap")))
+//                .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
 
-		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.SAP_TREE_TAP,
-						BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap_sap")))
-				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
-		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.SYRUP_TREE_TAP,
-						BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap_syrup")))
-				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
-		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.RESIN_TREE_TAP,
-						BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap_resin")))
-				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+//		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.SAP_TREE_TAP,
+//						BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap_sap")))
+//				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+//		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.SYRUP_TREE_TAP,
+//						BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap_syrup")))
+//				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+//		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(MBBlocks.RESIN_TREE_TAP,
+//						BlockStateVariant.create().put(VariantSettings.MODEL, new Identifier(Moonbits.MODID, "block/tree_tap_resin")))
+//				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
 
         generator.registerSimpleCubeAll(MBBlocks.SYRUP_BLOCK);
 		generator.registerSimpleCubeAll(MBBlocks.SAP_BLOCK);
@@ -332,6 +313,7 @@ public class MBModelProvider extends FabricModelProvider {
         blazeRod(generator);
         wallLantern(MBBlocks.WALL_LANTERN, Blocks.LANTERN, generator);
         wallLantern(MBBlocks.WALL_SOUL_LANTERN, Blocks.SOUL_LANTERN, generator);
+		wallLantern(MBBlocks.WALL_COPPER_OXIDE_LANTERN, MBBlocks.COPPER_OXIDE_LANTERN, generator);
 
 
         for (Item mbItem : MBItems.MB_EGGS) {
@@ -969,6 +951,12 @@ public class MBModelProvider extends FabricModelProvider {
                 .register(Direction.WEST, BlockStateVariant.create().put(VariantSettings.MODEL, identifier).put(VariantSettings.Y, VariantSettings.Rotation.R270))
         ));
     }
+	public final void treeTap(Block tap, BlockStateModelGenerator generator) {
+		Identifier identifier = TREE_TAP.upload(tap, Texture.texture(tap), generator.modelCollector);
+
+		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(tap, BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
+				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+	}
 
     private static void fence(Block fenceBlock, Block base, BlockStateModelGenerator generator) {
         TexturedModel texturedModel = TexturedModel.CUBE_ALL.get(base);

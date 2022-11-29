@@ -1,0 +1,6 @@
+{
+  "parent": "moonbits:block/template_wall_lantern",
+  "textures": {
+    "lantern": "moonbits:block/copper_oxide_lantern"
+  }
+}

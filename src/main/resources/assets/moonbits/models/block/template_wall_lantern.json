@@ -2,13 +2,14 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"particle": "#lantern",
-		"rod": "moonbits:block/lantern_rod"
+		"rod": "moonbits:block/lantern_rod,
+		"particle": "#lantern"
 	},
 	"elements": [
 		{
-			"from": [5, 1, 2],
-			"to": [11, 8, 8],
+			"from": [5, 1, 5],
+			"to": [11, 8, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 3]},
 			"faces": {
 				"north": {"uv": [0, 2, 6, 9], "texture": "#lantern"},
 				"east": {"uv": [0, 2, 6, 9], "texture": "#lantern"},
@@ -19,8 +20,9 @@
 			}
 		},
 		{
-			"from": [6, 8, 3],
-			"to": [10, 10, 7],
+			"from": [6, 8, 6],
+			"to": [10, 10, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 3]},
 			"faces": {
 				"north": {"uv": [1, 0, 5, 2], "texture": "#lantern"},
 				"east": {"uv": [1, 0, 5, 2], "texture": "#lantern"},
@@ -30,35 +32,35 @@
 			}
 		},
 		{
-			"from": [6.5, 10, 5],
-			"to": [9.5, 13, 5],
+			"from": [6.5, 10, 8],
+			"to": [9.5, 13, 8],
 			"shade": false,
-			"rotation": {"angle": 45, "axis": "y", "origin": [8, 9, 5]},
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 9, 8]},
 			"faces": {
 				"north": {"uv": [14, 3, 11, 6], "texture": "#lantern"},
 				"south": {"uv": [11, 3, 14, 6], "texture": "#lantern"}
 			}
 		},
 		{
-			"from": [8, 10, 3.5],
-			"to": [8, 13, 6.5],
+			"from": [8, 10, 6.5],
+			"to": [8, 13, 9.5],
 			"shade": false,
-			"rotation": {"angle": 45, "axis": "y", "origin": [8, 9, 5]},
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 9, 8]},
 			"faces": {
 				"east": {"uv": [11, 9, 14, 12], "texture": "#lantern"},
 				"west": {"uv": [14, 9, 11, 12], "texture": "#lantern"}
 			}
 		},
 		{
-			"from": [7, 13, 0],
+			"from": [7, 13, 4],
 			"to": [9, 15, 16],
 			"faces": {
 				"north": {"uv": [2, 0, 4, 2], "texture": "#rod"},
-				"east": {"uv": [0, 0, 2, 16], "rotation": 90, "texture": "#rod"},
+				"east": {"uv": [0, 0, 2, 12], "rotation": 90, "texture": "#rod"},
 				"south": {"uv": [2, 0, 4, 2], "texture": "#rod"},
-				"west": {"uv": [0, 0, 2, 16], "rotation": 90, "texture": "#rod"},
-				"up": {"uv": [0, 0, 2, 16], "texture": "#rod"},
-				"down": {"uv": [0, 0, 2, 16], "texture": "#rod"}
+				"west": {"uv": [0, 0, 2, 12], "rotation": 90, "texture": "#rod"},
+				"up": {"uv": [0, 0, 2, 12], "texture": "#rod"},
+				"down": {"uv": [0, 0, 2, 12], "texture": "#rod"}
 			}
 		}
 	]

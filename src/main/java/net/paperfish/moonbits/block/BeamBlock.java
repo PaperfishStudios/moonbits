@@ -43,8 +43,8 @@ public class BeamBlock extends Block implements Waterloggable {
 	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 		VoxelShape lower = switch (state.get(BOTTOM_STATE)) {
-			case X -> UPPER_X;
-			case Z -> UPPER_Z;
+			case X -> LOWER_X;
+			case Z -> LOWER_Z;
 			case NONE -> VoxelShapes.empty();
 		};
 		VoxelShape upper = switch (state.get(TOP_STATE)) {
@@ -62,20 +62,27 @@ public class BeamBlock extends Block implements Waterloggable {
 		BlockState blockState = ctx.getWorld().getBlockState(blockPos);
 		if (blockState.isOf(this)) {
 			Direction direction = ctx.getSide();
-			return direction == Direction.UP
-					? blockState.with(TOP_STATE, axisToBeam(ctx.getPlayerFacing().getAxis()))
-					: blockState.with(BOTTOM_STATE, axisToBeam(ctx.getPlayerFacing().getAxis()));
+			if (direction == Direction.UP) {
+				return blockState.with(TOP_STATE, axisToBeam(ctx.getPlayerFacing().rotateYClockwise().getAxis()));
+			}
+			else if (direction == Direction.DOWN) {
+				return blockState.with(BOTTOM_STATE, axisToBeam(ctx.getPlayerFacing().rotateYClockwise().getAxis()));
+			}
+
+			return !(ctx.getHitPos().y - (double) blockPos.getY() > 0.5)
+					? blockState.with(BOTTOM_STATE, axisToBeam(ctx.getSide().getAxis()))
+					: blockState.with(TOP_STATE, axisToBeam(ctx.getSide().getAxis()));
 		} else {
 			FluidState fluidState = ctx.getWorld().getFluidState(blockPos);
 			Direction direction = ctx.getSide();
-			if (direction == Direction.UP) {
+			if (direction == Direction.DOWN) {
 				return this.getDefaultState()
-						.with(TOP_STATE, axisToBeam(ctx.getPlayerFacing().getAxis())).with(BOTTOM_STATE, BeamStates.NONE)
+						.with(TOP_STATE, axisToBeam(ctx.getPlayerFacing().rotateYClockwise().getAxis())).with(BOTTOM_STATE, BeamStates.NONE)
 						.with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
 			}
-			else if (direction == Direction.DOWN) {
+			else if (direction == Direction.UP) {
 				return this.getDefaultState()
-						.with(BOTTOM_STATE, axisToBeam(ctx.getPlayerFacing().getAxis()))
+						.with(BOTTOM_STATE, axisToBeam(ctx.getPlayerFacing().rotateYClockwise().getAxis()))
 						.with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
 			}
 			BlockState blockState2 = this.getDefaultState().with(BOTTOM_STATE, axisToBeam(ctx.getSide().getAxis())).with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);

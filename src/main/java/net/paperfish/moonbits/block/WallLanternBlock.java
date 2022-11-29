@@ -8,6 +8,7 @@ import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -25,28 +26,30 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 
 public class WallLanternBlock extends Block implements Waterloggable {
+	public final Block base;
+
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     protected static final float field_31285 = 2.5f;
     public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(5.0, 1.0, 2.0, 11.0, 8.0, 8.0),
-            Block.createCuboidShape(6.0, 8.0, 3.0, 10.0, 10.0, 7.0),
-            Block.createCuboidShape(7.0, 13.0, 0.0, 9.0, 15.0, 16.0)
+            Block.createCuboidShape(5.0, 1.0, 5.0, 11.0, 8.0, 11.0),
+            Block.createCuboidShape(6.0, 8.0, 6.0, 10.0, 10.0, 10.0),
+            Block.createCuboidShape(7.0, 13.0, 4.0, 9.0, 15.0, 16.0)
     );
     public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(5.0, 1.0, 8.0, 11.0, 8.0, 14.0),
-            Block.createCuboidShape(6.0, 8.0, 9.0, 10.0, 10.0, 13.0),
-            Block.createCuboidShape(7.0, 13.0, 0.0, 9.0, 15.0, 16.0)
+            Block.createCuboidShape(5.0, 1.0, 5.0, 11.0, 8.0, 11.0),
+            Block.createCuboidShape(6.0, 8.0, 6.0, 10.0, 10.0, 10.0),
+            Block.createCuboidShape(7.0, 13.0, 0.0, 9.0, 15.0, 12.0)
     );
     public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(8.0, 1.0, 5.0, 14.00, 8.0, 11.0),
-            Block.createCuboidShape(9.0, 8.0, 6.0, 13.0, 10.0, 10.0),
-            Block.createCuboidShape(0.0, 13.0, 7.0, 16.0, 15.0, 9.0)
+            Block.createCuboidShape(5.0, 1.0, 5.0, 11.0, 8.0, 11.0),
+            Block.createCuboidShape(6.0, 8.0, 6.0, 10.0, 10.0, 10.0),
+            Block.createCuboidShape(0.0, 13.0, 7.0, 12.0, 15.0, 9.0)
     );
     public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(2.0, 1.0, 5.0, 8.0, 8.0, 11.0),
-            Block.createCuboidShape(3.0, 8.0, 6.0, 7.0, 10.0, 10.0),
-            Block.createCuboidShape(0.0, 13.0, 7.0, 16.0, 15.0, 9.0)
+            Block.createCuboidShape(5.0, 1.0, 5.0, 11.0, 8.0, 11.0),
+            Block.createCuboidShape(6.0, 8.0, 6.0, 10.0, 10.0, 10.0),
+            Block.createCuboidShape(4.0, 13.0, 7.0, 16.0, 15.0, 9.0)
     );
     private static final Map<Direction, VoxelShape> BOUNDING_SHAPES = Maps.newEnumMap(ImmutableMap.of(
             Direction.NORTH, NORTH_SHAPE,
@@ -55,9 +58,10 @@ public class WallLanternBlock extends Block implements Waterloggable {
             Direction.EAST, EAST_SHAPE
     ));
 
-    public WallLanternBlock(Settings settings) {
+    public WallLanternBlock(Block base, Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+		this.base = base;
     }
 
     @Override
@@ -119,7 +123,12 @@ public class WallLanternBlock extends Block implements Waterloggable {
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
-    @Override
+	@Override
+	public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+		return new ItemStack(this.base);
+	}
+
+	@Override
     public FluidState getFluidState(BlockState state) {
         if (state.get(WATERLOGGED)) {
             return Fluids.WATER.getStill(false);

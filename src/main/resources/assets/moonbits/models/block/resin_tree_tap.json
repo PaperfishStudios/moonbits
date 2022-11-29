@@ -1,6 +1,6 @@
 {
   "parent": "moonbits:block/template_tree_tap",
   "textures": {
-    "texture": "moonbits:block/tree_tap"
+    "texture": "moonbits:block/resin_tree_tap"
   }
 }

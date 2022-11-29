@@ -346,6 +346,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(MBBlocks.WALL_LANTERN, Items.LANTERN);
         addDrop(MBBlocks.WALL_SOUL_LANTERN, Items.SOUL_LANTERN);
+		addDrop(MBBlocks.WALL_COPPER_OXIDE_LANTERN, Items.LANTERN);
 
         MBBlockFamilies.getFamilies()
                 .forEach(family -> {

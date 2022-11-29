@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LanternBlock;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.Direction;
 import net.paperfish.moonbits.registry.MBBlocks;
@@ -19,9 +20,17 @@ public class LanternMixin {
     public void wallPlacement(ItemPlacementContext ctx, CallbackInfoReturnable<BlockState> cir) {
         if (ctx.getSide().getAxis() != Direction.Axis.Y) {
             for (Direction direction : ctx.getPlacementDirections()) {
-                Block wallBlock = ctx.getStack().isOf(Items.LANTERN) ? MBBlocks.WALL_LANTERN : MBBlocks.WALL_SOUL_LANTERN;
-                if (direction.getAxis() != Direction.Axis.Y) {
-                    cir.setReturnValue(wallBlock.getPlacementState(ctx));
+				ItemStack item = ctx.getStack();
+				if (direction.getAxis() != Direction.Axis.Y) {
+					if (item.isOf(Items.LANTERN)) {
+						cir.setReturnValue(MBBlocks.WALL_LANTERN.getPlacementState(ctx));
+					}
+					else if (item.isOf(Items.SOUL_LANTERN)) {
+						cir.setReturnValue(MBBlocks.WALL_SOUL_LANTERN.getPlacementState(ctx));
+					}
+					else if (item.isOf(MBBlocks.COPPER_OXIDE_LANTERN.asItem())) {
+						cir.setReturnValue(MBBlocks.WALL_COPPER_OXIDE_LANTERN.getPlacementState(ctx));
+					}
                 }
             }
         }

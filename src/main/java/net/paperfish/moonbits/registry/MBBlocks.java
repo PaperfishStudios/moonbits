@@ -1037,11 +1037,14 @@ public class MBBlocks {
 			new RopeLadderBlock(AbstractBlock.Settings.of(Material.DECORATION).strength(0.4F).sounds(BlockSoundGroup.LADDER).nonOpaque()));
 
 	public static final Block WALL_LANTERN = registerBlock("wall_lantern",
-			new WallLanternBlock(AbstractBlock.Settings.of(Material.METAL).requiresTool().strength(3.5f).sounds(BlockSoundGroup.LANTERN)
+			new WallLanternBlock(Blocks.LANTERN, AbstractBlock.Settings.of(Material.METAL).requiresTool().strength(3.5f).sounds(BlockSoundGroup.LANTERN)
 					.luminance(state -> 15).nonOpaque()));
 	public static final Block WALL_SOUL_LANTERN = registerBlock("wall_soul_lantern",
-			new WallLanternBlock(AbstractBlock.Settings.of(Material.METAL).requiresTool().strength(3.5f).sounds(BlockSoundGroup.LANTERN)
+			new WallLanternBlock(Blocks.SOUL_LANTERN, AbstractBlock.Settings.of(Material.METAL).requiresTool().strength(3.5f).sounds(BlockSoundGroup.LANTERN)
 					.luminance(state -> 10).nonOpaque()));
+	public static final Block WALL_COPPER_OXIDE_LANTERN = registerBlock("wall_copper_oxide_lantern",
+			new WallLanternBlock(COPPER_OXIDE_LANTERN, AbstractBlock.Settings.of(Material.METAL).requiresTool().strength(3.5f).sounds(BlockSoundGroup.LANTERN)
+					.luminance(state -> 15).nonOpaque()));
 
 	public static final Block BEDROLL = createWithItem("bedroll", new BedrollBlock(DyeColor.BROWN,
 			AbstractBlock.Settings.of(Material.WOOL, MapColor.BROWN).strength(0.2F).sounds(BlockSoundGroup.WOOL).nonOpaque()));
