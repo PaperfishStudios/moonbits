@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "waxed_weathered_copper_trapdoor",
+  "ingredients": [
+    {
+      "item": "moonbits:weathered_copper_trapdoor"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "item": "moonbits:waxed_weathered_copper_trapdoor"
+  }
+}

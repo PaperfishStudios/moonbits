@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "moonbits:block/exposed_copper_ladder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "moonbits:block/exposed_copper_ladder"
+    },
+    "facing=south": {
+      "model": "moonbits:block/exposed_copper_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "moonbits:block/exposed_copper_ladder",
+      "y": 270
+    }
+  }
+}

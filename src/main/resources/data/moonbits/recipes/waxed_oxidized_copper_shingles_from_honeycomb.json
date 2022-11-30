@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "waxed_oxidized_copper_shingles",
+  "ingredients": [
+    {
+      "item": "moonbits:oxidized_copper_shingles"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "item": "moonbits:waxed_oxidized_copper_shingles"
+  }
+}

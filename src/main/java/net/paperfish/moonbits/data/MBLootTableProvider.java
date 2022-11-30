@@ -115,9 +115,9 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
                         .apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1, 4))))));
 
         addDrop(MBBlocks.PEAT_BLOCK);
-        addDrop(MBBlocks.DEEP_ROOTED_SOIL, (Block block) -> oreDrops(block, MBItems.PEAT, 1f, 2f));
+        addDrop(MBBlocks.DEEP_ROOTED_SOIL, (Block block) -> oreDrops(block, MBItems.DAWNROOT, 1f, 2f));
 		addDrop(MBBlocks.FLINT_DEPOSIT, (Block block) -> oreDrops(block, Items.FLINT, 1f, 1f));
-        addDrop(MBBlocks.MYCELIAL_DIRT, (Block block) -> oreDrops(block, Items.CLAY_BALL, 3f, 5f));
+        addDrop(MBBlocks.MYCELIAL_DIRT, (Block block) -> oreDrops(block, MBItems.FUZZ_SPORES, 3f, 5f));
         addDrop(MBBlocks.DECOMPOSING_DIRT);
         addDrop(MBBlocks.FUZZ_BLOCK);
 
@@ -149,6 +149,42 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.BANDED_IRON, (Block block) -> BlockLootTableGenerator.oreDrops(block, Items.RAW_IRON));
         addDrop(MBBlocks.MAGNETITE_ORE, (Block block) -> BlockLootTableGenerator.oreDrops(block, MBItems.MAGNETITE));
         addDrop(MBBlocks.MAGNETITE_BLOCK);
+
+		addDrop(MBBlocks.OXIDIZED_COPPER_SHINGLES);
+		addDrop(MBBlocks.WEATHERED_COPPER_SHINGLES);
+		addDrop(MBBlocks.EXPOSED_COPPER_SHINGLES);
+		addDrop(MBBlocks.COPPER_SHINGLES);
+		addDrop(MBBlocks.WAXED_OXIDIZED_COPPER_SHINGLES);
+		addDrop(MBBlocks.WAXED_WEATHERED_COPPER_SHINGLES);
+		addDrop(MBBlocks.WAXED_EXPOSED_COPPER_SHINGLES);
+		addDrop(MBBlocks.WAXED_COPPER_SHINGLES);
+
+		addDrop(MBBlocks.OXIDIZED_COPPER_BARS);
+		addDrop(MBBlocks.WEATHERED_COPPER_BARS);
+		addDrop(MBBlocks.EXPOSED_COPPER_BARS);
+		addDrop(MBBlocks.COPPER_BARS);
+		addDrop(MBBlocks.WAXED_OXIDIZED_COPPER_BARS);
+		addDrop(MBBlocks.WAXED_WEATHERED_COPPER_BARS);
+		addDrop(MBBlocks.WAXED_EXPOSED_COPPER_BARS);
+		addDrop(MBBlocks.WAXED_COPPER_BARS);
+
+		addDrop(MBBlocks.OXIDIZED_COPPER_LADDER);
+		addDrop(MBBlocks.WEATHERED_COPPER_LADDER);
+		addDrop(MBBlocks.EXPOSED_COPPER_LADDER);
+		addDrop(MBBlocks.COPPER_LADDER);
+		addDrop(MBBlocks.WAXED_OXIDIZED_COPPER_LADDER);
+		addDrop(MBBlocks.WAXED_WEATHERED_COPPER_LADDER);
+		addDrop(MBBlocks.WAXED_EXPOSED_COPPER_LADDER);
+		addDrop(MBBlocks.WAXED_COPPER_LADDER);
+
+		addDrop(MBBlocks.OXIDIZED_COPPER_TRAPDOOR);
+		addDrop(MBBlocks.WEATHERED_COPPER_TRAPDOOR);
+		addDrop(MBBlocks.EXPOSED_COPPER_TRAPDOOR);
+		addDrop(MBBlocks.COPPER_TRAPDOOR);
+		addDrop(MBBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR);
+		addDrop(MBBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR);
+		addDrop(MBBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR);
+		addDrop(MBBlocks.WAXED_COPPER_TRAPDOOR);
 
 		addDrop(MBBlocks.COPPER_OXIDE_LANTERN);
 		addDrop(MBBlocks.COPPER_OXIDE_CAMPFIRE, block -> dropsWithSilkTouch(

@@ -2,11 +2,10 @@ package net.paperfish.moonbits.registry;
 
 import com.github.aws404.booking_it.BookingIt;
 
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FlattenableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.fabricmc.fabric.api.registry.TillableBlockRegistry;
-import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.ImmutableBiMap;
+import net.fabricmc.fabric.api.registry.*;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.HoeItem;
 import net.minecraft.recipe.CookingRecipeSerializer;
@@ -25,6 +24,8 @@ import net.paperfish.moonbits.recipe.KilnRecipe;
 import net.paperfish.moonbits.recipe.WashingRecipe;
 import net.paperfish.moonbits.screen.CookingScreenHandler;
 import net.paperfish.moonbits.screen.KilnScreenHandler;
+import org.quiltmc.qsl.block.content.registry.api.BlockContentRegistries;
+import org.quiltmc.qsl.block.content.registry.api.FlammableBlockEntry;
 
 public class MBData {
     // for initializing anything that isnt big enough for its own class i guess
@@ -44,10 +45,41 @@ public class MBData {
 
 	public static final ItemWashedCriterion ITEM_WASHED = CriteriaAccessor.callRegister(new ItemWashedCriterion());
 
-
-//	public static final RegistryKey<DoublePerlinNoiseSampler.NoiseParameters> DIRT_CAVE_NOISE;
-//	public static final RegistryKey<DoublePerlinNoiseSampler.NoiseParameters> PERMAFROST_NOISE;
-//	public static final RegistryKey<DoublePerlinNoiseSampler.NoiseParameters> SANDY_SOIL_NOISE;
+	// Copper blocks!
+	public static final BiMap<Block, Block> WAXING = new ImmutableBiMap.Builder<Block, Block>()
+			.put(MBBlocks.COPPER_SHINGLES, MBBlocks.WAXED_COPPER_SHINGLES)
+			.put(MBBlocks.EXPOSED_COPPER_SHINGLES, MBBlocks.WAXED_EXPOSED_COPPER_SHINGLES)
+			.put(MBBlocks.WEATHERED_COPPER_SHINGLES, MBBlocks.WAXED_WEATHERED_COPPER_SHINGLES)
+			.put(MBBlocks.OXIDIZED_COPPER_SHINGLES, MBBlocks.WAXED_OXIDIZED_COPPER_SHINGLES)
+			.put(MBBlocks.COPPER_BARS, MBBlocks.WAXED_COPPER_BARS)
+			.put(MBBlocks.EXPOSED_COPPER_BARS, MBBlocks.WAXED_EXPOSED_COPPER_BARS)
+			.put(MBBlocks.WEATHERED_COPPER_BARS, MBBlocks.WAXED_WEATHERED_COPPER_BARS)
+			.put(MBBlocks.OXIDIZED_COPPER_BARS, MBBlocks.WAXED_OXIDIZED_COPPER_BARS)
+			.put(MBBlocks.COPPER_LADDER, MBBlocks.WAXED_COPPER_LADDER)
+			.put(MBBlocks.EXPOSED_COPPER_LADDER, MBBlocks.WAXED_EXPOSED_COPPER_LADDER)
+			.put(MBBlocks.WEATHERED_COPPER_LADDER, MBBlocks.WAXED_WEATHERED_COPPER_LADDER)
+			.put(MBBlocks.OXIDIZED_COPPER_LADDER, MBBlocks.WAXED_OXIDIZED_COPPER_LADDER)
+			.put(MBBlocks.COPPER_TRAPDOOR, MBBlocks.WAXED_COPPER_TRAPDOOR)
+			.put(MBBlocks.EXPOSED_COPPER_TRAPDOOR, MBBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR)
+			.put(MBBlocks.WEATHERED_COPPER_TRAPDOOR, MBBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR)
+			.put(MBBlocks.OXIDIZED_COPPER_TRAPDOOR, MBBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR)
+			.build();
+	public static final BiMap<Block, Block> WAX_OFF = WAXING.inverse();
+	public static final BiMap<Block, Block> OXIDIZING = new ImmutableBiMap.Builder<Block, Block>()
+			.put(MBBlocks.COPPER_SHINGLES, MBBlocks.EXPOSED_COPPER_SHINGLES)
+			.put(MBBlocks.EXPOSED_COPPER_SHINGLES, MBBlocks.WEATHERED_COPPER_SHINGLES)
+			.put(MBBlocks.WEATHERED_COPPER_SHINGLES, MBBlocks.OXIDIZED_COPPER_SHINGLES)
+			.put(MBBlocks.COPPER_BARS, MBBlocks.EXPOSED_COPPER_BARS)
+			.put(MBBlocks.EXPOSED_COPPER_BARS, MBBlocks.WEATHERED_COPPER_BARS)
+			.put(MBBlocks.WEATHERED_COPPER_BARS, MBBlocks.OXIDIZED_COPPER_BARS)
+			.put(MBBlocks.COPPER_LADDER, MBBlocks.EXPOSED_COPPER_LADDER)
+			.put(MBBlocks.EXPOSED_COPPER_LADDER, MBBlocks.WEATHERED_COPPER_LADDER)
+			.put(MBBlocks.WEATHERED_COPPER_LADDER, MBBlocks.OXIDIZED_COPPER_LADDER)
+			.put(MBBlocks.COPPER_TRAPDOOR, MBBlocks.EXPOSED_COPPER_TRAPDOOR)
+			.put(MBBlocks.EXPOSED_COPPER_TRAPDOOR, MBBlocks.WEATHERED_COPPER_TRAPDOOR)
+			.put(MBBlocks.WEATHERED_COPPER_TRAPDOOR, MBBlocks.OXIDIZED_COPPER_TRAPDOOR)
+			.build();
+	public static final BiMap<Block, Block> SCRAPING = OXIDIZING.inverse();
 
 	static {
 
@@ -84,8 +116,10 @@ public class MBData {
 	}
 
 	public static void registerData() {
+		OXIDIZING.forEach(OxidizableBlocksRegistry::registerOxidizableBlockPair);
+		WAXING.forEach(OxidizableBlocksRegistry::registerWaxableBlockPair);
 		// flammable blocks
-		FlammableBlockRegistry.getDefaultInstance().add(Blocks.COBWEB, 60, 20);
+		BlockContentRegistries.FLAMMABLE_BLOCK.put(Blocks.COBWEB, new FlammableBlockEntry(60, 20));
 
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.OAK_PANEL, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(MBBlocks.BIRCH_PANEL, 5, 20);

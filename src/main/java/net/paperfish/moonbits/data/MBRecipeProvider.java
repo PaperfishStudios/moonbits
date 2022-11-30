@@ -40,6 +40,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
     public static final HashMap<ItemConvertible, ItemConvertible> COMPACT = new HashMap<>();
 
     public static final HashMap<ItemConvertible, ItemConvertible> SMELTING = new HashMap<>();
+	public static final HashMap<ItemConvertible, ItemConvertible> SMOKING = new HashMap<>();
     public static final HashMap<ItemConvertible, ItemConvertible> BLASTING = new HashMap<>();
     public static final HashMap<ItemConvertible, ItemConvertible> FIRING = new HashMap<>();
 
@@ -136,7 +137,15 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 
         POLISH.put(MBBlocks.PEAT_MOSS, MBBlocks.PEAT_BRICKS);
         POLISH.put(Blocks.SNOW_BLOCK, MBBlocks.SNOW_BRICKS);
-//        POLISH.put(Blocks.PACKED_ICE, MBBlocks.PACKED_ICE_BRICKS);
+
+		POLISH.put(Blocks.CUT_COPPER, MBBlocks.COPPER_SHINGLES);
+		POLISH.put(Blocks.EXPOSED_CUT_COPPER, MBBlocks.EXPOSED_COPPER_SHINGLES);
+		POLISH.put(Blocks.WEATHERED_CUT_COPPER, MBBlocks.WEATHERED_COPPER_SHINGLES);
+		POLISH.put(Blocks.OXIDIZED_CUT_COPPER, MBBlocks.OXIDIZED_COPPER_SHINGLES);
+		POLISH.put(Blocks.WAXED_CUT_COPPER, MBBlocks.WAXED_COPPER_SHINGLES);
+		POLISH.put(Blocks.WAXED_EXPOSED_CUT_COPPER, MBBlocks.WAXED_EXPOSED_COPPER_SHINGLES);
+		POLISH.put(Blocks.WAXED_WEATHERED_CUT_COPPER, MBBlocks.WAXED_WEATHERED_COPPER_SHINGLES);
+		POLISH.put(Blocks.WAXED_OXIDIZED_CUT_COPPER, MBBlocks.WAXED_OXIDIZED_COPPER_SHINGLES);
 
         // 3x3 unpackable recipe
         STORAGE.put(Items.APPLE, MBBlocks.APPLE_CRATE);
@@ -172,6 +181,8 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         STORAGE.put(Items.ENDER_PEARL, MBBlocks.ENDER_PEARL_BLOCK);
         STORAGE.put(MBItems.PEAT, MBBlocks.PEAT_BLOCK);
         STORAGE.put(MBItems.COPPER_NUGGET, Items.COPPER_INGOT);
+
+		SMOKING.put(MBItems.DAWNROOT, MBItems.TAPIOCA);
 
         FIRING.put(MBBlocks.COBBLED_ANDESITE, Blocks.ANDESITE);
         FIRING.put(MBBlocks.COBBLED_DIORITE, Blocks.DIORITE);
@@ -210,6 +221,9 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 
         SMELTING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
 
+		SMOKING.forEach((in, out) -> smoking(exporter, in, out, 0.1f, DEFAULT_SMOKE_TIME));
+		SMOKING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
+
         BLASTING.forEach((in, out) -> blasting(exporter, in, out, 0.1f, DEFAULT_BLAST_TIME));
         BLASTING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
 
@@ -217,11 +231,11 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         FIRING.forEach((in, out) -> smelting(exporter, in, out, 0.1f, DEFAULT_SMELT_TIME));
 
 		// TODO: Waxing recipes r here!
-//        MBEvents.WAXING.forEach((input, output) -> ShapelessRecipeJsonFactory.create(output)
-//                .input(input).input(Items.HONEYCOMB)
-//                .group(RecipesProvider.getItemPath(output))
-//                .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
-//                .offerTo(exporter, RecipesProvider.convertBetween(output, Items.HONEYCOMB)));
+        MBData.WAXING.forEach((input, output) -> ShapelessRecipeJsonFactory.create(output)
+                .input(input).input(Items.HONEYCOMB)
+                .group(RecipesProvider.getItemPath(output))
+                .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
+                .offerTo(exporter, RecipesProvider.convertBetween(output, Items.HONEYCOMB)));
 
 
         firing(exporter, Items.CLAY_BALL, Items.BRICK, 0.3f, DEFAULT_FIRE_TIME);
@@ -287,7 +301,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         });
 
         COMPACT.forEach((in, out) -> condense(exporter, in, out, 1));
-        POLISH.forEach((polished, brick) -> bricksRecipe(exporter, polished, brick));
+        POLISH.forEach((in, out) -> bricksRecipe(exporter, in, out));
         STORAGE.forEach((item, storage) -> compact(exporter, item, storage));
 
         // WOOD

@@ -18,9 +18,7 @@ import net.paperfish.moonbits.world.feature.*;
 import net.paperfish.moonbits.world.gen.MBTreeFeatures;
 import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
 
@@ -756,6 +754,74 @@ public class MBBlocks {
 	// TODO: Boost ore, whatever that's called
 
 	// METAL
+	public static final Block OXIDIZED_COPPER_SHINGLES = createWithItem("oxidized_copper_shingles",
+			new OxidizableBlock(Oxidizable.OxidizationLevel.OXIDIZED, AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER)));
+	public static final Block WEATHERED_COPPER_SHINGLES = createWithItem("weathered_copper_shingles",
+			new OxidizableBlock(Oxidizable.OxidizationLevel.WEATHERED, AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER)));
+	public static final Block EXPOSED_COPPER_SHINGLES = createWithItem("exposed_copper_shingles",
+			new OxidizableBlock(Oxidizable.OxidizationLevel.EXPOSED, AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER)));
+	public static final Block COPPER_SHINGLES = createWithItem("copper_shingles",
+			new OxidizableBlock(Oxidizable.OxidizationLevel.UNAFFECTED, AbstractBlock.Settings.copy(Blocks.CUT_COPPER)));
+	public static final Block WAXED_OXIDIZED_COPPER_SHINGLES = createWithItem("waxed_oxidized_copper_shingles",
+			new Block(AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER)));
+	public static final Block WAXED_WEATHERED_COPPER_SHINGLES = createWithItem("waxed_weathered_copper_shingles",
+			new Block(AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER)));
+	public static final Block WAXED_EXPOSED_COPPER_SHINGLES = createWithItem("waxed_exposed_copper_shingles",
+			new Block(AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER)));
+	public static final Block WAXED_COPPER_SHINGLES = createWithItem("waxed_copper_shingles",
+			new Block(AbstractBlock.Settings.copy(Blocks.CUT_COPPER)));
+
+	public static final Block OXIDIZED_COPPER_BARS = createWithItem("oxidized_copper_bars",
+			new OxidizablePaneBlock(Oxidizable.OxidizationLevel.OXIDIZED, AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER)));
+	public static final Block WEATHERED_COPPER_BARS = createWithItem("weathered_copper_bars",
+			new OxidizablePaneBlock(Oxidizable.OxidizationLevel.WEATHERED, AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER)));
+	public static final Block EXPOSED_COPPER_BARS = createWithItem("exposed_copper_bars",
+			new OxidizablePaneBlock(Oxidizable.OxidizationLevel.EXPOSED, AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER)));
+	public static final Block COPPER_BARS = createWithItem("copper_bars",
+			new OxidizablePaneBlock(Oxidizable.OxidizationLevel.UNAFFECTED, AbstractBlock.Settings.copy(Blocks.CUT_COPPER)));
+	public static final Block WAXED_OXIDIZED_COPPER_BARS = createWithItem("waxed_oxidized_copper_bars",
+			new PaneBlock(AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER)));
+	public static final Block WAXED_WEATHERED_COPPER_BARS = createWithItem("waxed_weathered_copper_bars",
+			new PaneBlock(AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER)));
+	public static final Block WAXED_EXPOSED_COPPER_BARS = createWithItem("waxed_exposed_copper_bars",
+			new PaneBlock(AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER)));
+	public static final Block WAXED_COPPER_BARS = createWithItem("waxed_copper_bars",
+			new PaneBlock(AbstractBlock.Settings.copy(Blocks.CUT_COPPER)));
+
+	public static final Block OXIDIZED_COPPER_LADDER = createWithItem("oxidized_copper_ladder",
+			new OxidizableLadderBlock(Oxidizable.OxidizationLevel.OXIDIZED, AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER).nonOpaque()));
+	public static final Block WEATHERED_COPPER_LADDER = createWithItem("weathered_copper_ladder",
+			new OxidizableLadderBlock(Oxidizable.OxidizationLevel.WEATHERED, AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER).nonOpaque()));
+	public static final Block EXPOSED_COPPER_LADDER = createWithItem("exposed_copper_ladder",
+			new OxidizableLadderBlock(Oxidizable.OxidizationLevel.EXPOSED, AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER).nonOpaque()));
+	public static final Block COPPER_LADDER = createWithItem("copper_ladder",
+			new OxidizableLadderBlock(Oxidizable.OxidizationLevel.UNAFFECTED, AbstractBlock.Settings.copy(Blocks.CUT_COPPER).nonOpaque()));
+	public static final Block WAXED_OXIDIZED_COPPER_LADDER = createWithItem("waxed_oxidized_copper_ladder",
+			new MetalLadderBlock(AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER).nonOpaque()));
+	public static final Block WAXED_WEATHERED_COPPER_LADDER = createWithItem("waxed_weathered_copper_ladder",
+			new MetalLadderBlock(AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER).nonOpaque()));
+	public static final Block WAXED_EXPOSED_COPPER_LADDER = createWithItem("waxed_exposed_copper_ladder",
+			new MetalLadderBlock(AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER).nonOpaque()));
+	public static final Block WAXED_COPPER_LADDER = createWithItem("waxed_copper_ladder",
+			new MetalLadderBlock(AbstractBlock.Settings.copy(Blocks.CUT_COPPER).nonOpaque()));
+
+	public static final Block OXIDIZED_COPPER_TRAPDOOR = createWithItem("oxidized_copper_trapdoor",
+			new OxidizableTrapdoorBlock(Oxidizable.OxidizationLevel.OXIDIZED, AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER).nonOpaque()));
+	public static final Block WEATHERED_COPPER_TRAPDOOR = createWithItem("weathered_copper_trapdoor",
+			new OxidizableTrapdoorBlock(Oxidizable.OxidizationLevel.WEATHERED, AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER).nonOpaque()));
+	public static final Block EXPOSED_COPPER_TRAPDOOR = createWithItem("exposed_copper_trapdoor",
+			new OxidizableTrapdoorBlock(Oxidizable.OxidizationLevel.EXPOSED, AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER).nonOpaque()));
+	public static final Block COPPER_TRAPDOOR = createWithItem("copper_trapdoor",
+			new OxidizableTrapdoorBlock(Oxidizable.OxidizationLevel.UNAFFECTED, AbstractBlock.Settings.copy(Blocks.CUT_COPPER).nonOpaque()));
+	public static final Block WAXED_OXIDIZED_COPPER_TRAPDOOR = createWithItem("waxed_oxidized_copper_trapdoor",
+			new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.OXIDIZED_CUT_COPPER).nonOpaque()));
+	public static final Block WAXED_WEATHERED_COPPER_TRAPDOOR = createWithItem("waxed_weathered_copper_trapdoor",
+			new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.WEATHERED_CUT_COPPER).nonOpaque()));
+	public static final Block WAXED_EXPOSED_COPPER_TRAPDOOR = createWithItem("waxed_exposed_copper_trapdoor",
+			new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.EXPOSED_CUT_COPPER).nonOpaque()));
+	public static final Block WAXED_COPPER_TRAPDOOR = createWithItem("waxed_copper_trapdoor",
+			new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.CUT_COPPER).nonOpaque()));
+
 	// Todo: Copper Blocks (Door, Trapdoor, maybe do bars and that other tiled one?)
 	public static final Block COPPER_OXIDE_LANTERN = createWithItem("copper_oxide_lantern", new LanternBlock(AbstractBlock.Settings.copy(Blocks.LANTERN)));
 	public static final Block COPPER_OXIDE_CAMPFIRE = createWithItem("copper_oxide_campfire", new CampfireBlock(true, 1, AbstractBlock.Settings.copy(Blocks.CAMPFIRE)));

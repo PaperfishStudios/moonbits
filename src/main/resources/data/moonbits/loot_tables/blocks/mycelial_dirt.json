@@ -47,7 +47,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minecraft:clay_ball"
+              "name": "moonbits:fuzz_spores"
             }
           ]
         }

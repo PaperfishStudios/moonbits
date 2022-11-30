@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
-    "moonbits:rope_ladder"
+    "moonbits:rope_ladder",
+    "moonbits:copper_ladder",
+    "moonbits:exposed_copper_ladder",
+    "moonbits:weathered_copper_ladder",
+    "moonbits:oxidized_copper_ladder",
+    "moonbits:waxed_copper_ladder",
+    "moonbits:waxed_exposed_copper_ladder",
+    "moonbits:waxed_weathered_copper_ladder",
+    "moonbits:waxed_oxidized_copper_ladder"
   ]
 }

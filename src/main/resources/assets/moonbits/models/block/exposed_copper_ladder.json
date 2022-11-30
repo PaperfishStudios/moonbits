@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/ladder",
+  "textures": {
+    "texture": "moonbits:block/exposed_copper_ladder"
+  }
+}

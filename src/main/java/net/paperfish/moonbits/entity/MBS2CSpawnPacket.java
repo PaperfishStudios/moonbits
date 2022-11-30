@@ -58,7 +58,7 @@ public class MBS2CSpawnPacket extends EntitySpawnS2CPacket implements Packet<Cli
     }
 
     public MBS2CSpawnPacket(Entity entity, EntityType<?> entityType, int data, BlockPos pos) {
-        this(entity.getId(), entity.getUuid(), (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), entity.getPitch(), entity.getYaw(), entityType, data, entity.getVelocity(), entity.getHeadYaw());
+        this(entity.getId(), entity.getUuid(), pos.getX(), pos.getY(), pos.getZ(), entity.getPitch(), entity.getYaw(), entityType, data, entity.getVelocity(), entity.getHeadYaw());
     }
 
     public MBS2CSpawnPacket(PacketByteBuf buf) {

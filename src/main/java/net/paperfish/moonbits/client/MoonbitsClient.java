@@ -66,6 +66,17 @@ public class MoonbitsClient implements ClientModInitializer {
 
                 MBBlocks.TREE_TAP, MBBlocks.SYRUP_TREE_TAP, MBBlocks.SAP_TREE_TAP, MBBlocks.RESIN_TREE_TAP,
 
+
+
+				MBBlocks.OXIDIZED_COPPER_BARS, MBBlocks.WEATHERED_COPPER_BARS, MBBlocks.EXPOSED_COPPER_BARS, MBBlocks.COPPER_BARS,
+				MBBlocks.WAXED_OXIDIZED_COPPER_BARS, MBBlocks.WAXED_WEATHERED_COPPER_BARS, MBBlocks.WAXED_EXPOSED_COPPER_BARS, MBBlocks.WAXED_COPPER_BARS,
+
+				MBBlocks.OXIDIZED_COPPER_LADDER, MBBlocks.WEATHERED_COPPER_LADDER, MBBlocks.EXPOSED_COPPER_LADDER, MBBlocks.COPPER_LADDER,
+				MBBlocks.WAXED_OXIDIZED_COPPER_LADDER, MBBlocks.WAXED_WEATHERED_COPPER_LADDER, MBBlocks.WAXED_EXPOSED_COPPER_LADDER, MBBlocks.WAXED_COPPER_LADDER,
+
+				MBBlocks.OXIDIZED_COPPER_TRAPDOOR, MBBlocks.WEATHERED_COPPER_TRAPDOOR, MBBlocks.EXPOSED_COPPER_TRAPDOOR, MBBlocks.COPPER_TRAPDOOR,
+				MBBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, MBBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, MBBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR, MBBlocks.WAXED_COPPER_TRAPDOOR,
+
 				MBBlocks.COPPER_OXIDE_LANTERN, MBBlocks.COPPER_OXIDE_CAMPFIRE,
 
                 MBBlocks.WALL_LANTERN, MBBlocks.WALL_SOUL_LANTERN, MBBlocks.WALL_COPPER_OXIDE_LANTERN
@@ -105,9 +116,9 @@ public class MoonbitsClient implements ClientModInitializer {
                 MBBlocks.GRASS_CARPET
         );
 
-		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x639956, MBBlocks.CEDAR_LEAVES);
+//		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x639956, MBBlocks.CEDAR_LEAVES);
 //		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x619971, MBBlocks.JUNIPER_LEAVES);
-		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x639956, MBBlocks.CEDAR_LEAVES);
+//		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x639956, MBBlocks.CEDAR_LEAVES);
 //		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x619971, MBBlocks.JUNIPER_LEAVES);
 
 //		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {

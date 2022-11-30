@@ -116,7 +116,8 @@ public class MBItems {
 
 	// Ores & Minerals
     public static final Item PEAT = addItem("peat", new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
-	// TODO: What's the root called?
+	public static final Item DAWNROOT = addItem("dawnroot", new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
+	public static final Item TAPIOCA = addItem("tapioca", new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
 	// TODO: Fuzz Spores should get their own item class. I'm thinking they might work similar to bone meal
 	public static final Item FUZZ_SPORES = addItem("fuzz_spores", new Item(new QuiltItemSettings().group(MBItemGroup.MB_MISC)));
 	// TODO: Truffle

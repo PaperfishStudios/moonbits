@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/iron_bars_side",
+  "textures": {
+    "bars": "moonbits:block/oxidized_copper_bars",
+    "edge": "moonbits:block/oxidized_copper_bars"
+  }
+}

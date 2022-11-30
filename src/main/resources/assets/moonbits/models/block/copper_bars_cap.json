@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/iron_bars_cap",
+  "textures": {
+    "bars": "moonbits:block/copper_bars",
+    "edge": "moonbits:block/copper_bars"
+  }
+}

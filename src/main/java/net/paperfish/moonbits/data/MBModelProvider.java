@@ -44,8 +44,18 @@ public class MBModelProvider extends FabricModelProvider {
     public static final Model GRASS_BLOCK = blockFromVanilla("grass_block", TextureKey.BOTTOM, TextureKey.TOP, TextureKey.SIDE, OVERLAY);
     public static final TexturedModel.Factory TINTED_GRASSLIKE = TexturedModelAccessor.callMakeFactory(MBModelProvider::grasslike, GRASS_BLOCK);
 
+	public static final Model CUSHION = block("template_cushion", TextureKey.TOP, TextureKey.SIDE);
     public static final Model WALL_LANTERN = block("template_wall_lantern", TextureKey.LANTERN);
 	public static final Model TREE_TAP = block("template_tree_tap", TextureKey.TEXTURE);
+	public static final Model LADDER = blockFromVanilla("ladder", TextureKey.TEXTURE);
+
+	public static final TextureKey BARS = TextureKeyAccessor.createTextureKey("bars", TextureKey.SIDE);
+	public static final Model BARS_POST_ENDS = blockFromVanilla("iron_bars_post_ends", TextureKey.EDGE);
+	public static final Model BARS_POST = blockFromVanilla("iron_bars_post", BARS);
+	public static final Model BARS_CAP = blockFromVanilla("iron_bars_cap", BARS, TextureKey.EDGE);
+	public static final Model BARS_CAP_ALT = blockFromVanilla("iron_bars_cap_alt", BARS, TextureKey.EDGE);
+	public static final Model BARS_SIDE = blockFromVanilla("iron_bars_side", BARS, TextureKey.EDGE);
+	public static final Model BARS_SIDE_ALT = blockFromVanilla("iron_bars_side_alt", BARS, TextureKey.EDGE);
 
     public static final Model TINTED_CUBE = block("tinted/tinted_cube", TextureKey.ALL);
     public static final TexturedModel.Factory TINTED_BLOCK = TexturedModelAccessor.callMakeFactory(Texture::all, TINTED_CUBE);
@@ -161,6 +171,42 @@ public class MBModelProvider extends FabricModelProvider {
 		generator.registerSimpleCubeAll(MBBlocks.FLINT_BLOCK);
 
 		generator.registerCarpet(MBBlocks.BEARD_MOSS_BLOCK, MBBlocks.BEARD_MOSS_CARPET);
+
+		generator.registerSimpleCubeAll(MBBlocks.OXIDIZED_COPPER_SHINGLES);
+		generator.registerSimpleCubeAll(MBBlocks.WEATHERED_COPPER_SHINGLES);
+		generator.registerSimpleCubeAll(MBBlocks.EXPOSED_COPPER_SHINGLES);
+		generator.registerSimpleCubeAll(MBBlocks.COPPER_SHINGLES);
+		generator.registerInfested(MBBlocks.OXIDIZED_COPPER_SHINGLES, MBBlocks.WAXED_OXIDIZED_COPPER_SHINGLES);
+		generator.registerInfested(MBBlocks.WEATHERED_COPPER_SHINGLES,MBBlocks.WAXED_WEATHERED_COPPER_SHINGLES);
+		generator.registerInfested(MBBlocks.EXPOSED_COPPER_SHINGLES, MBBlocks.WAXED_EXPOSED_COPPER_SHINGLES);
+		generator.registerInfested(MBBlocks.COPPER_SHINGLES, MBBlocks.WAXED_COPPER_SHINGLES);
+
+		metalBars(MBBlocks.OXIDIZED_COPPER_BARS, generator);
+		metalBars(MBBlocks.WEATHERED_COPPER_BARS, generator);
+		metalBars(MBBlocks.EXPOSED_COPPER_BARS, generator);
+		metalBars(MBBlocks.COPPER_BARS, generator);
+		waxedMetalBars(MBBlocks.OXIDIZED_COPPER_BARS, MBBlocks.WAXED_OXIDIZED_COPPER_BARS, generator);
+		waxedMetalBars(MBBlocks.WEATHERED_COPPER_BARS,MBBlocks.WAXED_WEATHERED_COPPER_BARS, generator);
+		waxedMetalBars(MBBlocks.EXPOSED_COPPER_BARS, MBBlocks.WAXED_EXPOSED_COPPER_BARS, generator);
+		waxedMetalBars(MBBlocks.COPPER_BARS, MBBlocks.WAXED_COPPER_BARS, generator);
+
+		ladder(MBBlocks.OXIDIZED_COPPER_LADDER, generator);
+		ladder(MBBlocks.WEATHERED_COPPER_LADDER, generator);
+		ladder(MBBlocks.EXPOSED_COPPER_LADDER, generator);
+		ladder(MBBlocks.COPPER_LADDER, generator);
+		waxedLadder(MBBlocks.OXIDIZED_COPPER_LADDER, MBBlocks.WAXED_OXIDIZED_COPPER_LADDER, generator);
+		waxedLadder(MBBlocks.WEATHERED_COPPER_LADDER,MBBlocks.WAXED_WEATHERED_COPPER_LADDER, generator);
+		waxedLadder(MBBlocks.EXPOSED_COPPER_LADDER, MBBlocks.WAXED_EXPOSED_COPPER_LADDER, generator);
+		waxedLadder(MBBlocks.COPPER_LADDER, MBBlocks.WAXED_COPPER_LADDER, generator);
+
+		generator.registerOrientableTrapdoor(MBBlocks.OXIDIZED_COPPER_TRAPDOOR);
+		generator.registerOrientableTrapdoor(MBBlocks.WEATHERED_COPPER_TRAPDOOR);
+		generator.registerOrientableTrapdoor(MBBlocks.EXPOSED_COPPER_TRAPDOOR);
+		generator.registerOrientableTrapdoor(MBBlocks.COPPER_TRAPDOOR);
+		waxedOrientableTrapdoor(MBBlocks.OXIDIZED_COPPER_TRAPDOOR, MBBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, generator);
+		waxedOrientableTrapdoor(MBBlocks.WEATHERED_COPPER_TRAPDOOR,MBBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, generator);
+		waxedOrientableTrapdoor(MBBlocks.EXPOSED_COPPER_TRAPDOOR, MBBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR, generator);
+		waxedOrientableTrapdoor(MBBlocks.COPPER_TRAPDOOR, MBBlocks.WAXED_COPPER_TRAPDOOR, generator);
 
 		generator.registerLantern(MBBlocks.COPPER_OXIDE_LANTERN);
 		generator.registerCampfire(MBBlocks.COPPER_OXIDE_CAMPFIRE);
@@ -661,15 +707,115 @@ public class MBModelProvider extends FabricModelProvider {
     }
     public static void seatBlock(Block block, BlockStateModelGenerator generator) {
         Texture texture = Texture.of(TextureKey.TOP, Texture.getSubId(block, "_top"))
-                .put(TextureKey.SIDE, Texture.getId(block)).put(TextureKey.BOTTOM, Texture.getSubId(MBBlocks.WHITE_CUSHION, "_bottom"));
-        Identifier identifier = Models.SLAB.upload(block, texture, generator.modelCollector);
-//        Identifier identifier2 = Models.SLAB_TOP.upload(block, texture, generator.modelCollector);
-//        Identifier identifier3 = TexturedModel.CUBE_BOTTOM_TOP.get(block)
-//                .texture(tex -> tex.put(TextureKey.SIDE, Texture.getSubId(block, "_double"))
-//                        .put(TextureKey.BOTTOM, Texture.getSubId(MBBlocks.LEATHER_SEAT, "_bottom")))
-//                .upload(block, "_double", generator.modelCollector);
+                .put(TextureKey.SIDE, Texture.getId(block));
+        Identifier identifier = CUSHION.upload(block, texture, generator.modelCollector);
         generator.blockStateCollector.accept(BlockStateModelGenerator.createSingletonBlockState(block, identifier));
     }
+	public static void ladder(Block block, BlockStateModelGenerator generator) {
+		Texture texture = Texture.of(TextureKey.TEXTURE, Texture.getId(block));
+		Identifier identifier = LADDER.upload(block, texture, generator.modelCollector);
+		generator.registerItemModel(block);
+		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(block, BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
+				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+	}
+	public static void waxedLadder(Block base, Block waxed, BlockStateModelGenerator generator) {
+		Identifier identifier = ModelIds.getBlockModelId(base);
+		generator.registerParentedItemModel(waxed, ModelIds.getItemModelId(base.asItem()));
+		generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(waxed, BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
+				.coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+	}
+	private void metalBars(Block block, BlockStateModelGenerator generator) {
+		Identifier identifier = BARS_POST_ENDS.upload(block, "_post_ends", Texture.of(TextureKey.EDGE,
+				Texture.getId(block)), generator.modelCollector);
+		Identifier identifier2 = BARS_POST.upload(block, "_post", Texture.of(BARS,
+				Texture.getId(block)), generator.modelCollector);
+		Texture texture = Texture.of(BARS, Texture.getId(block)).put(TextureKey.EDGE, Texture.getId(block));
+		Identifier identifier3 = BARS_CAP.upload(block, "_cap", texture, generator.modelCollector);
+		Identifier identifier4 = BARS_CAP_ALT.upload(block, "_cap_alt", texture, generator.modelCollector);
+		Identifier identifier5 = BARS_SIDE.upload(block, "_side", texture, generator.modelCollector);
+		Identifier identifier6 = BARS_SIDE_ALT.upload(block, "_side_alt", texture, generator.modelCollector);
+		generator.blockStateCollector
+				.accept(
+						MultipartBlockStateSupplier.create(block)
+								.with(BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
+								.with(
+										When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, false),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier2)
+								)
+								.with(
+										When.create().set(Properties.NORTH, true).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, false),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier3)
+								)
+								.with(
+										When.create().set(Properties.NORTH, false).set(Properties.EAST, true).set(Properties.SOUTH, false).set(Properties.WEST, false),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier3).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+								)
+								.with(
+										When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, true).set(Properties.WEST, false),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier4)
+								)
+								.with(
+										When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, true),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier4).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+								)
+								.with(When.create().set(Properties.NORTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier5))
+								.with(
+										When.create().set(Properties.EAST, true),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier5).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+								)
+								.with(When.create().set(Properties.SOUTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier6))
+								.with(
+										When.create().set(Properties.WEST, true),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier6).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+								)
+				);
+		generator.registerItemModel(block);
+	}
+	private void waxedMetalBars(Block base, Block waxed, BlockStateModelGenerator generator) {
+		Identifier identifier = ModelIds.getBlockSubModelId(base, "_post_ends");
+		Identifier identifier2 = ModelIds.getBlockSubModelId(base, "_post");
+		Identifier identifier3 = ModelIds.getBlockSubModelId(base, "_cap");
+		Identifier identifier4 = ModelIds.getBlockSubModelId(base, "_cap_alt");
+		Identifier identifier5 = ModelIds.getBlockSubModelId(base, "_side");
+		Identifier identifier6 = ModelIds.getBlockSubModelId(base, "_side_alt");
+
+		generator.blockStateCollector
+				.accept(
+						MultipartBlockStateSupplier.create(waxed)
+								.with(BlockStateVariant.create().put(VariantSettings.MODEL, identifier))
+								.with(
+										When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, false),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier2)
+								)
+								.with(
+										When.create().set(Properties.NORTH, true).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, false),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier3)
+								)
+								.with(
+										When.create().set(Properties.NORTH, false).set(Properties.EAST, true).set(Properties.SOUTH, false).set(Properties.WEST, false),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier3).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+								)
+								.with(
+										When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, true).set(Properties.WEST, false),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier4)
+								)
+								.with(
+										When.create().set(Properties.NORTH, false).set(Properties.EAST, false).set(Properties.SOUTH, false).set(Properties.WEST, true),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier4).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+								)
+								.with(When.create().set(Properties.NORTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier5))
+								.with(
+										When.create().set(Properties.EAST, true),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier5).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+								)
+								.with(When.create().set(Properties.SOUTH, true), BlockStateVariant.create().put(VariantSettings.MODEL, identifier6))
+								.with(
+										When.create().set(Properties.WEST, true),
+										BlockStateVariant.create().put(VariantSettings.MODEL, identifier6).put(VariantSettings.Y, VariantSettings.Rotation.R90)
+								)
+				);
+		generator.registerParentedItemModel(waxed, ModelIds.getItemModelId(base.asItem()));
+	}
 
     public static void log(Block logBlock, Block woodBlock, BlockStateModelGenerator generator) {
         Texture texture = Texture.sideAndEndForTop(logBlock);
@@ -739,7 +885,7 @@ public class MBModelProvider extends FabricModelProvider {
         generator.blockStateCollector.accept(BlockStateModelGenerator.createBlockStateWithRandomHorizontalRotations(block, identifier));
     }
 
-	public void waxedOrientableTrapdoor(Block trapdoorBlock, Block sourceBlock, BlockStateModelGenerator generator) {
+	public void waxedOrientableTrapdoor(Block sourceBlock, Block trapdoorBlock, BlockStateModelGenerator generator) {
 		Texture texture = Texture.texture(sourceBlock);
 		Identifier identifier = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_TOP.upload(trapdoorBlock, texture, generator.modelCollector);
 		Identifier identifier2 = Models.TEMPLATE_ORIENTABLE_TRAPDOOR_BOTTOM.upload(trapdoorBlock, texture, generator.modelCollector);

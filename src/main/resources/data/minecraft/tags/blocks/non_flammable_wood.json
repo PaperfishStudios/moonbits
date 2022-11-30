@@ -2,14 +2,14 @@
   "replace": false,
   "values": [
     "moonbits:carved_crimson_wood",
-    "minecraft:crimson_slab",
-    "moonbits:crimson_planter_box",
     "moonbits:crimson_mosaic",
     "moonbits:crimson_pillar",
+    "moonbits:crimson_planter_box",
+    "minecraft:crimson_slab",
     "moonbits:carved_warped_wood",
-    "minecraft:warped_slab",
-    "moonbits:warped_planter_box",
     "moonbits:warped_mosaic",
-    "moonbits:warped_pillar"
+    "moonbits:warped_pillar",
+    "moonbits:warped_planter_box",
+    "minecraft:warped_slab"
   ]
 }

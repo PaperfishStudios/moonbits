@@ -44,8 +44,8 @@ public class MBEntities {
     public static final EntityType<SeatBlockEntity> SEAT_BLOCK_ENTITY = Registry.register(
         Registry.ENTITY_TYPE,
         new Identifier("moonbits", "seatblock"),
-        FabricEntityTypeBuilder.<SeatBlockEntity>create(SpawnGroup.MISC, SeatBlockEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.35f)).fireImmune().disableSummon().build());
-        
+        FabricEntityTypeBuilder.<SeatBlockEntity>create(SpawnGroup.MISC, SeatBlockEntity::new).dimensions(EntityDimensions.fixed(1/8f, 0.35f)).fireImmune().disableSummon().build());
+
     public static void registerEntities() {
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(
                 BiomeKeys.BIRCH_FOREST,

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "moonbits:copper_trapdoor",
+    "moonbits:exposed_copper_trapdoor",
+    "moonbits:weathered_copper_trapdoor",
+    "moonbits:oxidized_copper_trapdoor",
+    "moonbits:waxed_copper_trapdoor",
+    "moonbits:waxed_exposed_copper_trapdoor",
+    "moonbits:waxed_weathered_copper_trapdoor",
+    "moonbits:waxed_oxidized_copper_trapdoor"
+  ]
+}

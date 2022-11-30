@@ -107,7 +107,7 @@ public class SeatBlock extends Block {
         if (!world.isClient()) {
             SeatBlockEntity entity;
 //            if (state.get(TYPE) == SlabType.BOTTOM) {
-                entity = new SeatBlockEntity(world, pos.getX() + .5f, pos.getY(), pos.getZ() + .5f);
+                entity = new SeatBlockEntity(world, pos.getX() + .5f, pos.getY() + 1/16f, pos.getZ() + .5f);
                 //entity.setPosition(pos.getX() + .5f, pos.getY() + 1f, pos.getZ() + .5f);
                 Moonbits.LOGGER.info("created seat entity at " + pos);
 //            } else {
