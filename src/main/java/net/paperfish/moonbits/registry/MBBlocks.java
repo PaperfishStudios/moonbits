@@ -909,14 +909,9 @@ public class MBBlocks {
 	public static final Block PEAT_MOSS = createWithItem("peat_moss", new Block(AbstractBlock.Settings.copy(Blocks.DIRT)));
 	public static final Block DEEP_ROOTED_SOIL = createWithItem("deep_rooted_soil", new Block(AbstractBlock.Settings.copy(Blocks.DIRT)));
 
-	public static final Block MYCELIAL_DIRT = createWithItem("mycelial_dirt", new Block(AbstractBlock.Settings.copy(Blocks.DIRT)));
-	public static final Block DECOMPOSING_DIRT = createWithItem("decomposing_dirt", new Block(AbstractBlock.Settings.copy(Blocks.DIRT)));
-	public static final Block FUZZ_BLOCK = createWithItem("fuzz_block", new Block(AbstractBlock.Settings.copy(Blocks.DIRT).strength(1.0f, 3f).mapColor(MapColor.RAW_IRON_PINK)));
-
-	public static final Block FUZZ_BRICKS = createWithItem("fuzz_bricks", new Block(AbstractBlock.Settings.copy(FUZZ_BLOCK)));
-	public static final Block FUZZ_BRICK_STAIRS = createWithItem("fuzz_brick_stairs", new MBStairsBlock(FUZZ_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(FUZZ_BRICKS)));
-	public static final Block FUZZ_BRICK_SLAB = createWithItem("fuzz_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(FUZZ_BRICKS)));
-	public static final Block FUZZ_BRICK_WALL = createWithItem("fuzz_brick_wall", new WallBlock(AbstractBlock.Settings.copy(FUZZ_BRICKS)));
+	public static final Block FUZZY_DIRT = createWithItem("fuzzy_dirt", new FuzzSoilBlock(AbstractBlock.Settings.copy(Blocks.DIRT)));
+	public static final Block DECOMPOSING_DIRT = createWithItem("decomposing_dirt", new FuzzSoilBlock(AbstractBlock.Settings.copy(Blocks.DIRT)));
+	public static final Block FUZZ_ROOTS = createWithItem("fuzz_roots", new FuzzSoilBlock(AbstractBlock.Settings.copy(Blocks.DIRT).strength(1.0f, 3f).mapColor(MapColor.RAW_IRON_PINK)));
 
 	public static final Block FLINT_BLOCK = createWithItem("flint_block", new Block(AbstractBlock.Settings.copy(Blocks.STONE).mapColor(MapColor.TERRACOTTA_BLACK)));
 	public static final Block SMOOTH_FLINT = createWithItem("smooth_flint", new Block(AbstractBlock.Settings.copy(FLINT_BLOCK)));
@@ -930,7 +925,115 @@ public class MBBlocks {
 	public static final Block PEAT_BRICK_SLAB = createWithItem("peat_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(PEAT_BRICKS)));
 	public static final Block PEAT_BRICK_WALL = createWithItem("peat_brick_wall", new WallBlock(AbstractBlock.Settings.copy(PEAT_BRICKS)));
 
+	public static final Block DAWNROOT_BLOCK = createWithItem("dawnroot_block", new Block(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).sounds(BlockSoundGroup.MANGROVE_ROOTS)));
+
+	// FUZZ BLOCKS
+	// default fuzz
+	public static final Block FUZZ_BLOCK = createWithItem("fuzz_block", new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS)));
+	public static final Block FUZZ_BLOCK_STAIRS = createWithItem("fuzz_block_stairs", new MBStairsBlock(FUZZ_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(FUZZ_BLOCK)));
+	public static final Block FUZZ_BLOCK_SLAB = createWithItem("fuzz_block_slab", new SlabBlock(AbstractBlock.Settings.copy(FUZZ_BLOCK)));
+
+	public static final Block FUZZ_BOARDS = createWithItem("fuzz_boards", new Block(AbstractBlock.Settings.copy(FUZZ_BLOCK)));
+	public static final Block FUZZ_BOARD_STAIRS = createWithItem("fuzz_board_stairs", new MBStairsBlock(FUZZ_BOARDS.getDefaultState(), AbstractBlock.Settings.copy(FUZZ_BOARDS)));
+	public static final Block FUZZ_BOARD_SLAB = createWithItem("fuzz_board_slab", new SlabBlock(AbstractBlock.Settings.copy(FUZZ_BOARDS)));
+
+	public static final Block FUZZ_BRICKS = createWithItem("fuzz_bricks", new Block(AbstractBlock.Settings.copy(FUZZ_BLOCK)));
+	public static final Block FUZZ_BRICK_STAIRS = createWithItem("fuzz_brick_stairs", new MBStairsBlock(FUZZ_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(FUZZ_BRICKS)));
+	public static final Block FUZZ_BRICK_SLAB = createWithItem("fuzz_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(FUZZ_BRICKS)));
+	public static final Block FUZZ_BRICK_WALL = createWithItem("fuzz_brick_wall", new WallBlock(AbstractBlock.Settings.copy(FUZZ_BRICKS)));
+
+	// red
+	public static final Block RED_FUZZ_ROOTS = createWithItem("red_fuzz_roots", new FuzzSoilBlock(AbstractBlock.Settings.copy(FUZZ_ROOTS).mapColor(MapColor.RAW_IRON_PINK)));
+	public static final Block RED_FUZZ_BLOCK = createWithItem("red_fuzz_block", new Block(AbstractBlock.Settings.copy(FUZZ_BLOCK).mapColor(MapColor.TERRACOTTA_RED)));
+	public static final Block RED_FUZZ_BLOCK_STAIRS = createWithItem("red_fuzz_block_stairs", new MBStairsBlock(RED_FUZZ_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(RED_FUZZ_BLOCK)));
+	public static final Block RED_FUZZ_BLOCK_SLAB = createWithItem("red_fuzz_block_slab", new SlabBlock(AbstractBlock.Settings.copy(RED_FUZZ_BLOCK)));
+
+	public static final Block RED_FUZZ_BOARDS = createWithItem("red_fuzz_boards", new Block(AbstractBlock.Settings.copy(RED_FUZZ_BLOCK)));
+	public static final Block RED_FUZZ_BOARD_STAIRS = createWithItem("red_fuzz_board_stairs", new MBStairsBlock(RED_FUZZ_BOARDS.getDefaultState(), AbstractBlock.Settings.copy(RED_FUZZ_BOARDS)));
+	public static final Block RED_FUZZ_BOARD_SLAB = createWithItem("red_fuzz_board_slab", new SlabBlock(AbstractBlock.Settings.copy(RED_FUZZ_BOARDS)));
+
+	public static final Block RED_FUZZ_BRICKS = createWithItem("red_fuzz_bricks", new Block(AbstractBlock.Settings.copy(RED_FUZZ_BLOCK)));
+	public static final Block RED_FUZZ_BRICK_STAIRS = createWithItem("red_fuzz_brick_stairs", new MBStairsBlock(RED_FUZZ_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(RED_FUZZ_BRICKS)));
+	public static final Block RED_FUZZ_BRICK_SLAB = createWithItem("red_fuzz_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(RED_FUZZ_BRICKS)));
+	public static final Block RED_FUZZ_BRICK_WALL = createWithItem("red_fuzz_brick_wall", new WallBlock(AbstractBlock.Settings.copy(RED_FUZZ_BRICKS)));
+
+	// brown
+	public static final Block BROWN_FUZZ_ROOTS = createWithItem("brown_fuzz_roots", new FuzzSoilBlock(AbstractBlock.Settings.copy(FUZZ_ROOTS).mapColor(MapColor.RAW_IRON_PINK)));
+	public static final Block BROWN_FUZZ_BLOCK = createWithItem("brown_fuzz_block", new Block(AbstractBlock.Settings.copy(FUZZ_BLOCK).mapColor(MapColor.TERRACOTTA_BROWN)));
+	public static final Block BROWN_FUZZ_BLOCK_STAIRS = createWithItem("brown_fuzz_block_stairs", new MBStairsBlock(BROWN_FUZZ_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(BROWN_FUZZ_BLOCK)));
+	public static final Block BROWN_FUZZ_BLOCK_SLAB = createWithItem("brown_fuzz_block_slab", new SlabBlock(AbstractBlock.Settings.copy(BROWN_FUZZ_BLOCK)));
+
+	public static final Block BROWN_FUZZ_BOARDS = createWithItem("brown_fuzz_boards", new Block(AbstractBlock.Settings.copy(BROWN_FUZZ_BLOCK)));
+	public static final Block BROWN_FUZZ_BOARD_STAIRS = createWithItem("brown_fuzz_board_stairs", new MBStairsBlock(BROWN_FUZZ_BOARDS.getDefaultState(), AbstractBlock.Settings.copy(BROWN_FUZZ_BOARDS)));
+	public static final Block BROWN_FUZZ_BOARD_SLAB = createWithItem("brown_fuzz_board_slab", new SlabBlock(AbstractBlock.Settings.copy(BROWN_FUZZ_BOARDS)));
+
+	public static final Block BROWN_FUZZ_BRICKS = createWithItem("brown_fuzz_bricks", new Block(AbstractBlock.Settings.copy(BROWN_FUZZ_BLOCK)));
+	public static final Block BROWN_FUZZ_BRICK_STAIRS = createWithItem("brown_fuzz_brick_stairs", new MBStairsBlock(BROWN_FUZZ_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(BROWN_FUZZ_BRICKS)));
+	public static final Block BROWN_FUZZ_BRICK_SLAB = createWithItem("brown_fuzz_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(BROWN_FUZZ_BRICKS)));
+	public static final Block BROWN_FUZZ_BRICK_WALL = createWithItem("brown_fuzz_brick_wall", new WallBlock(AbstractBlock.Settings.copy(BROWN_FUZZ_BRICKS)));
+
+	// saffron
+	public static final Block SAFFRON_FUZZ_ROOTS = createWithItem("saffron_fuzz_roots", new FuzzSoilBlock(AbstractBlock.Settings.copy(FUZZ_ROOTS).mapColor(MapColor.RAW_IRON_PINK)));
+	public static final Block SAFFRON_FUZZ_BLOCK = createWithItem("saffron_fuzz_block", new Block(AbstractBlock.Settings.copy(FUZZ_BLOCK).mapColor(MapColor.TERRACOTTA_ORANGE)));
+	public static final Block SAFFRON_FUZZ_BLOCK_STAIRS = createWithItem("saffron_fuzz_block_stairs", new MBStairsBlock(SAFFRON_FUZZ_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(SAFFRON_FUZZ_BLOCK)));
+	public static final Block SAFFRON_FUZZ_BLOCK_SLAB = createWithItem("saffron_fuzz_block_slab", new SlabBlock(AbstractBlock.Settings.copy(SAFFRON_FUZZ_BLOCK)));
+
+	public static final Block SAFFRON_FUZZ_BOARDS = createWithItem("saffron_fuzz_boards", new Block(AbstractBlock.Settings.copy(SAFFRON_FUZZ_BLOCK)));
+	public static final Block SAFFRON_FUZZ_BOARD_STAIRS = createWithItem("saffron_fuzz_board_stairs", new MBStairsBlock(SAFFRON_FUZZ_BOARDS.getDefaultState(), AbstractBlock.Settings.copy(SAFFRON_FUZZ_BOARDS)));
+	public static final Block SAFFRON_FUZZ_BOARD_SLAB = createWithItem("saffron_fuzz_board_slab", new SlabBlock(AbstractBlock.Settings.copy(SAFFRON_FUZZ_BOARDS)));
+
+	public static final Block SAFFRON_FUZZ_BRICKS = createWithItem("saffron_fuzz_bricks", new Block(AbstractBlock.Settings.copy(SAFFRON_FUZZ_BLOCK)));
+	public static final Block SAFFRON_FUZZ_BRICK_STAIRS = createWithItem("saffron_fuzz_brick_stairs", new MBStairsBlock(SAFFRON_FUZZ_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(SAFFRON_FUZZ_BRICKS)));
+	public static final Block SAFFRON_FUZZ_BRICK_SLAB = createWithItem("saffron_fuzz_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(SAFFRON_FUZZ_BRICKS)));
+	public static final Block SAFFRON_FUZZ_BRICK_WALL = createWithItem("saffron_fuzz_brick_wall", new WallBlock(AbstractBlock.Settings.copy(SAFFRON_FUZZ_BRICKS)));
+
+	// bonnet
+	public static final Block BONNET_FUZZ_ROOTS = createWithItem("bonnet_fuzz_roots", new FuzzSoilBlock(AbstractBlock.Settings.copy(FUZZ_ROOTS).mapColor(MapColor.RAW_IRON_PINK)));
+	public static final Block BONNET_FUZZ_BLOCK = createWithItem("bonnet_fuzz_block", new Block(AbstractBlock.Settings.copy(FUZZ_BLOCK).mapColor(MapColor.TERRACOTTA_ORANGE)));
+	public static final Block BONNET_FUZZ_BLOCK_STAIRS = createWithItem("bonnet_fuzz_block_stairs", new MBStairsBlock(BONNET_FUZZ_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(BONNET_FUZZ_BLOCK)));
+	public static final Block BONNET_FUZZ_BLOCK_SLAB = createWithItem("bonnet_fuzz_block_slab", new SlabBlock(AbstractBlock.Settings.copy(BONNET_FUZZ_BLOCK)));
+
+	public static final Block BONNET_FUZZ_BOARDS = createWithItem("bonnet_fuzz_boards", new Block(AbstractBlock.Settings.copy(BONNET_FUZZ_BLOCK)));
+	public static final Block BONNET_FUZZ_BOARD_STAIRS = createWithItem("bonnet_fuzz_board_stairs", new MBStairsBlock(BONNET_FUZZ_BOARDS.getDefaultState(), AbstractBlock.Settings.copy(BONNET_FUZZ_BOARDS)));
+	public static final Block BONNET_FUZZ_BOARD_SLAB = createWithItem("bonnet_fuzz_board_slab", new SlabBlock(AbstractBlock.Settings.copy(BONNET_FUZZ_BOARDS)));
+
+	public static final Block BONNET_FUZZ_BRICKS = createWithItem("bonnet_fuzz_bricks", new Block(AbstractBlock.Settings.copy(BONNET_FUZZ_BLOCK)));
+	public static final Block BONNET_FUZZ_BRICK_STAIRS = createWithItem("bonnet_fuzz_brick_stairs", new MBStairsBlock(BONNET_FUZZ_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(BONNET_FUZZ_BRICKS)));
+	public static final Block BONNET_FUZZ_BRICK_SLAB = createWithItem("bonnet_fuzz_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(BONNET_FUZZ_BRICKS)));
+	public static final Block BONNET_FUZZ_BRICK_WALL = createWithItem("bonnet_fuzz_brick_wall", new WallBlock(AbstractBlock.Settings.copy(BONNET_FUZZ_BRICKS)));
+
+	// amity
+	public static final Block AMITY_FUZZ_ROOTS = createWithItem("amity_fuzz_roots", new FuzzSoilBlock(AbstractBlock.Settings.copy(FUZZ_ROOTS).mapColor(MapColor.RAW_IRON_PINK)));
+	public static final Block AMITY_FUZZ_BLOCK = createWithItem("amity_fuzz_block", new Block(AbstractBlock.Settings.copy(FUZZ_BLOCK).mapColor(MapColor.TERRACOTTA_ORANGE)));
+	public static final Block AMITY_FUZZ_BLOCK_STAIRS = createWithItem("amity_fuzz_block_stairs", new MBStairsBlock(AMITY_FUZZ_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(AMITY_FUZZ_BLOCK)));
+	public static final Block AMITY_FUZZ_BLOCK_SLAB = createWithItem("amity_fuzz_block_slab", new SlabBlock(AbstractBlock.Settings.copy(AMITY_FUZZ_BLOCK)));
+
+	public static final Block AMITY_FUZZ_BOARDS = createWithItem("amity_fuzz_boards", new Block(AbstractBlock.Settings.copy(AMITY_FUZZ_BLOCK)));
+	public static final Block AMITY_FUZZ_BOARD_STAIRS = createWithItem("amity_fuzz_board_stairs", new MBStairsBlock(AMITY_FUZZ_BOARDS.getDefaultState(), AbstractBlock.Settings.copy(AMITY_FUZZ_BOARDS)));
+	public static final Block AMITY_FUZZ_BOARD_SLAB = createWithItem("amity_fuzz_board_slab", new SlabBlock(AbstractBlock.Settings.copy(AMITY_FUZZ_BOARDS)));
+
+	public static final Block AMITY_FUZZ_BRICKS = createWithItem("amity_fuzz_bricks", new Block(AbstractBlock.Settings.copy(AMITY_FUZZ_BLOCK)));
+	public static final Block AMITY_FUZZ_BRICK_STAIRS = createWithItem("amity_fuzz_brick_stairs", new MBStairsBlock(AMITY_FUZZ_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(AMITY_FUZZ_BRICKS)));
+	public static final Block AMITY_FUZZ_BRICK_SLAB = createWithItem("amity_fuzz_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(AMITY_FUZZ_BRICKS)));
+	public static final Block AMITY_FUZZ_BRICK_WALL = createWithItem("amity_fuzz_brick_wall", new WallBlock(AbstractBlock.Settings.copy(AMITY_FUZZ_BRICKS)));
+
+	// inky
+	public static final Block INKY_FUZZ_ROOTS = createWithItem("inky_fuzz_roots", new FuzzSoilBlock(AbstractBlock.Settings.copy(FUZZ_ROOTS).mapColor(MapColor.RAW_IRON_PINK)));
+	public static final Block INKY_FUZZ_BLOCK = createWithItem("inky_fuzz_block", new Block(AbstractBlock.Settings.copy(FUZZ_BLOCK).mapColor(MapColor.TERRACOTTA_ORANGE)));
+	public static final Block INKY_FUZZ_BLOCK_STAIRS = createWithItem("inky_fuzz_block_stairs", new MBStairsBlock(INKY_FUZZ_BLOCK.getDefaultState(), AbstractBlock.Settings.copy(INKY_FUZZ_BLOCK)));
+	public static final Block INKY_FUZZ_BLOCK_SLAB = createWithItem("inky_fuzz_block_slab", new SlabBlock(AbstractBlock.Settings.copy(INKY_FUZZ_BLOCK)));
+
+	public static final Block INKY_FUZZ_BOARDS = createWithItem("inky_fuzz_boards", new Block(AbstractBlock.Settings.copy(INKY_FUZZ_BLOCK)));
+	public static final Block INKY_FUZZ_BOARD_STAIRS = createWithItem("inky_fuzz_board_stairs", new MBStairsBlock(INKY_FUZZ_BOARDS.getDefaultState(), AbstractBlock.Settings.copy(INKY_FUZZ_BOARDS)));
+	public static final Block INKY_FUZZ_BOARD_SLAB = createWithItem("inky_fuzz_board_slab", new SlabBlock(AbstractBlock.Settings.copy(INKY_FUZZ_BOARDS)));
+
+	public static final Block INKY_FUZZ_BRICKS = createWithItem("inky_fuzz_bricks", new Block(AbstractBlock.Settings.copy(INKY_FUZZ_BLOCK)));
+	public static final Block INKY_FUZZ_BRICK_STAIRS = createWithItem("inky_fuzz_brick_stairs", new MBStairsBlock(INKY_FUZZ_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(INKY_FUZZ_BRICKS)));
+	public static final Block INKY_FUZZ_BRICK_SLAB = createWithItem("inky_fuzz_brick_slab", new SlabBlock(AbstractBlock.Settings.copy(INKY_FUZZ_BRICKS)));
+	public static final Block INKY_FUZZ_BRICK_WALL = createWithItem("inky_fuzz_brick_wall", new WallBlock(AbstractBlock.Settings.copy(INKY_FUZZ_BRICKS)));
+
 	// MANUFACTURED BLOCKS HERE I GUESS?
+
 	public static final Block FIBER_THATCH = createWithItem("fiber_thatch", new Block(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_LIGHT_GRAY)
 			.strength(0.7f).sounds(BlockSoundGroup.MANGROVE_ROOTS)));
 	public static final Block FIBER_THATCH_STAIRS = createWithItem("fiber_thatch_stairs", new MBStairsBlock(FIBER_THATCH.getDefaultState(), AbstractBlock.Settings.copy(FIBER_THATCH)));
@@ -1016,13 +1119,42 @@ public class MBBlocks {
 	public static final Block POTTED_SAFFRON_MUSHROOM = registerBlock("potted_saffron_mushroom",
 			new FlowerPotBlock(SAFFRON_MUSHROOM, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque()));
 
-	// TODO: Fuzz Shrooms
+	public static final Block BONNET_MUSHROOM = createWithItem("bonnet_mushroom",
+			new MushroomPlantBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).noCollision().ticksRandomly().breakInstantly()
+					.sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ).postProcess((state, world, pos) -> true), () -> MBTreeFeatures.SAFFRON_MUSHROOM));
+	public static final Block POTTED_BONNET_MUSHROOM = registerBlock("potted_bonnet_mushroom",
+			new FlowerPotBlock(BONNET_MUSHROOM, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque()));
+
+	public static final Block AMITY_MUSHROOM = createWithItem("amity_mushroom",
+			new MushroomPlantBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).noCollision().ticksRandomly().breakInstantly()
+					.sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ).postProcess((state, world, pos) -> true), () -> MBTreeFeatures.SAFFRON_MUSHROOM));
+	public static final Block POTTED_AMITY_MUSHROOM = registerBlock("potted_amity_mushroom",
+			new FlowerPotBlock(AMITY_MUSHROOM, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque()));
+
+	public static final Block INKCAP_MUSHROOM = createWithItem("inkcap_mushroom",
+			new MushroomPlantBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).noCollision().ticksRandomly().breakInstantly()
+					.sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ).postProcess((state, world, pos) -> true), () -> MBTreeFeatures.SAFFRON_MUSHROOM));
+	public static final Block POTTED_INKCAP_MUSHROOM = registerBlock("potted_inkcap_mushroom",
+			new FlowerPotBlock(INKCAP_MUSHROOM, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque()));
+
+	// TODO: Fuzz Shrooms should be a unique class i Think?
+	public static final Block FUZZ_SHROOMS = createWithItem("fuzz_shrooms",
+			new MushroomPlantBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_WHITE).noCollision().ticksRandomly().breakInstantly()
+					.sounds(BlockSoundGroup.GRASS).offsetType(AbstractBlock.OffsetType.XZ).postProcess((state, world, pos) -> true), () -> MBTreeFeatures.SAFFRON_MUSHROOM));
+	public static final Block POTTED_FUZZ_SHROOMS = registerBlock("potted_fuzz_shrooms",
+			new FlowerPotBlock(FUZZ_SHROOMS, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque()));
 
 	public static final Block RED_MUSHROOM_CAP = createWithItem("red_mushroom_cap",
 			new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.RED).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM)));
 	public static final Block BROWN_MUSHROOM_CAP = createWithItem("brown_mushroom_cap",
 			new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.BROWN).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM)));
 	public static final Block SAFFRON_MUSHROOM_CAP = createWithItem("saffron_mushroom_cap",
+			new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM)));
+	public static final Block BONNET_MUSHROOM_CAP = createWithItem("bonnet_mushroom_cap",
+			new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM)));
+	public static final Block AMITY_MUSHROOM_CAP = createWithItem("amity_mushroom_cap",
+			new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM)));
+	public static final Block INKCAP_MUSHROOM_CAP = createWithItem("inkcap_mushroom_cap",
 			new MushroomCapBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.TERRACOTTA_ORANGE).strength(0.6F).sounds(BlockSoundGroup.NETHER_STEM)));
 
 	public static final Block MUSHROOM_STEM = createWithItem("mushroom_stem",
@@ -1082,6 +1214,7 @@ public class MBBlocks {
 	public static final Block SPOOL = createWithItem("spool", new PillarBlock(QuiltBlockSettings.of(Material.WOOL).hardness(0.8f).sounds(BlockSoundGroup.WOOL)));
 	public static final Block PAPER_BUNDLE = createWithItem("paper_bundle", new PapersBlock(QuiltBlockSettings.of(Material.WOOL).hardness(0.5f).sounds(BlockSoundGroup.WOOL)));
 	public static final Block STICK_STACK = createWithItem("stick_bundle", new PillarBlock(QuiltBlockSettings.of(Material.WOOD).hardness(0.5f).sounds(BlockSoundGroup.MANGROVE_ROOTS)));
+	public static final Block BOUND_LEATHER = createWithItem("bound_leather", new PillarBlock(QuiltBlockSettings.of(Material.WOOL).hardness(0.8f).sounds(BlockSoundGroup.WOOL)));
 	public static final Block CHARCOAL_LOG = createWithItem("charcoal_log",
 			new PillarBlock(QuiltBlockSettings.of(Material.WOOD).strength(1.2f, 0.8f).sounds(BlockSoundGroup.MANGROVE_ROOTS)));
 

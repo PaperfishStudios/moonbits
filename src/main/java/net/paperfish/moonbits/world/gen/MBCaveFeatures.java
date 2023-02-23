@@ -61,9 +61,9 @@ public class MBCaveFeatures {
 			OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.FLINT_DEPOSIT.getDefaultState()),
 			OreFeatureConfig.createTarget(REGOLITH, MBBlocks.FLINT_DEPOSIT.getDefaultState()));
     public static final List<OreFeatureConfig.Target> FUZZ_GEN = List.of(
-            OreFeatureConfig.createTarget(PACKED_DIRT, MBBlocks.MYCELIAL_DIRT.getDefaultState()),
-            OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.MYCELIAL_DIRT.getDefaultState()),
-            OreFeatureConfig.createTarget(REGOLITH, MBBlocks.MYCELIAL_DIRT.getDefaultState()));
+            OreFeatureConfig.createTarget(PACKED_DIRT, MBBlocks.FUZZY_DIRT.getDefaultState()),
+            OreFeatureConfig.createTarget(COARSE_DIRT, MBBlocks.FUZZY_DIRT.getDefaultState()),
+            OreFeatureConfig.createTarget(REGOLITH, MBBlocks.FUZZY_DIRT.getDefaultState()));
 
     public static final Holder<ConfiguredFeature<OreFeatureConfig, ?>> ORE_PEAT =
             MBConfiguredFeatures.register("ore_peat", Feature.ORE, new OreFeatureConfig(PEAT_GEN, 12, 0.1f));

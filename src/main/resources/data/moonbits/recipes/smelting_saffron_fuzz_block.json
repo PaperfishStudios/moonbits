@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "moonbits:saffron_fuzz_roots"
+  },
+  "result": "moonbits:saffron_fuzz_block"
+}

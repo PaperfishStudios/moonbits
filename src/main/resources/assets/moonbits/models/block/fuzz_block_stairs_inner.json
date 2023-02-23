@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "moonbits:block/fuzz_block",
+    "side": "moonbits:block/fuzz_block",
+    "top": "moonbits:block/fuzz_block"
+  }
+}

@@ -18,6 +18,7 @@ import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.paperfish.moonbits.*;
+import net.paperfish.moonbits.block.FuzzSoilBlock;
 import net.paperfish.moonbits.recipe.WashingRecipeJsonFactory;
 import net.paperfish.moonbits.registry.*;
 
@@ -94,10 +95,12 @@ public class MBRecipeProvider extends FabricRecipeProvider {
 		TRANSMUTE.put(List.of(MBBlocks.YUCCA, Items.WHITE_DYE), 2);
 
         TRANSMUTE.put(List.of(MBBlocks.SAFFRON_MUSHROOM, Items.ORANGE_DYE), 1);
+		TRANSMUTE.put(List.of(MBBlocks.BONNET_MUSHROOM, Items.PURPLE_DYE), 1);
+		TRANSMUTE.put(List.of(MBBlocks.AMITY_MUSHROOM, Items.PINK_DYE), 1);
+		TRANSMUTE.put(List.of(MBBlocks.INKCAP_MUSHROOM, Items.BLACK_DYE), 1);
 
         TRANSMUTE.put(List.of(Items.SWEET_BERRIES, MBItems.SWEET_BERRY_PITS), 1);
         TRANSMUTE.put(List.of(Items.GLOW_BERRIES, MBItems.GLOW_BERRY_PITS), 1);
-//        TRANSMUTE.put(List.of(MBItems.HARDY_BERRY, MBItems.HARDY_BERRY_SEED), 1);
 
         TRANSMUTE.put(List.of(Items.IRON_NUGGET, MBItems.ITEM_HOOK), 1);
 
@@ -107,13 +110,15 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         COMPACT.put(MBItems.ICE_CHUNK, Blocks.ICE);
 
         COMPACT.put(MBItems.GRASS_TUFT, MBBlocks.GRASS_TURF);
-//        COMPACT.put(MBBlocks.MYCELIUM_ROOTS, MBBlocks.MYCELIUM_TURF);
         COMPACT.put(Items.CRIMSON_ROOTS, MBBlocks.CRIMSON_NYLIUM_TURF);
         COMPACT.put(Items.WARPED_ROOTS, MBBlocks.WARPED_NYLIUM_TURF);
 
         COMPACT.put(Items.RED_MUSHROOM, MBBlocks.RED_MUSHROOM_CAP);
         COMPACT.put(Items.BROWN_MUSHROOM, MBBlocks.BROWN_MUSHROOM_CAP);
         COMPACT.put(MBBlocks.SAFFRON_MUSHROOM, MBBlocks.SAFFRON_MUSHROOM_CAP);
+		COMPACT.put(MBBlocks.BONNET_MUSHROOM, MBBlocks.BONNET_MUSHROOM_CAP);
+		COMPACT.put(MBBlocks.AMITY_MUSHROOM, MBBlocks.AMITY_MUSHROOM_CAP);
+		COMPACT.put(MBBlocks.INKCAP_MUSHROOM, MBBlocks.INKCAP_MUSHROOM_CAP);
 
         COMPACT.put(MBItems.GLASS_SHARD, Blocks.GLASS);
         COMPACT.put(MBItems.WHITE_GLASS_SHARD, Blocks.WHITE_STAINED_GLASS);
@@ -168,6 +173,7 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         STORAGE.put(Items.STRING, MBBlocks.SPOOL);
         STORAGE.put(Items.PAPER, MBBlocks.PAPER_BUNDLE);
         STORAGE.put(Items.STICK, MBBlocks.STICK_STACK);
+		STORAGE.put(Items.LEATHER, MBBlocks.BOUND_LEATHER);
         STORAGE.put(Items.CHARCOAL, MBBlocks.CHARCOAL_LOG);
         STORAGE.put(Items.SUGAR, MBBlocks.SUGAR_CUBE);
         STORAGE.put(Items.GLOWSTONE_DUST, MBBlocks.PACKED_GLOWSTONE);
@@ -179,7 +185,10 @@ public class MBRecipeProvider extends FabricRecipeProvider {
         STORAGE.put(Items.PHANTOM_MEMBRANE, MBBlocks.PHANTOM_MEMBRANE_BLOCK);
         STORAGE.put(Items.BLAZE_ROD, MBBlocks.BLAZE_ROD_BUNDLE);
         STORAGE.put(Items.ENDER_PEARL, MBBlocks.ENDER_PEARL_BLOCK);
+
         STORAGE.put(MBItems.PEAT, MBBlocks.PEAT_BLOCK);
+		STORAGE.put(MBItems.DAWNROOT, MBBlocks.DAWNROOT_BLOCK);
+
         STORAGE.put(MBItems.COPPER_NUGGET, Items.COPPER_INGOT);
 
 		SMOKING.put(MBItems.DAWNROOT, MBItems.TAPIOCA);
@@ -237,6 +246,10 @@ public class MBRecipeProvider extends FabricRecipeProvider {
                 .criterion(RecipesProvider.hasItem(input), RecipesProvider.conditionsFromItem(input))
                 .offerTo(exporter, RecipesProvider.convertBetween(output, Items.HONEYCOMB)));
 
+		MBEvents.FUZZ_BAKING.forEach((input, output) -> {
+			firing(exporter, input, output, 0.3f, DEFAULT_FIRE_TIME);
+			smelting(exporter, input, output, 0.3f, DEFAULT_SMELT_TIME);
+		});
 
         firing(exporter, Items.CLAY_BALL, Items.BRICK, 0.3f, DEFAULT_FIRE_TIME);
         firing(exporter, ItemTags.LOGS_THAT_BURN, Items.CHARCOAL, 0.15f, DEFAULT_FIRE_TIME, "has_log");

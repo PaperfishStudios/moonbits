@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "moonbits:block/bonnet_fuzz_roots"
+    }
+  }
+}

@@ -109,6 +109,25 @@ public class MBEvents {
 			.put(Blocks.BLUE_STAINED_GLASS_PANE.getLootTableId(), MBItems.BLUE_GLASS_SHARD)
 			.build();
 
+	public static final Map<Block, Block> FUZZ_GROWING = new ImmutableMap.Builder<Block, Block>()
+			.put(Blocks.RED_MUSHROOM, MBBlocks.RED_FUZZ_ROOTS)
+			.put(Blocks.BROWN_MUSHROOM, MBBlocks.BROWN_FUZZ_ROOTS)
+			.put(MBBlocks.FUZZ_SHROOMS, MBBlocks.FUZZ_ROOTS)
+			.put(MBBlocks.SAFFRON_MUSHROOM, MBBlocks.SAFFRON_FUZZ_ROOTS)
+			.put(MBBlocks.BONNET_MUSHROOM, MBBlocks.BONNET_FUZZ_ROOTS)
+			.put(MBBlocks.AMITY_MUSHROOM, MBBlocks.AMITY_FUZZ_ROOTS)
+			.put(MBBlocks.INKCAP_MUSHROOM, MBBlocks.INKY_FUZZ_ROOTS)
+			.build();
+	public static final Map<Block, Block> FUZZ_BAKING = new ImmutableMap.Builder<Block, Block>()
+			.put(MBBlocks.FUZZ_ROOTS, MBBlocks.FUZZ_BLOCK)
+			.put(MBBlocks.RED_FUZZ_ROOTS, MBBlocks.RED_FUZZ_BLOCK)
+			.put(MBBlocks.BROWN_FUZZ_ROOTS, MBBlocks.BROWN_FUZZ_BLOCK)
+			.put(MBBlocks.SAFFRON_FUZZ_ROOTS, MBBlocks.SAFFRON_FUZZ_BLOCK)
+			.put(MBBlocks.BONNET_FUZZ_ROOTS, MBBlocks.BONNET_FUZZ_BLOCK)
+			.put(MBBlocks.AMITY_FUZZ_ROOTS, MBBlocks.AMITY_FUZZ_BLOCK)
+			.put(MBBlocks.INKY_FUZZ_ROOTS, MBBlocks.INKY_FUZZ_BLOCK)
+			.build();
+
     public static void initEvents() {
         // events when u use a thing on a block go here!
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {

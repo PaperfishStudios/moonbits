@@ -169,7 +169,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.REGOLITH,
 				MBBlocks.FLINT_DEPOSIT,
                 MBBlocks.DEEP_ROOTED_SOIL,
-                MBBlocks.MYCELIAL_DIRT, MBBlocks.DECOMPOSING_DIRT, MBBlocks.FUZZ_BLOCK,
+                MBBlocks.FUZZY_DIRT, MBBlocks.DECOMPOSING_DIRT, MBBlocks.FUZZ_ROOTS,
                 MBBlocks.PEAT_MOSS, MBBlocks.PEAT_BLOCK,
 
 				MBBlocks.RABBIT_MOUND,
@@ -184,10 +184,13 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.ROPE_LADDER,
 
                 MBBlocks.RED_MUSHROOM_CAP, MBBlocks.BROWN_MUSHROOM_CAP, MBBlocks.SAFFRON_MUSHROOM_CAP,
+				MBBlocks.BONNET_MUSHROOM_CAP, MBBlocks.AMITY_MUSHROOM_CAP, MBBlocks.INKCAP_MUSHROOM_CAP,
                 MBBlocks.MUSHROOM_STEM, MBBlocks.MUSHROOM_HYPHAE,
 				MBBlocks.STRIPPED_MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_HYPHAE,
 
 				MBBlocks.BEAM,
+
+				MBBlocks.DAWNROOT_BLOCK,
 
                 MBBlocks.APPLE_CRATE,
                 MBBlocks.CARROT_CRATE,
@@ -221,6 +224,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         );
         this.getOrCreateTagBuilder(BlockTags.HOE_MINEABLE).add(
                 MBBlocks.RED_MUSHROOM_CAP, MBBlocks.BROWN_MUSHROOM_CAP, MBBlocks.SAFFRON_MUSHROOM_CAP,
+				MBBlocks.BONNET_MUSHROOM_CAP, MBBlocks.AMITY_MUSHROOM_CAP, MBBlocks.INKCAP_MUSHROOM_CAP,
 
                 MBBlocks.TINY_BARREL_CACTUS, MBBlocks.SMALL_BARREL_CACTUS, MBBlocks.BARREL_CACTUS, MBBlocks.LARGE_BARREL_CACTUS,
 
@@ -236,6 +240,7 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 MBBlocks.CHORUS_BUNDLE,
                 MBBlocks.SPOOL,
                 MBBlocks.PAPER_BUNDLE,
+				MBBlocks.BOUND_LEATHER,
                 MBBlocks.ROTTEN_FLESH_BLOCK,
                 MBBlocks.SPIDER_EYE_BLOCK,
                 MBBlocks.PHANTOM_MEMBRANE_BLOCK
@@ -579,6 +584,15 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK).add(
                 MBBlocks.PEAT_MOSS,
+				MBBlocks.FUZZY_DIRT,
+				MBBlocks.DECOMPOSING_DIRT,
+				MBBlocks.FUZZ_ROOTS,
+				MBBlocks.RED_FUZZ_ROOTS,
+				MBBlocks.BROWN_FUZZ_ROOTS,
+				MBBlocks.SAFFRON_FUZZ_ROOTS,
+				MBBlocks.BONNET_FUZZ_ROOTS,
+				MBBlocks.AMITY_FUZZ_ROOTS,
+				MBBlocks.INKY_FUZZ_ROOTS,
                 MBBlocks.MYCELIUM_TURF,
                 MBBlocks.CRIMSON_NYLIUM_TURF,
                 MBBlocks.WARPED_NYLIUM_TURF
@@ -586,7 +600,10 @@ public class MBBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         this.getOrCreateTagBuilder(MBBlockTags.EDIBLE_MUSHROOMS).add(
                 Blocks.BROWN_MUSHROOM,
-                MBBlocks.SAFFRON_MUSHROOM
+                MBBlocks.SAFFRON_MUSHROOM,
+				MBBlocks.BONNET_MUSHROOM,
+				MBBlocks.AMITY_MUSHROOM,
+				MBBlocks.INKCAP_MUSHROOM
         );
         this.getOrCreateTagBuilder(MBBlockTags.MUSHROOMS).add(
                 Blocks.RED_MUSHROOM

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moonbits:saffron_fuzz_block"
+  },
+  "result": "moonbits:saffron_fuzz_boards"
+}

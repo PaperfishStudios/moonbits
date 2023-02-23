@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "cookingtime": 100,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "moonbits:brown_fuzz_roots"
+  },
+  "result": "moonbits:brown_fuzz_block"
+}

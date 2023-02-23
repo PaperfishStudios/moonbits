@@ -90,7 +90,13 @@
     "moonbits:permafrost_wall",
     "moonbits:permafrost_brick_wall",
     "moonbits:snow_brick_wall",
+    "moonbits:peat_brick_wall",
     "moonbits:fuzz_brick_wall",
-    "moonbits:peat_brick_wall"
+    "moonbits:red_fuzz_brick_wall",
+    "moonbits:brown_fuzz_brick_wall",
+    "moonbits:saffron_fuzz_brick_wall",
+    "moonbits:bonnet_fuzz_brick_wall",
+    "moonbits:amity_fuzz_brick_wall",
+    "moonbits:inky_fuzz_brick_wall"
   ]
 }

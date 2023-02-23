@@ -178,6 +178,63 @@ public class MBBlockFamilies {
             .unlockCriterionName("has_planks")
             .build();
 
+
+	public static final MBBlockFamily FUZZ_BRICKS = register(MBBlocks.FUZZ_BRICKS)
+			.slab(MBBlocks.FUZZ_BRICK_SLAB).stairs(MBBlocks.FUZZ_BRICK_STAIRS)
+			.wall(MBBlocks.FUZZ_BRICK_WALL).build();
+	public static final MBBlockFamily FUZZ_BOARDS = register(MBBlocks.FUZZ_BOARDS).polished(MBBlocks.FUZZ_BRICKS).child(FUZZ_BRICKS)
+			.slab(MBBlocks.FUZZ_BOARD_SLAB).stairs(MBBlocks.FUZZ_BOARD_STAIRS).build();
+	public static final MBBlockFamily FUZZ_BLOCK = register(MBBlocks.FUZZ_BLOCK).polished(MBBlocks.FUZZ_BOARDS).child(FUZZ_BOARDS)
+			.slab(MBBlocks.FUZZ_BLOCK_SLAB).stairs(MBBlocks.FUZZ_BLOCK_STAIRS).build();
+
+	public static final MBBlockFamily RED_FUZZ_BRICKS = register(MBBlocks.RED_FUZZ_BRICKS)
+			.slab(MBBlocks.RED_FUZZ_BRICK_SLAB).stairs(MBBlocks.RED_FUZZ_BRICK_STAIRS)
+			.wall(MBBlocks.RED_FUZZ_BRICK_WALL).build();
+	public static final MBBlockFamily RED_FUZZ_BOARDS = register(MBBlocks.RED_FUZZ_BOARDS).polished(MBBlocks.RED_FUZZ_BRICKS).child(RED_FUZZ_BRICKS)
+			.slab(MBBlocks.RED_FUZZ_BOARD_SLAB).stairs(MBBlocks.RED_FUZZ_BOARD_STAIRS).build();
+	public static final MBBlockFamily RED_FUZZ_BLOCK = register(MBBlocks.RED_FUZZ_BLOCK).polished(MBBlocks.RED_FUZZ_BOARDS).child(RED_FUZZ_BOARDS)
+			.slab(MBBlocks.RED_FUZZ_BLOCK_SLAB).stairs(MBBlocks.RED_FUZZ_BLOCK_STAIRS).build();
+
+	public static final MBBlockFamily BROWN_FUZZ_BRICKS = register(MBBlocks.BROWN_FUZZ_BRICKS)
+			.slab(MBBlocks.BROWN_FUZZ_BRICK_SLAB).stairs(MBBlocks.BROWN_FUZZ_BRICK_STAIRS)
+			.wall(MBBlocks.BROWN_FUZZ_BRICK_WALL).build();
+	public static final MBBlockFamily BROWN_FUZZ_BOARDS = register(MBBlocks.BROWN_FUZZ_BOARDS).polished(MBBlocks.BROWN_FUZZ_BRICKS).child(BROWN_FUZZ_BRICKS)
+			.slab(MBBlocks.BROWN_FUZZ_BOARD_SLAB).stairs(MBBlocks.BROWN_FUZZ_BOARD_STAIRS).build();
+	public static final MBBlockFamily BROWN_FUZZ_BLOCK = register(MBBlocks.BROWN_FUZZ_BLOCK).polished(MBBlocks.BROWN_FUZZ_BOARDS).child(BROWN_FUZZ_BOARDS)
+			.slab(MBBlocks.BROWN_FUZZ_BLOCK_SLAB).stairs(MBBlocks.BROWN_FUZZ_BLOCK_STAIRS).build();
+
+	public static final MBBlockFamily SAFFRON_FUZZ_BRICKS = register(MBBlocks.SAFFRON_FUZZ_BRICKS)
+			.slab(MBBlocks.SAFFRON_FUZZ_BRICK_SLAB).stairs(MBBlocks.SAFFRON_FUZZ_BRICK_STAIRS)
+			.wall(MBBlocks.SAFFRON_FUZZ_BRICK_WALL).build();
+	public static final MBBlockFamily SAFFRON_FUZZ_BOARDS = register(MBBlocks.SAFFRON_FUZZ_BOARDS).polished(MBBlocks.SAFFRON_FUZZ_BRICKS).child(SAFFRON_FUZZ_BRICKS)
+			.slab(MBBlocks.SAFFRON_FUZZ_BOARD_SLAB).stairs(MBBlocks.SAFFRON_FUZZ_BOARD_STAIRS).build();
+	public static final MBBlockFamily SAFFRON_FUZZ_BLOCK = register(MBBlocks.SAFFRON_FUZZ_BLOCK).polished(MBBlocks.SAFFRON_FUZZ_BOARDS).child(SAFFRON_FUZZ_BOARDS)
+			.slab(MBBlocks.SAFFRON_FUZZ_BLOCK_SLAB).stairs(MBBlocks.SAFFRON_FUZZ_BLOCK_STAIRS).build();
+
+	public static final MBBlockFamily BONNET_FUZZ_BRICKS = register(MBBlocks.BONNET_FUZZ_BRICKS)
+			.slab(MBBlocks.BONNET_FUZZ_BRICK_SLAB).stairs(MBBlocks.BONNET_FUZZ_BRICK_STAIRS)
+			.wall(MBBlocks.BONNET_FUZZ_BRICK_WALL).build();
+	public static final MBBlockFamily BONNET_FUZZ_BOARDS = register(MBBlocks.BONNET_FUZZ_BOARDS).polished(MBBlocks.BONNET_FUZZ_BRICKS).child(BONNET_FUZZ_BRICKS)
+			.slab(MBBlocks.BONNET_FUZZ_BOARD_SLAB).stairs(MBBlocks.BONNET_FUZZ_BOARD_STAIRS).build();
+	public static final MBBlockFamily BONNET_FUZZ_BLOCK = register(MBBlocks.BONNET_FUZZ_BLOCK).polished(MBBlocks.BONNET_FUZZ_BOARDS).child(BONNET_FUZZ_BOARDS)
+			.slab(MBBlocks.BONNET_FUZZ_BLOCK_SLAB).stairs(MBBlocks.BONNET_FUZZ_BLOCK_STAIRS).build();
+
+	public static final MBBlockFamily AMITY_FUZZ_BRICKS = register(MBBlocks.AMITY_FUZZ_BRICKS)
+			.slab(MBBlocks.AMITY_FUZZ_BRICK_SLAB).stairs(MBBlocks.AMITY_FUZZ_BRICK_STAIRS)
+			.wall(MBBlocks.AMITY_FUZZ_BRICK_WALL).build();
+	public static final MBBlockFamily AMITY_FUZZ_BOARDS = register(MBBlocks.AMITY_FUZZ_BOARDS).polished(MBBlocks.AMITY_FUZZ_BRICKS).child(AMITY_FUZZ_BRICKS)
+			.slab(MBBlocks.AMITY_FUZZ_BOARD_SLAB).stairs(MBBlocks.AMITY_FUZZ_BOARD_STAIRS).build();
+	public static final MBBlockFamily AMITY_FUZZ_BLOCK = register(MBBlocks.AMITY_FUZZ_BLOCK).polished(MBBlocks.AMITY_FUZZ_BOARDS).child(AMITY_FUZZ_BOARDS)
+			.slab(MBBlocks.AMITY_FUZZ_BLOCK_SLAB).stairs(MBBlocks.AMITY_FUZZ_BLOCK_STAIRS).build();
+
+	public static final MBBlockFamily INKY_FUZZ_BRICKS = register(MBBlocks.INKY_FUZZ_BRICKS)
+			.slab(MBBlocks.INKY_FUZZ_BRICK_SLAB).stairs(MBBlocks.INKY_FUZZ_BRICK_STAIRS)
+			.wall(MBBlocks.INKY_FUZZ_BRICK_WALL).build();
+	public static final MBBlockFamily INKY_FUZZ_BOARDS = register(MBBlocks.INKY_FUZZ_BOARDS).polished(MBBlocks.INKY_FUZZ_BRICKS).child(INKY_FUZZ_BRICKS)
+			.slab(MBBlocks.INKY_FUZZ_BOARD_SLAB).stairs(MBBlocks.INKY_FUZZ_BOARD_STAIRS).build();
+	public static final MBBlockFamily INKY_FUZZ_BLOCK = register(MBBlocks.INKY_FUZZ_BLOCK).polished(MBBlocks.INKY_FUZZ_BOARDS).child(INKY_FUZZ_BOARDS)
+			.slab(MBBlocks.INKY_FUZZ_BLOCK_SLAB).stairs(MBBlocks.INKY_FUZZ_BLOCK_STAIRS).build();
+
     public static final MBBlockFamily DIRT_BRICKS = register(MBBlocks.DIRT_BRICKS)
             .slab(MBBlocks.DIRT_BRICK_SLAB).stairs(MBBlocks.DIRT_BRICK_STAIRS).wall(MBBlocks.DIRT_BRICK_WALL).build();
     public static final MBBlockFamily PACKED_DIRT = register(MBBlocks.PACKED_DIRT).child(DIRT_BRICKS)
@@ -188,9 +245,6 @@ public class MBBlockFamilies {
     public static final MBBlockFamily PEAT_BRICKS = register(MBBlocks.PEAT_BRICKS)
             .slab(MBBlocks.PEAT_BRICK_SLAB).stairs(MBBlocks.PEAT_BRICK_STAIRS)
             .wall(MBBlocks.PEAT_BRICK_WALL).build();
-	public static final MBBlockFamily FUZZ_BRICKS = register(MBBlocks.FUZZ_BRICKS)
-			.slab(MBBlocks.FUZZ_BRICK_SLAB).stairs(MBBlocks.FUZZ_BRICK_STAIRS)
-			.wall(MBBlocks.FUZZ_BRICK_WALL).build();
 	public static final MBBlockFamily SMOOTH_FLINT = register(MBBlocks.SMOOTH_FLINT)
 			.slab(MBBlocks.SMOOTH_FLINT_SLAB).stairs(MBBlocks.SMOOTH_FLINT_STAIRS)
 			.stonecut(MBBlocks.FLINT_PILLAR).build();

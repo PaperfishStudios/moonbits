@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "moonbits:block/inky_fuzz_bricks",
+    "side": "moonbits:block/inky_fuzz_bricks",
+    "top": "moonbits:block/inky_fuzz_bricks"
+  }
+}

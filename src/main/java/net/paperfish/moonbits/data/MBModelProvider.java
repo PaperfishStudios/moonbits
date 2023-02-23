@@ -164,11 +164,19 @@ public class MBModelProvider extends FabricModelProvider {
         generator.registerSimpleCubeAll(MBBlocks.PEAT_MOSS);
 		generator.registerSimpleCubeAll(MBBlocks.FLINT_DEPOSIT);
 		generator.registerSimpleCubeAll(MBBlocks.DEEP_ROOTED_SOIL);
-		generator.registerSimpleCubeAll(MBBlocks.MYCELIAL_DIRT);
+		generator.registerSimpleCubeAll(MBBlocks.FUZZY_DIRT);
 		generator.registerSimpleCubeAll(MBBlocks.DECOMPOSING_DIRT);
-		generator.registerSimpleCubeAll(MBBlocks.FUZZ_BLOCK);
+		generator.registerSimpleCubeAll(MBBlocks.FUZZ_ROOTS);
+		generator.registerSimpleCubeAll(MBBlocks.RED_FUZZ_ROOTS);
+		generator.registerSimpleCubeAll(MBBlocks.BROWN_FUZZ_ROOTS);
+		generator.registerSimpleCubeAll(MBBlocks.SAFFRON_FUZZ_ROOTS);
+		generator.registerSimpleCubeAll(MBBlocks.BONNET_FUZZ_ROOTS);
+		generator.registerSimpleCubeAll(MBBlocks.AMITY_FUZZ_ROOTS);
+		generator.registerSimpleCubeAll(MBBlocks.INKY_FUZZ_ROOTS);
+
         generator.registerSimpleCubeAll(MBBlocks.PEAT_BLOCK);
 		generator.registerSimpleCubeAll(MBBlocks.FLINT_BLOCK);
+		generator.registerSimpleCubeAll(MBBlocks.DAWNROOT_BLOCK);
 
 		generator.registerCarpet(MBBlocks.BEARD_MOSS_BLOCK, MBBlocks.BEARD_MOSS_CARPET);
 
@@ -285,8 +293,15 @@ public class MBModelProvider extends FabricModelProvider {
 		flowerPotPlant(MBBlocks.TWILIGHT_HEATHER, MBBlocks.POTTED_TWILIGHT_HEATHER, TintType.NOT_TINTED, generator);
 
         redBrownMushrooms(generator);
+		flowerPotPlant(MBBlocks.FUZZ_SHROOMS, MBBlocks.POTTED_FUZZ_SHROOMS, TintType.NOT_TINTED, generator);
 		flowerPotPlant(MBBlocks.SAFFRON_MUSHROOM, MBBlocks.POTTED_SAFFRON_MUSHROOM, TintType.NOT_TINTED, generator);
+		flowerPotPlant(MBBlocks.BONNET_MUSHROOM, MBBlocks.POTTED_BONNET_MUSHROOM, TintType.NOT_TINTED, generator);
+		flowerPotPlant(MBBlocks.AMITY_MUSHROOM, MBBlocks.POTTED_AMITY_MUSHROOM, TintType.NOT_TINTED, generator);
+		flowerPotPlant(MBBlocks.INKCAP_MUSHROOM, MBBlocks.POTTED_INKCAP_MUSHROOM, TintType.NOT_TINTED, generator);
         generator.registerMushroomBlock(MBBlocks.SAFFRON_MUSHROOM_CAP);
+		generator.registerMushroomBlock(MBBlocks.BONNET_MUSHROOM_CAP);
+		generator.registerMushroomBlock(MBBlocks.AMITY_MUSHROOM_CAP);
+		generator.registerMushroomBlock(MBBlocks.INKCAP_MUSHROOM_CAP);
         gills(generator);
         log(MBBlocks.MUSHROOM_STEM, MBBlocks.MUSHROOM_HYPHAE, generator);
         log(MBBlocks.STRIPPED_MUSHROOM_STEM, MBBlocks.STRIPPED_MUSHROOM_HYPHAE, generator);
@@ -339,6 +354,7 @@ public class MBModelProvider extends FabricModelProvider {
                 ));
 
         generator.registerAxisRotated(MBBlocks.STICK_STACK, CUBE_COLUMN);
+		generator.registerAxisRotated(MBBlocks.BOUND_LEATHER, CUBE_COLUMN);
         generator.registerAxisRotated(MBBlocks.CHARCOAL_LOG, CUBE_COLUMN);
 
         generator.registerSimpleCubeAll(MBBlocks.SUGAR_CUBE);

@@ -540,15 +540,58 @@
 	"block.moonbits.smooth_basalt_slab": "Smooth Basalt Slab",
 	"block.moonbits.smooth_basalt_wall": "Smooth Basalt Wall",
 	
+	"block.moonbits.limestone": "Limestone",
+	"block.moonbits.limestone_stairs": "Limestone Stairs",
+	"block.moonbits.limestone_slab": "Limestone Slab",
+	"block.moonbits.limestone_wall": "Limestone Wall",
+	
+	"block.moonbits.cobbled_limestone": "Cobbled Limestone",
+	"block.moonbits.cobbled_limestone_stairs": "Cobbled Limestone Stairs",
+	"block.moonbits.cobbled_limestone_slab": "Cobbled Limestone Slab",
+	"block.moonbits.cobbled_limestone_wall": "Cobbled Limestone Wall",
+	
+	"block.moonbits.polished_limestone": "Polished Limestone",
+	"block.moonbits.polished_limestone_stairs": "Polished Limestone Stairs",
+	"block.moonbits.polished_limestone_slab": "Polished Limestone Slab",
+	"block.moonbits.polished_limestone_wall": "Polished Limestone Wall",
+	
+	"block.moonbits.limestone_bricks": "Limestone Bricks",
+	"block.moonbits.limestone_brick_stairs": "Limestone Brick Stairs",
+	"block.moonbits.limestone_brick_slab": "Limestone Brick Slab",
+	"block.moonbits.limestone_brick_wall": "Limestone Brick Wall",
+	"block.moonbits.cracked_limestone_bricks": "Cracked Limestone Bricks",
+	"block.moonbits.cracked_limestone_brick_stairs": "Cracked Limestone Brick Stairs",
+	"block.moonbits.cracked_limestone_brick_slab": "Cracked Limestone Brick Slab",
+	"block.moonbits.cracked_limestone_brick_wall": "Cracked Limestone Brick Wall",
+	
+	"block.moonbits.limestone_pillar": "Limestone Pillar",
+	"block.moonbits.cut_limestone": "Cut Limestone",
+	"block.moonbits.chiseled_limestone": "Chiseled Limestone",
+	
+	"block.moonbits.limestone_tiles": "Limestone Tiles",
+	"block.moonbits.limestone_tile_stairs": "Limestone Tile Stairs",
+	"block.moonbits.limestone_tile_slab": "Limestone Tile Slab",
+	"block.moonbits.limestone_tile_wall": "Limestone Tile Wall",
+	"block.moonbits.cracked_limestone_tiles": "Cracked Limestone Tiles",
+	"block.moonbits.cracked_limestone_tile_stairs": "Cracked Limestone Tile Stairs",
+	"block.moonbits.cracked_limestone_tile_slab": "Cracked Limestone Tile Slab",
+	"block.moonbits.cracked_limestone_tile_wall": "Cracked Limestone Tile Wall",
+	
+	"block.moonbits.limestone_coal_ore": "Limestone Coal Ore",
+	"block.moonbits.limestone_copper_ore": "Limestone Copper Ore",
+	"block.moonbits.limestone_gold_ore": "Limestone Gold Ore",
+	"block.moonbits.limestone_diamond_ore": "Limestone Diamond Ore",
+	"block.moonbits.limestone_redstone_ore": "Limestone Redstone Ore",
+	"block.moonbits.limestone_lapis_ore": "Limestone Lapis Lazuli Ore",
+	
+	"block.moonbits.banded_iron": "Banded Iron Formation",
+	"block.moonbits.magnetite_ore": "Magnetite Ore",
+	"block.moonbits.magnetite_block": "Block of Magnetite",
+	
 	"block.moonbits.chert": "Chert",
 	"block.moonbits.chert_stairs": "Chert Stairs",
 	"block.moonbits.chert_slab": "Chert Slab",
 	"block.moonbits.chert_wall": "Chert Wall",
-	
-	"block.moonbits.cobbled_chert": "Cobbled Chert",
-	"block.moonbits.cobbled_chert_stairs": "Cobbled Chert Stairs",
-	"block.moonbits.cobbled_chert_slab": "Cobbled Chert Slab",
-	"block.moonbits.cobbled_chert_wall": "Cobbled Chert Wall",
 	
 	"block.moonbits.polished_chert": "Polished Chert",
 	"block.moonbits.polished_chert_stairs": "Polished Chert Stairs",
@@ -576,18 +619,6 @@
 	"block.moonbits.cracked_chert_tile_stairs": "Cracked Chert Tile Stairs",
 	"block.moonbits.cracked_chert_tile_slab": "Cracked Chert Tile Slab",
 	"block.moonbits.cracked_chert_tile_wall": "Cracked Chert Tile Wall",
-	
-	"block.moonbits.chert_coal_ore": "Chert Coal Ore",
-	"block.moonbits.chert_copper_ore": "Chert Copper Ore",
-	"block.moonbits.chert_tin_ore": "Chert Tin Ore",
-	"block.moonbits.chert_gold_ore": "Chert Gold Ore",
-	"block.moonbits.chert_diamond_ore": "Chert Diamond Ore",
-	"block.moonbits.chert_redstone_ore": "Chert Redstone Ore",
-	"block.moonbits.chert_lapis_ore": "Chert Lapis Lazuli Ore",
-	
-	"block.moonbits.banded_iron": "Banded Iron Formation",
-	"block.moonbits.magnetite_ore": "Magnetite Ore",
-	"block.moonbits.magnetite_block": "Block of Magnetite",
 	
 	"block.moonbits.jasper": "Jasper Block",
 	"block.moonbits.jasper_stairs": "Jasper Stairs",
@@ -678,12 +709,100 @@
 	
 	"block.moonbits.mycelial_dirt": "Mycelial Dirt",
 	"block.moonbits.decomposing_dirt": "Decomposing Dirt",
+	"block.moonbits.fuzz_roots": "Fuzz Roots",
+	
+	
 	"block.moonbits.fuzz_block": "Fuzz Block",
+	"block.moonbits.fuzz_block_stairs": "Fuzz Stairs",
+	"block.moonbits.fuzz_block_slab": "Fuzz Slab",
+	
+	"block.moonbits.fuzz_boards": "Fuzz Boards",
+	"block.moonbits.fuzz_board_stairs": "Fuzz Board Stairs",
+	"block.moonbits.fuzz_board_slab": "Fuzz Board Slab",
 	
 	"block.moonbits.fuzz_bricks": "Fuzz Bricks",
 	"block.moonbits.fuzz_brick_stairs": "Fuzz Brick Stairs",
 	"block.moonbits.fuzz_brick_slab": "Fuzz Brick Slab",
 	"block.moonbits.fuzz_brick_wall": "Fuzz Brick Wall",
+	
+	"block.moonbits.red_fuzz_block": "Red Fuzz Block",
+	"block.moonbits.red_fuzz_block_stairs": "Red Fuzz Stairs",
+	"block.moonbits.red_fuzz_block_slab": "Red Fuzz Slab",
+	
+	"block.moonbits.red_fuzz_boards": "Red Fuzz Boards",
+	"block.moonbits.red_fuzz_board_stairs": "Red Fuzz Board Stairs",
+	"block.moonbits.red_fuzz_board_slab": "Red Fuzz Board Slab",
+	
+	"block.moonbits.red_fuzz_bricks": "Red Fuzz Bricks",
+	"block.moonbits.red_fuzz_brick_stairs": "Red Fuzz Brick Stairs",
+	"block.moonbits.red_fuzz_brick_slab": "Red Fuzz Brick Slab",
+	"block.moonbits.red_fuzz_brick_wall": "Red Fuzz Brick Wall",
+	
+	"block.moonbits.brown_fuzz_block": "Brown Fuzz Block",
+	"block.moonbits.brown_fuzz_block_stairs": "Brown Fuzz Stairs",
+	"block.moonbits.brown_fuzz_block_slab": "Brown Fuzz Slab",
+	
+	"block.moonbits.brown_fuzz_boards": "Brown Fuzz Boards",
+	"block.moonbits.brown_fuzz_board_stairs": "Brown Fuzz Board Stairs",
+	"block.moonbits.brown_fuzz_board_slab": "Brown Fuzz Board Slab",
+	
+	"block.moonbits.brown_fuzz_bricks": "Brown Fuzz Bricks",
+	"block.moonbits.brown_fuzz_brick_stairs": "Brown Fuzz Brick Stairs",
+	"block.moonbits.brown_fuzz_brick_slab": "Brown Fuzz Brick Slab",
+	"block.moonbits.brown_fuzz_brick_wall": "Brown Fuzz Brick Wall",
+	
+	"block.moonbits.saffron_fuzz_block": "Saffron Fuzz Block",
+	"block.moonbits.saffron_fuzz_block_stairs": "Saffron Fuzz Stairs",
+	"block.moonbits.saffron_fuzz_block_slab": "Saffron Fuzz Slab",
+	
+	"block.moonbits.saffron_fuzz_boards": "Saffron Fuzz Boards",
+	"block.moonbits.saffron_fuzz_board_stairs": "Saffron Fuzz Board Stairs",
+	"block.moonbits.saffron_fuzz_board_slab": "Saffron Fuzz Board Slab",
+	
+	"block.moonbits.saffron_fuzz_bricks": "Saffron Fuzz Bricks",
+	"block.moonbits.saffron_fuzz_brick_stairs": "Saffron Fuzz Brick Stairs",
+	"block.moonbits.saffron_fuzz_brick_slab": "Saffron Fuzz Brick Slab",
+	"block.moonbits.saffron_fuzz_brick_wall": "Saffron Fuzz Brick Wall",
+	
+	"block.moonbits.bonnet_fuzz_block": "Bonnet Fuzz Block",
+	"block.moonbits.bonnet_fuzz_block_stairs": "Bonnet Fuzz Stairs",
+	"block.moonbits.bonnet_fuzz_block_slab": "Bonnet Fuzz Slab",
+	
+	"block.moonbits.bonnet_fuzz_boards": "Bonnet Fuzz Boards",
+	"block.moonbits.bonnet_fuzz_board_stairs": "Bonnet Fuzz Board Stairs",
+	"block.moonbits.bonnet_fuzz_board_slab": "Bonnet Fuzz Board Slab",
+	
+	"block.moonbits.bonnet_fuzz_bricks": "Bonnet Fuzz Bricks",
+	"block.moonbits.bonnet_fuzz_brick_stairs": "Bonnet Fuzz Brick Stairs",
+	"block.moonbits.bonnet_fuzz_brick_slab": "Bonnet Fuzz Brick Slab",
+	"block.moonbits.bonnet_fuzz_brick_wall": "Bonnet Fuzz Brick Wall",
+	
+	"block.moonbits.amity_fuzz_block": "Amity Fuzz Block",
+	"block.moonbits.amity_fuzz_block_stairs": "Amity Fuzz Stairs",
+	"block.moonbits.amity_fuzz_block_slab": "Amity Fuzz Slab",
+	
+	"block.moonbits.amity_fuzz_boards": "Amity Fuzz Boards",
+	"block.moonbits.amity_fuzz_board_stairs": "Amity Fuzz Board Stairs",
+	"block.moonbits.amity_fuzz_board_slab": "Amity Fuzz Board Slab",
+	
+	"block.moonbits.amity_fuzz_bricks": "Amity Fuzz Bricks",
+	"block.moonbits.amity_fuzz_brick_stairs": "Amity Fuzz Brick Stairs",
+	"block.moonbits.amity_fuzz_brick_slab": "Amity Fuzz Brick Slab",
+	"block.moonbits.amity_fuzz_brick_wall": "Amity Fuzz Brick Wall",
+	
+	"block.moonbits.inky_fuzz_block": "Inky Fuzz Block",
+	"block.moonbits.inky_fuzz_block_stairs": "Inky Fuzz Stairs",
+	"block.moonbits.inky_fuzz_block_slab": "Inky Fuzz Slab",
+	
+	"block.moonbits.inky_fuzz_boards": "Inky Fuzz Boards",
+	"block.moonbits.inky_fuzz_board_stairs": "Inky Fuzz Board Stairs",
+	"block.moonbits.inky_fuzz_board_slab": "Inky Fuzz Board Slab",
+	
+	"block.moonbits.inky_fuzz_bricks": "Inky Fuzz Bricks",
+	"block.moonbits.inky_fuzz_brick_stairs": "Inky Fuzz Brick Stairs",
+	"block.moonbits.inky_fuzz_brick_slab": "Inky Fuzz Brick Slab",
+	"block.moonbits.inky_fuzz_brick_wall": "Inky Fuzz Brick Wall",
+	
 	
 	"block.moonbits.flint_block": "Block of Flint",
 	"block.moonbits.smooth_flint": "Smooth Flint",
@@ -696,6 +815,8 @@
 	"block.moonbits.peat_brick_stairs": "Peat Brick Stairs",
 	"block.moonbits.peat_brick_slab": "Peat Brick Slab",
 	"block.moonbits.peat_brick_wall": "Peat Brick Wall",
+	
+	"block.moonbits.dawnroot_block": "Block of Dawnroot",
 	
 	"block.moonbits.fiber_thatch": "Fiber Thatch",
 	"block.moonbits.fiber_thatch_stairs": "Fiber Thatch Stairs",
@@ -741,12 +862,27 @@
 	"block.moonbits.ocotillo": "Ocotillo",
 	"block.moonbits.flowering_ocotillo": "Flowering Ocotillo",
 	
+	"block.moonbits.fuzz_shrooms": "Fuzz Shrooms",
+	"block.moonbits.potted_fuzz_shrooms": "Potted Fuzz Shrooms",
+	
 	"block.moonbits.saffron_mushroom": "Saffron Mushroom",
 	"block.moonbits.potted_saffron_mushroom": "Potted Saffron Mushroom",
+	"block.moonbits.bonnet_mushroom": "Bonnet Mushroom",
+	"block.moonbits.potted_bonnet_mushroom": "Potted Bonnet Mushroom",
+	"block.moonbits.amity_mushroom": "Amity Mushroom",
+	"block.moonbits.potted_amity_mushroom": "Potted Amity Mushroom",
+	"block.moonbits.inkcap_mushroom": "Inkcap Mushroom",
+	"block.moonbits.potted_inkcap_mushroom": "Potted Inkcap Mushroom",
+	
+	"block.moonbits.stinkball": "Stinkball",
+	"block.moonbits.potted_stinkball": "Potted Stinkball",
 	
 	"block.moonbits.red_mushroom_cap": "Red Mushroom Cap",
 	"block.moonbits.brown_mushroom_cap": "Brown Mushroom Cap",
 	"block.moonbits.saffron_mushroom_cap": "Saffron Mushroom Cap",
+	"block.moonbits.bonnet_mushroom_cap": "Bonnet Mushroom Cap",
+	"block.moonbits.amity_mushroom_cap": "Amity Mushroom Cap",
+	"block.moonbits.inkcap_mushroom_cap": "Inkcap Mushroom Cap",
 	
 	"block.moonbits.mushroom_stem": "Mushroom Stem",
 	"block.moonbits.mushroom_hyphae": "Mushroom Hyphae",
@@ -790,6 +926,7 @@
 	"block.moonbits.spool": "Spool of String",
 	"block.moonbits.paper_bundle": "Bundle of Paper",
 	"block.moonbits.stick_bundle": "Bundle of Sticks",
+	"block.moonbits.bound_leather": "Bound Leather",
 	"block.moonbits.charcoal_log": "Log of Charcoal",
 	
 	"block.moonbits.scute_block": "Block of Scutes",

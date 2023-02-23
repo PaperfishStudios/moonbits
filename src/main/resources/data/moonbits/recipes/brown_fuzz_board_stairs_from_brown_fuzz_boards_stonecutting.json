@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "moonbits:brown_fuzz_boards"
+  },
+  "result": "moonbits:brown_fuzz_board_stairs"
+}

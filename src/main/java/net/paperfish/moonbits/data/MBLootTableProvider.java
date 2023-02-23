@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.BedPart;
 import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.block.enums.SlabType;
 import net.minecraft.data.server.BlockLootTableGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
@@ -115,11 +114,19 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
                         .apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1, 4))))));
 
         addDrop(MBBlocks.PEAT_BLOCK);
+		addDrop(MBBlocks.DAWNROOT_BLOCK);
+
         addDrop(MBBlocks.DEEP_ROOTED_SOIL, (Block block) -> oreDrops(block, MBItems.DAWNROOT, 1f, 2f));
 		addDrop(MBBlocks.FLINT_DEPOSIT, (Block block) -> oreDrops(block, Items.FLINT, 1f, 1f));
-        addDrop(MBBlocks.MYCELIAL_DIRT, (Block block) -> oreDrops(block, MBItems.FUZZ_SPORES, 3f, 5f));
+        addDrop(MBBlocks.FUZZY_DIRT, (Block block) -> oreDrops(block, MBItems.FUZZ_SPORES, 3f, 5f));
         addDrop(MBBlocks.DECOMPOSING_DIRT);
-        addDrop(MBBlocks.FUZZ_BLOCK);
+        addDrop(MBBlocks.FUZZ_ROOTS);
+		addDrop(MBBlocks.RED_FUZZ_ROOTS);
+		addDrop(MBBlocks.BROWN_FUZZ_ROOTS);
+		addDrop(MBBlocks.SAFFRON_FUZZ_ROOTS);
+		addDrop(MBBlocks.BONNET_FUZZ_ROOTS);
+		addDrop(MBBlocks.AMITY_FUZZ_ROOTS);
+		addDrop(MBBlocks.INKY_FUZZ_ROOTS);
 
 		addDrop(MBBlocks.FLINT_BLOCK);
 
@@ -310,11 +317,18 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
 //                        .apply(ApplyBonusLootFunction.binomialWithBonusCount(Enchantments.FORTUNE, 0.5714286f, 3))))));
 
         addDrop(MBBlocks.SOURSOBS, MBItems.SOURSOB);
+		addDrop(MBBlocks.FUZZ_SHROOMS);
         addDrop(MBBlocks.SAFFRON_MUSHROOM);
+		addDrop(MBBlocks.BONNET_MUSHROOM);
+		addDrop(MBBlocks.AMITY_MUSHROOM);
+		addDrop(MBBlocks.INKCAP_MUSHROOM);
 
         addDrop(MBBlocks.RED_MUSHROOM_CAP);
         addDrop(MBBlocks.BROWN_MUSHROOM_CAP);
         addDrop(MBBlocks.SAFFRON_MUSHROOM_CAP);
+		addDrop(MBBlocks.BONNET_MUSHROOM_CAP);
+		addDrop(MBBlocks.AMITY_MUSHROOM_CAP);
+		addDrop(MBBlocks.INKCAP_MUSHROOM_CAP);
         addDrop(MBBlocks.SAFFRON_GILLS, BlockLootTableGenerator::dropsWithShears);
         addDrop(MBBlocks.MUSHROOM_STEM);
         addDrop(MBBlocks.STRIPPED_MUSHROOM_STEM);
@@ -367,6 +381,7 @@ public class MBLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(MBBlocks.SPOOL);
         addDrop(MBBlocks.PAPER_BUNDLE);
         addDrop(MBBlocks.STICK_STACK);
+		addDrop(MBBlocks.BOUND_LEATHER);
         addDrop(MBBlocks.CHARCOAL_LOG);
         addDrop(MBBlocks.SCUTE_BLOCK);
         addDrop(MBBlocks.ROTTEN_FLESH_BLOCK);

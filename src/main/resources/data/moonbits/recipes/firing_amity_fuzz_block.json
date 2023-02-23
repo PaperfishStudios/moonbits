@@ -1,0 +1,9 @@
+{
+  "type": "moonbits:kiln",
+  "cookingtime": 100,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "moonbits:amity_fuzz_roots"
+  },
+  "result": "moonbits:amity_fuzz_block"
+}

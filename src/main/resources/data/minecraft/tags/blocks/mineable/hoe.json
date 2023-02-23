@@ -4,6 +4,9 @@
     "moonbits:red_mushroom_cap",
     "moonbits:brown_mushroom_cap",
     "moonbits:saffron_mushroom_cap",
+    "moonbits:bonnet_mushroom_cap",
+    "moonbits:amity_mushroom_cap",
+    "moonbits:inkcap_mushroom_cap",
     "moonbits:tiny_barrel_cactus",
     "moonbits:small_barrel_cactus",
     "moonbits:barrel_cactus",
@@ -19,6 +22,7 @@
     "moonbits:chorus_bundle",
     "moonbits:spool",
     "moonbits:paper_bundle",
+    "moonbits:bound_leather",
     "moonbits:rotten_flesh_block",
     "moonbits:spider_eye_block",
     "moonbits:phantom_membrane_block"

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "moonbits:block/inky_fuzz_board_slab"
+    },
+    "type=double": {
+      "model": "moonbits:block/inky_fuzz_boards"
+    },
+    "type=top": {
+      "model": "moonbits:block/inky_fuzz_board_slab_top"
+    }
+  }
+}

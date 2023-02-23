@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "moonbits:red_fuzz_boards"
+  },
+  "result": "moonbits:red_fuzz_board_slab"
+}

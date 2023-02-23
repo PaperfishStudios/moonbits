@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "minecraft:brown_mushroom",
-    "moonbits:saffron_mushroom"
+    "moonbits:saffron_mushroom",
+    "moonbits:bonnet_mushroom",
+    "moonbits:amity_mushroom",
+    "moonbits:inkcap_mushroom"
   ]
 }

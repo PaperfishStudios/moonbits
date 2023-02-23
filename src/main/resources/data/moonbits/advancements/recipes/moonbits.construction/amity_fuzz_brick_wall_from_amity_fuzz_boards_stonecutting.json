@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_amity_fuzz_boards": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "moonbits:amity_fuzz_boards"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:amity_fuzz_brick_wall_from_amity_fuzz_boards_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_amity_fuzz_boards",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:amity_fuzz_brick_wall_from_amity_fuzz_boards_stonecutting"
+    ]
+  }
+}

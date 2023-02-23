@@ -2,6 +2,15 @@
   "replace": false,
   "values": [
     "moonbits:peat_moss",
+    "moonbits:fuzzy_dirt",
+    "moonbits:decomposing_dirt",
+    "moonbits:fuzz_roots",
+    "moonbits:red_fuzz_roots",
+    "moonbits:brown_fuzz_roots",
+    "moonbits:saffron_fuzz_roots",
+    "moonbits:bonnet_fuzz_roots",
+    "moonbits:amity_fuzz_roots",
+    "moonbits:inky_fuzz_roots",
     "moonbits:mycelium_turf",
     "moonbits:crimson_turf",
     "moonbits:warped_turf"
