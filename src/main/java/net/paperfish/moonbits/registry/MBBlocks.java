@@ -1094,10 +1094,14 @@ public class MBBlocks {
 	public static final Block CAVEBLOOM_VINE = registerBlock("cavebloom_vine", new CavebloomVineBlock(AbstractBlock.Settings.of(Material.PLANT)
 			.noCollision().breakInstantly().ticksRandomly().sounds(BlockSoundGroup.GRASS)));
 
-	public static final Block TINY_BARREL_CACTUS = createWithItem("tiny_barrel_cactus", new BarrelCactusBlock(BarrelCactusBlock.Size.TINY, QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL)));
-	public static final Block SMALL_BARREL_CACTUS = createWithItem("small_barrel_cactus", new BarrelCactusBlock(BarrelCactusBlock.Size.SMALL, QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL)));
-	public static final Block BARREL_CACTUS = createWithItem("barrel_cactus", new BarrelCactusBlock(BarrelCactusBlock.Size.MEDIUM, QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL)));
-	public static final Block LARGE_BARREL_CACTUS = createWithItem("large_barrel_cactus", new BarrelCactusBlock(BarrelCactusBlock.Size.LARGE, QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL)));
+	public static final Block TINY_BARREL_CACTUS = createWithItem("tiny_barrel_cactus", new BarrelCactusBlock(BarrelCactusBlock.Size.TINY,
+			QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL)));
+	public static final Block SMALL_BARREL_CACTUS = createWithItem("small_barrel_cactus", new BarrelCactusBlock(BarrelCactusBlock.Size.SMALL,
+			QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL)));
+	public static final Block BARREL_CACTUS = createWithItem("barrel_cactus", new BarrelCactusBlock(BarrelCactusBlock.Size.MEDIUM,
+			QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL)));
+	public static final Block LARGE_BARREL_CACTUS = createWithItem("large_barrel_cactus", new BarrelCactusBlock(BarrelCactusBlock.Size.LARGE,
+			QuiltBlockSettings.of(Material.CACTUS).strength(0.5f).sounds(BlockSoundGroup.WOOL)));
 
 	// TODO: Hardy Fern blocks
 	//public static final Block PARASOL_PUP = new PupBlock(() -> MBTreeFeatures.PARASOL_FERN, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING));
@@ -1106,8 +1110,6 @@ public class MBBlocks {
 	public static final Block BRITTLEBUSH_LEAVES = createWithItem("brittlebush_leaves", new BrittlebushLeavesBlock(AbstractBlock.Settings.copy(Blocks.AZALEA).ticksRandomly()));
 	public static final Block BRITTLEBUSH_FLOWERS = createWithItem("brittlebush_flowers",
 			new BrittlebushFlowersBlock(StatusEffects.WEAKNESS, 3, AbstractBlock.Settings.copy(Blocks.AZALEA).noCollision()));
-
-	// TODO: Prickly Pear
 
 	public static final Block OCOTILLO = createWithItem("ocotillo", new OcotilloBlock(OcotilloBlock.Stage.BARE, AbstractBlock.Settings.copy(Blocks.AZALEA)));
 	public static final Block FLOWERING_OCOTILLO = createWithItem("flowering_ocotillo", new OcotilloBlock(OcotilloBlock.Stage.FLOWERING, AbstractBlock.Settings.copy(Blocks.AZALEA)));

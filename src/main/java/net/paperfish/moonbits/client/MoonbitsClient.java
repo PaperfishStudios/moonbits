@@ -2,7 +2,6 @@ package net.paperfish.moonbits.client;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
@@ -25,6 +24,7 @@ import net.paperfish.moonbits.screen.CookingScreen;
 import net.paperfish.moonbits.screen.KilnScreen;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
+import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
 
 
 @Environment(EnvType.CLIENT)
@@ -34,11 +34,12 @@ public class MoonbitsClient implements ClientModInitializer {
     @Override
     public void onInitializeClient(ModContainer container) {
         // cutout
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+		BlockRenderLayerMap.put(RenderLayer.getCutout(),
                 MBBlocks.ROPE_LADDER,
 
                 MBBlocks.SOURSOBS, MBBlocks.POTTED_SOURSOBS,
 
+				MBBlocks.FUZZ_SHROOMS, MBBlocks.POTTED_FUZZ_SHROOMS,
                 MBBlocks.SAFFRON_MUSHROOM, MBBlocks.POTTED_SAFFRON_MUSHROOM, MBBlocks.SAFFRON_GILLS,
 				MBBlocks.BONNET_MUSHROOM, MBBlocks.POTTED_BONNET_MUSHROOM,
 				MBBlocks.AMITY_MUSHROOM, MBBlocks.POTTED_AMITY_MUSHROOM,
@@ -84,7 +85,7 @@ public class MoonbitsClient implements ClientModInitializer {
 
                 MBBlocks.WALL_LANTERN, MBBlocks.WALL_SOUL_LANTERN, MBBlocks.WALL_COPPER_OXIDE_LANTERN
         );
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getTranslucent(),
+		BlockRenderLayerMap.put(RenderLayer.getTranslucent(),
                 MBBlocks.SYRUP_BLOCK,
 				MBBlocks.HELIODOR_ROD, MBBlocks.LARIMAR_ROD
         );
